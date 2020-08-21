@@ -10,11 +10,7 @@ $header:hsl(212, 65%, 24%);
 *{font-family: 'Noto Sans TC' !important; 
    box-sizing: border-box;
 }
-header{
-    width: 100%;
-    height: 100px;
-    background-color: #153a64;
-}
+
 main{
     display: flex;
     width: 1200px;
@@ -395,78 +391,13 @@ main{
             a{
                 color: $fontcolor1;
             }
-            span{
-                color: $fontcolor1;
-                position: relative;
-                float:right;
-                border-style: none;
-                height: 28px;
-                width: 150px;
-                line-height: 25px;
-                // box-shadow: 3px 3px .8px $fontcolor1;
-                border: 1px solid $fontcolor2;
-                margin: 0 25px;
-                &::before{
-                    position: absolute;
-                    content: "";
-                    display: inline-block;
-                    width: 146px;
-                    height: 2px;
-                    background-color: $fontcolor2;
-                    bottom: -5px;
-                    left: 7px;
-                }
-                &::after{
-                    position: absolute;
-                    content: "";
-                    display: inline-block;
-                    width: 2px;
-                    height: 20px;
-                    background-color: $fontcolor2;
-                    right: -5px;
-                    bottom: -5px;
-                }
-            }
-            #checkbtn{
-                border-style: none;
-                color: $fontcolor1;
-                position: relative;
-                float:right;
-                border-style: none;
-                height: 28px;
-                width: 150px;
-                line-height: 25px;
-                // box-shadow: 3px 3px .8px $fontcolor1;
-                border: 1px solid $fontcolor2;
-                margin: 0 25px;
-                &::before{
-                    position: absolute;
-                    content: "";
-                    display: inline-block;
-                    width: 146px;
-                    height: 2px;
-                    background-color: $fontcolor2;
-                    bottom: -5px;
-                    left: 7px;
-                }
-                &::after{
-                    position: absolute;
-                    content: "";
-                    display: inline-block;
-                    width: 2px;
-                    height: 20px;
-                    background-color: $fontcolor2;
-                    right: -5px;
-                    bottom: -5px;
-                }
+            button{
+                margin: 15px;
             }
         }
     }
 }
-footer{
-    height: 200px;
-    background-color: #153a64;
-}
+
 @media screen and (min-width: 1440px) {
     main{
         max-width: 1366px;
@@ -678,47 +609,12 @@ footer{
                 }  
             }
             .setpbtn{
-                // border: 3px solid #999;
-                // padding-right: 10px;
                 text-align: center;
                 margin: 30px;
                 display: flex;
-                // padding-right: 100px;
                 float: right;
                 a{
                     color: $fontcolor1;
-                }
-                span{
-                    color: $fontcolor1;
-                    position: relative;
-                    float:right;
-                    border-style: none;
-                    height: 28px;
-                    width: 150px;
-                    line-height: 25px;
-                    // box-shadow: 3px 3px .8px $fontcolor1;
-                    border: 1px solid $fontcolor2;
-                    margin: 0 25px;
-                    &::before{
-                        position: absolute;
-                        content: "";
-                        display: inline-block;
-                        width: 146px;
-                        height: 2px;
-                        background-color: $fontcolor2;
-                        bottom: -5px;
-                        left: 7px;
-                    }
-                    &::after{
-                        position: absolute;
-                        content: "";
-                        display: inline-block;
-                        width: 2px;
-                        height: 20px;
-                        background-color: $fontcolor2;
-                        right: -5px;
-                        bottom: -5px;
-                    }
                 }
             }
         }
