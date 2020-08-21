@@ -1,0 +1,138 @@
+div.wrap{
+    max-width: 1152px;
+    margin: 30px auto;
+    padding: 0 20px;
+    .back{
+        border: 1px solid #000;
+    }
+    .product_block{
+        display: flex;
+        .left{
+            width: 50%;
+            margin-right: 100px;
+            .main_pic{
+                display: flex;
+                justify-content: center;
+                height: 400px;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    // background-color: #ccc;
+                    background: linear-gradient(180deg, #FFC400,#000000);
+                    opacity: .7;
+                    height: 100%;
+                    width: 400px;
+                    z-index: -1;
+                    border-radius: 50%;
+                }
+                img{
+                    height: 100%;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            .dot{
+                display: flex;
+                justify-content: center;
+                .pic{
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #bbb;
+                    margin: 20px 10px;
+                }
+            }
+            .move{
+                display: flex;
+                justify-content: space-between;
+                .pre{
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    .pre_pic{
+                        height: 100px;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                    &:hover img{
+                        transform: scale(1.2);
+                    }
+                }
+                .next{
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    .next_pic{
+                        height: 100px;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                    &:hover img{
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+        .right{
+            width: 50%;
+            // margin-left: 20px;
+            .top{
+                display: flex;
+                align-items: center;
+                // margin-top: 20px;
+                margin: 20px 0;
+                h2{
+                    margin: 0 20px 0 0;
+                }
+                .collect{
+                    background-color: red;
+                    cursor: pointer;
+                }
+            }
+            .product_text{
+                p{
+                   text-align: left;
+                   margin: 10px 0;
+                }
+            }
+            .money_chart{
+                display: flex;
+                align-items: center;
+                margin: 20px auto;
+                .money{
+                    font-size: 50px;
+                    margin: 0 20px 20px 0;
+                }
+                .add_chart{
+                    background-color: #FFC400;
+                    cursor: pointer;
+                }
+            }
+            .artical{
+                .related_artical{
+                    display: inline-block;
+                    border-bottom: 3px solid #FFC400;
+                }
+                .at_dots{
+                    display: inline-flex;
+                    background-color: #FFC400;
+                    .at_dot{
+                        height: 5px;
+                        width: 5px;
+                        border-radius: 50%;
+                        background-color: #000;
+                        margin: 2px;
+                    }
+                }
+                .at_title{
+                    margin: 10px 0 0 0;
+                }
+            }
+        }
+    }
+}

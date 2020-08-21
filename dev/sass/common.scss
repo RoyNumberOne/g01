@@ -1,0 +1,1058 @@
+// ===============reset===============
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details , embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-family: inherit;
+  margin: 0;
+  padding: 0; 
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;  
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  
+  &:visited {
+    color: currentColor;
+  }
+}
+// ===============var===============
+$mt_black: #222222;         //最黑的顏色，請替代black，不要用在文字上
+$mt_fontdark: #555555;      //深色字，淺色背景使用
+$mt_fontlight: #ffffff;     //淺色字，深色背景使用
+$mt_grey1: #F3F3F3;         //
+$mt_grey2: #EAF1F4;         //取消按鈕,各種框的底色(ex:input,textarea,有框起來會員.....) 
+$mt_blue1: #1A95DB;         // 
+$mt_blue2: #2C5E9E;         //header,footer,button,裝飾文字半透明.6(ex:揪團詳細頁沒人報名時的文字)
+$mt_blue3: #115277;
+$mt_blue4: #153A64;
+$mt_yellow: #FFC400;        //button,文字裝飾底色
+$mt_orange: #DB931A;
+$mt_pink: #FF7372;          //收藏愛心
+$mt_green: #437F38;         //山的難易度icon,沒有的時候半透明.2
+
+// ================mixin==============
+@mixin ab_center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+// ==============fonts==============
+* {
+    font-family: 'Noto Sans TC' !important;
+}
+// ============font style============
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+h2.pageTittle{
+    display: table;
+    margin:50px auto;
+    position: relative;
+    &::after{
+        content:"";
+        width: 100%;
+        padding-top: 5px;
+        border-radius: 10px;
+        background-color: $mt_yellow;
+        position: absolute;
+        left:0; bottom: 0;
+    }
+}
+h3 {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    font-weight: 800;
+}
+p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+span {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.4px;
+}
+header nav p {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+// ===============css===============
+html , body {
+    padding: 0;
+    margin: 0;
+    position: relative; 
+}
+* {
+    box-sizing: border-box; 
+} 
+
+// ============components============
+
+
+
+// ===============media===============
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px
+      }
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+        // max-width: 1152px
+      }
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+        // max-width: 960px
+      }
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px
+      }
+@media screen and (min-width: 576px) and (max-width: 767px){
+  // 請用540
+      // max-width: 540px
+}
+@media screen and (max-width: 575px){
+    // 請用100%
+        // max-width: 100%
+      }
+
+
+
+// ==============button==============
+button.btnA_XLwRA{
+    position: relative;
+    z-index: 2;
+  width: 190px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      position: absolute;
+      top: 7px;
+      left: 20px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowXL{
+      position: absolute;
+      left: 150px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 0 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent transparent $mt_black;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -11px;
+          top: -8px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 9px 0 0 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent transparent white;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 40px;
+          height: 2px;
+          left: -40px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover p{
+      color: white;
+      transform: translate(5px,5px);
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent transparent white;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent transparent $mt_yellow;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+
+
+button.btnA_XLwLA{
+    position: relative;
+    z-index: 2;
+  width: 190px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      position: absolute;
+      top: 7px;
+      left: 95px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowXL{
+      position: absolute;
+      left: 21px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 9px 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent $mt_black transparent;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -6px;
+          top: 0px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0 9px 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent white transparent;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 40px;
+          height: 2px;
+          left: -9px;
+          top: 9px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover p{
+      color: white;
+      transform: translate(5px,5px);
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent white transparent;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent $mt_yellow transparent;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+
+button.btnA_LwRA{
+    position: relative;
+    z-index: 2;
+  width: 95px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      position: absolute;
+      top: 7px;
+      left: 3px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowL{
+      position: absolute;
+      left: 77px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 0 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent transparent $mt_black;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -11px;
+          top: -8px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 9px 0 0 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent transparent white;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 22px;
+          height: 2px;
+          left: -22px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover p{
+      color: white;
+      transform: translate(5px,5px);
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent transparent white;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent transparent $mt_yellow;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+button.btnA_LwLA{
+    position: relative;
+    z-index: 2;
+  width: 95px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      position: absolute;
+      top: 7px;
+      left: 33px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowL{
+      position: absolute;
+      left: 4px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 9px 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent $mt_black transparent;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -5.5px;
+          top: -1px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0 9px 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent white transparent;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 22px;
+          height: 2px;
+          left: -8.5px;
+          top: 8px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover p{
+      color: white;
+      transform: translate(5px,5px);
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent white transparent ;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent $mt_yellow transparent;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+
+button.btnA_L{
+    position: relative;
+    z-index: 2;
+  width: 95px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover p{
+      color: white;
+      transform: translate(5px,5px);
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+} 
+
+button.btnA_MwRA{
+    position: relative;
+    z-index: 2;
+  width: 45px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowM{
+      position: absolute;
+      left: 24px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 0 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent transparent $mt_black;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -11px;
+          top: -8px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 9px 0 0 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent transparent white;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 22px;
+          height: 2px;
+          left: -22px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent transparent white;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent transparent $mt_yellow;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+
+
+button.btnA_MwLA{
+    position: relative;
+    z-index: 2;
+  width: 45px;
+  height: 45px;
+  border: 1px solid $mt_black;
+  background-color: white;
+  outline: 0px !important;
+  transition: 0.2s all ease-in-out;
+  &::after{
+      z-index: 1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid $mt_black;
+      border-bottom: 1px solid $mt_black;
+      left: 8px;
+      top: 8px;
+      transition: 0.2s all ease-in-out;
+  }
+  & div.btnArrowM{
+      position: absolute;
+      left: 8px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 9px 9px;
+      transition: 0.2s all ease-in-out;
+      border-color: transparent transparent $mt_black transparent ;
+      // overflow: hidden;
+      &::before{
+          position: absolute;
+          content: "";
+          left: -6px;
+          top: 0px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0 9px 9px;
+          transition: 0.2s all ease-in-out;
+          border-color: transparent transparent white transparent ;
+      }
+      &::after{
+          position: absolute;
+          content: "";
+          width: 22px;
+          height: 2px;
+          left: -9px;
+          top: 8px;
+          transition: 0.2s all ease-in-out;
+          background-color: $mt_black;
+      }
+  }  
+  &:hover::after{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background-color: $mt_yellow;
+      border-right: 0px;
+      border-bottom: 0px;
+      left: 0px;
+      top: 0px;
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover{
+      border: 0px;
+      background-color: $mt_yellow;
+  }
+  &:hover div{
+      transform: translate(5px,5px);
+      border-color: transparent transparent white transparent;
+  }
+  &:hover div::before{
+      // transform: translate(4px,4px);
+      border-color: transparent transparent $mt_yellow transparent;
+  }
+  &:hover div::after{
+      // transform: translate(4px,4px);
+      background-color: white;
+  }
+}
+
+button.btnA_S{
+    position: relative;
+    margin: 3px;
+  display: inline-block;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  // border: 1px solid $mt_black;
+  // background-color: white;
+  outline: 0px !important;
+  overflow: hidden;
+  &::after{
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: $mt_yellow;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      transition: 0.2s all ease-in-out;
+  }
+  & p {
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 500;
+      transform: translate(-2px , 0px);
+      transition: 0.2s all ease-in-out;
+  }
+  &:hover::after{
+      top: 0%;
+  }
+  &:hover p{
+      color: white;
+  }
+  &.-active{
+      
+      &::after{
+          content: "";
+          width: 100%;
+          height: 3px;
+          border-radius: 2px;
+          background-color: $mt_yellow;
+          position: absolute;
+          top: calc(100% - 3px);
+          transition: 0s;
+      }
+      p{
+          font-weight: 700;
+          color: $mt_yellow;
+      }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+button.btnB_XL_blue{
+    position: relative;
+    z-index: 2;
+  width: 190px;
+  height: 45px;
+  // border: 4px solid $mt_blue2;
+  // border-radius: 15px;
+  outline: 0px !important;
+  &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 4px solid $mt_blue2;
+      border-radius: 15px;
+  }
+  & p {
+      z-index: 1;
+      color: white;
+      transition: 0.4s all ease-in-out;
+  }
+  & div.bg{
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background-color: $mt_blue2;
+      overflow: hidden;
+      &::after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 130%;
+          height: 100%;
+          // border-radius: 15px;
+          background-color: white;
+          transform: skewX(15deg);
+          transition: 0.3s all ease-in-out;
+      }
+  }
+  &:hover p{
+      color: $mt_blue2;
+  }
+  &:hover div.bg::after{
+      left: 0%;
+  }
+}
+
+
+
+button.btnB_XL_yellow{
+    position: relative;
+    z-index: 2;
+  width: 190px;
+  height: 45px;
+  // border: 4px solid $mt_blue2;
+  // border-radius: 15px;
+  outline: 0px !important;
+  &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 4px solid $mt_yellow;
+      border-radius: 15px;
+  }
+  & p {
+      z-index: 1;
+      color: white;
+      transition: 0.4s all ease-in-out;
+  }
+  & div.bg{
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background-color: $mt_yellow;
+      overflow: hidden;
+      &::after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 130%;
+          height: 100%;
+          background-color: white;
+          transform: skewX(15deg);
+          transition: 0.3s all ease-in-out;
+      }
+  }
+  &:hover p{
+      color: $mt_yellow;
+  }
+  &:hover div.bg::after{
+      left: 0%;
+  }
+}
+
+
+button.btnB_L_blue{
+    position: relative;
+    z-index: 2;
+  width: 95px;
+  height: 45px;
+  outline: 0px !important;
+  &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 4px solid $mt_blue2;
+      border-radius: 15px;
+  }
+  & p {
+      z-index: 1;
+      color: white;
+      transition: 0.3s all ease-in-out;
+  }
+  & div.bg{
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background-color: $mt_blue2;
+      overflow: hidden;
+      &::after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 130%;
+          height: 100%;
+          // border-radius: 15px;
+          background-color: white;
+          transform: skewX(15deg);
+          transition: 0.2s all ease-in-out;
+      }
+  }
+  &:hover p{
+      color: $mt_blue2;
+  }
+  &:hover div.bg::after{
+      left: 0%;
+  }
+}
+
+
+
+button.btnB_L_yellow{
+    position: relative;
+    z-index: 2;
+  width: 95px;
+  height: 45px;
+  outline: 0px !important;
+  &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 4px solid $mt_yellow;
+      border-radius: 15px;
+  }
+  & p {
+      z-index: 1;
+      color: white;
+      transition: 0.3s2all ease-in-out;
+  }
+  & div.bg{
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background-color: $mt_yellow;
+      overflow: hidden;
+      &::after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 130%;
+          height: 100%;
+          // border-radius: 15px;
+          background-color: white;
+          transform: skewX(15deg);
+          transition: 0.2s all ease-in-out;
+      }
+  }
+  &:hover p{
+      color: $mt_yellow;
+  }
+  &:hover div.bg::after{
+      left: 0%;
+  }
+}

@@ -1,0 +1,96 @@
+@import "common";
+
+$color1: #153A64;
+$color2: #2C5E9E;
+$color3: #FFC400;
+$color4: #EAF1F4;
+
+$textColor1: #555555;
+
+* {
+    font-family: 'Noto Sans TC', sans-serif !important;
+    color: $textColor1;
+}
+
+//h2 頁面標題
+@mixin pageTittle {
+    font-size: 30px;
+    font-weight: 600; 
+    display: table; 
+    margin:50px auto;
+    position: relative;
+    &::after{
+        content:"";
+        width: 100%;
+        padding-top: 5px;
+        border-radius: 10px;
+        background-color:$color3;
+        position: absolute;
+        left:0; bottom: 0;
+    }
+}
+
+#meet2-3-1{
+    background-color: hsla(0, 0%, 0%,.3);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lightbox{
+        background-color: #fff;
+        border-radius: 30px;
+        // display: inline; //會不見？？
+        width: 1200px; ////寬度想隨內容一起更動
+        // width: 400px;
+        position: relative;
+        .close{
+            padding: 10px;
+            position: absolute;
+            top: 0; right: 0;
+        }
+        .agreement{
+            border: 1px solid #f00;
+            width: 1200px;
+            height: 80vh;
+            display: none;
+            flex-direction: column;
+            align-items:center;
+            h2{
+                @include pageTittle;
+                margin-bottom: 0px; 
+            }
+            >p{
+                font-size: 16px;
+                color: #888;
+                margin-bottom: 30px;
+            }
+            >div{
+                margin-bottom: 20px; 
+            }
+            .agreement_text{
+                background-color: $mt_grey2;
+                width: 800px;
+                height: 70%;
+                padding: 10px;
+                overflow: scroll;
+            }
+            
+        }
+        .agree_box,.notagree_box{
+            display: none;
+            height: 25vh;
+            justify-content: center;
+            align-items: center;
+            p{
+                text-align: center;
+            }
+        }
+        .-on{
+            display: flex;
+        }
+    }
+}
+#meet2-3-1.close{
+    display: none;
+}

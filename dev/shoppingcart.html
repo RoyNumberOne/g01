@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingCar</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
+    <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/shoppingCar.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/shoppingCar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+
+<header> 
+    <div id="headerbox">
+        <a href="./index.html" class="logo">
+            <img class="logo" src="./images/logo/LOGO_white.png" alt="">
+        </a> 
+
+        <nav class="menuhover">
+            <ul class="menuhover">
+                <li class="bg bg1"></li>
+                <li class="bg bg2"></li>
+                <li class="bg bg3"></li>
+            </ul>
+        </nav>
+
+        <nav class="menu">
+            <ul class="link_list llleft">
+                <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
+                <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
+                <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+            </ul>
+            <ul class="link_list llright">
+                <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+        <div id="imagebox">
+            <img id="picTour" src="./images/header/tour.png" alt="">
+            <img id="picForum" src="./images/header/forum.png" alt="">
+            <img id="picProduct" src="./images/header/product.png" alt="">
+        </div>
+
+        <div id="greymask"></div>
+        <div id="hamburgerBG">
+            <div class="ab white"></div>
+            <div class="ab yellow1"></div>
+            <div class="ab yellow2"></div>
+            <div class="ab yellow3"></div>
+        </div>
+        <button class="hamburger hamburger--collapse" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+
+    </div>
+
+</header>
+<main id="app">
+    <aside>
+        <div>
+            <span id="sp1" :aria-disabled="false"><img src="./images/shoppingcart/bag.png" alt=""></span>
+            <span id="sp2"><img src="./images/shoppingcart/money.png" alt=""></span>
+            <span id="sp3"><img src="./images/shoppingcart/delivery.png" alt=""></span>
+            <span id="sp4"><img src="./images/shoppingcart/info (1).png" alt=""></span>
+        </div>
+    </aside>
+    <section>
+        <article>
+            <div id="step1">
+                <h3>確認購物車</h3>
+                <div id="title">
+                    <div class="shop_pic">商品圖片</div>
+                    <div class="shop_name">商品名稱</div>
+                    <div class="shop_num">商品數量</div>
+                    <div class="shop_price">金額</div>
+                    <div class="shop_del">刪除</div>
+                </div>
+                <div class="itemBox">
+                    <div class="item"  v-for="(item,index) in productList" :key="item.id">
+                        <a href=""><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
+                        
+                        <div class="item_name">
+                            <a href="">
+                            <h2>{{item.name}}</h2>
+                            <h3>{{item.sort}}</h3></a>
+                        </div>
+                        <div class="item_num">
+                            <span>
+                                <button @click="zero(item)"  :disabled="dis">-</button>
+                                <h1>{{item.count}}</h1>
+                                <button @click="add_count(item)">+</button>
+                            </span>
+                        </div>
+                        <p>{{item.price*item.count}}</p>
+                        <div class="item_del" @click="deleteitem(index)">
+                            <img src="./images/shoppingcart/delete.png" alt="">
+                        </div>
+                    </div>
+                    <div class="itemClean" v-show="shopImg">
+                        <a href="./">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
+                    </div>
+                    <div id="shop_addnum">
+                        <p>合計購買金額：{{total}}<p>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="step2">
+                <h3>確認付款方式</h3>
+                <div class="pay">
+                    <form method="post" action="" target="targetIfr">
+                        <div id="pay_delivery">
+                            <h4>運送方式：</h4>
+                            <div class="delivery_price">運&emsp;&emsp;費:<span>{{delivery_price}}</span>元</div>
+                            <input type="radio" name="delivery" id="deliveryA" v-on:click="delivery_Price(60,'郵寄宅配')"checked>
+                            <label for="deliveryA">郵寄宅配</label><br>
+                            <input type="radio" name="delivery" id="deliveryB" v-on:click="delivery_Price(100,'快遞宅配')" >
+                            <label for="deliveryB">快遞宅配</label>
+                        </div>
+                        <div id="pay_terms">
+                            <h4 for="">付款方式：</h4>
+                            <input type="radio" name="payment" id="point" v-on:click="pay_Terms('點數付款')">
+                            <label for="point">點數付款</label><br>
+                            <input type="radio" name="payment" id="cash" v-on:click="pay_Terms('貨到付款')" checked>
+                            <label for="cash">貨到付款</label><br>
+                            <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
+                            <label for="card">線上刷卡</label><br>
+                            <div id="cardp">
+                                <label for="">信用卡號：</label><input type="text" required><br>
+                                <label for="">驗證號碼：</label><input type="password" required maxlength="4"><br>
+                                <label for="">有效日期：</label><input type="date" required><br>
+                                <input type="submit" value="送出驗證" id="cardbtn">
+                            </div>
+                            <div id="pointp">
+                                <div>點數餘額：<span id="momey">$$$$$$$</span></div>
+                                <input type="submit" value="查看" id="moneybtn">
+                            </div>
+                        </div>
+                        <div id="pay_infor">
+                            <div>商品金額：{{total}}</div>
+                            <div>運&emsp;&emsp;費：{{delivery_price}}</div>
+                            <label for="">折扣碼：</label><input type="text"><br>
+                            <div>總金額為：{{total+delivery_price}}</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="step3">
+                <h3>運送資訊</h3>
+                <div class="purchaser">                       
+                    <fieldset>
+                        <legend>收件人資訊</legend>
+                    <form>
+                        <label for="">姓名<input type="text" name="name" v-model.lazy="purchaser.name"></label><br>
+                        <label for="">電話<input type="text" name="phone" v-model="purchaser.phone"></label><br>
+                        <label for="">地址<input type="text" name="address" v-model="purchaser.address"></label><br>
+                    </form>
+                    </fieldset>                        
+                </div>
+            </div>
+            <div id="step4">
+                <h3>確認訂單資訊<h3>
+                <div class="order">
+                    <table class="order_item">
+                        <tr>
+                            <th>訂單編號：</th>
+                            <td>{{order_num}}</td>
+                        </tr>
+                        <tr>
+                            <th>運送方式：</th>
+                            <td>{{delivery_terms}}</td>
+                        </tr>
+                        <tr>
+                            <th>付款方式：</th>
+                            <td>{{pay_terms}}</td>
+                        </tr>
+                        <tr>
+                            <th>姓&emsp;&emsp;名：</th>
+                            <td>{{purchaser.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>電&emsp;&emsp;話：</th>
+                            <td>{{purchaser.phone}}</td>
+                        </tr>
+                        <tr>
+                            <th>地&emsp;&emsp;址：</th>
+                            <td>{{purchaser.address}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <div class="setpbtn">
+            <a href=""><span id="gotoshop">返回商城</span></a>
+            <span id="back">上一步</span>
+            <span id="next">下一步</span>
+            <input type="submit" id="checkbtn" value="確認送出">
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="footer_logo_block">
+        <img src="./images/logo/LOGO_white.png" alt="">
+        <div class="copyright">Copyright © 2020 Mountain Community.</div>
+    </div>
+    <div class="footer_info">
+        <div class="sevrves_place-serves_tel">
+            <div class="place">
+                <div class="f_color1">桃園市中壢區中大路300號</div>
+                <div class="f_color1">工程二館 資策會大樓</div>
+            </div>
+            <div class="tel">
+                <div class="f_color1">連絡電話</div>
+                <div class="f_color1">(03)425-7387</div>
+            </div>
+        </div>
+        <div class="serves_time-serves_email">
+            <div class="time">
+                <div class="f_color1">服務時間</div>
+                <div class="f_color1">週一至週五10:00~17:00</div>
+            </div>
+            <div class="email">
+                <div class="f_color1">服務信箱</div>
+                <div class="f_color1">tibame@gmail.com</div>
+            </div>
+        </div>
+        <div class="epaper-footer_link">
+            <div class="epaper">
+                <div class="etitle f_color1">輸入信箱訂閱電子報</div>
+                <div class="einput">
+                    <input type="text" placeholder="Email address">
+                    <div class="e_bt f_color1">SUBSCRIBE</e_bt>
+                    </div>
+                </div>
+                <div class="link">
+                    <div class="linkup">
+                        <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
+                        <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
+                        <div><a href="" target="_blank">網站快速導覽</a></div>
+                    </div>
+                    <div class="linkdown">
+                        <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
+                        <div><a href="" target="_blank">會員使用條款</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+
+<script>
+    var app = new Vue({
+    el:'#app',
+    data:{
+        productList:[
+            {
+                id:'1',
+                name:'輕便登山杖',
+                sort:'周邊產品',
+                pic:'./images/shoppingcart/登山杖.png',
+                price:'1800',
+                count:'1',
+            },
+            {
+                id:'2',
+                name:'超保暖極輕便外套',
+                sort:'衣服',
+                pic:'./images/shoppingcart/衣服.png',
+                price:'2400',
+                count:'1',
+            },
+            {
+                id:'3',
+                name:'媒山友聯名款登山靴',
+                sort:'鞋子',
+                pic:'./images/shoppingcart/鞋子.png',
+                price:'3600',
+                count:'1',
+
+            },
+           
+        ],
+
+        dis:true,
+
+        delivery_price:60,
+
+        delivery_terms:'郵寄宅配',
+
+        pay_terms:'貨到付款',
+        
+        purchaser:{
+            name:'',
+            phone:'',
+            address:'',
+        },
+        order_num:'00001',
+
+        shopImg:false,
+    },
+    methods:{
+        zero(item){
+            if(item.count > 1){
+                item.count -=1; 
+                this.dis=false;
+
+            }else if(this.count < 1){
+                this.dis=true;
+            }
+        },
+        add_count(item){
+            item.count++;
+            this.dis=false;
+        },
+        deleteitem(index){
+            this.productList.splice(index,1);
+        },
+        delivery_Price(x,y){
+            this.delivery_price =x;
+            this.delivery_terms = y;
+        },
+        pay_Terms(a){
+            this.pay_terms =a;
+        },
+
+    },
+    computed: {
+        total(){
+            let totalcount = 0;
+            for(let i=0; i<this.productList.length;i++){
+                totalcount += this.productList[i].price*this.productList[i].count;
+            }
+            return totalcount;
+        }
+        
+    },
+    watch:{
+        productList:function(){
+            let shopimg = this.productList.length;
+            console.log(shopimg);
+            if(shopimg===0){
+                this.shopImg=true;
+            }
+        }
+    },
+    });
+</script>
+<script src="./js/vue.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/fa5.14.0all.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+@import 'common';
+
+footer.footer{
+    font-size: 12px !important;
+    width: 100%;
+    background-color: $mt_blue2;
+    display: flex;
+    padding: 35px 0 ;
+    .footer_logo_block{
+        width: 50%;
+        margin: auto;
+        padding-left: 10%;
+        img{
+            height: 70px;
+        }
+        .copyright{
+            color: #fff;
+        }
+    }
+    .footer_info{
+        width: 50%;
+        display: flex;
+        // color: #fff;
+        .f_color1{
+            color: #fff;
+        }
+        .sevrves_place-serves_tel{
+            margin: auto 3% auto 0;
+            .place{
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #fff;
+                div{
+                    margin: 3px;
+                }
+            }
+            .tel{
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 20px;
+                div{
+                    margin: 3px;
+                }
+            }
+        }
+        .serves_time-serves_email{
+            margin: auto 3%;
+            .time{
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #fff;
+                div{
+                    margin: 3px;
+                }
+            }
+            .email{
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 20px;
+                div{
+                    margin: 3px;
+                }
+            }
+        }
+        .epaper-footer_link{
+            margin: auto 2% auto 5%;
+            .epaper{
+                .etitle{
+                    margin: 5px 0;
+                }
+                .einput{
+                    margin: 15px auto;
+                    display: flex;
+                    height: 30px;
+                    width: 100%;
+                    background-color: #fff;
+                    input{
+                        outline: none;
+                        border: none;
+                        width: 100%;
+                    }
+                    .e_bt{
+                        background-color: #153A64;
+                        border: 1px solid #fff;
+                        text-align: center;
+                        line-height: 30px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .link{
+                .linkup{
+                    display: flex;
+                    div{
+                        margin: 5px;
+                        padding-right: 10px;
+                        border-right: 1px solid #fff;
+                        a{
+                            color: #fff;
+                        }
+                    }
+                }
+                .linkdown{
+                    display: flex;
+                    div{
+                        margin: 5px;
+                        padding-right: 10px;
+                        border-right: 1px solid #fff;
+                        a{
+                            color: #fff;
+                        }
+                    }
+                }
+                a:visited{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+// media
+@media screen and (min-width: 1440px) {
+    // 請用1366
+    footer.footer{
+        // max-width: 1366px;
+            .footer_logo_block{
+                width: 45%;
+                padding-left: 5%;
+            }
+            .footer_info{
+                width: 55%;
+            }
+        }
+    }
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+    footer.footer{
+        // max-width: 1152px;
+        .footer_logo_block{
+            width: 35%;
+            padding-left: 4%;
+        }
+        .footer_info{
+            width: 65%;
+        }
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+    footer.footer{
+        // max-width: 960px;
+        .footer_logo_block{
+            width: 30%;
+            padding-left: 3%;
+        }
+        .footer_info{
+            width: 70%;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+    footer.footer{
+        // max-width: 720px;
+        // display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 15px 0 ;
+        .footer_logo_block{
+            width: auto;
+            padding-left: 0;
+            margin: 10px auto 0;
+        }
+        .footer_info{
+            width: auto;
+            height: auto;
+            justify-content: center;
+            margin: 10px 0 0;
+            .sevrves_place-serves_tel{
+                // height: 150px;
+                margin: auto 20px;
+            }
+            .serves_time-serves_email{
+                // height: 150px;
+                margin: auto 20px;
+            }
+            .epaper-footer_link{
+                height: auto;
+                margin-top: 10px ;
+                margin: auto 2%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+  // 請用540
+    footer.footer{
+        // max-width: 540px;
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        .footer_logo_block{
+            width: 100%;
+            text-align: center;
+            padding: 0;
+        }
+        .footer_info{
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin: 10px auto 0;
+            // justify-content: center;
+            // .sevrves_place-serves_tel{
+            //     // height: 110px;
+            // }
+            // .serves_time-serves_email{
+            //     // height: 110px; 
+            // }
+            .epaper-footer_link{
+                height: auto;
+                width: 100%;
+                text-align: center;
+                margin: auto;
+                .epaper{
+                    width: 100%;
+                    // .etitle{
+                    //     margin: 15px 0 5px;
+                    // }
+                    .einput{
+                        width: 60%;
+                    }
+                }
+                .link{
+                    display: flex;
+                    justify-content: center;
+                    .linkup{
+                        div{
+                            margin: 5px;
+                            padding-right: 10px;
+                        }
+                    }
+                    .linkdown{
+                        div{
+                            margin: 5px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 575px){
+    // 請用100%
+    footer.footer{
+        max-width: 100%;
+        display: block;
+        margin: auto;
+        padding: 15px 0;
+        .footer_logo_block{
+            width: 100%;
+            padding: 0;
+            text-align: center;
+        }
+        .footer_info{
+            width: 100%;
+            margin: 10px auto 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            .epaper-footer_link{
+                margin: 0;
+                text-align: center;
+                width: 100%;
+                .epaper{
+                    .einput{
+                        width: 60%;
+                    }
+                }
+                .link{
+                    display: flex;
+                    justify-content: center;
+                    .linkup{
+                        div{
+                            margin: 2px;
+                            padding-right: 4px;
+                        }
+                    }
+                    .linkdown{
+                        div{
+                            margin: 2px;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+ }
+
