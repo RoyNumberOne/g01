@@ -96,6 +96,9 @@ CREATE TABLE IF NOT EXISTS member_realname (								-- :::::實名制認證:::::
     `mem_no` 				int				not null,						-- 會員編號
     `mem_realname` 			varchar(18)		not null,						-- 真實姓名
     `mem_idno_image` 		varchar(200)	not null,						-- 證件照片
+    `mem_realname_apply` 	datetime		not null default current_timestamp,		-- 申請時間
+    `mem_realname_verify` 	datetime		,								-- 審核時間
+    `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核不通過/已審核通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_realname;
@@ -107,7 +110,10 @@ CREATE TABLE IF NOT EXISTS member_guide (									-- :::::嚮導認證:::::
     `mem_no` 				int				not null,						-- 會員編號
     `guide_period_start` 	date			not null,						-- 嚮導證發證日期
     `guide_period_end` 		date			not null,						-- 嚮導證有效日期
-    `guide_image` 			varchar(200)	not null,						-- 身分證照片
+    `guide_image` 			varchar(200)	not null,						-- 嚮導證照片
+    `mem_guide_apply` 		datetime		not null default current_timestamp,		-- 申請時間
+    `mem_guide_verify` 		datetime		,								-- 審核時間
+    `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_guide;
@@ -160,7 +166,7 @@ CREATE TABLE IF NOT EXISTS tour (											-- :::::揪團:::::
     `tour_title` 			varchar(100)	not null,						-- 揪團文標題
     `tour_notice` 			varchar(3000)	,						-- 注意事項
     `tour_innertext` 		varchar(9000)	not null,						-- 活動簡介
-    `tour_situation` 		boolean			not null default'1',			-- 留言狀態	 	1:上架/0下架
+    `tour_situation` 		boolean			not null default'1',			-- 檢舉狀態	 	1:上架/0下架
     `tour_equip_1` 			boolean			default'0',						-- 裝備要求1y/0n
     `tour_equip_2` 			boolean			default'0',						-- 裝備要求1y/0n
     `tour_equip_3` 			boolean			default'0',						-- 裝備要求1y/0n
