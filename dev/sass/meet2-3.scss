@@ -36,8 +36,31 @@ div.wrap{
             // height: 100%;
             img{
                 width: 100%;
-                height: 100%;
+                // height: 100%;
                 object-fit: cover;
+            }
+            div.related_pic{
+                // border-top: 1px solid black;
+                // border-bottom: 1px solid black;
+                margin: 10px 0;
+                // h3{
+                //     margin: 10px 0;
+                // }
+                div.related_pic_block{
+                    display: flex;
+                    // margin-bottom: 10px;
+                    div.related_pic_item{
+                        // width: 200px;
+                        margin: 0 10px 0 0;
+                        &:last-child{
+                            margin: 0;
+                        }
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
             }
         }
         div.activity{
@@ -76,6 +99,7 @@ div.wrap{
                         background-color: #ccc;
                         padding: 5px;
                         border-radius: 5px;
+                        cursor: pointer;
                     }   
                 }
             }
@@ -119,6 +143,9 @@ div.wrap{
                 }
             }
             div.applied_participant{
+                display: none;
+                border-bottom: 1px solid #000;
+                padding-bottom: 10px;
                 h4{
                     margin: 10px 0;
                 }
@@ -143,6 +170,52 @@ div.wrap{
                     }
                 }
             }
+            .equip_recommend{
+                border-bottom: 1px solid #000;
+                .equip_block{
+                    display: flex;
+                    .equipment{
+                        position: relative;
+                        img{
+                            width: 100%;
+                            cursor: pointer;
+                        }
+                        .show_hover{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            text-align: center;
+                            transition: all .5s 0s ease;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            // background-color: rgba(150, 150, 150, 0);
+                            background-size: 100% 100%;
+                            &:hover{
+                                background-color: rgba(150, 150, 150, .2);
+                                opacity: 1;
+                            }
+                            .p_title{
+                                // height: 100%;
+                                color: #fff;
+                                font-size: 40px;
+                                // display: flex;
+                                // justify-content: center;
+                                // align-items: center;
+                            }
+                            .go_shop{
+                                background-color: #fff;
+                                width: 50%;
+                                align-self: center;
+                                border-radius: 15px;
+                            }
+                        }
+                    }
+                }
+            }
             button.apply_bt{
                 margin: 20px auto 0;
                 width: 80%;
@@ -152,26 +225,7 @@ div.wrap{
             }
         }
     }
-    div.related_pic{
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        margin: 30px 0;
-        h3{
-            margin: 10px 0;
-        }
-        div.related_pic_block{
-            display: flex;
-            margin-bottom: 10px;
-            div.related_pic_item{
-                width: 200px;
-                margin: 0 20px 0 0;
-                img{
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
-    }
+
     div.introduction-application_block{
         div.introduction-application_bt{
             display: flex;
