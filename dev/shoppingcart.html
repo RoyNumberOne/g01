@@ -10,6 +10,7 @@
     <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/shoppingCar.css">
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/header.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="./js/jquery-3.5.1.js"></script>
@@ -61,7 +62,7 @@
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>
-        </button>
+        </button> 
 
     </div>
 
@@ -202,10 +203,21 @@
             </div>
         </article>
         <div class="setpbtn">
-            <a href=""><span id="gotoshop">返回商城</span></a>
-            <span id="back">上一步</span>
-            <span id="next">下一步</span>
-            <input type="submit" id="checkbtn" value="確認送出">
+            <a href="./product.html"><button id="gotoshop" class="btnA_L">
+                    <p>返回商城</p>
+                </button></a>
+            <button id="back" class="btnA_LwLA">
+                <p>上一步</p>
+                <div class="btnArrowL"></div>
+            </button>
+            <button id="next" class="btnA_LwRA">
+                <p>下一步</p>
+                <div class="btnArrowL"></div>
+            </button>
+            <button id="checkbtn" class="btnA_L" type="submit">
+                <p>送 出</p>
+            </button>
+            <!-- <button id="checkbtn" type="submit" class="btnA_L"><p>確認送出</p></button> -->
         </div>
     </section>
 </main>
