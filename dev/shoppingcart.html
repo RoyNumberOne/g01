@@ -141,7 +141,7 @@
                                 <label for="">信用卡號：</label><input type="text" required><br>
                                 <label for="">驗證號碼：</label><input type="password" required maxlength="4"><br>
                                 <label for="">有效日期：</label><input type="date" required><br>
-                                <input type="submit" value="送出驗證" id="cardbtn">
+                                <!-- <input type="submit" value="送出驗證" id="cardbtn"> -->
                             </div>
                             <div id="pointp">
                                 <div>點數餘額：<span id="momey">$$$$$$$</span></div>
@@ -151,8 +151,9 @@
                         <div id="pay_infor">
                             <div>商品金額：{{total}}</div>
                             <div>運&emsp;&emsp;費：{{delivery_price}}</div>
-                            <label for="">折扣碼：</label><input type="text"><br>
-                            <div>總金額為：{{total+delivery_price}}</div>
+                            <label for="">折扣碼：</label><input type="text" v-model.lazy="discountsale" @blur="disCount()"><br>
+                            <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}</div>
+                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total+delivery_price)*discount}}</span></div>
                         </div>
                     </form>
                 </div>
@@ -164,8 +165,8 @@
                         <legend>收件人資訊</legend>
                     <form>
                         <label for="">姓名<input type="text" name="name" v-model.lazy="purchaser.name"></label><br>
-                        <label for="">電話<input type="text" name="phone" v-model="purchaser.phone"></label><br>
-                        <label for="">地址<input type="text" name="address" v-model="purchaser.address"></label><br>
+                        <label for="">電話<input type="text" name="phone" v-model.lazy="purchaser.phone"></label><br>
+                        <label for="">地址<input type="text" name="address" v-model.lazy="purchaser.address"></label><br>
                     </form>
                     </fieldset>                        
                 </div>
@@ -185,6 +186,10 @@
                         <tr>
                             <th>付款方式：</th>
                             <td>{{pay_terms}}</td>
+                        </tr>
+                        <tr>
+                            <th>總金額為：</th>
+                            <td>{{total+delivery_price}}</td>
                         </tr>
                         <tr>
                             <th>姓&emsp;&emsp;名：</th>
@@ -217,7 +222,6 @@
             <button id="checkbtn" class="btnA_L" type="submit">
                 <p>送 出</p>
             </button>
-            <!-- <button id="checkbtn" type="submit" class="btnA_L"><p>確認送出</p></button> -->
         </div>
     </section>
 </main>
@@ -319,6 +323,10 @@
         order_num:'00001',
 
         shopImg:false,
+
+        discountsale: '',
+
+        discount:'0.5',
     },
     methods:{
         zero(item){
@@ -344,7 +352,14 @@
         pay_Terms(a){
             this.pay_terms =a;
         },
-
+        disCount(kk){
+            let koiuyt = this.discountsale;
+            if(koiuyt == 9453){
+                alert("折扣50%");
+            }else{
+                alert("折扣代碼輸入錯誤");
+            };
+        },
     },
     computed: {
         total(){
@@ -353,7 +368,7 @@
                 totalcount += this.productList[i].price*this.productList[i].count;
             }
             return totalcount;
-        }
+        },
         
     },
     watch:{
@@ -363,7 +378,7 @@
             if(shopimg===0){
                 this.shopImg=true;
             }
-        }
+        },
     },
     });
 </script>
