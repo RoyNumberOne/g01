@@ -89,10 +89,10 @@
                 </div>
                 <div class="itemBox">
                     <div class="item"  v-for="(item,index) in productList" :key="item.id">
-                        <a href=""><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
+                        <a href="./product.html"><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
                         
                         <div class="item_name">
-                            <a href="">
+                            <a href="./product.html">
                             <h2>{{item.name}}</h2>
                             <h3>{{item.sort}}</h3></a>
                         </div>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="itemClean" v-show="shopImg">
-                        <a href="./">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
+                        <a href="./product.html">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
                     </div>
                     <div id="shop_addnum">
                         <p>合計購買金額：{{total}}<p>
@@ -120,7 +120,7 @@
             <div id="step2">
                 <h3>確認付款方式</h3>
                 <div class="pay">
-                    <form method="post" action="" target="targetIfr">
+                    <form method="post" action="" target="targetIfr" @submit.prevent="handlesubmit">
                         <div id="pay_delivery">
                             <h4>運送方式：</h4>
                             <div class="delivery_price">運&emsp;&emsp;費:<span>{{delivery_price}}</span>元</div>
@@ -138,10 +138,10 @@
                             <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
                             <label for="card">線上刷卡</label><br>
                             <div id="cardp">
-                                <label for="">信用卡號：</label><input type="text" required><br>
-                                <label for="">驗證號碼：</label><input type="password" required maxlength="4"><br>
+                                <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" required placeholder="請輸入10位數卡號"><br>
+                                <label for="">驗證號碼：</label><input type="password" min="0" max="999" pattern="[0-9]{3}" title="請輸入3位數安全碼" maxlength="3" placeholder="請輸入3位數安全碼" required><br>
                                 <label for="">有效日期：</label><input type="date" required><br>
-                                <!-- <input type="submit" value="送出驗證" id="cardbtn"> -->
+                                <input type="submit" value="送出驗證" id="cardbtn">
                             </div>
                             <div id="pointp">
                                 <div>點數餘額：<span id="momey">$$$$$$$</span></div>
@@ -151,7 +151,7 @@
                         <div id="pay_infor">
                             <div>商品金額：{{total}}</div>
                             <div>運&emsp;&emsp;費：{{delivery_price}}</div>
-                            <label for="">折扣碼：</label><input type="text" v-model.lazy="discountsale" @blur="disCount()"><br>
+                            <label for="">折扣碼：</label><input type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="請輸入折價券代碼"><br>
                             <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}</div>
                             <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total+delivery_price)*discount}}</span></div>
                         </div>
@@ -189,7 +189,8 @@
                         </tr>
                         <tr>
                             <th>總金額為：</th>
-                            <td>{{total+delivery_price}}</td>
+                            <td v-if="discountsale!=9453">{{total+delivery_price}}</td>
+                            <td v-else>{{(total+delivery_price)*discount}}</td>
                         </tr>
                         <tr>
                             <th>姓&emsp;&emsp;名：</th>
@@ -359,6 +360,9 @@
             }else{
                 alert("折扣代碼輸入錯誤");
             };
+        },
+        handlesubmit(){
+            alert(this.koiuyt);
         },
     },
     computed: {
