@@ -27,35 +27,20 @@ main {
             grid-area: 1/1/4/4;
             //rs/cs/re/ce
         }
-        .AvatarFrame{
-            // justify-content: center;
+        .memAvatar{
             width: 200px;
             height: 200px;
-            // border: 1px solid white;
             border-radius: 99em;
-            border: 3px solid white;
-            // background-color: #cdcdcd;
+            border: 3px solid #ffffff;
             margin: 0px auto;
             transform: translate(0%,25%);
             grid-area: 3/2/4/3;
             position: relative;
-            .frame{
-                img{
-                    width: 110%;
-                    position: absolute;
-                    left: -5%;
-                    top: -5%;
-                }
-            }
-            .memAvatar{
+            overflow: hidden;
+            img{
                 width: 100%;
-                height: 100%;
-                border-radius: 99em;
-                background-image: url(../images/Member/memAvatar_test.jpg);
-                background-size: cover; //靜態呈現用
             }
         }
-        
     }
 
     .middle{
@@ -130,7 +115,7 @@ main {
         padding-bottom: 10%;
         .content_box{
             width: 1200px;
-            height: 100%;   //最後要刪除高度---------------------
+            height: 1200px;   //最後要刪除高度---------------------
 
             display: grid;
             grid-template-columns: repeat(12,1fr);
@@ -184,35 +169,64 @@ main {
                                 color: #fff;
                                 font-size: 30px;
                                 outline: none;
-                                background-color: orange;
+                                
                             }
                         }
                     }
+                    .highlight{
+                        background-color: orange;
+                    }
                 }
             }
-            .CB_title{
-                width: 108%;
-                height: 60px;
-                justify-self: flex-end;
-                background-color: #153A64;
-                grid-area: 1/3/2/13;
-                h2{
-                    margin: 1%;
-                    font-size: 30px;
-                    letter-spacing: 10px;
-                    color: #ffffff;
-                }
-            }
+            // .CB_title{
+            //     width: 108%;
+            //     height: 60px;
+            //     justify-self: flex-end;
+            //     background-color: #153A64;
+            //     grid-area: 1/3/2/13;
+            //     h2{
+            //         margin: 1%;
+            //         font-size: 30px;
+            //         letter-spacing: 10px;
+            //         color: #ffffff;
+            //     }
+            // }
             .C_info{
                 width: 108%;
                 justify-self: flex-end;
                 background-color: #ffffff;
-                grid-area: 2/3/25/13;
+                grid-area: 1/3/25/13;
                 margin-top: 2%;
             }
         }
     }
 }
+
+
+.pages{
+    width: 90%;
+    margin: 0;
+    transform: translateY(-20px);      //為了解決未知的頂部空格
+    .page_info{
+        height: 60px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        .titlebackground{
+            width: 108%;
+            grid-area: 1/1/3/3;
+            background-color: #153A64;
+            .title{
+                margin: 1%;
+                color: #ffffff;
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    }
+}
+
+
 
 
 // ===========media screen===========
