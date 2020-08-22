@@ -72,21 +72,22 @@
         <div class="product_block">
             <div class="left">
                 <div class="main_pic">
-                    <img src="./images/products/bag11.png" alt="">
+                    <!-- <img src="./images/products/bag.png" alt=""> -->
+                    <img :src="currentImage" alt="">
                 </div>
                 <div class="dot">
-                    <div class="pic"></div>
-                    <div class="pic"></div>
-                    <div class="pic"></div>
+                    <div class="pic" @click="currentImageIndex = 0"></div>
+                    <div class="pic" @click="currentImageIndex = 1"></div>
+                    <div class="pic" @click="currentImageIndex = 2"></div>
                 </div>
                 <div class="move">
                     <div class="pre" @click="pre">
-                        <div class="pre_pic"><img src="./images/products/登山杖.png" alt=""></div>
+                        <div class="pre_pic"><img src="./images/products/poles0.png" alt=""></div>
                         <button class="btnA_LwLA"><p>PREV</p><div class="btnArrowL"></div></button>
                     </div>
                     <div class="next" @click="next">
                         <button class="btnA_LwRA"><p>NEXT</p><div class="btnArrowL"></div></button>
-                        <div class="next_pic"><img src="./images/products/鞋子.png" alt=""></div>
+                        <div class="next_pic"><img src="./images/products/shoes0.png" alt=""></div>
                     </div>
                 </div>
             </div>

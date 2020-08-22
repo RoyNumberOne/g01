@@ -3,9 +3,9 @@
             data: {
                 products:[{}],
                 currentIndex: 0 ,
+                currentImageIndex: 0,
             },
             mounted(){
-                // axios.get('../json/Initial_product.json').then(res => this.products = res.data);
                 axios.get('./json/Initial_product.json')
 
                     .then((res) => {
@@ -46,13 +46,25 @@
                         return this.currentIndex - 1;
                     }
                 },
+                currentImage(){
+                    switch(this.currentImageIndex){
+                        case 0: 
+                        return  this.currentProduct.product_image1;
+                        case 1: 
+                        return  this.currentProduct.product_image2;
+                        case 2: 
+                        return  this.currentProduct.product_image3;
+                    }
+                }
             },
             methods:{
                 next(){
                     this.currentIndex = this.nextIndex;
+                    this.currentImageIndex = 0;
                 },
                 pre(){
                     this.currentIndex = this.preIndex;
+                    this.currentImageIndex = 0;
                 },
             },
         });
