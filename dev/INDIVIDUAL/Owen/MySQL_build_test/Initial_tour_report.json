@@ -2,7 +2,8 @@
     {
         "tour_report_mem": "10009",
         "tour_report_tour": "100007",
-        "tour_report_reason": "揪團檢舉測試1"
+        "tour_report_reason": "揪團檢舉測試1",
+        "tour_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10009",
@@ -13,17 +14,20 @@
     {
         "tour_report_mem": "10009",
         "tour_report_tour": "100009",
-        "tour_report_reason": "揪團檢舉測試3"
+        "tour_report_reason": "揪團檢舉測試3",
+        "comment_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10009",
         "tour_report_tour": "100010",
-        "tour_report_reason": "揪團檢舉測試4"
+        "tour_report_reason": "揪團檢舉測試4",
+        "comment_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10010",
         "tour_report_tour": "100011",
-        "tour_report_reason": "揪團檢舉測試5"
+        "tour_report_reason": "揪團檢舉測試5",
+        "tour_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10010",
@@ -34,17 +38,20 @@
     {
         "tour_report_mem": "10010",
         "tour_report_tour": "100007",
-        "tour_report_reason": "揪團檢舉測試7"
+        "tour_report_reason": "揪團檢舉測試7",
+        "tour_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10011",
         "tour_report_tour": "100008",
-        "tour_report_reason": "揪團檢舉測試8"
+        "tour_report_reason": "揪團檢舉測試8",
+        "tour_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10012",
         "tour_report_tour": "100009",
-        "tour_report_reason": "揪團檢舉測試9"
+        "tour_report_reason": "揪團檢舉測試9",
+        "tour_report_situation": "未處理"
     },
     {
         "tour_report_mem": "10013",
@@ -67,6 +74,7 @@
     {
         "tour_report_mem": "10014",
         "tour_report_tour": "100010",
-        "tour_report_reason": "揪團檢舉測試13"
+        "tour_report_reason": "揪團檢舉測試13",
+        "tour_report_situation": "未處理"
     }
 ]
