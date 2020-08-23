@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS comment_report (										-- :::::留言檢舉:::::
     `comment_report_mem` 		int				not null,						-- “誰"檢舉
     `comment_report_comment` 	int				not null,						-- 檢舉"哪篇留言"
     `comment_report_reason` 	varchar(200)	not null,						-- 檢舉緣由
-    `comment_report_sitution`	varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理通過	
+    `comment_report_situation`	varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理通過	
     foreign key (`comment_report_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`comment_report_comment`) references comment_post(`comment_no`) on delete cascade on update cascade
 );
