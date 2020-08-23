@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS member_realname (								-- :::::實名制認證:::::
     `mem_idno_image` 		varchar(200)	not null,						-- 證件照片
     `mem_realname_apply` 	datetime		not null default current_timestamp,		-- 申請時間
     `mem_realname_verify` 	datetime		,								-- 審核時間
-    `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核不通過/已審核通過
+    `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核不通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_realname;
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS member_guide (									-- :::::嚮導認證:::::
     `guide_image` 			varchar(200)	not null,						-- 嚮導證照片
     `mem_guide_apply` 		datetime		not null default current_timestamp,		-- 申請時間
     `mem_guide_verify` 		datetime		,								-- 審核時間
-    `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核通過
+    `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_guide;
@@ -218,7 +218,9 @@ CREATE TABLE IF NOT EXISTS tour_report (									-- :::::揪團檢舉:::::
     `tour_report_mem` 		int				not null,						-- 會員編號
     `tour_report_tour` 		int				not null,						-- 揪團編號
     `tour_report_reason` 	varchar(200)	not null,						-- 檢舉緣由
-    `tour_report_situation` varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理通過	
+    `tour_report_build` 	datetime		not null default current_timestamp,			-- 檢舉建立時間
+    `tour_report_situation` varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理已通過	
+    `tour_report_banLong`	varchar(30)		,								-- 懲罰結果時長
     foreign key (`tour_report_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`tour_report_tour`) references tour(`tour_no`) on delete cascade on update cascade
 );
@@ -257,7 +259,9 @@ CREATE TABLE IF NOT EXISTS forum_report (									-- :::::討論文檢舉:::::
     `forum_report_mem` 		int				not null,						-- "誰"檢舉
     `forum_report_post` 	int				not null,						-- 討論文編號
     `forum_report_reason` 	varchar(200)	not null,						-- 檢舉緣由
-    `forum_report_situation`varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理通過	
+    `forum_report_build` 	datetime		not null default current_timestamp,			-- 檢舉建立時間
+    `forum_report_situation`varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理已通過	
+    `forum_report_banLong`	varchar(30)		,								-- 懲罰結果時長
     foreign key (`forum_report_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`forum_report_post`) references forum_post(`forum_post_no`) on delete cascade on update cascade
 ); 
@@ -287,7 +291,9 @@ CREATE TABLE IF NOT EXISTS comment_report (										-- :::::留言檢舉:::::
     `comment_report_mem` 		int				not null,						-- “誰"檢舉
     `comment_report_comment` 	int				not null,						-- 檢舉"哪篇留言"
     `comment_report_reason` 	varchar(200)	not null,						-- 檢舉緣由
-    `comment_report_situation`	varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理通過	
+    `comment_report_build` 		datetime		not null default current_timestamp,			-- 檢舉建立時間
+    `comment_report_situation`	varchar(30)		not null default'未處理',		-- 檢舉狀態 未處理/已處理未通過/已處理已通過
+    `comment_report_banLong`	varchar(30)		,								-- 懲罰結果時長	
     foreign key (`comment_report_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`comment_report_comment`) references comment_post(`comment_no`) on delete cascade on update cascade
 );
