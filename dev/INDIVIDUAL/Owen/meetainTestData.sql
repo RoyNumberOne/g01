@@ -50,13 +50,13 @@ desc forum_report;
 select * from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no ;
 -- 被檢舉的討論文 - 未處理
 select * from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
--- 被檢舉的揪團留言 - 未處理的數量
+-- 被檢舉的討論文 - 未處理的數量
 select count(*) from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
--- 揪團檢舉 - 未處理 - 後台
+-- 討論檢舉 - 未處理 - 後台
 SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
--- 揪團檢舉 - 已處理已通過 - 後台
+-- 討論檢舉 - 已處理已通過 - 後台
 SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由", forum_report_banLong "檢舉時長", ban_forum_date "解封時間" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_report_mem = mem.mem_no where fr.forum_report_situation = "已處理已通過" ;
--- 揪團檢舉 - 已處理未通過 - 後台
+-- 討論檢舉 - 已處理未通過 - 後台
 SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由",forum_report_situation "檢舉狀態" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "已處理未通過" ;
 
 SELECT * FROM mem_achievement;
@@ -111,11 +111,18 @@ desc tour_participate;
 SELECT * FROM tour_report;
 desc tour_report;
 -- 被檢舉的揪團
-select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團";
+select * from tour_report tr join tour t on tr.tour_report_tour = t.tour_no;
+update tour_report set tour_report_situation = "未處理" where tour_report_situation = "";
 -- 被檢舉的揪團 - 未處理
-select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_situation = "未處理" ;
+select * from tour_report tr join tour_post tp on tr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_situation = "未處理" ;
 -- 被檢舉的揪團 - 未處理的數量
 select count(*) from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_situation = "未處理" ;
+-- 揪團檢舉 - 未處理 - 後台
+SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
+-- 揪團檢舉 - 已處理已通過 - 後台
+SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由", forum_report_banLong "檢舉時長", ban_forum_date "解封時間" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_report_mem = mem.mem_no where fr.forum_report_situation = "已處理已通過" ;
+-- 揪團檢舉 - 已處理未通過 - 後台
+SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由",forum_report_situation "檢舉狀態" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "已處理未通過" ;
 
 -- select * from tour t join mountain m on t.tour_mountain = m.mountain_no where m.degree_category = 4 and m.mountain_area = 'east';
 -- select * from tour t join mountain m on t.tour_mountain = m.mountain_no where m.degree_category = 4 and m.mountain_area = 'west';
