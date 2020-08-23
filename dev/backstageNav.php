@@ -13,19 +13,104 @@
     <script src="./js/jquery.fullpage.js"></script>
 </head>
 <body>
-    <nav id="BackstageNav">
-        <ul class="page index ulat"><a href=""><p class="title">首頁</p></a></ul>
-        <ul class="report"><p class="title">檢舉</p>
-            <li class="page navli tour"><a href=""><p class="desc">揪團</p><div class="note"><p>12</p></div></a></li>
-            <li class="page navli forum"><a href=""><p class="desc">討論</p><div class="note"><p>12</p></div></a></li>
-            <li class="page navli comment"><a href=""><p class="desc">留言</p><div class="note"><p>12</p></div></a></li>
+    
+<nav id="BackstageNav">
+        <ul class="page index ulat"><a href="">
+                <p class="title">首頁</p>
+            </a></ul>
+        <ul class="report">
+            <p class="title">檢舉</p>
+            <li class="page navli tour"><a href="">
+                    <p class="desc">揪團</p>
+                    <div class="note">
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_sitution = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </a></li>
+            <li class="page navli forum"><a href="">
+                    <p class="desc">討論</p>
+                    <div class="note">
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                    foreach($pdo->query('SELECT COUNT(*) FROM forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </a></li>
+            <li class="page navli comment"><a href="">
+                    <p class="desc">留言</p>
+                    <div class="note">
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM comment_report cr JOIN comment_post cp ON cr.comment_report_comment = cp.comment_no WHERE cr.comment_report_sitution = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </a></li>
         </ul>
-        <ul class="verify"><p class="title">審核</p>
-            <li class="page navli realname"><a href=""><p class="desc">實名制</p><div class="note"><p>12</p></div></a></li>
-            <li class="page navli guide"><a href=""><p class="desc">嚮導</p><div class="note"><p>12</p></div></a></li>
+        <ul class="verify">
+            <p class="title">審核</p>
+            <li class="page navli realname"><a href="">
+                    <p class="desc">實名制</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+            <li class="page navli guide"><a href="">
+                    <p class="desc">嚮導</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
         </ul>
-        <ul class="page product"><a href=""><p class="title">商品</p></a></ul>
-        <ul class="page administer"><a href=""><p class="title">管理員</p></a></ul>
+        <ul class="page product"><a href="">
+                <p class="title">商品</p>
+            </a></ul>
+        <ul class="page administer"><a href="">
+                <p class="title">管理員</p>
+            </a></ul>
     </nav>
     <script>
         $("ul.page").click(function(event){

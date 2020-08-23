@@ -18,8 +18,10 @@ desc comment_post;
 
 SELECT * FROM comment_report;
 desc comment_report;
--- 被檢舉的所有未處理留言
+-- 被檢舉的所有留言 - 未處理
 select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cr.comment_report_sitution = "未處理";
+-- 被檢舉的所有留言 - 未處理的數量
+select count(*) from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cr.comment_report_sitution = "未處理";
 -- 被檢舉的討論區留言
 select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="討論區";
 -- 被檢舉的討論區留言 - 未處理
@@ -44,6 +46,12 @@ desc forum_post;
 
 SELECT * FROM forum_report;
 desc forum_report;
+-- 被檢舉的討論文
+select * from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no ;
+-- 被檢舉的討論文 - 未處理
+select * from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
+-- 被檢舉的揪團留言 - 未處理的數量
+select count(*) from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理" ;
 
 SELECT * FROM mem_achievement;
 desc mem_achievement;
@@ -89,9 +97,9 @@ SELECT * FROM tour_report;
 desc tour_report;
 -- 被檢舉的揪團
 select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團";
--- 被檢舉的揪團留言 - 未處理
+-- 被檢舉的揪團 - 未處理
 select * from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_sitution = "未處理" ;
--- 被檢舉的揪團留言 - 未處理的數量
+-- 被檢舉的揪團 - 未處理的數量
 select count(*) from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_sitution = "未處理" ;
 
 -- select * from tour t join mountain m on t.tour_mountain = m.mountain_no where m.degree_category = 4 and m.mountain_area = 'east';

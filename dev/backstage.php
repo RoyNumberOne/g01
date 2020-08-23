@@ -26,19 +26,70 @@
             <li class="page navli tour"><a href="">
                     <p class="desc">揪團</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cp.comment_class="揪團" and cr.comment_report_sitution = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
             <li class="page navli forum"><a href="">
                     <p class="desc">討論</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                    foreach($pdo->query('SELECT COUNT(*) FROM forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
             <li class="page navli comment"><a href="">
                     <p class="desc">留言</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM comment_report cr JOIN comment_post cp ON cr.comment_report_comment = cp.comment_no WHERE cr.comment_report_sitution = "未處理"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
         </ul>
