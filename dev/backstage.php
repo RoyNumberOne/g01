@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒山友後台管理</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
+    <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
+    <link rel="stylesheet" href="./css/backstagemain.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/fa5.14.0all.js"integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<main>
+    <aside>
+    <nav id="BackstageNav">
+        <ul class="page index ulat"><a href="">
+                <p class="title">首頁</p>
+            </a></ul>
+        <ul class="report">
+            <p class="title">檢舉</p>
+            <li class="page navli tour"><a href="">
+                    <p class="desc">揪團</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+            <li class="page navli forum"><a href="">
+                    <p class="desc">討論</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+            <li class="page navli comment"><a href="">
+                    <p class="desc">留言</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+        </ul>
+        <ul class="verify">
+            <p class="title">審核</p>
+            <li class="page navli realname"><a href="">
+                    <p class="desc">實名制</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+            <li class="page navli guide"><a href="">
+                    <p class="desc">嚮導</p>
+                    <div class="note">
+                        <p>12</p>
+                    </div>
+                </a></li>
+        </ul>
+        <ul class="page product"><a href="">
+                <p class="title">商品</p>
+            </a></ul>
+        <ul class="page administer"><a href="">
+                <p class="title">管理員</p>
+            </a></ul>
+    </nav>
+    </aside>
+    <section>
+        <header> "?php $post['']?>" </header>
+        <div>
+            撈資料
+        </div>
+    </section>
+</main>
+<script>
+$(document).ready(function () {
+    $("ul.page").click(function(event){
+    event.preventDefault();
+    $("ul.page").removeClass("ulat");
+    $(this).addClass("ulat");
+    $(this).siblings().removeClass("ulat");
+    $(this).siblings().children().removeClass("liat");
+    });
+    $("li.page").click(function(event){
+    event.preventDefault();
+    $(this).parent().siblings().removeClass("ulat");
+    $("ul.page").removeClass("ulat");
+    $("li.page").removeClass("liat");
+    $(this).addClass("liat");
+    $(this).parent().addClass("ulat");
+    });
+});
+</script>
+</body>
+</html>
