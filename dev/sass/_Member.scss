@@ -48,7 +48,7 @@ main {
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
         .memName{
             text-align: left;
             grid-area: 2/2/3/3;
@@ -74,6 +74,11 @@ main {
                 width: 25px;
                 img{width: 100%;}
             }
+        }
+        .follow{
+            grid-area: 4/2/5/3;
+            display: flex;
+            margin: 0 auto;
         }
         .profile{
             width: 200px;
