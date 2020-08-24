@@ -14,6 +14,16 @@
 </head>
 <body>
     
+<header id="BackstageHeader">
+    <div id="headerbox">
+        <div id="inforbox">
+            <div id="avatorbox">
+                <img id="avator" src="./images/king.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+
 <nav id="BackstageNav">
         <ul class="page index ulat"><a href="">
                 <p class="title">首頁</p>
