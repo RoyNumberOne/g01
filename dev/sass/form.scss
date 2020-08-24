@@ -623,7 +623,8 @@ $textColor1: #555555;
                 }
             }
         }
-}
+    }
+
 
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
@@ -652,6 +653,21 @@ $textColor1: #555555;
     #parent_container{
         border: 1px solid rgb(7, 175, 15);
         max-width: 720px;
+    }
+    #forum-list{
+        .form-container{
+            .theme:nth-child(2){
+                width: 36%;
+                text-align: left;
+            }
+        }
+        #poster-block{
+            .user-name{
+                span{
+                    line-height: 20px;
+                }
+            }
+        }
     }
     .search-block{
         .outline{
@@ -726,6 +742,7 @@ $textColor1: #555555;
         border: 1px solid rgb(135, 14, 151);
     }
     .search-block{
+        margin: 0;
         .outline{
             display: flex;
             flex-direction: column;
@@ -733,6 +750,10 @@ $textColor1: #555555;
                 display: block;
                 margin: 0 auto;
                 width: auto;
+                button{
+                    width: auto;
+                    margin: 0;
+                }
             }
             .bar-block{
                 display: flex;
@@ -740,6 +761,10 @@ $textColor1: #555555;
                 margin: 20px auto 0;
                 .searchbar{
                     width: 100%;
+                    input{
+                        width: 100%;
+                        padding: 0px 0px 0px 32px
+                    }
                 }
             }
         }
