@@ -43,7 +43,7 @@ $textColor1: $mt_fontdark;
 
 //被div裁型的圖片
 @mixin imgs {
-    width: 100%;
+    height: 100%;
     position: absolute;
     top:50%;
     left:0;
@@ -131,7 +131,7 @@ $textColor1: $mt_fontdark;
     }
 
     .hotMeet1{
-        border: 1px solid blue;
+        // border: 1px solid blue;
         margin: auto;
         position: relative;
         h2{
@@ -149,11 +149,11 @@ $textColor1: $mt_fontdark;
                 background-color:  transparent;
             }
             >div{
-                border: 1px solid #000;
+                // border: 1px solid #000;
                 display: flex;
                 flex-direction: column;
                 .hot_meet_top3{
-                    border: 1px solid green;
+                    // border: 1px solid green;
                     width: 50%;
                     min-width: 500px;
                     .meet_mountain_img{
@@ -161,12 +161,14 @@ $textColor1: $mt_fontdark;
                         padding-top: 50%;
                         background-color: #ccc;
                         margin-bottom: -25%;
+                        overflow: hidden;
+                        position: relative;
                         img{
                             @include imgs;
                         }
                     }
                     .meet_content{
-                        border: 1px solid #000;
+                        // border: 1px solid #000;
                         padding: 30px ;
                         display: flex;
                         position: relative;
@@ -178,17 +180,14 @@ $textColor1: $mt_fontdark;
                             
                         }
                         .member_styleA.column{
-                            border: 1px solid #00f;
+                            // border: 1px solid #00f;
                             z-index: 2;
                         }
                         .title_info_text{
-                            border: 1px solid #0f0;
+                            // border: 1px solid #0f0;
                             z-index: 2;
                             h3{
                                 @include towLine;
-                            }
-                            .info{
-                                background-color: #ff0;
                             }
                             .meetContent{
                                 @include fourLine;
@@ -204,8 +203,7 @@ $textColor1: $mt_fontdark;
                     }
                 }
                 .top1,.top3{
-                    border: 1px solid #00f;
-                    // margin: 0 auto;
+                    // border: 1px solid #00f;
                     display: flex;
                     justify-content: center;
                 }
@@ -224,18 +222,18 @@ $textColor1: $mt_fontdark;
     }
 
     .newMeet{
-        border: 1px solid red;
+        // border: 1px solid red;
         margin: auto;
         h2{
             margin:50px auto;
         }
         .changeTypeBtn{
-            border: 1px solid orange;
+            // border: 1px solid orange;
             display: flex;
             justify-content:flex-end;
             margin-bottom: 30px;
             button{
-                border: 1px solid red;
+                // border: 1px solid red;
                 margin: 5px;
             }
             button.-on{
@@ -243,16 +241,21 @@ $textColor1: $mt_fontdark;
             }
         }
         .newMeetActivity{
-            border: 1px solid #000;
+            // border: 1px solid #000;
             padding: 15px;
             .item{
-                border: 1px solid blue;
+                // border: 1px solid blue;
                 padding: 15px;
                 .newImg{
-                    background-color: #555;
+                    // background-color: #555;
+                    overflow: hidden;
+                    position: relative;
+                    img{
+                        @include imgs;
+                    }
                 }
                 .newMeetTextCont{
-                    border: 1px solid #000;
+                    // border: 1px solid #000;
                     .tittleLike{
                         h3{
                             @include towLine;
@@ -268,7 +271,7 @@ $textColor1: $mt_fontdark;
                         }
                     }
                     .info{
-                        border: 1px solid pink;
+                        // border: 1px solid pink;
                         display: inline-block;
                     }
                     .meetContent{
