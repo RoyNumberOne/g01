@@ -56,10 +56,22 @@
 }
 @media screen and (max-width: 575px){
     #MemAchievement{
-        width: 100%;
+        overflow: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        p{
+            margin: auto 5%;
+            margin-bottom: 30px;
+        }
         .Achievement_list{
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(1,1fr);
             grid-template-rows: repeat(12,1fr);
+            div{
+                img{
+                    width: 90%;
+                }
+            }
         }
     }
 }

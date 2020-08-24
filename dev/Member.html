@@ -91,28 +91,27 @@
         <div class="content">
             <div class="content_box">
                 <div class="aside_nav">
-                    <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemAccreditation')"><i class="fas fa-user-check"></i><p>認證</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFootprint')"><i class="fas fa-map-marked-alt"></i><p>足跡</p></button>
+                    <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')"><i class="fas fa-map-marked-alt"></i><p>足跡</p></button>
+                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')"><i class="fas fa-user-check"></i><p>認證</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')"><i class="fas fa-trophy"></i><p>徽章</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')"><i class="fas fa-users"></i><p>揪團</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')"><i class="fas fa-book"></i><p>收藏</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')"><i class="fas fa-file-alt"></i><p>文章</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')"><i class="fas fa-money-bill-wave"></i><p>點數</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFollow')"><i class="far fa-star"></i><p>追蹤</p></button>
                     <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')"><i class="fas fa-cart-arrow-down"></i><p>訂單</p></button>
                 </div>
                 
                 <div class="swiper_media575">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide MemAccreditation">
-                                <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemAccreditation')">
-                                    <i class="fas fa-user-check"></i>
+                            <div class="swiper-slide MemFootprint">
+                                <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')">
+                                    <i class="fas fa-map-marked-alt"></i>
                                 </button>
                             </div>
-                            <div class="swiper-slide MemFootprint">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFootprint')">
-                                    <i class="fas fa-map-marked-alt"></i>
+                            <div class="swiper-slide MemAccreditation">
+                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')">
+                                    <i class="fas fa-user-check"></i>
                                 </button>
                             </div>
                             <div class="swiper-slide MemAchievement">
@@ -140,11 +139,6 @@
                                     <i class="fas fa-money-bill-wave"></i>
                                 </button>
                             </div>
-                            <div class="swiper-slide MemFollow">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFollow')">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
                             <div class="swiper-slide MemOrder">
                                 <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
                                     <i class="fas fa-cart-arrow-down"></i></button>
@@ -154,6 +148,113 @@
                 </div>
                 
                 <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
+                    <div id="MemFootprint" class="pages">
+                        <div class="page_info">
+                            <div class="titlebackground">
+                                <div class="title">我的足跡</div>
+                            </div>
+                        </div>
+                        <div class="record_list">
+                            <div class="location_record">
+                                <div class="background">
+                                    <img src="./images/member/location_record_map.png">
+                                </div>
+                                <div class="point1 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point2 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point3 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point4 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                            </div>
+                            <div class="text_record">
+                                <div class="TR_title">
+                                    <div><hr></div>
+                                    <div class="title">登山活動紀錄</div>
+                                    <div><hr></div>
+                                </div>
+                                <div class="TR_box1 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g5.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="TR_box2 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g6.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="TR_box3 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g8.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="MemAccreditation" class="pages">
                         <div class="page_info">
                             <div class="titlebackground">
@@ -179,105 +280,6 @@
                                     </div>
                                     <div class="background2"></div>
                                     <a href="./MemberGuide.html"><span>點我申請</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="MemFootprint" class="pages">
-                        <div class="page_info">
-                            <div class="titlebackground">
-                                <div class="title">我的足跡</div>
-                            </div>
-                        </div>
-                        <div class="record_list">
-                            <div class="location_record">
-                                <div class="background"></div>
-                                <div class="point1 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point2 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point3 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point4 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                            </div>
-                            <div class="text_record">
-                                <div class="TR_title">
-                                    <div><hr></div>
-                                    <div class="title">登山活動紀錄</div>
-                                    <div><hr></div>
-                                </div>
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -424,12 +426,14 @@
                             <label for="tabone">發起的揪團</label>
                             <div class="myself_list list_style tab">
                               <div class="item_1 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                      <img src="./images/member/fake/mountain01.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">1李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -450,12 +454,14 @@
                                   </div>
                               </div>
                               <div class="item_2 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain02.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">新北汐止五指山古道、友蚋山南峰(五人就出發!!!)</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -468,20 +474,22 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">3</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-19(六)</div>
                                   </div>
                               </div>
                               <div class="item_3 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain03.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">聖稜線~雪山縱走大霸尖山(不適合新手~)</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -494,20 +502,22 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">6</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-25(五)</div>
                                   </div>
                               </div>
                               <div class="item_4 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain04.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">雪劍大縱走之雪山主峰、雪山東峰</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">中部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -520,66 +530,14 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">6</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-07(一)</div>
                                   </div>
                               </div>
-                              <div class="item_5 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_6 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="pagetab">
+                              <!-- <div class="pagetab">
                                   <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                                   <button class="btnA_S pg -active"><p>01</p></button>
                                   <button class="btnA_S pg"><p>02</p></button>
@@ -587,177 +545,77 @@
                                   <button class="btnA_S pg"><p>04</p></button>
                                   <button class="btnA_S pg"><p>05</p></button>
                                   <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                              </div>
+                              </div> -->
                             </div>
                             
                             <input type="radio" name="tabs" id="tabtwo">
                             <label for="tabtwo">參加的揪團</label>
                             <div class="travel_list list_style tab">
-                              <div class="item_1 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_2 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_3 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_4 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_5 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_6 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="pagetab">
-                                  <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                                  <button class="btnA_S pg -active"><p>01</p></button>
-                                  <button class="btnA_S pg"><p>02</p></button>
-                                  <button class="btnA_S pg"><p>03</p></button>
-                                  <button class="btnA_S pg"><p>04</p></button>
-                                  <button class="btnA_S pg"><p>05</p></button>
-                                  <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                              </div>
+                                <div class="item_5 page">
+                                    <div class="img_box">
+                                      <img src="./images/member/fake/mountain05.jpg">
+                                    </div>
+                                    <div class="text_box">
+                                        <div class="text_title">假日團~ 挑戰大坑4號步道頭嵙山</div>
+                                        <div class="text_prompt">
+                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                            <div class="TP_area TP">中部</div>
+                                            <div class="TP_title TP">難度</div>
+                                            <div class="TP_level TP">
+                                                <i class="fas fa-mountain Lv1"></i>
+                                                <i class="fas fa-mountain Lv2"></i>
+                                                <i class="fas fa-mountain Lv3"></i>
+                                                <i class="fas fa-mountain Lv4"></i>
+                                                <i class="fas fa-mountain Lv5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_box">
+                                        <div class="info_title">目前報名人數</div>
+                                        <div class="info_value">7</div>
+                                    </div>
+                                    <div class="date_box">
+                                        <div class="date_title">開團日期</div>
+                                        <div class="date_value">2020-08-30(日)</div>
+                                    </div>
+                                </div>
+                                <div class="item_6 page">
+                                    <div class="img_box">
+                                      <img src="./images/member/fake/mountain06.jpg">
+                                    </div>
+                                    <div class="text_box">
+                                        <div class="text_title">合歡南峰縱走合歡主峰三天兩夜 無需負重!!!</div>
+                                        <div class="text_prompt">
+                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                            <div class="TP_area TP">中部</div>
+                                            <div class="TP_title TP">難度</div>
+                                            <div class="TP_level TP">
+                                                <i class="fas fa-mountain Lv1"></i>
+                                                <i class="fas fa-mountain Lv2"></i>
+                                                <i class="fas fa-mountain Lv3"></i>
+                                                <i class="fas fa-mountain Lv4"></i>
+                                                <i class="fas fa-mountain Lv5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_box">
+                                        <div class="info_title">目前報名人數</div>
+                                        <div class="info_value">8</div>
+                                    </div>
+                                    <div class="date_box">
+                                        <div class="date_title">開團日期</div>
+                                        <div class="date_value">2020-09-3(四)</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="pagetab">
+                                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                                    <button class="btnA_S pg -active"><p>01</p></button>
+                                    <button class="btnA_S pg"><p>02</p></button>
+                                    <button class="btnA_S pg"><p>03</p></button>
+                                    <button class="btnA_S pg"><p>04</p></button>
+                                    <button class="btnA_S pg"><p>05</p></button>
+                                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
