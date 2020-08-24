@@ -1,0 +1,107 @@
+
+/////會員/////
+//會員款式Ａ
+@mixin memberIdA {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+}
+@mixin memberImgA {
+    display: inline-block;
+    background-color: #555;
+    width: 65px;
+    padding-top: 65px;
+}
+//被div裁型的圖片
+@mixin imgs {
+    width: 100%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+//////橫/////
+.member_styleA.row{
+    border: 1px solid #0F0;
+    width: 211px;
+    display: inline-block;
+    flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+    .memberImg{
+        @include memberImgA;
+        img{
+            @include imgs;
+        }
+    }
+    .memberInfo{
+        display: inline-block;
+        .certification{
+            .certificationIcon{
+                background-color: #555;
+                display: inline-block;
+                width: 10px;
+                padding-top: 10px;
+            }
+        }
+        .memberId{
+            @include memberIdA;
+        }
+        .memberBadge{
+            display: inline-block;
+            .memberBadgeIcon{
+                background-color: #555;
+                display: inline-block;
+                width: 25px;
+                padding-top: 25px;
+            }
+        }
+    }
+}
+//直//
+.member_styleA.column{
+    border: 1px solid #0F0;
+    width: 145px;
+    display: flex;//
+    flex-direction:column;//
+    justify-content:center;//
+    align-items: center;//
+    flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+    .memberImg{
+        @include memberImgA;
+        img{
+            @include imgs;
+        }
+    }
+    .memberInfo{
+        display: inline-block;
+        .certification{
+            background-color: blue;
+            display: flex;//
+            justify-content:center;//
+            .certificationIcon{
+                background-color: #555;
+                display: inline-block;
+                width: 10px;
+                padding-top: 10px;
+                margin: 5px;//
+            }
+        }
+        .memberId{
+            @include memberIdA;
+            border: 1px solid #000;
+        }
+        .memberBadge{
+            background-color: blue;
+            display: flex;//
+            justify-content:center;//
+            .memberBadgeIcon{
+                background-color: #555;
+                display: inline-block;
+                width: 25px;
+                padding-top: 25px;
+                margin: auto 5px;
+            }
+        }
+    }
+}
+
