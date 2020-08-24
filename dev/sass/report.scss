@@ -1,0 +1,62 @@
+@import 'common';
+@import 'backstagemain';
+div{
+    .report_total{
+        display: flex;
+        height: 10vh;
+        h4{
+            margin: 10px;
+            color: $mt_blue3;
+        }
+        span{
+            margin: 10px 0;
+            color:$mt_blue2 ;
+            padding: 15px;
+            line-height: 3px;
+            &:nth-child(2){
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border: $mt_blue2 2px solid;
+            }
+            &:nth-child(3){
+                border-top: $mt_blue2 2px solid;
+                border-bottom: $mt_blue2 2px solid;
+            }
+            &:last-child{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border: $mt_blue2 2px solid;
+            }
+            &:hover{
+                background-color: $mt_blue2;
+                color: white;
+            }
+        }
+    }
+    table{
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+        tr{
+            &:nth-child(1){
+                border-bottom: 2px $mt_black solid;
+            }
+        }
+        th,td{
+            padding: 15px 0;
+            width: 150px;
+            &:nth-child(even){
+                background-color: rgb(230, 230, 230);
+            }
+        }
+        select{
+            margin: 10px 0;
+            border-radius: 5px;
+            outline: none;
+            background-color:rgb(229, 243, 243);
+        }
+    }
+
+}
+
+

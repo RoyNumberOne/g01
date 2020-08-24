@@ -8,7 +8,8 @@
     {
         "forum_report_mem": "10011",
         "forum_report_post": "200008",
-        "forum_report_reason": "討論檢舉測試2"
+        "forum_report_reason": "討論檢舉測試2",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10012",
@@ -19,12 +20,14 @@
     {
         "forum_report_mem": "10013",
         "forum_report_post": "200010",
-        "forum_report_reason": "討論檢舉測試4"
+        "forum_report_reason": "討論檢舉測試4",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10014",
         "forum_report_post": "200001",
-        "forum_report_reason": "討論檢舉測試5"
+        "forum_report_reason": "討論檢舉測試5",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10014",
@@ -47,22 +50,26 @@
     {
         "forum_report_mem": "10009",
         "forum_report_post": "200009",
-        "forum_report_reason": "討論檢舉測試9"
+        "forum_report_reason": "討論檢舉測試9",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10009",
         "forum_report_post": "200010",
-        "forum_report_reason": "討論檢舉測試10"
+        "forum_report_reason": "討論檢舉測試10",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10009",
         "forum_report_post": "200008",
-        "forum_report_reason": "討論檢舉測試11"
+        "forum_report_reason": "討論檢舉測試11",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10010",
         "forum_report_post": "200009",
-        "forum_report_reason": "討論檢舉測試12"
+        "forum_report_reason": "討論檢舉測試12",
+        "forum_report_situation": "未處理"
     },
     {
         "forum_report_mem": "10010",

@@ -1,0 +1,95 @@
+#MemFootprint{
+    .record_list{
+        width: 95%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(1,1fr);
+        // transform: translateY(10%);
+        .location_record{
+            width: 550px;
+            grid-area: 1/1/2/2;
+            display: grid;
+            grid-template-columns: repeat(12,1fr);
+            grid-template-rows: repeat(12,1fr);
+            .background{
+                width: 550px;
+                grid-area: 1/1/13/13;
+                background-image: url(../images/member/location_record_map.png);
+                background-repeat: no-repeat;
+            }
+            .point{
+                margin: auto;
+                font-size: 100px;
+                color: #0b1e35;
+                .value_box{
+                    background-color: #ffffff;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 99em;
+                    position: absolute;
+                    top: 17px;
+                    left: calc(50% + -25px);
+                }
+            }
+            .point1{
+                grid-area: 1/7/2/8;
+                transform: translate(100%, 0%);
+            }
+            .point2{
+                grid-area: 3/5/4/6;
+                transform: translate(-50%, 0%);
+            }
+            .point3{
+                grid-area: 4/7/5/8;
+                transform: translate(50%, -50%);
+            }
+            .point4{
+                grid-area: 7/7/8/8;
+                transform: translate(-50%, -80%);
+            }
+        }
+        .text_record{
+            height: 800px;
+            grid-area: 1/2/2/3;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(7,1fr);
+            .TR_title{
+                margin: auto 0;
+                text-align: center;
+                grid-area: 1/1/2/2;
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(1,1fr);
+            }
+            .TR_box{
+                margin: auto 0;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(1,1fr);
+                .img_value{
+                    grid-area: 1/1/2/2;
+                    background-color: red;
+                }
+                .text_value{
+                    margin: 0 auto;
+                    align-items: center;
+                    grid-area: 1/2/2/3;
+                    display: grid;
+                    grid-template-columns: repeat(1,1fr);
+                    grid-template-rows: repeat(4,1fr);
+                }
+            }
+            .TR_box1{
+                grid-area: 2/1/4/2;
+            }
+            .TR_box2{
+                grid-area: 4/1/6/2;
+            }
+            .TR_box3{
+                grid-area: 6/1/8/2;
+            }
+        }
+    }
+}
