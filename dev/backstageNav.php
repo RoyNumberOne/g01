@@ -14,6 +14,29 @@
 </head>
 <body>
     
+
+
+
+<header id="BackstageHeader">
+    <div id="headerbox">
+        <div id="inforbox">
+            <div id="avatorbox">
+                <img id="avator" src="./images/king.jpeg" alt="">
+            </div>
+            <div class="admininfor">
+                <div id="admin_no">11</div>
+                <div id="admin_id">22</div>
+            </div>
+            <button id="" class="btnB_L_yellow"><p>登出</p><div class="bg"></div></button>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
 <nav id="BackstageNav">
         <ul class="page index ulat"><a href="">
                 <p class="title">首頁</p>
@@ -163,5 +186,7 @@
             $(this).parent().addClass("ulat");
         })
     </script>
+    
+    <script src="./js/BackstageLogin.js"></script>
 </body>
 </html>
