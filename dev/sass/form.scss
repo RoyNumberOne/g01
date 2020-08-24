@@ -1,9 +1,21 @@
+$color1: #153A64;
+$color2: #2C5E9E;
+$color3: #FFC400;
+$color4: #EAF1F4; 
+
+$textColor1: #555555;
+
 #banner{
     width: 100%;
-    // height: 90vh;
+    height: 40vh;
     overflow: hidden;
     position: relative;
-    margin-bottom: 2%;;
+    img{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.705);
+        object-fit: cover;
+    }
 }
 
 #parent_container{
@@ -11,18 +23,35 @@
     max-width: 100%;
     margin:  0 auto;
     display: flex;
+    margin-top: 2%;
 }
-    main{
+    #main-forum{
         width: 75%;
     }
 
     //------------討論區用統一標題
+    
+    .hot-top{
+        position: relative;
+    }
     .ntittle{
-        padding: 8px 30px;
-        background-color: #153A64;
-
+        text-align: center;
+        // background-color: #153A64;
         h2{
-            color: white;
+            color: rgb(43, 43, 43);
+            font-size: 30px;
+            font-weight: 600;   
+            margin:50px auto;
+        }
+
+        .hot-bgc_img{
+            width: 100px;
+            height: 133px;
+            background-image: url(../images/form_img/talk-person_s.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 50px;
+            top: -50px;
         }
     }
 
@@ -30,7 +59,6 @@
     .news_list{
         width: 80%;
         margin: 2% auto;
-
 
         .list{
             display: flex;
@@ -56,8 +84,20 @@
             }
         }
     }
-
+    .place_img{
+        width: 500px;
+        height: 500px;
+        background-image: url("../images/form_img/1223.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        // border: 2px solid hotpink;
+        left: 0;
+        top: 100;
+    }
     // ⛰討論度排行榜⛰
+    .billboard-block{
+        margin: 2%;
+    }
 
     .billboard_list{
         height: 500px;
@@ -65,13 +105,14 @@
     }
 
     .search-block{
+        margin: 2%;
 
         .outline{
             display: flex;
             flex-direction: row;
         }
         .item_btns{
-            width: 52%;
+            width: 50%;
         }
 
         button{
@@ -92,7 +133,7 @@
             input{
                 width: 280px;
                 height: 40px;
-                border-radius: 0%;
+                border-radius: 10px;
                 padding: 0px 15%;
             }
 
@@ -110,15 +151,16 @@
         }
 
         .ask_btn{
-            margin-right: auto;
+            margin-left: auto;
             #ask{
+                width: 120px;
                 background-color: #FFC400;
-                width: 200px;
                 line-height: 43px;
                 font-size: 16px;
-                cursor:pointer;
                 font-weight: 800;
                 border: hidden;
+                border-radius: 20px;
+                cursor: pointer;
             }
         }
 
@@ -128,64 +170,103 @@
         display: flex;
         align-items: center;
         margin: 20px;
+        position: relative;
+        height: 100%;
     }
     
-    // .swiper-slide {
-    //     width: 400px;
-    // }
-    
-    .swiper-slide:nth-child(1) .slider-text {
-        background-color: #2196f3;
+    .swiper-slide {
+        width: 400px;
     }
-    
-    .swiper-slide:nth-child(2) .slider-text {
-        background-color: #e91e63;
+    .swiper-container{
+        cursor: context-menu !important;
     }
-    
-    .swiper-slide:nth-child(3) .slider-text {
-        background-color: #c3d41a;
-    }
-    
-    .swiper-slide:nth-child(4) .slider-text {
-        background-color: #ff9800;
-    }
-    
-    .swiper-slide:nth-child(5) .slider-text {
-        background-color: #c33ada;
-    }
-    
     .card {
         background-color: #f6f6f6;
-        height: 500px;
         margin: 0 auto;
-        position: relative;
         width: 400px;
-    }
-    
-    .card .content {
-        padding: 30px;
-        width: 400px;
+        padding: 5px;
+        .hot-users-block{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            z-index: 50;
+            margin: -20px 125px;
+            text-align: center;
+            .pic{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 100px;
+                top: 0;
+                z-index: 50;
+                margin: 0 auto;
+                    img{
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+            .user_name{
+                padding: 3px;
+                background-color:rgba(17, 17, 17, 0.7);
+                border-radius: 20px;
+                    .usname{
+                        color: white;
+                        font-size: 12px;
+                }
+            }
+            .hot-icons{
+                margin: 5px auto;
+                filter: drop-shadow(3px 3px 9px rgb(77, 77, 77));
+            }
+        }
+        .content {
+            padding: 20px;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+        }
     }
     
     .card .content a {
-        border: 2px solid #000000;
         color: #262626;
         display: inline-block;
         font-weight: 600;
         margin: 10px 0 0;
         padding: 10px 20px;
         text-decoration: none;
+        margin: 10px 45px;
     }
     
-    .card .slider-text {
-        align-items: center;
-        background-color: #000000;
-        display: flex;
-        height: 200px;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-    }
+        .slider-img {
+            align-items: center;
+            // background-color: #000000;
+            display: flex;
+            justify-content: center;
+            position: relative;
+                img{
+                    width: 100%;
+                    overflow: hidden;
+                }
+            .hot-tag{
+                width: 80px;
+                height: 30px;
+                background-color: #DB931A;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+                border-radius: 20px;
+                //文字特效       
+                p{
+                    font-size: 8px;
+                    line-height: 8px;
+                    text-align: center;
+                    color: white;
+                }
+            }
+        }
     
     .card .slider-text h3 {
         color: #ffffff;
@@ -194,7 +275,7 @@
 
     //⛰論壇區⛰
     #forum-block{
-        margin-top: 2%;
+        margin: 2%;
     }
     
     #forum-tittle{
@@ -228,9 +309,19 @@
                 width: 170px;
                 max-width: 100%;
                 margin: 0 10px 0 0;
+                position: relative;
 
                 img{
                     width: 100%;
+                }
+
+                .news-tag{
+                    background-color: rgb(226, 24, 24);
+                    padding: 10px;
+                    border-radius: 20px;
+                    position: absolute;
+                    z-index: 555;
+                    top: 0;
                 }
             }
             
@@ -293,12 +384,17 @@
         }
     }
 
-    aside{
+    #aside{
         // border: 2px solid green;
-        width: 300px;
+        width: 30%px;
         max-width: 100%;
         vertical-align: top;
         margin-left: auto;
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
 
         .prod-img{
             width: 300px;
@@ -387,6 +483,11 @@
                         display: flex;
                         font-size: 12px;
                         padding: 5px 0px;
+                        .place-icon{
+                            p{
+                                font-size: 10px;
+                            }
+                        }
                         .location{
                             white-space: nowrap;
                             overflow: hidden;
@@ -462,25 +563,132 @@
 
 //-------------------------aside link---------------------------
 
-#aside-link{
-    display:block;
-    position: fixed;
-    right: 1px;
-    bottom: 300px;
-    height: auto;
-    z-index: 4;
+    #aside-link{
+        display:block;
+        position: fixed;
+        right: 1px;
+        bottom: 300px;
+        height: auto;
+        z-index: 4;
+    }
+
+    .aside-com-btn{
+        display: block;
+        position: absolute;
+        right: 0px;
+        bottom: 20px;
+        height: auto;
+        width: 100px;
+
+        img{
+            width: 100%;
+            margin: 3px 0px;
+        }
+    }
+
+// ===========media screen===========
+
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px
+    #parent_container{
+        border: 1px solid red;
+        max-width: 1366px;
+    }
 }
 
-.aside-com-btn{
-    display: block;
-    position: absolute;
-    right: 0px;
-    bottom: 20px;
-    height: auto;
-    width: 100px;
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+        // max-width: 1152px
+    #parent_container{
+        border: 2px solid rgb(255, 149, 10);
+        max-width: 1152px;
+        #main-forum{width: 70%;}
+        #forum-list .user-name {margin: 0;}
+            .search-block{
+                margin: 0;
+                .searchbar{
+                width: auto;
+                    input{width: auto;}
+                }
+                .item_btns{
+                    width: auto;
+                        button{
+                            width: auto;}
+                }
+            }
+    }
+}
 
-    img{
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+        // max-width: 960px
+    #parent_container{
+        border: 1px solid rgb(239, 255, 11);
+        max-width: 960px;
+        .search-block .item_btns{
+            width: auto;
+        }
+    }
+    #aside{
+        display: none;
+    }
+    #main-forum {
         width: 100%;
-        margin: 3px 0px;
+        .billboard-block{
+            display: none;
+        }
+    }
+}
+    
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px
+    #parent_container{
+        border: 1px solid rgb(7, 175, 15);
+        max-width: 720px;
+    }
+    #aside{
+        display: none;
+    }
+    #main-forum {
+        width: 100%;
+        .billboard-block{
+            display: none;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    // 請用540
+        // max-width: 540px
+    #parent_container{
+        border: 1px solid rgb(7, 18, 175);
+        max-width: 540px;
+    }
+    #aside{
+        display: none;
+    }
+    #main-forum {
+        width: 100%;
+        .billboard-block{
+            display: none;
+        }
+    }
+
+}
+@media screen and (max-width: 575px){
+    #parent_container{
+        border: 1px solid rgb(135, 14, 151);
+    }
+    #aside{
+        display: none;
+    }
+    #main-forum {
+        width: 100%;
+        .billboard-block{
+            display: none;
+        }
     }
 }
