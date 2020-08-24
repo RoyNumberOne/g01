@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS member_realname (								-- :::::實名制認證:::::
     `mem_idno_image` 		varchar(200)	not null,						-- 證件照片
     `mem_realname_apply` 	datetime		not null default current_timestamp,		-- 申請時間
     `mem_realname_verify` 	datetime		,								-- 審核時間
-    `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核不通過/已審核已通過
+    `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核未通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_realname;
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS member_guide (									-- :::::嚮導認證:::::
     `guide_image` 			varchar(200)	not null,						-- 嚮導證照片
     `mem_guide_apply` 		datetime		not null default current_timestamp,		-- 申請時間
     `mem_guide_verify` 		datetime		,								-- 審核時間
-    `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
+    `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核未通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
 desc member_guide;
