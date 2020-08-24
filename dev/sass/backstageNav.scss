@@ -12,9 +12,13 @@ header#BackstageHeader{
         margin: 0 auto;
         & div#inforbox {
             height: 100%;
-            width: 200px;
+            // width: 0px;
             border: 2px solid yellow;
             float: right;
+            & * {
+                display: inline-block;
+                vertical-align: middle;
+            }
             & div#avatorbox{
                 width: 60px;
                 height: 60px;
