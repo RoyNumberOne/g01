@@ -27,35 +27,20 @@ main {
             grid-area: 1/1/4/4;
             //rs/cs/re/ce
         }
-        .AvatarFrame{
-            // justify-content: center;
+        .memAvatar{
             width: 200px;
             height: 200px;
-            // border: 1px solid white;
             border-radius: 99em;
-            border: 3px solid white;
-            // background-color: #cdcdcd;
+            border: 3px solid #ffffff;
             margin: 0px auto;
             transform: translate(0%,25%);
             grid-area: 3/2/4/3;
             position: relative;
-            .frame{
-                img{
-                    width: 110%;
-                    position: absolute;
-                    left: -5%;
-                    top: -5%;
-                }
-            }
-            .memAvatar{
+            overflow: hidden;
+            img{
                 width: 100%;
-                height: 100%;
-                border-radius: 99em;
-                background-image: url(../images/Member/memAvatar_test.jpg);
-                background-size: cover; //靜態呈現用
             }
         }
-        
     }
 
     .middle{
@@ -63,7 +48,7 @@ main {
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
         .memName{
             text-align: left;
             grid-area: 2/2/3/3;
@@ -90,9 +75,14 @@ main {
                 img{width: 100%;}
             }
         }
+        .follow{
+            grid-area: 4/2/5/3;
+            display: flex;
+            margin: 0 auto;
+        }
         .profile{
             width: 200px;
-            grid-area: 3/3/4/4;
+            grid-area: 4/3/5/4;
             height: fit-content;
             text-decoration: none;
             background-color: #ffffff;
@@ -108,7 +98,7 @@ main {
             .profile_icon{
                 width: 20px;
                 margin: 0 auto;
-                padding: 4px;
+                // padding: 4px;
                 background-color: #ffffff;
                 grid-area: 1/1/2/2;
                 img{width: 100%;}
@@ -130,7 +120,7 @@ main {
         padding-bottom: 10%;
         .content_box{
             width: 1200px;
-            height: 100%;   //最後要刪除高度---------------------
+            height: 1200px;   //最後要刪除高度---------------------
 
             display: grid;
             grid-template-columns: repeat(12,1fr);
@@ -184,35 +174,63 @@ main {
                                 color: #fff;
                                 font-size: 30px;
                                 outline: none;
-                                background-color: orange;
+                                
                             }
                         }
                     }
+                    .highlight{
+                        background-color: orange;
+                    }
                 }
             }
-            .CB_title{
-                width: 108%;
-                height: 60px;
-                justify-self: flex-end;
-                background-color: #153A64;
-                grid-area: 1/3/2/13;
-                h2{
-                    margin: 1%;
-                    font-size: 30px;
-                    letter-spacing: 10px;
-                    color: #ffffff;
-                }
-            }
+            // .CB_title{
+            //     width: 108%;
+            //     height: 60px;
+            //     justify-self: flex-end;
+            //     background-color: #153A64;
+            //     grid-area: 1/3/2/13;
+            //     h2{
+            //         margin: 1%;
+            //         font-size: 30px;
+            //         letter-spacing: 10px;
+            //         color: #ffffff;
+            //     }
+            // }
             .C_info{
-                width: 108%;
+                width: 100%;
                 justify-self: flex-end;
                 background-color: #ffffff;
-                grid-area: 2/3/25/13;
-                margin-top: 2%;
+                grid-area: 1/3/25/13;
+                transform: translateX(-8%);
             }
         }
     }
 }
+
+
+.pages{
+    width: 108%;
+    margin: 0;
+    .page_info{
+        height: 60px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        .titlebackground{
+            width: 100%;
+            grid-area: 1/1/3/3;
+            background-color: #153A64;
+            .title{
+                margin: 1%;
+                color: #ffffff;
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    }
+}
+
+
 
 
 // ===========media screen===========
@@ -224,15 +242,6 @@ main {
         .content{
             .swiper_media575{
                 display: none;
-                .swiper-container{
-                    .swiper-wrapper{
-                        .swiper-slide{
-                            button{
-                                    i{}
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -244,15 +253,6 @@ main {
         .content{
             .swiper_media575{
                 display: none;
-                .swiper-container{
-                    .swiper-wrapper{
-                        .swiper-slide{
-                            button{
-                                    i{}
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -264,15 +264,6 @@ main {
         .content{
             .swiper_media575{
                 display: none;
-                .swiper-container{
-                    .swiper-wrapper{
-                        .swiper-slide{
-                            button{
-                                    i{}
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -284,15 +275,6 @@ main {
         .content{
             .swiper_media575{
                 display: none;
-                .swiper-container{
-                    .swiper-wrapper{
-                        .swiper-slide{
-                            button{
-                                    i{}
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -302,7 +284,7 @@ main {
       // max-width: 540px
     main{
         .top{
-            .AvatarFrame{
+            .memAvatar{
                 grid-area: 3/1/4/2;
                 width: 130px;
                 height: 130px;
@@ -339,15 +321,6 @@ main {
                 }
                 .swiper_media575{
                     display: grid;
-                    .swiper-container{
-                        .swiper-wrapper{
-                            .swiper-slide{
-                                button{
-                                    i{}
-                                }
-                            }
-                        }
-                    }
                 }
                 .CB_title{
                     display: none;
@@ -355,6 +328,7 @@ main {
                 .C_info{
                     grid-area: 1/1/3/6;
                     // background-color: #555555;
+                    transform: translateX(0%);
                 }
             }
         }
@@ -364,7 +338,7 @@ main {
 @media screen and (max-width: 575px){
     main{
         .top{
-            .AvatarFrame{
+            .memAvatar{
                 grid-area: 3/1/4/2;
                 width: 130px;
                 height: 130px;
@@ -401,15 +375,6 @@ main {
                 }
                 .swiper_media575{
                     display: grid;
-                    .swiper-container{
-                        .swiper-wrapper{
-                            .swiper-slide{
-                                button{
-                                    i{}
-                                }
-                            }
-                        }
-                    }
                 }
                 .CB_title{
                     display: none;
@@ -417,6 +382,7 @@ main {
                 .C_info{
                     grid-area: 1/1/3/6;
                     // background-color: #555555;
+                    transform: translateX(0%);
                 }
             }
         }
