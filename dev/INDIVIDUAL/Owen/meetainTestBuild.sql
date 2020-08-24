@@ -272,7 +272,7 @@ select * from forum_report;
 CREATE TABLE IF NOT EXISTS comment_post (									-- :::::留言::::: 
     `comment_no` 			int				primary key auto_increment,		-- 留言編號
     `comment_poster` 		int				not null,						-- 留言者
-    `comment_class`			varchar(20)		not null,						-- 討論區 ? 揪團
+    `comment_class`			varchar(20)		not null,						-- 討論區 ? 揪團區
     `forum_post_no` 		int				default null,					-- 討論文編號		
     `tour_post_no` 			int				default null,					-- 揪團編號		
     `comment_time` 			datetime		not null default current_timestamp,				-- 留言時間
