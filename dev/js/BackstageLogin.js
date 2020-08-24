@@ -5,7 +5,7 @@ function $id(id){
 	return document.getElementById(id);
 }	
 
-    function showLoginForm(){
+    // function showLoginForm(){
       //檢查登入bar面版上 spanLogin 的字是登入或登出
       //如果是登入，就顯示登入用的燈箱(lightBox)
       //如果是登出
@@ -17,21 +17,21 @@ function $id(id){
       // }else{ // 登出
 
 
-        // 回server端做登出
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-          if(xhr.status == 200){
-            $id('memName').innerHTML = '&nbsp';
-            $id('spanLogin').innerHTML = '登入';
-          } else  {
-            alert (xhr.status);
-          }
-        }
-        xhr.open("get","logout.php",true);
-        xhr.send(null);
+        // // 回server端做登出
+        // let xhr = new XMLHttpRequest();
+        // xhr.onload = function(){
+        //   if(xhr.status == 200){
+        //     $id('memName').innerHTML = '&nbsp';
+        //     $id('admin_no').innerHTML = '登入';
+        //   } else  {
+        //     alert (xhr.status);
+        //   }
+        // }
+        // // xhr.open("get","logout.php",true);
+        // xhr.send(null);
       // }
 
-    }//showLoginForm
+    // }//showLoginForm
 
     function sendForm(){
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上    
@@ -44,7 +44,6 @@ function $id(id){
           if (administrator.admin_acc === undefined){
             // alert("帳密錯誤");
             $id('erroradmin').innerText = '帳密錯誤';
-            $id('admin_psw').value = '';
 
           } else  { //登入成功
             // $id("memName").innerText = member.memName;

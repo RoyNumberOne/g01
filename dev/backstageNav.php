@@ -6,31 +6,19 @@
     <title>BackstageNav</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/backstageHeader.css">
     <link rel="stylesheet" href="./css/backstageNav.css">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.fullpage.js"></script>
 </head>
 <body>
     
 
 
-
-<header id="BackstageHeader">
-    <div id="headerbox">
-        <div id="inforbox">
-            <div id="avatorbox">
-                <img id="avator" src="./images/king.jpeg" alt="">
-            </div>
-            <div class="admininfor">
-                <div id="admin_no">11</div>
-                <div id="admin_id">22</div>
-            </div>
-            <button id="" class="btnB_L_yellow"><p>登出</p><div class="bg"></div></button>
-        </div>
-    </div>
-</header>
+    <?php
+        require_once("./BackstageHeader.inc");
+    ?>
 
 
 
@@ -169,24 +157,6 @@
                 <p class="title">管理員</p>
             </a></ul>
     </nav>
-    <script>
-        $("ul.page").click(function(event){
-            event.preventDefault();
-            $("ul.page").removeClass("ulat");
-            $(this).addClass("ulat");
-            $(this).siblings().removeClass("ulat");
-            $(this).siblings().children().removeClass("liat");
-        })
-        $("li.page").click(function(event){
-            event.preventDefault();
-            $(this).parent().siblings().removeClass("ulat");
-            $("ul.page").removeClass("ulat");
-            $("li.page").removeClass("liat");
-            $(this).addClass("liat");
-            $(this).parent().addClass("ulat");
-        })
-    </script>
-    
-    <script src="./js/BackstageLogin.js"></script>
+    <script src="./js/backstage.js"></script>
 </body>
 </html>
