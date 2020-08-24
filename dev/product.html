@@ -74,7 +74,7 @@
                     <!-- <img src="./images/products/clothes0.png" alt=""> -->
                     <img :src="currentCategoryImg" alt="">
                     <div class="show_hover">
-                        <div class="p_title">機能服飾</div>
+                        <div class="p_title">{{currentCategory}}</div>
                     </div>
                 </div>
                 <!-- <div class="category_list">
@@ -136,8 +136,35 @@
                         </a>
                 </div>
             </div>
+            <div class="category_list">
+                <div class="bag"><img src="./images/products/clothes0.png" alt="">
+                    <div class="show_hover">
+                        <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
+                    </div>
+                </div>
+                <div class="clothes"><img src="./images/products/bag.png" alt="">
+                    <div class="show_hover">
+                        <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
+                    </div>
+                </div>
+                <div class="shoes"><img src="./images/products/shoes0.png" alt="">
+                    <div class="show_hover">
+                        <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
+                    </div>
+                </div>
+                <div class="tent"><img src="./images/products/clothes.png" alt="">
+                    <div class="show_hover">
+                        <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
+                    </div>
+                </div>
+                <div class="others"><img src="./images/products/poles0.png" alt="">
+                    <div class="show_hover">
+                        <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
+                    </div>
+                </div>
+            </div>
         </div> 
-        <div class="category_list">
+        <!-- <div class="category_list">
             <div class="bag"><img src="./images/products/clothes0.png" alt="">
                 <div class="show_hover">
                     <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
@@ -163,7 +190,7 @@
                     <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <footer class="footer">
         <div class="footer_logo_block">
