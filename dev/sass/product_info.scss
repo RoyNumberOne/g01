@@ -90,8 +90,7 @@ div.wrap{
                 h2{
                     margin: 0 20px 0 0;
                 }
-                .collect{
-                    background-color: red;
+                .changeIcon{
                     cursor: pointer;
                 }
             }
@@ -208,5 +207,22 @@ div.wrap{
 @media screen and (max-width: 575px){
     div.wrap{
         width: 100%;
+        padding: 0 10px;
+        .product_block{
+            display: block;
+            .left{
+                width: auto;
+                margin: 0;
+                .main_pic{
+                    height: 300px;
+                    &:after{
+                        width: 300px;
+                    }
+                }
+            }
+            .right{
+                width: auto;
+            }
+        }
     }
  }

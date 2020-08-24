@@ -93,7 +93,9 @@
             <div class="right">
                 <div class="top">
                     <h2>{{currentProduct.product_name}}</h2>
-                    <div class="collect">愛心</div>
+                    <div class="changeIcon">
+                        <img class="heart" src="./images/icons/feather-heart.png" alt="">
+                    </div>
                 </div>
                 <div class="product_text">
                     <p>{{currentProduct.product_description}}</p>
@@ -165,7 +167,17 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        $(document).ready(function(){
+            $(".changeIcon").click(function(){
+                if($(".heart").src != "./images/icons/md-heart.png"){
+                    $(".heart").attr("src","./images/icons/md-heart.png");
+                }else{
+                    $(".heart").attr("src","./images/icons/feather-heart.png");
+                }
+            })
+        })
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/product_info.js"></script>
