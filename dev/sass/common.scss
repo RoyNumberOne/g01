@@ -88,13 +88,8 @@ $mt_green: #437F38;         //山的難易度icon,沒有的時候半透明.2
     font-family: 'Noto Sans TC' !important;
 }
 // ============font style============
-h2 {
-    font-size: 30px;
-    font-weight: 600;
-}
-h2.pageTittle{
+.text_underline{  //文字裝飾黃色底線
     display: table;
-    margin:50px auto;
     position: relative;
     &::after{
         content:"";
@@ -106,6 +101,12 @@ h2.pageTittle{
         left:0; bottom: 0;
     }
 }
+
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
 h3 {
     font-size: 20px;
     letter-spacing: 1.5px;

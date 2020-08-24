@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>留言區</title>
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
+    <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/fontawesome.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="./css/comment.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
     
@@ -66,7 +69,7 @@
     </header>
 
     <div id="banner">
-        <img src="#" alt="">
+        <img src="./images/form_img/banner_03.jpg" alt="">
     </div>
 
     <main id="comment">
@@ -78,20 +81,22 @@
             <div class="original-poster-block">
                 <div class="poster">
                     <div class="original">樓主</div>
-                    <p class="poster-name">Wendy 鄒鄒要說甚麼呢</p>
-                </div>
-                <div class="poster-time">
-                    <span>2020-08-17 發表</span>
+                    <div class="name_time">
+                        <p class="poster-name">Wendy 鄒鄒要說甚麼呢</p>
+                        <div class="poster-time">
+                            <span>2020-08-17 發表</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="poster-report">
                     <div class="likes">
                         <img src="./images/form_img/empty-gray.png" alt="">
+                        <p>收藏</p>
                     </div>
-                    <p>收藏</p>
                     <div class="report">
                         <img src="./images/form_img/report.png" alt="">
+                        <p>檢舉</p>
                     </div>
-                    <p>檢舉</p>
                 </div>
             </div>
             <hr>
@@ -120,7 +125,7 @@
                 <div class="poster-infor">
                     <img class="userpic" src="./images/form_img/username1.jpg" alt="">
                     <div class="poster-name">Weady Zou</div>
-                    <div class="badge-icon"><img src="../images/form_img/badge-icon.png" alt=""></div>
+                    <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
                 </div>
 
                 <div class="post-text">
@@ -174,7 +179,7 @@
 
             <div class="post-poster-block02">
                 <div class="poster-infor2">
-                    <img class="userpic2" src="./images/form_img/rainie_y./images/form_img/eung.png" alt="">
+                    <img class="userpic2" src="./images/form_img/rainie_yeung.png" alt="">
                     <div class="poster-name2">CHENG-LIN -YANG</div>
                     <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
                 </div>
@@ -229,37 +234,44 @@
             </div>
 
             <div class="nextpage-btn">
-                這是按鈕
+                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                <button class="btnA_S pg -active"><p>01</p></button>
+                <button class="btnA_S pg"><p>02</p></button>
+                <button class="btnA_S pg"><p>03</p></button>
+                <button class="btnA_S pg"><p>04</p></button>
+                <button class="btnA_S pg"><p>05</p></button>
+                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
             </div>
+            
             
             <div class="text-arera-block">
                 <div class="area-tittle">
                     <p>新增留言：</p>
                 </div>
                 <div class="area">
-                    <textarea style="margin: 0px; width: 840px; height: 180px;" placeholder="我想要說...."></textarea>
+                    <textarea style="margin: 0px; width: 100%; height: 180px;" placeholder="我想要說...."></textarea>
                 </div>
             </div>
 
             <div class="message-btn">
-                <button class="message">我要留言</button>
+                <button class="btnB_XL_yellow"><p>我要留言</p><div class="bg"></div></button>
             </div>
 
             <div class="product-block">
                 <div class="arrow-right"></div>
 
                 <div class="product-img">
-                    <a href="./product.html"><img src="./images/form_img/product-shouse1.png" alt=""></a>
+                    <a href="#"><img src="./images/form_img/product-shouse1.png" alt=""></a>
                     <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
                 </div>
 
                 <div class="product-img">
-                    <a href="./product.html"><img src="./images/form_img/product-cat.png" alt=""></a>
+                    <a href="#"><img src="./images/form_img/product-cat.png" alt=""></a>
                     <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
                 </div>
 
                 <div class="product-img">
-                    <a href="./product.html"><img src="./images/form_img/product-climb.jpg" alt=""></a>
+                    <a href="#"><img src="./images/form_img/product-climb.jpg" alt=""></a>
                     <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
                 </div>
 
@@ -338,9 +350,9 @@
         </div>
     </footer>
 
-    <script src="./js/jquery-3.5.1.min.js"></script>
-    <script src="./js/AOS-MASTER/aos.js"></script>
-    <script src="./js/fontawesome/all.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <!-- <script src="./js/AOS-MASTER/aos.js"></script> -->
+    <script src="./js/fa5.14.0all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>

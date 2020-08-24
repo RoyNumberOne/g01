@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 </head>
 
@@ -69,15 +70,20 @@
     </header>
 
     <div id="banner">
-        <img src="" alt="">這是banner預設圖片
+        <img src="./images/form_img/banner_03.jpg" alt="">
     </div>
 
+
     <div id="parent_container">
-        <main>
+        <main id="main-forum">
             <div class="news-block">
-                <div class="ntittle">
-                    <h2>最新公告</h2>
+                <div class="hot-top">
+                    <div class="ntittle">
+                        <h2>最新公告</h2>
+                        <div class="hot-bgc_img"></div>
                 </div>
+                </div>
+
 
                 <div class="news_list">
                     <div class="list">
@@ -102,116 +108,140 @@
                     <h2>討論度排行榜</h2>
                 </div>
 
-                <!-- <div class="billboard_list">
-                    <p>先空著</p>
-                </div> -->
-
-            <!----補上自己的code----------->
+            <!---------熱門討論排行榜----------->
                 <div class="swiper-container">
+                    <div class="place_img"></div>
                     <div class="swiper-wrapper">
-                        
                         <div class="swiper-slide">
                             <div class="card">
-                                <div class="slider-text">
-                                    <h3>
-                                        Slide One
-                                    </h3>
+                                <div class="slider-img">
+                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
+                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
                                 </div>
-                
+
+                                <div class="hot-users-block">
+                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
+                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
+                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                                </div>
+
                                 <div class="content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                
-                                    <a href="javascript:void(0);">
-                                        Read More
-                                    </a>
+                                    <div class="tittle">
+                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
+                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    </div>
+                                    
+                                    <!--btnA_XLwRA-->
+                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="swiper-slide">
                             <div class="card">
-                                <div class="slider-text">
-                                    <h3>
-                                        Slide Two
-                                    </h3>
+                                <div class="slider-img">
+                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
+                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
                                 </div>
-                
+
+                                <div class="hot-users-block">
+                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
+                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
+                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                                </div>
+
                                 <div class="content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                
-                                    <a href="javascript:void(0);">
-                                        Read More
-                                    </a>
+                                    <div class="tittle">
+                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
+                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    </div>
+                                    
+                                    <!--btnA_XLwRA-->
+                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <div class="slider-img">
+                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
+                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
+                                </div>
+
+                                <div class="hot-users-block">
+                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
+                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
+                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="tittle">
+                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
+                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    </div>
+                                    
+                                    <!--btnA_XLwRA-->
+                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="swiper-slide">
                             <div class="card">
-                                <div class="slider-text">
-                                    <h3>
-                                        Slide Three
-                                    </h3>
+                                <div class="slider-img">
+                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
+                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
                                 </div>
-                
+
+                                <div class="hot-users-block">
+                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
+                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
+                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                                </div>
+
                                 <div class="content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                
-                                    <a href="javascript:void(0);">
-                                        Read More
-                                    </a>
+                                    <div class="tittle">
+                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
+                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    </div>
+                                    
+                                    <!--btnA_XLwRA-->
+                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="swiper-slide">
                             <div class="card">
-                                <div class="slider-text">
-                                    <h3>
-                                        Slide Four
-                                    </h3>
+                                <div class="slider-img">
+                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
+                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
                                 </div>
-                
+
+                                <div class="hot-users-block">
+                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
+                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
+                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                                </div>
+
                                 <div class="content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                
-                                    <a href="javascript:void(0);">
-                                        Read More
-                                    </a>
+                                    <div class="tittle">
+                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
+                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    </div>
+                                    
+                                    <!--btnA_XLwRA-->
+                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-text">
-                                    <h3>
-                                        Slide Five
-                                    </h3>
-                                </div>
-                
-                                <div class="content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                
-                                    <a href="javascript:void(0);">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
+            </div>
+
+            <div class="ntittle">
+                <h2>討論專區</h2>
             </div>
 
             <div class="search-block">
@@ -234,7 +264,7 @@
 
                     <div class="ask_btn">
                         <!-- <form  method="post" enctype="multipart/form-data"> -->
-                            <button onclick="location.href='./post.html'" id="ask" type="button">我要發文</button>
+                            <button class="btnB_L_yellow" onclick="location.href='./post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
                         <!-- </form> -->
                     </div>
                 </div>
@@ -761,10 +791,67 @@
                         </div>
                     </div>
                 </div>
+                
+                <div id="forum-list">
+                    <div class="form-container">
+                        <div class="img">
+                            <img src="./images/form_img/g10.jpg" alt="">
+                        </div>
+
+                        <div class="theme">
+                            <div class="tittle">
+                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
+                            </div>
+
+                            <div class="context">
+                                <span>
+                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
+                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
+                                </span>
+                            </div>
+
+                            <div id="poster-block">
+                                <div class="user">
+                                    <div class="user-pic">
+                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
+                                    </div>
+                                    <div class="user-name"><span>Lucky Chang</span></div>
+                                </div>
+                                
+                                <div class="remessage">
+                                    <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
+                                    <div class="message-num">42則</div>
+                                </div>
+
+                                <div class="like">
+                                    <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
+                                    <div class="likes-num">收藏數量</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="response">
+                            <span class="comment">2</span>
+                            <span class="split-sing">/</span>
+                            <span class="rem">21</span>
+                        </div>
+
+                        <div class="message-time">
+                            <span>2020-07-06</span><br>
+                            <span>彭于晏</span>
+                        </div>
+
+                        <div class="renews">
+                            <span>Jinhu4  3:15</span><br>
+                            <span>2020-07-12</span><br>
+                            <span>彭于晏</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <aside>
+        <aside id="aside">
             <div class="prod-img">
                 <a href="./product.html"><img src="./images/form_img/prod-img.jpg" alt=""></a>
             </div>
@@ -778,7 +865,7 @@
                 <ul class="travel-card">
                     <a href="/meet2-3.html"><li class="card-list">
                         <div class="pop-img">
-                            <img src="./images/form_img/Yushan.jpg" alt="">
+                            <img src="./images/form_img/snow_montain.jpg" alt="">
                         </div>
 
                         <div class="pop-title">
@@ -822,7 +909,7 @@
                     </a>
                     </li>
 
-                    <a href="#"><li class="card-list">
+                    <a href="/meet2-3.html"><li class="card-list">
                         <div class="pop-img">
                             <img src="./images/form_img/Fivestepmon.jpg" alt="">
                         </div>

@@ -683,7 +683,7 @@ try	{
             echo "連線成功<br>";
             // :::::::::: 留言檢舉 ::::::::::
             for($a=0 ; $a<13 ; $a++){
-            $sql = "insert into comment_report (comment_report_mem,comment_report_comment,comment_report_reason,comment_report_sitution) value  ('".$data[$a]['comment_report_mem']."','".$data[$a]['comment_report_comment']."','".$data[$a]['comment_report_reason']."','".$data[$a]['comment_report_sitution']."');";
+            $sql = "insert into comment_report (comment_report_mem,comment_report_comment,comment_report_reason,comment_report_situation) value  ('".$data[$a]['comment_report_mem']."','".$data[$a]['comment_report_comment']."','".$data[$a]['comment_report_reason']."','".$data[$a]['comment_report_situation']."');";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
