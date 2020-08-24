@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
     <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
-    <link rel="stylesheet" href="./css/verify.css">
+    <link rel="stylesheet" href="./css/backstagemain.css">
     <link rel="stylesheet" href="./css/backstageHeader.css">
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -15,14 +15,13 @@
     <script src="./js/fa5.14.0all.js"integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="crossorigin="anonymous"></script>
 </head>
 <body>
-
     <?php
         require_once("./BackstageHeader.inc");
     ?>
-
 <main>
+
     <aside>
-    <nav id="BackstageNav">
+     <nav id="BackstageNav">
         <ul class="page index ulat"><a href="">
                 <p class="title">首頁</p>
             </a></ul>
@@ -153,43 +152,12 @@
         <ul class="page administer"><a href="">
                 <p class="title">管理員</p>
             </a></ul>
-    </nav>
+    </nav> 
     </aside>
     <section>
         
         <div>
-            <div class="verify_total">
-                <h4>審核實名制</h4>
-                    <span>未處理</span>
-                    <span>已處理</span>
-                    <span>未通過</span>
-            </div>
-            <table>
-                <tr>
-                    <th>會員編號</th>
-                    <th>證件照片</th>
-                    <th>身分證字號</th>
-                    <th>真實姓名</th>
-                    <th>申請時間</th>
-                    <th>申請狀態</th>
-                </tr>
-                <tr>
-                    <td>00001</td>
-                    <td><img src="./images/shoppingcart/登山杖.png" alt=""></td>
-                    <td>A123456789</td>
-                    <td>唐伯虎</td>
-                    <td>2020/08/23</td>
-                    <td style="text-align: left;padding-left: 10px;">
-                        <form action=""><input type="radio" name="verify" id="verify_1"><label for="verify_1">通過</label><br>
-                            <input type="radio" name="verify" id="verify_2"><label for="verify_2">未通過</label>
-                        </form>
-                    </td>
-                    <td style="background-color: #eaf1f4;"><button type="submit" class="btnB_L_yellow">
-                            <p>送出</p>
-                            <div class="bg"></div>
-                        </button></td>
-                </tr>
-            </table>
+            撈資料
         </div>
     </section>
 </main>

@@ -6,14 +6,25 @@
     <title>BackstageNav</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/backstageHeader.css">
     <link rel="stylesheet" href="./css/backstageNav.css">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.fullpage.js"></script>
 </head>
 <body>
     
+
+
+    <?php
+        require_once("./BackstageHeader.inc");
+    ?>
+
+
+
+
+
+
 <nav id="BackstageNav">
         <ul class="page index ulat"><a href="">
                 <p class="title">首頁</p>
@@ -28,7 +39,7 @@
                             try	{
                                 require_once('connectMeetain.php');
                                 if($pdo != false){
-                                        foreach($pdo->query('SELECT count(*) from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理"') as $row) {
+                                        foreach($pdo->query('SELECT COUNT(*) FROM tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理"') as $row) {
                                         echo $row['COUNT(*)'];
                                         }
 
@@ -95,13 +106,47 @@
             <li class="page navli realname"><a href="">
                     <p class="desc">實名制</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM member_realname where mem_realname_situation = "未審核"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
             <li class="page navli guide"><a href="">
                     <p class="desc">嚮導</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM member_guide where mem_guide_situation = "未審核"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
         </ul>
@@ -112,22 +157,6 @@
                 <p class="title">管理員</p>
             </a></ul>
     </nav>
-    <script>
-        $("ul.page").click(function(event){
-            event.preventDefault();
-            $("ul.page").removeClass("ulat");
-            $(this).addClass("ulat");
-            $(this).siblings().removeClass("ulat");
-            $(this).siblings().children().removeClass("liat");
-        })
-        $("li.page").click(function(event){
-            event.preventDefault();
-            $(this).parent().siblings().removeClass("ulat");
-            $("ul.page").removeClass("ulat");
-            $("li.page").removeClass("liat");
-            $(this).addClass("liat");
-            $(this).parent().addClass("ulat");
-        })
-    </script>
+    <script src="./js/backstage.js"></script>
 </body>
 </html>

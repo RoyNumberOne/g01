@@ -7,16 +7,15 @@ body{
     box-sizing: border-box;
 }
 main{
-    max-width: 1300px;
-    width: 100%;
     display: flex;
-    height: 100%;
-    margin: 0 auto;
+    position: relative;
     aside{
-        width: calc(100% - 1152px);
         display: flex;
-        align-items: center;
-        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        // height: 100%;
         #BackstageNav {
             width: 120px;
             *{
@@ -115,7 +114,10 @@ main{
         }
     }
     section{
-        width: 1152px;
+        max-width: 960px;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
         header{
             width: 100%;
             height: 50px;
