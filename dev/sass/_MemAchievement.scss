@@ -1,5 +1,6 @@
 #MemAchievement {
     margin: 0;
+    height: 100%;
     h2{ margin: 1%;}
     p{  
         margin: 1%;
@@ -10,13 +11,13 @@
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(6,1fr);
-        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(5,1fr);
         div{
             margin: 0 auto;
             text-align: center;
             img{
-                width: 120px;
+                width: 60%;
                 margin: 0;
             }
         }

@@ -133,73 +133,73 @@
     },
     {
         "comment_poster": "10008",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100001",
         "comment_innertext": "Test揪團留言1"
     },
     {
         "comment_poster": "10009",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100001",
         "comment_innertext": "[請檢舉我]Test揪團留言2"
     },
     {
         "comment_poster": "10010",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100001",
         "comment_innertext": "Test揪團留言3"
     },
     {
         "comment_poster": "10009",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100002",
         "comment_innertext": "Test揪團留言4"
     },
     {
         "comment_poster": "10010",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100002",
         "comment_innertext": "[請檢舉我]Test揪團留言5"
     },
     {
         "comment_poster": "10011",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100002",
         "comment_innertext": "Test揪團留言6"
     },
     {
         "comment_poster": "10010",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100003",
         "comment_innertext": "[請檢舉我]Test揪團留言7"
     },
     {
         "comment_poster": "10011",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100003",
         "comment_innertext": "[請檢舉我]Test揪團留言8"
     },
     {
         "comment_poster": "10012",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100003",
         "comment_innertext": "[請檢舉我]Test揪團留言9"
     },
     {
         "comment_poster": "10011",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100004",
         "comment_innertext": "Test揪團留言10"
     },
     {
         "comment_poster": "10012",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100004",
         "comment_innertext": "Test揪團留言11"
     },
     {
         "comment_poster": "10013",
-        "comment_class": "揪團",
+        "comment_class": "揪團區",
         "tour_no": "100004",
         "comment_innertext": "Test揪團留言12"
     }
