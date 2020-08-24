@@ -1,86 +1,18 @@
 @import "common";
 
-$color1: #153A64;
-$color2: #2C5E9E;
-$color3: #FFC400;
-$color4: #EAF1F4;
 
-$textColor1: #555555; 
+$textColor1: $mt_fontdark;
 
-* {
-    font-family: 'Noto Sans TC', sans-serif !important;
-    color: $textColor1;
-}
+
 /////字體/////
-//h2 頁面標題
-@mixin pageTittle {
-    font-size: 30px;
-    font-weight: 600; 
-    display: table; 
-    margin:50px auto;
-    position: relative;
-    &::after{
-        content:"";
-        width: 100%;
-        padding-top: 5px;
-        border-radius: 10px;
-        background-color:$color3;
-        position: absolute;
-        left:0; bottom: 0;
-    }
-}
-//h3 內文標題
-@mixin contentTittle {
-    font-size: 20px;
-    letter-spacing: 1.5px;
-    line-height: 1.6;
-    font-weight: 600;
-}
-//p 內文內容
+
 @mixin contentText {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 1px;
 }
-//span 日期地點難度tag
-@mixin tagLocationDateDegree {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.6;
-    letter-spacing: 0.4px;
-}
 
-/////按鈕/////
-//尺寸-大
-@mixin btnSizeL {
-    width: 190px;
-}
-//尺寸-中
-@mixin btnSizeM {
-    width: 95px;
-}
-//按鈕款式Ａ
-@mixin btnA {
-    margin: 20px;
-    padding: 0;
-    border: 1px solid #757575;
-    color: #757575;
-    line-height: 45px;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    &::after{
-        content: "";
-        width: 100%;
-        padding-top: 45px;
-        border-right: 1px solid #757575;
-        border-bottom: 1px solid #757575;
-        position: absolute;
-        bottom:-5px;
-        left: 5px;
-    }
-}
 
 //被div裁型的圖片
 @mixin imgs {
@@ -91,93 +23,86 @@ $textColor1: #555555;
     transform: translateY(-50%);
 }
 
+
+
 #meet2-2{
-    border: 1px solid blue;
+    // border: 1px solid blue;
     margin: auto;
-    width: 1200px;
-    h2{
-        @include pageTittle;
+    max-width: 1366px;
+    img{
+        @include imgs;
     }
-    .step{
+    h2{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .step{  //步驟提示圖
         ul{
-            text-align: center;
+            display: flex;
+            justify-content: center;
             li{
-                display: inline-block;
-                margin-right: 200px;
-                @include contentTittle;
-                position: relative;
-                &::before{
+                display: flex;
+                >div{
                     width: 70px;
                     line-height: 70px;
+                    font-size: 24px;
+                    font-weight: 600;
                     text-align: center;
-                    color: $color3;
-                    border: 1px solid $color3;
+                    color: $mt_yellow;
+                    border: 1px solid $mt_yellow;
                     border-radius: 50%;
-                    position: absolute;
-                    left: -90px; top:-50%;
+                    margin: auto 10px;
                 }
-                &::after{
-                    content: ".....";
-                    font-size: 30px;
-                    letter-spacing: 10px;
-                    color: $textColor1;
-                    position: absolute;
-                    top: -50%; right:-110px;
-                }
-                &:first-child{
-                    margin-left: 90px;
+                h3{
+                    align-self:center;
+                    position: relative;
+                    margin-right: 100px;
+                    &::after{
+                        content: ".....";
+                        font-size: 30px;
+                        letter-spacing: 10px;
+                        color: $textColor1;
+                        position: absolute;
+                        top: -50%; right:-110px;
+                    }
                 }
                 &:last-child{
-                    margin-right: 0px;
+                    h3{
+                        &::after{
+                            display: none;
+                        }
+                    }
                 }
             }
             li.-on{
-                color: $color3;
-                &::before{
+                h3{
+                   color: $mt_yellow;
+                }
+                >div{
                     color: #fff;
-                    background-color: $color3;
+                    background-color: $mt_yellow;
                 }
             }
-            li.step_icon1{
-                &::before{
-                    content: "1";
-                }
-            }
-            li.step_icon2{
-                &::before{
-                    content: "2";
-                }
-            }
-            li.step_icon3{
-                &::before{
-                    content: "3";
-                }
-            }
-            
-
         }
     }
-    .tour_build_form{
+    .tour_build_form{  //開團表單
         border: 1px solid $textColor1;
         border-radius: 30px;
         height: 70vh;
         overflow: scroll;
-
-        margin-top: 50px;
+        margin: 50px auto;
         padding: 30px;
-        @include contentText;
+        max-height: 570px;
         .btn_box{
             align-self: flex-end;
         }
         .tour_build_step1{ //步驟一
-            border: 1px solid rgb(167, 50, 50);
-            // display: flex;
+            // border: 1px solid rgb(167, 50, 50);
             display: none;
-            flex-direction: row;
             justify-content: space-between;
             input,select,.degree_category{
                 width: 100%;
-                background-color: $color4 ;
+                background-color: $mt_grey2 ;
                 border:none;
                 height: 40px;
                 border-radius: 10px;
@@ -191,40 +116,47 @@ $textColor1: #555555;
                     width: 70%;
                     padding-top: 70%;
                     margin: auto;
-                    background-color: #555;
+                    background-color: #ccc;
+                    position: relative;
+                    &::after{
+                        content: "將依據您所選擇地點跳轉圖片";
+                        font: 20px;
+                        position: absolute;
+                        color: $mt_fontdark;
+                        @include ab_center;
+                    }
                 }
                 .tour_info1{
-                    // border: 1px solid rgb(182, 27, 161);
                     width: 60%;
                     display: flex;
                     flex-direction: column;
+                    justify-content:center;
                     .tour_number{
                         select{
                             width: 30%;
                         }
                     }
                 }
-                
             }
-           
         }
         .tour_build_step2{ //步驟二
-            border: 1px solid rgb(34, 163, 180);
-            // display: flex;
+            // border: 1px solid rgb(34, 163, 180);
+            height: 100%;
             display: none;
             justify-content: space-between;
             .tour_info2{
-                // border: 1px solid #000;
                 width: 60%;
                 display: flex;
                 justify-content: space-between;
                 
                 >div{
-                    // border: 1px solid rgb(72, 23, 185);
                     width: 50%;
+                    height: 100%;
                     padding-right: 10px;
                     display: flex;
                     flex-direction: column;
+                    overflow: scroll;
+
                     .tour_equip{ //建議裝備
                         margin-bottom: 30px;
                         >div{
@@ -237,9 +169,10 @@ $textColor1: #555555;
                             p{
                                 display: inline-block;
                                 line-height: 40px;
-                                background-color: $color4;
+                                background-color: $mt_grey2;
                                 border-radius: 10px;
                                 padding: 0 5px;
+                                width: 80%;
                             }
                         }
                     }
@@ -247,56 +180,310 @@ $textColor1: #555555;
                         flex-grow:2;
                         display: flex;
                         flex-direction: column;
-                        textarea{
-                            flex-grow:2;
-                        }
                     }
                 }
-                >label{
+                >label{ //活動簡介
                     width: 50%;
-                    textarea{
-                        height: 470px;
-                    }
+                    // height: 100%;
+                    display: flex;
+                    flex-direction: column;
                 }
+                    
                 textarea{
-                    background-color: $color4;
+                    background-color: $mt_grey2;
                     border-radius: 10px;
                     border: none;  
                     width: 100%;
                     resize : none;
+                    flex-grow:2;
                 }
 
             }
         }
         .tour_build_step3{ //步驟三
-            border: 1px solid rgb(50, 167, 50);
-            // display: flex;
+            // border: 1px solid rgb(50, 167, 50);
             height: 100%;
             display: none;
             flex-direction: row;
             justify-content: space-between;
             .tour_info3{
-                border: 1px solid #000;
                 width: 60%;
                 display: flex;
                 justify-content: space-between;
+               
+                .upload_tourimg{
+                    border: 1px solid $mt_black;
+                    border-radius: 50%;
+                    padding: 0;
+                    width: 20px;
+                    line-height: 20px;
+                    margin:5px
+                }
                 .tour_image{
                     flex-grow: 2;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
+                    overflow: auto;
                     >div{
                         width: 30%;
                         padding-top: 30%;
-                        background-color: #555;
+                        border-radius: 10px;
+                        background-color:#EAF1F4;
                         margin: 5px;
+                        align-self: center;
                     }
                 }
             }
-            
         }
         section.-on{
             display: flex;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+         // max-width: 1152px;
+    
+
+    #meet2-2{
+        max-width: 1152px;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+         // max-width: 960px;
+   
+
+    #meet2-2{
+        max-width: 960px;
+        .tour_build_form{
+            .tour_build_step2{ //步驟二
+                .tour_info2{
+                    width: 70%;
+                }
+            }
+            .tour_build_step3{ //步驟三
+                .tour_info3{
+                    width: 70%;
+                }
+            }
+        }
+
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px;
+  
+
+    #meet2-2{
+        max-width: 720px;
+        .step{
+            ul{
+                li{
+                    h3{
+                        margin-right: 70px;
+                        &::after{
+                            content: "...";
+                            font-size: 30px;
+                            letter-spacing: 10px;
+                            right:-70px;
+                        }
+                    }
+                }
+            }
+        }
+        .tour_build_form{
+            .tour_build_step2{ //步驟二
+                .tour_info2{
+                    width: 70%;
+                }
+            }
+            .tour_build_step3{ //步驟三
+                .tour_info3{
+                    width: 70%;
+                    .tour_image{
+                        >div{
+                            width: 45%;
+                            padding-top: 45%;
+                        }
+                    }
+                }
+            
+            }
+        }
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+  // 請用540
+        // max-width: 540px;
+ 
+  
+
+    #meet2-2{
+        max-width: 540px;
+        .step{
+            ul{
+            justify-content: space-between;
+                
+                li{
+                    >div{
+                        width: 50px;
+                        line-height: 50px;
+                    }
+                    h3{
+                        margin-right: 0;
+                        &::after{
+                            content: "...";
+                            font-size: 30px;
+                            letter-spacing: 10px;
+                            right:-70px;
+                        }
+                    }
+                }
+            }
+        }
+        .tour_build_form{
+            .btn_box{
+                order:1;
+            }
+            .tour_build_step1{ //步驟一
+                flex-direction: column;
+                section{
+                    width: 100%;
+                }
+                .tour_info1_btn{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .tour_info1{
+                        width: 70%;
+                        margin: 30px auto;
+                    }
+                }
+            }
+            .tour_build_step2{ //步驟二
+                flex-wrap: wrap;
+                .tour_info2{
+                    width: 100%;
+                }
+            }
+            .tour_build_step3{ //步驟三
+                flex-wrap: wrap;
+                height: auto;
+                .tour_info3{
+                    width: 100%;
+                    flex-direction: column;
+                    .tour_image{
+                        >div{
+                            width: 45%;
+                            padding-top: 45%;
+                        }
+                    }
+                }
+            
+            }
+        }
+    }
+}
+@media screen and (max-width: 575px){
+    // 請用100%
+        // max-width: 100%;
+
+
+    #meet2-2{
+        max-width: 100%;
+        .step{
+            ul{
+            justify-content: space-between;
+            padding: 5px;
+            width: 375px;
+            margin: auto;
+                li{
+                    >div{
+                        width: 32px;
+                        line-height: 30px;
+                        font-size: 24px;
+                        margin: auto 5px;
+                    }
+                    h3{
+                        margin-right: 0;
+                        font-size: 18px;
+                        margin-right:5px;
+                        &::after{
+                            content: "...";
+                            font-size: 20px;
+                            right:-25px;
+                            letter-spacing: 0.4px;
+                            top:-30%;
+                        }
+                    }
+                }
+            }
+        }
+        .tour_build_form{
+            margin: 30px;
+            padding: 20px 20px 40px 20px;
+            .btn_box{
+                order:1;
+            }
+            .tour_build_step1{ //步驟一
+                flex-direction: column;
+                section{
+                    width: 100%;
+                }
+                .tour_info1_btn{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .tour_info1{
+                        width: 100%;
+                        margin: 30px auto;
+                    }
+                }
+            }
+            .tour_build_step2{ //步驟二
+                flex-wrap: wrap;
+                height: auto;
+                .tour_info2{
+                    width: 100%;
+                    margin-bottom: 30px;
+                    flex-direction: column;
+                   >div, .tour_innertext{
+                       width: 100%;
+                       padding: 0;
+                       .notice{
+                            textarea{
+                                height: 15vh;
+                            }
+                       }
+                       textarea{
+                            height: 50vh;
+                        }
+                   }
+                   >div{
+                       margin-bottom: 20px;
+                   }
+                }
+            }
+            .tour_build_step3{ //步驟三
+                flex-wrap: wrap;
+                height: auto;
+                .tour_info3{
+                    width: 100%;
+                    flex-direction: column;
+                    margin-bottom: 30px;
+                    .tour_image{
+                        >div{
+                            width: 45%;
+                            padding-top: 45%;
+                        }
+                    }
+                }
+            
+            }
         }
     }
 }

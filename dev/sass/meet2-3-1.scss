@@ -1,33 +1,14 @@
 @import "common";
 
-$color1: #153A64;
-$color2: #2C5E9E;
-$color3: #FFC400;
-$color4: #EAF1F4;
 
-$textColor1: #555555;
+$textColor1: $mt_fontdark;
 
-* {
-    font-family: 'Noto Sans TC', sans-serif !important;
-    color: $textColor1;
-}
 
-//h2 頁面標題
-@mixin pageTittle {
-    font-size: 30px;
-    font-weight: 600; 
-    display: table; 
-    margin:50px auto;
-    position: relative;
-    &::after{
-        content:"";
-        width: 100%;
-        padding-top: 5px;
-        border-radius: 10px;
-        background-color:$color3;
-        position: absolute;
-        left:0; bottom: 0;
-    }
+@mixin contentText {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1px;
 }
 
 #meet2-3-1{
@@ -40,9 +21,8 @@ $textColor1: #555555;
     .lightbox{
         background-color: #fff;
         border-radius: 30px;
-        // display: inline; //會不見？？
-        width: 1200px; ////寬度想隨內容一起更動
-        // width: 400px;
+        width: auto;
+        padding: 10px;
         position: relative;
         .close{
             padding: 10px;
@@ -51,15 +31,12 @@ $textColor1: #555555;
         }
         .agreement{
             border: 1px solid #f00;
-            width: 1200px;
+            width: 60%;
             height: 80vh;
             display: none;
             flex-direction: column;
             align-items:center;
-            h2{
-                @include pageTittle;
-                margin-bottom: 0px; 
-            }
+            padding: auto 15%;
             >p{
                 font-size: 16px;
                 color: #888;
@@ -69,8 +46,9 @@ $textColor1: #555555;
                 margin-bottom: 20px; 
             }
             .agreement_text{
+                border: 1px solid #000;
                 background-color: $mt_grey2;
-                width: 800px;
+                // width: 800px;
                 height: 70%;
                 padding: 10px;
                 overflow: scroll;
@@ -93,4 +71,63 @@ $textColor1: #555555;
 }
 #meet2-3-1.close{
     display: none;
+}
+
+
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px;
+      }
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+         // max-width: 1152px;
+    
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+         // max-width: 960px;
+   
+
+    .agreement{
+        max-width: 960px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px;
+    h3 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 14px;
+    }
+    span {
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+  // 請用540
+        // max-width: 540px;
+    h3 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 14px;
+    }
+    span {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 575px){
+    // 請用100%
+        // max-width: 100%;
+    h3 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 14px;
+    }
+    span {
+        font-size: 12px;
+    }
 }
