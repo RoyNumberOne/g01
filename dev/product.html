@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/fa5.14.0all.js" ></script>
     <title>商品總覽</title>
 </head>
@@ -67,63 +68,129 @@
 
     </header>
     <div class="wrap" id="wrap">
-        <div class="category">
-            <div class="show_now">
-                <img src="./images/products/衣服.png" alt="">
-                <div class="show_hover">
-                    <div class="p_title">機能服飾</div>
+        <div class="main">
+            <div class="category">
+                <div class="show_now">
+                    <!-- <img src="./images/products/clothes0.png" alt=""> -->
+                    <img :src="currentCategoryImg" alt="">
+                    <div class="show_hover">
+                        <div class="p_title">{{currentCategory}}</div>
+                    </div>
+                </div>
+                <!-- <div class="category_list">
+                    <div class="bag"><img src="./images/products/衣服.png" alt="">
+                        <div class="show_hover">
+                            <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
+                        </div>
+                    </div>
+                    <div class="clothes"><img src="./images/products/bag.png" alt="">
+                        <div class="show_hover">
+                            <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
+                        </div>
+                    </div>
+                    <div class="shoes"><img src="./images/products/鞋子.png" alt="">
+                        <div class="show_hover">
+                            <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
+                        </div>
+                    </div>
+                    <div class="tent"><img src="./images/products/clothes.png" alt="">
+                        <div class="show_hover">
+                            <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
+                        </div>
+                    </div>
+                    <div class="others"><img src="./images/products/登山杖.png" alt="">
+                        <div class="show_hover">
+                            <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="product_block">
+                <!-- <div class="bt">
+                    <div class="left"><<<</div>
+                    <div class="right">>>></div>
+                </div> -->
+                <!-- <div class="items_block">
+                    <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
+                    <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
+                </div>
+                <div class="items_block">
+                    <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
+                    <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
+                </div>
+                <div class="items_block">
+                    <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
+                    <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
+                </div>
+                <div class="items_block">
+                    <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
+                    <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
+                </div> -->
+                <div v-for="(product, index) in currentProducts" class="items_block" :key='product.id' :class="backgroundColor(index)">
+                    <!-- <div>{{product.product_name}}</div> -->
+                        <a href="./product_info.html">
+                            <img :src="product.product_image1" alt="">
+                            <div class="show_hover">
+                                <div class="p_title">{{product.product_name}}</div>
+                            </div>
+                        </a>
                 </div>
             </div>
             <div class="category_list">
-                <div class="bag"><img src="./images/products/衣服.png" alt="">
+                <div class="bag"><img src="./images/products/clothes0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title">機能服飾</div>
+                        <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
                     </div>
                 </div>
                 <div class="clothes"><img src="./images/products/bag.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title">登山背包</div>
+                        <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
                     </div>
                 </div>
-                <div class="shoes"><img src="./images/products/鞋子.png" alt="">
+                <div class="shoes"><img src="./images/products/shoes0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title">登山鞋</div>
+                        <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
                     </div>
                 </div>
                 <div class="tent"><img src="./images/products/clothes.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title">露營裝備</div>
+                        <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
                     </div>
                 </div>
-                <div class="others"><img src="./images/products/登山杖.png" alt="">
+                <div class="others"><img src="./images/products/poles0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title">登山配件</div>
+                        <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="product_block">
-            <!-- <div class="bt">
-                <div class="left"><<<</div>
-                <div class="right">>>></div>
-            </div> -->
-            <div class="items_block">
-                <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
-                <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
+        </div> 
+        <!-- <div class="category_list">
+            <div class="bag"><img src="./images/products/clothes0.png" alt="">
+                <div class="show_hover">
+                    <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
+                </div>
             </div>
-            <div class="items_block">
-                <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
-                <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
+            <div class="clothes"><img src="./images/products/bag.png" alt="">
+                <div class="show_hover">
+                    <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
+                </div>
             </div>
-            <div class="items_block">
-                <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
-                <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
+            <div class="shoes"><img src="./images/products/shoes0.png" alt="">
+                <div class="show_hover">
+                    <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
+                </div>
             </div>
-            <div class="items_block">
-                <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
-                <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
+            <div class="tent"><img src="./images/products/clothes.png" alt="">
+                <div class="show_hover">
+                    <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
+                </div>
             </div>
-        </div>
+            <div class="others"><img src="./images/products/poles0.png" alt="">
+                <div class="show_hover">
+                    <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
+                </div>
+            </div>
+        </div> -->
     </div>
     <footer class="footer">
         <div class="footer_logo_block">
@@ -173,57 +240,7 @@
             </div>
         </div>
     </footer>
-<script>
-
-$(document).ready(function () {
-    let slideWidth = $('.items_block').width();
-
-    function moveRight () {
-        $('.items_block').animate({
-            right: + slideWidth
-        });
-    };
-
-    $('.right').click(function () {
-        $('.items_block').moveRight();
-    });
-})
-
-
-
-    
-// $(document).ready(function () {
-
-//     $('.right').click(function () {
-//         index = $(this).index();
-
-//         $('.product_block').animate({
-//         left: -divWidth * index,
-//         });
-//     })
-
-//     function leftSlide() {
-//         currentLeft = $('product_block').css('left');
-
-//         if (parseInt(currentLeft) > parseInt(- divWidth * imgCount + divWidth)) {
-//             nextLeft = parseInt(currentLeft) - divWidth;
-//             $('.product_block').animate({
-//                 left: nextLeft,
-//             });
-//         } else {
-//             $('.product_block').animate({
-//                 left: 0,
-//             });
-//         }
-//     }
-//     function calculate() {
-//         imgCount = $('.product_block .items_block').length;
-//         divWidth = $('.product_block').width();
-//         $('.product_block .items_block').width(divWidth);
-//         $('.product_block').width(divWidth * imgCount);
-//     }
-// });
-</script>
 <script src="./js/header.js" ></script>
+<script src="./js/product.js"></script>
 </body>
 </html>
