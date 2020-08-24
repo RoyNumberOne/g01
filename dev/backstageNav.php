@@ -28,7 +28,7 @@
                             try	{
                                 require_once('connectMeetain.php');
                                 if($pdo != false){
-                                        foreach($pdo->query('SELECT count(*) from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理"') as $row) {
+                                        foreach($pdo->query('SELECT COUNT(*) FROM tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理"') as $row) {
                                         echo $row['COUNT(*)'];
                                         }
 
@@ -95,13 +95,47 @@
             <li class="page navli realname"><a href="">
                     <p class="desc">實名制</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM member_realname where mem_realname_situation = "未審核"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
             <li class="page navli guide"><a href="">
                     <p class="desc">嚮導</p>
                     <div class="note">
-                        <p>12</p>
+                        <p>
+                            <?php 
+                            try	{
+                                require_once('connectMeetain.php');
+                                if($pdo != false){
+                                        foreach($pdo->query('SELECT COUNT(*) FROM member_guide where mem_guide_situation = "未審核"') as $row) {
+                                        echo $row['COUNT(*)'];
+                                        }
+
+                                }	else	{
+                                    echo "<br>失敗ㄌ<br>";
+                                }
+                            }	catch	(PDOException $e)	{
+                                echo "錯誤原因：",$e->getMessage(), "<br>";
+                                echo "錯誤行號：",$e->getLine(),"<br>";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </a></li>
         </ul>
