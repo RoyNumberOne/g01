@@ -364,7 +364,7 @@ try	{
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="80px">證件照片</th><th width="300px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
@@ -376,6 +376,158 @@ try	{
              <td><?=$prodRow["申請時間"]?></td>
              <td>   <label><input type="radio" value="Pass" name="review?<?=$prodRow["會員編號"]?>">通過</label><br>
                     <label><input type="radio" value="unPass" name="review?<?=$prodRow["會員編號"]?>">未通過</label> </td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+<h3>實名制審核 - 已處理已通過</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核未通過" order by "審核時間" ;';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["證件照片"]?></td>
+             <td><?=$prodRow["身分證字號"]?></td>
+             <td><?=$prodRow["真實姓名"]?></td>
+             <td><?=$prodRow["申請時間"]?></td>
+             <td><?=$prodRow["審核時間"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+<h3>實名制審核 - 已處理未通過</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核未通過" order by "審核時間" ;';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["證件照片"]?></td>
+             <td><?=$prodRow["身分證字號"]?></td>
+             <td><?=$prodRow["真實姓名"]?></td>
+             <td><?=$prodRow["申請時間"]?></td>
+             <td><?=$prodRow["審核時間"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+<h3>嚮導審核 - 未處理</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間"  FROM member_guide where mem_guide_situation = "未審核" order by "審核時間" ;';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["證件照片"]?></td>
+             <td><?=$prodRow["嚮導證編號"]?></td>
+             <td><?=$prodRow["發證日期"]?></td>
+             <td><?=$prodRow["有效日期"]?></td>
+             <td><?=$prodRow["申請時間"]?></td>
+             <td>   <label><input type="radio" value="Pass" name="review?<?=$prodRow["會員編號"]?>">通過</label><br>
+                    <label><input type="radio" value="unPass" name="review?<?=$prodRow["會員編號"]?>">未通過</label> </td>
+            </tr>
+		
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+<h3>實名制審核 - 已處理已通過</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核已通過" order by "審核時間" ;';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+			 <td class='pink'><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["證件照片"]?></td>
+             <td><?=$prodRow["嚮導證編號"]?></td>
+             <td><?=$prodRow["發證日期"]?></td>
+             <td><?=$prodRow["有效日期"]?></td>
+             <td><?=$prodRow["申請時間"]?></td>
+             <td><?=$prodRow["審核時間"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+<h3>實名制審核 - 已處理未通過</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核未通過" order by "審核時間" ;';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+			 <td class='pink'><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["證件照片"]?></td>
+             <td><?=$prodRow["嚮導證編號"]?></td>
+             <td><?=$prodRow["發證日期"]?></td>
+             <td><?=$prodRow["有效日期"]?></td>
+             <td><?=$prodRow["申請時間"]?></td>
+             <td><?=$prodRow["審核時間"]?></td>
             </tr>
 
 			<?php } ?>
