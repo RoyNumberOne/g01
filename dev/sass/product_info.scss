@@ -1,7 +1,7 @@
 div.wrap{
     // max-width: 1152px;
     margin: 30px auto;
-    padding: 0 20px;
+    // padding: 0 20px;
     .back{
         border: 1px solid #000;
     }
@@ -161,6 +161,14 @@ div.wrap{
     // 請用720
     div.wrap{
         max-width: 720px;
+        .move{
+            .pre{
+                flex-direction: column;
+            }
+            .next{
+                flex-direction: column-reverse;
+            }
+        }
     }
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
