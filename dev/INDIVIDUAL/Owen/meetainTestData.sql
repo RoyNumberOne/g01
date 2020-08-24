@@ -85,10 +85,14 @@ desc member_keep;
 
 SELECT * FROM member_realname;
 desc member_realname;
--- 實名制認證 - 未處理
-SELECT * FROM member_realname where mem_realname_situation = "未審核";
 -- 實名制認證 - 未處理的數量
 SELECT count(*) FROM member_realname where mem_realname_situation = "未審核";
+-- 實名制認證 - 未處理
+SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間"  FROM member_realname where mem_realname_situation = "未審核" order by "申請時間" ;
+-- 實名制認證 - 已處理已通過
+SELECT * FROM member_realname where mem_realname_situation = "未審核";
+-- 實名制認證 - 已處理未通過
+SELECT * FROM member_realname where mem_realname_situation = "未審核";
 
 SELECT * FROM mountain;
 desc mountain;
