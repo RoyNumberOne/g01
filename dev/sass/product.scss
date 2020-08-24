@@ -17,7 +17,8 @@ div.wrap{
                 color: #fff;
                 img{
                     display: block;
-                    height: 100%;
+                    // height: 100%;
+                    width: 100%;
                     margin: auto;
                     transform: scale(.8);
                 }
@@ -328,7 +329,8 @@ div.wrap{
                 order: 3;
                 justify-content: space-between;
                 .items_block{
-                    margin: 20px 0;
+                    margin: 10px 0;
+                    width: 48%;
                 }
             }
             .category_list{
@@ -338,5 +340,31 @@ div.wrap{
     }
 }
 @media screen and (max-width: 575px){
-    // 請用100%
+    div.wrap{
+        max-width: 100%;
+        .main{
+            display: flex;
+            flex-direction: column;
+            .category{
+                width: 100%;
+            }
+            .product_block{
+                width: 100%;
+                order: 3;
+                justify-content: space-between;
+                .items_block{
+                    margin: 10px 0;
+                    width: 48%;
+                }
+            }
+            .category_list{
+                width: 100%;
+                >div{
+                    >img{
+                        height: 80%;
+                    }
+                }
+            }
+        }  
+    }
  }
