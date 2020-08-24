@@ -55,7 +55,12 @@
                         case 2: 
                         return  this.currentProduct.product_image3;
                     }
-                }
+                },
+                // nextImg(){
+                //     this.currentImageIndex = this.currentImageIndex + 1;
+                //     this.nextImage = this.currentImageIndex.product_image1;
+                //     return this.nextImage;
+                // },
             },
             methods:{
                 next(){
