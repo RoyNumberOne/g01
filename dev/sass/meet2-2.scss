@@ -89,7 +89,7 @@ $textColor1: $mt_fontdark;
         border: 1px solid $textColor1;
         border-radius: 30px;
         height: 70vh;
-        overflow: scroll;
+        overflow-y: scroll;
         margin: 50px auto;
         padding: 30px;
         max-height: 570px;
@@ -155,7 +155,7 @@ $textColor1: $mt_fontdark;
                     padding-right: 10px;
                     display: flex;
                     flex-direction: column;
-                    overflow: scroll;
+                    overflow-y: scroll;
 
                     .tour_equip{ //建議裝備
                         margin-bottom: 30px;
@@ -224,7 +224,7 @@ $textColor1: $mt_fontdark;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
-                    overflow: auto;
+                    overflow-y: auto;
                     >div{
                         width: 30%;
                         padding-top: 30%;
