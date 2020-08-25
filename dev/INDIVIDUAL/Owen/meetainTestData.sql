@@ -109,6 +109,13 @@ desc orders;
 
 SELECT * FROM product;
 desc product;
+-- 商品 - 上架中
+select product_no "商品編號" , degree_category "商品難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 1; 
+-- 商品 - 未上架
+select product_no "商品編號" , degree_category "商品難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 0; 
+-- 商品 - 新增
+
+
 
 SELECT * FROM product_keep;
 desc product_keep;
