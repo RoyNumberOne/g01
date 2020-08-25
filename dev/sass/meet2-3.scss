@@ -1,5 +1,9 @@
 // @import 'common.scss';
+@import 'meet2-3-1';
 
+body{
+    position: relative;
+}
 div.wrap{
     width: 1200px;
     margin: 40px auto;
@@ -309,7 +313,7 @@ div.wrap{
                         }
                     }
                     .memName{
-                        h2{
+                        h3{
                             text-align: center;
                         }
                     }

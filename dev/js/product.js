@@ -54,7 +54,7 @@ new Vue ({
     el: '#wrap',
     data: {
         products: [],
-        currentCategory: 'bag',
+        currentCategory: 'shoes',
     },
     mounted(){
         axios.get('./json/Initial_product.json')
@@ -86,15 +86,16 @@ new Vue ({
         currentCategoryImg(){
             switch(this.currentCategory){
             case 'clothes': 
-                return './images/products/clothes0.png';
+                return './images/products/clothes/clothes01.png';
             case 'bag': 
-                return './images/products/bag.png';
+                return './images/products/bag/bag0.png';
             case 'shoes': 
-                return './images/products/shoes0.png';
+                return './images/products/shoes/shoes0.png';
             case 'campGear': 
-                return './images/products/clothes.png';
+                // return './images/products/campGear/.png';
+                return './images/products/clothes/clothes0.png';
             case 'others':
-                return './images/products/poles0.png';
+                return './images/products/others/poles0.png';
             }
         },
     },
