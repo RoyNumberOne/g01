@@ -1,18 +1,23 @@
 #MemOrder{
+    display: inline-block;
     .memOrder_pc{
+        background-color:#EAF1F4;
+        border-radius:10px;
         table{
             border-collapse: collapse;
             margin: 50px auto;
             width: 95%;
             text-align: center;
             th{
-                border-bottom: 2px solid black;
+                border-bottom: 1px solid black;
                 color: #2C5E9E;
                 padding: 25px 0px;
+                font-size: 18px;
             }
             td{
-                border-bottom: 2px solid black;
+                border-bottom: 1px solid black;
                 padding: 25px 0px;
+                font-size: 16px;
             }
         }
         .orderPages{
@@ -21,40 +26,51 @@
     }
 }
 
-// 手機版(縮小時左邊會被咖掉，可能是手機公版問題?)
+// 手機版
 #MemOrder{
+    display: inline-block;
     .memOrder_mob{
-        background-color: #FFC400;
-        border-radius: 30px;
-        padding: 20px;
+        display: inline-block;
+        background-color: #EAF1F4;
+        border-radius: 10px;
+        margin: 50px auto;
+        padding: 10px;
         display: none;
+        width: 80%;
         table{
             border-collapse: collapse;
             margin: 0 auto;
             th{
-                border-bottom: 2px solid white;
+                border-bottom: 1px solid black;
                 text-align: left;
                 padding:10px 30px 5px 5px;
+                font-size: 18px;
+                color: #2C5E9E;
             }
             td{
-                border-bottom: 2px solid white;
+                border-bottom: 1px solid black;
                 text-align: left;
                 padding-right: 20px;
+                font-size: 16px;
             }
     
         }
         p{
             text-align: right;
+            margin-right: 30px;
         }
     }
 }
 
 // RWD
 @media screen and (max-width: 767px){
-    #memOrder{
-        display: none;
-    }
-    #memOrder_mob{
-        display: block;
-    }
+    #MemOrder{
+        .memOrder_pc{
+            display: none;
+        }
+        .memOrder_mob{
+            display: block;
+        }
+
+    } 
 }
