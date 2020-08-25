@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/MemberGuide.css">
     <title>嚮導認證申請表</title>
 </head>
 <body>
 <main>
     <div id="certificationGuide">
-        <h3><span>感謝您的申請</span></h3>  
+        <h2><span>感謝您的申請</span></h2>  
         <?php 
-            // $to 為拷貝路徑...
             switch($_FILES["guide_image"]["error"]){
                 case UPLOAD_ERR_OK:
                     $dir = "images";
@@ -39,7 +40,11 @@
                     echo "系統錯誤 請通知維護人員<br>";
             }
             ?>
-            <img src="<?php echo "./$dir/".$_FILES["guide_image"]["name"]; ?> " width="500px" height="320px" id="photo"/><br> 
+            <div id="photo_b">
+                <img src="<?php echo "./$dir/".$_FILES["guide_image"]["name"]; ?> " width="400px" height="250px" id="photo"/>
+                <div><p>已送出審核</p></div>
+            </div>
+                <br> 
             <div id="Guide_card">
             <?php
                 echo "<table>","<tr>","<th>","證照編號：","</th>","<td>",$_POST["guide_no"],"</td>";
@@ -50,8 +55,10 @@
                 // echo "證照編號：",$_POST["guide_no"],"<br>";
                 // echo "發證日期：",$_POST["guide_period_start"],"<br>";
             ?>   -->
+            <a href="./"><button class="btnA_L"><p>點我回首頁</p></button></a>
+ 
             </div>
-        <a href="./"><span>回首頁</span></a>                       
+                            
     </div>
 </main>
 </body>
