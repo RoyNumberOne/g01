@@ -273,7 +273,7 @@
                 <div>
                     <h4 class="text_underline">報名狀態</h4>
                 </div>
-                <button class="btnB_XL_yellow apply_bt"><p>報名活動</p><div class="bg"></div></button>
+                <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
             </div>
         </div>
         <div class="introduction-application_block">
@@ -589,7 +589,7 @@
 <!-- lightbox -->
 <script>
     $(function(){
-        $(".apply_bt").click(function(){
+        $("#apply_bt").click(function(){
             $("#meet2-3-1").removeClass("close");
         })
     });
