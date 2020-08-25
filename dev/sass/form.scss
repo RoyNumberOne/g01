@@ -29,6 +29,10 @@ $textColor1: #555555;
 }
     #main-forum{
         width: 75%;
+        .nextpage-btn{
+            text-align: center;
+            margin: 3% 0px;
+        }
     }
 
     //------------討論區用統一標題
@@ -290,7 +294,7 @@ $textColor1: #555555;
         color: white;
         line-height: 50px;
 
-        :nth-child(1){width: 12%;}
+        :nth-child(1){width: 12%; color: white;}
         :nth-child(2){width: 48%;}
         :nth-child(3){width: 10%;}
         :nth-child(4){width: 10%;}
@@ -537,6 +541,8 @@ $textColor1: #555555;
         }
     }
 
+
+
 /* ----------------------GO TOP---------------------- */
     #gotop a{
         text-decoration: none;
@@ -558,6 +564,10 @@ $textColor1: #555555;
         transition:all 0.5s;
         text-align: center;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    
+        & .svg-inline--fa.fa-arrow-up.fa-w-14 path{
+            color:#fff;
+        }
     }
 
 //-------------------------aside link---------------------------
@@ -736,10 +746,46 @@ $textColor1: #555555;
         }
     }
 
+    #forum-block{
+        #forum-list{
+            .form-container{
+                .theme{
+                    .context{
+                        display: none;
+                    }
+                    #poster-block{
+                        .user-name{
+                            span{
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+                .response{
+                    display: none;
+                }
+                .renews{
+                    display: none;
+                }
+            }
+        }
+    }
+
 }
 @media screen and (max-width: 575px){
     #parent_container{
         border: 1px solid rgb(135, 14, 151);
+    }
+    .news-block{
+        .hot-top{
+            .ntittle{
+                .hot-bgc_img{
+                    left: 20px;
+                    top: -50px;
+                    transform: rotateY(180deg);
+                }
+            }
+        }
     }
     .search-block{
         margin: 0;
@@ -777,5 +823,54 @@ $textColor1: #555555;
         .billboard-block{
             display: none;
         }
+    }
+    #forum-block{
+        #forum-tittle{
+            :nth-child(3){
+                display: none;
+                color: white;
+            }
+            :nth-child(4){
+                line-height: 28px;
+            }
+            :nth-child(5){
+                display: none;
+            }
+
+        }
+        #forum-list{
+            .form-container{
+                .theme:nth-child(2){
+                    width: 100%;
+                    .context{
+                        display: none;
+                    }
+                    .tittle{
+                        line-height: 30px;
+                        font-size: 16px;
+                    }
+                    #poster-block{
+                        .user-name{
+                            span{
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .message-time:nth-child(4){
+                    width: auto;
+                }
+                .response{
+                    display: none;
+                }
+                .renews{
+                    display: none;
+                }
+            }
+        }
+    }
+    #aside-link{
+        display: none;
     }
 }
