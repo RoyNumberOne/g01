@@ -259,10 +259,9 @@ $textColor1: $mt_fontdark;
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     // 請用1152
          // max-width: 1152px;
-    
-
     #meet2-2{
         max-width: 1152px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px){
@@ -272,6 +271,7 @@ $textColor1: $mt_fontdark;
 
     #meet2-2{
         max-width: 960px;
+        width: 100%;
         .tour_build_form{
             .tour_build_step2{ //步驟二
                 .tour_info2{
@@ -294,6 +294,7 @@ $textColor1: $mt_fontdark;
 
     #meet2-2{
         max-width: 720px;
+        width: 100%;
         .step{
             ul{
                 li{
@@ -338,6 +339,7 @@ $textColor1: $mt_fontdark;
 
     #meet2-2{
         max-width: 540px;
+        width: 100%;
         .step{
             ul{
             justify-content: space-between;

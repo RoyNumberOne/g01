@@ -29,6 +29,12 @@
                 display: inline-block;
                 width: 10px;
                 height: 10px;
+                position: relative;
+                .fa-thumbs-up,.fa-check-circle{
+                    width: 100%;
+                    position: absolute;
+                    top:0;
+                }
             }
         }
         .memberId{
