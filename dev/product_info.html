@@ -18,7 +18,7 @@
 </head>
 <body>
     <!-- @@include('header.html') -->
-    
+<div id="app">  <!-- demo之後刪掉 -->
     <header> 
 
         <div id="headerbox">
@@ -42,7 +42,8 @@
                 </ul>
                 <ul class="link_list llright">
                     <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
-                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a class="cart" href="./shoppingcart.html" style="position:relative;"><i class="fa fa-shopping-cart"></i></a></li>
+                    <div class="add_count">{{addCount}}</div>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -67,7 +68,9 @@
         </div>
 
     </header>
-    <div class="wrap" id="app">
+
+    <!-- <div class="wrap" id="app"> demo之後修改回來-->
+    <div class="wrap">
         <a href="./product.html"><button class="btnA_LwLA"><p>回總覽</p><div class="btnArrowL"></div></button></a>        
         <div class="product_block">
             <div class="left">
@@ -81,12 +84,12 @@
                 </div>
                 <div class="move">
                     <div class="pre" @click="pre">
-                        <div class="pre_pic"><img src="./images/products/poles0.png" alt=""></div>
+                        <div class="pre_pic"><img :src="preProduct.product_image_1" alt=""></div>
                         <button class="btnA_LwLA"><p>PREV</p><div class="btnArrowL"></div></button>
                     </div>
                     <div class="next" @click="next">
                         <button class="btnA_LwRA"><p>NEXT</p><div class="btnArrowL"></div></button>
-                        <div class="next_pic"><img src="./images/products/shoes0.png" alt=""></div>
+                        <div class="next_pic"><img :src="nextProduct.product_image_1" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -102,7 +105,8 @@
                 </div>
                 <div class="money_chart">
                     <div class="money">${{currentProduct.product_price}}</div>
-                    <button class="btnB_XL_yellow chart"><p>加入購物車</p><div class="bg"></div></button>
+                    <button class="btnB_XL_yellow add_chart" @click="addCount += 1"><p>加入購物車</p><div class="bg"></div></button>
+                    <!-- <div class="add_count">{{addCount}}</div> -->
                 </div>
                 <div class="artical">
                     <h4 class="related_artical">相關討論文章</h4>
@@ -111,13 +115,20 @@
                         <div class="at_dot"></div>
                         <div class="at_dot"></div>
                     </div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>  <!-- demo之後刪掉 -->
     <!-- @@include('footer.html') -->
     <footer class="footer">
         <div class="footer_logo_block">
@@ -167,17 +178,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        $(document).ready(function(){
-            $(".changeIcon").click(function(){
-                if($(".heart").src != "./images/icons/md-heart.png"){
-                    $(".heart").attr("src","./images/icons/md-heart.png");
-                }else{
-                    $(".heart").attr("src","./images/icons/feather-heart.png");
-                }
-            })
-        })
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/product_info.js"></script>
