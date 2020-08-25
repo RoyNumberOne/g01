@@ -15,7 +15,7 @@
               
                     // .then(res => this.products = res.data)
                     // .then(res => {console.log(res.data)})
-                    // .catch(error => {console.log(error)});
+                    .catch(error => {console.log(error)});
                 
 
             },
@@ -55,7 +55,12 @@
                         case 2: 
                         return  this.currentProduct.product_image3;
                     }
-                }
+                },
+                // nextImg(){
+                //     this.currentImageIndex = this.currentImageIndex + 1;
+                //     this.nextImage = this.currentImageIndex.product_image1;
+                //     return this.nextImage;
+                // },
             },
             methods:{
                 next(){

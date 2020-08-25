@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友討論區</title>
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -11,7 +12,6 @@
     <link rel="stylesheet" href="./css/form.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <!-- <link rel="stylesheet" href="./css/common.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
@@ -79,7 +79,7 @@
             <div class="news-block">
                 <div class="hot-top">
                     <div class="ntittle">
-                        <h2>最新公告</h2>
+                        <h2 class="text_underline">最新公告</h2>
                         <div class="hot-bgc_img"></div>
                 </div>
                 </div>
@@ -105,7 +105,7 @@
 
             <div class="billboard-block">
                 <div class="ntittle">
-                    <h2>討論度排行榜</h2>
+                    <h2 class="text_underline">討論度排行榜</h2>
                 </div>
 
             <!---------熱門討論排行榜----------->
@@ -241,7 +241,7 @@
             </div>
 
             <div class="ntittle">
-                <h2>討論專區</h2>
+                <h2 class="text_underline">討論專區</h2>
             </div>
 
             <div class="search-block">
@@ -255,17 +255,19 @@
                             <button type="submit">登山知識</button>
                         </form>
                     </div>
-                    <div class="searchbar">
-                        <input type="search" placeholder="搜尋心得">
-                        <div class="searchicon">
-                            <img src="./images/form_img/searchicon.png" alt="">
+                    <div class="bar-block">
+                        <div class="searchbar">
+                            <input type="search" placeholder="搜尋心得">
+                            <div class="searchicon">
+                                <img src="./images/form_img/searchicon.png" alt="">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="ask_btn">
-                        <!-- <form  method="post" enctype="multipart/form-data"> -->
-                            <button class="btnB_L_yellow" onclick="location.href='./post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
-                        <!-- </form> -->
+    
+                        <div class="ask_btn">
+                            <!-- <form  method="post" enctype="multipart/form-data"> -->
+                                <button class="btnB_L_yellow" onclick="location.href='./post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
+                            <!-- </form> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -857,7 +859,7 @@
             </div>
 
             <div class="hot-title">
-                <h3>精選熱門揪團</h3>
+                <h2 class="text_underline">精選熱門揪團</h2>
                 <div class="color-bottom01"></div>
             </div>
 
@@ -1093,7 +1095,7 @@
             </div>
 
             <div class="video" style="margin-top: 5%;">
-				<iframe width="300px" height="300px" src="https://www.youtube.com/embed/PB4gId2mPNc" frameborder="0" 
+				<iframe width="100%" height="300px" src="https://www.youtube.com/embed/PB4gId2mPNc" frameborder="0" 
 				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             

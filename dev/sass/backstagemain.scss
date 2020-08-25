@@ -3,20 +3,19 @@ $background:#eaf1f4;
 body{
     height: 100vh;
     background-color:$background !important;
-    overflow: hidden;
+    // overflow: hidden;
     box-sizing: border-box;
 }
 main{
-    max-width: 1300px;
-    width: 100%;
     display: flex;
-    height: 100%;
-    margin: 0 auto;
+    position: relative;
     aside{
-        width: calc(100% - 1152px);
         display: flex;
-        align-items: center;
-        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        // height: 100%;
         #BackstageNav {
             width: 120px;
             *{
@@ -115,7 +114,10 @@ main{
         }
     }
     section{
-        width: 1152px;
+        max-width: 960px;
+        width: 100%;
+        height: 100%;
+        margin: 80px auto 0;
         header{
             width: 100%;
             height: 50px;
@@ -124,7 +126,7 @@ main{
             font-size: 25px;
         }
         div{
-            height: calc(100% - 50px);
+            margin-top: 20px;
         }
     }
 }

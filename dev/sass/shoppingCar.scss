@@ -79,23 +79,28 @@ main{
                     display: flex;
                     text-align: center;
                     justify-content: space-between;;
-                    color: white;
+                    color: white !important;
                     vertical-align: middle;
                     line-height: 30px;
                     .shop_pic{
                         width: 25%;
+                        color: white !important;
                     }
                     .shop_name{
                         width: 25%;
+                        color: white !important;
                     }
                     .shop_num{
                         width: 20%;
+                        color: white !important;
                     }
                     .shop_price{
                         width: 15%;
+                        color: white !important;
                     }
                     .shop_del{
                         width: 15%;
+                        color: white !important;
                     }
                 }
                 .itemBox{
