@@ -1,0 +1,43 @@
+@import 'common';
+
+header#BackstageHeader{
+    z-index: 100;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: $mt_blue2;
+    border-bottom: 5px solid $mt_blue1;
+    & div#headerbox{
+        height: 100%;
+        width: 1152px;
+        // border: 2px solid red;
+        margin: 0 auto;
+        & div#inforbox {
+            height: 100%;
+            // width: 0px;
+            // border: 2px solid yellow;
+            float: right;
+            & * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            & div#avatorbox{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                & img {
+                    height: 100%;
+                }
+            }
+            & div#admininfor{
+                margin: 0 20px;
+                & div {
+                    text-align: right ;
+                    color: white;
+                }
+            }
+        }
+    }
+}

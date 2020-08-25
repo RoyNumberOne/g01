@@ -77,55 +77,8 @@
                         <div class="p_title">{{currentCategory}}</div>
                     </div>
                 </div>
-                <!-- <div class="category_list">
-                    <div class="bag"><img src="./images/products/衣服.png" alt="">
-                        <div class="show_hover">
-                            <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
-                        </div>
-                    </div>
-                    <div class="clothes"><img src="./images/products/bag.png" alt="">
-                        <div class="show_hover">
-                            <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
-                        </div>
-                    </div>
-                    <div class="shoes"><img src="./images/products/鞋子.png" alt="">
-                        <div class="show_hover">
-                            <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
-                        </div>
-                    </div>
-                    <div class="tent"><img src="./images/products/clothes.png" alt="">
-                        <div class="show_hover">
-                            <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
-                        </div>
-                    </div>
-                    <div class="others"><img src="./images/products/登山杖.png" alt="">
-                        <div class="show_hover">
-                            <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="product_block">
-                <!-- <div class="bt">
-                    <div class="left"><<<</div>
-                    <div class="right">>>></div>
-                </div> -->
-                <!-- <div class="items_block">
-                    <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
-                    <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
-                </div>
-                <div class="items_block">
-                    <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
-                    <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
-                </div>
-                <div class="items_block">
-                    <a href="./product_info.html"><div class="item_top it_bg1"><img src="./images/products/衣服.png" alt=""></div></a>
-                    <a href="./product_info.html"><div class="item_bom it_bg2"><img src="./images/products/鞋子.png" alt=""></div></a>
-                </div>
-                <div class="items_block">
-                    <a href="./product_info.html"><div class="item_top it_bg3"><img src="./images/products/衣服.png" alt=""></div></a>
-                    <a href="./product_info.html"><div class="item_bom it_bg4"><img src="./images/products/鞋子.png" alt=""></div></a>
-                </div> -->
                 <div v-for="(product, index) in currentProducts" class="items_block" :key='product.id' :class="backgroundColor(index)">
                     <!-- <div>{{product.product_name}}</div> -->
                         <a href="./product_info.html">
@@ -137,29 +90,29 @@
                 </div>
             </div>
             <div class="category_list">
-                <div class="bag"><img src="./images/products/clothes0.png" alt="">
+                <div class="clothes"><img src="./images/products/clothes/clothes01.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾</div>
+                        <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾 clothes</div>
                     </div>
                 </div>
-                <div class="clothes"><img src="./images/products/bag.png" alt="">
+                <div class="bag"><img src="./images/products/bag/bag0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包</div>
+                        <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包 bag</div>
                     </div>
                 </div>
-                <div class="shoes"><img src="./images/products/shoes0.png" alt="">
+                <div class="shoes"><img src="./images/products/shoes/shoes0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋</div>
+                        <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋 shoes</div>
                     </div>
                 </div>
-                <div class="tent"><img src="./images/products/clothes.png" alt="">
+                <div class="campGear"><img src="./images/products/campGear/tent0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備</div>
+                        <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備 campGear</div>
                     </div>
                 </div>
-                <div class="others"><img src="./images/products/poles0.png" alt="">
+                <div class="others"><img src="./images/products/others/poles0.png" alt="">
                     <div class="show_hover">
-                        <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件</div>
+                        <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件 others</div>
                     </div>
                 </div>
             </div>

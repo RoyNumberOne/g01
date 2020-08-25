@@ -86,6 +86,7 @@ $mt_green: #437F38;         //山的難易度icon,沒有的時候半透明.2
 // ==============fonts==============
 * {
     font-family: 'Noto Sans TC' !important;
+    color: $mt_fontdark;
 }
 // ============font style============
 .text_underline{  //文字裝飾黃色底線
@@ -112,19 +113,31 @@ h3 {
     letter-spacing: 1.5px;
     line-height: 1.6;
     font-weight: 800;
+    @media screen and (max-width: 1439px){
+        font-size: 18px;
+    }
 }
 p {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 1px;
+    @media screen and (max-width: 1439px){
+        font-size: 14px;
+    }
 }
 span {
     font-size: 14px;
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.4px;
+    @media screen and (max-width: 1439px){
+        font-size: 12px;
+    }
 }
+
+
+
 header nav p {
     font-size: 20px !important;
     font-weight: 600 !important;
@@ -146,27 +159,27 @@ html , body {
 // ===============media===============
 @media screen and (min-width: 1440px) {
     // 請用1366
-        // max-width: 1366px
+        // max-width: 1366px;
       }
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     // 請用1152
-        // max-width: 1152px
+        // max-width: 1152px;
       }
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
-        // max-width: 960px
+        // max-width: 960px;
       }
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
-        // max-width: 720px
+        // max-width: 720px;
       }
 @media screen and (min-width: 576px) and (max-width: 767px){
   // 請用540
-      // max-width: 540px
+      // max-width: 540px;
 }
 @media screen and (max-width: 575px){
     // 請用100%
-        // max-width: 100%
+        // max-width: 100%;
       }
 
 
@@ -789,6 +802,7 @@ button.btnA_S{
   overflow: hidden;
   &::after{
       content: "";
+      z-index: -1;
       width: 100%;
       height: 100%;
       background-color: $mt_yellow;
@@ -1056,4 +1070,49 @@ button.btnB_L_yellow{
   &:hover div.bg::after{
       left: 0%;
   }
+}
+
+
+// body height controll footer in bom
+@media screen and (min-width: 1440px) {
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    body{
+        min-height: calc(100vh - 70px - 209px);
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    body{
+        min-height: calc(100vh - 70px - 281px);
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    body{
+        min-height: calc(100vh - 70px - 380px);
+        display: flex;
+        flex-direction: column;
+    }
+ }
+@media screen and (max-width: 575px){
+    body{
+        min-height: calc(100vh - 70px - 392px);
+        display: flex;
+        flex-direction: column;
+    }
 }

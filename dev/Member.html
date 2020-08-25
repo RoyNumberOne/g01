@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>會員專區</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> <!--手機板buttonlist-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/css/swiper.min.css'>   <!--手機板buttonlist-->
+    <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
     <link rel="stylesheet" href="./css/Member_style.css">
     <link rel="stylesheet" href="./js/Member.js">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
 
 </head>
 <body>
@@ -78,28 +79,27 @@
                 <li><img src="./images/member/Ach_list_14.png"></li>
                 <li><img src="./images/member/Ach_list_01.png"></li>
             </ul>
-            <div class="follow">
-                <div class="follow_title">追蹤人數：</div>
-                <div class="follow_value">77</div>
-            </div>
-            <a href="#" class="profile">
+            <!-- <a href="#" class="profile">
                 <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
                 <div class="modify">個人修改資料</div>
-            </a>
+            </a> -->
+            <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
+                <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
+                <div class="modify">個人修改資料</div>
+            </button>
 
         </div>
         <div class="content">
             <div class="content_box">
                 <div class="aside_nav">
-                    <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemAccreditation')"><i class="fas fa-user-check"></i><p>認證</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFootprint')"><i class="fas fa-map-marked-alt"></i><p>足跡</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')"><i class="fas fa-trophy"></i><p>徽章</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')"><i class="fas fa-users"></i><p>揪團</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')"><i class="fas fa-book"></i><p>收藏</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')"><i class="fas fa-file-alt"></i><p>文章</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')"><i class="fas fa-money-bill-wave"></i><p>點數</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFollow')"><i class="far fa-star"></i><p>追蹤</p></button>
-                    <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')"><i class="fas fa-cart-arrow-down"></i><p>訂單</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')"><i class="fas fa-map-marked-alt"></i><p>足跡</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')"><i class="fas fa-user-check"></i><p>認證</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')"><i class="fas fa-trophy"></i><p>徽章</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')"><i class="fas fa-users"></i><p>揪團</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')"><i class="fas fa-book"></i><p>收藏</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')"><i class="fas fa-file-alt"></i><p>文章</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')"><i class="fas fa-money-bill-wave"></i><p>點數</p></button>
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')"><i class="fas fa-cart-arrow-down"></i><p>訂單</p></button>
                 </div>
                 
                 <!-- 把aside獨立拉content_box 不要鎖寬度 -->
@@ -156,55 +156,164 @@
                 <div class="swiper_media575">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide MemAccreditation">
-                                <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemAccreditation')">
-                                    <i class="fas fa-user-check"></i>
-                                </button>
-                            </div>
                             <div class="swiper-slide MemFootprint">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFootprint')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')">
                                     <i class="fas fa-map-marked-alt"></i>
                                 </button>
                             </div>
+                            <div class="swiper-slide MemAccreditation">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')">
+                                    <i class="fas fa-user-check"></i>
+                                </button>
+                            </div>
                             <div class="swiper-slide MemAchievement">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">
                                     <i class="fas fa-trophy"></i>
                                 </button>
                             </div>
                             <div class="swiper-slide MemTravel">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
                                     <i class="fas fa-users"></i>
                                 </button>
                             </div>
                             <div class="swiper-slide MemFavorites">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
                                     <i class="fas fa-book"></i>
                                 </button>
                             </div>
                             <div class="swiper-slide MemPost">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
                                     <i class="fas fa-file-alt"></i>
                                 </button>
                             </div>
                             <div class="swiper-slide MemPoints">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">
                                     <i class="fas fa-money-bill-wave"></i>
                                 </button>
                             </div>
-                            <div class="swiper-slide MemFollow">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFollow')">
-                                    <i class="far fa-star"></i>
+                            <div class="swiper-slide MemOrder">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
+                                    <i class="fas fa-cart-arrow-down"></i>
                                 </button>
                             </div>
-                            <div class="swiper-slide MemOrder">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
-                                    <i class="fas fa-cart-arrow-down"></i></button>
+                            <div class="swiper-slide MemDetail">
+                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemDetail')">
+                                    <i class="fas fa-pen"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
+                    
+                    <div id="MemFootprint" class="pages">
+                        <div class="page_info">
+                            <div class="titlebackground">
+                                <div class="title">我的足跡</div>
+                            </div>
+                        </div>
+                        <div class="record_list">
+                            <div class="location_record">
+                                <div class="background">
+                                    <img src="./images/member/location_record_map.png">
+                                </div>
+                                <div class="point1 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point2 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point3 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                                <div class="point4 point">
+                                    <img src="./images/member/Pushpin.png">
+                                    <div class="value_box"></div>
+                                </div>
+                            </div>
+                            <div class="text_record">
+                                <div class="TR_title">
+                                    <div><hr></div>
+                                    <div class="title">登山活動紀錄</div>
+                                    <div><hr></div>
+                                </div>
+                                <div class="TR_box1 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g5.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="TR_box2 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g6.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="TR_box3 TR_box">
+                                    <div class="img_value">
+                                        <img src="./images/form_img/g8.jpg">
+                                    </div>
+                                    <div class="text_value">
+                                        <div class="TV_travel TV">
+                                            <p>路線：</p>
+                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                        </div>
+                                        <div class="TV_date TV">
+                                            <p>日期：</p>
+                                            <div class="value2 TV_value">2020-05-04 (一)</div>
+                                        </div>
+                                        <div class="TV_distance TV">
+                                            <p>路線長度：</p>
+                                            <div class="value3 TV_value">12000 (公尺)</div>
+                                        </div>
+                                        <div class="TV_points TV">
+                                            <p>獲得點數：</p>
+                                            <div class="value4 TV_value">400 (點)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="MemAccreditation" class="pages">
                         <div class="page_info">
                             <div class="titlebackground">
@@ -230,105 +339,6 @@
                                     </div>
                                     <div class="background2"></div>
                                     <a href="./MemberGuide.html"><span>點我申請</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="MemFootprint" class="pages">
-                        <div class="page_info">
-                            <div class="titlebackground">
-                                <div class="title">我的足跡</div>
-                            </div>
-                        </div>
-                        <div class="record_list">
-                            <div class="location_record">
-                                <div class="background"></div>
-                                <div class="point1 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point2 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point3 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                                <div class="point4 point">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="value_box"></div>
-                                </div>
-                            </div>
-                            <div class="text_record">
-                                <div class="TR_title">
-                                    <div><hr></div>
-                                    <div class="title">登山活動紀錄</div>
-                                    <div><hr></div>
-                                </div>
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value"></div>
-                                    <div class="text_value">
-                                        <div class="TV_travel">
-                                            <p>路線：</p>
-                                            <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
-                                        </div>
-                                        <div class="TV_date">
-                                            <p>日期：</p>
-                                            <div class="value2 TV_value">2020-05-04 (一)</div>
-                                        </div>
-                                        <div class="TV_distance">
-                                            <p>路線長度：</p>
-                                            <div class="value3 TV_value">12000 (公尺)</div>
-                                        </div>
-                                        <div class="TV_points">
-                                            <p>獲得點數：</p>
-                                            <div class="value4 TV_value">400 (點)</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -475,12 +485,14 @@
                             <label for="tabone">發起的揪團</label>
                             <div class="myself_list list_style tab">
                               <div class="item_1 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                      <img src="./images/member/fake/mountain01.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">1李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -501,12 +513,14 @@
                                   </div>
                               </div>
                               <div class="item_2 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain02.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">新北汐止五指山古道、友蚋山南峰(五人就出發!!!)</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -519,20 +533,22 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">3</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-19(六)</div>
                                   </div>
                               </div>
                               <div class="item_3 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain03.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">聖稜線~雪山縱走大霸尖山(不適合新手~)</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">北部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -545,20 +561,22 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">6</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-25(五)</div>
                                   </div>
                               </div>
                               <div class="item_4 page">
-                                  <div class="img_box"></div>
+                                  <div class="img_box">
+                                    <img src="./images/member/fake/mountain04.jpg">
+                                  </div>
                                   <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
+                                      <div class="text_title">雪劍大縱走之雪山主峰、雪山東峰</div>
                                       <div class="text_prompt">
                                           <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
+                                          <div class="TP_area TP">中部</div>
                                           <div class="TP_title TP">難度</div>
                                           <div class="TP_level TP">
                                               <i class="fas fa-mountain Lv1"></i>
@@ -571,63 +589,11 @@
                                   </div>
                                   <div class="info_box">
                                       <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
+                                      <div class="info_value">6</div>
                                   </div>
                                   <div class="date_box">
                                       <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_5 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_6 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
+                                      <div class="date_value">2020-09-07(一)</div>
                                   </div>
                               </div>
                               <div class="pagetab">
@@ -644,171 +610,71 @@
                             <input type="radio" name="tabs" id="tabtwo">
                             <label for="tabtwo">參加的揪團</label>
                             <div class="travel_list list_style tab">
-                              <div class="item_1 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_2 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_3 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_4 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_5 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_6 page">
-                                  <div class="img_box"></div>
-                                  <div class="text_box">
-                                      <div class="text_title">李棟山大混山縱走(新竹/登山/JRJ約爬)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">新竹</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="pagetab">
-                                  <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                                  <button class="btnA_S pg -active"><p>01</p></button>
-                                  <button class="btnA_S pg"><p>02</p></button>
-                                  <button class="btnA_S pg"><p>03</p></button>
-                                  <button class="btnA_S pg"><p>04</p></button>
-                                  <button class="btnA_S pg"><p>05</p></button>
-                                  <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                              </div>
+                                <div class="item_5 page">
+                                    <div class="img_box">
+                                      <img src="./images/member/fake/mountain05.jpg">
+                                    </div>
+                                    <div class="text_box">
+                                        <div class="text_title">假日團~ 挑戰大坑4號步道頭嵙山</div>
+                                        <div class="text_prompt">
+                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                            <div class="TP_area TP">中部</div>
+                                            <div class="TP_title TP">難度</div>
+                                            <div class="TP_level TP">
+                                                <i class="fas fa-mountain Lv1"></i>
+                                                <i class="fas fa-mountain Lv2"></i>
+                                                <i class="fas fa-mountain Lv3"></i>
+                                                <i class="fas fa-mountain Lv4"></i>
+                                                <i class="fas fa-mountain Lv5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_box">
+                                        <div class="info_title">目前報名人數</div>
+                                        <div class="info_value">7</div>
+                                    </div>
+                                    <div class="date_box">
+                                        <div class="date_title">開團日期</div>
+                                        <div class="date_value">2020-08-30(日)</div>
+                                    </div>
+                                </div>
+                                <div class="item_6 page">
+                                    <div class="img_box">
+                                      <img src="./images/member/fake/mountain06.jpg">
+                                    </div>
+                                    <div class="text_box">
+                                        <div class="text_title">合歡南峰縱走合歡主峰三天兩夜 無需負重!!!</div>
+                                        <div class="text_prompt">
+                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                            <div class="TP_area TP">中部</div>
+                                            <div class="TP_title TP">難度</div>
+                                            <div class="TP_level TP">
+                                                <i class="fas fa-mountain Lv1"></i>
+                                                <i class="fas fa-mountain Lv2"></i>
+                                                <i class="fas fa-mountain Lv3"></i>
+                                                <i class="fas fa-mountain Lv4"></i>
+                                                <i class="fas fa-mountain Lv5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_box">
+                                        <div class="info_title">目前報名人數</div>
+                                        <div class="info_value">8</div>
+                                    </div>
+                                    <div class="date_box">
+                                        <div class="date_title">開團日期</div>
+                                        <div class="date_value">2020-09-3(四)</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="pagetab">
+                                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                                    <button class="btnA_S pg -active"><p>01</p></button>
+                                    <button class="btnA_S pg"><p>02</p></button>
+                                    <button class="btnA_S pg"><p>03</p></button>
+                                    <button class="btnA_S pg"><p>04</p></button>
+                                    <button class="btnA_S pg"><p>05</p></button>
+                                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -826,195 +692,237 @@
                         </div>
                         <div id="class1" class="container class">
                             <div class="post_list">
-                                <div class="item_1 page">
-                                    <div class="page_img">
-                                        <img src="./images/form_img/g10.jpg">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_1 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g10.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                        <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約 二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)</div>
+                                </a>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_2 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g3.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_2 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                </a>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_3 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g8.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                </a>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_4 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g7.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_3 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                </a>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_5 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g6.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                </a>
+                                <a href="./comment.html" target="_blank">
+                                    <div class="item_6 page">
+                                        <div class="page_img">
+                                            <img src="./images/form_img/g5.jpg">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">[新手專區]5個容易忽略的健行風險...</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_4 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
-                                <div class="item_5 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
-                                <div class="item_6 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div id="class2" class="container class">
                             <div class="travel_list">
                                 <div class="item_1 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain01.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                                 <div class="item_2 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain02.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                                 <div class="item_3 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain03.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                                 <div class="item_4 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain04.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                                 <div class="item_5 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain05.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                                 <div class="item_6 page">
                                     <div class="page_img">
+                                        <img src="./images/member/fake/mountain06.jpg">
                                         <div class="label">分類標籤</div>
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                        <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div id="class3" class="container class">
                             <div class="product_list">
-                                <div class="item_1 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_1 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/bag.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                </a>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_2 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/bag11.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_2 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                </a>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_3 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/鞋子.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                </a>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_4 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/clothes.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_3 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
+                                </a>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_5 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/登山杖.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
+                                </a>
+                                <a href="./product_info.html" target="_blank">
+                                    <div class="item_6 page">
+                                        <div class="page_img">
+                                            <img src="./images/products/衣服.png">
+                                            <div class="label">分類標籤</div>
+                                            <div class="delete">╳</div>
+                                        </div>
+                                        <div class="page_info">
+                                            <div class="title">KEEN 低筒健行鞋</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_4 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
-                                <div class="item_5 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
-                                <div class="item_6 page">
-                                    <div class="page_img">
-                                        <div class="label">分類標籤</div>
-                                        <div class="delete">╳</div>
-                                    </div>
-                                    <div class="page_info">
-                                        <div class="title">資訊標題</div>
-                                        <div class="text">資訊內容</div>
-                                    </div>
-                                </div>
+                                </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -1027,7 +935,9 @@
                         </div>
                         <div class="post_list">
                             <div class="item_1 page">
-                                <div class="img_box"></div>
+                                <div class="img_box">
+                                    <img src="./images/form_img/g8.jpg">
+                                </div>
                                 <div class="text_box">
                                     <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
                                     <div class="text_prompt">
@@ -1049,7 +959,9 @@
                                 </div>
                             </div>
                             <div class="item_2 page">
-                                <div class="img_box"></div>
+                                <div class="img_box">
+                                    <img src="./images/form_img/g10.jpg">
+                                </div>
                                 <div class="text_box">
                                     <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
                                     <div class="text_prompt">
@@ -1071,7 +983,9 @@
                                 </div>
                             </div>
                             <div class="item_3 page">
-                                <div class="img_box"></div>
+                                <div class="img_box">
+                                    <img src="./images/form_img/g1.jpg">
+                                </div>
                                 <div class="text_box">
                                     <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
                                     <div class="text_prompt">
@@ -1093,7 +1007,9 @@
                                 </div>
                             </div>
                             <div class="item_4 page">
-                                <div class="img_box"></div>
+                                <div class="img_box">
+                                    <img src="./images/form_img/g2.jpg">
+                                </div>
                                 <div class="text_box">
                                     <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
                                     <div class="text_prompt">
@@ -1115,51 +1031,9 @@
                                 </div>
                             </div>
                             <div class="item_5 page">
-                                <div class="img_box"></div>
-                                <div class="text_box">
-                                    <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
-                                    <div class="text_prompt">
-                                        <div class="TP_release TP">
-                                            <p>發表時間：</p>
-                                            <div class="value1 TP_value">2020-08-21</div>
-                                        </div>
-                                    </div>
+                                <div class="img_box">
+                                    <img src="./images/form_img/g3.jpg">
                                 </div>
-                                <div class="edit_box">
-                                    <div class="edit_btn">
-                                        <button class="btnB_L_blue"><p>編輯</p><div class="bg"></div></button>
-                                    </div>
-                                </div>
-                                <div class="delete_box">
-                                    <div class="delete_btn">
-                                        <button class="btnB_L_yellow"><p>刪除</p><div class="bg"></div></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item_6 page">
-                                <div class="img_box"></div>
-                                <div class="text_box">
-                                    <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
-                                    <div class="text_prompt">
-                                        <div class="TP_release TP">
-                                            <p>發表時間：</p>
-                                            <div class="value1 TP_value">2020-08-21</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="edit_box">
-                                    <div class="edit_btn">
-                                        <button class="btnB_L_blue"><p>編輯</p><div class="bg"></div></button>
-                                    </div>
-                                </div>
-                                <div class="delete_box">
-                                    <div class="delete_btn">
-                                        <button class="btnB_L_yellow"><p>刪除</p><div class="bg"></div></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item_7 page">
-                                <div class="img_box"></div>
                                 <div class="text_box">
                                     <div class="text_title">【心得】合歡山初縱走(適合登山新手)</div>
                                     <div class="text_prompt">
@@ -1190,6 +1064,50 @@
                                 <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
                             </div>
                           </div>
+                    </div>
+
+                    <div id="MemPoints" class="pages">
+                        <div class="page_info">
+                            <div class="titlebackground">
+                                <div class="title">我的點數</div>
+                            </div>
+                        </div>
+                        <div class="points">
+                            <h3>目前累積點數</h3>
+                            <p>$2000</p>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>日期</th>
+                                <th>點數明細</th>
+                                <th>點數</th>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>討論區發文獲得</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>揪團頁發文獲得</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>討論區發文獲得</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>開團成功</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>入團成功</td>
+                                <td>300</td>
+                            </tr>
+                        </table>
                     </div>
 
                     <div id="MemOrder" class="pages">
@@ -1332,6 +1250,36 @@
                                 <p>已完成</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div id="MemDetail" class="pages">
+                        <div class="page_info">
+                            <div class="titlebackground">
+                                <div class="title">修改資料</div>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="mem_frame">
+                                <div class="mem_change">
+                                    <p>暱稱</p><p>Hiko</p><br>
+                                    <input type="text" id="mem_id">
+                                </div>
+                                <div class="mem_change">
+                                    <p>信箱</p><p>Hiko@gmail.com</p><br>
+                                    <input type="text" id="mem_mail">
+                                </div>
+                                <div class="mem_change">
+                                    <p>密碼</p><br>
+                                    <input type="text" id="mem_psw">
+                                </div>
+                                <div class="mem_change">
+                                    <p>確認密碼</p><br>
+                                    <input type="text">
+                                </div>
+                                <input type="submit" value="確認送出" id="sub">
+                                <input type="button" name="back" value="取消修改" onClick="history.back()" id="back">
+                            </div>
+                        </form>
                     </div>
 
                 </div><!-- ----------各頁面內容放這(end)-------------------- -->

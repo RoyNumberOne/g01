@@ -18,7 +18,8 @@
             h2{
                 grid-area: 1/1/2/4;
                 margin: auto;
-                font-size: 36px;
+                font-size: 30px;
+                font-weight: 600;
             }
             .box{
                 background-color: rgb(219, 219, 219);
@@ -70,6 +71,7 @@
                     grid-template-rows: repeat(3,1fr);
                     span{
                         grid-area: 2/1/3/2;
+                        font-size: 20px;
                     }
                 }
             }
@@ -117,7 +119,6 @@
             grid-template-rows: repeat(2,1fr);
             .certificate{
                 height: 500px;
-                h2{                }
                 .box{
                     grid-area: 2/1/6/4;
                 }
@@ -127,16 +128,13 @@
 }
 @media screen and (max-width: 575px){
     #MemAccreditation{
-        width: 100%;
         .accreditation_list{
             margin: 0 auto;
-            width: 70%;
-            height: 100%;
+            width: 85%;
             grid-template-columns: repeat(1,1fr);
             grid-template-rows: repeat(2,1fr);
             .certificate{
-                height: 500px;
-                h2{                }
+                height: 600px;
                 .box{
                     grid-area: 2/1/6/4;
                 }

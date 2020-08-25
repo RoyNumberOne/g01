@@ -63,7 +63,6 @@ header{
     #form-table{
         display: flex;
         flex-wrap: wrap;
-        margin: 5% 0;
 
         .text{
             width: 20%;
@@ -86,8 +85,6 @@ header{
         }
     }
     .update-img{
-        padding: 10px;
-        background-color: rgb(163, 163, 163);
         width: 30%;
         text-align: center;
         cursor:pointer;
@@ -117,12 +114,15 @@ header{
           height: 190px;
           resize: none;
       }
+      .post-btnB_XL_yellow{
+        text-align: center;
+      }
 
 /* ----------------------GO TOP---------------------- */
     #gotop a{
         text-decoration: none;
     }
-    
+
     #gotop {
         position:fixed;
         z-index:90;
@@ -220,6 +220,11 @@ header{
         border: 1px solid rgb(135, 14, 151);
         .update-img{
             width: 70%;
+        }x
+        #form-table{
+            .text{
+                width: auto;
+            }
         }
     }
 }

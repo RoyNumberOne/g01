@@ -73,10 +73,14 @@ desc member;
 
 SELECT * FROM member_guide;
 desc member_guide;
--- 嚮導認證 - 未處理
-SELECT * FROM member_guide where mem_guide_situation = "未審核";
 -- 嚮導認證 - 未處理的數量
 SELECT count(*) FROM member_guide where mem_guide_situation = "未審核";
+-- 嚮導認證 - 未處理
+SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間"  FROM member_guide where mem_guide_situation = "未審核" order by "審核時間" ;
+-- 嚮導認證 - 已處理已通過
+SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核已通過" order by "審核時間" ;
+-- 嚮導認證 - 已處理未通過
+SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核未通過" order by "審核時間" ;
 
 -- insert into member_guide (guide_no,mem_no,guide_period_start,guide_period_end,guide_image) value ('101061','10002','1998/5/6', date_add('1998/5/6', interval 4 year),'#');
 
@@ -85,10 +89,14 @@ desc member_keep;
 
 SELECT * FROM member_realname;
 desc member_realname;
--- 實名制認證 - 未處理
-SELECT * FROM member_realname where mem_realname_situation = "未審核";
 -- 實名制認證 - 未處理的數量
 SELECT count(*) FROM member_realname where mem_realname_situation = "未審核";
+-- 實名制認證 - 未處理
+SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間"  FROM member_realname where mem_realname_situation = "未審核" order by "申請時間" ;
+-- 實名制認證 - 已處理已通過
+SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核已通過" order by "審核時間" ;
+-- 實名制認證 - 已處理未通過
+SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核未通過" order by "審核時間" ;
 
 SELECT * FROM mountain;
 desc mountain;
@@ -101,6 +109,15 @@ desc orders;
 
 SELECT * FROM product;
 desc product;
+-- 商品 - 上架中
+select product_no "商品編號" , degree_category "商品難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 1; 
+-- 商品 - 未上架
+select product_no "商品編號" , degree_category "商品難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 0; 
+-- 商品 - 新增
+INSERT INTO product (product_name,product_category,degree_category,product_price,product_description,product_image1,product_image2,product_image3,product_situation)
+    VALUES ('測試啦反正不會成功1', '登山鞋','2','100','跳樓大拍賣100元','default','default','default','0');
+
+
 
 SELECT * FROM product_keep;
 desc product_keep;

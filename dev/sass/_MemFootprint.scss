@@ -5,7 +5,7 @@
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(1,1fr);
-        // transform: translateY(10%);
+        transform: translateY(30px);
         .location_record{
             width: 550px;
             grid-area: 1/1/2/2;
@@ -15,38 +15,36 @@
             .background{
                 width: 550px;
                 grid-area: 1/1/13/13;
-                background-image: url(../images/member/location_record_map.png);
-                background-repeat: no-repeat;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
             .point{
-                margin: auto;
-                font-size: 100px;
+                // width: 74px;
+                margin: 0;
                 color: #0b1e35;
+                img{
+                    width: 100%;
+                }
                 .value_box{
-                    background-color: #ffffff;
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 99em;
-                    position: absolute;
-                    top: 17px;
-                    left: calc(50% + -25px);
                 }
             }
             .point1{
-                grid-area: 1/7/2/8;
-                transform: translate(100%, 0%);
+                grid-area: 1/10/2/11;
+                transform: translate(0%, 0%);
             }
             .point2{
-                grid-area: 3/5/4/6;
+                grid-area: 4/5/5/6;
                 transform: translate(-50%, 0%);
             }
             .point3{
-                grid-area: 4/7/5/8;
-                transform: translate(50%, -50%);
+                grid-area: 5/9/6/10;
+                transform: translate(0%, 0%);
             }
             .point4{
-                grid-area: 7/7/8/8;
-                transform: translate(-50%, -80%);
+                grid-area: 9/7/10/8;
+                transform: translate(0%, 0%);
             }
         }
         .text_record{
@@ -58,19 +56,25 @@
             .TR_title{
                 margin: auto 0;
                 text-align: center;
+                font-size: 20px;
                 grid-area: 1/1/2/2;
                 display: grid;
                 grid-template-columns: repeat(3,1fr);
                 grid-template-rows: repeat(1,1fr);
             }
             .TR_box{
-                margin: auto 0;
+                margin: auto;
+                width: 95%;
                 display: grid;
                 grid-template-columns: repeat(2,1fr);
                 grid-template-rows: repeat(1,1fr);
                 .img_value{
                     grid-area: 1/1/2/2;
-                    background-color: red;
+                    height: 210px;
+                    img{
+                        width: 230px;
+                        height: 100%;
+                    }
                 }
                 .text_value{
                     margin: 0 auto;
@@ -89,6 +93,87 @@
             }
             .TR_box3{
                 grid-area: 6/1/8/2;
+            }
+        }
+    }
+}
+
+
+
+// ===========media screen===========
+
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px
+
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+        // max-width: 1152px
+
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+        // max-width: 960px
+
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px
+
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    // 請用540
+        // max-width: 540px
+
+}
+@media screen and (max-width: 575px){
+    #MemFootprint{
+        width: 100%;
+        .record_list{
+            display: flex;
+            .location_record{
+                display: none;
+            }
+            .text_record{
+                grid-template-rows: repeat(0, 1fr);
+                .TR_title{
+                    margin: 5% 0;
+                }
+                .TR_box{
+                    margin-bottom: 5%;
+                    .img_value{
+                        grid-area: 1/1/2/3;
+                        height: 250px;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .text_value{
+                        margin: 0;
+                        height: fit-content;
+                        grid-area: 2/1/3/3;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(4, 1fr);
+                        .TV{
+                            display: flex;
+                            align-items: center;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 1.6;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+                .TR_box1{
+                    grid-area: 2/1/3/2;
+                }
+                .TR_box2{
+                    grid-area: 3/1/4/2;
+                }
+                .TR_box3{
+                    grid-area: 4/1/5/2;
+                }
             }
         }
     }

@@ -1,33 +1,14 @@
 @import "common";
 
-$color1: #153A64;
-$color2: #2C5E9E;
-$color3: #FFC400;
-$color4: #EAF1F4;
 
-$textColor1: #555555;
+$textColor1: $mt_fontdark;
 
-* {
-    font-family: 'Noto Sans TC', sans-serif !important;
-    color: $textColor1;
-}
 
-//h2 頁面標題
-@mixin pageTittle {
-    font-size: 30px;
-    font-weight: 600; 
-    display: table; 
-    margin:50px auto;
-    position: relative;
-    &::after{
-        content:"";
-        width: 100%;
-        padding-top: 5px;
-        border-radius: 10px;
-        background-color:$color3;
-        position: absolute;
-        left:0; bottom: 0;
-    }
+@mixin contentText {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1px;
 }
 
 #meet2-3-1{
@@ -37,12 +18,15 @@ $textColor1: #555555;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
     .lightbox{
         background-color: #fff;
         border-radius: 30px;
-        // display: inline; //會不見？？
-        width: 1200px; ////寬度想隨內容一起更動
-        // width: 400px;
+        width: auto;
+        padding: 10px;
         position: relative;
         .close{
             padding: 10px;
@@ -50,16 +34,13 @@ $textColor1: #555555;
             top: 0; right: 0;
         }
         .agreement{
-            border: 1px solid #f00;
+            // border: 1px solid #f00;
             width: 1200px;
             height: 80vh;
             display: none;
             flex-direction: column;
             align-items:center;
-            h2{
-                @include pageTittle;
-                margin-bottom: 0px; 
-            }
+            padding:5% ;
             >p{
                 font-size: 16px;
                 color: #888;
@@ -67,13 +48,16 @@ $textColor1: #555555;
             }
             >div{
                 margin-bottom: 20px; 
+                button{
+                    margin: auto 30px;
+                }
             }
             .agreement_text{
+                // border: 1px solid #000;
                 background-color: $mt_grey2;
-                width: 800px;
                 height: 70%;
                 padding: 10px;
-                overflow: scroll;
+                overflow-y: scroll;
             }
             
         }
@@ -93,4 +77,60 @@ $textColor1: #555555;
 }
 #meet2-3-1.close{
     display: none;
+}
+
+
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+         // max-width: 960px;
+    #meet2-3-1{
+        .lightbox{
+            .agreement{
+                max-width: 960px;
+            }
+        }
+    }
+
+   
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px;
+        #meet2-3-1{
+            .lightbox{
+                .agreement{
+                    max-width: 720px;
+                }
+            }
+        }
+        
+  
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+  // 請用540
+        // max-width: 540px;
+        #meet2-3-1{
+            .lightbox{
+                .agreement{
+                    max-width: 540px;
+                }
+            }
+        }
+        
+    
+}
+@media screen and (max-width: 575px){
+    // 請用100%
+        // max-width: 100%;
+        #meet2-3-1{
+            .lightbox{
+                margin: 10px;
+                .agreement{
+                    width: 100%;
+                }
+            }
+        }
+       
+ 
 }

@@ -1,0 +1,117 @@
+@import 'common';
+@import 'BackstageMain';
+@import 'BackstageHeader';
+div{
+    .verify_total{
+        display: flex;
+        height: 10vh;
+        h4{
+            margin: 10px;
+            color: $mt_blue3;
+        }
+        span{
+            margin: 10px 0;
+            color:$mt_blue2 ;
+            padding: 0 14px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            &:nth-child(2){
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border: $mt_blue2 2px solid;
+            }
+            &:nth-child(3){
+                border-top: $mt_blue2 2px solid;
+                border-bottom: $mt_blue2 2px solid;
+            }
+            &:last-child{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border: $mt_blue2 2px solid;
+            }
+            &:hover{
+                background-color: $mt_blue2;
+                color: white;
+            }
+        }
+    }
+    table{
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+        tr{
+            &:nth-child(1){
+                border-bottom: 2px $mt_black solid;
+            }
+        }
+        th,td{
+            padding: 15px 0;
+            width: 150px;
+            vertical-align: middle;
+            &:nth-child(even){
+                background-color: rgb(230, 230, 230);
+            }
+        }
+        img{
+            width: 90%;
+        }
+        .btnB_L_yellow{
+            position: relative;
+            z-index: 2;
+            width: 95px;
+            height: 45px;
+            outline: 0px !important;
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 4px solid $mt_yellow;
+                border-radius: 15px;
+            }
+            & p {
+                z-index: 1;
+                color: white;
+                transition: 0.3s2all ease-in-out;
+            }
+            & div.bg{
+                z-index: -1;
+                position: absolute;
+                top: -20px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+                background-color: $mt_yellow;
+                overflow: hidden;
+                &::after {
+                    content: "";
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    width: 130%;
+                    height: 100%;
+                    // border-radius: 15px;
+                    background-color: white;
+                    transform: skewX(15deg);
+                    transition: 0.2s all ease-in-out;
+                }
+            }
+            &:hover p{
+                color: $mt_yellow;
+            }
+            &:hover div.bg::after{
+                left: 0%;
+            }   
+        }
+    }
+
+}
+
+
+
+
