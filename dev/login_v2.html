@@ -73,7 +73,7 @@
 					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
 					<a href="#" class="link">Forgot your password?</a><br>
-					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit">登入</button>
+					<button type="submit" class="btnB_L_blue submitBtn_log"><p>登入</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -87,7 +87,7 @@
 					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
 					<input type="password" name="mem_psw" placeholder="確認密碼"><br>
-					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit">註冊</button>
+					<button type="submit" class="btnB_L_blue submitBtn_app"><p>註冊</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -136,7 +136,7 @@
 					<input type="password" name="mobileLogin_name" id="mobileLogin_name" class="forApply"/>
 					<p class="forApply">信箱</p>
 					<input type="email" name="mobileLogin_mail" id="mobileLogin_mail" class="forApply"/>
-					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit">登入</button>
+					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit"><p class="mobileLogin">登入</p><div class="bg"></div></button>
 					<a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
 					<a href="#" class="clickMe_log">已有帳號?點我登入</a>
 				</form>
@@ -219,7 +219,7 @@
 			$('.clickMe_app').click(function(){
 				$(".forApply").toggle();
 				$('.title').html('註冊帳號');
-				$('#mobileLogin_submit').val('註冊');
+				$('.mobileLogin').html('註冊');
 				$('.clickMe_app').css('display','none');
 				$('.clickMe_log').css('display','block');
 			});
@@ -228,7 +228,7 @@
 				$('.title').html('會員登入');
 				$('.clickMe_app').css('display','block');
 				$('.clickMe_log').css('display','none');
-				$('#mobileLogin_submit').val('登入');
+				$('.mobileLogin').html('登入');
 			});
 		});
 	</script>
