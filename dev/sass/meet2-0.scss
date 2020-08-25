@@ -55,6 +55,41 @@ $textColor1: $mt_fontdark;
 #meet2-0{
     margin:auto;
     max-width: 1366px;
+    .serchMeet{
+        h2{
+            margin:50px auto;
+        }
+        .serch{
+            .location{
+                display: flex;
+                align-items: center;
+                >p{
+                    display: inline-block;
+                    color:#fff;
+                    padding: 5px 15px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    background-color: $mt_blue2;
+                    margin: 10px;
+                }
+                >div{
+                    label{
+                        input{
+                            // display: none;
+                        }
+                        p{
+                            display: inline-block;
+                            padding: 3px 10px;
+                        }
+                        p.-on{
+                            color:#fff;
+                            background-color: $mt_yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .hotMeet{
         display: none;
         border: 1px solid blue;
