@@ -149,6 +149,90 @@ main {
                     background-color: orange;
                 }
             }
+            // 側邊欄寬度不要鎖，獨立出來設width:100%
+            // .aside_nav2{
+            //     float: left;
+            //     position: relative;
+            //     top: 0;
+            //     left: 0;
+            //     background: transparent;
+            //     ul{
+            //         text-align: center;
+            //         li{
+            //             position: relative;
+            //             width: 70px;
+            //             cursor: pointer;
+            //             background: #2C5E9E;
+            //             text-transform: uppercase;
+            //             transition:all .4s ease-out;
+            //             &:after{
+            //                 position: absolute;
+            //                 background: #EAF1F4;
+            //                 color: #2C5E9E;
+            //                 top:0;
+            //                 left: 70px;
+            //                 width: 70px; height: 100%;
+            //                 opacity:.5;
+            //                 transform: perspective(400px) rotateY(90deg);
+            //                 transform-origin: 0 100%;
+            //                 transition:all .4s ease-out;
+            //             }
+            //             &:nth-child(1):after { 
+            //                 content: "認證";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(2):after { 
+            //                 content: "足跡";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(3):after { 
+            //                 content: "徽章";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(4):after { 
+            //                 content: "揪團";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(5):after { 
+            //                 content: "收藏";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(6):after { 
+            //                 content: "文章";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(7):after { 
+            //                 content: "點數";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(8):after { 
+            //                 content: "追蹤";
+            //                 line-height: 88px;
+            //             }
+            //             &:nth-child(9):after { 
+            //                 content: "訂單";
+            //                 line-height: 88px;
+            //             }
+            //             &:hover{
+            //                 transform: translateX(-70px);
+            //             }
+            //             &:hover:after{
+            //                 opacity: 1;
+            //                 transform: perspective(400px) rotateY(0deg) scale(1) ;
+            //             }
+            //             .nav_list{
+            //                 display: inline-block;
+            //                 padding: 15px 0;
+            //                 background: transparent;
+            //             }
+            //         }
+            //     }
+            // }
+
+            // .aside_nav2 ul li div { 
+            //     position: relative;
+            // }
+
             .swiper_media575{
                 position: fixed;
                 bottom: 0;
@@ -387,5 +471,6 @@ main {
             }
         }
     }
-    footer{margin-bottom: 100px;}
+    footer{margin-bottom: 100px;
+    }
 }
