@@ -90,8 +90,7 @@ div.wrap{
                 h2{
                     margin: 0 20px 0 0;
                 }
-                .collect{
-                    background-color: red;
+                .changeIcon{
                     cursor: pointer;
                 }
             }
@@ -109,10 +108,9 @@ div.wrap{
                     font-size: 50px;
                     margin: 0 20px 20px 0;
                 }
-                .add_chart{
-                    background-color: #FFC400;
-                    cursor: pointer;
-                }
+                // .add_chart{
+                //     cursor: pointer;
+                // }
             }
             .artical{
                 .related_artical{
@@ -208,5 +206,38 @@ div.wrap{
 @media screen and (max-width: 575px){
     div.wrap{
         width: 100%;
+        padding: 0 10px;
+        .product_block{
+            display: block;
+            .left{
+                width: auto;
+                margin: 0;
+                .main_pic{
+                    height: 300px;
+                    &:after{
+                        width: 300px;
+                    }
+                }
+            }
+            .right{
+                width: auto;
+            }
+        }
     }
  }
+
+ //demo使用之後刪掉
+ .add_count{
+    display: none;
+    border-radius: 50%;
+    color: #fff;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

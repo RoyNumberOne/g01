@@ -12,20 +12,6 @@ $textColor1: $mt_fontdark;
 }
 
 
-/////會員/////
-//會員款式Ａ
-@mixin memberIdA {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 1.5px;
-}
-@mixin memberImgA {
-    display: inline-block;
-    background-color: #555;
-    width: 65px;
-    padding-top: 65px;
-}
 
 //文字最多只顯示兩行
 @mixin towLine {
@@ -57,7 +43,7 @@ $textColor1: $mt_fontdark;
 
 //被div裁型的圖片
 @mixin imgs {
-    width: 100%;
+    height: 100%;
     position: absolute;
     top:50%;
     left:0;
@@ -67,9 +53,43 @@ $textColor1: $mt_fontdark;
 
 
 #meet2-0{
+    margin:auto;
+    max-width: 1366px;
+    .serchMeet{
+        h2{
+            margin:50px auto;
+        }
+        .serch{
+            .location{
+                display: flex;
+                align-items: center;
+                >p{
+                    display: inline-block;
+                    color:#fff;
+                    padding: 5px 15px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    background-color: $mt_blue2;
+                    margin: 10px;
+                }
+                >div{
+                    label{
+                        p{
+                            display: inline-block;
+                            padding: 3px 10px;
+                        }
+                        p.-on{
+                            color:#fff;
+                            background-color: $mt_yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .hotMeet{
-        border: 1px solid red;
-        width: 80%;
+        display: none;
+        border: 1px solid blue;
         margin: auto;
         background: linear-gradient(transparent,$mt_grey2,transparent);
         z-index: -100;
@@ -136,21 +156,116 @@ $textColor1: $mt_fontdark;
                 justify-content: space-between;
             }
         }
+        .mountain_img{
+            background-color: #ff0;
+            padding-top: 50%;
+        }
     }
+
+    .hotMeet1{
+        // border: 1px solid blue;
+        margin: auto;
+        position: relative;
+        h2{
+            margin:50px auto;
+        }
+        .top1-3{
+            height: 80vh;
+            background-image: url(../images/meet/2-0-bg_top3_1.svg);
+            background-repeat: no-repeat;
+            background-size: 90%;
+            background-position: 0 center;
+            
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                background-color:  transparent;
+            }
+            >div{
+                // border: 1px solid #000;
+                display: flex;
+                flex-direction: column;
+                .hot_meet_top3{
+                    // border: 1px solid green;
+                    width: 50%;
+                    min-width: 500px;
+                    .meet_mountain_img{
+                        width: 50%;
+                        padding-top: 50%;
+                        background-color: #ccc;
+                        margin-bottom: -25%;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            @include imgs;
+                        }
+                    }
+                    .meet_content{
+                        // border: 1px solid #000;
+                        padding: 30px ;
+                        display: flex;
+                        position: relative;
+                        .bg_cloud{
+                            width: 100%;
+                            position: absolute;
+                            bottom:10px;
+                            left:0;
+                            
+                        }
+                        .member_styleA.column{
+                            // border: 1px solid #00f;
+                            z-index: 2;
+                        }
+                        .title_info_text{
+                            // border: 1px solid #0f0;
+                            z-index: 2;
+                            h3{
+                                @include towLine;
+                            }
+                            .meetContent{
+                                @include fourLine;
+                            }
+                        }
+                        .like_btn{
+                            z-index: 2;
+                            >div{
+                                height: 50%;
+                            }
+                        }
+    
+                    }
+                }
+                .top1,.top3{
+                    // border: 1px solid #00f;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+        .decoration_draw{
+            background-image: url(../images/meet/2-0-decoration_draw1.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 25%;
+            padding-top: 35%;
+            position: absolute;
+            bottom:0px;
+            right:0;
+        }
+    }
+
     .newMeet{
-        border: 1px solid red;
-        width: 80%;
+        // border: 1px solid red;
         margin: auto;
         h2{
             margin:50px auto;
         }
         .changeTypeBtn{
-            border: 1px solid orange;
+            // border: 1px solid orange;
             display: flex;
             justify-content:flex-end;
             margin-bottom: 30px;
             button{
-                border: 1px solid red;
+                // border: 1px solid red;
                 margin: 5px;
             }
             button.-on{
@@ -158,16 +273,21 @@ $textColor1: $mt_fontdark;
             }
         }
         .newMeetActivity{
-            border: 1px solid #000;
+            // border: 1px solid #000;
             padding: 15px;
             .item{
-                border: 1px solid blue;
+                // border: 1px solid blue;
                 padding: 15px;
                 .newImg{
-                    background-color: #555;
+                    // background-color: #555;
+                    overflow: hidden;
+                    position: relative;
+                    img{
+                        @include imgs;
+                    }
                 }
                 .newMeetTextCont{
-                    border: 1px solid #000;
+                    // border: 1px solid #000;
                     .tittleLike{
                         h3{
                             @include towLine;
@@ -183,7 +303,7 @@ $textColor1: $mt_fontdark;
                         }
                     }
                     .info{
-                        border: 1px solid pink;
+                        // border: 1px solid pink;
                         display: inline-block;
                     }
                     .meetContent{
@@ -192,40 +312,7 @@ $textColor1: $mt_fontdark;
                         }
                     }
                 }
-                .organiser{
-                    border: 1px solid #0F0;
-                    .memberImg{
-                        @include memberImgA;
-                        img{
-                            @include imgs;
-                        }
-                    }
-                    .memberInfo{
-                        display: inline-block;
-                        .certification{
-                            background-color: blue;
-                            .certificationIcon{
-                                background-color: #555;
-                                display: inline-block;
-                                width: 10px;
-                                padding-top: 10px;
-                            }
-                        }
-                        .memberId{
-                            @include memberIdA;
-                            border: 1px solid #000;
-                        }
-                        .memberBadge{
-                            background-color: blue;
-                            .memberBadgeIcon{
-                                background-color: #555;
-                                display: inline-block;
-                                width: 25px;
-                                padding-top: 25px;
-                            }
-                        }
-                    }
-                }
+                
             }
         }
         .newMeetActivity.card{
@@ -241,10 +328,7 @@ $textColor1: $mt_fontdark;
                     padding-top: 100%;
                     margin: -70px auto auto auto;
                 }
-                .organiser{
-                    width: 180px;
-                    display: inline-block;
-                }
+                
             }
         }
         .newMeetActivity.list{
@@ -260,25 +344,7 @@ $textColor1: $mt_fontdark;
                     width: 60%; //
                     display: inline-block; //
                 }
-                .organiser{
-                    display: flex;//
-                    flex-direction:column;//
-                    justify-content:center;//
-                    align-items: center;//
-                    .memberInfo{
-                        .certification{
-                            display: flex;//
-                            justify-content:center;//
-                            .certificationIcon{
-                                margin: 5px;//
-                            }
-                        }
-                        .memberBadge{
-                            display: flex;//
-                            justify-content:space-around;//
-                        }
-                    }
-                }
+                
             }
         }
         div.page{
@@ -289,31 +355,148 @@ $textColor1: $mt_fontdark;
     
 }
 
-@media screen and (min-width: 1440px) {
-    // 請用1366
-        // max-width: 1366px;
-      }
+
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     // 請用1152
+    #meet2-0{
+        max-width: 1152px; 
+    }
 
 }
+
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
          // max-width: 960px;
-  
+    #meet2-0{
+        max-width: 960px; 
+    }
 }
+
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
         // max-width: 720px;
+    #meet2-0{
+        max-width: 720px; 
+        .hotMeet1{
+            .top1-3{
+                >div{
+                    .hot_meet_top3{
+                        width: 500px;
+                    }
+                }
+                .top3{
+                    .hot_meet_top3{
+                        margin-right: 40px;
+                    }
+                }
+            }
+        }
+    }
    
 }
+
 @media screen and (min-width: 576px) and (max-width: 767px){
   // 請用540
         // max-width: 540px;
+    #meet2-0{
+        max-width: 540px; 
+        .hotMeet1{
+            .top1-3{
+                >div{
+                    .hot_meet_top3{
+                        width: 500px;
+                        .meet_content{
+                            flex-wrap: wrap;
+                            justify-content: flex-end;
+                            .member_styleA{
+                                width: 211px;
+                                display: inline-block;
+                                margin-right: 50px;
+                                .memberInfo{
+                                    .certification{
+                                        justify-content: flex-start;
+                                    }
+                                    .memberBadge{
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                            .title_info_text{
+                                width: 330px;
+                                .meetContent{
+                                    @include towLine;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                .top3{
+                    .hot_meet_top3{
+                        margin-right: 40px;
+                    }
+                }
+            }
+            .decoration_draw{
+                right: -60px;
+            }
+        }
+    }
   
 }
+
 @media screen and (max-width: 575px){
     // 請用100%
         // max-width: 100%;
-  
+    #meet2-0{
+        max-width: 100%; 
+        .hotMeet1{
+            .top1-3{
+                background-color: $mt_grey2;
+                overflow-y:auto;
+                height:auto;
+                >div{
+                    .hot_meet_top3{
+                        width: 500px;
+                        .meet_content{
+                            flex-wrap: wrap;
+                            justify-content: flex-end;
+                            .member_styleA{
+                                width: 211px;
+                                display: inline-block;
+                                margin-right: 50px;
+                                .memberInfo{
+                                    .certification{
+                                        justify-content: flex-start;
+                                    }
+                                    .memberBadge{
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                            .title_info_text{
+                                width: 330px;
+                                .meetContent{
+                                    @include towLine;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                .top2{
+                    display: flex;
+                    justify-content: center;
+                }
+                .top3{
+                    .hot_meet_top3{
+                        margin-right: 0;
+                    }
+                }
+            }
+            .decoration_draw{
+                display: none;
+            }
+        }
+    }
 }

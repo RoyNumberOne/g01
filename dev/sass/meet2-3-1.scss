@@ -18,6 +18,10 @@ $textColor1: $mt_fontdark;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
     .lightbox{
         background-color: #fff;
         border-radius: 30px;

@@ -127,15 +127,13 @@
 }
 @media screen and (max-width: 575px){
     #MemAccreditation{
-        width: 100%;
         .accreditation_list{
             margin: 0 auto;
-            width: 70%;
-            height: 100%;
+            width: 85%;
             grid-template-columns: repeat(1,1fr);
             grid-template-rows: repeat(2,1fr);
             .certificate{
-                height: 500px;
+                height: 600px;
                 h2{                }
                 .box{
                     grid-area: 2/1/6/4;

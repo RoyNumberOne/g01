@@ -93,6 +93,9 @@ $textColor1: $mt_fontdark;
         margin: 50px auto;
         padding: 30px;
         max-height: 570px;
+        &::-webkit-scrollbar{
+            background-color:  transparent;
+        }
         .btn_box{
             align-self: flex-end;
         }
@@ -156,6 +159,9 @@ $textColor1: $mt_fontdark;
                     display: flex;
                     flex-direction: column;
                     overflow-y: scroll;
+                    &::-webkit-scrollbar{
+                        background-color:  transparent;
+                    }
 
                     .tour_equip{ //建議裝備
                         margin-bottom: 30px;
@@ -225,6 +231,9 @@ $textColor1: $mt_fontdark;
                     flex-wrap: wrap;
                     justify-content: space-between;
                     overflow-y: auto;
+                    &::-webkit-scrollbar{
+                        background-color:  transparent;
+                    }
                     >div{
                         width: 30%;
                         padding-top: 30%;
@@ -232,6 +241,11 @@ $textColor1: $mt_fontdark;
                         background-color:#EAF1F4;
                         margin: 5px;
                         align-self: center;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            @include imgs;
+                        }
                     }
                 }
             }
