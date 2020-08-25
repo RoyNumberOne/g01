@@ -154,76 +154,125 @@ main {
             //     float: left;
             //     position: relative;
             //     top: 0;
-            //     left: 0;
+            //     left: -100px;
             //     background: transparent;
             //     ul{
             //         text-align: center;
             //         li{
             //             position: relative;
-            //             width: 70px;
+            //             width: 100px;
+            //             height: 100px;
             //             cursor: pointer;
-            //             background: #2C5E9E;
+            //             background: #EAF1F4;
             //             text-transform: uppercase;
             //             transition:all .4s ease-out;
+            //             line-height: 75px;
             //             &:after{
             //                 position: absolute;
-            //                 background: #EAF1F4;
-            //                 color: #2C5E9E;
+            //                 background: #2C5E9E;
             //                 top:0;
-            //                 left: 70px;
-            //                 width: 70px; height: 100%;
-            //                 opacity:.5;
-            //                 transform: perspective(400px) rotateY(90deg);
+            //                 left: 100px;
+            //                 width: 100px; 
+            //                 height: 100px;
+            //                 // transform: perspective(400px) rotateY(90deg);
             //                 transform-origin: 0 100%;
             //                 transition:all .4s ease-out;
             //             }
             //             &:nth-child(1):after { 
-            //                 content: "認證";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f4fc";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(2):after { 
-            //                 content: "足跡";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f5a0";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(3):after { 
-            //                 content: "徽章";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f091";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(4):after { 
-            //                 content: "揪團";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f0c0";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(5):after { 
-            //                 content: "收藏";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f02d";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(6):after { 
-            //                 content: "文章";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f15c";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(7):after { 
-            //                 content: "點數";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f53a";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(8):after { 
-            //                 content: "追蹤";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f005";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:nth-child(9):after { 
-            //                 content: "訂單";
-            //                 line-height: 88px;
+            //                 font-family: "Font Awesome 5 Free";
+            //                 content: "\f218";
+            //                 font-size: 30px;
+            //                 font-weight: 900;
+            //                 text-align: center;
+            //                 line-height: 100px;
+            //                 color:#FFC400;
             //             }
             //             &:hover{
-            //                 transform: translateX(-70px);
+            //                 transform: translateX(100px);
             //             }
             //             &:hover:after{
             //                 opacity: 1;
-            //                 transform: perspective(400px) rotateY(0deg) scale(1) ;
+            //                 transform: perspective(400px) rotateY(90deg) scale(1) ;
             //             }
             //             .nav_list{
             //                 display: inline-block;
             //                 padding: 15px 0;
             //                 background: transparent;
+            //             }
+            //             svg{
+            //                 font-size: 30px;
             //             }
             //         }
             //     }
