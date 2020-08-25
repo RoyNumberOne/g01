@@ -41,7 +41,7 @@
             }
             ?>
             <div id="photo_b">
-                <img src="<?php echo "./$dir/".$_FILES["guide_image"]["name"]; ?> " width="400px" height="250px" id="photo"/>
+                <img src="<?php echo "./$dir/".$_FILES["mem_idno_image"]["name"]; ?> " width="400px" height="250px" id="photo"/>
                 <div><p>已送出審核</p></div>
             </div>
                 <br> 
