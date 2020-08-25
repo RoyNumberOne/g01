@@ -26,7 +26,7 @@
                     <p class="title">首頁</p>
                 </a></ul>
             <ul class="report">
-                <p class="title">檢舉</p>
+                <p class="title" style="color:#1A95DB;">檢舉</p>
                 <li class="page navli tour"><a href="./BackstageTourReport.php">
                         <p class="desc">揪團</p>
                         <div class="note">
@@ -159,7 +159,7 @@
         <div>
             <div class="report_total"> 
                 <h4>留言檢舉</h4>
-                <span>未處理</span>
+                <span style="background-color:#2C5E9E; color:#FFF">未處理</span>
                 <span>已處理</span>
                 <span>未通過</span>
             </div>
