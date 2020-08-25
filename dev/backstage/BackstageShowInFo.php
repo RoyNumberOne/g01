@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP - MySQL</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
     <style type="text/css">
 	* {
         position: relative;
         font-family: 微軟正黑體;
         /* letter-spacing: 5px; */
-        line-height: 25px;
+		line-height: 25px;
+		box-sizing: border-box;
+		outline: none;
     }
 	body {
 		background-color: #bbb;
@@ -49,6 +50,25 @@
 	}
 	.cyan{
 		background-color: cyan;
+	}
+
+	form#newProduct {
+		display: flex;
+		flex-wrap: wrap ;
+		width: 720px;
+		border: 1px solid cyan;
+		margin: 0 auto;
+	}
+	form#newProduct div.block{
+		display: inline-block;
+		width: 50%;
+		padding: 20px;
+	}
+	form#newProduct div.block div.itembox{
+		margin-bottom: 20px;
+	}
+	form#newProduct button#newProductBtnSend{
+		margin: 10px auto;
 	}
 </style>
 
@@ -536,5 +556,139 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
+
+
+<h3>商品 - 上架中</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT product_no "商品編號" , degree_category "難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 1; ';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["商品編號"]?></td>
+             <td><?=$prodRow["難度等級"]?></td>
+             <td><?=$prodRow["商品分類"]?></td>
+             <td><?=$prodRow["商品名稱"]?></td>
+             <td><?=$prodRow["商品價格"]?></td>
+             <td><?=$prodRow["商品說明"]?></td>
+             <td><?=$prodRow["商品圖片一"]?></td>
+             <td><?=$prodRow["商品圖片二"]?></td>
+             <td><?=$prodRow["商品圖片三"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+<h3>商品 - 未上架</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = 'SELECT product_no "商品編號" , degree_category "難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 0; ';
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<table>
+		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["商品編號"]?></td>
+             <td><?=$prodRow["難度等級"]?></td>
+             <td><?=$prodRow["商品分類"]?></td>
+             <td><?=$prodRow["商品名稱"]?></td>
+             <td><?=$prodRow["商品價格"]?></td>
+             <td><?=$prodRow["商品說明"]?></td>
+             <td><?=$prodRow["商品圖片一"]?></td>
+             <td><?=$prodRow["商品圖片二"]?></td>
+             <td><?=$prodRow["商品圖片三"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+<h3>商品 - 新增</h3>
+<form id="newProduct" method="post" action="backstageAddProduct.php" >
+	<div class="block left">
+		<div class="itembox">商品名稱：<input id="product_name" name="product_name" type="text"></div>
+		<div class="itembox">商品類別：
+			<select id="product_category" name="product_category">
+				<option value="機能服飾">機能服飾</option>
+				<option value="登山背包">登山背包</option>
+				<option value="登山鞋">登山鞋</option>
+				<option value="露營裝備">露營裝備</option>
+				<option value="登山配件">登山配件</option>
+			</select></div>
+		<div class="itembox">難度等級：
+					<label><input class="degree_category" type="radio" value="1" name="degree_category">1</label>
+					<label><input class="degree_category" type="radio" value="2" name="degree_category">2</label>
+					<label><input class="degree_category" type="radio" value="3" name="degree_category">3</label>
+					<label><input class="degree_category" type="radio" value="4" name="degree_category">4</label>
+		</div>
+		<div class="itembox">商品價格：<input id="product_price" name="product_price" type="text"></div>
+		<div class="itembox">商品說明：<input id="product_description" name="product_description" type="text"></div>
+	</div>
+	<div class="block right">
+		<div class="itembox">商品圖片：<input id="product_image1" name="product_image1" type="file"></div>
+		<div class="itembox">商品圖片：<input id="product_image2" name="product_image2" type="file"></div>
+		<div class="itembox">商品圖片：<input id="product_image3" name="product_image3" type="file"></div>
+		<div class="itembox">上架狀態：
+			<label><input class="product_situation" type="radio" value="1" name="product_situation">直接上架</label>
+			<label><input class="product_situation" type="radio" value="0" name="product_situation">先不要上架</label>
+		</div>
+	</div>
+	<button type="button" id="newProductBtnSend">送出</button>
+</form>
+	<!-- <div id="newProductFeedback">2222</div> -->
+
 </body>
+
+<script>
+	// 商品 - 新增
+	$(Document).ready(function(){
+		$("#newProductBtnSend").click(function(){
+			let product_name = $("#product_name").val();
+			let product_category = $("#product_category").val();
+			let degree_category = $(".degree_category:checked").val();
+			let product_price = $("#product_price").val();
+			let product_description = $("#product_description").val();
+			let product_image1 = $("#product_image1").val();
+			let product_image2 = $("#product_image2").val();
+			let product_image3 = $("#product_image3").val();
+			let product_situation = $(".product_situation:checked").val();
+			$.post("./backstageAddProduct.php",
+				{product_name: product_name,
+				product_category: product_category,
+				degree_category: degree_category,
+				product_price: product_price,
+				product_description: product_description,
+				product_image1: product_image1,
+				product_image2: product_image2,
+				product_image3: product_image3,
+				product_situation: product_situation
+				},
+				function(){
+				//要導去另外正確頁面
+				window.location.reload(true);
+			})
+		})
+	})
+</script>
+
 </html>

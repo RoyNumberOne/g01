@@ -2,14 +2,14 @@
 
 $(document).ready(function () {
     $("ul.page").click(function (event) {
-        event.preventDefault();
+        // event.preventDefault();
         $("ul.page").removeClass("ulat");
         $(this).addClass("ulat");
         $(this).siblings().removeClass("ulat");
         $(this).siblings().children().removeClass("liat");
     });
     $("li.page").click(function (event) {
-        event.preventDefault();
+        // event.preventDefault();
         $(this).parent().siblings().removeClass("ulat");
         $("ul.page").removeClass("ulat");
         $("li.page").removeClass("liat");
@@ -54,7 +54,7 @@ $( document ).ready(function() {
         }
         xhr.open("get","./BackstageLogout.php",true);
         xhr.send(null);
-        window.location.href = './backstage.html';
+        window.location.href = './BackstageLogin.html';
       }
 
       $id('btnLogout').onclick = logout;

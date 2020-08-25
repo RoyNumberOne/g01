@@ -1071,3 +1071,48 @@ button.btnB_L_yellow{
       left: 0%;
   }
 }
+
+
+// body height controll footer in bom
+@media screen and (min-width: 1440px) {
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    body{
+        min-height: calc(100vh - 70px - 209px);
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    body{
+        min-height: calc(100vh - 70px - 281px);
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    body{
+        min-height: calc(100vh - 70px - 380px);
+        display: flex;
+        flex-direction: column;
+    }
+ }
+@media screen and (max-width: 575px){
+    body{
+        min-height: calc(100vh - 70px - 392px);
+        display: flex;
+        flex-direction: column;
+    }
+}

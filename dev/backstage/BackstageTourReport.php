@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
     <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
-    <link rel="stylesheet" href="./css/backstagemain.css">
-    <link rel="stylesheet" href="./css/backstageHeader.css">
+    <link rel="stylesheet" href="../css/Backstagereport.css">
+    <link rel="stylesheet" href="../css/BackstageHeader.css">
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="./js/fa5.14.0all.js"integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="crossorigin="anonymous"></script>
 </head>
 <body>
+
 <main>
     <?php
-        require_once("./BackstageHeader.inc");
+    require_once("./BackstageHeader.inc");
     ?>
     <aside>
         <nav id="BackstageNav">
-            <ul class="page index ulat"><a href="">
+            <ul class="page index ulat"><a href="./BackstageIndex.php">
                     <p class="title">首頁</p>
                 </a></ul>
             <ul class="report">
                 <p class="title">檢舉</p>
-                <li class="page navli tour"><a href="">
+                <li class="page navli tour"><a href="./BackstageTourReport.php">
                         <p class="desc">揪團</p>
                         <div class="note">
                             <p>
@@ -49,7 +50,7 @@
                             </p>
                         </div>
                     </a></li>
-                <li class="page navli forum"><a href="">
+                <li class="page navli forum"><a href="./BackstageForumReport.php">
                         <p class="desc">討論</p>
                         <div class="note">
                             <p>
@@ -72,7 +73,7 @@
                             </p>
                         </div>
                     </a></li>
-                <li class="page navli comment"><a href="">
+                <li class="page navli comment"><a href="./BackstageCommentReport.php">
                         <p class="desc">留言</p>
                         <div class="note">
                             <p>
@@ -98,7 +99,7 @@
             </ul>
             <ul class="verify">
                 <p class="title">審核</p>
-                <li class="page navli realname"><a href="">
+                <li class="page navli realname"><a href="./BackstageMemRealname.php">
                         <p class="desc">實名制</p>
                         <div class="note">
                             <p>
@@ -121,7 +122,7 @@
                             </p>
                         </div>
                     </a></li>
-                <li class="page navli guide"><a href="">
+                <li class="page navli guide"><a href="./BackstageMemGuide.php">
                         <p class="desc">嚮導</p>
                         <div class="note">
                             <p>
@@ -145,18 +146,67 @@
                         </div>
                     </a></li>
             </ul>
-            <ul class="page product"><a href="">
+            <ul class="page product"><a href="./BackstageProduct.php">
                     <p class="title">商品</p>
                 </a></ul>
-            <ul class="page administer"><a href="">
+            <ul class="page administer"><a href="./BackstageAdministrator.php">
                     <p class="title">管理員</p>
                 </a></ul>
         </nav>
     </aside>
     <section>
-
+        
         <div>
-            撈資料
+            <div class="report_total"> 
+                <h4>討論文檢舉</h4>
+                <span>未處理</span>
+                <span>已處理</span>
+                <span>未通過</span>
+            </div>
+            <table>
+            <?php 
+                try	{
+                    require_once('connectMeetain.php');
+                    
+                        $sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理";';
+                        $pdoStatement = $pdo->query($sql);
+                        $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                        ?>
+                        <table>
+                        <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">揪團編號</th><th width="300px">揪團標題</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
+                        <?php
+                        foreach ( $prodRows as $i => $prodRow){
+                        ?>
+                            <tr>
+                            <td class='pink'><?=$prodRow["檢舉編號"]?></td>
+                            <td><?=$prodRow["揪團編號"]?></td>
+                            <td style="text-align: left;padding-left: 5px;"><?=$prodRow["揪團標題"]?></td>
+                            <td ><?=$prodRow["被檢舉人"]?></td>
+                            <td><?=$prodRow["檢舉時間"]?></td>
+                            <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
+                            <td style="text-align: left;padding-left: 10px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
+                                    <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
+                                    <select name="BanLong">
+                                        <option value="5">5分鐘</option>
+                                        <option value="3" selected="selected">3天</option>
+                                        <option value="7">7天</option>
+                                        <option value="14">14天</option>
+                                        <option value="28">28天</option>
+                                    </select>
+                            </td>
+                            <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
+                                <p>送出</p>
+                                <div class="bg"></div>
+                            </button></td>
+                            </tr>
+
+                            <?php } ?>
+                        </table>
+                    <?php
+                    }	catch	(PDOException $e)	{
+                        }
+                ?>
+            </table>
         </div>
     </section>
 </main>
