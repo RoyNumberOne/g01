@@ -18,6 +18,10 @@
                 grid-area: 1/1/2/2;
                 background-color: gray;
                 margin: 5%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
             .text_box{
                 grid-area: 1/2/2/5;
@@ -71,4 +75,91 @@
             text-align: center;
         }
     }
+}
+
+
+
+
+// ===========media screen===========
+
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px
+
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+        // max-width: 1152px
+
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    // 請用960
+        // max-width: 960px
+
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    // 請用720
+        // max-width: 720px
+
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    // 請用540
+    // max-width: 540px
+}
+@media screen and (max-width: 575px){
+
+    #MemPost{
+        .post_list{
+            overflow: auto;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            height: 1200px;
+            .page{
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                .img_box{
+                    grid-area: 1/1/2/7;
+                    width: auto;
+                    height: auto;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .text_box{
+                    grid-area: 2/1/3/7;
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    margin: 0 5%;
+                    .text_prompt{
+                        width: auto;
+                        grid-area: 2/1/3/7;
+                    }
+                }
+                .edit_box{
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+                    margin: 5%;
+                    grid-area: 3/4/4/5;
+                    align-items: center;
+                    text-align: center;
+                    .edit_btn{
+                        grid-area: 1/1/2/2;
+                    }
+                }
+                .delete_box{
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+                    margin: 5%;
+                    grid-area: 3/5/4/7;
+                    align-items: center;
+                    .delete_btn{
+                        grid-area: 2/1/3/2;
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -19,10 +19,6 @@
             text-align: center;
         }
     }
-}
-
-// 手機版(縮小時左邊會被咖掉，可能是手機公版問題?)
-#MemOrder{
     .memOrder_mob{
         background-color: #FFC400;
         border-radius: 30px;
@@ -49,12 +45,13 @@
     }
 }
 
+
 // RWD
 @media screen and (max-width: 767px){
-    #memOrder{
-        display: none;
-    }
-    #memOrder_mob{
+    // .memOrder_pc{
+    //     display: none;
+    // }
+    .memOrder_mob{
         display: block;
     }
 }
