@@ -2,7 +2,7 @@
     <div id="headerbox">
         <div id="inforbox">
             <div id="avatorbox">
-                <img id="avator" src="./images/king.jpeg" alt="">
+                <img id="avator" src="../images/king.jpeg" alt="">
             </div>
             <div id="admininfor">
                 <div id="admin_no"></div><br>

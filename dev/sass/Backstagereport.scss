@@ -1,10 +1,11 @@
 @import 'common';
-@import 'backstagemain';
+@import 'BackstageMain';
+@import 'BackstageHeader';
 div{
-    .verify_total{
+    .report_total{
         display: flex;
         height: 10vh;
-        h4{
+        h4{                                 
             margin: 10px;
             color: $mt_blue3;
         }
@@ -47,13 +48,15 @@ div{
         th,td{
             padding: 15px 0;
             width: 150px;
-            vertical-align: middle;
             &:nth-child(even){
                 background-color: rgb(230, 230, 230);
             }
         }
-        img{
-            width: 90%;
+        select{
+            margin: 10px 0;
+            border-radius: 5px;
+            outline: none;
+            background-color:rgb(229, 243, 243);
         }
         .btnB_L_yellow{
             position: relative;
@@ -110,7 +113,6 @@ div{
     }
 
 }
-
 
 
 
