@@ -1,0 +1,91 @@
+main{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    #certificationGuide{
+        h3{margin: 50px auto;
+            color: #153A64;
+            font-weight: 400;
+            span{position: relative;
+                &::before{
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    width: 100px;
+                    top: 50%;
+                    left: -140px;
+                    // transform: translateX(-50%);
+                    height: 2px;
+                    background-color: #153A64;          
+                }
+                &::after{
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    width: 100px;
+                    top: 50%;
+                    right:-140px;
+                    // transform: translateX(-50%);
+                    height: 2px;
+                    background-color: #153A64;          
+                }
+            }
+        }
+        width: 100%;
+        // background-color: #999999;
+        // border: 1px solid red;
+        text-align: center;
+        form{
+            text-align: center;
+            #imgPreciew{
+                border: 2px solid #eeeeee;
+                width: 400px;
+                height: 250px;
+                cursor: pointer;
+            } 
+            label{
+                display: inline-block;
+                margin: 20px 5px 0px 0px;
+                color: #707070;
+                font-size: 18px;
+            }
+            input{
+                width: 200px;
+                margin: 10px 5px 10px 0px;
+                height: 28px;
+            }
+            #Manual{
+                width: 500px;
+                border: 1px solid #707070;
+                padding: 30px;
+                height: 150px;
+                text-align: left;
+            }
+            #checkok{
+                width: 20px;
+                height: 16px;
+                margin: 0px 5px 0px 0px;
+            }
+            #subbtn{
+                width: 250px;
+                background-color: #ffc400;
+                height: 50px;
+                border-style: none;
+                color: #FFF;
+            }  
+        }
+        #photo{
+            border: black 2px solid;
+            margin: 15px;
+        }
+        #Guide_card{
+            text-align: center;
+            line-height: 30px;
+            color: rgb(28, 70, 124);
+            margin: 20px;
+            table{
+                margin: 0 auto;
+            }
+        }
+    }
+}
