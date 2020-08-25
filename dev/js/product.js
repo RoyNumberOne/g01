@@ -92,8 +92,7 @@ new Vue ({
             case 'shoes': 
                 return './images/products/shoes/shoes0.png';
             case 'campGear': 
-                // return './images/products/campGear/.png';
-                return './images/products/clothes/clothes0.png';
+                return './images/products/campGear/tent0.png';
             case 'others':
                 return './images/products/others/poles0.png';
             }

@@ -18,7 +18,7 @@
 </head>
 <body>
     <!-- @@include('header.html') -->
-<div id="app">
+<div id="app">  <!-- demo之後刪掉 -->
     <header> 
 
         <div id="headerbox">
@@ -84,12 +84,12 @@
                 </div>
                 <div class="move">
                     <div class="pre" @click="pre">
-                        <div class="pre_pic"><img src="./images/products/poles0.png" alt=""></div>
+                        <div class="pre_pic"><img :src="preProduct.product_image_1" alt=""></div>
                         <button class="btnA_LwLA"><p>PREV</p><div class="btnArrowL"></div></button>
                     </div>
                     <div class="next" @click="next">
                         <button class="btnA_LwRA"><p>NEXT</p><div class="btnArrowL"></div></button>
-                        <div class="next_pic"><img src="./images/products/shoes0.png" alt=""></div>
+                        <div class="next_pic"><img :src="nextProduct.product_image_1" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -115,14 +115,20 @@
                         <div class="at_dot"></div>
                         <div class="at_dot"></div>
                     </div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
-                    <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
+                    <a href="./comment.html">
+                        <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>  <!-- demo之後刪掉 -->
     <!-- @@include('footer.html') -->
     <footer class="footer">
         <div class="footer_logo_block">

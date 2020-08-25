@@ -129,9 +129,9 @@
         "product_name": "U-11 單人全方位超輕帳",
         "product_price": "4240",
         "product_description": "適合輕便旅行、登山、單車旅遊等活動\r\n外帳使用超輕40D高防水尼龍布，重量輕\r\n內帳使用透氣撥水尼龍布，帳身兩側網布設計\r\n單門設計，內帳網門加透氣尼龍門\r\n地布使用70D 高防水尼龍布",
-        "product_image1": "./images/products/clothes.png",
-        "product_image2": "#",
-        "product_image3": "#"
+        "product_image1": "./images/products/campGear/tent11.png",
+        "product_image2": "./images/products/campGear/tent12.png",
+        "product_image3": "./images/products/campGear/tent13.png"
     },
     {
         "degree_category": "2",
@@ -139,9 +139,9 @@
         "product_name": "Kelty LATE START 2 輕量二人帳",
         "product_price": "5850",
         "product_description": "自立式帳篷\r\nLightnin使用Kelty Quick-Corner技術快速/輕鬆地進行設置\r\n方便進出的D型出入口設計\r\n用預先彎曲的營柱創造的大型室內活動空間 \r\n外帳、地布接縫處有防水膠條，不怕滲水\r\n紗網內帳，增加透氣度，避免反潮",
-        "product_image1": "./images/products/clothes.png",
-        "product_image2": "#",
-        "product_image3": "#"
+        "product_image1": "./images/products/campGear/tent21.png",
+        "product_image2": "./images/products/campGear/tent22.png",
+        "product_image3": "./images/products/campGear/tent23.png"
     },
     {
         "degree_category": "3",
@@ -149,9 +149,9 @@
         "product_name": "MSR 輕量二人登山帳篷",
         "product_price": "16920",
         "product_description": "(new)骨架升級為Easton Syclone的覆合式碳纖維營柱，不同於傳統碳纖維營柱。比鋁合金更輕，風大受力時彈性較好且不容易留下彎曲的弧型，大幅提升帳篷的抗風效果。",
-        "product_image1": "./images/products/clothes.png",
-        "product_image2": "#",
-        "product_image3": "#"
+        "product_image1": "./images/products/campGear/tent31.png",
+        "product_image2": "./images/products/campGear/tent32.png",
+        "product_image3": "./images/products/campGear/tent33.png"
     },
     {
         "degree_category": "4",
@@ -159,9 +159,9 @@
         "product_name": "Snow Peak 單人帳",
         "product_price": "23850",
         "product_description": "Fal Pro.air 系列，輕量、快速、舒適為 Pro.air 系列的代名詞。\r\n側開大前庭，讓您在下雨天也不會擔心裝備弄濕。\r\n左右兩側的網狀窗戶可增加對流通風。\r\n懸掛式內帳，可以快速安裝。",
-        "product_image1": "./images/products/clothes.png",
-        "product_image2": "#",
-        "product_image3": "#"
+        "product_image1": "./images/products/campGear/tent41.png",
+        "product_image2": "./images/products/campGear/tent42.png",
+        "product_image3": "./images/products/campGear/tent43.png"
     },
     {
         "degree_category": "1",
