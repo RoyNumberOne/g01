@@ -25,7 +25,7 @@ $(".swiper-container .swiper-slide a").bind("click", function() {
 });
 
 // =======================手機板按鈕========================
-//========================================================
+//========================桌機板按鈕======================
 function tabId(evt, className) {
   var i, x, tabpage;
   x = document.getElementsByClassName("pages");
@@ -43,7 +43,7 @@ function tabId(evt, className) {
 var mybtn = document.getElementsByClassName("now")[0];
 mybtn.click();
 
-//========================================================
+//========================桌機板按鈕====================
 // =========================收藏頁頁簽======================
 function openClass(evt, className) {
     var i, x, tablinks;
@@ -62,24 +62,21 @@ function openClass(evt, className) {
 var mybtn = document.getElementsByClassName("btn")[0];
 mybtn.click();
 // =======================收藏頁頁簽========================
-// =========================揪團頁頁簽======================
-// function travelchange(evt, className) {
-//   var i, x, tabtravels;
-//   x = document.getElementsByClassName("travel_pages");
-//   for (i = 0; i < x.length; i++) {
-//      x[i].style.display = "none";
-//   }
-//   tabtravels = document.getElementsByClassName("tabtravel");
-//   for (i = 0; i < x.length; i++) {
-//      tablinks[i].classList.remove("red");
-//   }
-//   document.getElementById(className).style.display = "block";
-//   evt.currentTarget.classList.add("red");
-// }
+// =======================個資頭像修改======================
+function readURL(input){
+  if(input.files && input.files[0]){
+      var reader = new FileReader();
 
-// var mybtn = document.getElementsByClassName("this")[0];
-// mybtn.click();
-// =======================揪團頁頁簽========================
+      reader.onload = function(e){
+          $('#img_ava').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+  }
+};
 
+$("#imgInp").change(function(){
+readURL(this);
+});
+// =======================個資頭像修改======================
 
 
