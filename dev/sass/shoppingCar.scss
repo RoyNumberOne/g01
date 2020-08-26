@@ -387,15 +387,16 @@ main{
                             // text-align: center;
                             th{
                                 width: 50%;
-                                // background-color: #153a64;
-                                // border: 1px solid $fontcolor1; 
                                 text-align: right;
                                 padding: 0 10px 0 10px;
+                                font-size: $fontsizeC;
                             }
                             td{
                                 width: 50%;
                                 text-align: left;
                                 padding: 0 10px 0 10px;
+                                font-size: $fontsizeC;
+                                font-weight: 500;
                             }
                         }
                         
@@ -717,12 +718,9 @@ nav.menu ul.link_list.llright li{
                 }
             }
             .setpbtn{
-                // border: 3px solid #999;
-                // padding-right: 10px;
                 text-align: center;
                 margin: 30px;
                 display: flex;
-                // padding-right: 100px;
                 float: right;
                 a{
                     color: $fontcolor1;
@@ -735,7 +733,6 @@ nav.menu ul.link_list.llright li{
                     height: 28px;
                     width: 150px;
                     line-height: 25px;
-                    // box-shadow: 3px 3px .8px $fontcolor1;
                     border: 1px solid $fontcolor2;
                     margin: 0 25px;
                     &::before{
