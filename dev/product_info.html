@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/product_info.css">
+    <title>媒山友｜商品｜商品資訊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/product_info.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
-    <title>商品詳細頁</title>
 </head>
 <body>
     <!-- @@include('header.html') -->
@@ -22,7 +21,7 @@
     <header> 
 
         <div id="headerbox">
-            <a href="./index.html" class="logo">
+            <a href="./FrontstageIndex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -106,15 +105,9 @@
                 <div class="money_chart">
                     <div class="money">${{currentProduct.product_price}}</div>
                     <button class="btnB_XL_yellow add_chart" @click="addCount += 1"><p>加入購物車</p><div class="bg"></div></button>
-                    <!-- <div class="add_count">{{addCount}}</div> -->
                 </div>
                 <div class="artical">
                     <h3 class="related_artical text_underline">相關討論文章</h3>
-                    <!-- <div class="at_dots">
-                        <div class="at_dot"></div>
-                        <div class="at_dot"></div>
-                        <div class="at_dot"></div>
-                    </div> -->
                     <a href="./comment.html">
                         <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
                     </a>
@@ -132,7 +125,9 @@
     <!-- @@include('footer.html') -->
     <footer class="footer">
         <div class="footer_logo_block">
-            <img src="./images/logo/LOGO_white.png" alt="">
+            <a href="./FrontstageIndex.html">
+                <img src="./images/logo/LOGO_white.png" alt="">
+            </a>
             <div class="copyright">Copyright © 2020 Mountain Community.</div>
         </div>
         <div class="footer_info">
@@ -178,14 +173,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.ready(function(){
-            $(".pic").click(function(){
-                $(this).addClass("pick");
-                // $(this).siblings().removeClass("pick");
-            });
-        });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/product_info.js"></script>

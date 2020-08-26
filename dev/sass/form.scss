@@ -390,7 +390,7 @@ $textColor1: #555555;
         }
         .user-name{
             margin: 0px 5px;
-            span{line-height: 50px;}
+            span{line-height: 20px;}
         }
     }
 
@@ -898,5 +898,25 @@ $textColor1: #555555;
     }
     #aside-link{
         display: none;
+    }
+}
+
+nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 37px;
+        background-color: $mt_yellow;
+    }
+    & a.forum p::after {
+        display: block;
+        @media screen and (min-width: 1199px) { left: 213px; }
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 154px;}
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }
 }

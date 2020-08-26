@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/product.css">
+    <title>媒山友｜商品</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/fa5.14.0all.js" ></script>
-    <title>商品總覽</title>
 </head>
 <body>
     
     <header> 
 
         <div id="headerbox">
-            <a href="./index.html" class="logo">
+            <a href="./FrontstageIndex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -68,9 +67,14 @@
 
     </header>
     <div class="wrap" id="wrap">
-        <div class="main">
+        <div class="cate_per">
+            <h3 class="p_cate">商品類別</h3>
+            <h3 class="p_per">個別商品</h3>
+        </div>
+        <main class="main">
             <div class="category">
                 <div class="show_now">
+                    <h3 class="category_title">{{currentCategory}}</h3>
                     <!-- <img src="./images/products/clothes0.png" alt=""> -->
                     <img :src="currentCategoryImg" alt="">
                     <div class="show_hover">
@@ -80,13 +84,15 @@
             </div>
             <div class="product_block">
                 <div v-for="(product, index) in currentProducts" class="items_block" :key='product.id' :class="backgroundColor(index)">
+                    <div class="porduct_title">{{product.product_name}}</div>
+                    <div class="porduct_title">${{product.product_price}}</div>
                     <!-- <div>{{product.product_name}}</div> -->
-                        <a href="./product_info.html">
-                            <img :src="product.product_image1" alt="">
-                            <div class="show_hover">
-                                <div class="p_title">{{product.product_name}}</div>
-                            </div>
-                        </a>
+                    <a href="./product_info.html">
+                        <img :src="product.product_image1" alt="">
+                        <div class="show_hover">
+                            <div class="p_title">{{product.product_name}}</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="category_list">
@@ -94,29 +100,34 @@
                     <div class="show_hover">
                         <div class="p_title" id="clothes" @click="changeCurrentCategory('clothes')">機能服飾 clothes</div>
                     </div>
+                    <div class="category_name">機能服飾</div>
                 </div>
                 <div class="bag"><img src="./images/products/bag/bag0.png" alt="">
                     <div class="show_hover">
                         <div class="p_title" id="bag" @click="changeCurrentCategory('bag')">登山背包 bag</div>
                     </div>
+                    <div class="category_name">登山背包</div>
                 </div>
                 <div class="shoes"><img src="./images/products/shoes/shoes0.png" alt="">
                     <div class="show_hover">
                         <div class="p_title" id="shoes" @click="changeCurrentCategory('shoes')">登山鞋 shoes</div>
                     </div>
+                    <div class="category_name">登山鞋</div>
                 </div>
                 <div class="campGear"><img src="./images/products/campGear/tent0.png" alt="">
                     <div class="show_hover">
                         <div class="p_title" id="campGear" @click="changeCurrentCategory('campGear')">露營裝備 campGear</div>
                     </div>
+                    <div class="category_name">露營裝備</div>
                 </div>
                 <div class="others"><img src="./images/products/others/poles0.png" alt="">
                     <div class="show_hover">
                         <div class="p_title" id="others" @click="changeCurrentCategory('others')">登山配件 others</div>
                     </div>
+                    <div class="category_name">登山配件</div>
                 </div>
             </div>
-        </div> 
+        </main> 
         <!-- <div class="category_list">
             <div class="bag"><img src="./images/products/clothes0.png" alt="">
                 <div class="show_hover">
@@ -147,7 +158,9 @@
     </div>
     <footer class="footer">
         <div class="footer_logo_block">
-            <img src="./images/logo/LOGO_white.png" alt="">
+            <a href="./FrontstageIndex.html">
+                <img src="./images/logo/LOGO_white.png" alt="">
+            </a>
             <div class="copyright">Copyright © 2020 Mountain Community.</div>
         </div>
         <div class="footer_info">

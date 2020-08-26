@@ -1,4 +1,4 @@
-// @import 'common.scss';
+@import 'common';
 @import 'meet2-3-1';
 
 body{
@@ -10,7 +10,6 @@ div.wrap{
     .person{
         display: flex;
         .person_headtag{
-            // border: 1px solid #000;
             img{
                 width: 80px;
                 height: 80px;
@@ -112,9 +111,6 @@ div.wrap{
                 // }
                 .report{
                     .report_bt{
-                        background-color: #ccc;
-                        padding: 5px;
-                        border-radius: 5px;
                         cursor: pointer;
                     }   
                 }
@@ -606,5 +602,27 @@ div.wrap{
                 }
             }
         }
+    }
+}
+
+
+// 所在位置 //
+nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 37px;
+        background-color: $mt_yellow;
+    }
+    & a.tour p::after {
+        display: block;
+        @media screen and (min-width: 1199px) {left: 48px;}
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 27px; }
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }
 }
