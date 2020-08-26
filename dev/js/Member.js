@@ -1,12 +1,3 @@
-// $(function(){
-//     var $li = $('ul.tab-title li');
-//         $($li. eq(0) .addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
-    
-//         $li.click(function(){
-//             $($(this).find('a'). attr ('href')).show().siblings ('.tab-inner').hide();
-//             $(this).addClass('active'). siblings ('.active').removeClass('active');
-//         });
-//     });
 // =========================手機板按鈕======================
 
 var mySwiper = new Swiper(".swiper-container", {
@@ -15,14 +6,16 @@ var mySwiper = new Swiper(".swiper-container", {
   slidesPerView: 4,
   loop: false
 });
-mySwiper.on("slideChangeStart", function() {
-  console.log("slide change start");
-  $(".swiper-slide-next").addClass("swiper-slide-active");
-});
-/* Trick to fix clickable links in Slides */
-$(".swiper-container .swiper-slide a").bind("click", function() {
-  window.open($(this).attr("href"), "_blank");
-});
+// mySwiper.on("slideChangeStart", function() {
+//   console.log("slide change start");
+//   $(".swiper-slide-next").addClass("swiper-slide-active");
+// });
+
+// /* Trick to fix clickable links in Slides */
+
+// $(".swiper-container .swiper-slide a").bind("click", function() {
+//   window.open($(this).attr("href"), "_blank");
+// });
 
 // =======================手機板按鈕========================
 //========================桌機板按鈕======================

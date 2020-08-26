@@ -66,16 +66,12 @@
 }
 @media screen and (max-width: 575px){
     #MemAchievement{
-        overflow: auto;
-        &::-webkit-scrollbar{
-            display: none;
-        }
         p{
             margin: auto 5%;
             margin-bottom: 30px;
         }
         .Achievement_list{
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(3,1fr);
             grid-template-rows: repeat(7,1fr);
             div{
                 img{
