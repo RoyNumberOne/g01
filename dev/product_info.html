@@ -109,12 +109,12 @@
                     <!-- <div class="add_count">{{addCount}}</div> -->
                 </div>
                 <div class="artical">
-                    <h4 class="related_artical">相關討論文章</h4>
-                    <div class="at_dots">
+                    <h3 class="related_artical text_underline">相關討論文章</h3>
+                    <!-- <div class="at_dots">
                         <div class="at_dot"></div>
                         <div class="at_dot"></div>
                         <div class="at_dot"></div>
-                    </div>
+                    </div> -->
                     <a href="./comment.html">
                         <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
                     </a>
@@ -178,6 +178,14 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.ready(function(){
+            $(".pic").click(function(){
+                $(this).addClass("pick");
+                // $(this).siblings().removeClass("pick");
+            });
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/product_info.js"></script>
