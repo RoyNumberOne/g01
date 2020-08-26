@@ -10,6 +10,13 @@
     70%{ opacity: 0.9;}
     100%{ opacity: 0;}
 }
+@keyframes bgfade {
+    0%{ opacity: 0;} // 0
+    2%{ opacity: 1;} // 600
+    48%{ opacity: 1;} //5400
+    50%{ opacity: 0;} //6000
+    100%{ opacity: 0;} //12000
+}
 @keyframes meteorfalls {
     0% {
         opacity: 0;
@@ -95,24 +102,25 @@ div.bg{
             transition: 0.2s all linear;    
         }
     }
-    // & div.scene{
-    //     // position: absolute;
-    //     & img{
-
-    //     }
-    // }
-    // & div.mountainmiddle{
-    //     // position: absolute;
-    //     & img{
-            
-    //     }
-    // }
-    // & div.mountainfirst{
-    //     // position: absolute;
-    //     & img{
-            
-    //     }
-    // }
+    & div.scenefade1 {
+        animation: bgfade 12s linear -0.5s infinite both;
+    }
+    & div.mountainmiddlefade1 {
+        animation: bgfade 12s linear -0.5s infinite both;
+    }
+    & div.mountainfirstfade1 {
+        animation: bgfade 12s linear -0.5s infinite both;
+    }
+    & div.scenefade2 {
+        opacity: 1;
+    }
+    & div.mountainmiddlefade2 {
+        opacity: 1;
+    }
+    & div.mountainfirstfade2 {
+        opacity: 1;
+    }
+    
 }
 
 div#section2 {

@@ -10,7 +10,7 @@
     {
         "tour_participate_mem": "10010",
         "tour_participate_tour": "100002",
-        "tour_participate_situation": "已審核通過"
+        "tour_participate_situation": "已審核已通過"
     },
     {
         "tour_participate_mem": "10012",
@@ -24,7 +24,7 @@
     {
         "tour_participate_mem": "10015",
         "tour_participate_tour": "100002",
-        "tour_participate_situation": "已審核通過"
+        "tour_participate_situation": "已審核已通過"
     },
     {
         "tour_participate_mem": "10009",
@@ -42,21 +42,101 @@
     {
         "tour_participate_mem": "10009",
         "tour_participate_tour": "100008",
-        "tour_participate_situation": "已審核通過"
+        "tour_participate_situation": "已審核已通過"
     },
     {
         "tour_participate_mem": "10010",
         "tour_participate_tour": "100004",
-        "tour_participate_situation": "已審核通過"
+        "tour_participate_situation": "已審核已通過"
     },
     {
         "tour_participate_mem": "10012",
         "tour_participate_tour": "100016",
-        "tour_participate_situation": "已審核通過"
+        "tour_participate_situation": "已審核已通過"
     },
     {
         "tour_participate_mem": "10013",
         "tour_participate_tour": "100016",
         "tour_participate_situation": "已審核不通過"
+    },
+    {
+        "tour_participate_mem": "10012",
+        "tour_participate_tour": "100001",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10011",
+        "tour_participate_tour": "100002",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10010",
+        "tour_participate_tour": "100003",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10009",
+        "tour_participate_tour": "100004",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10008",
+        "tour_participate_tour": "100005",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10009",
+        "tour_participate_tour": "100006",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10010",
+        "tour_participate_tour": "100007",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10011",
+        "tour_participate_tour": "100008",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10012",
+        "tour_participate_tour": "100009",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10013",
+        "tour_participate_tour": "100010",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10014",
+        "tour_participate_tour": "100011",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10013",
+        "tour_participate_tour": "100012",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10012",
+        "tour_participate_tour": "100013",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10011",
+        "tour_participate_tour": "100014",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10010",
+        "tour_participate_tour": "100015",
+        "tour_participate_situation": "已審核已通過"
+    },
+    {
+        "tour_participate_mem": "10009",
+        "tour_participate_tour": "100016",
+        "tour_participate_situation": "已審核已通過"
     }
 ]
