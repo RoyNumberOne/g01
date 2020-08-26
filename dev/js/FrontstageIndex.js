@@ -1,3 +1,9 @@
+
+function $id(id){
+	return document.getElementById(id);
+}	
+
+
 $(document).ready(function() {
     $('#fullpage').fullpage({
 
@@ -130,11 +136,11 @@ checkbg();
 })
 
 $(window).scroll(function() {
-    alert(123);
+    // alert(123);
 });
 
 $(document).scroll(function(){
-    alert(123);
+    // alert(123);
 })
 
 $(window).bind('mousewheel', function(e){
@@ -148,14 +154,38 @@ $(window).bind('mousewheel', function(e){
     }
 });
 
-$(document).ready(
-$("#fp-nav").click(function(){
-    alert(123);
-    checkbg();
-})
-);
+// $(document).ready(
+// $("#fp-nav").click(function(){
+//     alert(123);
+//     checkbg();
+// })
+// );
 
 $(document).ready(
 $(document).on('keydown',function(e) {
     checkbg();
 }));
+
+
+function checkbig(){
+    $("#sec3-1box .big .bigimg img").attr('src' , $("#sec3-1box .is-active img").attr('src'));
+    $("#sec3-1box .big .posteravator img").attr('src' , $('#sec3-1box .is-active .inforplace .posteravator').attr('src'));
+    $("#sec3-1box .big .commentmem img").attr('src' , $('#sec3-1box .is-active .inforplace .commentmem').attr('src'));
+    $id('posteridp').innerText  =  $('#sec3-1box .is-active .inforplace .posterid').attr('innerHTML');
+    $id('innertextp').innerText  =  $('#sec3-1box .is-active .inforplace .innertext').attr('innerHTML');
+    $id('commenttextp').innerText  =  $('#sec3-1box .is-active .inforplace .commenttext').attr('innerHTML');
+    $("#sec3-2box .big .bigimg img").attr('src' , $("#sec3-2box .is-active img").attr('src'));
+    $("#sec3-2box .big .posteravator img").attr('src' , $('#sec3-2box .is-active .inforplace .posteravator').attr('src'));
+    $("#sec3-2box .big .commentmem img").attr('src' , $('#sec3-2box .is-active .inforplace .commentmem').attr('src'));
+    $id('posteridp2').innerText  =  $('#sec3-2box .is-active .inforplace .posterid').attr('innerHTML');
+    $id('innertextp2').innerText  =  $('#sec3-2box .is-active .inforplace .innertext').attr('innerHTML');
+    $id('commenttextp2').innerText  =  $('#sec3-2box .is-active .inforplace .commenttext').attr('innerHTML');
+}
+checkbig();
+
+
+$(".small").click(function(){
+    $(this).siblings().removeClass('is-active')
+    $(this).addClass('is-active')
+    checkbig();
+})

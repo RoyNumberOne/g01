@@ -512,7 +512,205 @@ div#section2 {
     }
 }
 
+div#section3 {
+    // & * {
+    //     border: 2px solid lightcyan;
+    // }
+    & div#sec3-1box ,& div#sec3-2box{
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
+        & div.big{
+            cursor: pointer;
+            position: relative;
+            vertical-align: top;
+            width: 45%;
+            height: 90%;
+            margin: 2.5% 1.5% 2.5% 3.5%;
+            background-color: rgba(white,0);
+            transition: 0.2s all;
+            &:hover {
+                background-color: rgba(white,0.1);
+            }
+            & div.bigimg{
+                width: 100%;
+                height: 50%;
+                overflow: hidden;
+                & img {
+                    transform: translateY(-20%);
+                    width: 100%;
+                }
+
+            }
+            div.posterinfor {
+                width: 100%;
+                height: 80px;
+                margin: 10px 0px;
+                text-align: left;
+                & div{
+                    display: inline-block;
+                    height: 100%;
+                    vertical-align: top;
+                }
+                & div.posteravator {
+                    width: 80px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    & img {
+                        height: 100px;
+                    }
+                }
+                & div.posterid{
+                    & p{
+                        color: $mt_fontlight;
+                        padding-top: 20px;
+                        margin: 0 12px;
+                    }
+                }
+                & div.posterverify{
+                    display: block !important;
+                    text-align: left;
+                    height: 20px;
+                    & span {
+                        margin: 0px 8px;
+                        & path {
+                            color: white !important;
+                        }
+                    }
+                }
+                & div.posterbadge {
+                    display: block !important;
+                    text-align: left;
+                    height: 60px;
+                    & img {
+                        height: 100%;
+                    }
+
+                }
+            }
+            & div.innertext{
+                padding: 20px;
+                & p {
+                    color: $mt_fontlight;
+                    text-align: left;
+                }
+            }
+            & div.newcomment{
+                border-top: 2px solid $mt_yellow;
+                padding: 12px 30px;
+                position: absolute;
+                width: 100%;
+                height: 80px;
+                bottom: 0;
+                text-align: left;
+                display: flex;
+                & .commentmem{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    & img {
+                        width: 80px;
+                    }
+                }
+                & .commenttext{
+                    width: calc(100% - 60px);
+                    padding: 2px 9px;
+                    & p {
+                        color: $mt_fontlight;
+                        padding: 8px 5px    ;
+                    }
+                }
+            }
+
+        }
+        & div.smallbox{
+            vertical-align: top;
+            width: 45%;
+            height: 90%;
+            margin: 2.5% 3.5% 2.5% 1.5%;
+            display: flex;
+            flex-wrap: wrap;
+            & div.small{
+                cursor: pointer ;
+                width: 46%;
+                height: 46%;
+                margin: 2%;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
+                position: relative;
+                overflow: hidden;
+                &:hover div.greymask{
+                    opacity: 1;
+                    background-color: rgba($mt_black,1);
+                    & p{
+                        transform: scale(1.2);
+                    }
+                }
+                &.is-active .greymask{
+                    opacity: 0 !important;
+                }
+                & img {
+                    height: 350px;
+                }
+                & div.forumtag{
+                    position: absolute;
+                    left: 0;
+                    top: 30px;
+                    width: 120px;
+                    height: 40px;
+                    background-color: rgba($mt_yellow,0.8);
+                    padding-top: 5px;
+                    & p {
+                        color: $mt_fontlight;
+                    }
+                }
+                & div.greymask {
+                    opacity: 0.9;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    background-color: rgba($mt_black,0.8);
+                    transition: 0.2s all;
+                    padding: 40% 30px;
+                    & p {
+                        color: $mt_fontlight;
+                        transition: 0.2s all;
+                    }
+                }
+                & div.inforplace{
+                    display: none;
+                }
+            }
+        }
+    }
+    div#sec3-2box{
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
+    }
+}
+
 div#section4 {
+    div#sec4box{
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
+    }
     div.meteor {
         position: absolute;
         width: 100%;
@@ -576,6 +774,6 @@ div#section4 {
 }
 
 // debug
-    // div#section1, div#section3, div#section4 {
+    // div#section1, div#section2, div#section4 {
     //     display: none;
     // }
