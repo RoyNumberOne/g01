@@ -1,3 +1,5 @@
+
+
 main {
     background-repeat: no-repeat;
     background-size: 100%;
@@ -556,4 +558,11 @@ footer{
         }
     }
     // footer{margin-bottom: 100px;}
+}
+
+
+
+
+nav.menu ul.link_list.llright li{
+    & a.member svg path { color: $mt_yellow !important ; }
 }
