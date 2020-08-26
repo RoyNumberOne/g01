@@ -11,7 +11,6 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
     <link rel="stylesheet" href="./css/Member_style.css">
-    <link rel="stylesheet" href="./js/Member.js">
 
 </head>
 <body>
@@ -67,8 +66,11 @@
         <div class="top">
             <div class="banner"></div>
             <div class="memAvatar">
-                <img src="images/member/memAvatar_test.jpg">
+                <img src="images/member/memAvatar_test.jpg" id="img_ava">
             </div>
+            <label class="camera_i">
+                <input type="file" id="imgInp" accept="image/*" />
+            </label>
         </div>
         <div class="middle">
             <div class="memName">
@@ -1117,106 +1119,94 @@
                             </div>
                         </div>
                         <div class="memOrder_pc">
-                            <table>
-                                <tr>
-                                    <th>訂單編號</th>
-                                    <th>訂單日期</th>
-                                    <th>訂單狀態</th>
-                                    <th>商品數</th>
-                                    <th>總金額</th>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                                <tr>
-                                    <td>No.12345</td>
-                                    <td>2020/08/11</td>
-                                    <td>出貨中</td>
-                                    <td>1</td>
-                                    <td>$9999</td>
-                                </tr>
-                            </table>
+                            <div class="memOrder_form">
+                                <table>
+                                    <tr>
+                                        <th>訂單編號</th>
+                                        <th>訂單日期</th>
+                                        <th>訂單狀態</th>
+                                        <th>總金額</th>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>2020/08/11</td>
+                                        <td>出貨中</td>
+                                        <td>$9999</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <div class="orderPages">
                                 <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                                 <button class="btnA_S pg -active"><p>01</p></button>
@@ -1276,8 +1266,10 @@
                                     <p>確認密碼</p><br>
                                     <input type="text">
                                 </div>
-                                <input type="submit" value="確認送出" id="sub">
-                                <input type="button" name="back" value="取消修改" onClick="history.back()" id="back">
+                                <div class="mem_button">
+                                    <button class="btnB_L_blue" onClick="history.back()"><p>取消修改</p><div class="bg"></div></button>
+                                    <button class="btnB_L_yellow"><p>確認送出</p><div class="bg"></div></button>
+                                </div>
                             </div>
                         </form>
                     </div>
