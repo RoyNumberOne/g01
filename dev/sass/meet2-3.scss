@@ -1,4 +1,4 @@
-// @import 'common.scss';
+@import 'common';
 @import 'meet2-3-1';
 
 body{
@@ -10,7 +10,6 @@ div.wrap{
     .person{
         display: flex;
         .person_headtag{
-            // border: 1px solid #000;
             img{
                 width: 80px;
                 height: 80px;
@@ -112,9 +111,6 @@ div.wrap{
                 // }
                 .report{
                     .report_bt{
-                        background-color: #ccc;
-                        padding: 5px;
-                        border-radius: 5px;
                         cursor: pointer;
                     }   
                 }
@@ -427,13 +423,6 @@ div.wrap{
                 }
             }
         }
-        // .bt{
-        //     width: 100%;
-        //     display: flex;
-        //     justify-content: space-between;
-        //     align-items: center;
-        //     position: absolute;
-        //     bottom: 0;
         .left{
             cursor: pointer;
             padding: 10px;
@@ -464,9 +453,58 @@ div.wrap{
                 color: #ffc107;
             }
         }
-        // }
     }
 }
+
+// gotop
+#gotop a{
+    text-decoration: none;
+}
+
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:20px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background-color: #153a64;
+    line-height:50px;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+    & .svg-inline--fa.fa-arrow-up.fa-w-14 path{
+        color:#fff;
+        transform: scale(1);
+    }
+}
+
+// aside-link
+#aside-link{
+    display:block;
+    position: fixed;
+    right: 1px;
+    bottom: 300px;
+    height: auto;
+    z-index: 4;
+    .aside-com-btn{
+        display: block;
+        position: absolute;
+        right: 0px;
+        bottom: 20px;
+        height: auto;
+        width: 100px;
+    
+        img{
+            width: 100%;
+            margin: 3px 0px;
+        }
+    }
+}
+
 
 // media
 @media screen and (min-width: 1440px) {
@@ -495,6 +533,7 @@ div.wrap{
             }
             .activity{
                 width: 100%;
+                margin: 0;
                 padding-bottom: 30px;
                 border-bottom: 1px solid #000;
             }
@@ -521,6 +560,7 @@ div.wrap{
             }
             .activity{
                 width: 100%;
+                margin: 0;
                 padding-bottom: 30px;
                 border-bottom: 1px solid #000;
             }
@@ -562,5 +602,27 @@ div.wrap{
                 }
             }
         }
+    }
+}
+
+
+// 所在位置 //
+nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 37px;
+        background-color: $mt_yellow;
+    }
+    & a.tour p::after {
+        display: block;
+        @media screen and (min-width: 1199px) {left: 48px;}
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 27px; }
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }
 }

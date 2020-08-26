@@ -1,9 +1,15 @@
+@import 'common';
+
 div.wrap{
     max-width: 1152px;
-    margin: 30px auto;
+    margin: 30px auto 50px;
     // padding: 0 20px;
     display: flex;
     flex-direction: column;
+    .cate_per{
+        display: flex;
+        justify-content: space-around;
+    }
     .main{
         display: flex;
         justify-content: space-between;
@@ -11,10 +17,17 @@ div.wrap{
         .category{
             width: 50%;
             background-color: rgba(255, 196, 0, .5);
+            .category_title{
+                text-align: center;
+                position: relative;
+            }
             .show_now{
                 height: 100%;
                 position: relative;
                 color: #fff;
+                .category_title{
+                    text-align: center;
+                }
                 img{
                     display: block;
                     // height: 100%;
@@ -57,6 +70,9 @@ div.wrap{
                 width: 45%;
                 height: 48%;
                 position: relative;
+                .porduct_title{
+                    text-align: center;
+                }
                 // flex-direction: column;
                 // background-color: royalblue;
                 // .item_top{
@@ -288,6 +304,10 @@ div.wrap{
         color: #fff;
     }
 }
+.category_name{
+    height: 100%;
+    text-align: center;
+}
 
 // media
 @media screen and (min-width: 1440px) {
@@ -366,3 +386,25 @@ div.wrap{
         }  
     }
  }
+
+ // 所在位置 //
+nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 37px;
+        background-color: $mt_yellow;
+    }
+
+    & a.product p::after {
+        display: block;
+        @media screen and (min-width: 1199px) {left: 380px;}
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 281px; }
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
+    }
+}

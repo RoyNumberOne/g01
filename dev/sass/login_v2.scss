@@ -17,6 +17,10 @@
 	font-size: 16px;
 }
 
+nav.menu ul.link_list.llright li{
+    & a.member svg path { color: $mt_yellow !important ; }
+}
+
 main {
 	align-items: center;
 	background-color: var(--white);
@@ -36,8 +40,8 @@ main {
 	border-radius: var(--button-radius);
 	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
 		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: var(--max-height);
-	max-width: var(--max-width);
+	height: 500px;
+	max-width: 800px;
 	overflow: hidden;
 	position: relative;
     width: 100%;
@@ -79,7 +83,7 @@ main {
         text-align: center;
         h2{
             font-weight: 300;
-            margin: 10% 0;
+            margin: 18% 0;
             margin-bottom: 1.25rem;
         }
         input{
@@ -151,6 +155,7 @@ main {
             box-shadow: 0px 0px 10px #153A64;
             border-radius: var(--button-radius);
             margin-top: 20px;
+            padding: 15px;
             width: 85%;
             h3{
                 font-size: 16px;
@@ -167,6 +172,7 @@ main {
             box-shadow: 0px 0px 10px #153A64;
             border-radius: var(--button-radius);
             margin: 10px 0;
+            padding: 15px;
             width: 85%;
             h3{
                 font-size: 16px;

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/MemberGuide.css">
-    <title>實名制申請表</title>
+    <title>媒山友｜會員｜實名制認證</title>
 </head>
 <body>
 <main>
@@ -15,7 +15,7 @@
         <?php 
             switch($_FILES["mem_idno_image"]["error"]){
                 case UPLOAD_ERR_OK:
-                    $dir = "images";
+                    $dir = "images/member/memGuide_Id";
                     if(file_exists($dir)==false){
                         mkdir($dir);
                     }
@@ -51,7 +51,7 @@
                 echo "<tr>","<th>","身分證字號：","</th>","<td>",$_POST["mem_idno"],"</td>";
                 echo "</tr>","</table>";
             ?>
-            <a href="./"><button class="btnA_L"><p>點我回首頁</p></button></a>
+            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button></a>
             </div>
                                  
     </div>

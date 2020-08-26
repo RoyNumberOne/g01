@@ -25,11 +25,17 @@
             grid-template-rows: repeat(7,1fr);
             .page{
                 width: 100%;
-                border: 1px solid black;
+                border: 1px solid #c8c8c8;
                 margin-bottom: 1%;
                 display: grid;
                 grid-template-columns: repeat(6,1fr);
                 grid-template-rows: repeat(1,1fr);
+                transition: all ease 0.2s;
+                &:hover{
+                    -moz-box-shadow: 5px 5px 15px -5px #8A8A8A; 
+                    -webkit-box-shadow: 5px 5px 15px -5px #8A8A8A; 
+                    box-shadow: 5px 5px 15px -5px #8A8A8A;
+                }
                 .img_box{
                     grid-area: 1/1/2/2;
                     margin: 5%;
@@ -73,6 +79,9 @@
                             margin: 0 5%;
                             .fa-mountain{
                                 margin: 1%;
+                                color: green;
+                            }
+                            .Lv1,.Lv2,.Lv3,.Lv4{
                                 color: green;
                             }
                             .Lv4{
