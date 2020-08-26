@@ -87,12 +87,10 @@ $(document).ready(function(){
     $(".add_chart").click(function(){
         $(".add_count").css("display", "block");
     }); 
-});
 
-//dot .pic change bgcolor
-document.ready(function(){
+    //dot .pic change bgcolor
     $(".pic").click(function(){
         $(this).addClass("pick");
-        // $(this).siblings().removeClass("pick");
+        $(this).siblings().removeClass("pick");
     });
 });
