@@ -15,7 +15,7 @@
         <?php 
             switch($_FILES["guide_image"]["error"]){
                 case UPLOAD_ERR_OK:
-                    $dir = "images";
+                    $dir = "images/member/memGuide_Id";
                     if(file_exists($dir)==false){
                         mkdir($dir);
                     }
