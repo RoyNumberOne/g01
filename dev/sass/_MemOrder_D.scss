@@ -37,6 +37,10 @@
     }
 }
 
+nav.menu ul.link_list.llright li{
+    & a.member svg path { color: $mt_yellow !important ; }
+}
+
 @media screen and (min-width: 992px) and (max-width: 1199px){
     #memOrder_D{
         .det_pro{
