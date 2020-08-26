@@ -21,7 +21,7 @@
     ?>
     <aside>
         <nav id="BackstageNav">
-            <ul class="page index ulat"><a href="./BackstageIndex.php">
+            <ul class="page index"><a href="./BackstageIndex.php">
                     <p class="title">首頁</p>
                 </a></ul>
             <ul class="report">
