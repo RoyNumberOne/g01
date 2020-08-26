@@ -9,6 +9,7 @@
     <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
     <link rel="stylesheet" href="../css/Backstagemain.css">
     <link rel="stylesheet" href="../css/BackstageHeader.css">
+    <link rel="stylesheet" href="../css/Backstageproduct.css">
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +22,7 @@
     ?>
     <aside>
         <nav id="BackstageNav">
-            <ul class="page index ulat"><a href="./BackstageIndex.php">
+            <ul class="page index"><a href="./BackstageIndex.php">
                     <p class="title">首頁</p>
                 </a></ul>
             <ul class="report">
@@ -154,9 +155,8 @@
         </nav>
     </aside>
     <section>
-
         <div>
-            <div>
+            <div class="product_total">
                 <?php 
                     try	{
                         require_once('connectMeetain.php');
