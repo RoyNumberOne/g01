@@ -22,11 +22,7 @@
 
 // ::::::::::測試連線::::::::::
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
 		}	else	{
@@ -40,12 +36,9 @@ try	{
 // ::::::::::這是achievement成就的建立::::::::::
 $json_string = file_get_contents('./Initial_achievement.json');  
 $data = json_decode($json_string, true);  
+
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::15個成就::::::::::
@@ -71,11 +64,7 @@ try	{
 $json_string = file_get_contents('./Initial_member.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::新建前14位創始帳號::::::::::
@@ -105,11 +94,7 @@ try	{
 $json_string = file_get_contents('./Initial_administrator.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::新建前7位管理員後台帳號::::::::::
@@ -138,11 +123,7 @@ try	{
 
 // ::::::::::這是degree難度的建立::::::::::
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::新建4級難度::::::::::
@@ -164,11 +145,7 @@ try	{
 $json_string = file_get_contents('./Initial_mountain.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::新建16座山::::::::::
@@ -195,16 +172,12 @@ try	{
 $json_string = file_get_contents('./Initial_product.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
-            // :::::::::: 5類別*4難度::::::::::
-            for($a=0 ; $a<20 ; $a++){
-            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."');";
+            // :::::::::: 5類別*4難度 + 3備用::::::::::
+            for($a=0 ; $a<23 ; $a++){
+            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description,product_situation) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."','".$data[$a]['product_situation']."');";
             echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
@@ -226,11 +199,7 @@ try	{
 $json_string = file_get_contents('./Initial_tour.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::16個團::::::::::
@@ -258,11 +227,7 @@ try	{
 $json_string = file_get_contents('./Initial_forum_post.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // ::::::::::討論區4主題*2篇文+2公告發文::::::::::
@@ -286,11 +251,7 @@ try	{
 $json_string = file_get_contents('./Initial_comment_post.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
            // :::::::::: 8篇文*2留言 + 2公告*3留言::::::::::
@@ -321,11 +282,7 @@ try	{
 $json_string = file_get_contents('./Initial_orders.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // :::::::::: 3筆訂單::::::::::
@@ -351,11 +308,7 @@ try	{
 $json_string = file_get_contents('./Initial_order_list.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // :::::::::: 3筆訂單的詳細::::::::::
@@ -381,11 +334,7 @@ try	{
 $json_string = file_get_contents('./Initial_mem_achievement.json');  
 $data = json_decode($json_string, true);  
 try	{
-	$dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
 		if($pdo != false){
 			echo "連線成功<br>";
             // :::::::::: 擁有成就::::::::::
@@ -409,11 +358,7 @@ try	{
     $json_string = file_get_contents('./Initial_member_realname.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 實名制審核 ::::::::::
@@ -435,11 +380,7 @@ try	{
     $json_string = file_get_contents('./Initial_member_guide.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 嚮導審核 ::::::::::
@@ -464,11 +405,7 @@ try	{
     $json_string = file_get_contents('./Initial_member_keep.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 會員追蹤 ::::::::::
@@ -492,11 +429,7 @@ try	{
 $json_string = file_get_contents('./Initial_tour_keep.json');  
 $data = json_decode($json_string, true);  
 try	{
-    $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
         if($pdo != false){
             echo "連線成功<br>";
             // :::::::::: 揪團追蹤 ::::::::::
@@ -524,11 +457,7 @@ try	{
     $json_string = file_get_contents('./Initial_product_keep.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 商品收藏::::::::::
@@ -553,11 +482,7 @@ try	{
     $json_string = file_get_contents('./Initial_forum_keep.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 討論文收藏::::::::::
@@ -582,15 +507,11 @@ try	{
     $json_string = file_get_contents('./Initial_tour_participate.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 會員追蹤 ::::::::::
-                for($a=0 ; $a<13 ; $a++){
+                for($a=0 ; $a<29 ; $a++){
                 $sql = "insert into tour_participate (tour_participate_mem,tour_participate_tour,tour_participate_situation) value  ('".$data[$a]['tour_participate_mem']."','".$data[$a]['tour_participate_tour']."','".$data[$a]['tour_participate_situation']."');";
                echo $sql."<br>";
                 $affectedRow = $pdo -> exec($sql);
@@ -612,11 +533,7 @@ try	{
     $json_string = file_get_contents('./Initial_tour_report.json');  
     $data = json_decode($json_string, true);  
     try	{
-        $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-        $user = "root";
-        $password = "root";
-        $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-        $pdo = new PDO($dsn , $user , $password, $options);
+        require_once('../connectMeetain.php');
             if($pdo != false){
                 echo "連線成功<br>";
                 // :::::::::: 揪團檢舉 ::::::::::
@@ -644,11 +561,7 @@ try	{
 $json_string = file_get_contents('./Initial_forum_report.json');  
 $data = json_decode($json_string, true);  
 try	{
-    $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
         if($pdo != false){
             echo "連線成功<br>";
             // :::::::::: 揪團檢舉 ::::::::::
@@ -674,11 +587,7 @@ try	{
 $json_string = file_get_contents('./Initial_comment_report.json');  
 $data = json_decode($json_string, true);  
 try	{
-    $dsn = "mysql:host=localhost;port=8889;dbname=meetainDataIn;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn , $user , $password, $options);
+    require_once('../connectMeetain.php');
         if($pdo != false){
             echo "連線成功<br>";
             // :::::::::: 留言檢舉 ::::::::::
