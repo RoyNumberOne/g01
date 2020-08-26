@@ -164,9 +164,9 @@ div.bg{
 }
 
 div#section2 {
-    & * {
-        // border: 2px solid lightcoral;
-    }
+    // & * {
+    //     border: 2px solid lightcoral;
+    // }
     & div#sec2box {
         border-radius: 30px;
         overflow: hidden;
@@ -178,7 +178,7 @@ div#section2 {
         & #weatherbox {
             width: 30%;
             height: 100%;
-            padding: 30px;
+            padding: 80px 15px 15px 15px;
             display: flex;
             flex-direction: column;
             & div.weather{
@@ -352,8 +352,8 @@ div#section2 {
             & #searchbox{
                 width: 100%;
                 height: 80px;
-                padding: 20px;
-                // border-bottom: 2px solid white;
+                padding: 20px 0px;
+                float: left;
                 & * {
                     display: inline-block;
                 }
@@ -378,8 +378,12 @@ div#section2 {
                 }
             }
             & .tourtop1 {
-                width: 45%;
-                margin: 0 2.5%;
+                cursor: pointer;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
+                // border-radius: 30px;
+                width: 50%;
+                padding: 0 2.5%;
                 height: calc( 100% - 80px );
                 & div.mainpic{
                     padding: 10px;
@@ -413,19 +417,28 @@ div#section2 {
                         display: flex;
                         flex-direction: column;
                         & div.posterVerify {
-                            width: 54px;
+                            width: 70px;
                             height: 25px;
+                            padding: 0px 5px;
+                            & span {
+                                margin-right: 10px;
+                                & path{
+                                    color: white;
+                                }
+                            }
                         }
                         & div.posterId {
                             & p {
                                 color: $mt_fontlight;
+                                text-align: left;
+                                padding: 0px 5px;
                             }
                         }
                         & div.posterBadge {
-                            height: 25px;
+                            height: 35px;
                             & div.badge {
-                                width: 25px;
-                                height: 25px;
+                                width: 35px;
+                                height: 35px;
                                 & img {
                                     width: 100%;
                                 }
@@ -434,13 +447,14 @@ div#section2 {
                     }
                 }
                 & div.tourinfor{
-                    padding: 5px 50px;
+                    padding: 5px 25px;
                     text-align: left;
                     border-top: 2px solid rgba($mt_grey1,0.4);
                     border-bottom: 2px solid rgba($mt_grey1,0.4);
                     margin: 10px;
                     & div{
                         display: inline-block;
+                        margin: auto 5px;
                     }
 
                     & p {
@@ -448,91 +462,415 @@ div#section2 {
                     }
                 }
                 & div.tourdesc {
-                    padding: 0px 50px;
+                    padding: 0px 40px;
                     margin-bottom: 10px;
                     & p {
                         color: $mt_fontlight;
                         text-align: left;
                     }
                 }
+                &:hover {
+                    background-color: rgba(white,0.1);
+                }
             }
             & #tour23box{
-                width: 45%;
-                margin: 0 2.5%;
+                width: 50%;
+                padding: 0 2.5%;
                 display: flex;
                 flex-direction: column;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
                 & .tour{
-                    height: calc(100% / 2);
+                    cursor: pointer;
+                    height: calc(90% / 2);
+                    margin: 2.5%;
+                    padding: 5%2.5%;
+                    &:hover {
+                        background-color: rgba(white,0.1);
+                    }
+                    & div.mainpic{
+                        vertical-align: top;
+                        display: inline-block;
+                        padding: 5% 5% 0 5%;
+                        width: 90%;
+                        & img{
+                            width: 100%;
+                        }
+                    }
+                    & .title {
+                        width: 100%;
+                        vertical-align: top;
+                        display: inline-block;
+                        padding: 0px 10px;
+                        color: $mt_fontlight;
+                        
+                    }
+
                 }
             }
         }
     }
 }
 
-div#section4 {
-    div.meteor {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        // border: 5px solid sandybrown;
-        & .dot {
-            position: absolute;
-            background-color: whitesmoke;
-            width: 3px;
-            height: 11px;
-            border-radius: 50%;
+div#section3 {
+    // & * {
+    //     border: 2px solid lightcyan;
+    // }
+    & div#sec3-1box ,& div#sec3-2box{
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
+        & div.big{
+            cursor: pointer;
+            position: relative;
+            vertical-align: top;
+            width: 45%;
+            height: 90%;
+            margin: 2.5% 1.5% 2.5% 3.5%;
+            background-color: rgba(white,0);
+            transition: 0.2s all;
+            &:hover {
+                background-color: rgba(white,0.1);
+            }
+            & div.bigimg{
+                width: 100%;
+                height: 50%;
+                overflow: hidden;
+                & img {
+                    transform: translateY(-20%);
+                    width: 100%;
+                }
+
+            }
+            div.posterinfor {
+                width: 100%;
+                height: 80px;
+                margin: 10px 0px;
+                text-align: left;
+                & div{
+                    display: inline-block;
+                    height: 100%;
+                    vertical-align: top;
+                }
+                & div.posteravator {
+                    width: 80px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    & img {
+                        height: 100px;
+                    }
+                }
+                & div.posterid{
+                    & p{
+                        color: $mt_fontlight;
+                        padding-top: 20px;
+                        margin: 0 12px;
+                    }
+                }
+                & div.posterverify{
+                    display: block !important;
+                    text-align: left;
+                    height: 20px;
+                    & span {
+                        margin: 0px 8px;
+                        & path {
+                            color: white !important;
+                        }
+                    }
+                }
+                & div.posterbadge {
+                    display: block !important;
+                    text-align: left;
+                    height: 60px;
+                    & img {
+                        height: 100%;
+                    }
+
+                }
+            }
+            & div.innertext{
+                padding: 20px;
+                & p {
+                    color: $mt_fontlight;
+                    text-align: left;
+                }
+            }
+            & div.newcomment{
+                border-top: 2px solid $mt_yellow;
+                padding: 12px 30px;
+                position: absolute;
+                width: 100%;
+                height: 80px;
+                bottom: 0;
+                text-align: left;
+                display: flex;
+                & .commentmem{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    & img {
+                        width: 80px;
+                    }
+                }
+                & .commenttext{
+                    width: calc(100% - 60px);
+                    padding: 2px 9px;
+                    & p {
+                        color: $mt_fontlight;
+                        padding: 8px 5px    ;
+                    }
+                }
+            }
+
         }
-        & .dot1 {
-            left: 15vw;
-            animation: meteorfalls 2s both ease infinite 0.5s;
-            bottom: 90vh;
+        & div.smallbox{
+            vertical-align: top;
+            width: 45%;
+            height: 90%;
+            margin: 2.5% 3.5% 2.5% 1.5%;
+            display: flex;
+            flex-wrap: wrap;
+            & div.small{
+                cursor: pointer ;
+                width: 46%;
+                height: 46%;
+                margin: 2%;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
+                position: relative;
+                overflow: hidden;
+                &:hover div.greymask{
+                    opacity: 1;
+                    background-color: rgba($mt_black,1);
+                    & p{
+                        transform: scale(1.2);
+                    }
+                }
+                &.is-active .greymask{
+                    opacity: 0 !important;
+                }
+                & img {
+                    height: 350px;
+                }
+                & div.forumtag{
+                    position: absolute;
+                    left: 0;
+                    top: 30px;
+                    width: 120px;
+                    height: 40px;
+                    background-color: rgba($mt_yellow,0.8);
+                    padding-top: 5px;
+                    & p {
+                        color: $mt_fontlight;
+                    }
+                }
+                & div.greymask {
+                    opacity: 0.9;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    background-color: rgba($mt_black,0.8);
+                    transition: 0.2s all;
+                    padding: 40% 30px;
+                    & p {
+                        color: $mt_fontlight;
+                        transition: 0.2s all;
+                    }
+                }
+                & div.inforplace{
+                    display: none;
+                }
+            }
         }
-        & .dot2 {
-            left: 22vw;
-            animation: meteorfalls 2.5s both linear infinite -1.5s;
-            bottom: 87vh;
-        }
-        & .dot3 {
-            left: 33vw;
-            animation: meteorfalls 1.6s both linear infinite 1s;
-            bottom: 92vh;
-        }
-        & .dot4 {
-            left: 40vw;
-            animation: meteorfalls 2.1s both ease-out infinite 1.1s;
-            bottom: 79vh;
-        }
-        & .dot5 {
-            left: 43vw;
-            animation: meteorfalls 1.1s both ease infinite 0.2s;
-            bottom: 82vh;
-        }
-        & .dot6 {
-            left: 51vw;
-            animation: meteorfalls 0.7s both linear infinite 0.1s;
-            bottom: 93vh;
-        }
-        & .dot7 {
-            left: 66vw;
-            animation: meteorfalls 2s both ease-in infinite 0.3s;
-            bottom: 82vh;
-        }
-        & .dot8 {
-            left: 80vw;
-            animation: meteorfalls 2.4s both linear infinite 2s;
-            bottom: 90vh;
-        }
-        & .dot9 {
-            left: 89vw;
-            animation: meteorfalls 1.7s both linear infinite 0.7s;
-            bottom: 91vh;
-        }
+    }
+    div#sec3-2box{
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
     }
 }
 
-// debug
-    div#section1, div#section3, div#section4 {
-        display: none;
+div#section4 {
+    div#sec4box{
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 80vh;
+        width: 80vw;
+        background-color: rgba($mt_black,0.8);
+        display: flex;
+        // & * {
+            // border: 1px solid turquoise;
+        // }
+        & .circlebg {
+            border-radius: 50%;
+        }
+        & .circlebgbig{
+            width: 400px;
+            height: 400px;
+            margin-left: 10%;
+            margin-top: 10%;
+            background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            & div.productimgbig {
+                cursor: pointer;
+                margin-top: -20px;
+                margin-left: -20px;
+                width: 440px;
+                height: 440px;
+                & img {
+                    width: 100%;
+                }
+            }
+        }
+        
+        & div.productinfor {
+            margin-top: 100px;
+            width: 500px;
+            height: 250px;
+            padding: 30px;
+            & div * {
+                color: $mt_fontlight;
+                cursor: pointer;
+                text-align: left;
+            }
+            & div.productnamebig {
+                margin-bottom: 20px;
+            }
+            // background-color: red;
+        }
+        & div.circlebgsmall {
+            cursor: pointer;
+            position: absolute;
+            top: 370px;
+            width: 120px;
+            height: 120px;
+            transition: 0.3s all;
+            & img {
+                width: 100%;
+            }
+            &:hover + p{
+                transform: translate( 15px , 40px );
+                opacity: 1;
+            }
+
+        }
+        & div#small1{
+            background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+        }
+        & div#small2{
+            background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+        }
+        & div#small3{
+            background-image: linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%);
+        }
+        & div#small1 , & p#small1p {
+            right: calc(150px * 3 - 90px);
+        }
+        & div#small2 , & p#small2p {
+            right: calc(150px * 2 - 90px);
+        }
+        & div#small3 , & p#small3p {
+            right: calc(150px * 1 - 90px);
+        }
+        & p.productnamesmall{
+            cursor: pointer;
+            top: 450px;
+            transform: translate(15px , 0px);
+            position: absolute;
+            width: 150px;
+            height: 60px;
+            opacity: 0;
+            transition: 0.4s all;
+            color: $mt_fontlight;
+            &:hover {
+                transform: translate( 15px , 40px );
+                opacity: 1;
+            }
+        }
+        p.smalldesc {
+            display: none;
+        }
+        & button.btnB_XL_yellow{
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
     }
+    // div.meteor {
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     left: 0;
+    //     top: 0;
+    //     // border: 5px solid sandybrown;
+    //     & .dot {
+    //         position: absolute;
+    //         background-color: whitesmoke;
+    //         width: 3px;
+    //         height: 11px;
+    //         border-radius: 50%;
+    //     }
+    //     & .dot1 {
+    //         left: 15vw;
+    //         animation: meteorfalls 2s both ease infinite 0.5s;
+    //         bottom: 90vh;
+    //     }
+    //     & .dot2 {
+    //         left: 22vw;
+    //         animation: meteorfalls 2.5s both linear infinite -1.5s;
+    //         bottom: 87vh;
+    //     }
+    //     & .dot3 {
+    //         left: 33vw;
+    //         animation: meteorfalls 1.6s both linear infinite 1s;
+    //         bottom: 92vh;
+    //     }
+    //     & .dot4 {
+    //         left: 40vw;
+    //         animation: meteorfalls 2.1s both ease-out infinite 1.1s;
+    //         bottom: 79vh;
+    //     }
+    //     & .dot5 {
+    //         left: 43vw;
+    //         animation: meteorfalls 1.1s both ease infinite 0.2s;
+    //         bottom: 82vh;
+    //     }
+    //     & .dot6 {
+    //         left: 51vw;
+    //         animation: meteorfalls 0.7s both linear infinite 0.1s;
+    //         bottom: 93vh;
+    //     }
+    //     & .dot7 {
+    //         left: 66vw;
+    //         animation: meteorfalls 2s both ease-in infinite 0.3s;
+    //         bottom: 82vh;
+    //     }
+    //     & .dot8 {
+    //         left: 80vw;
+    //         animation: meteorfalls 2.4s both linear infinite 2s;
+    //         bottom: 90vh;
+    //     }
+    //     & .dot9 {
+    //         left: 89vw;
+    //         animation: meteorfalls 1.7s both linear infinite 0.7s;
+    //         bottom: 91vh;
+    //     }
+    // }
+}
+
+// debug
+    // div#section1, div#section2, div#section3 {
+    //     display: none;
+    // }

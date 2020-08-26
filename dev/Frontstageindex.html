@@ -17,7 +17,6 @@
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/jquery.fullpage.js"></script>
-    <script src="./js/index.js" ></script>
 </head>
 <body>
 
@@ -38,7 +37,7 @@
 
             <nav class="menu">
                 <ul class="logo">
-                    <li><a class="menuLogo" href="./index.html"><img class="menuLogo" src="./images/logo/LOGO_black.png" ></a></li>
+                    <li><a class="menuLogo" href="./Frontstageindex.html"><img class="menuLogo" src="./images/logo/LOGO_black.png" ></a></li>
                 </ul>
                 <ul class=ybg>
                     <li class="y1"><div></div></li>
@@ -238,8 +237,7 @@
                           
                     </div>
                     <div class="weatherdesc">
-                        <p>今（26）日上午大多為多雲到晴、高溫炎熱的天氣，午後在文山區及信義區有短暫陣雨；在溫度方面，臺北站測得的高溫為37.7度，低溫為28.2度。
-                            明（27）日西南風增強，天氣較不穩定，多雲到陰有局部短暫陣雨或雷雨，午後有局部大雨發生的機率，預測平地氣溫約26至34度，沒降雨時較悶熱，外出請攜帶雨具備用。</p>
+                        <p>今（26）日上午大多為多雲到晴、高溫炎熱的天氣，午後在文山區及信義區有短暫陣雨；在溫度方面，臺北站測得的高溫為37.7度，低溫為28.2度。</p>
                     </div>
                 </div>
                 <div id="tourbox">
@@ -258,9 +256,9 @@
                             <label><input type="checkbox" name="searcharea[]" value="3"><p>&nbsp;3&nbsp;&nbsp;</p></label>
                             <label><input type="checkbox" name="searcharea[]" value="4"><p>&nbsp;4&nbsp;&nbsp;</p></label>
                         </div>
-                        <button class="btnB_L_blue"><p>搜尋</p><div class="bg"></div></button>
+                        <button class="btnB_L_blue" onclick="javascript:location.href='./meet2-0.html'"><p>搜尋</p><div class="bg"></div></button>
                     </div>
-                    <div class="tour tourtop1">
+                    <div class="tour tourtop1" onclick="location.href='./meet2-3.html';">
                         <div class="mainpic">
                             <img src="./images/meet/mountain/4south.jpg" alt="" class="mainpic">
                         </div>
@@ -271,28 +269,29 @@
                             </div>
                             <div class="posterinfor">
                                 <div class="posterVerify">
-                                    <img src="#" alt="">
-                                    <img src="#" alt="">
+                                    <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
+                                    <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
                                 </div>
                                 <div class="posterId"><p>Vivian</p></div>
                                 <div class="posterBadge">
                                     <div class="badge badge1">
-                                        <img src="" alt="">
+                                        <img src="./images/member/Ach_list_03.png" alt="">
                                     </div>
                                     <div class="badge badge2">
-                                        <img src="" alt="">
+                                        <img src="./images/member/Ach_list_08.png" alt="">
                                     </div>
                                     <div class="badge badge3">
-                                        <img src="" alt="">
+                                        <img src="./images/member/Ach_list_11.png" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tourinfor">
-                            <div class="placeicon"></div>
-                            <div><p class="place">嘉義 | </p></div>
+                            <div class="placeicon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                            <div><p class="place">嘉義</p></div>
+                            <div><p>｜</p></div>
                             <div><p class="degree">難度</p></div>
-                            <div class="degreeicon"></div>
+                            <div class="degreeicon"><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""></div>
                         </div>
                         <div class="tourdesc">
                             <p>
@@ -301,8 +300,18 @@
                         </div>
                     </div>
                     <div id="tour23box">
-                        <div class="tour tourtop2"></div>
-                        <div class="tour tourtop3"></div>
+                        <div class="tour tourtop2" onclick="location.href='./meet2-3.html';">
+                            <div class="mainpic">
+                                <img src="./images/meet/mountain/4east.jpg" alt="" class="mainpic">
+                            </div>
+                            <p class="title">奇萊主北兩天一夜</p>
+                        </div>
+                        <div class="tour tourtop3" onclick="location.href='./meet2-3.html';">
+                            <div class="mainpic">
+                                <img src="./images/meet/mountain/1north.jpg" alt="" class="mainpic">
+                            </div>
+                            <p class="title">台北放假不知道何處去? 快來爬象山吧</p></div>
+
                     </div>
                 </div>
             </div>
@@ -315,16 +324,230 @@
         
         <div id="section3" class="section section3">
             <div class="slide" data-anchor="slide1">
-                
+                <div id="sec3-1box">
+                    <div class="big" onclick="location.href='./comment.html';">
+                        <div class="bigimg">
+                            <img src="" alt="">
+                        </div>
+                        <div class="posterinfor">
+                            <div class="posteravator"><img src="" alt=""></div>
+                            <div class="posterid"><p id="posteridp"></p></div>
+                            <div class="littlepic">
+                                <div class="posterverify">
+                                    <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
+                                    <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                <div class="posterbadge">
+                                    <div class="badge badge1">
+                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                    </div>
+                                    <div class="badge badge2">
+                                        <img src="./images/member/Ach_list_08.png" alt="">
+                                    </div>
+                                    <div class="badge badge3">
+                                        <img src="./images/member/Ach_list_11.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="innertext"><p id="innertextp"></p></div>
+                        <div class="newcomment">
+                            <div class="commentmem">
+                                <img src="" alt="">
+                            </div>
+                            <div class="commenttext"><p id="commenttextp"></p></div>
+                        </div>
+                    </div>
+                    <div class="smallbox">
+                        <div class="small small1 is-active">
+                            <img src="./images/form_img/g3.jpg" alt="">
+                            <div class="forumtag"><p>爬山心得</p></div>
+                            <div class="greymask"><p>攻頂，不是爬山唯一目標</p></div>
+                            <div class="inforplace">
+                                <img src="./images/form_img/username1.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Ting"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nihil impedit culpa ullam eveniet optio perspiciatis consectetur deleniti eum odit assumenda sapiente, doloribus beatae cum."></div>
+                                <img src="./images/king.jpeg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試1-1"></div>
+                            </div>
+                        </div>
+                        <div class="small small2">
+                            <img src="./images/form_img/g5.jpg" alt="">
+                            <div class="forumtag"><p>裝備資訊</p></div>
+                            <div class="greymask"><p>登山健行新手錦囊《裝備篇》</p></div>
+                            <div class="inforplace">
+                                <img src="./images/form_img/yen.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="yen"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, natus. Incidunt explicabo minima soluta modi nostrum amet."></div>
+                                <img src="./images/form_img/yen1.jpg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試1-2"></div>
+                            </div>
+                        </div>
+                        <div class="small small3">
+                            <img src="./images/form_img/g6.jpg" alt="">
+                            <div class="forumtag"><p>新手專區</p></div>
+                            <div class="greymask"><p>5個容易忽略的健行風險 百岳單功篇</p></div>
+                            <div class="inforplace">
+                                <img src="./images/king.jpeg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Roy"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ipsum iusto!"></div>
+                                <img src="./images/meet/member/vivian.jpeg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試1-3"></div>
+                            </div>
+                        </div>
+                        <div class="small small4">
+                            <img src="./images/form_img/g8.jpg" alt="">
+                            <div class="forumtag"><p>登山資訊</p></div>
+                            <div class="greymask"><p>新手也能簡單駕馭的高屏爬山秘境</p></div>
+                            <div class="inforplace">
+                                <img src="./images/meet/member/Chris.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Chris"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore ullam assumenda omnis, porro, nemo odio minima numquam, sequi corporis laudantium aut."></div>
+                                <img src="./images/form_img/username1.jpg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試1-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
+            
             <div class="slide" data-anchor="slide2">
-                
+                <div id="sec3-2box">
+                    <div class="big" onclick="location.href='./comment.html';">
+                        <div class="bigimg">
+                            <img src="" alt="">
+                        </div>
+                        <div class="posterinfor">
+                            <div class="posteravator"><img src="" alt=""></div>
+                            <div class="posterid"><p id="posteridp2"></p></div>
+                            <div class="littlepic">
+                                <div class="posterverify">
+                                    <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
+                                    <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                <div class="posterbadge">
+                                    <div class="badge badge1">
+                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                    </div>
+                                    <div class="badge badge2">
+                                        <img src="./images/member/Ach_list_08.png" alt="">
+                                    </div>
+                                    <div class="badge badge3">
+                                        <img src="./images/member/Ach_list_11.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="innertext"><p id="innertextp2"></p></div>
+                        <div class="newcomment">
+                            <div class="commentmem">
+                                <img src="" alt="">
+                            </div>
+                            <div class="commenttext"><p id="commenttextp2"></p></div>
+                        </div>
+                    </div>
+                    <div class="smallbox">
+                        <div class="small small1 is-active">
+                            <img src="./images/form_img/g3.jpg" alt="">
+                            <div class="forumtag"><p>爬山心得</p></div>
+                            <div class="greymask"><p>攻頂，不是爬山唯一目標</p></div>
+                            <div class="inforplace">
+                                <img src="./images/form_img/username1.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Ting"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nihil impedit culpa ullam eveniet optio perspiciatis consectetur deleniti eum odit assumenda sapiente, doloribus beatae cum."></div>
+                                <img src="./images/king.jpeg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試2-1"></div>
+                            </div>
+                        </div>
+                        <div class="small small2">
+                            <img src="./images/form_img/g5.jpg" alt="">
+                            <div class="forumtag"><p>裝備資訊</p></div>
+                            <div class="greymask"><p>登山健行新手錦囊《裝備篇》</p></div>
+                            <div class="inforplace">
+                                <img src="./images/form_img/yen.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="yen"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, natus. Incidunt explicabo minima soluta modi nostrum amet."></div>
+                                <img src="./images/form_img/yen1.jpg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試2-2"></div>
+                            </div>
+                        </div>
+                        <div class="small small3">
+                            <img src="./images/form_img/g6.jpg" alt="">
+                            <div class="forumtag"><p>新手專區</p></div>
+                            <div class="greymask"><p>5個容易忽略的健行風險 百岳單功篇</p></div>
+                            <div class="inforplace">
+                                <img src="./images/king.jpeg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Roy"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ipsum iusto!"></div>
+                                <img src="./images/meet/member/vivian.jpeg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試2-3"></div>
+                            </div>
+                        </div>
+                        <div class="small small4">
+                            <img src="./images/form_img/g8.jpg" alt="">
+                            <div class="forumtag"><p>登山資訊</p></div>
+                            <div class="greymask"><p>新手也能簡單駕馭的高屏爬山秘境</p></div>
+                            <div class="inforplace">
+                                <img src="./images/meet/member/Chris.jpg" alt="" class="posteravator">
+                                <div class="posterid" innerHTML="Chris"></div>
+                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore ullam assumenda omnis, porro, nemo odio minima numquam, sequi corporis laudantium aut."></div>
+                                <img src="./images/form_img/username1.jpg" alt="" class="commentmem">
+                                <div class="commenttext" innerHTML="我是留言測試2-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         
         <div id="section4" class="section section4">
-            <div class="meteor">
+            <div id="sec4box">
+                <div id="big1" class="circlebg circlebgbig">
+                    <div class="productimgbig"  onclick="location.href='./product_info.html';">
+                        <img src="./images/products/clothes/clothes21.png" alt="">
+                    </div>
+                </div>
+                <div class="productinfor" onclick="location.href='./product_info.html';">
+                    <div class="productnamebig"><p id="bigp">Fjallraven 小狐狸 輕量風衣</p></div>
+                    <div class="productdescbig"><p id="bigdesc">G-1000® Air Stretch 採用有機棉與部分再生聚酯纖維。 快乾彈性布料含 70% 再生聚酯纖維。 可調整的帽兜。 插手口袋和胸前口袋搭配拉鍊與網眼內裡。 袖口有鬆緊帶。</p></div>
+                </div>
+
+
+
+                <div id="small1" class="circlebg circlebgsmall">
+                    <div class="productimgsmall">
+                        <img src="./images/products/campGear/tent11.png" alt="">
+                    </div>
+                </div>
+                <p id="small1p" class="productnamesmall">U-11 單人全方位超輕帳</p>
+                <p id="small1desc" class="smalldesc">適合輕便旅行、登山、單車旅遊等活動 外帳使用超輕40D高防水尼龍布，重量輕 內帳使用透氣撥水尼龍布。</p>
+
+                <div id="small2" class="circlebg circlebgsmall">
+                    <div class="productimgsmall">
+                        <img src="./images/products/bag/bag21.png" alt="">
+                    </div>
+                </div>
+                <p id="small2p" class="productnamesmall">Mystery Ranch 二日攻擊包 27L</p>
+                <p id="small2desc" class="smalldesc">頂袋兩處拉鍊口袋 內部多處收納袋設計，可有效分類物品 可調節式背板 靠近背部另有隔間，可攜帶15吋(以下)筆電及平板電腦 兩個內部網眼口袋，可放置小東西避免遺失。</p>
+
+                <div id="small3" class="circlebg circlebgsmall">
+                    <div class="productimgsmall">
+                        <img src="./images/products/shoes/shoes21.png" alt="">
+                    </div>
+                </div>
+                <p id="small3p" class="productnamesmall">Zamberlan 輕量低筒健行鞋</p>
+                <p id="small3desc" class="smalldesc">結合獨家技術 Hydrobloc，皮革經此技術鞣制後，能大大增強防潑水性與耐久性。 Vibram®Fuga 搭配有 MEGAGRIP® 複合材料大底針對潮濕環境設計，具有卓越的抓地力，良好的制動能力。</p>
+
+                <button class="btnB_XL_yellow" onclick="location.href='./product.html';"><p>來去逛逛</p><div class="bg"></div></button>
+
+
+
+            </div>
+            <!-- <div class="meteor">
                 <div class="dot dot1"></div>
                 <div class="dot dot2"></div>
                 <div class="dot dot3"></div>
@@ -334,7 +557,7 @@
                 <div class="dot dot7"></div>
                 <div class="dot dot8"></div>
                 <div class="dot dot9"></div>
-            </div>
+            </div> -->
 
 
 
@@ -424,10 +647,11 @@
       </script>
 
       <script>
-          $( document ).ready(function() {
+    //       $( document ).ready(function() {
 
-            });
-      </script>
+    //         });
+    //   </script>
+    <script src="./js/FrontstageIndex.js" ></script>
     
 </body>
 </html>
