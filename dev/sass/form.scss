@@ -136,6 +136,10 @@ $textColor1: #555555;
                 width: 100%;
                 position: relative;
                     input{
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        outline: none;
                         width: 280px;
                         height: 40px;
                         border-radius: 10px;
@@ -294,11 +298,11 @@ $textColor1: #555555;
         color: white;
         line-height: 50px;
 
-        :nth-child(1){width: 12%; color: white;}
-        :nth-child(2){width: 48%;}
-        :nth-child(3){width: 10%;}
-        :nth-child(4){width: 10%;}
-        :nth-child(5){width: 12%;}
+        :nth-child(1){width: 16%;}
+        :nth-child(2){width: 48%; color: white;}
+        :nth-child(3){width: 10%; color: white;}
+        :nth-child(4){width: 10%; color: white;}
+        :nth-child(5){width: 12%; color: white;}
     }
 
     #forum-list{
@@ -421,7 +425,7 @@ $textColor1: #555555;
 
     #hot-travel-asideblock{
         margin-top: 5%;
-        border: 1px solid rgb(36, 36, 36);
+        // border: 1px solid rgb(36, 36, 36);
         ul::-webkit-scrollbar{
             width: 8px;
             height: 8px;
@@ -464,9 +468,8 @@ $textColor1: #555555;
                     display: flex;
                     align-content: space-between;
                     .pop-user{
-                        width: 45%;
                         // border: 5px solid green;
-                        display: flex;
+                        // display: flex;
                         font-size: 12px;
                         margin: auto;
                         justify-content: space-between;
@@ -474,6 +477,7 @@ $textColor1: #555555;
                         .pop-user-img{
                             width: 40px;
                             height: 40px;
+                            margin: auto;
 
                             img{
                                 width: 100%;
@@ -520,7 +524,6 @@ $textColor1: #555555;
 
     #tag{
         margin-top: 5%;
-        border: 1px solid gray;
         padding: 5px;
 
         .hot-tags{
@@ -531,11 +534,15 @@ $textColor1: #555555;
 
             li{
                 list-style: none;
-                border: 1px solid black;
                 line-height: 30px;
                 padding: 5px;
                 margin: 5px;
                 font-size: 9px;
+                background-color: #DB931A;
+                border-radius: 5px;
+                a{
+                    color: white !important;
+                }
             }
             
         }
@@ -558,9 +565,7 @@ $textColor1: #555555;
         height:50px;
         color:#fff;
         background-color: #153a64;
-        // background-image: linear-gradient(to top, #86baff, #956bda);
         line-height:50px;
-        // border-radius:50%;
         transition:all 0.5s;
         text-align: center;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
