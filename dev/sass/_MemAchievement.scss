@@ -11,8 +11,9 @@
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(3,1fr);
         grid-template-rows: repeat(5,1fr);
+        transform: translateY(50px);
         div{
             margin: 0 auto;
             text-align: center;
@@ -22,6 +23,15 @@
             }
         }
     }
+}
+
+.Ach:hover{
+    background-color: #ececec; 
+}
+
+.Nohave{
+    -webkit-filter: grayscale(100%); /* Safari */
+    filter: grayscale(100%);
 }
 
 
@@ -65,8 +75,8 @@
             margin-bottom: 30px;
         }
         .Achievement_list{
-            grid-template-columns: repeat(1,1fr);
-            grid-template-rows: repeat(12,1fr);
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(7,1fr);
             div{
                 img{
                     width: 90%;

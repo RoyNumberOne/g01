@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.928" height="31.16" viewBox="0 0 24.928 31.16">
+  <g id="Group_792" data-name="Group 792" transform="translate(-458.5 -1905.448)">
+    <path id="Icon_feather-shield" data-name="Icon feather-shield" d="M18.464,34.16s12.464-6.232,12.464-15.58V7.674L18.464,3,6,7.674V18.58C6,27.928,18.464,34.16,18.464,34.16Z" transform="translate(452.5 1902.448)" fill="#555"/>
+    <g id="Group_733" data-name="Group 733" transform="translate(464.917 1912.958)">
+      <path id="Path_227" data-name="Path 227" d="M259.16,449.484h0a3.613,3.613,0,0,1,2.906,2.9h0c.019,0,.037.452.056.452v1.279a2.059,2.059,0,0,1-.042.225c.042-.1-.094.211-.014.022a1.443,1.443,0,0,1-.992.94h0c-.244.055-.134-.055-.16.025h-9.3c.068,0,.061.024-.183-.024h0a1.436,1.436,0,0,1-.963-.95h0c-.019,0-.038-.507-.057-.507v-.783c.018,0,.036-.694.054-.694h0a3.586,3.586,0,0,1,2.909-2.881h0c0-.018.217-.036.217-.055h.839c.555.573,3.262.575,3.671,0h.933" transform="translate(-250.407 -441.949)" fill="#fff"/>
+      <circle id="Ellipse_282" data-name="Ellipse 282" cx="3.347" cy="3.347" r="3.347" transform="translate(2.536 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

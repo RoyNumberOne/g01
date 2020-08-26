@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>媒山友-揪團詳細頁</title>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/meet2-3.css">
+    <title>媒山友｜揪團｜揪團資訊</title>
     <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="./css/meet2-3.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+    <script src="./js/jquery-3.5.1.js"></script>
 </head>
 <body>
     
     <header> 
 
         <div id="headerbox">
-            <a href="./index.html" class="logo">
+            <a href="./FrontstageIndex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -136,29 +135,29 @@
                     <dic class="activity_info">
                         <div class="hashtag">#玉山</div>
                         <!-- <div class="participant_num">人數:6人</div> -->
-                        <div class="mountain_level">中部｜難易度: <img src="./images/icons/mountain.png" alt=""><img src="./images/icons/mountain.png" alt=""><img src="./images/icons/mountain.png" alt=""><img src="./images/icons/mountain.png" alt=""></div>
-                        <div class="activity_date">2020/9/30（三）</div>
+                        <div class="mountain_level"><img src="./images/icons/icon_location.svg" alt=""> 中部｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""></div>
+                        <div class="activity_date"><img src="./images/icons/icon_date.svg" alt=""> 2020/9/30（三）</div>
                         <!-- <p class="activity_brief">這是文案</p> -->
                     </dic>
                     <div class="report">
-                        <div class="report_bt">檢舉</div>
+                        <div class="report_bt"><img src="./images/form_img/report.png" alt=""></div>
                     </div>
                 </div>
                 <div class="info_icon">
                     <div class="mountain_icon_part">
-                        <div class="mountain_icon"><img src="./images/icons/location.png" alt=""></div>
+                        <div class="mountain_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
                         <div class="mountain_text">玉山</div>
                     </div>
                     <div class="participant_icon_part">
-                        <div class="participant_icon"><img src="./images/icons/location.png" alt=""></div>
+                        <div class="participant_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
                         <div class="participant_text">開團人數4~6人</div>
                     </div>
                     <div class="collection_icon_part">
-                        <div class="collection_icon"><img src="./images/icons/location.png" alt=""></div>
+                        <div class="collection_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
                         <div class="collection_text">揪團收藏</div>
                     </div>
                     <div class="share_icon_part">
-                        <div class="share_icon"><img src="./images/icons/location.png" alt=""></div>
+                        <div class="share_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
                         <div class="share_text">揪團分享</div>
                     </div>
                 </div>
@@ -494,9 +493,21 @@
             <div class="right">></div>
         </div>
     </div>
+    <a href="#" id="gotop">
+        <i class="fas fa-arrow-up"></i>
+        <!---<script src="./js/fa5.14.0all.js"></script>
+        備註:go top裡面的箭頭需要用到的js--->
+    </a>
+    <div id="aside-link">
+        <div class="aside-com-btn">
+            <a href="./meet2-2.html" target="_blank"><img src="./images/form_img/want2.png" alt=""></a>
+        </div>
+    </div>
     <footer class="footer">
         <div class="footer_logo_block">
-            <img src="./images/logo/LOGO_white.png" alt="">
+            <a href="./FrontstageIndex.html">
+                <img src="./images/logo/LOGO_white.png" alt="">
+            </a>
             <div class="copyright">Copyright © 2020 Mountain Community.</div>
         </div>
         <div class="footer_info">
@@ -526,104 +537,23 @@
                     <div class="einput">
                         <input type="text" placeholder="Email address">
                         <div class="e_bt f_color1">SUBSCRIBE</e_bt>
-                        </div>
                     </div>
-                    <div class="link">
-                        <div class="linkup">
-                            <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
-                            <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
-                            <div><a href="" target="_blank">網站快速導覽</a></div>
-                        </div>
-                        <div class="linkdown">
-                            <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
-                            <div><a href="" target="_blank">會員使用條款</a></div>
-                        </div>
+                </div>
+                <div class="link">
+                    <div class="linkup">
+                        <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
+                        <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
+                        <div><a href="" target="_blank">網站快速導覽</a></div>
+                    </div>
+                    <div class="linkdown">
+                        <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
+                        <div><a href="" target="_blank">會員使用條款</a></div>
                     </div>
                 </div>
             </div>
+        </div>
     </footer>
-<<<<<<< HEAD
-<script>
-    $('.introduction_bt').click(function(){
-        $('.activity_introduction').css('display','block');
-        $('.activity_application').css('display','none');
-        $(this).addClass('change');
-        $('.application_bt').removeClass('change');
-    });
-    $('.application_bt').click(function(){
-        $('.activity_application').css('display','block');
-        $('.activity_introduction').css('display','none');
-        $(this).addClass('change');
-        $('.introduction_bt').removeClass('change');
-    });
-</script>
-<script>
-    function checkpg(){
-        if ($(".pgprev").next().hasClass("-active")) {
-            $(".pgprev").css("visibility","hidden");
-        }   else {
-            $(".pgprev").css("visibility","visible");
-        }
-        if ($(".pgnext").prev().hasClass("-active")) {
-            $(".pgnext").css("visibility","hidden");
-        }   else{
-            $(".pgnext").css("visibility","visible");
-        }
-    }
-    checkpg();
-    $(".pg").click(function(){
-        $(this).parent().children().removeClass("-active");
-        $(this).addClass("-active");
-        checkpg();
-    });
-    $(".pgprev").click(function(){
-        if (!$(".pgprev").next().hasClass("-active")) {
-            $(".-active").prev().addClass("-active");
-            $(".-active").next(".-active").removeClass("-active");
-        }
-        checkpg();
-    });
-    $(".pgnext").click(function(){
-        if (!$(".pgnext").prev().hasClass("-active")) {
-            $(".-active").next().addClass("-active");
-            $(".-active").prev(".-active").removeClass("-active");
-        }
-        checkpg();
-    });
-</script>
-<!-- lightbox -->
-<script>
-    $(function(){
-        $("#apply_bt").click(function(){
-            $("#meet2-3-1").removeClass("close");
-        })
-    });
-
-    $(function() {
-        // 點擊不同意按鈕
-        $("button#notagree").on("click", function(){
-         //    console.log("click");
-            $("section.agreement").removeClass("-on");
-            $("section.notagree_box").addClass("-on");
-        });
-
-         // 點擊同意按鈕
-        $("button#agree").on("click", function(){
-         //    console.log("click");
-            $("section.agreement").removeClass("-on");
-            $("section.agree_box").addClass("-on");
-        });
-
-        // 點擊X按鈕
-        $("button.close_btn").on("click", function(){
-         //    console.log("click");
-            $("main#meet2-3-1").addClass("close");
-            $(".notagree_box").removeClass("-on");
-        });
-    });
-</script>
-=======
->>>>>>> master
+<script src="./js/fa5.14.0all.js"></script>
 <script src="./js/header.js" ></script>
 <script src="./js/meet2-3.js"></script>
 </body>

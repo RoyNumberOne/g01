@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/MemberGuide.css">
-    <title>嚮導認證申請表</title>
+    <title>媒山友｜會員｜嚮導認證</title>
 </head>
 <body>
 <main>
@@ -15,7 +15,7 @@
         <?php 
             switch($_FILES["guide_image"]["error"]){
                 case UPLOAD_ERR_OK:
-                    $dir = "images";
+                    $dir = "images/member/memGuide_Id";
                     if(file_exists($dir)==false){
                         mkdir($dir);
                     }
@@ -55,8 +55,7 @@
                 // echo "證照編號：",$_POST["guide_no"],"<br>";
                 // echo "發證日期：",$_POST["guide_period_start"],"<br>";
             ?>   -->
-            <a href="./"><button class="btnA_L"><p>點我回首頁</p></button></a>
- 
+            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button>
             </div>
                             
     </div>

@@ -9,6 +9,7 @@
         grid-template-rows: repeat(7,1fr);
         .page{
             width: 100%;
+            height: 200px;
             border: 1px solid black;
             margin-bottom: 1%;
             display: grid;
@@ -17,57 +18,48 @@
             .img_box{
                 grid-area: 1/1/2/2;
                 background-color: gray;
-                margin: 5%;
                 img{
                     width: 100%;
                     height: 100%;
                 }
             }
             .text_box{
-                grid-area: 1/2/2/5;
+                grid-area: 1/2/2/7;
                 display: grid;
                 grid-template-columns: repeat(1,1fr);
-                grid-template-rows: repeat(2,1fr);
-                margin: auto 0;
+                grid-template-rows: repeat(3,1fr);
+                margin: 0 2%;
                 .text_title{
                     grid-area: 1/1/2/2;
                     font-size: 22px;
+                    align-self: center;
                 }
-                .text_prompt{
+                .text_content{
                     // width: 45%;
-                    grid-area: 3/1/4/2;
+                    grid-area: 2/1/3/2;
                     display: grid;
                     .TP{
-                        text-align: center;
                         align-self: center;
-                        .TP_value{
-                            margin: auto 0;
-                        }
                     }
                     .TP_release{
                         display: flex;
                     }
                 }
             }
-            .edit_box{
-                text-align: end;
-                grid-area: 1/5/2/6;
+            .post_time{
+                grid-area: 1/2/3/4;
                 display: grid;
                 grid-template-columns: repeat(1,1fr);
                 grid-template-rows: repeat(3,1fr);
                 .edit_btn{
-                    grid-area: 2/1/3/2;
+                    grid-area: 4/1/5/4;
                 }
             }
             .delete_box{
-                text-align: center;
-                grid-area: 1/6/2/7;
+                grid-area: 1/4/3/6;
                 display: grid;
                 grid-template-columns: repeat(1,1fr);
                 grid-template-rows: repeat(3,1fr);
-                .delete_btn{
-                    grid-area: 2/1/3/2;
-                }
             }
         }
         .pagetab{

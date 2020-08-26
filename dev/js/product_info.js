@@ -75,6 +75,7 @@ new Vue({
     },
 });
 
+//.heart chage img src
 $(document).ready(function(){
     $(".changeIcon").click(function(){
         if($(".heart").attr('src') != "./images/icons/md-heart.png"){
@@ -86,4 +87,12 @@ $(document).ready(function(){
     $(".add_chart").click(function(){
         $(".add_count").css("display", "block");
     }); 
+});
+
+//dot .pic change bgcolor
+document.ready(function(){
+    $(".pic").click(function(){
+        $(this).addClass("pick");
+        // $(this).siblings().removeClass("pick");
+    });
 });

@@ -149,7 +149,7 @@
                     <p class="title">商品</p>
                 </a></ul>
             <ul class="page administer"><a href="./BackstageAdministrator.php">
-                    <p class="title">管理員</p>
+                    <p class="title" style="color:#1A95DB;">管理員</p>
                 </a></ul>
         </nav>
     </aside>

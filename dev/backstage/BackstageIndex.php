@@ -22,7 +22,7 @@
     <aside>
         <nav id="BackstageNav">
             <ul class="page index ulat"><a href="./BackstageIndex.php">
-                    <p class="title">首頁</p>
+                    <p class="title" style="color:#1A95DB;">首頁</p>
                 </a></ul>
             <ul class="report">
                 <p class="title">檢舉</p>

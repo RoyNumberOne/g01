@@ -28,9 +28,9 @@ $('#next').on('click',function(){
     };
     if(index == 4){
         $('#next').hide();
-        $('#back').hide();
+        $('#back').show();
         $('#checkbtn').show();
-        $('#gotoshop').show();
+        $('#gotoshop').hide();
         $('#step4').show().siblings().hide();
         $('#sp4').css("background-color","#FFE227").siblings().css("background-color","#FFFFFF");
 
@@ -54,6 +54,7 @@ $('#back').on('click',function(){
 
     };
     if(index == 3){
+        $('#checkbtn').hide();
         $('#next').show();
         $('#gotoshop').hide();
         $('#step3').show().siblings().hide();
@@ -93,8 +94,8 @@ $('#sp3').on('click',function(){
 $('#sp4').on('click',function(){
     index = 4;
     $('#next').hide();
-    $('#back').hide();
-    $('#gotoshop').show();
+    $('#back').show();
+    $('#gotoshop').hide();
     $('#checkbtn').show();
     $('#step4').show().siblings().hide();
     $('#sp4').css("background-color","#FFE227").siblings().css("background-color","#FFFFFF");

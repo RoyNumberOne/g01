@@ -1,23 +1,33 @@
 #MemOrder{
     display: inline-block;
     .memOrder_pc{
-        background-color:#EAF1F4;
-        border-radius:10px;
-        table{
-            border-collapse: collapse;
-            margin: 50px auto;
-            width: 95%;
-            text-align: center;
-            th{
-                border-bottom: 1px solid black;
-                color: #2C5E9E;
-                padding: 25px 0px;
-                font-size: 18px;
-            }
-            td{
-                border-bottom: 1px solid black;
-                padding: 25px 0px;
-                font-size: 16px;
+        text-align: center;
+        .memOrder_form{
+            background-color:#EAF1F4;
+            border-radius:10px;
+            display: inline-block;
+            padding: 0 50px 5px 50px;
+            margin: 50px;
+            table{
+                border-collapse: collapse;
+                text-align: center;
+                th{
+                    border-bottom: 1px solid black;
+                    color: #2C5E9E;
+                    padding: 25px 20px;
+                    font-size: 18px;
+                }
+                td{
+                    border-bottom: 1px solid black;
+                    padding: 25px 0px;
+                    font-size: 16px;
+                    a{
+                        text-decoration: underline;
+                        &:hover{
+                            font-size:18px;
+                        }
+                    }
+                }
             }
         }
         .orderPages{

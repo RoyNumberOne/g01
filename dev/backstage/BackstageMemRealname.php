@@ -98,7 +98,7 @@
                     </a></li>
             </ul>
             <ul class="verify">
-                <p class="title">審核</p>
+                <p class="title" style="color:#1A95DB;">審核</p>
                 <li class="page navli realname"><a href="./BackstageMemRealname.php">
                         <p class="desc">實名制</p>
                         <div class="note">

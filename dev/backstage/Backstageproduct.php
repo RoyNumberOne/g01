@@ -146,7 +146,7 @@
                     </a></li>
             </ul>
             <ul class="page product"><a href="./BackstageProduct.php">
-                    <p class="title">商品</p>
+                    <p class="title" style="color:#1A95DB;">商品</p>
                 </a></ul>
             <ul class="page administer"><a href="./BackstageAdministrator.php">
                     <p class="title">管理員</p>
