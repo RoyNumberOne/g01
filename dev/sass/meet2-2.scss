@@ -504,58 +504,10 @@ $textColor1: $mt_fontdark;
     }
 }
 
-//<!-- --------------------aside link------------------ -->
-#aside-link{
-    display:block;
-    position: fixed;
-    right: 1px;
-    bottom: 300px;
-    height: auto;
-    z-index: 4;
-}
-
-.aside-com-btn{
-    display: block;
-    position: absolute;
-    right: 0px;
-    bottom: 20px;
-    height: auto;
-    width: 100px;
-
-    img{
-        width: 100%;
-        margin: 3px 0px;
-    }
-}
-
-/* ----------------------GO TOP---------------------- */
-#gotop a{
-    text-decoration: none;
-}
-
-#gotop {
-    position:fixed;
-    z-index:90;
-    right:20px;
-    bottom:31px;
-    display:none;
-    width:50px;
-    height:50px;
-    color:#fff;
-    background-color: #153a64;
-    line-height:50px;
-    transition:all 0.5s;
-    text-align: center;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-
-    & .svg-inline--fa.fa-arrow-up.fa-w-14 path{
-        color:#fff;
-        transform: scale(1);
-    }
-}
 
 
-所在位置 //
+
+// 所在位置 //
 nav.menu ul.link_list.llleft li{
     & a p::after {
         display: none;
