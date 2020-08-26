@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜購物車</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
     <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
@@ -70,7 +69,7 @@
 <main id="app">
     <aside>
         <div>
-            <span id="sp1" :aria-disabled="false"><img src="./images/shoppingcart/bag.png" alt=""></span>
+            <span id="sp1"><img src="./images/shoppingcart/bag.png" alt=""></span>
             <span id="sp2"><img src="./images/shoppingcart/money.png" alt=""></span>
             <span id="sp3"><img src="./images/shoppingcart/delivery.png" alt=""></span>
             <span id="sp4"><img src="./images/shoppingcart/info (1).png" alt=""></span>
@@ -92,7 +91,7 @@
                         <a href="./product.html"><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
                         
                         <div class="item_name">
-                            <a href="./product.html">
+                            <a href="./product_info.html">
                             <h2>{{item.name}}</h2>
                             <h3>{{item.sort}}</h3></a>
                         </div>
@@ -105,14 +104,14 @@
                         </div>
                         <p>{{item.price*item.count}}</p>
                         <div class="item_del" @click="deleteitem(index)">
-                            <img src="./images/shoppingcart/delete.png" alt="">
+                            <img class="item_delimg" src="./images/icons/icon_trash.svg" alt="">
                         </div>
                     </div>
                     <div class="itemClean" v-show="shopImg">
                         <a href="./product.html">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
                     </div>
                     <div id="shop_addnum">
-                        <p>合計購買金額：{{total}}<p>
+                        <p>合計購買金額：{{total}}元<p>
                     </div>
                 </div>
                 
@@ -123,7 +122,7 @@
                     <form method="post" action="" target="targetIfr" @submit.prevent="handlesubmit">
                         <div id="pay_delivery">
                             <h4>運送方式：</h4>
-                            <div class="delivery_price">運&emsp;&emsp;費:<span>{{delivery_price}}</span>元</div>
+                            <div class="delivery_price">運&emsp;&emsp;費：<p>{{delivery_price}}</p>元</div>
                             <input type="radio" name="delivery" id="deliveryA" v-on:click="delivery_Price(60,'郵寄宅配')"checked>
                             <label for="deliveryA">郵寄宅配</label><br>
                             <input type="radio" name="delivery" id="deliveryB" v-on:click="delivery_Price(100,'快遞宅配')" >
@@ -149,12 +148,12 @@
                             </div>
                         </div>
                         <div id="pay_infor">
-                            <div>商品金額：{{total}}</div>
-                            <div>運&emsp;&emsp;費：{{delivery_price}}</div>
-                            <label for="">優惠券：</label><input type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="請輸入優惠券代碼"><br>
+                            <div>商品金額：{{total}}元</div>
+                            <div>運&emsp;&emsp;費：{{delivery_price}}元</div>
+                            <label for="">優惠券：<input id="sale" type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="優惠券代碼"></label><br>
                             <p style="color: rgb(46, 49, 54); font-weight: 400;padding-left:10px">{{sale}}</p>
-                            <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}</div>
-                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total*discount)+delivery_price}}</span></div>
+                            <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}元</div>
+                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total*discount)+delivery_price}}元</span></div>
                         </div>
                     </form>
                 </div>
@@ -186,8 +185,8 @@
                         </tr>
                         <tr>
                             <th>總金額為：</th>
-                            <td v-if="discountsale!=9453">{{total+delivery_price}}</td>
-                            <td v-else>{{(total+delivery_price)*discount}}</td>
+                            <td v-if="discountsale!=9453">{{total+delivery_price}}元</td>
+                            <td v-else>{{(total+delivery_price)*discount}}元</td>
                         </tr>
                         <tr>
                             <th>姓&emsp;&emsp;名：</th>

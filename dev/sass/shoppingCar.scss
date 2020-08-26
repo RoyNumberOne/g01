@@ -4,6 +4,7 @@ $fontsizeC:16px; //內文,rwd標題
 $fontsizeD:14px;//rwd內文
 $fontcolor1:#666; //內文
 $fontcolor2:#ccc; //內文
+$mt_y:#FFC400; //button,文字裝飾底色
 $background1: #f3f3f3;//商品底色
 $header:hsl(212, 65%, 24%);
 
@@ -44,6 +45,9 @@ main{
                     margin-top: 10px;
                     width: 35px;
                     height: 35px;
+                }
+                &:hover{
+                    cursor: pointer;
                 }
             }
             #sp2::before,#sp3::before,#sp4::before{
@@ -179,7 +183,6 @@ main{
                                 text-align: center;
                                 border-style: none;
                                 background-color: rgb(233, 233, 233);
-                                // color: $fontcolor1;
                                 &:hover{
                                     background-color: rgb(197, 197, 197)
                                 }
@@ -204,11 +207,15 @@ main{
                         text-align: center;
                         width: 15%;
                         line-height: 150px;
+                        
                         img{
                             text-align: center;
-                            // width: 30px;
                             height: 30px;
+                            &:hover{
+                                cursor: pointer;
+                            }
                         }
+                        
                     }    
                     
                     }
@@ -269,8 +276,10 @@ main{
                             line-height: 40px;
                             .delivery_price{
                                 margin: 10px;
-                                // height: 20px;
-                                span{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                p{
                                     color: red;
                                     font-weight: 700;
                                 }
@@ -298,12 +307,19 @@ main{
                             }
                         }
                         #pay_infor{
+                            text-align: left;
                             width: 35%;
                             background: $background1;
                             margin: 10px;
                             line-height: 40px;
+                            padding-left: 60px;
                             label{
                                 margin: 10px 0 10px 10px;
+                            }
+                            #sale{
+                                width:80px;
+                                outline:none;
+                                font-size: 14px;
                             }
                             div{
                                 margin: 10px;
@@ -371,15 +387,16 @@ main{
                             // text-align: center;
                             th{
                                 width: 50%;
-                                // background-color: #153a64;
-                                // border: 1px solid $fontcolor1; 
                                 text-align: right;
                                 padding: 0 10px 0 10px;
+                                font-size: $fontsizeC;
                             }
                             td{
                                 width: 50%;
                                 text-align: left;
                                 padding: 0 10px 0 10px;
+                                font-size: $fontsizeC;
+                                font-weight: 500;
                             }
                         }
                         
@@ -443,6 +460,7 @@ nav.menu ul.link_list.llright li{
                                padding-left: 20px;
                                 width: 95%;
                                 height: 205px;
+                                .delivery_price{justify-content: left;}
                             }
                             #pay_terms{
                                 padding-left: 20px;
@@ -700,12 +718,9 @@ nav.menu ul.link_list.llright li{
                 }
             }
             .setpbtn{
-                // border: 3px solid #999;
-                // padding-right: 10px;
                 text-align: center;
                 margin: 30px;
                 display: flex;
-                // padding-right: 100px;
                 float: right;
                 a{
                     color: $fontcolor1;
@@ -718,7 +733,6 @@ nav.menu ul.link_list.llright li{
                     height: 28px;
                     width: 150px;
                     line-height: 25px;
-                    // box-shadow: 3px 3px .8px $fontcolor1;
                     border: 1px solid $fontcolor2;
                     margin: 0 25px;
                     &::before{
