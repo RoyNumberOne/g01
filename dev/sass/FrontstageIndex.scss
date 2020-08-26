@@ -164,9 +164,9 @@ div.bg{
 }
 
 div#section2 {
-    & * {
-        // border: 2px solid lightcoral;
-    }
+    // & * {
+    //     border: 2px solid lightcoral;
+    // }
     & div#sec2box {
         border-radius: 30px;
         overflow: hidden;
@@ -178,7 +178,7 @@ div#section2 {
         & #weatherbox {
             width: 30%;
             height: 100%;
-            padding: 30px;
+            padding: 80px 15px 15px 15px;
             display: flex;
             flex-direction: column;
             & div.weather{
@@ -352,8 +352,8 @@ div#section2 {
             & #searchbox{
                 width: 100%;
                 height: 80px;
-                padding: 20px;
-                // border-bottom: 2px solid white;
+                padding: 20px 0px;
+                float: left;
                 & * {
                     display: inline-block;
                 }
@@ -378,8 +378,12 @@ div#section2 {
                 }
             }
             & .tourtop1 {
-                width: 45%;
-                margin: 0 2.5%;
+                cursor: pointer;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
+                // border-radius: 30px;
+                width: 50%;
+                padding: 0 2.5%;
                 height: calc( 100% - 80px );
                 & div.mainpic{
                     padding: 10px;
@@ -413,19 +417,28 @@ div#section2 {
                         display: flex;
                         flex-direction: column;
                         & div.posterVerify {
-                            width: 54px;
+                            width: 70px;
                             height: 25px;
+                            padding: 0px 5px;
+                            & span {
+                                margin-right: 10px;
+                                & path{
+                                    color: white;
+                                }
+                            }
                         }
                         & div.posterId {
                             & p {
                                 color: $mt_fontlight;
+                                text-align: left;
+                                padding: 0px 5px;
                             }
                         }
                         & div.posterBadge {
-                            height: 25px;
+                            height: 35px;
                             & div.badge {
-                                width: 25px;
-                                height: 25px;
+                                width: 35px;
+                                height: 35px;
                                 & img {
                                     width: 100%;
                                 }
@@ -434,13 +447,14 @@ div#section2 {
                     }
                 }
                 & div.tourinfor{
-                    padding: 5px 50px;
+                    padding: 5px 25px;
                     text-align: left;
                     border-top: 2px solid rgba($mt_grey1,0.4);
                     border-bottom: 2px solid rgba($mt_grey1,0.4);
                     margin: 10px;
                     & div{
                         display: inline-block;
+                        margin: auto 5px;
                     }
 
                     & p {
@@ -448,21 +462,50 @@ div#section2 {
                     }
                 }
                 & div.tourdesc {
-                    padding: 0px 50px;
+                    padding: 0px 40px;
                     margin-bottom: 10px;
                     & p {
                         color: $mt_fontlight;
                         text-align: left;
                     }
                 }
+                &:hover {
+                    background-color: rgba(white,0.1);
+                }
             }
             & #tour23box{
-                width: 45%;
-                margin: 0 2.5%;
+                width: 50%;
+                padding: 0 2.5%;
                 display: flex;
                 flex-direction: column;
+                background-color: rgba(white,0);
+                transition: 0.15s all;
                 & .tour{
-                    height: calc(100% / 2);
+                    cursor: pointer;
+                    height: calc(90% / 2);
+                    margin: 2.5%;
+                    padding: 5%2.5%;
+                    &:hover {
+                        background-color: rgba(white,0.1);
+                    }
+                    & div.mainpic{
+                        vertical-align: top;
+                        display: inline-block;
+                        padding: 5% 5% 0 5%;
+                        width: 90%;
+                        & img{
+                            width: 100%;
+                        }
+                    }
+                    & .title {
+                        width: 100%;
+                        vertical-align: top;
+                        display: inline-block;
+                        padding: 0px 10px;
+                        color: $mt_fontlight;
+                        
+                    }
+
                 }
             }
         }
@@ -533,6 +576,6 @@ div#section4 {
 }
 
 // debug
-    div#section1, div#section3, div#section4 {
-        display: none;
-    }
+    // div#section1, div#section3, div#section4 {
+    //     display: none;
+    // }
