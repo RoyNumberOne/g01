@@ -157,6 +157,10 @@
     <section>
         <div>
             <div class="product_total">
+                <h4>商品管理</h4>
+                    <span style="background-color:#2C5E9E; color:#FFF">已上架</span>
+                    <span>新增商品</span>
+            </div>
                 <?php 
                     try	{
                         require_once('connectMeetain.php');
@@ -176,10 +180,21 @@
                                 <td><?=$prodRow["商品分類"]?></td>
                                 <td><?=$prodRow["商品名稱"]?></td>
                                 <td><?=$prodRow["商品價格"]?></td>
-                                <td><?=$prodRow["商品說明"]?></td>
+                                <td style="overflow:hidden;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            display: -webkit-box;
+                                            -webkit-line-clamp: 2;
+                                            -webkit-box-orient: vertical;
+                                            white-space: normal;">
+                                            <?=$prodRow["商品說明"]?></td>
                                 <td><?=$prodRow["商品圖片一"]?></td>
                                 <td><?=$prodRow["商品圖片二"]?></td>
                                 <td><?=$prodRow["商品圖片三"]?></td>
+                                <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
+                                <p>送出</p>
+                                <div class="bg"></div>
+                                </button></td>
                                 </tr>
 
                                 <?php } ?>
@@ -188,7 +203,6 @@
                         }	catch	(PDOException $e)	{
                         }
                     ?>
-            <div>
         </div>
     </section>
 </main>
