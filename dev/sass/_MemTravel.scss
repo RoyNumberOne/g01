@@ -12,7 +12,7 @@
             padding: 1rem 2rem;
             margin-right: 0.2rem;
             cursor: pointer;
-            background: #90CAF9;
+            background: #ffffff;
             -webkit-transition: background ease 0.2s;
             transition: background ease 0.2s;
             transform: translateY(30px);
@@ -75,7 +75,7 @@
                                 margin: 1%;
                                 color: green;
                             }
-                            .Lv4,.Lv5{
+                            .Lv4{
                                 opacity: 0.2;
                             }
                         }
@@ -133,7 +133,8 @@
             display: none;
         }
         input[type="radio"]:checked + label {
-            background: #fff;
+            background: #FFC400;
+            color: #ffffff;
         }
         input[type="radio"]:checked + label + .tab {
             display: block;

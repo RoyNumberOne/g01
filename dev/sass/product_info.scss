@@ -19,9 +19,8 @@ div.wrap{
                     content: '';
                     position: absolute;
                     top: 0;
-                    // background-color: #ccc;
                     background: linear-gradient(180deg, #FFC400,#000000);
-                    opacity: .7;
+                    opacity: .5;
                     height: 100%;
                     width: 400px;
                     z-index: -1;
@@ -29,6 +28,7 @@ div.wrap{
                 }
                 img{
                     height: 100%;
+                    transition: .5s ease-in-out;
                     &:hover{
                         transform: scale(1.1);
                     }
@@ -44,6 +44,13 @@ div.wrap{
                     background-color: #bbb;
                     margin: 20px 10px;
                     cursor: pointer;
+                    transition: .3s ease;
+                    &:hover{
+                        background-color: #FFC400;
+                    }
+                }
+                .pick{
+                    background-color: #FFC400;
                 }
             }
             .move{
@@ -113,9 +120,13 @@ div.wrap{
                 // }
             }
             .artical{
-                .related_artical{
+                h3.related_artical{
                     display: inline-block;
-                    border-bottom: 3px solid #FFC400;
+                }
+                .text_underline{
+                    &::after{
+                        padding-top: 2px;
+                    }
                 }
                 .at_dots{
                     display: inline-flex;
@@ -128,8 +139,16 @@ div.wrap{
                         margin: 2px;
                     }
                 }
-                .at_title{
-                    margin: 10px 0 0 0;
+                a{
+                    transition: 1s ease;
+                    :hover{
+                        color: #FFC400;
+                    }
+                    .at_title{
+                        margin: 15px 0 0 0;
+                        transition: .3s ease;
+
+                    }
                 }
             }
         }

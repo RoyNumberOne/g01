@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[討論區]發文頁面</title>
-    <link rel="stylesheet" href="./css/post.css">
+    <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
+    <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/fontawesome.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/fontawesome.css">
+    <link rel="stylesheet" href="./css/post.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
     
@@ -79,12 +82,11 @@
             <div class="forum_post">
                 <form id="form-table" action="">
                     <div class="text">
-                        <span>新增類別</span>
+                        <span>討論文類別</span>
                     </div>
 
                     <div class="block">
                         <select class="custom_select">
-                            <option>全部</option>
                             <option>爬山心得</option>
                             <option>裝備資訊</option>
                             <option>新手專區</option>
@@ -97,7 +99,7 @@
                     </div>
 
                     <div class="block">
-                        <input type="text" placeholder="(最多可上傳20個字)">
+                        <input type="text" placeholder="請輸入標題">
                     </div>
 
                     <div class="text">
@@ -120,7 +122,7 @@
                     </div>
                 </form>
                 <div class="post-btnB_XL_yellow">
-                    <button class="btnB_XL_yellow" onclick="location.href='./post.html' "type="button"><p>確認送出</p><div class="bg"></div></button>
+                    <button class="btnB_XL_yellow" onclick="location.href='./forum.html' "type="button"><p>確認送出</p><div class="bg"></div></button>
                 </div>
             </div>
         </div>
@@ -187,9 +189,8 @@
             </div>
     </footer>
     
-    <script src="./js/jquery-3.5.1.min.js"></script>
-    <script src="./js/AOS-MASTER/aos.js"></script>
-    <script src="./js/fontawesome/all.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/fa5.14.0all.js"></script> <!----go top裡面的箭頭需要用到的js----->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>

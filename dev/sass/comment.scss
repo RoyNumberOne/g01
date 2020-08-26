@@ -20,9 +20,24 @@
 }
 
 #comment-block{
-    // width: 1140px;
     margin: 0 5%;
-    // border: 2px solid rgb(226, 31, 216);
+    .original-poster-block{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-top: 2%;
+        .poster{
+            display: flex;
+            .original{
+                margin: auto;
+                width: 80px;
+                height: 80px;
+                img{
+                    width: 100%;
+                    border-radius: 100%;
+                }
+            }
+        }
 }
 
     //------------討論區用統一標題
@@ -35,35 +50,16 @@
         }
     }
 
-    .original-poster-block{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        margin-top: 2%;
-        .poster{
-            // width: 30%;
-            display: flex;
-            .original{
-                padding: 5px 50px;
-                border-radius: 10px;
-                border: 1px solid black;
-                margin: auto;
-            }
-        }
         .name_time{
             display: flex;
             width: 100%;
         }
         .poster-name{
             line-height: 20px;
-            margin: 0 8px;
-            width: 100%;
+            margin: auto 5px;
         }
         .poster-time{
-            // width: 50%;
-            width: 100%;
-            text-align: center;
-            // margin: auto;
+            margin: auto;
         }
         .poster-report{
             // margin: auto;
@@ -113,23 +109,24 @@
                 border-radius: 50%;
             }
             .poster-name{ text-align: center;}
-            
+        }
+        .post-text{
+            width: 100%;
+            margin: 0 2%;
+    
+            .triangle1-text{
+                padding:20px;
+                    .poster-say{
+                        display: flex;
+                        justify-content: space-between;
+                        line-height: 30px;
+                    }
+                    .report{
+                        display: flex;
+                    }
+                }
         }
     }
-    .post-text{
-        width: 100%;
-        margin: 0 2%;
-
-        .triangle1-text{padding:20px;}
-
-            .poster-say{
-                display: flex;
-                justify-content: space-between;
-                line-height: 30px;
-            }
-            .innertext{line-height: 42px;}
-    }
-    .grid{height: 10px;}
 
     .triangle1{
         width: 100%;
@@ -173,17 +170,28 @@
             .poster-name2{ text-align: center;}
     }
 
-    .triangle2{
-        width: 100%;
-        background-color: #F0F0F0;
-        border-radius: 10px;
-        position: relative;
-        margin: 3% 0;
+    .post-text{
+        .triangle2{
+            width: 100%;
+            background-color: #F0F0F0;
+            border-radius: 10px;
+            position: relative;
+            margin: 3% 0;
 
-        .triangle-text{
-            padding: 20px;
+            .triangle-text{
+                padding: 20px;
+                    .poster-say{
+                        display: flex;
+                        justify-content: space-between;
+                        line-height: 30px;
+                    }
+                    .report{
+                        display: flex;
+                    }
+            }
         }
     }
+
 
     .triangle2::after{
         content: "";
@@ -208,8 +216,11 @@
         //  }
     // }
     .area{
-        // width: 80%;
-            textarea{resize: none;}
+            textarea{
+                resize: none;
+                outline: none;
+                padding: 15px;
+            }
     }
     .message-btn{
         text-align: center;
@@ -231,6 +242,11 @@
         flex-direction: column;
         img{
             width: 100%;
+            transform:scale(1,1);
+            transition: all 1s ease-out;
+        }
+        img:hover{
+            transform:scale(1.1,1.1);
         }
     }
     .nextpage-btn{
@@ -262,8 +278,11 @@
         }
     }
 
-    /* ----------------------GO TOP---------------------- */
-    
+/* ----------------------GO TOP---------------------- */
+    #gotop a{
+        text-decoration: none;
+    }
+
     #gotop {
         position:fixed;
         z-index:90;
@@ -274,17 +293,14 @@
         height:50px;
         color:#fff;
         background-color: #153a64;
-        text-decoration: none;
-        // background-image: linear-gradient(to top, #86baff, #956bda);
         line-height:50px;
-        // border-radius:50%;
         transition:all 0.5s;
         text-align: center;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-        svg{
-            path{
-                color:#fff;
-            }
+    
+        & .svg-inline--fa.fa-arrow-up.fa-w-14 path{
+            color:#fff;
+            transform: scale(1);
         }
     }
 
@@ -359,11 +375,6 @@
     .original-poster-block .name_time{
         flex-direction: column;
     }
-    // .area-tittle{
-    //     p{
-    //        writing-mode: vertical-lr;
-    //     }
-    // }
     .product-block{
         flex-wrap: wrap;
         .product-img{
