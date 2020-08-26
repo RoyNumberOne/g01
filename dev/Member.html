@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員專區</title>
+    <link rel="stylesheet" href="./css/Member_style.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> <!--手機板buttonlist-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/css/swiper.min.css'>   <!--手機板buttonlist-->
     <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
-    <link rel="stylesheet" href="./css/Member_style.css">
-    <link rel="stylesheet" href="./js/Member.js">
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="./js/Member.js"></script>
 </head>
 <body>
-    <header>  
+    <header> 
 
         <div id="headerbox">
             <a href="./index.html" class="logo">
@@ -79,10 +84,6 @@
                 <li><img src="./images/member/Ach_list_14.png"></li>
                 <li><img src="./images/member/Ach_list_01.png"></li>
             </ul>
-            <!-- <a href="#" class="profile">
-                <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
-                <div class="modify">個人修改資料</div>
-            </a> -->
             <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
                 <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
                 <div class="modify">個人修改資料</div>
@@ -321,24 +322,31 @@
                             </div>
                         </div>
                         <div class="accreditation_list">
-                            <div class="identity_certificate certificate">
-                                <h2>實名認證</h2>
-                                <div class="box">
-                                    <div class="mask">
-                                        <div class="mask_text">尚未申請</div>
-                                    </div>
-                                    <div class="background1"></div>
-                                    <a href="./MemberId.html"><span>點我申請</span></a>
+                            <div class="first Acc ID">
+                                <img class="Acc-profile-img" src="./images/member/identity_certificate.jpg">
+                                <div class="Acc-description-bk"></div>
+                                <div class="Acc-logo">
+                                  <img src="./images/member/NotApplied.jpg">
+                                </div>
+                                <div class="Acc-description">
+                                    <h2>實名認證</h2>
+                                </div>
+                                <div class="Acc-btn">
+                                    <a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>點我申請</p><div class="bg"></div></button></a>
                                 </div>
                             </div>
-                            <div class="mountain_guide_certificate certificate">
-                                <h2>嚮導認證</h2>
-                                <div class="box">
-                                    <div class="mask">
-                                        <div class="mask_text">尚未申請</div>
-                                    </div>
-                                    <div class="background2"></div>
-                                    <a href="./MemberGuide.html"><span>點我申請</span></a>
+                              
+                            <div class="second Acc Mountain">
+                                <img class="Acc-profile-img" src="./images/member/mountain_guide_certificate.png">
+                                <div class="Acc-description-bk"></div>
+                                <div class="Acc-logo">
+                                  <img src="./images/member/pass.jpg">
+                                </div>
+                                <div class="Acc-description">
+                                    <h2>嚮導認證</h2>
+                                </div>
+                                <div class="Acc-btn">
+                                    <a href="./MemberGuide.html" target="_blank"><button class="btnB_XL_yellow"><p>點我申請</p><div class="bg"></div></button></a>
                                 </div>
                             </div>
                         </div>
@@ -350,127 +358,92 @@
                                 <div class="title">徽章總覽</div>
                             </div>
                         </div>
-                        <p>您可以通過達成條件來獲得徽章。</p>
                         <div class="Achievement_list">
                             <div class="Ach_list_01">
                                 <img src="./images/member/Ach_list_01.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>開團：探險新手</span>
                             </div>
                             <div class="Ach_list_02">
                                 <img src="./images/member/Ach_list_02.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>開團：冒險玩家</span>
                             </div>
                             <div class="Ach_list_03">
                                 <img src="./images/member/Ach_list_03.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>開團：探索高手</span>
                             </div>
                             <div class="Ach_list_04">
                                 <img src="./images/member/Ach_list_04.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>參團：山山來遲</span>
                             </div>
                             <div class="Ach_list_05">
                                 <img src="./images/member/Ach_list_05.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>參團：山五好友</span>
                             </div>
                             <div class="Ach_list_06">
                                 <img src="./images/member/Ach_list_06.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>參團：一山一世</span>
                             </div>
                             <div class="Ach_list_07">
                                 <img src="./images/member/Ach_list_07.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>揪團：岳岳欲試</span>
                             </div>
                             <div class="Ach_list_08">
                                 <img src="./images/member/Ach_list_08.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>揪團：翻山越嶺</span>
                             </div>
                             <div class="Ach_list_09">
                                 <img src="./images/member/Ach_list_09.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>揪團：披星戴岳</span>
                             </div>
                             <div class="Ach_list_10">
                                 <img src="./images/member/Ach_list_10.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>發文：一鳴驚人</span>
                             </div>
                             <div class="Ach_list_11">
                                 <img src="./images/member/Ach_list_11.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>發文：風雲人物</span>
                             </div>
                             <div class="Ach_list_12">
                                 <img src="./images/member/Ach_list_12.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>登入：新手上路</span>
                             </div>
                             <div class="Ach_list_13">
                                 <img src="./images/member/Ach_list_13.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>登入：嶄露頭角</span>
                             </div>
                             <div class="Ach_list_14">
                                 <img src="./images/member/Ach_list_14.png">
                                 <br>
-                                <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
+                                <span>登入：山林老師</span>
                             </div>
-                            <div class="Ach_list_15">
+                            <!-- <div class="Ach_list_15">
                                 <img src="./images/member/Ach_list_15.png">
                                 <br>
                                 <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
                             </div>
                             <div class="Ach_list_16">
                                 <img src="./images/member/Ach_list_16.png">
                                 <br>
                                 <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
                             </div>
                             <div class="Ach_list_17">
                                 <img src="./images/member/Ach_list_17.png">
                                 <br>
                                 <span>徽章名稱:01</span>
-                                <br>
-                                <span>徽章說明</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -484,118 +457,122 @@
                             <input type="radio" name="tabs" id="tabone" checked="checked">
                             <label for="tabone">發起的揪團</label>
                             <div class="myself_list list_style tab">
-                              <div class="item_1 page">
-                                  <div class="img_box">
-                                      <img src="./images/member/fake/mountain01.jpg">
-                                  </div>
-                                  <div class="text_box">
-                                      <div class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">北部</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">4</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-12(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_2 page">
-                                  <div class="img_box">
-                                    <img src="./images/member/fake/mountain02.jpg">
-                                  </div>
-                                  <div class="text_box">
-                                      <div class="text_title">新北汐止五指山古道、友蚋山南峰(五人就出發!!!)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">北部</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">3</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-19(六)</div>
-                                  </div>
-                              </div>
-                              <div class="item_3 page">
-                                  <div class="img_box">
-                                    <img src="./images/member/fake/mountain03.jpg">
-                                  </div>
-                                  <div class="text_box">
-                                      <div class="text_title">聖稜線~雪山縱走大霸尖山(不適合新手~)</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">北部</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">6</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-25(五)</div>
-                                  </div>
-                              </div>
-                              <div class="item_4 page">
-                                  <div class="img_box">
-                                    <img src="./images/member/fake/mountain04.jpg">
-                                  </div>
-                                  <div class="text_box">
-                                      <div class="text_title">雪劍大縱走之雪山主峰、雪山東峰</div>
-                                      <div class="text_prompt">
-                                          <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                          <div class="TP_area TP">中部</div>
-                                          <div class="TP_title TP">難度</div>
-                                          <div class="TP_level TP">
-                                              <i class="fas fa-mountain Lv1"></i>
-                                              <i class="fas fa-mountain Lv2"></i>
-                                              <i class="fas fa-mountain Lv3"></i>
-                                              <i class="fas fa-mountain Lv4"></i>
-                                              <i class="fas fa-mountain Lv5"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="info_box">
-                                      <div class="info_title">目前報名人數</div>
-                                      <div class="info_value">6</div>
-                                  </div>
-                                  <div class="date_box">
-                                      <div class="date_title">開團日期</div>
-                                      <div class="date_value">2020-09-07(一)</div>
-                                  </div>
-                              </div>
+                                <a href="./meet2-3.html">
+                                    <div class="item_1 page">
+                                    <div class="img_box">
+                                        <img src="./images/member/fake/mountain01.jpg">
+                                    </div>
+                                    <div class="text_box">
+                                        <div class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                        <div class="text_prompt">
+                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                            <div class="TP_area TP">北部</div>
+                                            <div class="TP_title TP">難度</div>
+                                            <div class="TP_level TP">
+                                                <i class="fas fa-mountain Lv1"></i>
+                                                <i class="fas fa-mountain Lv2"></i>
+                                                <i class="fas fa-mountain Lv3"></i>
+                                                <i class="fas fa-mountain Lv4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info_box">
+                                        <div class="info_title">目前報名人數</div>
+                                        <div class="info_value">4</div>
+                                    </div>
+                                    <div class="date_box">
+                                        <div class="date_title">開團日期</div>
+                                        <div class="date_value">2020-09-12(六)</div>
+                                    </div>
+                                    </div>
+                                </a>
+                                <a href="./meet2-3.html">
+                                    <div class="item_2 page">
+                                        <div class="img_box">
+                                            <img src="./images/member/fake/mountain02.jpg">
+                                        </div>
+                                        <div class="text_box">
+                                            <div class="text_title">新北汐止五指山古道、友蚋山南峰(五人就出發!!!)</div>
+                                            <div class="text_prompt">
+                                                <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                                <div class="TP_area TP">北部</div>
+                                                <div class="TP_title TP">難度</div>
+                                                <div class="TP_level TP">
+                                                    <i class="fas fa-mountain Lv1"></i>
+                                                    <i class="fas fa-mountain Lv2"></i>
+                                                    <i class="fas fa-mountain Lv3"></i>
+                                                    <i class="fas fa-mountain Lv4"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info_box">
+                                            <div class="info_title">目前報名人數</div>
+                                            <div class="info_value">3</div>
+                                        </div>
+                                        <div class="date_box">
+                                            <div class="date_title">開團日期</div>
+                                            <div class="date_value">2020-09-19(六)</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="./meet2-3.html">
+                                    <div class="item_3 page">
+                                        <div class="img_box">
+                                            <img src="./images/member/fake/mountain03.jpg">
+                                        </div>
+                                        <div class="text_box">
+                                            <div class="text_title">聖稜線~雪山縱走大霸尖山(不適合新手~)</div>
+                                            <div class="text_prompt">
+                                                <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                                <div class="TP_area TP">北部</div>
+                                                <div class="TP_title TP">難度</div>
+                                                <div class="TP_level TP">
+                                                    <i class="fas fa-mountain Lv1"></i>
+                                                    <i class="fas fa-mountain Lv2"></i>
+                                                    <i class="fas fa-mountain Lv3"></i>
+                                                    <i class="fas fa-mountain Lv4"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info_box">
+                                            <div class="info_title">目前報名人數</div>
+                                            <div class="info_value">6</div>
+                                        </div>
+                                        <div class="date_box">
+                                            <div class="date_title">開團日期</div>
+                                            <div class="date_value">2020-09-25(五)</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="./meet2-3.html">
+                                    <div class="item_4 page">
+                                        <div class="img_box">
+                                            <img src="./images/member/fake/mountain04.jpg">
+                                        </div>
+                                        <div class="text_box">
+                                            <div class="text_title">雪劍大縱走之雪山主峰、雪山東峰</div>
+                                            <div class="text_prompt">
+                                                <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                                <div class="TP_area TP">中部</div>
+                                                <div class="TP_title TP">難度</div>
+                                                <div class="TP_level TP">
+                                                    <i class="fas fa-mountain Lv1"></i>
+                                                    <i class="fas fa-mountain Lv2"></i>
+                                                    <i class="fas fa-mountain Lv3"></i>
+                                                    <i class="fas fa-mountain Lv4"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info_box">
+                                            <div class="info_title">目前報名人數</div>
+                                            <div class="info_value">6</div>
+                                        </div>
+                                        <div class="date_box">
+                                            <div class="date_title">開團日期</div>
+                                            <div class="date_value">2020-09-07(一)</div>
+                                        </div>
+                                    </div>
+                                </a>
                               <div class="pagetab">
                                   <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                                   <button class="btnA_S pg -active"><p>01</p></button>
@@ -610,62 +587,64 @@
                             <input type="radio" name="tabs" id="tabtwo">
                             <label for="tabtwo">參加的揪團</label>
                             <div class="travel_list list_style tab">
-                                <div class="item_5 page">
-                                    <div class="img_box">
-                                      <img src="./images/member/fake/mountain05.jpg">
-                                    </div>
-                                    <div class="text_box">
-                                        <div class="text_title">假日團~ 挑戰大坑4號步道頭嵙山</div>
-                                        <div class="text_prompt">
-                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                            <div class="TP_area TP">中部</div>
-                                            <div class="TP_title TP">難度</div>
-                                            <div class="TP_level TP">
-                                                <i class="fas fa-mountain Lv1"></i>
-                                                <i class="fas fa-mountain Lv2"></i>
-                                                <i class="fas fa-mountain Lv3"></i>
-                                                <i class="fas fa-mountain Lv4"></i>
-                                                <i class="fas fa-mountain Lv5"></i>
+                                <a href="./meet2-3.html">
+                                    <div class="item_5 page">
+                                        <div class="img_box">
+                                        <img src="./images/member/fake/mountain05.jpg">
+                                        </div>
+                                        <div class="text_box">
+                                            <div class="text_title">假日團~ 挑戰大坑4號步道頭嵙山</div>
+                                            <div class="text_prompt">
+                                                <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                                <div class="TP_area TP">中部</div>
+                                                <div class="TP_title TP">難度</div>
+                                                <div class="TP_level TP">
+                                                    <i class="fas fa-mountain Lv1"></i>
+                                                    <i class="fas fa-mountain Lv2"></i>
+                                                    <i class="fas fa-mountain Lv3"></i>
+                                                    <i class="fas fa-mountain Lv4"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="info_box">
-                                        <div class="info_title">目前報名人數</div>
-                                        <div class="info_value">7</div>
-                                    </div>
-                                    <div class="date_box">
-                                        <div class="date_title">開團日期</div>
-                                        <div class="date_value">2020-08-30(日)</div>
-                                    </div>
-                                </div>
-                                <div class="item_6 page">
-                                    <div class="img_box">
-                                      <img src="./images/member/fake/mountain06.jpg">
-                                    </div>
-                                    <div class="text_box">
-                                        <div class="text_title">合歡南峰縱走合歡主峰三天兩夜 無需負重!!!</div>
-                                        <div class="text_prompt">
-                                            <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                            <div class="TP_area TP">中部</div>
-                                            <div class="TP_title TP">難度</div>
-                                            <div class="TP_level TP">
-                                                <i class="fas fa-mountain Lv1"></i>
-                                                <i class="fas fa-mountain Lv2"></i>
-                                                <i class="fas fa-mountain Lv3"></i>
-                                                <i class="fas fa-mountain Lv4"></i>
-                                                <i class="fas fa-mountain Lv5"></i>
-                                            </div>
+                                        <div class="info_box">
+                                            <div class="info_title">目前報名人數</div>
+                                            <div class="info_value">7</div>
+                                        </div>
+                                        <div class="date_box">
+                                            <div class="date_title">開團日期</div>
+                                            <div class="date_value">2020-08-30(日)</div>
                                         </div>
                                     </div>
-                                    <div class="info_box">
-                                        <div class="info_title">目前報名人數</div>
-                                        <div class="info_value">8</div>
+                                </a>
+                                <a href="./meet2-3.html">
+                                    <div class="item_6 page">
+                                        <div class="img_box">
+                                        <img src="./images/member/fake/mountain06.jpg">
+                                        </div>
+                                        <div class="text_box">
+                                            <div class="text_title">合歡南峰縱走合歡主峰三天兩夜 無需負重!!!</div>
+                                            <div class="text_prompt">
+                                                <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                                <div class="TP_area TP">中部</div>
+                                                <div class="TP_title TP">難度</div>
+                                                <div class="TP_level TP">
+                                                    <i class="fas fa-mountain Lv1"></i>
+                                                    <i class="fas fa-mountain Lv2"></i>
+                                                    <i class="fas fa-mountain Lv3"></i>
+                                                    <i class="fas fa-mountain Lv4"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info_box">
+                                            <div class="info_title">目前報名人數</div>
+                                            <div class="info_value">8</div>
+                                        </div>
+                                        <div class="date_box">
+                                            <div class="date_title">開團日期</div>
+                                            <div class="date_value">2020-09-3(四)</div>
+                                        </div>
                                     </div>
-                                    <div class="date_box">
-                                        <div class="date_title">開團日期</div>
-                                        <div class="date_value">2020-09-3(四)</div>
-                                    </div>
-                                </div>
+                                </a>
                                 <!-- <div class="pagetab">
                                     <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                                     <button class="btnA_S pg -active"><p>01</p></button>
@@ -686,6 +665,9 @@
                             </div>
                         </div>
                         <div class="classify_list">
+                            <!-- <button href="javascript:void(0)" class="btnA_L classify tablink post_classify btn" onclick="openClass(event, 'class1')"><p>文章收藏</p></button>
+                            <button href="javascript:void(0)" class="btnA_L classify tablink travel_classify" onclick="openClass(event, 'class2')"><p>揪團收藏</p></button>
+                            <button href="javascript:void(0)" class="btnA_L classify tablink product_classify" onclick="openClass(event, 'class3')"><p>商品收藏</p></button> -->
                             <a href="javascript:void(0)" class="classify tablink post_classify btn" onclick="openClass(event, 'class1')">文章收藏</a>
                             <a href="javascript:void(0)" class="classify tablink travel_classify" onclick="openClass(event, 'class2')">揪團收藏</a>
                             <a href="javascript:void(0)" class="classify tablink product_classify" onclick="openClass(event, 'class3')">商品收藏</a>
@@ -696,12 +678,11 @@
                                     <div class="item_1 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g10.jpg">
-                                            <div class="label">分類標籤</div>
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -709,12 +690,12 @@
                                     <div class="item_2 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g3.jpg">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -722,12 +703,12 @@
                                     <div class="item_3 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g8.jpg">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -735,12 +716,12 @@
                                     <div class="item_4 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g7.jpg">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -748,12 +729,12 @@
                                     <div class="item_5 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g6.jpg">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -761,12 +742,12 @@
                                     <div class="item_6 page">
                                         <div class="page_img">
                                             <img src="./images/form_img/g5.jpg">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">[新手專區]5個容易忽略的健行風險...</div>
-                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...  more</div>
+                                            <div class="text">今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -777,67 +758,67 @@
                                 <div class="item_1 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain01.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                                 <div class="item_2 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain02.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                                 <div class="item_3 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain03.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                                 <div class="item_4 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain04.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                                 <div class="item_5 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain05.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                                 <div class="item_6 page">
                                     <div class="page_img">
                                         <img src="./images/member/fake/mountain06.jpg">
-                                        <div class="label">分類標籤</div>
+                                        
                                         <div class="delete">╳</div>
                                     </div>
                                     <div class="page_info">
                                         <div class="title">假日運動團-象山自然步道 台北最夯的登山步道</div>
-                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點，</div>
+                                        <div class="text">台北最夯的登山步道-信義區象山步道，這裡擁有絕佳的視野可俯瞰101及台北巿區美景，成為台北熱門打卡景點...</div>
                                     </div>
                                 </div>
                             </div>
@@ -848,12 +829,12 @@
                                     <div class="item_1 page">
                                         <div class="page_img">
                                             <img src="./images/products/bag.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -861,12 +842,12 @@
                                     <div class="item_2 page">
                                         <div class="page_img">
                                             <img src="./images/products/bag11.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -874,12 +855,12 @@
                                     <div class="item_3 page">
                                         <div class="page_img">
                                             <img src="./images/products/鞋子.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -887,12 +868,12 @@
                                     <div class="item_4 page">
                                         <div class="page_img">
                                             <img src="./images/products/clothes.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -900,12 +881,12 @@
                                     <div class="item_5 page">
                                         <div class="page_img">
                                             <img src="./images/products/登山杖.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -913,12 +894,12 @@
                                     <div class="item_6 page">
                                         <div class="page_img">
                                             <img src="./images/products/衣服.png">
-                                            <div class="label">分類標籤</div>
+                                            
                                             <div class="delete">╳</div>
                                         </div>
                                         <div class="page_info">
                                             <div class="title">KEEN 低筒健行鞋</div>
-                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換。</div>
+                                            <div class="text">以攀岩活動作為設計靈感的鞋面設計。 襯裡材料具有極佳的吸濕性。 日系風格配色，襯托個人風格。 附加鞋帶可更換...</div>
                                         </div>
                                     </div>
                                 </a>
@@ -1286,7 +1267,7 @@
             </div>
         </div>
     </main>
-    <!-- <footer class="footer">
+    <footer class="footer">
         <div class="footer_logo_block">
             <img src="./images/logo/LOGO_white.png" alt="">
             <div class="copyright">Copyright © 2020 Mountain Community.</div>
@@ -1334,13 +1315,13 @@
                 </div>
             </div>
         </div>
-    </footer> -->
+    </footer>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> <!--手機板buttonlist-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js'></script> <!--手機板buttonlist-->
     <script  src="./js/Member.js"></script>
-
+    <script src="./js/header.js"></script>
 </body>
 </html>

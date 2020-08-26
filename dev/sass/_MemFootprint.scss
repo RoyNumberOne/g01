@@ -6,6 +6,7 @@
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(1,1fr);
         transform: translateY(30px);
+        gap: 5%;
         .location_record{
             width: 550px;
             grid-area: 1/1/2/2;

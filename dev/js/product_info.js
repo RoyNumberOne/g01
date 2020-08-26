@@ -77,7 +77,7 @@ new Vue({
 
 $(document).ready(function(){
     $(".changeIcon").click(function(){
-        if($(".heart").src != "./images/icons/md-heart.png"){
+        if($(".heart").attr('src') != "./images/icons/md-heart.png"){
             $(".heart").attr("src","./images/icons/md-heart.png");
         }else{
             $(".heart").attr("src","./images/icons/feather-heart.png");

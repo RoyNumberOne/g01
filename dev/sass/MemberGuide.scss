@@ -1,0 +1,124 @@
+body{background:#eaf1f4 !important;}
+main{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    #certificationGuide{
+        h2{ margin: 20px auto;
+            color: #153A64;
+            span{position: relative;
+                 font-size: 30px;
+                 font-weight: 600;
+                &::before{
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    width: 100px;
+                    top: 50%;
+                    left: -140px;
+                    height: 2px;
+                    background-color: #153A64;          
+                }
+                &::after{
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    width: 100px;
+                    top: 50%;
+                    right:-140px;
+                    height: 2px;
+                    background-color: #153A64;          
+                }
+            }
+        }
+        width: 100%;
+        text-align: center;
+        form{
+            text-align: center;
+            #imgPreciew{
+                border-radius: 15px;
+                border: 2px solid #eeeeee;
+                width: 400px;
+                height: 250px;
+                cursor: pointer;
+            } 
+            label{
+                display: inline-block;
+                margin: 10px 0px 0px 0px;
+                color: #555555;
+                font-size: 16px;
+            }
+            input{
+                width: 200px;
+                margin: 10px 5px 10px 0px;
+                height: 28px;
+                outline: none;
+                border-radius: 10px;
+                border: 1px solid #555555;
+                padding: 5px;
+            }
+            #Manual{
+                border-radius: 13px;
+                width: 350px;
+                border: 1px solid #555555;
+                padding: 20px;
+                text-align: left;
+            }
+            #checkok{
+                width: 20px;
+                height: 16px;
+                margin: 0px 5px 0px 0px;
+            }
+            .btnB_L_blue{
+                margin: 10px 5px 10px 0px;
+            }  
+        }
+        #photo_b{
+            position: relative;
+            width: 400px;
+            height: 250px;
+            margin: 0 auto;
+            #photo{
+                position: absolute;
+                top: 0px;
+                left: 0;
+                border-radius: 15px;
+                margin-top: 20px;
+                border: 2px solid #eeeeee;
+                width: 400px;
+                height: 250px;
+            }
+            div{
+                position: absolute;
+                top: 0px;
+                left: 0;
+                border-radius: 15px;
+                margin-top: 20px;
+                width: 400px;
+                height: 250px;
+                background-color: black;
+                opacity: 0.5;
+                p{
+                    font-size: 60px;
+                    line-height: 250px;
+                    text-align: center;
+                    color: rgba(221, 233, 250, 0.637);
+                    transform:rotate(-20deg);
+                    // border: crimson 1px solid;
+                }
+            }
+        }
+        #Guide_card{
+            text-align: center;
+            line-height: 30px;
+            color: rgb(28, 70, 124);
+            margin: 20px;
+            table{
+                margin: 0px auto 30px;
+                td{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
