@@ -624,13 +624,13 @@ header {
             top: 200px !important;
             left: calc(21vw);
             & :nth-child(1){
-                transform: skew(8deg) translate(0px,-46px);
+                transform: skew(8deg) translate(3px,-48px);
             }
             & :nth-child(2){
-                transform: skew(8deg) translate(0px,-21px);
+                transform: skew(8deg) translate(-3px,-24px);
             }
             & :nth-child(3){
-                transform: skew(8deg) translate(178px,-188px) !important;
+                transform: skew(8deg) translate(163px,-128px) !important;
             }
         }
         & ul.llmiddle {
@@ -638,7 +638,7 @@ header {
             left: calc(17vw + 180px);
             // left: 350px;
             & li a.cart{
-                left: 70px;
+                left: 55px;
             }
         }
         & ul.llright {

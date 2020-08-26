@@ -7,8 +7,13 @@ body{
   }
   .container{
     top: 45%;
-    left: 35%;
     position: absolute;
+    @media screen and (min-width: 1440px) { left: 35%; }
+    @media screen and (min-width: 1200px) and (max-width: 1439px){  left: 31%; }
+    @media screen and (min-width: 992px) and (max-width: 1199px){  left: 30%; }
+    @media screen and (min-width: 768px) and (max-width: 991px){  left: 26%; }
+    @media screen and (min-width: 576px) and (max-width: 767px){  left: 19%; transform: scale(0.8) }
+    @media screen and (max-width: 575px){  left: 35%; }
   }
   .lefthill{
     position: relative;
@@ -799,15 +804,16 @@ body{
   .backstage{
     cursor: pointer;
     position: absolute;
-    width: 40vw;
-    left: 30vw;
+    width: 700px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 5vh;
     height: 30vh;
     opacity: 0;
     background-color: rgba($mt_black , 0.5);
     transition: 0.2s all;
     & p {
-        width: 720px;
+        width: 100%;
         margin: 5vh auto;
         font-size: 100px;
         text-align: center;
@@ -817,12 +823,15 @@ body{
     &:hover {
         opacity: 1;
     }
+
+
 }
     .frontstage{
         cursor: pointer;
         position: absolute;
-        width: 40vw;
-        left: 30vw;
+        width: 700px;
+        left: 50%;
+        transform: translateX(-50%);
         top: 35vh;
         height: 55vh;
         opacity: 0;
