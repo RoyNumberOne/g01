@@ -29,6 +29,7 @@ $textColor1: $mt_fontdark;
     // border: 1px solid blue;
     margin: auto;
     max-width: 1366px;
+    width: 100%;
     img{
         @include imgs;
     }
@@ -99,17 +100,19 @@ $textColor1: $mt_fontdark;
         .btn_box{
             align-self: flex-end;
         }
+        input,select,textarea,.degree_category{
+            outline: none;
+            width: 100%;
+            background-color: $mt_grey2 ;
+            border:none;
+            height: 40px;
+            border-radius: 8px;
+            padding: 5px;
+        }
         .tour_build_step1{ //步驟一
             // border: 1px solid rgb(167, 50, 50);
             display: none;
             justify-content: space-between;
-            input,select,.degree_category{
-                width: 100%;
-                background-color: $mt_grey2 ;
-                border:none;
-                height: 40px;
-                border-radius: 10px;
-            }
             section{
                 width: 50%;
                 display: flex;
@@ -168,17 +171,39 @@ $textColor1: $mt_fontdark;
                         >div{
                             display: flex;
                             flex-wrap: wrap;
+                            justify-content: space-between;
+
+                        }
+                        input{
+                            margin: auto ;
+                            width: 10px;
+                            height: 10px;
+                            // display: none;
                         }
                         label{
                             width: 50%;
                             margin: 5px 0;
+                            display: flex;
+                            justify-content: flex-end;
                             p{
                                 display: inline-block;
                                 line-height: 40px;
                                 background-color: $mt_grey2;
-                                border-radius: 10px;
+                                border-radius: 8px;
                                 padding: 0 5px;
                                 width: 80%;
+                                position: relative;
+                                // &::before{
+                                //     content: "";
+                                //     width: 10px;
+                                //     height: 10px;
+                                //     border-radius: 50%;
+                                //     border: 1px solid $mt_fontdark;
+                                //     position: absolute;
+                                //     top:50%;
+                                //     left:-15px;
+                                //     transform: translateY(-50%);
+                                // }
                             }
                         }
                     }
@@ -190,16 +215,10 @@ $textColor1: $mt_fontdark;
                 }
                 >label{ //活動簡介
                     width: 50%;
-                    // height: 100%;
                     display: flex;
                     flex-direction: column;
                 }
-                    
                 textarea{
-                    background-color: $mt_grey2;
-                    border-radius: 10px;
-                    border: none;  
-                    width: 100%;
                     resize : none;
                     flex-grow:2;
                 }
