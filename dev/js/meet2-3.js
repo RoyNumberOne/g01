@@ -48,7 +48,7 @@ $(".pgnext").click(function(){
 
 // lightbox
 $(function(){
-    $(".apply_bt").click(function(){
+    $("#apply_bt").click(function(){
         $("#meet2-3-1").removeClass("close");
     })
 });
@@ -75,5 +75,23 @@ $(function() {
         $(".agree_box").removeClass("-on");//
         $(".notagree_box").removeClass("-on");
         $("section.agreement").addClass("-on");
+    });
+});
+
+//gotop
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+    
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
     });
 });

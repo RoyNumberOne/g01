@@ -7,12 +7,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./css/fa5.14.0all.min.css">
 	<link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
-	<!-- <link rel="stylesheet" href="css/reset.css"> -->
 	<script src="./js/jquery.min.js" ></script>
 	<script src="./js/fa5.14.0all.js" ></script>
+	<link rel="stylesheet" href="./css/login_v2.css">
 	<link rel="stylesheet" href="./css/footer.css">
 	<link rel="stylesheet" href="./css/header.css">
-	<link rel="stylesheet" href="./css/login_v2.css">
 </head>
 <body>
     
@@ -68,18 +67,18 @@
         <div class="container right-panel-active">
 			<!-- Sign In -->
 			<div class="container__form container--signin">
-				<form action="#" class="form" id="form1">
+				<form action="./Member.html" class="form" id="form1">
 					<h2 class="form__title">會員登入</h2>
 					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
 					<a href="#" class="link">Forgot your password?</a><br>
-					<button type="submit" class="btnB_L_blue submitBtn_log"><p>登入</p><div class="bg"></div></button>
+					<button type="submit" class="btnB_L_blue submitBtn_log" onClick="submit()"><p>登入</p><div class="bg"></div></button>
 				</form>
 			</div>
 
 			<!-- Sign Up -->
 			<div class="container__form container--signup">
-				<form action="#" class="form" id="form2">
+				<form action="./Member.html" class="form" id="form2">
 					<h2 class="form__title">註冊帳號</h2>
 					<input type="text" name="mem_id" id="mem_id" placeholder="暱稱" /><br>
 					<input type="text" name="mem_name" id="mem_name" placeholder="姓名" /><br>
@@ -87,7 +86,7 @@
 					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
 					<input type="password" name="mem_psw" placeholder="確認密碼"><br>
-					<button type="submit" class="btnB_L_blue submitBtn_app"><p>註冊</p><div class="bg"></div></button>
+					<button type="submit" class="btnB_L_blue submitBtn_app" onClick="submit()"><p>註冊</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -124,7 +123,7 @@
 				<img src="images/logo/LOGO_black.png">
 			</div>
 			<div class="mobile_login">
-				<form>
+				<form action="./Member.html">
 					<h3 class="title">會員登入</h3>
 					<p>帳號</p>
 					<input type="text" name="mobileLogin_acc" id="mobileLogin_acc"/>
@@ -136,7 +135,7 @@
 					<input type="password" name="mobileLogin_name" id="mobileLogin_name" class="forApply"/>
 					<p class="forApply">信箱</p>
 					<input type="email" name="mobileLogin_mail" id="mobileLogin_mail" class="forApply"/>
-					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit"><p class="mobileLogin">登入</p><div class="bg"></div></button>
+					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit" onClick="submit()"><p class="mobileLogin">登入</p><div class="bg"></div></button>
 					<a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
 					<a href="#" class="clickMe_log">已有帳號?點我登入</a>
 				</form>

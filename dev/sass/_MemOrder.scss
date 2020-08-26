@@ -21,6 +21,12 @@
                     border-bottom: 1px solid black;
                     padding: 25px 0px;
                     font-size: 16px;
+                    a{
+                        text-decoration: underline;
+                        &:hover{
+                            font-size:18px;
+                        }
+                    }
                 }
             }
         }
