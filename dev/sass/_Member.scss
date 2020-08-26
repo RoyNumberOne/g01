@@ -1,4 +1,4 @@
-
+@import 'common';
 
 main {
     background-repeat: no-repeat;
@@ -194,7 +194,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(2):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -203,7 +203,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(3):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -212,7 +212,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(4):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -221,7 +221,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(5):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -230,7 +230,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(6):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -239,7 +239,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(7):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -248,7 +248,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(8):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -257,7 +257,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:nth-child(9):after { 
             //                 font-family: "Font Awesome 5 Free";
@@ -266,7 +266,7 @@ main {
             //                 font-weight: 900;
             //                 text-align: center;
             //                 line-height: 100px;
-            //                 color:#FFC400;
+            //                 color:$mt_yellow;
             //             }
             //             &:hover{
             //                 transform: translateX(100px);
@@ -316,7 +316,15 @@ main {
                                 color: #fff;
                                 font-size: 30px;
                                 outline: none;
-                                
+                                svg{
+                                    path{
+                                        color: #ffffff;
+                                    }
+                                }
+                                p{
+                                    color: #ffffff;
+
+                                }
                             }
                         }
                     }
@@ -376,8 +384,14 @@ footer{
 }
 
 .highlight{
-    background-color: #FFC400;
+    background-color: $mt_yellow;
 }
+
+
+nav.menu ul.link_list.llright li{
+    & a.member svg path { color: $mt_yellow !important ; }
+}
+
 
 
 // ===========media screen===========
@@ -558,11 +572,4 @@ footer{
         }
     }
     // footer{margin-bottom: 100px;}
-}
-
-
-
-
-nav.menu ul.link_list.llright li{
-    & a.member svg path { color: $mt_yellow !important ; }
 }
