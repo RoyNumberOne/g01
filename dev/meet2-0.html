@@ -20,7 +20,7 @@
     <header> 
 
         <div id="headerbox">
-            <a href="./index.html" class="logo">
+            <a href="./FrontstageIndex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -717,6 +717,18 @@
         
     </main>
 
+     <!-- -------------------------aside link------------------------- -->
+     <div id="aside-link">
+        <div class="aside-com-btn">
+            <a href="#" target="_blank"><img src="./images/form_img/want2.png" alt=""></a>
+        </div>
+    </div>
+
+    <!-- -------------------------GO TOP------------------------- -->
+    <!-- <a href="#" id="gotop">
+        <i class="fas fa-arrow-up"></i>
+    </a> -->
+
     <footer class="footer">
         <div class="footer_logo_block">
             <img src="./images/logo/LOGO_white.png" alt="">
@@ -767,8 +779,28 @@
     </footer>
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    <!-- /////載入JS檔案///// -->
+    <!----go top裡面的箭頭需要用到的js----->
+    <!-- <script src="./js/fa5.14.0all.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            /* 按下GoTop按鈕時的事件 */
+            $('#gotop').click(function(){
+                $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+                return false;
+            });
+            
+            /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 400){
+                    $('#gotop').fadeIn();
+                } else {
+                    $('#gotop').fadeOut();
+                }
+            });
+        });
+    </script> -->
+
+    <!-- 更換Card  list樣式 -->
     <script>
         $(function() {
             //click
