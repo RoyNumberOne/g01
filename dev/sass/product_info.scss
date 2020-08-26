@@ -3,9 +3,7 @@ header{
     border-bottom: 5px solid #1A95DB
 }
 div.wrap{
-    // max-width: 1152px;
     margin: 30px auto;
-    // padding: 0 20px;
     .back{
         border: 1px solid #000;
     }
@@ -92,11 +90,9 @@ div.wrap{
         }
         .right{
             width: 50%;
-            // margin-left: 20px;
             .top{
                 display: flex;
                 align-items: center;
-                // margin-top: 20px;
                 margin: 20px 0;
                 h2{
                     margin: 0 20px 0 0;
@@ -119,9 +115,6 @@ div.wrap{
                     font-size: 50px;
                     margin: 0 20px 20px 0;
                 }
-                // .add_chart{
-                //     cursor: pointer;
-                // }
             }
             .artical{
                 h3.related_artical{

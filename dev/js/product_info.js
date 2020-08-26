@@ -75,15 +75,18 @@ new Vue({
     },
 });
 
+
 //.heart chage img src
 $(document).ready(function(){
     $(".changeIcon").click(function(){
-        if($(".heart").attr('src') != "./images/icons/md-heart.png"){
-            $(".heart").attr("src","./images/icons/md-heart.png");
+        if($(".heart").attr('src') === "./images/icons/icon_heart.svg"){
+            $(".heart").attr("src","./images/icons/icon_heart_h&c.svg");
         }else{
-            $(".heart").attr("src","./images/icons/feather-heart.png");
+            $(".heart").attr("src","./images/icons/icon_heart.svg");
         }
     });
+
+    //show .add_count
     $(".add_chart").click(function(){
         $(".add_count").css("display", "block");
     }); 
@@ -92,5 +95,10 @@ $(document).ready(function(){
     $(".pic").click(function(){
         $(this).addClass("pick");
         $(this).siblings().removeClass("pick");
+    });
+
+    //reset dot .pic bgcolor
+    $(".reset_dot").click(function(){
+        $(".pic").removeClass("pick");
     });
 });

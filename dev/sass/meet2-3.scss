@@ -46,25 +46,17 @@ div.wrap{
         margin: 0 0 20px;
         .public_pic{
             width: 50%;
-            // height: 100%;
             >img{
                 width: 100%;
                 height: 400px;
-                // height: 100%;
                 object-fit: cover;
             }
             .related_pic{
-                // border-top: 1px solid black;
-                // border-bottom: 1px solid black;
                 margin: 10px 0;
-                // h3{
-                //     margin: 10px 0;
-                // }
+
                 .related_pic_block{
                     display: flex;
-                    // margin-bottom: 10px;
                     .related_pic_item{
-                        // width: 200px;
                         margin: 0 10px 0 0;
                         &:last-child{
                             margin: 0;
@@ -89,26 +81,7 @@ div.wrap{
             .activity_report{
                 display: flex;
                 justify-content: space-between;
-                // width: 100%;
                 margin: 0 20px;
-                // div.activity_info{
-                //     width: 100%;
-                //     div.activity_date{
-                //         width: 100%;
-                //     }
-                //     div.place{
-                //         width: 100%;
-                //     }
-                //     div.participant_num{
-                //         width: 100%;
-                //     }
-                //     div.mountain_level{
-                //         width: 100%;
-                //     }
-                //     p.activity_brief{
-                //         border: 1px solid #000;
-                //     }
-                // }
                 .report{
                     .report_bt{
                         cursor: pointer;
@@ -369,8 +342,6 @@ div.wrap{
         .message_board_block{
             display: flex;
             width: 100%;
-            // height: 100px;
-            // border-top: 1px solid #000;
             border-bottom: 1px solid #000;
             margin: 20px auto;
             padding: 10px 0;
