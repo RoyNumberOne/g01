@@ -189,3 +189,40 @@ $(".small").click(function(){
     $(this).addClass('is-active')
     checkbig();
 })
+
+
+let tempimgpath;
+let temptitle;
+let tempdesc;
+
+
+
+$("div.circlebgsmall").click(function(){
+    // setTimeout( function(){
+        tempimgpath = $(this).children('div').children("img").attr('src');
+        $(this).children('div').children("img").attr('src' , $("#big1 .productimgbig img").attr('src'))
+        $("#big1 .productimgbig img").attr('src' , tempimgpath);
+
+        temptitle = $(this).next().text();
+        $(this).next().text($('#bigp').text());
+        $("#bigp").text(temptitle);
+
+        tempdesc = $(this).next().next().text();
+        $(this).next().next().text($('#bigdesc').text());
+        $("#bigdesc").text(tempdesc);
+    // },3000)
+})
+function checkProduct(){
+    $("#sec3-1box .big .bigimg img").attr('src' , $("#sec3-1box .is-active img").attr('src'));
+    $("#sec3-1box .big .posteravator img").attr('src' , $('#sec3-1box .is-active .inforplace .posteravator').attr('src'));
+    $("#sec3-1box .big .commentmem img").attr('src' , $('#sec3-1box .is-active .inforplace .commentmem').attr('src'));
+    $id('posteridp').innerText  =  $('#sec3-1box .is-active .inforplace .posterid').attr('innerHTML');
+    $id('innertextp').innerText  =  $('#sec3-1box .is-active .inforplace .innertext').attr('innerHTML');
+    $id('commenttextp').innerText  =  $('#sec3-1box .is-active .inforplace .commenttext').attr('innerHTML');
+    $("#sec3-2box .big .bigimg img").attr('src' , $("#sec3-2box .is-active img").attr('src'));
+    $("#sec3-2box .big .posteravator img").attr('src' , $('#sec3-2box .is-active .inforplace .posteravator').attr('src'));
+    $("#sec3-2box .big .commentmem img").attr('src' , $('#sec3-2box .is-active .inforplace .commentmem').attr('src'));
+    $id('posteridp2').innerText  =  $('#sec3-2box .is-active .inforplace .posterid').attr('innerHTML');
+    $id('innertextp2').innerText  =  $('#sec3-2box .is-active .inforplace .innertext').attr('innerHTML');
+    $id('commenttextp2').innerText  =  $('#sec3-2box .is-active .inforplace .commenttext').attr('innerHTML');
+}
