@@ -51,7 +51,7 @@
                 echo "<tr>","<th>","身分證字號：","</th>","<td>",$_POST["mem_idno"],"</td>";
                 echo "</tr>","</table>";
             ?>
-            <a href="./FrontstageIndex.html"><button class="btnA_L"><p>回首頁</p></button></a>
+            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button></a>
             </div>
                                  
     </div>

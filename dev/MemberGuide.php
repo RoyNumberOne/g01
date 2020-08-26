@@ -55,7 +55,7 @@
                 // echo "證照編號：",$_POST["guide_no"],"<br>";
                 // echo "發證日期：",$_POST["guide_period_start"],"<br>";
             ?>   -->
-            <a href="./FrontstageIndex.html"><button class="btnA_L"><p>回首頁</p></button></a>
+            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button>
             </div>
                             
     </div>
