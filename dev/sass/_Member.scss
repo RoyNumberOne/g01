@@ -25,6 +25,9 @@ main {
             grid-area: 1/1/4/4;
             //rs/cs/re/ce
         }
+        .cycle{
+            grid-area: 3/2/4/3;
+        }
         .memAvatar{
             width: 200px;
             height: 200px;
@@ -32,30 +35,41 @@ main {
             border: 3px solid #ffffff;
             margin: 0px auto;
             transform: translate(0%,25%);
-            grid-area: 3/2/4/3;
             position: relative;
-            // overflow: hidden;
+            overflow: hidden;
+            grid-area: 3/2/4/3;
             img{
                 width: 100%;
-                border-radius: 99em;
             }
         }
-        label.camera_i{
-            position: relative;
-            left: 120%;
-            margin: 0 auto;
-            &:before{
-                cursor: pointer;
-                position: absolute;
-                font-family: "Font Awesome 5 Free"; 
-                font-weight: 900; 
-                content: "\f030";
-                font-size: 40px;}
-            input{
-                width: 40px;
-                opacity: 0;
+        .memAvatar_i{
+            // border:1px solid red;
+            background: rgba(0, 0, 0, .25);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            justify-self: center;
+            align-self: flex-end;
+            transform: translate(70px,30px);
+            label.camera_i{
+                position: relative;
+                &:before{
+                    position: absolute;
+                    top: 38%;
+                    left: 22%;
+                    font-family: "Font Awesome 5 Free"; 
+                    font-weight: 900; 
+                    content: "\f030";
+                    font-size: 30px;
+                }
+                input{
+                    width: 100%;
+                    opacity: 0;
+                }
             }
         }
+        
     }
 
     .middle{
@@ -455,6 +469,17 @@ nav.menu ul.link_list.llright li{
                 height: 130px;
                 transform: translate(5%,50%);
             }
+            .memAvatar_i{
+                grid-area: 3/1/4/2;
+                width: 45px;
+                height: 45px;
+                transform: translate(55px,60px);
+                label.camera_i{
+                    &:before{
+                        font-size: 26px;
+                    }
+                }
+            }
         }
         .middle{
             grid-template-columns: repeat(5,1fr);
@@ -516,6 +541,17 @@ nav.menu ul.link_list.llright li{
                 width: 130px;
                 height: 130px;
                 transform: translate(5%,50%);
+            }
+            .memAvatar_i{
+                grid-area: 3/1/4/2;
+                width: 45px;
+                height: 45px;
+                transform: translate(55px,60px);
+                label.camera_i{
+                    &:before{
+                        font-size: 26px;
+                    }
+                }
             }
         }
         .middle{
