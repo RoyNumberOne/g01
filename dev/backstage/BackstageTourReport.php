@@ -208,8 +208,56 @@
                 ?>
             </table>
         </div>
+        <div class="pagebtn">
+            <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+            <button class="btnA_S pg -active"><p>01</p></button>
+            <button class="btnA_S pg"><p>02</p></button>
+            <button class="btnA_S pg"><p>03</p></button>
+            <button class="btnA_S pg"><p>04</p></button>
+            <button class="btnA_S pg"><p>05</p></button>
+            <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+        </div>
     </section>
 </main>
+<script>
+// =====button class="btnA_S" 的頁碼切換=====
+$(document).ready(function(){
+    function checkpg(){
+    if ($(".pgprev").next().hasClass("-active")) {
+        $(".pgprev").css("visibility","hidden");
+    }   else {
+        $(".pgprev").css("visibility","visible");
+    }
+    if ($(".pgnext").prev().hasClass("-active")) {
+        $(".pgnext").css("visibility","hidden");
+    }   else{
+        $(".pgnext").css("visibility","visible");
+    }
+}
+checkpg();
+$(".pg").click(function(){
+    $(this).parent().children().removeClass("-active");
+    $(this).addClass("-active");
+    checkpg();
+});
+$(".pgprev").click(function(){
+    if (!$(".pgprev").next().hasClass("-active")) {
+        $(".-active").prev().addClass("-active");
+        $(".-active").next(".-active").removeClass("-active");
+    }
+    checkpg();
+});
+$(".pgnext").click(function(){
+    if (!$(".pgnext").prev().hasClass("-active")) {
+        $(".-active").next().addClass("-active");
+        $(".-active").prev(".-active").removeClass("-active");
+    }
+    checkpg();
+});
+// =====button class="btnA_S" 的頁碼切換=====
+});
+
+</script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>
