@@ -50,6 +50,12 @@ $textColor1: $mt_fontdark;
     transform: translateY(-50%);
 }
 
+// //隱藏側邊滾輪//
+// overflow-y: scroll;
+//     &::-webkit-scrollbar{
+//         background-color:  transparent;
+//      }
+
 //收藏
 .changeIcon{
     cursor: pointer;
@@ -124,16 +130,7 @@ $textColor1: $mt_fontdark;
             margin:50px auto;
         }
         .top1-3{
-            height: 80vh;
-            background-image: url(../images/meet/2-0-bg_top3_1.svg);
-            background-repeat: no-repeat;
-            background-size: 90%;
-            background-position: 0 center;
-            
-            overflow-y: scroll;
-            &::-webkit-scrollbar{
-                background-color:  transparent;
-            }
+            position: relative;
             >div{
                 // border: 1px solid #000;
                 display: flex;
@@ -195,17 +192,36 @@ $textColor1: $mt_fontdark;
                     justify-content: center;
                 }
             }
+            .top1-3_bg{
+                // border: 1px solid #000;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top:0; left: 0;
+                z-index: -2;
+                img{
+                    width: 80%;
+                    position: sticky;
+                    top:0;
+                }
+            }
+            .decoration_draw{
+            //    background-color: #0ff;
+                position: absolute;
+                height: 85%;
+                width: 25%;
+                top:15%;
+                right: 0; 
+                z-index: -1;
+                img{
+                    width: 100%;
+                    // border: 1px solid #000;
+                    position: sticky;
+                    top:25%;
+                }
+            }
         }
-        .decoration_draw{
-            background-image: url(../images/meet/2-0-decoration_draw1.svg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            width: 25%;
-            padding-top: 35%;
-            position: absolute;
-            bottom:0px;
-            right:0;
-        }
+        
     }
 
     .newMeet{
@@ -393,6 +409,14 @@ $textColor1: $mt_fontdark;
                         margin-right: 40px;
                     }
                 }
+                .decoration_draw{
+                    height: 90%;
+                    top:10%;
+                    right:-35px;
+                    img{
+                        top:15%;
+                    }
+                }
             }
         }
         
@@ -453,9 +477,9 @@ $textColor1: $mt_fontdark;
                         margin-right: 40px;
                     }
                 }
-            }
-            .decoration_draw{
-                right: -60px;
+                .decoration_draw{
+                    display: none;
+                }
             }
         }
         .newMeet{
@@ -546,9 +570,9 @@ $textColor1: $mt_fontdark;
                         margin-right: 0;
                     }
                 }
-            }
-            .decoration_draw{
-                display: none;
+                .decoration_draw{
+                    display: none;
+                }
             }
         }
         .newMeet{
