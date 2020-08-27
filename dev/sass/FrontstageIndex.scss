@@ -45,6 +45,13 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+@keyframes pg1items {
+    0%{ opacity: 0;} //0s
+    4%{ opacity: 1;}  // 1s
+    21% {opacity: 1;} // 1s
+    25%{ opacity: 0;} // 6s
+    100%{ opacity: 0;} //24s
+}
 @keyframes toolliptextshow {
     0%{ opacity: 1;}
     70%{ opacity: 0.9;}
@@ -163,6 +170,126 @@ div.bg{
     
 }
 
+div#section1 {
+    // & * { border: 2px solid darkorange;}
+    & div#picbox{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        & div.time{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            // transition: 0.8s all;
+            & div.dot {
+                width: 110px;
+                height: 110px;
+                position: absolute;
+                & img {
+                    width: 100%;
+                }
+            }
+        }
+        & div.time1 {
+            opacity: 0;
+            animation: pg1items 24s ease-in-out -0.5s infinite both;
+            div.dot1 {
+                margin-left: 45%;
+                margin-top: 45%;
+            }
+            div.dot2 {
+                margin-left: 25%;
+                margin-top: 40%;
+            }
+            div.dot3 {
+                margin-left: 65%;
+                margin-top: 25%;
+            }
+            div.dot4 {
+                right: 15%;
+                bottom: 30px;
+            }
+            div.dot5 {
+                margin-left: 65%;
+                margin-top: 39%;
+            }
+        }
+        & div.time2 {
+            opacity: 0;
+            animation: pg1items 24s ease-in-out 5.5s infinite both;
+            div.dot1 {
+                left: 350px;
+                bottom: 50px;
+            }
+            div.dot2 {
+                right: 130px;
+                bottom: 200px;
+            }
+            div.dot3 {
+                right: 350px;
+                bottom: 400px;
+            }
+            div.dot4 {
+                left: 200px;
+                bottom: 30px;
+            }
+            div.dot5 {
+                right: 330px;
+                bottom: 100px;
+            }
+        }
+        & div.time3 {
+            opacity: 0;
+            animation: pg1items 24s ease-in-out 11.5s infinite both;
+            div.dot1 {
+                left: 750px;
+                bottom: 250px;
+            }
+            div.dot2 {
+                left: 130px;
+                bottom: 90px;
+            }
+            div.dot3 {
+                right: 150px;
+                bottom: 280px;
+            }
+            div.dot4 {
+                left: 600px;
+                bottom: 130px;
+            }
+            div.dot5 {
+                right: 830px;
+                bottom: 200px;
+            }
+        }
+        & div.time4 {
+            opacity: 0;
+            animation: pg1items 24s ease-in-out 17.5s infinite both;
+            div.dot1 {
+                left: 750px;
+                bottom: 390px;
+            }
+            div.dot2 {
+                right: 330px;
+                bottom: 250px;
+            }
+            div.dot3 {
+                right: 310px;
+                bottom: 420px;
+            }
+            div.dot4 {
+                left: 690px;
+                bottom: 330px;
+            }
+            div.dot5 {
+                right: 750px;
+                bottom: 300px;
+            }
+        }
+    }
+}
 div#section2 {
     // & * {
     //     border: 2px solid lightcoral;
@@ -713,7 +840,7 @@ div#section4 {
         display: flex;
         // & * {
             // border: 1px solid turquoise;
-        // }
+        // }    
         & .circlebg {
             border-radius: 50%;
         }
