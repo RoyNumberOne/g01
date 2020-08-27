@@ -50,11 +50,16 @@ $textColor1: $mt_fontdark;
     transform: translateY(-50%);
 }
 
+//收藏
+.changeIcon{
+    cursor: pointer;
+}
 
 
 #meet2-0{
     margin:auto;
     max-width: 1366px;
+
     .serchMeet{
         h2{
             margin:50px auto;
@@ -241,8 +246,9 @@ $textColor1: $mt_fontdark;
                     .tittleLike{
                         h3{
                             @include towLine;
-                            width:90%;
+                            width:85%;
                             vertical-align: middle;
+                            height: 58px;
                         }
                         .heartIcon{
                             display:inline-block;
