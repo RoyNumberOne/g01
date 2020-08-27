@@ -158,7 +158,7 @@
         <div>
             <div class="verify_total">
                 <h4>審核實名制</h4>
-                    <span>未處理</span>
+                    <span  style="background-color:#2C5E9E; color:#FFF">未處理</span>
                     <span>已處理</span>
                     <span>未通過</span>
             </div>
