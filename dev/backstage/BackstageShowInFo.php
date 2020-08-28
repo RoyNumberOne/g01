@@ -79,7 +79,7 @@
 <?php 
 try	{
     require_once('connectMeetain.php');
-	
+	// $status = '未處理';
 		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理";';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -148,7 +148,6 @@ try	{
 <?php 
 try	{
     require_once('connectMeetain.php');
-	
 		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由",tour_report_situation "檢舉狀態" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "已處理未通過" ;';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
