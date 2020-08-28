@@ -1,6 +1,25 @@
+
 #MemAchievement {
     margin: 0;
     height: 100%;
+    .page_info{
+        height: 60px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        .titlebackground{
+            width: 100%;
+            grid-area: 1/1/3/3;
+            background-color: #153A64;
+            .title{
+                margin: 1.5%;
+                color: #ffffff;
+                font-size: 30px;
+                font-weight: 600;
+                letter-spacing: 5px;
+            }
+        }
+    }
     h2{ margin: 1%;}
     p{  
         margin: 1%;
@@ -11,7 +30,7 @@
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(4,1fr);
         grid-template-rows: repeat(5,1fr);
         transform: translateY(50px);
         div{
