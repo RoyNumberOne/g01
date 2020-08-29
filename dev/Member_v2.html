@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
+    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/Member_style_v2.css">
+
+    <script src="./js/Member_v2.js"></script>
+</head>
+<body>
+    <header>
+        <div id="headerbox">
+            <a href="./Frontstageindex.html" class="logo">
+                <img class="logo" src="./images/logo/LOGO_white.png" alt="">
+            </a> 
+
+            <nav class="menuhover">
+                <ul class="menuhover">
+                    <li class="bg bg1"></li>
+                    <li class="bg bg2"></li>
+                    <li class="bg bg3"></li>
+                </ul>
+            </nav>
+
+            <nav class="menu">
+                <ul class="link_list llleft">
+                    <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
+                    <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
+                    <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+                </ul>
+                <ul class="link_list llright">
+                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </nav>
+            <div id="imagebox">
+                <img id="picTour" src="./images/header/tour.png" alt="">
+                <img id="picForum" src="./images/header/forum.png" alt="">
+                <img id="picProduct" src="./images/header/product.png" alt="">
+            </div>
+
+            <div id="greymask"></div>
+            <div id="hamburgerBG">
+                <div class="ab white"></div>
+                <div class="ab yellow1"></div>
+                <div class="ab yellow2"></div>
+                <div class="ab yellow3"></div>
+            </div>
+            <button class="hamburger hamburger--collapse" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class="top">
+            <div class="banner"></div>
+            <div class="memProfile">
+                <div class="memProfile_AVA">
+                    <img src="./images/member/memAvatar_test.jpg">
+                </div>
+                <div class="memProfile_DET">
+                    <div class="memProfile_DET_name">
+                        <h2>Hiko Huang</h2>
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="memProfile_DET_fol">
+                        <p>142人追蹤中</p>
+                        <img src="./images/member/Ach_list_01.png">
+                        <img src="./images/member/Ach_list_03.png">
+                        <img src="./images/member/Ach_list_10.png">
+                    </div>
+                </div>
+                <div class="memProfile_MOD">
+                    <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
+                        <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
+                        <div class="modify">個人修改資料</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="nav_list">
+            <div class="X_btn">
+                <svg id="Icon_ionic-md-close-circle-outline" data-name="Icon ionic-md-close-circle-outline" xmlns="http://www.w3.org/2000/svg" width="29.25" height="29.25" viewBox="0 0 29.25 29.25">
+                    <circle id="Ellipse_292" data-name="Ellipse 292" cx="14.5" cy="14.5" r="14.5" fill="#fff"/>
+                    <path id="Path_326" data-name="Path 326" d="M18,6.328A11.667,11.667,0,1,1,9.745,9.745,11.623,11.623,0,0,1,18,6.328m0-2.953A14.625,14.625,0,1,0,32.625,18,14.623,14.623,0,0,0,18,3.375Z" transform="translate(-3.375 -3.375)" fill="#555"/>
+                    <path id="Path_327" data-name="Path 327" d="M25.313,23.266l-2.046,2.046L18,20.046l-5.266,5.266-2.046-2.046L15.954,18l-5.266-5.266,2.046-2.046L18,15.954l5.266-5.266,2.046,2.046L20.046,18Z" transform="translate(-3.375 -3.375)" fill="#555"/>
+                </svg>
+            </div>
+            <div class="nav_btn_outside">
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>足跡</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')">
+                        <i class="fas fa-user-check"></i>
+                        <p>認證</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">
+                        <i class="fas fa-trophy"></i>
+                        <p>徽章</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
+                        <i class="fas fa-users"></i>
+                        <p>揪團</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
+                        <i class="fas fa-book"></i>
+                        <p>收藏</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
+                        <i class="fas fa-file-alt"></i>
+                        <p>文章</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>點數</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
+                        <i class="fas fa-cart-arrow-down"></i>
+                        <p>訂單</p>
+                    </button>
+                </div>
+                <div class="nav_button btn_modify">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemDetail')">
+                        <i class="fas fa-pen"></i>
+                        <p>修改</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
+            
+            <!-- 足跡 -->
+            <!-- <div id="MemFootprint">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的足跡</div>
+                    </div>
+                </div>
+                <div class="record_list">
+                    <div class="location_record">
+                        <div class="background">
+                            <img src="./images/member/location_record_map.png">
+                        </div>
+                        <div class="point1 point">
+                            <img src="./images/member/Pushpin.png">
+                            <div class="value_box"></div>
+                        </div>
+                        <div class="point2 point">
+                            <img src="./images/member/Pushpin.png">
+                            <div class="value_box"></div>
+                        </div>
+                        <div class="point3 point">
+                            <img src="./images/member/Pushpin.png">
+                            <div class="value_box"></div>
+                        </div>
+                        <div class="point4 point">
+                            <img src="./images/member/Pushpin.png">
+                            <div class="value_box"></div>
+                        </div>
+                    </div>
+                    <div class="text_record">
+                        <div class="TR_title">
+                            <div><hr></div>
+                            <div class="title">登山活動紀錄</div>
+                            <div><hr></div>
+                        </div>
+                        <div class="TR_box1 TR_box">
+                            <div class="img_value">
+                                <img src="./images/form_img/g5.jpg">
+                            </div>
+                            <div class="text_value">
+                                <div class="TV_travel TV">
+                                    <p>路線：</p>
+                                    <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                </div>
+                                <div class="TV_date TV">
+                                    <p>日期：</p>
+                                    <div class="value2 TV_value">2020-05-04 (一)</div>
+                                </div>
+                                <div class="TV_distance TV">
+                                    <p>路線長度：</p>
+                                    <div class="value3 TV_value">12000 (公尺)</div>
+                                </div>
+                                <div class="TV_points TV">
+                                    <p>獲得點數：</p>
+                                    <div class="value4 TV_value">400 (點)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="TR_box2 TR_box">
+                            <div class="img_value">
+                                <img src="./images/form_img/g6.jpg">
+                            </div>
+                            <div class="text_value">
+                                <div class="TV_travel TV">
+                                    <p>路線：</p>
+                                    <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                </div>
+                                <div class="TV_date TV">
+                                    <p>日期：</p>
+                                    <div class="value2 TV_value">2020-05-04 (一)</div>
+                                </div>
+                                <div class="TV_distance TV">
+                                    <p>路線長度：</p>
+                                    <div class="value3 TV_value">12000 (公尺)</div>
+                                </div>
+                                <div class="TV_points TV">
+                                    <p>獲得點數：</p>
+                                    <div class="value4 TV_value">400 (點)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="TR_box3 TR_box">
+                            <div class="img_value">
+                                <img src="./images/form_img/g8.jpg">
+                            </div>
+                            <div class="text_value">
+                                <div class="TV_travel TV">
+                                    <p>路線：</p>
+                                    <div class="value1 TV_value">曼塔山登山步道 (Lv3)</div>
+                                </div>
+                                <div class="TV_date TV">
+                                    <p>日期：</p>
+                                    <div class="value2 TV_value">2020-05-04 (一)</div>
+                                </div>
+                                <div class="TV_distance TV">
+                                    <p>路線長度：</p>
+                                    <div class="value3 TV_value">12000 (公尺)</div>
+                                </div>
+                                <div class="TV_points TV">
+                                    <p>獲得點數：</p>
+                                    <div class="value4 TV_value">400 (點)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- 認證 -->
+            <!-- <div id="MemAccreditation">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的認證</div>
+                    </div>
+                </div>
+                <div class="accreditation_list">
+                    <div class="first Acc ID">
+                        <img class="Acc-profile-img" src="./images/member/identity_certificate.jpg">
+                        <div class="Acc-description-bk"></div>
+                        <div class="Acc-logo">
+                            <img src="./images/member/NotApplied.jpg" alt="灰色=尚未申請">
+                        </div>
+                        <div class="Acc-description">
+                            <h2>實名認證</h2>
+                        </div>
+                        <div class="Acc-btn">
+                            <a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>點我申請</p><div class="bg"></div></button></a>
+                        </div>
+                    </div>
+                        
+                    <div class="second Acc Mountain">
+                        <img class="Acc-profile-img" src="./images/member/mountain_guide_certificate.png">
+                        <div class="Acc-description-bk"></div>
+                        <div class="Acc-logo">
+                            <img src="./images/member/pass.jpg">
+                        </div>
+                        <div class="Acc-description">
+                            <h2>嚮導認證</h2>
+                        </div>
+                        <div class="Acc-btn">
+                            <a href="./MemberGuide.html" target="_blank"><button class="btnB_XL_yellow"><p>點我申請</p><div class="bg"></div></button></a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- 徽章 -->
+            <!-- <div id="MemAchievement">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">徽章總覽</div>
+                    </div>
+                </div>
+                <div class="Achievement_list">
+                    <div class="Ach_list_01 Ach">
+                        <img src="./images/member/Ach_list_01.png">
+                        <br>
+                        <p>開團：探險新手</p>
+                    </div>
+                    <div class="Ach_list_02 Ach Nohave">
+                        <img src="./images/member/Ach_list_02.png">
+                        <br>
+                        <p>開團：冒險玩家</p>
+                    </div>
+                    <div class="Ach_list_03 Ach">
+                        <img src="./images/member/Ach_list_03.png">
+                        <br>
+                        <p>開團：探索高手</p>
+                    </div>
+                    <div class="Ach_list_04 Ach Nohave">
+                        <img src="./images/member/Ach_list_04.png">
+                        <br>
+                        <p>參團：山山來遲</p>
+                    </div>
+                    <div class="Ach_list_05 Ach Nohave">
+                        <img src="./images/member/Ach_list_05.png">
+                        <br>
+                        <p>參團：山五好友</p>
+                    </div>
+                    <div class="Ach_list_06 Ach Nohave">
+                        <img src="./images/member/Ach_list_06.png">
+                        <br>
+                        <p>參團：一山一世</p>
+                    </div>
+                    <div class="Ach_list_07 Ach">
+                        <img src="./images/member/Ach_list_07.png">
+                        <br>
+                        <p>揪團：岳岳欲試</p>
+                    </div>
+                    <div class="Ach_list_08 Ach Nohave">
+                        <img src="./images/member/Ach_list_08.png">
+                        <br>
+                        <p>揪團：翻山越嶺</p>
+                    </div>
+                    <div class="Ach_list_09 Ach">
+                        <img src="./images/member/Ach_list_09.png">
+                        <br>
+                        <p>揪團：披星戴岳</p>
+                    </div>
+                    <div class="Ach_list_10 Ach Nohave">
+                        <img src="./images/member/Ach_list_10.png">
+                        <br>
+                        <p>發文：一鳴驚人</p>
+                    </div>
+                    <div class="Ach_list_11 Ach Nohave">
+                        <img src="./images/member/Ach_list_11.png">
+                        <br>
+                        <p>發文：風雲人物</p>
+                    </div>
+                    <div class="Ach_list_12 Ach">
+                        <img src="./images/member/Ach_list_12.png">
+                        <br>
+                        <p>登入：新手上路</p>
+                    </div>
+                    <div class="Ach_list_13 Ach">
+                        <img src="./images/member/Ach_list_13.png">
+                        <br>
+                        <p>登入：嶄露頭角</p>
+                    </div>
+                    <div class="Ach_list_14 Ach Nohave">
+                        <img src="./images/member/Ach_list_14.png">
+                        <br>
+                        <p>登入：山林老師</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- 揪團 -->
+            <!-- <div id="MemTravel">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的揪團</div>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <input type="radio" name="tabs" id="tabone" checked="checked">
+                    <label for="tabone">發起的揪團</label>
+                    <div class="myself_list list_style tab">
+                        <a href="./meet2-3.html">
+                            <div class="item_1 page">
+                            <div class="img_box">
+                                <img src="./images/member/fake/mountain01.jpg">
+                            </div>
+                            <div class="text_box">
+                                <div class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</div>
+                                <div class="text_prompt">
+                                    <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div class="TP_area TP">北部</div>
+                                    <div class="TP_title TP">難度</div>
+                                    <div class="TP_level TP">
+                                        <i class="fas fa-mountain Lv1"></i>
+                                        <i class="fas fa-mountain Lv2"></i>
+                                        <i class="fas fa-mountain Lv3"></i>
+                                        <i class="fas fa-mountain Lv4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_box">
+                                <div class="info_title">目前報名人數</div>
+                                <div class="info_value">4</div>
+                            </div>
+                            <div class="date_box">
+                                <div class="date_title">開團日期</div>
+                                <div class="date_value">2020-09-12(六)</div>
+                            </div>
+                            </div>
+                        </a>
+                        <a href="./meet2-3.html">
+                            <div class="item_2 page">
+                                <div class="img_box">
+                                    <img src="./images/member/fake/mountain02.jpg">
+                                </div>
+                                <div class="text_box">
+                                    <div class="text_title">新北汐止五指山古道、友蚋山南峰(五人就出發!!!)</div>
+                                    <div class="text_prompt">
+                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="TP_area TP">北部</div>
+                                        <div class="TP_title TP">難度</div>
+                                        <div class="TP_level TP">
+                                            <i class="fas fa-mountain Lv1"></i>
+                                            <i class="fas fa-mountain Lv2"></i>
+                                            <i class="fas fa-mountain Lv3"></i>
+                                            <i class="fas fa-mountain Lv4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_title">目前報名人數</div>
+                                    <div class="info_value">3</div>
+                                </div>
+                                <div class="date_box">
+                                    <div class="date_title">開團日期</div>
+                                    <div class="date_value">2020-09-19(六)</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./meet2-3.html">
+                            <div class="item_3 page">
+                                <div class="img_box">
+                                    <img src="./images/member/fake/mountain03.jpg">
+                                </div>
+                                <div class="text_box">
+                                    <div class="text_title">聖稜線~雪山縱走大霸尖山(不適合新手~)</div>
+                                    <div class="text_prompt">
+                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="TP_area TP">北部</div>
+                                        <div class="TP_title TP">難度</div>
+                                        <div class="TP_level TP">
+                                            <i class="fas fa-mountain Lv1"></i>
+                                            <i class="fas fa-mountain Lv2"></i>
+                                            <i class="fas fa-mountain Lv3"></i>
+                                            <i class="fas fa-mountain Lv4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_title">目前報名人數</div>
+                                    <div class="info_value">6</div>
+                                </div>
+                                <div class="date_box">
+                                    <div class="date_title">開團日期</div>
+                                    <div class="date_value">2020-09-25(五)</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./meet2-3.html">
+                            <div class="item_4 page">
+                                <div class="img_box">
+                                    <img src="./images/member/fake/mountain04.jpg">
+                                </div>
+                                <div class="text_box">
+                                    <div class="text_title">雪劍大縱走之雪山主峰、雪山東峰</div>
+                                    <div class="text_prompt">
+                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="TP_area TP">中部</div>
+                                        <div class="TP_title TP">難度</div>
+                                        <div class="TP_level TP">
+                                            <i class="fas fa-mountain Lv1"></i>
+                                            <i class="fas fa-mountain Lv2"></i>
+                                            <i class="fas fa-mountain Lv3"></i>
+                                            <i class="fas fa-mountain Lv4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_title">目前報名人數</div>
+                                    <div class="info_value">6</div>
+                                </div>
+                                <div class="date_box">
+                                    <div class="date_title">開團日期</div>
+                                    <div class="date_value">2020-09-07(一)</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <input type="radio" name="tabs" id="tabtwo">
+                    <label for="tabtwo">參加的揪團</label>
+                    <div class="travel_list list_style tab">
+                        <a href="./meet2-3.html">
+                            <div class="item_5 page">
+                                <div class="img_box">
+                                <img src="./images/member/fake/mountain05.jpg">
+                                </div>
+                                <div class="text_box">
+                                    <div class="text_title">假日團~ 挑戰大坑4號步道頭嵙山</div>
+                                    <div class="text_prompt">
+                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="TP_area TP">中部</div>
+                                        <div class="TP_title TP">難度</div>
+                                        <div class="TP_level TP">
+                                            <i class="fas fa-mountain Lv1"></i>
+                                            <i class="fas fa-mountain Lv2"></i>
+                                            <i class="fas fa-mountain Lv3"></i>
+                                            <i class="fas fa-mountain Lv4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_title">目前報名人數</div>
+                                    <div class="info_value">7</div>
+                                </div>
+                                <div class="date_box">
+                                    <div class="date_title">開團日期</div>
+                                    <div class="date_value">2020-08-30(日)</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./meet2-3.html">
+                            <div class="item_6 page">
+                                <div class="img_box">
+                                <img src="./images/member/fake/mountain06.jpg">
+                                </div>
+                                <div class="text_box">
+                                    <div class="text_title">合歡南峰縱走合歡主峰三天兩夜 無需負重!!!</div>
+                                    <div class="text_prompt">
+                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="TP_area TP">中部</div>
+                                        <div class="TP_title TP">難度</div>
+                                        <div class="TP_level TP">
+                                            <i class="fas fa-mountain Lv1"></i>
+                                            <i class="fas fa-mountain Lv2"></i>
+                                            <i class="fas fa-mountain Lv3"></i>
+                                            <i class="fas fa-mountain Lv4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_title">目前報名人數</div>
+                                    <div class="info_value">8</div>
+                                </div>
+                                <div class="date_box">
+                                    <div class="date_title">開團日期</div>
+                                    <div class="date_value">2020-09-3(四)</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- 收藏 -->
+            <!-- <div id="MemFavorites">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的收藏</div>
+                    </div>
+                </div>
+                <div class="classify_list">
+                    <a href="javascript:void(0)" class="classify tablink post_classify btn" onclick="openClass(event, 'class1')">文章收藏</a>
+                    <a href="javascript:void(0)" class="classify tablink travel_classify" onclick="openClass(event, 'class2')">揪團收藏</a>
+                    <a href="javascript:void(0)" class="classify tablink product_classify" onclick="openClass(event, 'class3')">商品收藏</a>
+                </div>
+                <div id="class1" class="container class">
+                    <div class="post_list FavoritesList_group">     
+                        <div class="item_1 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g10.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_2 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g9.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_3 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g8.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_4 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g7.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_5 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g6.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_6 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g5.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_7 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g4.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_8 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g3.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_9 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g2.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_10 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g1.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>5個容易忽略的健行風險...</h3>
+                                <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼...</p>
+                            </div>
+                            <a href="./comment.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="class2" class="container class">
+                    <div class="travel_list FavoritesList_group">
+                        <div class="item_1 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g10.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_2 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g9.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_3 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g8.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_4 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g7.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_5 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g6.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_6 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g5.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_7 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g4.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_8 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g3.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_9 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g2.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_10 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g1.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_11 card">
+                            <div class="Card_img">
+                                <img src="./images/form_img/g6.jpg">
+                            </div>
+                            <div class="Card_info">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                <p>台灣的最高殿堂，身為台灣人必做的三件事之一。玉山為台灣「五嶽」之首，在冬季皚皚白雪覆蓋下的玉山，有如白玉一般的潔白晶瑩。</p>
+                            </div>
+                            <a href="./meet2-3.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="class3" class="container class">
+                    <div class="product_list FavoritesList_group">
+                        <div class="item_1 card">
+                            <div class="Card_img">
+                                <img src="./images/products/bag/bag0.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_2 card">
+                            <div class="Card_img">
+                                <img src="./images/products/bag/bag13.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_3 card">
+                            <div class="Card_img">
+                                <img src="./images/products/campGear/tent11.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_4 card">
+                            <div class="Card_img">
+                                <img src="./images/products/clothes/clothes01.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_5 card">
+                            <div class="Card_img">
+                                <img src="./images/products/campGear/tent12.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_6 card">
+                            <div class="Card_img">
+                                <img src="./images/products/others/accessories12.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_7 card">
+                            <div class="Card_img">
+                                <img src="./images/products/shoes/shoes12.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_8 card">
+                            <div class="Card_img">
+                                <img src="./images/products/others/accessories21.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_9 card">
+                            <div class="Card_img">
+                                <img src="./images/products/clothes/clothes03.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                        <div class="item_10 card">
+                            <div class="Card_img">
+                                <img src="./images/products/campGear/tent32.png">
+                            </div>
+                            <div class="Card_info">
+                                <h3>KEEN 低筒健行鞋</h3>
+                                <p></p>
+                            </div>
+                            <a href="./product_info.html">
+                                <button class="Card_btn" type="button">點擊前往</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- 文章 -->
+            <div id="MemPost">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的文章</div>
+                    </div>
+                </div>
+                <div class="post_list">
+                    <div class="item_1 page">
+                        <div class="img_box">
+                            <img src="./images/form_img/g8.jpg">
+                        </div>
+                        <div class="text_box">
+                            <div class="text_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
+                            <div class="text_content">
+                                <div class="TP_release TP">
+                                    <p>今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post_time">
+                            <div class="edit_btn">
+                                <p>發文時間：2020-09-07</p>
+                            </div>
+                        </div>
+                        <!-- <div class="delete_box">
+                            <div class="delete_btn">
+                                <p>最後回覆：2020-09-10</p>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="pagetab">
+                        <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                        <button class="btnA_S pg -active"><p>01</p></button>
+                        <button class="btnA_S pg"><p>02</p></button>
+                        <button class="btnA_S pg"><p>03</p></button>
+                        <button class="btnA_S pg"><p>04</p></button>
+                        <button class="btnA_S pg"><p>05</p></button>
+                        <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                    </div>
+                    </div>
+            </div>
+
+
+        </div><!-- ----------各頁面內容放這(end)-------------------- -->
+        <div class="nav_mob">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                <g id="Group_798" data-name="Group 798" transform="translate(-427 -1080)">
+                  <rect id="Rectangle_1233" data-name="Rectangle 1233" width="10" height="10" rx="3" transform="translate(427 1080)" fill="#555"/>
+                  <rect id="Rectangle_1236" data-name="Rectangle 1236" width="10" height="10" rx="3" transform="translate(427 1094)" fill="#555"/>
+                  <rect id="Rectangle_1234" data-name="Rectangle 1234" width="10" height="10" rx="3" transform="translate(441 1080)" fill="#555"/>
+                  <rect id="Rectangle_1237" data-name="Rectangle 1237" width="10" height="10" rx="3" transform="translate(441 1094)" fill="#555"/>
+                </g>
+            </svg>                      
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer_logo_block">
+            <a href="./FrontstageIndex.html">
+                <img src="./images/logo/LOGO_white.png" alt="">
+            </a>
+            <div class="copyright">Copyright © 2020 Mountain Community.</div>
+        </div>
+        <div class="footer_info">
+            <div class="sevrves_place-serves_tel">
+                <div class="place">
+                    <div class="f_color1">桃園市中壢區中大路300號</div>
+                    <div class="f_color1">工程二館 資策會大樓</div>
+                </div>
+                <div class="tel">
+                    <div class="f_color1">連絡電話</div>
+                    <div class="f_color1">(03)425-7387</div>
+                </div>
+            </div>
+            <div class="serves_time-serves_email">
+                <div class="time">
+                    <div class="f_color1">服務時間</div>
+                    <div class="f_color1">週一至週五10:00~17:00</div>
+                </div>
+                <div class="email">
+                    <div class="f_color1">服務信箱</div>
+                    <div class="f_color1">tibame@gmail.com</div>
+                </div>
+            </div>
+            <div class="epaper-footer_link">
+                <div class="epaper">
+                    <div class="etitle f_color1">輸入信箱訂閱電子報</div>
+                    <div class="einput">
+                        <input type="text" placeholder="Email address">
+                        <div class="e_bt f_color1">SUBSCRIBE</e_bt>
+                    </div>
+                </div>
+                <div class="link">
+                    <div class="linkup">
+                        <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
+                        <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
+                        <div><a href="" target="_blank">網站快速導覽</a></div>
+                    </div>
+                    <div class="linkdown">
+                        <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
+                        <div><a href="" target="_blank">會員使用條款</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- ======================script-(功能名?)======================= -->
+<script>
+    $(document).ready(function(){
+        $('.nav_mob').click(function(){
+            $('.nav_list').toggle();
+        });
+        $('.X_btn').click(function(){
+            $('.nav_list').css('display','none');
+        });
+    });
+</script>
+<!-- ======================script-(功能名?)======================= -->
+<!-- ======================script-start======================= -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> <!--手機板buttonlist-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js'></script> <!--手機板buttonlist-->
+
+<script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
+
+<script src="./js/header.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/Member_v2.js"></script>
+
+<!-- ======================script-end========================= -->
+</body>
+</html>
