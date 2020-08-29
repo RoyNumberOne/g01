@@ -236,7 +236,11 @@ $textColor1: $mt_fontdark;
                 display: flex;
                 justify-content: space-between;
                
-                .upload_tourimg{
+                input{ //上傳照片
+                    display: inline-block;
+                }
+
+                .upload_tourimg{ //＋＋
                     border: 1px solid $mt_black;
                     border-radius: 50%;
                     padding: 0;
