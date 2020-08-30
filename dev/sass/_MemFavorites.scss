@@ -53,23 +53,13 @@
 #MemFavorites{
     width: 100%;
     margin: 0;
-    .page_info{
-        height: 60px;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(2,1fr);
-        .titlebackground{
-            width: 100%;
-            grid-area: 1/1/3/3;
-            background-color: #153A64;
-            .title{
-                margin: 1.5%;
-                color: #ffffff;
-                font-size: 30px;
-                font-weight: 600;
-                letter-spacing: 5px;
-            }
-        }
+    .title{
+        width: 100%;
+        background-color: #153A64;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 10px;
     }
     .classify_list{
         margin: 0 auto;
@@ -137,17 +127,6 @@
         #MemFavorites{
             .classify_list{
                 justify-content: center;
-                .classify{
-                }
-                .post_classify{
-                }
-                .travel_classify{
-                }
-                .product_classify{
-                }
-            }
-            .post_list,.travel_list,.product_list{
-
             }
             .FavoritesList_group{
                 grid-template-columns: repeat(3, 1fr);
@@ -167,17 +146,6 @@
         #MemFavorites{
             .classify_list{
                 justify-content: center;
-                .classify{
-                }
-                .post_classify{
-                }
-                .travel_classify{
-                }
-                .product_classify{
-                }
-            }
-            .post_list,.travel_list,.product_list{
-
             }
             .FavoritesList_group{
                 grid-template-columns: repeat(2, 1fr);
@@ -198,17 +166,6 @@
             .classify_list{
                 display: flex;
                 justify-content: center;
-                .classify{
-                }
-                .post_classify{
-                }
-                .travel_classify{
-                }
-                .product_classify{
-                }
-            }
-            .post_list,.travel_list,.product_list{
-
             }
             .FavoritesList_group{
                 grid-template-columns: repeat(2, 1fr);

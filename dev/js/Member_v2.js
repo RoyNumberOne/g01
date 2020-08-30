@@ -72,3 +72,21 @@ function openClass(evt, className) {
 var mybtn = document.getElementsByClassName("btn")[0];
 mybtn.click();
 // =======================收藏頁頁簽========================
+// =====================足跡頁地區切換======================
+function tabArea(evt, className) {
+  var i, x, tabareas;
+  x = document.getElementsByClassName("area");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tabareas = document.getElementsByClassName("tabarea");
+  for (i = 0; i < x.length; i++) {
+    tabareas[i].classList.remove("thispoint");
+  }
+  document.getElementById(className).style.display = "block";
+  evt.currentTarget.classList.add("thispoint");
+}
+
+var mybtn = document.getElementsByClassName("this")[0];
+mybtn.click();
+// =====================足跡頁地區切換========================
