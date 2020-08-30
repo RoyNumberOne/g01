@@ -19,22 +19,23 @@ var mySwiper = new Swiper(".swiper-container", {
 
 // =======================手機板按鈕========================
 //========================桌機板按鈕======================
-function tabId(evt, className) {
-  var i, x, tabpage;
-  x = document.getElementsByClassName("pages");
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  tabpage = document.getElementsByClassName("tabbutton");
-  for (i = 0; i < x.length; i++) {
-     tabpage[i].classList.remove("highlight");
-  }
-  document.getElementById(className).style.display = "block";
-  evt.currentTarget.classList.add("highlight");
-}
 
-var mybtn = document.getElementsByClassName("now")[0];
-mybtn.click();
+// function tabId(evt, className) {
+//   var i, x, tabpage;
+//   x = document.getElementsByClassName("pages");
+//   for (i = 0; i < x.length; i++) {
+//      x[i].style.display = "none";
+//   }
+//   tabpage = document.getElementsByClassName("tabbutton");
+//   for (i = 0; i < x.length; i++) {
+//      tabpage[i].classList.remove("highlight");
+//   }
+//   document.getElementById(className).style.display = "block";
+//   evt.currentTarget.classList.add("highlight");
+// }
+
+// var mybtn = document.getElementsByClassName("now")[0];
+// mybtn.click();
 
 //========================桌機板按鈕====================
 // =======================個資頭像修改======================
