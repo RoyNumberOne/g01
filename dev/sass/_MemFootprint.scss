@@ -480,12 +480,29 @@
                     }
                     .TR_boxlist{
                         .TR_box{
+                            margin: auto;
+                            width: 70%;
+                            height: 500px;
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
                             .img_value{
+                                width: 100%;
+                                margin: auto;
+                                height: auto;
                                 img{
+                                    width: 100%;
+                                    height: 300px;
+                                    border-radius: 20px 20px 0 0;
                                 }
                             }
                             .text_value{
+                                margin: 5%;
+                                grid-area: 2/1/3/2;
                                 .TV{
+                                    display: flex;
+                                    p{
+                                        font-size: 20px;
+                                    }
                                 }
                             }
                         }
