@@ -17,7 +17,16 @@ var mySwiper = new Swiper(".swiper-container", {
 //   window.open($(this).attr("href"), "_blank");
 // });
 
-// =======================手機板按鈕========================
+// =======================手機板切換======================
+$(document).ready(function(){
+  $('.nav_mob').click(function(){
+      $('.nav_list').toggle();
+  });
+  $('.X_btn').click(function(){
+      $('.nav_list').css('display','none');
+  });
+});
+
 //========================桌機板按鈕======================
 function tabId(evt, className) {
   var i, x, tabpage;

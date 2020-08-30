@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/Member_style_v2.css">
 
+    <script src="./js/jquery.min.js"></script>
     <script src="./js/Member_v2.js"></script>
 </head>
 <body>
@@ -63,7 +64,14 @@
             <div class="banner"></div>
             <div class="memProfile">
                 <div class="memProfile_AVA">
-                    <img src="./images/member/memAvatar_test.jpg">
+                    <div class="memProfile_AVA_img">
+                        <img src="./images/member/memAvatar_test.jpg" id="img_ava">
+                    </div>
+                    <div class="memProfile_AVA_change">
+                        <label class="camera_i">
+                            <input type="file" id="imgInp" accept="image/*" />
+                        </label>
+                    </div>
                 </div>
                 <div class="memProfile_DET">
                     <div class="memProfile_DET_name">
@@ -153,7 +161,7 @@
         <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
             
             <!-- 足跡 -->
-            <!-- <div id="MemFootprint">
+            <div id="MemFootprint" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">我的足跡</div>
@@ -258,10 +266,10 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             
             <!-- 認證 -->
-            <!-- <div id="MemAccreditation">
+            <div id="MemAccreditation" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">我的認證</div>
@@ -296,10 +304,10 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             
             <!-- 徽章 -->
-            <!-- <div id="MemAchievement">
+            <div id="MemAchievement" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">徽章總覽</div>
@@ -377,10 +385,10 @@
                         <p>登入：山林老師</p>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- 揪團 -->
-            <!-- <div id="MemTravel">
+            <div id="MemTravel" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">我的揪團</div>
@@ -571,10 +579,10 @@
                         </a>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- 收藏 -->
-            <!-- <div id="MemFavorites">
+            <div id="MemFavorites" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">我的收藏</div>
@@ -969,10 +977,10 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- 文章 -->
-            <div id="MemPost">
+            <div id="MemPost" class="pages">
                 <div class="page_info">
                     <div class="titlebackground">
                         <div class="title">我的文章</div>
@@ -1150,7 +1158,199 @@
                     </div>
                 </div>
             </div>
-
+            <!-- 點數 -->
+            <div id="MemPoints" class="pages">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的點數</div>
+                    </div>
+                </div>
+                <div class="points_info">
+                    <div class="top_points_info">
+                        <div class="top_left">
+                            <h3>目前累積點數</h3>
+                            <p>$2000</p>
+                            <p class="total_get">累積獲得: $213,200</p>
+                        </div>
+                        <div class="top_right">
+                            <img src="./images/member/chart.png">
+                        </div>
+                    </div>
+                    <div class="bottom_points_info">
+                        <table>
+                            <tr>
+                                <th>日期</th>
+                                <th>點數明細</th>
+                                <th>點數</th>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>討論區發文獲得</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>揪團頁發文獲得</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>討論區發文獲得</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>開團成功</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td>2020/08/24</td>
+                                <td>入團成功</td>
+                                <td>300</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- 訂單 -->
+            <div id="MemOrder" class="pages">
+                <div class="page_info">
+                    <div class="titlebackground">
+                        <div class="title">我的訂單</div>
+                    </div>
+                </div>
+                <div class="memOrder_pc">
+                    <div class="memOrder_form">
+                        <table>
+                            <tr>
+                                <th>訂單編號</th>
+                                <th>訂單日期</th>
+                                <th>訂單狀態</th>
+                                <th>總金額</th>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000001</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000002</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000003</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000004</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000005</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000006</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000007</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000008</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000009</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000010</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000011</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000012</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                            <tr>
+                                <td><a href="./MemberOrder.html" target="_blank">000013</a></td>
+                                <td>2020/08/11</td>
+                                <td>出貨中</td>
+                                <td>$9999</td>
+                            </tr>
+                        </table>
+                            </div>
+                            <div class="orderPages">
+                                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                                <button class="btnA_S pg -active"><p>01</p></button>
+                                <button class="btnA_S pg"><p>02</p></button>
+                                <button class="btnA_S pg"><p>03</p></button>
+                                <button class="btnA_S pg"><p>04</p></button>
+                                <button class="btnA_S pg"><p>05</p></button>
+                                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 修改資料 -->
+                    <div id="MemDetail" class="pages">
+                        <div class="page_info">
+                            <div class="titlebackground">
+                                <div class="title">修改資料</div>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="mem_frame">
+                                <div class="mem_change">
+                                    <p>暱稱</p><p>Hiko</p><br>
+                                    <input type="text" id="mem_id">
+                                </div>
+                                <div class="mem_change">
+                                    <p>信箱</p><p>Hiko@gmail.com</p><br>
+                                    <input type="text" id="mem_mail">
+                                </div>
+                                <div class="mem_change">
+                                    <p>密碼</p><br>
+                                    <input type="text" id="mem_psw">
+                                </div>
+                                <div class="mem_change">
+                                    <p>確認密碼</p><br>
+                                    <input type="text">
+                                </div>
+                                <div class="mem_button">
+                                    <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
+                                    <button class="btnB_L_yellow"><p>送出</p><div class="bg"></div></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
         </div><!-- ----------各頁面內容放這(end)-------------------- -->
         <div class="nav_mob">
@@ -1215,8 +1415,19 @@
         </div>
     </footer>
 
+<!-- ======================script-start======================= -->
 
-<!-- ======================script-(功能名?)======================= -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/Member_v2.js"></script>
+
+<!-- ======================script-end========================= -->
+<!-- ======================script-(手機版切換)======================= -->
 <script>
     $(document).ready(function(){
         $('.nav_mob').click(function(){
@@ -1226,22 +1437,23 @@
             $('.nav_list').css('display','none');
         });
     });
+
+    function readURL(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+
+            reader.onload = function(e){
+                $('#img_ava').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
+
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
 </script>
 <!-- ======================script-(功能名?)======================= -->
-<!-- ======================script-start======================= -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> <!--手機板buttonlist-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js'></script> <!--手機板buttonlist-->
-
-<script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>   <!--手機板buttonlist-->
-
-<script src="./js/header.js"></script>
-<script src="./js/common.js"></script>
-<script src="./js/Member_v2.js"></script>
-
-<!-- ======================script-end========================= -->
 </body>
 </html>

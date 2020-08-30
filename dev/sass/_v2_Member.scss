@@ -21,16 +21,50 @@ main{
             display: flex;
             justify-content: space-between;
             .memProfile_AVA{
-                border: 1px solid black;
                 transform: translate(50%, -50%);
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                overflow: hidden;
-                border: 4px solid #FFC400;
-                img{
-                    width: 100%;
+                position: relative;
+                .memProfile_AVA_img{
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    border: 4px solid #FFC400;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                    }
                 }
+                .memProfile_AVA_change{
+                    // border:1px solid red;
+                    background: rgba(0, 0, 0, .25);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    justify-self: center;
+                    align-self: flex-end;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 0px;
+                    label.camera_i{
+                        position: relative;
+                        &:before{
+                            position: absolute;
+                            top: 38%;
+                            left: 22%;
+                            font-family: "Font Awesome 5 Free"; 
+                            font-weight: 900; 
+                            content: "\f030";
+                            font-size: 30px;
+                        }
+                        input{
+                            width: 100%;
+                            opacity: 0;
+                        }
+                    }
+                }
+                    
             }
             .memProfile_DET{
                 display: flex;
@@ -43,8 +77,10 @@ main{
                         margin-right: 5px;
                     }
                     svg{
-                        color: #FFC400;
                         font-size: 25px;
+                        path{
+                            color: #FFC400;
+                        }
                      }
                 }
                 .memProfile_DET_fol{
@@ -107,6 +143,7 @@ main{
             align-self: center;
             justify-content: center;
             margin-right: -65px;
+            z-index: 2;
             .nav_button{
                 background-color: #2C5E9E;
                 color:white;
@@ -119,6 +156,12 @@ main{
                 align-items: center;
                 svg{
                     font-size: 30px;
+                    path{
+                        color: #ffffff;
+                    }
+                }
+                p{
+                    color: #ffffff;
                 }
             }
             .btn_modify{
@@ -148,6 +191,9 @@ main{
     .C_info{
         background-color: #f6f6f6;
         width: 100%;
+        overflow: auto;
+        height: 1000px;
+        margin: 50px auto;
     }
 }
 
@@ -176,6 +222,11 @@ main{
             .memProfile{
                 .memProfile_DET{
                     transform: translate(30%, 0);
+                    .memProfile_DET_fol{
+                        img{
+                            width: 40px;
+                        }
+                    }
                 }
             }
         }
@@ -189,8 +240,10 @@ main{
         .top{
             .memProfile{
                 .memProfile_AVA{
-                    width: 150px;
-                    height: 150px;
+                    .memProfile_AVA_img{
+                        width: 150px;
+                        height: 150px;
+                    }
                 }
                 .memProfile_DET{
                     transform: translate(-50%, 0);
@@ -236,6 +289,9 @@ main{
         .nav_mob{
             display: block;
         }
+        .C_info{
+            margin: 0 auto;
+        }
     }
 }
 @media screen and (max-width: 575px){
@@ -244,9 +300,11 @@ main{
         .top{
             .memProfile{
                 .memProfile_AVA{
-                    width: 150px;
-                    height: 150px;
-                    transform: translate(73%, -50%);
+                    transform: translate(70%, -50%);
+                    .memProfile_AVA_img{
+                        width: 150px;
+                        height: 150px;
+                    }
                 }
                 .memProfile_DET{
                     transform: translate(-43%, 47%);
@@ -291,6 +349,9 @@ main{
         }
         .nav_mob{
             display: block;
+        }
+        .C_info{
+            margin: 0 auto;
         }
     }
 }
