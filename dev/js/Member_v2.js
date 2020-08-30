@@ -28,22 +28,23 @@ $(document).ready(function(){
 });
 
 //========================桌機板按鈕======================
-function tabId(evt, className) {
-  var i, x, tabpage;
-  x = document.getElementsByClassName("pages");
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  tabpage = document.getElementsByClassName("tabbutton");
-  for (i = 0; i < x.length; i++) {
-     tabpage[i].classList.remove("highlight");
-  }
-  document.getElementById(className).style.display = "block";
-  evt.currentTarget.classList.add("highlight");
-}
 
-var mybtn = document.getElementsByClassName("now")[0];
-mybtn.click();
+// function tabId(evt, className) {
+//   var i, x, tabpage;
+//   x = document.getElementsByClassName("pages");
+//   for (i = 0; i < x.length; i++) {
+//      x[i].style.display = "none";
+//   }
+//   tabpage = document.getElementsByClassName("tabbutton");
+//   for (i = 0; i < x.length; i++) {
+//      tabpage[i].classList.remove("highlight");
+//   }
+//   document.getElementById(className).style.display = "block";
+//   evt.currentTarget.classList.add("highlight");
+// }
+
+// var mybtn = document.getElementsByClassName("now")[0];
+// mybtn.click();
 
 //========================桌機板按鈕====================
 // =======================個資頭像修改======================
@@ -80,3 +81,21 @@ function openClass(evt, className) {
 var mybtn = document.getElementsByClassName("btn")[0];
 mybtn.click();
 // =======================收藏頁頁簽========================
+// =====================足跡頁地區切換======================
+function tabArea(evt, className) {
+  var i, x, tabareas;
+  x = document.getElementsByClassName("area");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tabareas = document.getElementsByClassName("tabarea");
+  for (i = 0; i < x.length; i++) {
+    tabareas[i].classList.remove("thispoint");
+  }
+  document.getElementById(className).style.display = "block";
+  evt.currentTarget.classList.add("thispoint");
+}
+
+var mybtn = document.getElementsByClassName("this")[0];
+mybtn.click();
+// =====================足跡頁地區切換========================

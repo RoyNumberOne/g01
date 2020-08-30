@@ -1,27 +1,14 @@
-.pages{
+#MemFootprint{
     width: 100%;
     margin: 0;
-    .page_info{
-        height: 60px;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(2,1fr);
-        .titlebackground{
-            width: 100%;
-            grid-area: 1/1/3/3;
-            background-color: #153A64;
-            .title{
-                margin: 1.5%;
-                color: #ffffff;
-                font-size: 30px;
-                font-weight: 600;
-                letter-spacing: 5px;
-            }
-        }
+    h2{
+        width: 100%;
+        background-color: #153A64;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 10px;
     }
-}
-
-#MemFootprint{
     .record_list{
         width: 95%;
         margin: 0 auto;
@@ -29,6 +16,7 @@
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(1,1fr);
         transform: translateY(30px);
+        padding-bottom: 50px;
         gap: 5%;
         .location_record{
             width: 550px;
@@ -49,9 +37,21 @@
                 margin: 0;
                 color: #0b1e35;
                 img{
-                    width: 100%;
+                    width: 150%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 }
                 .value_box{
+                    position: absolute;
+                    top: 17%;
+                    left: 37%;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 99em;
+                    span{
+                        font-size: 22px;
+                    }
                 }
             }
             .point1{
@@ -60,63 +60,95 @@
             }
             .point2{
                 grid-area: 4/5/5/6;
-                transform: translate(-50%, 0%);
+                transform: translate(0%, 0%);
             }
             .point3{
                 grid-area: 5/9/6/10;
                 transform: translate(0%, 0%);
             }
             .point4{
-                grid-area: 9/7/10/8;
+                grid-area: 8/7/9/8;
                 transform: translate(0%, 0%);
             }
-        }
-        .text_record{
-            height: 800px;
-            grid-area: 1/2/2/3;
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            grid-template-rows: repeat(7,1fr);
-            .TR_title{
-                margin: auto 0;
-                text-align: center;
-                font-size: 20px;
-                grid-area: 1/1/2/2;
-                display: grid;
-                grid-template-columns: repeat(3,1fr);
-                grid-template-rows: repeat(1,1fr);
+
+            .thispoint{
+                animation-name:jump;
+                animation-duration:0.4s;
+                animation-direction:alternate;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
             }
-            .TR_box{
-                margin: auto;
-                width: 95%;
+            @keyframes jump{
+                from{
+                    transform: translateY(0px);
+                }
+                to{
+                    transform: translateY(10px);
+                }
+            }
+        }
+        .location_item{
+            overflow: auto;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .text_record{
+                height: 800px;
+                grid-area: 1/2/2/3;
                 display: grid;
-                grid-template-columns: repeat(2,1fr);
-                grid-template-rows: repeat(1,1fr);
-                .img_value{
+                grid-template-columns: repeat(1,1fr);
+                grid-template-rows: repeat(7,1fr);
+                .TR_title{
+                    margin: auto 0;
+                    padding-bottom: 30px;
+                    text-align: center;
+                    font-size: 20px;
                     grid-area: 1/1/2/2;
-                    height: 210px;
-                    img{
-                        width: 230px;
-                        height: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    grid-template-rows: repeat(1,1fr);
+                }
+                .TR_boxlist{
+                    display: grid;
+                    gap: 2%;
+                    .TR_box{
+                        overflow: hidden;
+                        width: 100%;
+                        background-color: #fff;
+                        border-radius: 20px;
+                        -moz-box-shadow:2px 2px 10px -5px #8A8A8A; 
+                        -webkit-box-shadow:2px 2px 10px -5px #8A8A8A; 
+                        box-shadow:2px 2px 10px -5px #8A8A8A;
+        
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        grid-template-rows: repeat(1,1fr);
+                        .img_value{
+                            grid-area: 1/1/2/2;
+                            height: 210px;
+                            img{
+                                width: 230px;
+                                border-radius: 20px 0 0 20px;
+                            }
+                        }
+                        .text_value{
+                            align-items: center;
+                            grid-area: 1/2/2/3;
+                            display: grid;
+                            grid-template-columns: repeat(1,1fr);
+                            grid-template-rows: repeat(4,1fr);
+                        }
+                    }
+                    .TR_box1{
+                        grid-area: 2/1/4/2;
+                    }
+                    .TR_box2{
+                        grid-area: 4/1/6/2;
+                    }
+                    .TR_box3{
+                        grid-area: 6/1/8/2;
                     }
                 }
-                .text_value{
-                    margin: 0 auto;
-                    align-items: center;
-                    grid-area: 1/2/2/3;
-                    display: grid;
-                    grid-template-columns: repeat(1,1fr);
-                    grid-template-rows: repeat(4,1fr);
-                }
-            }
-            .TR_box1{
-                grid-area: 2/1/4/2;
-            }
-            .TR_box2{
-                grid-area: 4/1/6/2;
-            }
-            .TR_box3{
-                grid-area: 6/1/8/2;
             }
         }
     }
@@ -140,65 +172,333 @@
     // 請用960
         // max-width: 960px
 
+    #MemFootprint{
+        h2{
+        }
+        .record_list{
+            .location_record{
+                .background{
+                    img{
+                    }
+                }
+                .point{
+                    img{
+                    }
+                    .value_box{
+                        span{
+                        }
+                    }
+                }
+            }
+            .location_item{
+                &::-webkit-scrollbar{
+                }
+                .text_record{
+                    .TR_title{
+                    }
+                    .TR_boxlist{
+                        .TR_box{
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                            .img_value{
+                                grid-area: 1/2/2/3;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 20px 20px 0 0;
+                                }
+                            }
+                            .text_value{
+                                margin: 0 5%;
+                                grid-area: 2/2/3/3;
+                                .TV{
+                                    display: flex;
+                                }
+                            }
+                        }
+                        .TR_box1{
+                        }
+                        .TR_box2{
+                        }
+                        .TR_box3{
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
         // max-width: 720px
+
+    #MemFootprint{
+        h2{
+        }
+        .record_list{
+            .location_record{
+                width: auto;
+                .background{
+                    width: auto;
+                    img{
+                    }
+                }
+                .point{
+                    img{
+                        height: auto;
+                    }
+                    .value_box{
+                        top: 11%;
+                        left: 20%;
+                        width: 30px;
+                        height: 30px;
+                        span{
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            .location_item{
+                width: 70%;
+                margin: auto;
+                &::-webkit-scrollbar{
+                }
+                .text_record{
+                    height: 600px;
+                    .TR_title{
+                    }
+                    .TR_boxlist{
+                        .TR_box{
+                            height: 350px;
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                            .img_value{
+                                grid-area: 1/2/2/3;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 20px 20px 0 0;
+                                }
+                            }
+                            .text_value{
+                                margin: 0 5%;
+                                grid-area: 2/2/3/3;
+                                .TV{
+                                    display: flex;
+                                }
+                            }
+                        }
+                        .TR_box1{
+                        }
+                        .TR_box2{
+                        }
+                        .TR_box3{
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     // 請用540
         // max-width: 540px
 
-}
-@media screen and (max-width: 575px){
     #MemFootprint{
-        width: 100%;
+        h2{
+        }
         .record_list{
-            display: flex;
+            width: 100%;
+            transform: translateY(0px);
+            grid-template-columns: repeat(1, 1fr);
             .location_record{
-                display: none;
+                grid-template-columns: repeat(4, 1fr);
+                width: auto;
+                .background{
+                    img{
+                        display: none;
+                    }
+                }
+                .point{
+                    width: 100%;
+                    height: 50px;
+                    grid-area: auto;
+                    background-color: gray;
+                    &:hover{
+                        background-color: orange;
+                    }
+                    img{
+                        display: none;
+                    }
+                    .value_box{
+                        span{
+                            display: none;
+                        }
+                    }
+                }
+                .point1{
+                    &::after{
+                        content:"北部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point2{
+                    &::after{
+                        content:"西部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point3{
+                    &::after{
+                        content:"東部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point4{
+                    &::after{
+                        content:"南部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .thispoint{
+                    animation-name:jump;
+                    animation-duration:0s;
+                    animation-direction:unset;
+                    animation-iteration-count: unset;
+                    animation-timing-function: ease-in-out;
+                    background-color: orange;
+                }
             }
-            .text_record{
-                grid-template-rows: repeat(0, 1fr);
-                .TR_title{
-                    margin: 5% 0;
-                }
-                .TR_box{
-                    margin-bottom: 5%;
-                    .img_value{
-                        grid-area: 1/1/2/3;
-                        height: 250px;
-                        img{
-                            width: 100%;
+            .location_item{
+                .text_record{
+                    .TR_title{
+                    }
+                    .TR_boxlist{
+                        .TR_box{
+                            .img_value{
+                                img{
+                                }
+                            }
+                            .text_value{
+                                .TV{
+                                }
+                            }
+                        }
+                        .TR_box1{
+                        }
+                        .TR_box2{
+                        }
+                        .TR_box3{
                         }
                     }
-                    .text_value{
-                        margin: 0;
-                        height: fit-content;
-                        grid-area: 2/1/3/3;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(4, 1fr);
-                        .TV{
-                            display: flex;
-                            align-items: center;
-                            font-size: 18px;
-                            font-weight: 400;
-                            line-height: 1.6;
-                            letter-spacing: 1px;
-                        }
-                    }
-                }
-                .TR_box1{
-                    grid-area: 2/1/3/2;
-                }
-                .TR_box2{
-                    grid-area: 3/1/4/2;
-                }
-                .TR_box3{
-                    grid-area: 4/1/5/2;
                 }
             }
         }
     }
+
+}
+@media screen and (max-width: 575px){
+
+    #MemFootprint{
+        h2{
+        }
+        .record_list{
+            width: 100%;
+            transform: translateY(0px);
+            grid-template-columns: repeat(1, 1fr);
+            .location_record{
+                grid-template-columns: repeat(4, 1fr);
+                width: auto;
+                .background{
+                    img{
+                        display: none;
+                    }
+                }
+                .point{
+                    width: 100%;
+                    height: 50px;
+                    grid-area: auto;
+                    background-color: gray;
+                    &:hover{
+                        background-color: orange;
+                    }
+                    img{
+                        display: none;
+                    }
+                    .value_box{
+                        span{
+                            display: none;
+                        }
+                    }
+                }
+                .point1{
+                    &::after{
+                        content:"北部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point2{
+                    &::after{
+                        content:"西部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point3{
+                    &::after{
+                        content:"東部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .point4{
+                    &::after{
+                        content:"南部";
+                        color:#fff;
+                        font-size: 30px;
+                    }
+                }
+                .thispoint{
+                    animation-name:jump;
+                    animation-duration:0s;
+                    animation-direction:unset;
+                    animation-iteration-count: unset;
+                    animation-timing-function: ease-in-out;
+                    background-color: orange;
+                }
+            }
+            .location_item{
+                .text_record{
+                    .TR_title{
+                    }
+                    .TR_boxlist{
+                        .TR_box{
+                            .img_value{
+                                img{
+                                }
+                            }
+                            .text_value{
+                                .TV{
+                                }
+                            }
+                        }
+                        .TR_box1{
+                        }
+                        .TR_box2{
+                        }
+                        .TR_box3{
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
