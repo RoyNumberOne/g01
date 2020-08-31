@@ -184,6 +184,7 @@
                 padding: 20px;
                     .poster-say{
                         display: flex;
+                        flex-direction: row-reverse;
                         justify-content: space-between;
                         line-height: 30px;
                     }
@@ -355,11 +356,7 @@
     .original-poster-block .name_time{
         flex-direction: column;
     }
-    // .area-tittle{
-    //     p{
-    //        writing-mode: vertical-lr;
-    //     }
-    // }
+
     .product-block{
         flex-wrap: wrap;
         .product-img{
@@ -373,14 +370,38 @@
 @media screen and (max-width: 575px){
     main#comment{
         max-width: 100%;
+        .post-poster-block01{
+            .post-text{
+                .triangle1{
+                    .triangle1-text{
+                        .report{
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .post-poster-block02{
+            .post-text{
+                .triangle2{
+                    .triangle-text{
+                        .report{
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
     .original-poster-block .name_time{
         flex-direction: column;
     }
     .product-block{
-        flex-wrap: wrap;
         .product-img{
-            width: 100%;
+            width: 30%;
+            margin: 1px;
             &:nth-child(6){
                 display: none;
             }
