@@ -158,35 +158,12 @@
         <div>
             <div class="verify_total">
                 <h4>審核嚮導證</h4>
-                    <span style="background-color:#2C5E9E; color:#FFF">未處理</span>
-                    <span>已處理</span>
-                    <span>未通過</span>
+                    <span id="loadButton_1"style="background-color:#2C5E9E; color:#FFF">未處理</span>
+                    <span id="loadButton_2">已處理</span>
+                    <span id="loadButton_3">未通過</span>
             </div>
-            <table>
-            <!--<tr>
-                    <th>會員編號</th>
-                    <th>證件照片</th>
-                    <th>身分證字號</th>
-                    <th>真實姓名</th>
-                    <th>申請時間</th>
-                    <th>申請狀態</th>
-                </tr>
-                <tr>
-                    <td>00001</td>
-                    <td><img src="../images/member/poohidcard.jpg" alt=""></td>
-                    <td>A123456789</td>
-                    <td>唐伯虎</td>
-                    <td>2020/08/23</td>
-                    <td style="text-align: left;padding-left: 10px;">
-                        <form action=""><input type="radio" name="verify" id="verify_1"><label for="verify_1">通過</label><br>
-                            <input type="radio" name="verify" id="verify_2"><label for="verify_2">未通過</label>
-                        </form>
-                    </td>
-                    <td style="background-color: #eaf1f4;"><button type="submit" class="btnB_L_yellow">
-                            <p>送出</p>
-                            <div class="bg"></div>
-                        </button></td>
-                </tr> -->
+            <div id="ccc">
+                <h3>嚮導審核 - 未處理</h3>
                 <?php 
                     try	{
                         require_once('connectMeetain.php');
@@ -220,8 +197,8 @@
                         <?php
                         }	catch	(PDOException $e)	{
                         }
-                    ?>
-            </table>
+                ?>
+            </div>
         </div>
         <div class="pagebtn">
             <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
@@ -270,6 +247,26 @@ $(".pgnext").click(function(){
     checkpg();
 });
 // =====button class="btnA_S" 的頁碼切換=====
+
+//load php
+    $('#loadButton_1').click(function () {
+        $('#ccc').load('BackstageMemGuide_4.php',{ name_4: '未審核' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_2').click(function () {
+        $('#ccc').load('BackstageMemGuide_2.php', { name_2: '已審核已通過' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_3').click(function () {
+        $('#ccc').load('BackstageMemGuide_3.php', { name_3: '已審核未通過' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
 });
 
 </script>

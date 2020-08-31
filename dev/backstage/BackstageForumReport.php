@@ -159,11 +159,12 @@
         <div>
             <div class="report_total"> 
                 <h4>討論文檢舉</h4>
-                <span style="background-color:#2C5E9E; color:#FFF">未處理</span>
-                <span>已處理</span>
-                <span>未通過</span>
+                <span style="background-color:#2C5E9E; color:#FFF" id="loadButton_1">未處理</span>
+                <span id="loadButton_2">已處理</span>
+                <span id="loadButton_3">未通過</span>
             </div>
-            <table>
+            <div id="ccc">
+            <h3>討論檢舉 - 未處理</h3>
             <?php 
                 try	{
                     require_once('connectMeetain.php');
@@ -199,12 +200,11 @@
                                 <div class="bg"></div>
                             </button></td>
                             </tr>
-
                             <?php } ?>
                         </table>
                     <?php }	catch	(PDOException $e)	{
                     }?>
-            </table>
+            </div>
         </div>
         <div class="pagebtn">
             <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
@@ -253,6 +253,27 @@ $(".pgnext").click(function(){
     checkpg();
 });
 // =====button class="btnA_S" 的頁碼切換=====
+
+//load php
+    $('#loadButton_1').click(function () {
+        $('#ccc').load('BackstageCommentReport_4.php',{ name_4: '未處理' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_2').click(function () {
+        $('#ccc').load('BackstageCommentReport_2.php', { name_2: '已處理已通過' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_3').click(function () {
+        $('#ccc').load('BackstageCommentReport_3.php', { name_3: '已處理未通過' });
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+
 });
 
 </script>

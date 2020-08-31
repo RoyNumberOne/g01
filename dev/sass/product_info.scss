@@ -110,13 +110,44 @@ div.wrap{
             .money_chart{
                 display: flex;
                 align-items: center;
-                margin: 20px auto;
+                // margin: 20px auto;
                 .money{
                     font-size: 50px;
                     margin: 0 20px 20px 0;
                 }
             }
+            .size_block{
+                display: flex;
+                margin: 10px auto;
+                text-align: center;
+                .size{
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    border-radius: 50%;
+                    margin: 0 20px;
+                    cursor: pointer;
+                    color: #bbb;
+                    transition: all .3s ease;
+                    &:hover{
+                        background-color: #FFC400;
+                        color: #fff;
+                    }
+                }
+                .picked_size{
+                    background-color: #FFC400;
+                    color: #fff;
+                }
+            }
+            .product_count{
+                display: flex;
+                >div{
+                    margin: auto 40px;
+                    text-align: center;
+                }
+            }
             .artical{
+                margin: 10px 0 0;
                 h3.related_artical{
                     display: inline-block;
                 }
@@ -171,7 +202,7 @@ div.wrap{
 @media screen and (min-width: 768px) and (max-width: 991px){
     div.wrap{
         max-width: 720px;
-        margin: 100px auto 0;
+        margin: 100px auto 30px;
         .product_block{
             .left{
                 width: auto;

@@ -72,14 +72,14 @@
         <h2>創建屬於你的揪團</h2>
         <section class="step">
             <ul>
-                <li class="step_icon1 -on"> <div>1</div> <h3>步驟一</h3></li>
-                <li class="step_icon2"> <div>2</div> <h3>步驟二</h3></li>
-                <li class="step_icon3"> <div>3</div> <h3>步驟三</h3></li>
+                <li class="step_icon1 -on"> <div><img src="./images/icons/icon_2-2scstep_1.svg" alt=""></div></li>
+                <li class="step_icon2"> <div><img src="./images/icons/icon_2-2scstep_2.svg" alt=""></div></li>
+                <li class="step_icon3"> <div><img src="./images/icons/icon_2-2scstep_3.svg" alt=""></div></li>
             </ul>
         </section>
         <form class="tour_build_form">
             <!-- 步驟一 -->
-            <section class="tour_build_step1  -on"> 
+            <section class="tour_build_step1  "> 
                 <section>
                     <div class="mountain_image">
                         <img src="" alt="">
@@ -223,12 +223,17 @@
 
             </section>
             <!-- 步驟三 -->
-            <section class="tour_build_step3">
+            <section class="tour_build_step3 -on">
                 <div class="btn_box">
                     <button class="btnA_LwLA" id="step3_to_stpe2" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
                 </div>
                 <div class="tour_info3">
-                    <div>相關照片上傳<button class="upload_tourimg">＋</button></div>
+                    <div> 
+                        <label for=""> 相關照片上傳
+                            <input type="file" accept="image/*" multiple="multiple">
+                           <img class="upload_tourimg" src="./images/icons/icon_upload.svg" alt="">
+                        </label>
+                    </div>
                     <div class="tour_image">
                         <div class="tour_image_1"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
                         <div class="tour_image_2"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
