@@ -134,8 +134,9 @@ main{
         z-index: 9999;
         margin-top: -80px;
         .X_btn{
-            align-self: flex-end;
-            display: none;
+            display: flex;
+            justify-content: flex-end;
+            visibility: hidden;
         }
         .nav_btn_outside{
             display: flex;
@@ -198,7 +199,26 @@ main{
 }
 
 //==============================RWD==============================//
-
+@media screen and (min-width: 1440px) {
+    // 請用1366
+        // max-width: 1366px;
+    main{
+        max-width: 1200px;
+        .nav_list{
+            display: flex !important;
+        }
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px){
+    // 請用1152
+        // max-width: 1152px;
+    main{
+        max-width: 1200px;
+        .nav_list{
+            display: flex !important;
+        }
+    }
+}
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
         // max-width: 960px
@@ -210,6 +230,9 @@ main{
                     transform: translate(-20%, 0);
                 }
             }
+        }
+        .nav_list{
+            display: flex !important;
         }
     }
 }
@@ -229,6 +252,9 @@ main{
                     }
                 }
             }
+        }
+        .nav_list{
+            display: flex !important;
         }
     }
 }
@@ -267,13 +293,13 @@ main{
             left: 0;
             padding: 10px;
             border-radius: 30px;
+            display: none;
             .X_btn{
-                display: block;
+                visibility: visible;
             }
             .nav_btn_outside{
                 width: 60%;
-                margin-bottom: 10px;
-                margin-right: 0;
+                margin: 0 auto;
                 .nav_button{
                     width: 80px;
                     height: 100px;
