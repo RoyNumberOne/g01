@@ -765,20 +765,12 @@ try	{
 		?>
 
 		<table>
-		<tr class='cyan'><th width="80px">管理員編號</th><th width="100px">姓名</th><th width="100px">暱稱</th><th width="200px">電子信箱</th><th width=110px">建立時間</th><th width=80px">修改</th></tr>
+		<tr class='cyan'><th width="80px">訂單編號</th><th width="100px">會員編號</th><th width="100px">收件人</th><th width="200px">聯絡電話</th></tr>
+		<tr><th width=110px">運送方式</th><th width=80px">付款方式</th><th width=80px">訂單狀態</th><th width=200px">收件地址</th><th width=80px">原始金額</th><th width=50px">折扣</th><th width=50px">運費</th><th width=80px">付款金額</th><th width=110px">訂單成立時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["訂單編號"]?></td>
-             <td><?=$prodRow["姓名"]?></td>
-             <td><?=$prodRow["暱稱"]?></td>
-             <td><?=$prodRow["電子信箱"]?></td>
-             <td><?=$prodRow["建立時間"]?></td>
-             <td><?=$prodRow["電子信箱"]?></td>
-             <td><?=$prodRow["建立時間"]?></td>
-             <td><?=$prodRow["電子信箱"]?></td>
-             <td><?=$prodRow["建立時間"]?></td>
             </tr>
 
 			<?php } ?>
