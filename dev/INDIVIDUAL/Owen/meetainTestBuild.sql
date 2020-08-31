@@ -306,16 +306,14 @@ CREATE TABLE IF NOT EXISTS orders (												-- :::::訂單:::::
     `member_no` 				int				not null,						-- 會員編號
     `order_total` 				int				not null,						-- 原始總價
     `order_logistics_fee` 		int				not null,						-- 運費		
-    `order_discount` 			int				not null default'1',			-- 折數
+    `order_discount` 			int				not null default'0',			-- 折數
     `order_build` 				datetime		not null default current_timestamp,		-- 建立時間
-    `order_position` 			Int				not null default'1',			-- 訂單狀態 1訂單確認中/2待出貨/3已出貨/4待取貨/5已取貨		
+    `order_position` 			Int				not null default'待出貨',		-- 訂單狀態 待出貨/已出貨/待取貨/已取貨		
     `order_logistics_deliver` 	varchar(30)		not null,						-- 運送方式 快遞宅配(60)/郵寄宅配(100) 滿5000免運
     `order_logistics_recipient` varchar(30)		not null,						-- 收件人
 	`order_logistics_phone` 	varchar(200)	not null,						-- 收件人電話
     `order_logistics_address` 	varchar(200)	not null,						-- 收件地址
-    `order_logistics_progress` 	int				not null default'0',			-- 出貨進度 1待確認/2已出貨/3運送中/4已送達
-    `order_cashflow` 			varchar(30)		not null default'點數付款',		-- 付款方式 貨到付款/線上刷卡/點數付款
-    `order_paytime` 			datetime		not null default current_timestamp		-- 付款時間
+    `order_cashflow` 			varchar(30)		not null default'點數付款'		-- 付款方式 貨到付款/線上刷卡/點數付款
 );
 alter table orders auto_increment = 500001; 
 desc orders;
