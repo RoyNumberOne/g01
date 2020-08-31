@@ -23,7 +23,7 @@ function tabId(evt, className) {
      x[i].style.display = "none";
   }
   tabpage = document.getElementsByClassName("tabbutton");
-  for (i = 0; i < x.length; i++) {
+  for (i = 0; i <= x.length; i++) {
      tabpage[i].classList.remove("highlight");
   }
   document.getElementById(className).style.display = "block";

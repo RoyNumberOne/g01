@@ -188,605 +188,631 @@ html , body {
 button.btnA_XLwRA{
     position: relative;
     z-index: 2;
-  width: 190px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 20px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowXL{
-      position: absolute;
-      left: 150px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 9px 0 0 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent transparent $mt_black;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -11px;
-          top: -8px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 9px 0 0 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent transparent white;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 40px;
-          height: 2px;
-          left: -40px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent transparent white;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent transparent $mt_yellow;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 190px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & p {
+        position: absolute;
+        top: 7px;
+        left: 20px;
+        transition: 0.2s all ease-in-out;
+        color: $mt_fontdark;
+    }
+    & div.btnArrowXL{
+        position: absolute;
+        left: 150px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 9px 0 0 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent transparent $mt_fontdark;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -11px;
+            top: -8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 9px 0 0 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent transparent $mt_yellow;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 40px;
+            height: 2px;
+            left: -40px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover p{
+        color: white;
+        transform: translate(5px,5px);
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent transparent white;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent transparent $mt_yellow;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 
 
 button.btnA_XLwLA{
     position: relative;
     z-index: 2;
-  width: 190px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 95px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowXL{
-      position: absolute;
-      left: 21px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 9px 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent $mt_black transparent;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -6px;
-          top: 0px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 0 0 9px 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent white transparent;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 40px;
-          height: 2px;
-          left: -9px;
-          top: 9px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent white transparent;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent $mt_yellow transparent;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 190px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & p {
+        position: absolute;
+        top: 7px;
+        left: 95px;
+        transition: 0.2s all ease-in-out;
+        color: $mt_fontdark;
+    }
+    & div.btnArrowXL{
+        position: absolute;
+        left: 21px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 9px 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent $mt_fontdark transparent;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -6px;
+            top: 0px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 9px 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent $mt_yellow transparent;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 40px;
+            height: 2px;
+            left: -9px;
+            top: 9px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover p{
+        color: white;
+        transform: translate(5px,5px);
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent white transparent;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent $mt_yellow transparent;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 
 button.btnA_LwRA{
     position: relative;
     z-index: 2;
-  width: 95px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 3px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowL{
-      position: absolute;
-      left: 77px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 9px 0 0 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent transparent $mt_black;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -11px;
-          top: -8px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 9px 0 0 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent transparent white;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 22px;
-          height: 2px;
-          left: -22px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent transparent white;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent transparent $mt_yellow;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 95px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & p {
+        position: absolute;
+        top: 7px;
+        left: 3px;
+        transition: 0.2s all ease-in-out;
+        color: $mt_fontdark;
+    }
+    & div.btnArrowL{
+        position: absolute;
+        left: 77px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 9px 0 0 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent transparent $mt_fontdark;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -11px;
+            top: -8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 9px 0 0 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent transparent $mt_yellow;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 2px;
+            left: -22px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover p{
+        color: white;
+        transform: translate(5px,5px);
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent transparent white;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent transparent $mt_yellow;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 button.btnA_LwLA{
     position: relative;
     z-index: 2;
-  width: 95px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 33px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowL{
-      position: absolute;
-      left: 4px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 9px 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent $mt_black transparent;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -5.5px;
-          top: -1px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 0 0 9px 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent white transparent;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 22px;
-          height: 2px;
-          left: -8.5px;
-          top: 8px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent white transparent ;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent $mt_yellow transparent;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 95px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & p {
+        position: absolute;
+        top: 7px;
+        left: 33px;
+        transition: 0.2s all ease-in-out;
+        color: $mt_fontdark;
+    }
+    & div.btnArrowL{
+        position: absolute;
+        left: 4px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 9px 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent $mt_fontdark transparent;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -5.5px;
+            top: -1px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 9px 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent $mt_yellow transparent;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 2px;
+            left: -8.5px;
+            top: 8px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover p{
+        color: white;
+        transform: translate(5px,5px);
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent white transparent ;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent $mt_yellow transparent;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 
 button.btnA_L{
     position: relative;
     z-index: 2;
-  width: 95px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 7px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
+    width: 95px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & p {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s all ease-in-out;
+        color: $mt_fontdark;
+    }
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover p{
+        color: white;
+        transform: translate(5px,5px);
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
 } 
 
 button.btnA_MwRA{
     position: relative;
     z-index: 2;
-  width: 45px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowM{
-      position: absolute;
-      left: 24px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 9px 0 0 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent transparent $mt_black;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -11px;
-          top: -8px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 9px 0 0 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent transparent white;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 22px;
-          height: 2px;
-          left: -22px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent transparent white;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent transparent $mt_yellow;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 45px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & div.btnArrowM{
+        position: absolute;
+        left: 24px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 9px 0 0 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent transparent $mt_fontdark;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -11px;
+            top: -8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 9px 0 0 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent transparent $mt_yellow;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 2px;
+            left: -22px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent transparent white;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent transparent $mt_yellow;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 
 
 button.btnA_MwLA{
     position: relative;
     z-index: 2;
-  width: 45px;
-  height: 45px;
-  border: 1px solid $mt_black;
-  background-color: white;
-  outline: 0px !important;
-  transition: 0.2s all ease-in-out;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 1px solid $mt_black;
-      border-bottom: 1px solid $mt_black;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & div.btnArrowM{
-      position: absolute;
-      left: 8px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 9px 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent $mt_black transparent ;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -6px;
-          top: 0px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 0 0 9px 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent white transparent ;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 22px;
-          height: 2px;
-          left: -9px;
-          top: 8px;
-          transition: 0.2s all ease-in-out;
-          background-color: $mt_black;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent white transparent;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent $mt_yellow transparent;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+    width: 45px;
+    height: 45px;
+    border: 2px solid $mt_fontdark;
+    background-color: $mt_yellow;
+    outline: 0px !important;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px 10px 6px 10px;
+    &::after{
+        z-index: 1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-right: 2px solid $mt_fontdark;
+        border-bottom: 2px solid $mt_fontdark;
+        border-bottom-right-radius: 10px;
+        left: 8px;
+        top: 8px;
+        transition: 0.2s all ease-in-out;
+    }
+    & div.btnArrowM{
+        position: absolute;
+        left: 8px;
+        top: 13px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 9px 9px;
+        transition: 0.2s all ease-in-out;
+        border-color: transparent transparent $mt_fontdark transparent ;
+        // overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -6px;
+            top: 0px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 9px 9px;
+            transition: 0.2s all ease-in-out;
+            border-color: transparent transparent $mt_yellow transparent ;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 2px;
+            left: -8.5px;
+            top: 8px;
+            transition: 0.2s all ease-in-out;
+            background-color: $mt_fontdark;
+        }
+    }  
+    &:hover::after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: $mt_yellow;
+        border-right: 0px;
+        border-bottom: 0px;
+        border-radius: 10px;
+        left: 0px;
+        top: 0px;
+        transition: 0.2s all ease-in-out;
+    }
+    &:hover{
+        border: 0px solid $mt_yellow;
+        background-color: $mt_yellow;
+    }
+    &:hover div{
+        transform: translate(5px,5px);
+        border-color: transparent transparent white transparent;
+    }
+    &:hover div::before{
+        // transform: translate(4px,4px);
+        border-color: transparent transparent $mt_yellow transparent;
+    }
+    &:hover div::after{
+        // transform: translate(4px,4px);
+        background-color: white;
+    }
 }
 
 button.btnA_S{
@@ -1180,104 +1206,106 @@ button.btnB_L_grey{
 }
 
 
-button.btnC_XLwRA{
-    position: relative;
-    z-index: 2;
-    width: 190px;
-    height: 45px;
-    // border: 1px solid $mt_black;
-    background-color: $mt_yellow;
-    outline: 0px !important;
-    transition: 0.2s all ease-in-out;
-    border-radius: 10px 10px 4px 10px;
-  &::after{
-      z-index: 1;
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      border-right: 3px solid $mt_yellow;
-      border-bottom: 3px solid $mt_yellow;
-      border-bottom-right-radius: 10px;
-      left: 8px;
-      top: 8px;
-      transition: 0.2s all ease-in-out;
-  }
-  & p {
-      position: absolute;
-      top: 7px;
-      left: 20px;
-      transition: 0.2s all ease-in-out;
-      color: white;
-  }
-  & div.btnArrowXL{
-      position: absolute;
-      left: 150px;
-      top: 13px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 9px 0 0 9px;
-      transition: 0.2s all ease-in-out;
-      border-color: transparent transparent transparent white;
-      // overflow: hidden;
-      &::before{
-          position: absolute;
-          content: "";
-          left: -11px;
-          top: -8px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 9px 0 0 9px;
-          transition: 0.2s all ease-in-out;
-          border-color: transparent transparent transparent $mt_yellow;
-      }
-      &::after{
-          position: absolute;
-          content: "";
-          width: 40px;
-          height: 2px;
-          left: -40px;
-          transition: 0.2s all ease-in-out;
-          background-color: white;
-      }
-  }  
-  &:hover::after{
-      z-index: -1;
-      position: absolute;
-      content: "";
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      background-color: $mt_yellow;
-      border-right: 0px;
-      border-bottom: 0px;
-      border-radius: 10px;
-      left: 0px;
-      top: 0px;
-      transition: 0.2s all ease-in-out;
-  }
-  &:hover p{
-      color: white;
-      transform: translate(5px,5px);
-  }
-  &:hover{
-      border: 0px;
-      background-color: $mt_yellow;
-  }
-  &:hover div{
-      transform: translate(5px,5px);
-      border-color: transparent transparent transparent white;
-  }
-  &:hover div::before{
-      // transform: translate(4px,4px);
-      border-color: transparent transparent transparent $mt_yellow;
-  }
-  &:hover div::after{
-      // transform: translate(4px,4px);
-      background-color: white;
-  }
+// ============會員============
+
+//被div裁型的圖片
+@mixin imgs {
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
 }
+
+//////會員款式Ａ/////
+.member_styleA{
+    flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+    .memberImg{
+        display: inline-block;
+        background-color: #555;
+        border-radius: 50%;
+        width: 65px;
+        padding-top: 65px;
+        overflow: hidden;
+        position: relative;
+        img{
+            @include imgs;
+        }
+    }
+    .memberInfo{
+        display: inline-block;
+        .certification{
+            .certificationIcon{
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                position: relative;
+                img{
+                    width: 100%;
+                    position: absolute;
+                    top:0;
+                }
+            }
+        }
+        .memberId{
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 1.5px;
+        }
+        .memberBadge{
+            .memberBadgeIcon{
+                display: inline-block;
+                width: 25px;
+                padding-top: 25px;
+                overflow: hidden;
+                position: relative;
+                img{
+                    @include imgs;
+                }
+            }
+        }
+    }
+}
+
+//////橫/////
+.member_styleA.row{
+    width: 211px;
+    display: inline-block;
+    .memberInfo{
+        .memberBadge{
+            display: inline-block;
+        }
+    }
+}
+//直//
+.member_styleA.column{
+    width: 145px;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    .memberInfo{
+        .memberId{
+            text-align: center;
+        }
+        .certification{
+            display: flex;
+            justify-content:center;
+            .certificationIcon{
+                margin: 5px;
+            }
+        }
+        .memberBadge{
+            display: flex;
+            justify-content:center;
+            .memberBadgeIcon{
+                margin: auto 5px;
+            }
+        }
+    }
+}
+
 
 
 

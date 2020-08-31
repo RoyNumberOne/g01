@@ -166,7 +166,7 @@ main{
                 }
             }
             .btn_modify{
-                visibility: hidden;;
+                visibility: hidden;
             }
         }   
     }
@@ -193,7 +193,17 @@ main{
         background-color: #f6f6f6;
         width: 100%;
         padding-bottom: 5%;
+        margin: 50px auto;
     }
+}
+
+.highlight{
+    path { color: $mt_yellow !important; }
+    p{ color: $mt_yellow !important; }
+}
+
+nav.menu ul.link_list.llright li{
+    & a.member svg path { color: $mt_yellow !important ; }
 }
 
 //==============================RWD==============================//
@@ -352,13 +362,13 @@ main{
             left: 0;
             padding: 10px;
             border-radius: 30px;
+            display: none;
             .X_btn{
-                display: block;
+                visibility: visible;
             }
             .nav_btn_outside{
+                margin: 0 auto;
                 width: 80%;
-                margin-bottom: 10px;
-                margin-right: 0;
                 .nav_button{
                     width: 80px;
                     height: 100px;

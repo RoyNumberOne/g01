@@ -73,6 +73,9 @@
         width: 30%;
         text-align: center;
         cursor:pointer;
+        input{
+            outline: none;
+        }
     }
 
     .custom_select{
