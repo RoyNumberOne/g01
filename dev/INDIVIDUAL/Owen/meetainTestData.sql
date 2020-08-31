@@ -12,6 +12,11 @@ desc member;
 
 SELECT * FROM administrator;
 desc administrator;
+-- 顯示所有管理員
+select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator;
+-- 顯示未停權管理員
+select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator where admin_authority > 0;
+
 
 SELECT * FROM comment_post;
 desc comment_post;
@@ -101,11 +106,16 @@ SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分�
 SELECT * FROM mountain;
 desc mountain;
 
-SELECT * FROM order_list;
-desc order_list;
-
 SELECT * FROM orders;
 desc orders;
+-- 訂單總覽 - 後台
+select order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders order by order_no limit 6;
+
+SELECT * FROM order_list;
+desc order_list;
+-- 訂單詳細 - 後台
+select order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_logistics_deliver '運送方式' , order_cashflow '付款方式' , order_position '訂單狀態' , order_logistics_address '收件地址' , order_total '原始金額' , order_discount '折扣' , order_logistics_fee '運費' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders where order_no = 500001;
+select product.product_image1 '商品預覽' , order_list.product_no '商品編號' , product.product_name '商品名稱' , product.degree_category '難度等級' , order_list.product_number'購買數量' , order_list.product_price '商品單價' from order_list join product on order_list.product_no = product.product_no where order_no = 500001;
 
 SELECT * FROM product;
 desc product;

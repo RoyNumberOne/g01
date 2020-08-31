@@ -77,6 +77,10 @@
                     <h2 class="category_title">{{currentCategory}}</h2>
                     <img :src="currentCategoryImg" alt="">
                 </div>
+                <div class="defult_clothes" @click="changeCurrentCategory('機能服飾')">
+                    <h2 class="category_title">{{currentCategory}}</h2>
+                    <img :src="currentCategoryImg" alt="">
+                </div>
             </div>
             <h3 class="inner_p_per">個別商品</h3>
             <div class="product_block">
@@ -92,8 +96,40 @@
                         </div>
                     </a>
                 </div>
+                <div class="category_block" style="background-color: rgba(26, 149, 219, 0.5)"@click="changeCurrentCategory('登山背包')">
+                    <div class="category_title">
+                        <div class="category_name">登山包</div>
+                    </div>
+                    <div class="cate_pic">
+                        <img src="./images/products/bag/bag0.png" alt="">
+                    </div>
+                </div>
+                <div class="category_block" style="background-color: rgba(44, 94, 158, .5)" @click="changeCurrentCategory('登山鞋')">
+                    <div class="category_title">
+                        <div class="category_name">登山鞋</div>
+                    </div>
+                    <div class="cate_pic">
+                        <img src="./images/products/shoes/shoes0.png" alt="">
+                    </div>
+                </div>
+                <div class="category_block" style="background-color: rgba(234, 241, 244, .5)" @click="changeCurrentCategory('露營裝備')">
+                    <div class="category_title">
+                        <div class="category_name">露營裝備</div>
+                    </div>
+                    <div class="cate_pic">
+                        <img src="./images/products/campGear/tent0.png" alt="">
+                    </div>
+                </div>
+                <div class="category_block" style="background-color: rgba(255, 196, 0, .5)" @click="changeCurrentCategory('登山配件')">
+                    <div class="category_title">
+                        <div class="category_name">登山配件</div>
+                    </div>
+                    <div class="cate_pic">
+                        <img src="./images/products/others/poles0.png" alt="">
+                    </div>
+                </div>
             </div>
-            <div class="category_list">
+            <div class="category_list close">
                 <div class="clothes"><img src="./images/products/clothes/clothes01.png" alt="">
                     <div class="show_hover">
                         <div class="p_title" id="clothes" @click="changeCurrentCategory('機能服飾')">機能服飾 clothes</div>

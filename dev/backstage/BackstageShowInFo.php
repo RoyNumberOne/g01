@@ -17,6 +17,9 @@
 	body {
 		background-color: #bbb;
 	}
+	.center {
+		margin-left: 40%;
+	}
 	p {
 		font-size: 16px ;
 		color:  #2C90A6 ;
@@ -68,6 +71,26 @@
 		margin-bottom: 20px;
 	}
 	form#newProduct button#newProductBtnSend{
+		margin: 10px auto;
+	}
+	form#newAdministrator {
+		width: 720px;
+		border: 1px solid cyan;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	form#newAdministrator div.block{
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		padding: 20px;
+	}
+	form#newAdministrator div.block div.itembox{
+		margin-bottom: 20px;
+	}
+	form#newAdministrator button#newAdministratorBtnSend{
+		display: block;
 		margin: 10px auto;
 	}
 </style>
@@ -654,9 +677,119 @@ try	{
 	</div>
 	<button type="button" id="newProductBtnSend">送出</button>
 </form>
-	<!-- <div id="newProductFeedback">2222</div> -->
 
-</body>
+
+<h3>管理員</h3>
+		<label><input type="checkbox" class="center" id="byeAdministrator">顯示已停權之管理員</label>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator where admin_authority >= 0  ; " ;
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+
+		<table>
+		<tr class='cyan'><th width="80px">管理員編號</th><th width="100px">姓名</th><th width="100px">暱稱</th><th width="200px">電子信箱</th><th width=110px">建立時間</th><th width=80px">修改</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["管理員編號"]?></td>
+             <td><?=$prodRow["姓名"]?></td>
+             <td><?=$prodRow["暱稱"]?></td>
+             <td><?=$prodRow["電子信箱"]?></td>
+             <td><?=$prodRow["建立時間"]?></td>
+			 <td><label><input type="button" value="edit" name="edit?<?=$prodRow["管理員編號"]?>">停權</label></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+
+<h3>近期訂單</h3>
+	<select name="searchBar">
+		<option value="order_no" selected="selected">依訂單編號</option>
+		<option value="member_no">依會員編號</option>
+		<option value="order_logistics_phone">聯絡電話</option>
+	</select>
+	<label><input type="text" id="searchKey"></label>
+	<button type="submit" id="searchOrderBtnSend">查詢</button>
+
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders order by order_no limit 6; " ;
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+
+		<table>
+		<tr class='cyan'><th width="80px">訂單編號</th><th width="80px">會員編號</th><th width="80px">收件人</th><th width="110px">聯絡電話</th><th width="80px">付款方式</th><th width=80px">訂單狀態</th><th width=80px">付款金額</th><th width=110px">訂單成立時間</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["訂單編號"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><?=$prodRow["收件人"]?></td>
+             <td><?=$prodRow["聯絡電話"]?></td>
+             <td><?=$prodRow["付款方式"]?></td>
+             <td><?=$prodRow["訂單狀態"]?></td>
+             <td><?=$prodRow["付款金額"]?></td>
+             <td><?=$prodRow["訂單成立時間"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+
+<h3>訂單詳情</h3>
+<?php 
+try	{
+    require_once('connectMeetain.php');
+	
+		$sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_logistics_deliver '運送方式' , order_cashflow '付款方式' , order_position '訂單狀態' , order_logistics_address '收件地址' , order_total '原始金額' , order_discount '折扣' , order_logistics_fee '運費' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders where order_no = 500001; " ;
+		$pdoStatement = $pdo->query($sql);
+		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+		?>
+
+		<table>
+		<tr class='cyan'><th width="80px">管理員編號</th><th width="100px">姓名</th><th width="100px">暱稱</th><th width="200px">電子信箱</th><th width=110px">建立時間</th><th width=80px">修改</th></tr>
+		<?php
+		foreach ( $prodRows as $i => $prodRow){
+		?>
+			 <tr>
+             <td class='pink'><?=$prodRow["訂單編號"]?></td>
+             <td><?=$prodRow["姓名"]?></td>
+             <td><?=$prodRow["暱稱"]?></td>
+             <td><?=$prodRow["電子信箱"]?></td>
+             <td><?=$prodRow["建立時間"]?></td>
+             <td><?=$prodRow["電子信箱"]?></td>
+             <td><?=$prodRow["建立時間"]?></td>
+             <td><?=$prodRow["電子信箱"]?></td>
+             <td><?=$prodRow["建立時間"]?></td>
+            </tr>
+
+			<?php } ?>
+		</table>
+	<?php
+	}	catch	(PDOException $e)	{
+	}
+?>
+
+
+
 
 <script>
 	// 商品 - 新增
@@ -690,4 +823,34 @@ try	{
 	})
 </script>
 
+<script>
+	// 管理員 - 新增
+	$(Document).ready(function(){
+		$("#newAdministratorBtnSend").click(function(){
+			console.log(123);
+			let admin_id = $("#admin_id").val();
+			let admin_name = $("#admin_name").val();
+			let admin_acc = $("#admin_acc").val();
+			let admin_psw = $("#admin_psw").val();
+			let admin_mail = $("#admin_mail").val();
+			$.post("./BackstageAddAdministrator.php",
+				{admin_id: admin_id,
+				admin_name: admin_name,
+				admin_acc: admin_acc,
+				admin_psw: admin_psw,
+				admin_mail: admin_mail,
+				},
+				function(){
+				//要導去另外正確頁面
+				// window.location.reload(true);
+			})
+			console.log(234);
+		})
+		$('#pswCheck').click(function(){
+                $(this).is(':checked') ? $('#admin_psw').attr('type', 'text') : $('#admin_psw').attr('type', 'password');
+		});
+	})
+</script>
+
+</body>
 </html>
