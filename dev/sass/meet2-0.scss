@@ -235,14 +235,29 @@ $textColor1: $mt_fontdark;
             display: flex;
             justify-content:flex-end;
             margin-bottom: 30px;
-            button{
-                // border: 1px solid red;
-                margin: 5px;
+            
+            div{
+                border: 1px solid #222;
+                // background-color: salmon;
+                display: flex;
+                align-items: center;
+                padding:7px 15px ;
+                cursor: pointer;
+                img{
+                    width: 30px;
+                }
             }
-            button.-on{
-                background-color: yellowgreen;
+            .typeCard{
+                border-radius: 8px 0 0 8px;
+            }
+            .typeList{
+                border-radius: 0 8px 8px 0;
+            }
+            div.-on{
+                background-color: $mt_yellow;
             }
         }
+        
         .newMeetActivity{
             // border: 1px solid #000;
             padding: 15px;
