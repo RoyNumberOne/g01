@@ -506,10 +506,6 @@ div.wrap{
     display: none;
 }
 
-#report_block_message.close{
-    display: none;
-}
-
 #report_block_match{
     background-color: hsla(0, 0%, 0%,.5);
     width: 100vw;
@@ -584,6 +580,10 @@ div.wrap{
     }
 }
 
+#report_block_message.close{
+    display: none;
+}
+
 #report_block_message{
     background-color: hsla(0, 0%, 0%,.5);
     width: 100vw;
@@ -647,6 +647,54 @@ div.wrap{
         }
         .mg_be_reported{
             display: none;
+            h2{
+                text-align: center;
+            }
+            p{
+                text-align: left;
+                margin: 15px 0;
+            }
+        }
+    }
+}
+
+#banned_message.close{
+    display: none;
+}
+
+#banned_message{
+    background-color: hsla(0, 0%, 0%,.5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    .ban_lightbox{
+        background-color: #fff;
+        border-radius: 15px;
+        width: auto;
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        .ban_close{
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+            &:hover{
+                color: #bbb;
+            }
+        }
+        .ban_be_reported{
+            // display: none;
             h2{
                 text-align: center;
             }
