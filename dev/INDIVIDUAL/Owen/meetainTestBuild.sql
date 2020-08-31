@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS tour_keep (										-- :::::揪團收藏:::::
 desc tour_keep;
 select * from tour_keep;
 
-CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團收藏::::: 
+CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團參加::::: 
     `tour_participate_mem` 			int			 	not null,						-- "誰"追蹤
     `tour_participate_tour` 		int				not null,						-- 收藏"哪團"
     `tour_participate_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS orders (												-- :::::訂單:::::
     `order_logistics_fee` 		int				not null,						-- 運費		
     `order_discount` 			int				not null default'0',			-- 折數
     `order_build` 				datetime		not null default current_timestamp,		-- 建立時間
-    `order_position` 			Int				not null default'待出貨',		-- 訂單狀態 待出貨/已出貨/待取貨/已取貨		
+    `order_position` 			varchar(24)		not null default'待出貨',		-- 訂單狀態 待出貨/已出貨/待取貨/已取貨		
     `order_logistics_deliver` 	varchar(30)		not null,						-- 運送方式 快遞宅配(60)/郵寄宅配(100) 滿5000免運
     `order_logistics_recipient` varchar(30)		not null,						-- 收件人
 	`order_logistics_phone` 	varchar(200)	not null,						-- 收件人電話
