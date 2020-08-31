@@ -11,6 +11,9 @@ div.wrap{
         display: flex;
         justify-content: space-around;
         margin: 0 0 20px;
+        .p_per{
+            display: none;
+        }
     }
     .main{
         display: flex;
@@ -20,10 +23,23 @@ div.wrap{
             width: 50%;
             height: 100%;
             background-color: rgba(255, 196, 0, .5);
+            .defult_clothes{
+                cursor: pointer;
+                height: 100%;
+                h2{
+                    text-align: center;
+                }
+                img{
+                    display: block;
+                    width: 70%;
+                    margin: auto;
+                }
+            }
             .show_now{
                 height: 100%;
                 position: relative;
                 color: #fff;
+                display: none;
                 .category_title{
                     text-align: center;
                     position: absolute;
@@ -53,6 +69,7 @@ div.wrap{
                 width: 45%;
                 height: 48%;
                 position: relative;
+                display: none;
                 .product_title{
                     width: 100%;
                     text-align: center;
@@ -84,7 +101,7 @@ div.wrap{
                 }
             }
             .it_bg1{
-                background-color: rgba(26, 149, 219, .5);
+                background-color: rgba(26, 149, 219, 0.5);
             }
             .it_bg2{
                 background-color: rgba(44, 94, 158, .5);
@@ -95,7 +112,42 @@ div.wrap{
             .it_bg4{
                 background-color: rgba(255, 196, 0, .5);
             }
+            //category chose
+            .category_block{
+                width: 45%;
+                height: 48%;
+                position: relative;
+                .category_title{
+                    width: 100%;
+                    text-align: center;
+                    position: absolute;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                    overflow: hidden;
+                    .category_name{
+                        transition: .5s ease;
+                    }
+                }
+                .cate_pic{
+                    display: flex;
+                    height: 100%;
+                    img{
+                        width: 80%;
+                        margin: 0 auto;
+                        cursor: pointer;
+                        transform: scale(.8);
+                    }
+                    :hover{
+                        transform: scale(1);
+                    }
+                }
+            }
         }
+    }
+    .main .close{
+        display: none;
     }
     .category_list{
         display: flex;
@@ -228,6 +280,10 @@ div.wrap{
                     margin: 10px 0;
                     width: 48%;
                 }
+                .category_block{
+                    width: 48%;
+                    margin: 10px 0;
+                }
             }
             .category_list{
                 width: 100%;
@@ -262,6 +318,10 @@ div.wrap{
                 .items_block{
                     margin: 10px 0;
                     width: 48%;
+                }
+                .category_block{
+                    width: 48%;
+                    margin: 10px 0;
                 }
             }
             .category_list{
@@ -298,6 +358,10 @@ div.wrap{
                 .items_block{
                     margin: 10px 0;
                     width: 48%;
+                }
+                .category_block{
+                    width: 48%;
+                    margin: 10px 0;
                 }
             }
             .category_list{

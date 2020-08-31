@@ -95,3 +95,65 @@ $(function() {
         }
     });
 });
+
+//report match
+$(function() {
+    //report lightbox
+    $('.report_bt').click(function() {
+        $('#report_block_match').removeClass('close');
+    })
+
+    //click rp_close
+    $('.rp_close').click(function() {
+        $('#report_block_match').addClass('close');
+    });
+    
+    //click cancle
+    $('.cancle').click(function() {
+        $('#report_block_match').addClass('close');
+    })
+
+    //click confirm
+    $('.confirm').click(function() {
+        $('.reporting').css('display', 'none');
+        $('.be_reported').css('display', 'block');
+        $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
+    });
+});
+
+//report message
+$(function() {
+    //report lightbox
+    $('.mg_text').click(function() {
+        $('#report_block_message').removeClass('close');
+    })
+
+    //click rp_close
+    $('.mg_close').click(function() {
+        $('#report_block_message').addClass('close');
+    });
+    
+    //click cancle
+    $('.mg_cancle').click(function() {
+        $('#report_block_message').addClass('close');
+    })
+
+    //click confirm
+    $('.mg_confirm').click(function() {
+        $('.mg_reporting').css('display', 'none');
+        $('.mg_be_reported').css('display', 'block');
+        // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
+    });
+});
+
+//heart
+$(function() {
+    $(".heart").click(function(){
+        if($(".heart").attr('src') === "./images/icons/icon_heart.svg"){
+            $(".heart").attr("src","./images/icons/icon_heart_h&c.svg");
+        }else{
+            $(".heart").attr("src","./images/icons/icon_heart.svg");
+        }
+    });
+});
+

@@ -35,6 +35,7 @@ main{
         text-align: center;
         form{
             text-align: center;
+            margin-bottom: 20px;
             #imgPreciew{
                 border-radius: 15px;
                 border: 2px solid #eeeeee;
@@ -67,11 +68,9 @@ main{
             #checkok{
                 width: 20px;
                 height: 16px;
-                margin: 0px 5px 0px 0px;
+                margin: 0px 5px 20px 0px;
             }
-            .btnB_L_blue{
-                margin: 10px 5px 10px 0px;
-            }  
+    
         }
         #photo_b{
             position: relative;

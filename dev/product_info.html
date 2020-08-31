@@ -106,6 +106,16 @@
                     <div class="money">${{currentProduct.product_price}}</div>
                     <button class="btnB_XL_yellow add_chart" @click="addCount += 1"><p>加入購物車</p><div class="bg"></div></button>
                 </div>
+                <div class="size_block">
+                    <div class="size">S</div>
+                    <div class="size">M</div>
+                    <div class="size">L</div>
+                </div>
+                <div class="product_count">
+                    <button class="btnB_L_grey" @click="productCount -= 1"><p>－</p><div class="bg"></div></button>
+                    <div>數量：{{productCount}}</div>
+                    <button class="btnB_L_yellow" @click="productCount += 1"><p>＋</p><div class="bg"></div></button>
+                </div>
                 <div class="artical">
                     <h3 class="related_artical text_underline">相關討論文章</h3>
                     <a href="./comment.html">

@@ -67,25 +67,40 @@
         <div class="container right-panel-active">
 			<!-- Sign In -->
 			<div class="container__form container--signin">
+                <div class="mobile_logo">
+                    <img src="images/logo/LOGO_black.png">
+                </div>
 				<form action="./Member.html" class="form" id="form1">
 					<h2 class="form__title">會員登入</h2>
 					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
-					<a href="#" class="link">Forgot your password?</a><br>
+                    <a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
 					<button type="submit" class="btnB_L_blue submitBtn_log" onClick="submit()"><p>登入</p><div class="bg"></div></button>
 				</form>
 			</div>
 
 			<!-- Sign Up -->
 			<div class="container__form container--signup">
+                <div class="mobile_logo">
+                    <img src="images/logo/LOGO_black.png">
+                </div>
 				<form action="./Member.html" class="form" id="form2">
-					<h2 class="form__title">註冊帳號</h2>
-					<input type="text" name="mem_id" id="mem_id" placeholder="暱稱" /><br>
-					<input type="text" name="mem_name" id="mem_name" placeholder="姓名" /><br>
-					<input type="text" name="mem_mail" id="mem_mail" placeholder="電子信箱" /><br>
-					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
-					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
-					<input type="password" name="mem_psw" placeholder="確認密碼"><br>
+                    <h2 class="form__title">註冊帳號</h2>
+                    <div class="form__detail">
+                        <label for="mem_id">暱稱</label><br>
+                        <input type="text" name="mem_id" id="mem_id" placeholder="暱稱" /><br>
+                        <label for="mem_name">姓名</label><br>
+                        <input type="text" name="mem_name" id="mem_name" placeholder="姓名" /><br>
+                        <label for="mem_mail">電子信箱</label><br>
+                        <input type="text" name="mem_mail" id="mem_mail" placeholder="電子信箱" /><br>
+                        <label for="mem_acc">帳號</label><br>
+                        <input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
+                        <label for="mem_psw">密碼</label><br>
+                        <input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
+                        <label for="mem_psw">確認密碼</label><br>
+                        <input type="password" name="mem_psw" placeholder="確認密碼"><br>
+                    </div>
+                    <a href="#" class="clickMe_log">已有帳號?點我登入</a>
 					<button type="submit" class="btnB_L_blue submitBtn_app" onClick="submit()"><p>註冊</p><div class="bg"></div></button>
 				</form>
 			</div>
@@ -115,34 +130,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- 手機板 -->
-		<div class="mobile">
-			<div class="mobile_logo">
-				<img src="images/logo/LOGO_black.png">
-			</div>
-			<div class="mobile_login">
-				<form action="./Member.html">
-					<h3 class="title">會員登入</h3>
-					<p>帳號</p>
-					<input type="text" name="mobileLogin_acc" id="mobileLogin_acc"/>
-					<p>密碼</p>
-					<input type="password" name="mobileLogin_psw" id="mobileLogin_psw"/>
-					<p class="forApply">暱稱</p>
-					<input type="text" name="mobileLogin_id" id="mobileLogin_id" class="forApply"/>
-					<p class="forApply">姓名</p>
-					<input type="password" name="mobileLogin_name" id="mobileLogin_name" class="forApply"/>
-					<p class="forApply">信箱</p>
-					<input type="email" name="mobileLogin_mail" id="mobileLogin_mail" class="forApply"/>
-					<button type="submit" class="btnB_L_blue" id="mobileLogin_submit" onClick="submit()"><p class="mobileLogin">登入</p><div class="bg"></div></button>
-					<a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
-					<a href="#" class="clickMe_log">已有帳號?點我登入</a>
-				</form>
-			</div>
-		</div>
-
-        
+		</div>        
     </main>
     <footer class="footer">
         <div class="footer_logo_block">
@@ -218,18 +206,12 @@
 	<script>
 		$(document).ready(function(){
 			$('.clickMe_app').click(function(){
-				$(".forApply").toggle();
-				$('.title').html('註冊帳號');
-				$('.mobileLogin').html('註冊');
-				$('.clickMe_app').css('display','none');
-				$('.clickMe_log').css('display','block');
+				$('.container--signin').css('display','none');
+				$('.container--signup').css('display','block');
 			});
 			$('.clickMe_log').click(function(){
-				$('.forApply').toggle();
-				$('.title').html('會員登入');
-				$('.clickMe_app').css('display','block');
-				$('.clickMe_log').css('display','none');
-				$('.mobileLogin').html('登入');
+				$('.container--signup').css('display','none');
+				$('.container--signin').css('display','block');
 			});
 		});
 	</script>
