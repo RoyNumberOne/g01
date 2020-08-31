@@ -713,7 +713,7 @@ try	{
 
 
 <h3>近期訂單</h3>
-<form id="searchOrder" method="get" action="./BackstageShowOrderDetail.php">
+<form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
 	<select id="orderSearchBar" name="orderSearchBar">
 		<option value="order_no" selected="selected">依訂單編號</option>
 		<option value="member_no">依會員編號</option>
@@ -759,11 +759,12 @@ try	{
 <h3>訂單詳情</h3>
 
 <script>
+	// 訂單詳情
 	$(Document).ready(function(){
 		$("#searchOrderBtnSend").click(function(){
 			let orderSearchBar = $("#orderSearchBar").val();
 			let searchKey = $("#searchKey").val();
-				$.get("./BackstageShowOrderDetail.php",
+				$.post("./BackstageShowOrderDetail.php",
 					{orderSearchBar: orderSearchBar,
 					searchKey: searchKey,
 					})
