@@ -503,7 +503,7 @@ nav.menu ul.link_list.llright li{
                         display: flex;
                         img{
                             display: block !important;
-                            width:50%;
+                            height: 40px;
                             margin-left: 20px;    
                         }
                     }
@@ -529,7 +529,7 @@ nav.menu ul.link_list.llright li{
                         display: flex;
                         img{
                             display: block !important;
-                            width:50%;
+                            height: 40px;
                             margin-left: 20px;    
                         }
                     }
@@ -571,7 +571,7 @@ nav.menu ul.link_list.llright li{
                         display: flex;
                         img{
                             display: block !important;
-                            width:50%;
+                            height: 40px;
                             margin-left: 20px;    
                         }
                     }
@@ -582,7 +582,7 @@ nav.menu ul.link_list.llright li{
                         display: flex;
                         img{
                             display: block !important;
-                            width:50%;
+                            height: 40px;
                             margin-left: 20px;    
                         }
                     }
@@ -696,7 +696,13 @@ nav.menu ul.link_list.llright li{
     main{
         section{
             article{
-                #step1{                        
+                #step1{  
+                    h3{
+                        img{
+                            width: 50%;
+                            margin-left: 5px;    
+                        }
+                    }                      
                     #title{
                         .shop_pic{width: 35%;}
                         .shop_name{display: none;}
