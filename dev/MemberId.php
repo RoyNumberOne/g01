@@ -51,7 +51,10 @@
                 echo "<tr>","<th>","身分證字號：","</th>","<td>",$_POST["mem_idno"],"</td>";
                 echo "</tr>","</table>";
             ?>
-            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button></a>
+            <button class="btnB_L_blue" onclick="window.close();">
+                <p>關閉視窗</p>
+                <div class="bg"></div>
+            </button>
             </div>
                                  
     </div>

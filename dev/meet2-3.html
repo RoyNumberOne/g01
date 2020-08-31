@@ -91,7 +91,7 @@
                         </p>
                     </div>
                     <div>
-                        <button id="notagree" class="btnB_L_blue"><p>不同意</p><div class="bg"></div></button>
+                        <button class="btnB_L_grey"><p>不同意</p><div class="bg"></div></button>
                         <button id="agree" class="btnB_L_yellow"><p>同意</p><div class="bg"></div></button>
                     </div>
                 </section>
@@ -105,6 +105,54 @@
                 </section>
             </div>       
        </main> 
+       <div id="report_block_match" class="close">
+            <div class="rp_lightbox">
+                <div class="rp_close">X</div>
+                <section class="reporting">
+                    <h2>提出檢舉</h2>
+                    <div>請輸入檢舉理由：</div>
+                    <ul>
+                        <li><input type="radio" id="commercial" name="report" checked><label for="commercial">廣告</label></li>
+                        <li><input type="radio" id="content" name="report"><label for="content">內容不當</label></li>
+                    </ul>
+                    <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
+                    <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
+                    <div class="rp_bt">
+                        <button class="btnB_L_grey cancle"><p>取消</p><div class="bg"></div></button>
+                        <button class="btnB_L_yellow confirm"><p>確認</p><div class="bg"></div></button>
+                    </div>
+                </section>
+                <section class="be_reported">
+                    <h2>謝謝您提出檢舉</h2>
+                    <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
+                    <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
+                </section>
+            </div>
+       </div>
+       <div id="report_block_message" class="close">
+        <div class="rp_lightbox">
+            <div class="mg_close">X</div>
+            <section class="mg_reporting">
+                <h2>提出檢舉</h2>
+                <div>請輸入檢舉理由：</div>
+                <ul>
+                    <li><input type="radio" id="mg_commercial" name="mg_report" checked><label for="me_commercial">廣告</label></li>
+                    <li><input type="radio" id="mg_content" name="mg_report"><label for="mg_content">內容不當</label></li>
+                </ul>
+                <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
+                <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
+                <div class="rp_bt">
+                    <button class="btnB_L_grey mg_cancle"><p>取消</p><div class="bg"></div></button>
+                    <button class="btnB_L_yellow mg_confirm"><p>確認</p><div class="bg"></div></button>
+                </div>
+            </section>
+            <section class="mg_be_reported">
+                <h2>謝謝您提出檢舉</h2>
+                <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
+                <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
+            </section>
+        </div>
+   </div>
         <div class="person">
             <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
             <div class="person_info">
@@ -138,7 +186,10 @@
                         <div class="activity_date"><img src="./images/icons/icon_date.svg" alt=""> 2020/9/30（三）</div>
                     </dic>
                     <div class="report">
-                        <div class="report_bt"><img src="./images/form_img/report.png" alt=""></div>
+                        <div class="report_bt">
+                            <img src="./images/icons/icon_report.svg" alt="" class="report_pic">
+                            <div>檢舉</div>
+                        </div>
                     </div>
                 </div>
                 <div class="info_icon">
@@ -147,15 +198,15 @@
                         <div class="mountain_text">玉山</div>
                     </div>
                     <div class="participant_icon_part">
-                        <div class="participant_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                        <div class="participant_icon"><img src="./images/icons/icon_tournumber.svg" alt=""></div>
                         <div class="participant_text">開團人數4~6人</div>
                     </div>
                     <div class="collection_icon_part">
-                        <div class="collection_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                        <div class="collection_icon"><img src="./images/icons/icon_heart.svg" alt="" class="heart"></div>
                         <div class="collection_text">揪團收藏</div>
                     </div>
                     <div class="share_icon_part">
-                        <div class="share_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                        <div class="share_icon"><img src="./images/icons/icon_share.svg" alt=""></div>
                         <div class="share_text">揪團分享</div>
                     </div>
                 </div>
@@ -310,10 +361,10 @@
                         </div>
                         <div class="applied_bt">
                             <div class="accept_bt a_bt">
-                                <button class="btnB_L_blue"><p>同意</p><div class="bg"></div></button>
+                                <button class="btnB_L_grey"><p>拒絕</p><div class="bg"></div></button>
                             </div>
                             <div class="deny_bt a_bt">
-                                <button class="btnB_L_yellow"><p>拒絕</p><div class="bg"></div></button>
+                                <button class="btnB_L_yellow"><p>同意</p><div class="bg"></div></button>
                             </div>
                         </div>
                     </div>
@@ -321,13 +372,6 @@
             </div>
         </div>
         <div class="message">
-            <div class="leave_message_block">
-                <h3>留言詢問</h3>
-                <textarea name="" id="" cols="30" rows="5"></textarea>
-                <div class="bt_block">
-                    <button class="btnB_L_blue send"><p>留言</p><div class="bg"></div></button>
-                </div>
-            </div>
             <div class="message_board_block">
                 <div class="person">
                     <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
@@ -343,26 +387,10 @@
                     <div class="message_text">
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
+                        <div class="mg_report_bt">
+                            <div class="mg_dots">...</div>
+                            <div class="mg_text">檢舉</div>
                         </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
                     </div>
                 </div>
             </div>
@@ -381,7 +409,10 @@
                     <div class="message_text">
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
+                        <div class="mg_report_bt">
+                            <div class="mg_dots">...</div>
+                            <div class="mg_text">檢舉</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -400,7 +431,10 @@
                     <div class="message_text">
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
+                        <div class="mg_report_bt">
+                            <div class="mg_dots">...</div>
+                            <div class="mg_text">檢舉</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -419,7 +453,10 @@
                     <div class="message_text">
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
+                        <div class="mg_report_bt">
+                            <div class="mg_dots">...</div>
+                            <div class="mg_text">檢舉</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -438,7 +475,10 @@
                     <div class="message_text">
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">...</div>
+                        <div class="mg_report_bt">
+                            <div class="mg_dots">...</div>
+                            <div class="mg_text">檢舉</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -454,41 +494,50 @@
         </div>
         <h3>相關文章</h3>
         <div class="related_article">
-            <div class="article">
-                <div class="art_pic">
-                    <a href="./comment.html">
-                        <img src="./images/MOUNTAIn.png" alt="">
-                    </a>
-                </div>
-                <div class="art_title">
-                    <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                </div>
-                
-            </div>
-            <div class="article">
-                <div class="art_pic">
-                    <a href="./comment.html">
-                        <img src="./images/MOUNTAIn.png" alt="">
-                    </a>
-                </div>
-                <div class="art_title">
-                    <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                </div>
-                
-            </div>
-            <div class="article">
-                <div class="art_pic">
-                    <a href="./comment.html">
-                        <img src="./images/MOUNTAIn.png" alt="">
-                    </a>
-                </div>
-                <div class="art_title">
-                    <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                </div>
-                
-            </div>
-            <div class="left"><</div>
-            <div class="right">></div>
+            <ul class="content">
+                <li class="article">
+                    <div class="art_pic">
+                        <a href="./comment.html">
+                            <img src="./images/MOUNTAIn.png" alt="">
+                        </a>
+                    </div>
+                    <div class="art_title">
+                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
+                    </div>
+                </li>
+                <li class="article">
+                    <div class="art_pic">
+                        <a href="./comment.html">
+                            <img src="./images/MOUNTAIn.png" alt="">
+                        </a>
+                    </div>
+                    <div class="art_title">
+                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
+                    </div>
+                </li>
+                <li class="article">
+                    <div class="art_pic">
+                        <a href="./comment.html">
+                            <img src="./images/MOUNTAIn.png" alt="">
+                        </a>
+                    </div>
+                    <div class="art_title">
+                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
+                    </div>
+                </li>
+                <li class="article">
+                    <div class="art_pic">
+                        <a href="./comment.html">
+                            <img src="./images/MOUNTAIn.png" alt="">
+                        </a>
+                    </div>
+                    <div class="art_title">
+                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- <div class="left"><</div>
+            <div class="right">></div> -->
         </div>
     </div>
     <a href="#" id="gotop">

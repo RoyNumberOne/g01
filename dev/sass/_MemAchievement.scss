@@ -1,7 +1,15 @@
+
 #MemAchievement {
     margin: 0;
     height: 100%;
-    h2{ margin: 1%;}
+    .title{
+        width: 100%;
+        background-color: #153A64;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 10px;
+    }
     p{  
         margin: 1%;
         margin-bottom: 30px;
@@ -11,7 +19,7 @@
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(4,1fr);
         grid-template-rows: repeat(5,1fr);
         transform: translateY(50px);
         div{
@@ -57,11 +65,38 @@
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
         // max-width: 720px
+        #MemAchievement{
+            p{
+            }
+            .Achievement_list{
+                div{
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+        }
 
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     // 請用540
         // max-width: 540px
+
+        #MemAchievement{
+            p{
+                margin: auto 5%;
+                margin-bottom: 30px;
+            }
+            .Achievement_list{
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(7,1fr);
+                div{
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+        }
 
 }
 @media screen and (max-width: 575px){

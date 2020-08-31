@@ -2,15 +2,14 @@ $fontsizeA:30px; //標題
 $fontsizeB:20px; //內文標題
 $fontsizeC:16px; //內文,rwd標題
 $fontsizeD:14px;//rwd內文
-$fontcolor1:#666; //內文
+$fontcolor1:#555555; //內文
 $fontcolor2:#ccc; //內文
 $mt_y:#FFC400; //button,文字裝飾底色
 $background1: #f3f3f3;//商品底色
-$header:hsl(212, 65%, 24%);
 
-*{font-family: 'Noto Sans TC' !important; 
-   box-sizing: border-box;
-}
+// *{font-family: 'Noto Sans TC' !important; 
+//    box-sizing: border-box;
+// }
 
 main{
     display: flex;
@@ -237,7 +236,7 @@ main{
                         align-items:center; 
                         justify-content:center;
                         a{  
-                            color: $header; 
+                            color: #153b65; 
                             p{  
                                 margin: 20px;
                                 &:hover{
@@ -254,7 +253,7 @@ main{
                 height: 100%;
                 h3{
                     font-size: $fontsizeA;
-                    margin: 0px auto 60px;
+                    margin: 0px auto 30px;
                 }
                 .pay{
                     widows: 100%;
@@ -265,7 +264,7 @@ main{
                         display: flex;
                         width: 100%;
                         height: 100%;
-                        text-align: center;
+                        text-align: left;
                         input,h4{
                             margin: 10px;
                         }
@@ -274,11 +273,12 @@ main{
                             background: $background1;
                             margin: 10px;
                             line-height: 40px;
+                            padding-left: 50px;
                             .delivery_price{
                                 margin: 10px;
                                 display: flex;
                                 align-items: center;
-                                justify-content: center;
+                                justify-content: left;
                                 p{
                                     color: red;
                                     font-weight: 700;
@@ -289,14 +289,13 @@ main{
                             width: 35%;
                             background: $background1;
                             margin: 10px;
+                            padding-left: 50px;
                             #cardp{
-                                padding-left: 30px;
                                 text-align: left;
                                 label{text-align: right;}
                                 input,select{text-align: left;}
                             }
                             #pointp{
-                                text-align: center;
                                 div{
                                     margin: 20px;
                                     height: 20px;
@@ -312,7 +311,7 @@ main{
                             background: $background1;
                             margin: 10px;
                             line-height: 40px;
-                            padding-left: 60px;
+                            padding-left: 50px;
                             label{
                                 margin: 10px 0 10px 10px;
                             }
@@ -333,7 +332,7 @@ main{
                 height: 100%;
                 h3{
                     font-size: $fontsizeA;
-                    margin: 0px auto 60px;
+                    margin: 0px auto 30px;
                 }
                 .purchaser{
                     widows: 100%;
@@ -363,7 +362,7 @@ main{
                 height: 100%;
                 h3{
                     font-size: $fontsizeA;
-                    margin: 0px auto 60px; 
+                    margin: 0px auto 30px; 
                 }
                 .order{
                     display:flex;
@@ -427,16 +426,19 @@ nav.menu ul.link_list.llright li{
 @media screen and (min-width: 1440px) {
     main{
         max-width: 1366px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     main{
         max-width: 1152px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px){
     main{
         max-width: 960px;
+        width: 100%;
     }
 }
 @media screen and (max-width: 991px){
@@ -496,6 +498,16 @@ nav.menu ul.link_list.llright li{
         section{
             article{
                 #step1{
+                    h3{ 
+                        width: 100%;
+                        display: flex;
+                        img{
+                            display: block !important;
+                            width:50%;
+                            margin-left: 20px;    
+                        }
+                    }
+                    
                     .itemBox{
                         height: 100%;
                         .item{
@@ -512,6 +524,15 @@ nav.menu ul.link_list.llright li{
                     }
                 }
                 #step2{
+                    h3{ 
+                        width: 100%;
+                        display: flex;
+                        img{
+                            display: block !important;
+                            width:50%;
+                            margin-left: 20px;    
+                        }
+                    }
                     .pay{
                         height: 100%;
                         form{
@@ -544,6 +565,28 @@ nav.menu ul.link_list.llright li{
                     }
 
                 }
+                #step3{
+                    h3{ 
+                        width: 100%;
+                        display: flex;
+                        img{
+                            display: block !important;
+                            width:50%;
+                            margin-left: 20px;    
+                        }
+                    }
+                }
+                #step4{
+                    h3{ 
+                        width: 100%;
+                        display: flex;
+                        img{
+                            display: block !important;
+                            width:50%;
+                            margin-left: 20px;    
+                        }
+                    }
+                }
 
             }
         }
@@ -553,9 +596,9 @@ nav.menu ul.link_list.llright li{
 @media screen and(max-width:575px){
     main{
         width: 100%;
-        aside{
-            display: none;
-        }
+        // aside{
+        //     display: none;
+        // }
         section{
             width: 95%;
             article{

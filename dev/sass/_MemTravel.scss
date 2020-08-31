@@ -1,5 +1,15 @@
+
 #MemTravel{
+    width: 100%;
     margin: 0;
+    .title{
+        width: 100%;
+        background-color: #153A64;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 10px;
+    }
     .tabs{
         display: -webkit-box;
         display: flex;
@@ -20,6 +30,7 @@
         .list_style{
             margin: auto;
             transform: translateY(50px);
+            margin-bottom: 50px;
             display: grid;
             grid-template-columns: repeat(1,1fr);
             grid-template-rows: repeat(7,1fr);
@@ -39,8 +50,6 @@
                 .img_box{
                     grid-area: 1/1/2/2;
                     margin: 5%;
-                    width: 150px;
-                    height: 110px;
                     img{
                         width: 100%;
                         height: 100%;
@@ -135,7 +144,6 @@
                     flex-grow: 1;
             width: 100%;
             display: none;
-            padding: 1rem;
             background: #fff;
         }
         input[type="radio"] {
@@ -144,6 +152,7 @@
         input[type="radio"]:checked + label {
             background: #FFC400;
             color: #ffffff;
+            height: 50px;
         }
         input[type="radio"]:checked + label + .tab {
             display: block;
@@ -164,23 +173,119 @@
     // 請用1152
         // max-width: 1152px
 
+
+
 }
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
         // max-width: 960px
+
+        #MemTravel{
+            .tabs{
+                .list_style{
+                    .page{
+                        .img_box{
+                            height: 100%;
+                            margin: 0%;
+                            img{
+                                height: 100%;
+                            }
+                        }
+                        .text_box{
+                            margin: 0 2%;
+                            align-self: center;
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                            .text_prompt{
+                                grid-area: 2/1/3/2;
+                            }
+                        }
+                        .info_box{
+                            margin: 0;
+                            align-self: center;
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                            .info_value{
+                                grid-area: 2/1/3/2;
+                            }
+                        }
+                        .date_box{
+                            margin: 0;
+                            align-self: center;
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                            .date_value{
+                                grid-area: 2/1/3/2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
         // max-width: 720px
 
+    #MemTravel{
+        .tabs{
+            .list_style{
+                .page{
+                    .img_box{
+                        height: 100%;
+                        margin: 0%;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                    .text_box{
+                        margin: 0 2%;
+                        align-self: center;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        .text_prompt{
+                            width: 70%;
+                            grid-area: 2/1/3/2;
+                        }
+                    }
+                    .info_box{
+                        margin: 0;
+                        align-self: center;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        .info_value{
+                            grid-area: 2/1/3/2;
+                        }
+                    }
+                    .date_box{
+                        margin: 0;
+                        align-self: center;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        .date_value{
+                            grid-area: 2/1/3/2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #MemTravel{
+        a{
+            svg{
+                path{
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     // 請用540
     // max-width: 540px
-}
-@media screen and (max-width: 575px){
-
     #MemTravel{
         .tabs{
             .list_style{
@@ -190,6 +295,9 @@
                 }
                 height: 1200px;
                 .page{
+                    width: 80%;
+                    margin: auto;
+                    margin-bottom: 5%;
                     grid-template-columns: repeat(6, 1fr);
                     grid-template-rows: repeat(1, 1fr);
                     .img_box{
@@ -203,8 +311,11 @@
                         grid-template-rows: repeat(2, 1fr);
                         margin: 0 5%;
                         .text_prompt{
-                            width: auto;
+                            width: 70%;
                             grid-area: 2/1/3/7;
+                            .TP_level{
+                                display: flex;
+                            }
                         }
                     }
                     .info_box{
@@ -227,6 +338,87 @@
                             grid-area: 2/1/3/2;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    #MemTravel{
+        a{
+            svg{
+                path{
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 575px){
+
+    #MemTravel{
+        .tabs{
+            .list_style{
+                overflow: auto;
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+                height: 1200px;
+                .page{
+                    width: 80%;
+                    margin: auto;
+                    margin-bottom: 5%;
+                    grid-template-columns: repeat(6, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+                    .img_box{
+                        grid-area: 1/1/2/7;
+                        width: auto;
+                        height: auto;
+                    }
+                    .text_box{
+                        grid-area: 2/1/3/7;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        margin: 0 5%;
+                        .text_prompt{
+                            width: 70%;
+                            grid-area: 2/1/3/7;
+                            .TP_level{
+                                display: flex;
+                                grid-template-columns: repeat(4, 1fr);
+                            }
+                        }
+                    }
+                    .info_box{
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        margin: 5%;
+                        grid-area: 3/1/4/4;
+                        align-items: center;
+                        .info_value{
+                            grid-area: 2/1/3/2;
+                        }
+                    }
+                    .date_box{
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                        margin: 5%;
+                        grid-area: 3/4/4/7;
+                        align-items: center;
+                        .date_value{
+                            grid-area: 2/1/3/2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #MemTravel{
+        a{
+            svg{
+                path{
+                    transform: scale(1);
                 }
             }
         }

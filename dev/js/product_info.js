@@ -5,6 +5,7 @@ new Vue({
         currentIndex: 0 ,
         currentImageIndex: 0,
         addCount: 0,
+        productCount: 1,
     },
     mounted(){
         axios.get('./json/Initial_product.json')
@@ -100,5 +101,11 @@ $(document).ready(function(){
     //reset dot .pic bgcolor
     $(".reset_dot").click(function(){
         $(".pic").removeClass("pick");
+    });
+
+    //pick size
+    $(".size").click(function() {
+        $(this).addClass("picked_size");
+        $(this).siblings().removeClass("picked_size");
     });
 });

@@ -2,7 +2,7 @@ new Vue ({
     el: '#wrap',
     data: {
         products: [],
-        currentCategory: '登山鞋',
+        currentCategory: '機能服飾',
     },
     mounted(){
         axios.get('./json/Initial_product.json')
@@ -67,6 +67,21 @@ new Vue ({
     },
 });
 
+$(document).ready(function(){
+    $('.defult_clothes').click(function() {
+        $('.category_block').css('display', 'none'); 
+        $('.items_block').css('display', 'block'); 
+        $('.p_per').css('display', 'flex'); 
+        $('.category_list').removeClass('close');
+    });
+
+    $('.category_block').click(function() {
+        $('.category_block').css('display', 'none'); 
+        $('.items_block').css('display', 'block'); 
+        $('.p_per').css('display', 'flex'); 
+        $('.category_list').removeClass('close');
+    });
+});
 
 // function groupByCategory(products){
 //     let result = {};

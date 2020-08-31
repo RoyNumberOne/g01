@@ -78,7 +78,9 @@
     <section>
         <article>
             <div id="step1">
-                <h3>確認購物車</h3>
+                <h3>確認購物車
+                <img style="display: none;" src="./images/shoppingcart/phsp1.png" alt="">
+                </h3>
                 <div id="title">
                     <div class="shop_pic">商品圖片</div>
                     <div class="shop_name">商品名稱</div>
@@ -117,19 +119,21 @@
                 
             </div>
             <div id="step2">
-                <h3>確認付款方式</h3>
+                <h3>確認付款方式
+                <img style="display: none;" src="./images/shoppingcart/phsp2.png" alt="">
+                </h3>
                 <div class="pay">
                     <form method="post" action="" target="targetIfr" @submit.prevent="handlesubmit">
                         <div id="pay_delivery">
                             <h4>運送方式：</h4>
-                            <div class="delivery_price">運&emsp;&emsp;費：<p>{{delivery_price}}</p>元</div>
                             <input type="radio" name="delivery" id="deliveryA" v-on:click="delivery_Price(60,'郵寄宅配')"checked>
                             <label for="deliveryA">郵寄宅配</label><br>
                             <input type="radio" name="delivery" id="deliveryB" v-on:click="delivery_Price(100,'快遞宅配')" >
                             <label for="deliveryB">快遞宅配</label>
+                            <div class="delivery_price">運&emsp;&emsp;費：<p>{{delivery_price}}</p>元</div>
                         </div>
                         <div id="pay_terms">
-                            <h4 for="">付款方式：</h4>
+                            <h4>付款方式：</h4>
                             <input type="radio" name="payment" id="point" v-on:click="pay_Terms('點數付款')">
                             <label for="point">點數付款</label><br>
                             <input type="radio" name="payment" id="cash" v-on:click="pay_Terms('貨到付款')" checked>
@@ -148,6 +152,7 @@
                             </div>
                         </div>
                         <div id="pay_infor">
+                            <h4>消費資訊：</h4>
                             <div>商品金額：{{total}}元</div>
                             <div>運&emsp;&emsp;費：{{delivery_price}}元</div>
                             <label for="">優惠券：<input id="sale" type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="優惠券代碼"></label><br>
@@ -159,7 +164,9 @@
                 </div>
             </div>
             <div id="step3">
-                <h3>運送資訊</h3>
+                <h3>運送資訊
+                <img style="display: none;" src="./images/shoppingcart/phsp3.png" alt="">
+                </h3>
                 <div class="purchaser">                       
                     <fieldset>
                         <legend>收件人資訊</legend>
@@ -172,7 +179,9 @@
                 </div>
             </div>
             <div id="step4">
-                <h3>確認訂單資訊<h3>
+                <h3>確認訂單資訊
+                <img style="display: none;" src="./images/shoppingcart/phsp4.png" alt="">
+                </h3>
                 <div class="order">
                     <table class="order_item">
                         <tr>
@@ -206,7 +215,7 @@
         </article>
         <div class="setpbtn">
             <a href="./product.html"><button id="gotoshop" class="btnA_L">
-                    <p>&ensp;返回商城</p>
+                    <p>返回商城</p>
                 </button></a>
             <button id="back" class="btnA_LwLA">
                 <p>上一步</p>
@@ -217,7 +226,7 @@
                 <div class="btnArrowL"></div>
             </button>
             <button id="checkbtn" class="btnA_L" type="submit">
-                <p>&ensp;送出訂單</p>
+                <p>送出訂單</p>
             </button>
         </div>
     </section>

@@ -158,14 +158,14 @@
         <div>
             <div class="product_total">
                 <h4>商品管理</h4>
-                    <span style="background-color:#2C5E9E; color:#FFF">上架中</span>
-                    <span>未上架</span>
-                    <button type="submit" class="btnB_L_yellow_2"><p>新增</p><div class="bg2"></div></button>
+                    <span style="background-color:#2C5E9E; color:#FFF" id="loadButton_1">上架中</span>
+                    <span id="loadButton_2">未上架</span>
+                    <button type="submit" class="btnB_L_yellow_2" id="loadButton_3"><p>新增</p><div class="bg2"></div></button>
             </div>
+            <div id="ccc">
                 <?php 
                     try	{
-                        require_once('connectMeetain.php');
-                        
+                        require_once('connectMeetain.php');                    
                             $sql = 'SELECT product_no "商品編號" , degree_category "難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 1; ';
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -204,17 +204,18 @@
                         }	catch	(PDOException $e)	{
                         }
                     ?>
-        </div>
-        <div class="pagebtn">
-            <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-            <button class="btnA_S pg -active"><p>01</p></button>
-            <button class="btnA_S pg"><p>02</p></button>
-            <button class="btnA_S pg"><p>03</p></button>
-            <button class="btnA_S pg"><p>04</p></button>
-            <button class="btnA_S pg"><p>05</p></button>
-            <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                <div class="pagebtn">
+                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                <button class="btnA_S pg -active"><p>01</p></button>
+                <button class="btnA_S pg"><p>02</p></button>
+                <button class="btnA_S pg"><p>03</p></button>
+                <button class="btnA_S pg"><p>04</p></button>
+                <button class="btnA_S pg"><p>05</p></button>
+                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+            </div>
         </div>
     </section>
+
 </main>
 <script>
 // =====button class="btnA_S" 的頁碼切換=====
@@ -252,8 +253,57 @@ $(".pgnext").click(function(){
     checkpg();
 });
 // =====button class="btnA_S" 的頁碼切換=====
+
+//load php
+    $('#loadButton_1').click(function () {
+        $('#ccc').load('Backstageproduct_2.php');
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_2').click(function () {
+        $('#ccc').load('BackstageproductDis.php');
+        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+    });
+    $('#loadButton_3').click(function () {
+        $('#ccc').load('BackstageproductAdd.php');
+    });
+
+
+
 });
 
+</script>
+<script>
+	// 商品 - 新增
+	$(Document).ready(function(){
+		$("#newProductBtnSend").click(function(){
+			let product_name = $("#product_name").val();
+			let product_category = $("#product_category").val();
+			let degree_category = $(".degree_category:checked").val();
+			let product_price = $("#product_price").val();
+			let product_description = $("#product_description").val();
+			let product_image1 = $("#product_image1").val();
+			let product_image2 = $("#product_image2").val();
+			let product_image3 = $("#product_image3").val();
+			let product_situation = $(".product_situation:checked").val();
+			$.post("./backstageAddProduct.php",
+				{product_name: product_name,
+				product_category: product_category,
+				degree_category: degree_category,
+				product_price: product_price,
+				product_description: product_description,
+				product_image1: product_image1,
+				product_image2: product_image2,
+				product_image3: product_image3,
+				product_situation: product_situation
+				},
+				function(){
+				//要導去另外正確頁面
+				window.location.reload(true);
+			})
+		})
+	})
 </script>
 <script src="./js/backstage.js"></script>
 </body>

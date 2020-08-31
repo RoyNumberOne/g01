@@ -55,7 +55,10 @@
                 // echo "證照編號：",$_POST["guide_no"],"<br>";
                 // echo "發證日期：",$_POST["guide_period_start"],"<br>";
             ?>   -->
-            <button class="btnA_L" onclick="window.close();"><p>關閉視窗</p></button>
+            <button class="btnB_L_blue" onclick="window.close();">
+                <p>關閉視窗</p>
+                <div class="bg"></div>
+            </button>
             </div>
                             
     </div>

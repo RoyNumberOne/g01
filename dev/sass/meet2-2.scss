@@ -30,9 +30,9 @@ $textColor1: $mt_fontdark;
     margin: auto;
     max-width: 1366px;
     width: 100%;
-    img{
-        @include imgs;
-    }
+    // img{
+    //     @include imgs;
+    // }
     h2{
         text-align: center;
         margin-bottom: 30px;
@@ -45,42 +45,43 @@ $textColor1: $mt_fontdark;
                 display: flex;
                 >div{
                     width: 70px;
-                    line-height: 70px;
-                    font-size: 24px;
-                    font-weight: 600;
-                    text-align: center;
-                    color: $mt_yellow;
-                    border: 1px solid $mt_yellow;
+                    height: 70px;
                     border-radius: 50%;
-                    margin: auto 10px;
-                }
-                h3{
-                    align-self:center;
+                    margin: auto 25px;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
                     position: relative;
-                    margin-right: 100px;
-                    &::after{
-                        content: ".....";
-                        font-size: 30px;
-                        letter-spacing: 10px;
-                        color: $textColor1;
+                    img{
+                        width: 35px;
+                    }
+                    &::before{
+                        content: "";
+                        display: inline-block;
+                        width: 25px;
+                        height: 2px;
+                        background: #666;
                         position: absolute;
-                        top: -50%; right:-110px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: -37.5px;
+                    }
+                }
+                &:nth-child(2){
+                    img{
+                        height: 60px;
                     }
                 }
                 &:last-child{
-                    h3{
-                        &::after{
+                    div{
+                        &::before{
                             display: none;
                         }
                     }
                 }
             }
             li.-on{
-                h3{
-                   color: $mt_yellow;
-                }
                 >div{
-                    color: #fff;
                     background-color: $mt_yellow;
                 }
             }
@@ -235,15 +236,31 @@ $textColor1: $mt_fontdark;
                 width: 60%;
                 display: flex;
                 justify-content: space-between;
-               
-                .upload_tourimg{
-                    border: 1px solid $mt_black;
-                    border-radius: 50%;
-                    padding: 0;
-                    width: 20px;
-                    line-height: 20px;
-                    margin:5px
+                label{
+                    border: 1px solid #000;
+                    position: relative;
+                    input{ //上傳照片
+                        border: 1px solid #000;
+                        width: 25px;
+                        height: 25px;
+                        padding: 0;
+                        opacity: 0;
+                        z-index: 2;
+                    }
+    
+                    .upload_tourimg{ //＋＋
+                        border: 1px solid #000;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        top: 0;
+                        right: 0;
+                        left: auto;
+                        transform: translate(0,0);
+                        z-index: -2;
+                    }
                 }
+                
                 .tour_image{
                     flex-grow: 2;
                     display: flex;
@@ -314,21 +331,7 @@ $textColor1: $mt_fontdark;
     #meet2-2{
         max-width: 720px;
         width: 100%;
-        .step{
-            ul{
-                li{
-                    h3{
-                        margin-right: 70px;
-                        &::after{
-                            content: "...";
-                            font-size: 30px;
-                            letter-spacing: 10px;
-                            right:-70px;
-                        }
-                    }
-                }
-            }
-        }
+        
         .tour_build_form{
             .tour_build_step2{ //步驟二
                 .tour_info2{
@@ -359,27 +362,6 @@ $textColor1: $mt_fontdark;
     #meet2-2{
         max-width: 540px;
         width: 100%;
-        .step{
-            ul{
-            justify-content: space-between;
-                
-                li{
-                    >div{
-                        width: 50px;
-                        line-height: 50px;
-                    }
-                    h3{
-                        margin-right: 0;
-                        &::after{
-                            content: "...";
-                            font-size: 30px;
-                            letter-spacing: 10px;
-                            right:-70px;
-                        }
-                    }
-                }
-            }
-        }
         .tour_build_form{
             .btn_box{
                 order:1;
@@ -430,34 +412,6 @@ $textColor1: $mt_fontdark;
 
     #meet2-2{
         max-width: 100%;
-        .step{
-            ul{
-            justify-content: space-between;
-            padding: 5px;
-            width: 375px;
-            margin: auto;
-                li{
-                    >div{
-                        width: 32px;
-                        line-height: 30px;
-                        font-size: 24px;
-                        margin: auto 5px;
-                    }
-                    h3{
-                        margin-right: 0;
-                        font-size: 18px;
-                        margin-right:5px;
-                        &::after{
-                            content: "...";
-                            font-size: 20px;
-                            right:-25px;
-                            letter-spacing: 0.4px;
-                            top:-30%;
-                        }
-                    }
-                }
-            }
-        }
         .tour_build_form{
             margin: 30px;
             padding: 20px 20px 40px 20px;
