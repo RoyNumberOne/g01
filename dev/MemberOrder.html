@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>媒山友｜會員｜訂單資訊</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> <!--手機板buttonlist-->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/css/swiper.min.css'>   <!--手機板buttonlist-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/Member_style.css">
+    <title>媒山友｜會員｜訂單明細</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
+    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/header.css">   <!--手機板buttonlist-->
-    <!-- <script src="./js/Member.js"></script> -->
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/Member_style_v2.css">
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/Member_v2.js"></script>
 </head>
 <body>
-    <header> 
+    <header>
         <div id="headerbox">
-            <a href="./index.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
-    
+
             <nav class="menuhover">
                 <ul class="menuhover">
                     <li class="bg bg1"></li>
@@ -30,7 +27,7 @@
                     <li class="bg bg3"></li>
                 </ul>
             </nav>
-    
+
             <nav class="menu">
                 <ul class="link_list llleft">
                     <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
@@ -47,7 +44,7 @@
                 <img id="picForum" src="./images/header/forum.png" alt="">
                 <img id="picProduct" src="./images/header/product.png" alt="">
             </div>
-    
+
             <div id="greymask"></div>
             <div id="hamburgerBG">
                 <div class="ab white"></div>
@@ -65,223 +62,175 @@
     <main>
         <div class="top">
             <div class="banner"></div>
-            <div class="memAvatar">
-                <img src="images/member/memAvatar_test.jpg" id="img_ava">
-            </div>
-            <label class="camera_i">
-                <input type="file" id="imgInp" accept="image/*" />
-            </label>
-        </div>
-        <div class="middle">
-            <div class="memName">
-                <h2>Hiko Huang</h2>
-            </div>
-            <ul class="medal">
-                <li><img src="./images/member/Ach_list_16.png"></li>
-                <li><img src="./images/member/Ach_list_14.png"></li>
-                <li><img src="./images/member/Ach_list_01.png"></li>
-            </ul>
-            <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
-                <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
-                <div class="modify">個人修改資料</div>
-            </button>
-
-        </div>
-        <div class="content">
-            <div class="content_box">
-                <div class="aside_nav">
-                    <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')"><i class="fas fa-map-marked-alt"></i><p>足跡</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')"><i class="fas fa-user-check"></i><p>認證</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')"><i class="fas fa-trophy"></i><p>徽章</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')"><i class="fas fa-users"></i><p>揪團</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')"><i class="fas fa-book"></i><p>收藏</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')"><i class="fas fa-file-alt"></i><p>文章</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')"><i class="fas fa-money-bill-wave"></i><p>點數</p></button>
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')"><i class="fas fa-cart-arrow-down"></i><p>訂單</p></button>
-                </div>
-                
-                <!-- 把aside獨立拉content_box 不要鎖寬度 -->
-                <!-- <div class="aside_nav2">
-                    <ul>
-                        <li>
-                            <div class="nav_list accreditation">
-                                <button href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemAccreditation')">認證</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list footprint">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFootprint')">足跡</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list achievement">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">徽章</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list travel">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">揪團</i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list favorites">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">收藏</i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list post">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">文章</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list points">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">點數</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list follower">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFollow')">追蹤</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="nav_list order">
-                                <button href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">訂單</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div> -->
-                
-                <div class="swiper_media575">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide MemFootprint">
-                                <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')">
-                                    <i class="fas fa-map-marked-alt"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemAccreditation">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')">
-                                    <i class="fas fa-user-check"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemAchievement">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">
-                                    <i class="fas fa-trophy"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemTravel">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
-                                    <i class="fas fa-users"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemFavorites">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
-                                    <i class="fas fa-book"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemPost">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
-                                    <i class="fas fa-file-alt"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemPoints">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemOrder">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
-                                    <i class="fas fa-cart-arrow-down"></i>
-                                </button>
-                            </div>
-                            <div class="swiper-slide MemDetail">
-                                <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemDetail')">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                            </div>
-                        </div>
+            <div class="memProfile">
+                <div class="memProfile_AVA">
+                    <div class="memProfile_AVA_img">
+                        <img src="./images/member/memAvatar_test.jpg" id="img_ava">
+                    </div>
+                    <div class="memProfile_AVA_change">
+                        <label class="camera_i">
+                            <input type="file" id="imgInp" accept="image/*" />
+                        </label>
                     </div>
                 </div>
-                
-                <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
-                    <div id="memOrder_D" class="pages">
-                        <div class="page_info">
-                            <div class="titlebackground">
-                                <div class="title">訂單資訊</div>
-                            </div>
-                        </div>
-                        <div class="products_O">
-                            <div class="products_D">
-                                <div class="img_pro">
-                                    <img src="./images/products/campGear/tent0.png">
-                                </div>
-                                <div class="det_pro">
-                                    <h3>2人輕便款登山露營帳</h3>
-                                    <p>獨立式結構。使用營柱可輕鬆搭帳。附外帳，通風口位於後方。未搭載Fresh技術。可防風達40 km/h（5級陣風）：經過風洞的旋轉平台認證。經每小時每平方公尺200 mm的防水性水量測試（熱帶降雨）和實地測試。
-                                    </p>
-                                </div>
-                                <div class="status_pro">
-                                    <p>$999</p>
-                                    <p>已收貨</p>
-                                </div>
-                            </div>
-                            <div class="products_D">
-                                <div class="img_pro">
-                                    <img src="./images/products/shoes/shoes0.png">
-                                </div>
-                                <div class="det_pro">
-                                    <h3>輕量排水休閒健行鞋</h3>
-                                    <p>CrossContact鞋底能提供越野地形所需的絕佳抓地力。高透氣網眼鞋面和氣孔鞋底設計，能讓雙腳保持乾爽。前腳掌的足底防護設計能避免石頭進入鞋內。
-                                    </p>
-                                </div>
-                                <div class="status_pro">
-                                    <p>$999</p>
-                                    <p>已收貨</p>
-                                </div>
-                            </div>
-                            <div class="products_D">
-                                <div class="img_pro">
-                                    <img src="./images/products/campGear/tent0.png">
-                                </div>
-                                <div class="det_pro">
-                                    <h3>2人輕便款登山露營帳</h3>
-                                    <p>獨立式結構。使用營柱可輕鬆搭帳。附外帳，通風口位於後方。未搭載Fresh技術。可防風達40 km/h（5級陣風）：經過風洞的旋轉平台認證。經每小時每平方公尺200 mm的防水性水量測試（熱帶降雨）和實地測試。
-                                    </p>
-                                </div>
-                                <div class="status_pro">
-                                    <p>$999</p>
-                                    <p>已收貨</p>
-                                </div>
-                            </div>
-                            <div class="products_D">
-                                <div class="img_pro">
-                                    <img src="./images/products/shoes/shoes0.png">
-                                </div>
-                                <div class="det_pro">
-                                    <h3>輕量排水休閒健行鞋</h3>
-                                    <p>CrossContact鞋底能提供越野地形所需的絕佳抓地力。高透氣網眼鞋面和氣孔鞋底設計，能讓雙腳保持乾爽。前腳掌的足底防護設計能避免石頭進入鞋內。
-                                    </p>
-                                </div>
-                                <div class="status_pro">
-                                    <p>$999</p>
-                                    <p>已收貨</p>
-                                </div>
-                            </div>
-                            <div class="orderPages">
-                                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                                <button class="btnA_S pg -active"><p>01</p></button>
-                                <button class="btnA_S pg"><p>02</p></button>
-                                <button class="btnA_S pg"><p>03</p></button>
-                                <button class="btnA_S pg"><p>04</p></button>
-                                <button class="btnA_S pg"><p>05</p></button>
-                                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                            </div>
-                        </div>
+                <div class="memProfile_DET">
+                    <div class="memProfile_DET_name">
+                        <h2>Hiko Huang</h2>
+                        <i class="fas fa-check-circle"></i>
                     </div>
-
-                </div><!-- ----------各頁面內容放這(end)-------------------- -->
+                    <div class="memProfile_DET_fol">
+                        <p>142人追蹤中</p>
+                        <img src="./images/member/Ach_list_01.png">
+                        <img src="./images/member/Ach_list_03.png">
+                        <img src="./images/member/Ach_list_10.png">
+                    </div>
+                </div>
+                <div class="memProfile_MOD">
+                    <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
+                        <div class="profile_icon"><img src="./images/Member/profile_icon.png"></div>
+                        <div class="modify">個人修改資料</div>
+                    </button>
+                </div>
             </div>
         </div>
+        <div class="nav_list">
+            <div class="X_btn">
+                <svg id="Icon_ionic-md-close-circle-outline" data-name="Icon ionic-md-close-circle-outline" xmlns="http://www.w3.org/2000/svg" width="29.25" height="29.25" viewBox="0 0 29.25 29.25">
+                    <circle id="Ellipse_292" data-name="Ellipse 292" cx="14.5" cy="14.5" r="14.5" fill="#fff"/>
+                    <path id="Path_326" data-name="Path 326" d="M18,6.328A11.667,11.667,0,1,1,9.745,9.745,11.623,11.623,0,0,1,18,6.328m0-2.953A14.625,14.625,0,1,0,32.625,18,14.623,14.623,0,0,0,18,3.375Z" transform="translate(-3.375 -3.375)" fill="#555"/>
+                    <path id="Path_327" data-name="Path 327" d="M25.313,23.266l-2.046,2.046L18,20.046l-5.266,5.266-2.046-2.046L15.954,18l-5.266-5.266,2.046-2.046L18,15.954l5.266-5.266,2.046,2.046L20.046,18Z" transform="translate(-3.375 -3.375)" fill="#555"/>
+                </svg>
+            </div>
+            <div class="nav_btn_outside">
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton now" onclick="tabId(event, 'MemFootprint')">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>足跡</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAccreditation')">
+                        <i class="fas fa-user-check"></i>
+                        <p>認證</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemAchievement')">
+                        <i class="fas fa-trophy"></i>
+                        <p>徽章</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
+                        <i class="fas fa-users"></i>
+                        <p>揪團</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
+                        <i class="fas fa-book"></i>
+                        <p>收藏</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
+                        <i class="fas fa-file-alt"></i>
+                        <p>文章</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPoints')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>點數</p>
+                    </button>
+                </div>
+                <div class="nav_button">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemOrder')">
+                        <i class="fas fa-cart-arrow-down"></i>
+                        <p>訂單</p>
+                    </button>
+                </div>
+                <div class="nav_button btn_modify">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemDetail')">
+                        <i class="fas fa-pen"></i>
+                        <p>修改</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
+            <div id="memOrder_D" class="pages">
+                <h2 class="title">訂單資訊</h2>
+                <div class="products_O">
+                    <div class="products_D">
+                        <div class="img_pro">
+                            <img src="./images/products/campGear/tent0.png">
+                        </div>
+                        <div class="det_pro">
+                            <h3>2人輕便款登山露營帳</h3>
+                            <p>獨立式結構。使用營柱可輕鬆搭帳。附外帳，通風口位於後方。未搭載Fresh技術。可防風達40 km/h（5級陣風）：經過風洞的旋轉平台認證。經每小時每平方公尺200 mm的防水性水量測試（熱帶降雨）和實地測試。
+                            </p>
+                        </div>
+                        <div class="status_pro">
+                            <p>$999</p>
+                            <p>已收貨</p>
+                        </div>
+                    </div>
+                    <div class="products_D">
+                        <div class="img_pro">
+                            <img src="./images/products/shoes/shoes0.png">
+                        </div>
+                        <div class="det_pro">
+                            <h3>輕量排水休閒健行鞋</h3>
+                            <p>CrossContact鞋底能提供越野地形所需的絕佳抓地力。高透氣網眼鞋面和氣孔鞋底設計，能讓雙腳保持乾爽。前腳掌的足底防護設計能避免石頭進入鞋內。
+                            </p>
+                        </div>
+                        <div class="status_pro">
+                            <p>$999</p>
+                            <p>已收貨</p>
+                        </div>
+                    </div>
+                    <div class="products_D">
+                        <div class="img_pro">
+                            <img src="./images/products/campGear/tent0.png">
+                        </div>
+                        <div class="det_pro">
+                            <h3>2人輕便款登山露營帳</h3>
+                            <p>獨立式結構。使用營柱可輕鬆搭帳。附外帳，通風口位於後方。未搭載Fresh技術。可防風達40 km/h（5級陣風）：經過風洞的旋轉平台認證。經每小時每平方公尺200 mm的防水性水量測試（熱帶降雨）和實地測試。
+                            </p>
+                        </div>
+                        <div class="status_pro">
+                            <p>$999</p>
+                            <p>已收貨</p>
+                        </div>
+                    </div>
+                    <div class="products_D">
+                        <div class="img_pro">
+                            <img src="./images/products/shoes/shoes0.png">
+                        </div>
+                        <div class="det_pro">
+                            <h3>輕量排水休閒健行鞋</h3>
+                            <p>CrossContact鞋底能提供越野地形所需的絕佳抓地力。高透氣網眼鞋面和氣孔鞋底設計，能讓雙腳保持乾爽。前腳掌的足底防護設計能避免石頭進入鞋內。
+                            </p>
+                        </div>
+                        <div class="status_pro">
+                            <p>$999</p>
+                            <p>已收貨</p>
+                        </div>
+                    </div>
+                    <div class="orderPages">
+                        <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                        <button class="btnA_S pg -active"><p>01</p></button>
+                        <button class="btnA_S pg"><p>02</p></button>
+                        <button class="btnA_S pg"><p>03</p></button>
+                        <button class="btnA_S pg"><p>04</p></button>
+                        <button class="btnA_S pg"><p>05</p></button>
+                        <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- ----------各頁面內容放這(end)-------------------- -->
     </main>
     <footer class="footer">
         <div class="footer_logo_block">
@@ -333,10 +282,17 @@
             </div>
         </div>
     </footer>
-    <script src="js/jquery.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> <!--手機板buttonlist-->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js'></script> <!--手機板buttonlist-->
-    <!-- <script  src="./js/Member.js"></script> -->
-    <script src="./js/header.js"></script>
+<!-- ======================script-start======================= -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>      <!--font-awesome正常顯示用-->
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/common.js"></script>
+<!-- <script src="./js/Member_v2.js"></script> -->
+
+<!-- ======================script-end========================= -->
 </body>
 </html>

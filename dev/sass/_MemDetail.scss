@@ -1,32 +1,41 @@
-form{
-    // border:1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .mem_frame{
+#MemDetail{
+    .title{
+        width: 100%;
+        background-color: #153A64;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 10px;
+    }
+    form{
+        // border:1px solid black;
         display: flex;
         flex-direction: column;
-        border-radius: 40px;
-        margin-top: 50px;
         align-items: center;
-        background-color: #EAF1F4;
-        border-radius: 10px;
-        padding: 20px;
-        .mem_change{
-            p{
-                display: inline-block;
-                margin: 20px 20px 20px 0px;
-                font-size: 16px;
+        .mem_frame{
+            display: flex;
+            flex-direction: column;
+            border-radius: 40px;
+            margin-top: 50px;
+            align-items: center;
+            background-color: #EAF1F4;
+            border-radius: 10px;
+            padding: 20px;
+            .mem_change{
+                p{
+                    display: inline-block;
+                    margin: 20px 20px 20px 0px;
+                    font-size: 16px;
+                }
+                input{
+                    width: 280px;
+                    height: 30px;
+                }   
             }
-            input{
-                width: 280px;
-                height: 30px;
-            }   
+            .mem_button{
+                margin-top: 30px;
+            }
         }
-        .mem_button{
-            margin-top: 30px;
-        }
-
-        
     }
 }
+
