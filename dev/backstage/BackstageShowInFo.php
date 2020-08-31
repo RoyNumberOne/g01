@@ -713,13 +713,15 @@ try	{
 
 
 <h3>近期訂單</h3>
-	<select name="searchBar">
+<form id="searchOrder" method="get" action="./BackstageShowOrderDetail.php">
+	<select id="orderSearchBar" name="orderSearchBar">
 		<option value="order_no" selected="selected">依訂單編號</option>
 		<option value="member_no">依會員編號</option>
 		<option value="order_logistics_phone">聯絡電話</option>
 	</select>
-	<label><input type="text" id="searchKey"></label>
+	<label><input type="text" id="searchKey" name="searchKey"></label>
 	<button type="submit" id="searchOrderBtnSend">查詢</button>
+</form>
 
 <?php 
 try	{
@@ -755,30 +757,19 @@ try	{
 
 
 <h3>訂單詳情</h3>
-<?php 
-try	{
-    require_once('connectMeetain.php');
-	
-		$sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_logistics_deliver '運送方式' , order_cashflow '付款方式' , order_position '訂單狀態' , order_logistics_address '收件地址' , order_total '原始金額' , order_discount '折扣' , order_logistics_fee '運費' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders where order_no = 500001; " ;
-		$pdoStatement = $pdo->query($sql);
-		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-		?>
 
-		<table>
-		<tr class='cyan'><th width="80px">訂單編號</th><th width="100px">會員編號</th><th width="100px">收件人</th><th width="200px">聯絡電話</th></tr>
-		<tr><th width=110px">運送方式</th><th width=80px">付款方式</th><th width=80px">訂單狀態</th><th width=200px">收件地址</th><th width=80px">原始金額</th><th width=50px">折扣</th><th width=50px">運費</th><th width=80px">付款金額</th><th width=110px">訂單成立時間</th></tr>
-		<?php
-		foreach ( $prodRows as $i => $prodRow){
-		?>
-			 <tr>
-            </tr>
-
-			<?php } ?>
-		</table>
-	<?php
-	}	catch	(PDOException $e)	{
-	}
-?>
+<script>
+	$(Document).ready(function(){
+		$("#searchOrderBtnSend").click(function(){
+			let orderSearchBar = $("#orderSearchBar").val();
+			let searchKey = $("#searchKey").val();
+				$.get("./BackstageShowOrderDetail.php",
+					{orderSearchBar: orderSearchBar,
+					searchKey: searchKey,
+					})
+			})
+	})
+</script>
 
 
 
@@ -819,7 +810,6 @@ try	{
 	// 管理員 - 新增
 	$(Document).ready(function(){
 		$("#newAdministratorBtnSend").click(function(){
-			console.log(123);
 			let admin_id = $("#admin_id").val();
 			let admin_name = $("#admin_name").val();
 			let admin_acc = $("#admin_acc").val();
