@@ -1279,6 +1279,107 @@ button.btnC_XLwRA{
   }
 }
 
+// ============會員============
+
+//被div裁型的圖片
+@mixin imgs {
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+
+//////會員款式Ａ/////
+.member_styleA{
+    flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+    .memberImg{
+        display: inline-block;
+        background-color: #555;
+        border-radius: 50%;
+        width: 65px;
+        padding-top: 65px;
+        overflow: hidden;
+        position: relative;
+        img{
+            @include imgs;
+        }
+    }
+    .memberInfo{
+        display: inline-block;
+        .certification{
+            .certificationIcon{
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                position: relative;
+                img{
+                    width: 100%;
+                    position: absolute;
+                    top:0;
+                }
+            }
+        }
+        .memberId{
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 1.5px;
+        }
+        .memberBadge{
+            .memberBadgeIcon{
+                display: inline-block;
+                width: 25px;
+                padding-top: 25px;
+                overflow: hidden;
+                position: relative;
+                img{
+                    @include imgs;
+                }
+            }
+        }
+    }
+}
+
+//////橫/////
+.member_styleA.row{
+    width: 211px;
+    display: inline-block;
+    .memberInfo{
+        .memberBadge{
+            display: inline-block;
+        }
+    }
+}
+//直//
+.member_styleA.column{
+    width: 145px;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    .memberInfo{
+        .memberId{
+            text-align: center;
+        }
+        .certification{
+            display: flex;
+            justify-content:center;
+            .certificationIcon{
+                margin: 5px;
+            }
+        }
+        .memberBadge{
+            display: flex;
+            justify-content:center;
+            .memberBadgeIcon{
+                margin: auto 5px;
+            }
+        }
+    }
+}
+
+
 
 
 
