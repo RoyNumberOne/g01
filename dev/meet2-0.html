@@ -170,7 +170,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="./meet2-3.html"><button class="btnC_XLwRA"><p>更多</p><div class="btnArrowXL"></div></button></a>
+                                        <a href="./meet2-3.html"><button class="btnA_LwRA"><p>更多</p><div class="btnArrowL"></div></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="./meet2-3.html"><button class="btnC_XLwRA"><p>更多</p><div class="btnArrowXL"></div></button></a>
+                                        <a href="./meet2-3.html"><button class="btnA_LwRA"><p>更多</p><div class="btnArrowL"></div></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="./meet2-3.html"><button class="btnC_XLwRA"><p>更多</p><div class="btnArrowXL"></div></button></a>
+                                        <a href="./meet2-3.html"><button class="btnA_LwRA"><p>更多</p><div class="btnArrowL"></div></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -356,8 +356,8 @@
             <h2 class="text_underline">最新揪團</h2>
 
             <div class="changeTypeBtn">
-                <div class="typeCard -on"><img class="icon_card" src="./images/icons/icon_card_w.svg" alt=""></div>
-                <div class="typeList"><img src="./images/icons/icon_list_b.svg" alt=""></div>
+                <div class="typeCard -on"></div>
+                <div class="typeList"></div>
             </div>
 
             <div class="newMeetActivity card">
@@ -370,7 +370,9 @@
                     </a>
                     <div class="newMeetTextCont">
                         <div class="tittleLike">
-                            <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                            <a href="./meet2-3.html">
+                                <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                            </a>
                             <div class="heartIcon">
                                 <div class="changeIcon">
                                     <img class="heart" src="./images/icons/icon_heart.svg" alt="">
@@ -431,7 +433,7 @@
                     </a>
                     <div class="newMeetTextCont">
                         <div class="tittleLike">
-                            <h3>奇萊主北兩天一夜</h3>
+                            <a href="./meet2-3.html"><h3>奇萊主北兩天一夜</h3></a>
                             <div class="heartIcon">
                                 <div class="changeIcon">
                                     <img class="heart" src="./images/icons/icon_heart.svg" alt="">
@@ -513,7 +515,7 @@
                     </a>
                     <div class="newMeetTextCont">
                         <div class="tittleLike">
-                            <h3>台北放假不知道何處去? 快來爬象山吧</h3>
+                            <a href="./meet2-3.html"><h3>台北放假不知道何處去? 快來爬象山吧</h3></a>
                             <div class="heartIcon">
                                 <div class="changeIcon">
                                     <img class="heart" src="./images/icons/icon_heart.svg" alt="">
@@ -704,7 +706,18 @@
             });
         });
     </script>
-
+        <!-- 換icon -->
+        <script>
+            $(document).ready(function(){
+                $(".icon_card").click(function(){
+                    if($(.icon_card).attr('src') === "./images/icons/icon_card_w.svg"){
+                        $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+                    }else{
+                        $(this).attr("src","./images/icons/icon_card_w.svg");
+                    }
+                });
+            });
+            </script>
     
     <!-- 頁碼 -->
     <script>
