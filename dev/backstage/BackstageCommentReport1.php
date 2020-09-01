@@ -29,35 +29,27 @@
         <div>
             <div class="report_total"> 
                 <h4>留言檢舉</h4>
-                <span style="background-color:#2C5E9E; color:#FFF" id="loadButton_1"><a href="./BackstageCommentReport.php">未處理</a></span>
+                <span id="loadButton_1"><a href="./BackstageCommentReport.php">未處理</a></span>
                 <span id="loadButton_2"><a href="./BackstageCommentReport0.php">已處理</a></span>
-                <span id="loadButton_3"><a href="./BackstageCommentReport1.php">未通過</a></span>
+                <span id="loadButton_3" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageCommentReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
-                <h3>留言檢舉 - 未處理</h3>
+                <h3>留言檢舉 - 已處理未通過</h3>
                     <?php 
                         try	{
                         require_once('connectMeetain.php');
-
-                            //算出有幾「 筆 」（取得總比數）
-                            // $sql = "select count(*) totalCount from product where product_situation=:situation";
-                            $sql = 'SELECT count(*) totalCount from comment_report cr where cr.comment_report_situation = "未處理"';
+                            $sql = 'SELECT count(*) totalCount from comment_report cr where cr.comment_report_situation = "已處理未通過" ';
                             $stmt = $pdo->query($sql); 
-                            // echo $sql;
                             $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                             $totalRecords = $row["totalCount"]; 
                             // echo $totalRecords;
-                            //每頁要印幾筆
                             $recPerPage= 3;
-                            
-                            //算出有幾頁 總筆數/我每頁要印的東西
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                             $start = ($pageNo-1) * $recPerPage; 
-                            $sql = "SELECT comment_report_no '檢舉編號' , comment_report_comment '留言編號' , comment_innertext '留言內文' , comment_poster '被檢舉人' , comment_report_build '檢舉時間', comment_report_reason '檢舉緣由' , comment_class '檢舉板塊' from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cr.comment_report_situation = '未處理' limit $start,$recPerPage";
+                            $sql = "SELECT comment_report_no '檢舉編號' , comment_report_comment '留言編號' , comment_innertext '留言內文' , comment_poster '被檢舉人' , comment_report_build '檢舉時間', comment_report_reason '檢舉緣由' , comment_class '檢舉板塊' , comment_report_situation '檢舉狀態' from comment_report cr join comment_post cp on cr.comment_report_comment = cp.comment_no where cr.comment_report_situation = '已處理未通過' limit $start,$recPerPage";
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-                       
                             ?>
                             <table>
                             <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">留言編號</th><th width="300px">留言內文</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
@@ -67,24 +59,11 @@
                                 <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
                                 <td><?=$prodRow["留言編號"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["留言內文"]?></td>
+                                <td><?=$prodRow["留言內文"]?></td>
                                 <td><?=$prodRow["被檢舉人"]?></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
-                                <td style="text-align: left;padding-left: 5px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                                        <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                                        <select name="BanLong">
-                                            <option value="5">5分鐘</option>
-                                            <option value="3" selected="selected">3天</option>
-                                            <option value="7">7天</option>
-                                            <option value="14">14天</option>
-                                            <option value="28">28天</option>
-                                        </select>
-                                </td>
-                                <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                                    <p>送出</p>
-                                    <div class="bg"></div>
-                                </button></td>
+                                <td><?=$prodRow["檢舉緣由"]?></td>
+                                <td><?=$prodRow["檢舉狀態"]?></td>
                                 </tr>
 
                                 <?php } ?>
@@ -98,16 +77,14 @@
         <div class="pagebtn">
             <?php 
                 for($i=1; $i<=$totalPages; $i++){
-                echo "<a href='BackstageCommentReport.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                echo "<a href='BackstageProduct0.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                 }
             ?>
         </div>
     </section>
 </main>
 <script>
-// =====button class="btnA_S" 的頁碼切換=====
 $(document).ready(function(){
-
 
 });
 

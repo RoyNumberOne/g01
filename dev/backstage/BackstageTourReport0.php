@@ -28,16 +28,16 @@
         <div>
             <div class="report_total"> 
                 <h4>揪團檢舉</h4>
-                <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageTourReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已處理</a></span>
+                <span id="loadButton_1"><a href="./BackstageTourReport.php">未處理</a></span>
+                <span id="loadButton_2" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageTourReport0.php">已處理</a></span>
                 <span id="loadButton_3"><a href="./BackstageTourReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
-                <h3>揪團檢舉 - 未處理</h3>
+                <h3>揪團檢舉 - 已處理已通過</h3>
                 <?php 
                     try	{
                         require_once('connectMeetain.php');
-                            $sql = 'SELECT count(*) totalCount from tour_report tr where tr.tour_report_situation = "未處理"';
+                            $sql = 'SELECT count(*) totalCount from tour_report tr where tr.tour_report_situation = "已處理已通過"';
                             $stmt = $pdo->query($sql); 
                             $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                             $totalRecords = $row["totalCount"]; 
@@ -46,7 +46,7 @@
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                             $start = ($pageNo-1) * $recPerPage; 
-                            $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '未處理' limit $start,$recPerPage";
+                            $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理已通過' limit $start,$recPerPage";
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
@@ -58,26 +58,12 @@
                                 <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
                                 <td><?=$prodRow["揪團編號"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["揪團標題"]?></td>
-                                <td ><?=$prodRow["被檢舉人"]?></td>
+                                <td><?=$prodRow["揪團標題"]?></td>
+                                <td><?=$prodRow["被檢舉人"]?></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
-                                <td style="text-align: left;padding-left: 10px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                                        <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                                        <select name="BanLong">
-                                            <option value="5">5分鐘</option>
-                                            <option value="3" selected="selected">3天</option>
-                                            <option value="7">7天</option>
-                                            <option value="14">14天</option>
-                                            <option value="28">28天</option>
-                                        </select>
-                                </td>
-                                <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                                    <p>送出</p>
-                                    <div class="bg"></div>
-                                </button></td>
+                                <td><?=$prodRow["檢舉緣由"]?></td>
+                                <td>禁言<?=$prodRow["檢舉時長"]?><br><?=$prodRow["解封時間"]?></td>
                                 </tr>
-
                                 <?php } ?>
                             </table>
                         <?php
@@ -89,7 +75,7 @@
         <div class="pagebtn">
             <?php 
                 for($i=1; $i<=$totalPages; $i++){
-                echo "<a href='BackstageTourReport.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                echo "<a href='BackstageTourReport0.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                 }
             ?>
         </div>
