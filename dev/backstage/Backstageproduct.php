@@ -52,8 +52,6 @@
                 $name =  $_REQUEST["name"];
                 try	{
                     require_once('connectMeetain.php');
-
-                        //算出有幾「 筆 」（取得總比數）
                         $sql = "select count(*) totalCount from product where product_situation=:situation";
                         $stmt = $pdo->prepare($sql); 
                         $stmt -> bindValue(":situation",$name);
@@ -61,10 +59,8 @@
                         $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                         $totalRecords = $row["totalCount"]; 
                         // echo $totalRecords;
-                        //每頁要印幾筆
                         $recPerPage= 5;
                         
-                        //算出有幾頁 總筆數/我每頁要印的東西
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage; 
@@ -134,6 +130,10 @@
     });
     $('#loadButton_3').click(function () {
         $('#ccc').load('BackstageproductAdd.php');
+        $('.btnB_L_yellow_2 ::after').css({"border":"#ff7372 4px solid"});
+        $('.bg2').css({"background-color":"#ff7372","color":"#FFF"});
+        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
+        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
     });
 </script>
 <script>

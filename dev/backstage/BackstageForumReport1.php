@@ -35,7 +35,7 @@
                 <span id="loadButton_3" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageForumReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
-            <h3>討論檢舉 - 未處理</h3>
+            <h3>討論檢舉 - 已處理未通過</h3>
             <?php 
                 try	{
                     require_once('connectMeetain.php');
