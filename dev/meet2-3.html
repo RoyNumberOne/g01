@@ -67,7 +67,7 @@
         <main id="meet2-3-1" class="close">
             <div class="lightbox">
                 <div class="close">
-                    <button class="close_btn">X</button>
+                    <button class="close_btn"><img src="./images/icons/icon_close.svg" alt=""></button>
                 </div>
                
                 <section class="agreement -on">
@@ -91,7 +91,7 @@
                         </p>
                     </div>
                     <div>
-                        <button class="btnB_L_grey"><p>不同意</p><div class="bg"></div></button>
+                        <button class="btnB_L_grey" id="notagree"><p>不同意</p><div class="bg"></div></button>
                         <button id="agree" class="btnB_L_yellow"><p>同意</p><div class="bg"></div></button>
                     </div>
                 </section>
@@ -107,14 +107,10 @@
         </main> 
         <div id="report_block_match" class="close">
             <div class="rp_lightbox">
-                <div class="rp_close">X</div>
+                <div class="rp_close"><img src="./images/icons/icon_close.svg" alt=""></div>
                 <section class="reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <ul>
-                        <li><input type="radio" id="commercial" name="report" checked><label for="commercial">廣告</label></li>
-                        <li><input type="radio" id="content" name="report"><label for="content">內容不當</label></li>
-                    </ul>
                     <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
                     <div class="rp_bt">
@@ -131,14 +127,10 @@
         </div>
         <div id="report_block_message" class="close">
             <div class="rp_lightbox">
-                <div class="mg_close">X</div>
+                <div class="mg_close"><img src="./images/icons/icon_close.svg" alt=""></div>
                 <section class="mg_reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <ul>
-                        <li><input type="radio" id="mg_commercial" name="mg_report" checked><label for="me_commercial">廣告</label></li>
-                        <li><input type="radio" id="mg_content" name="mg_report"><label for="mg_content">內容不當</label></li>
-                    </ul>
                     <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
                     <div class="rp_bt">
@@ -155,7 +147,7 @@
         </div>
         <div id="banned_message" class="close">
             <div class="ban_lightbox">
-                <div class="ban_close">X</div>
+                <div class="ban_close"><img src="./images/icons/icon_close.svg" alt=""></div>
                 <section class="ban_be_reported">
                     <h2>您無法使用此功能</h2>
                     <p>您的留言違反我們的網站規範，因此無法分享您的留言</p>
@@ -198,7 +190,7 @@
                     <div class="report">
                         <div class="report_bt">
                             <img src="./images/icons/icon_report.svg" alt="" class="report_pic">
-                            <div>檢舉</div>
+                            <div class="report_hover">檢舉</div>
                         </div>
                     </div>
                 </div>
@@ -398,7 +390,7 @@
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
                         <div class="mg_report_bt">
-                            <div class="mg_dots">...</div>
+                            <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
                             <div class="mg_text">檢舉</div>
                         </div>
                     </div>
@@ -420,73 +412,7 @@
                         <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
                         <div class="mg_time">2020/07/13 20:30</div>
                         <div class="mg_report_bt">
-                            <div class="mg_dots">...</div>
-                            <div class="mg_text">檢舉</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                        </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">
-                            <div class="mg_dots">...</div>
-                            <div class="mg_text">檢舉</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                        </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">
-                            <div class="mg_dots">...</div>
-                            <div class="mg_text">檢舉</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                        </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">
-                            <div class="mg_dots">...</div>
+                            <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
                             <div class="mg_text">檢舉</div>
                         </div>
                     </div>
@@ -546,8 +472,8 @@
                     </div>
                 </li>
             </ul>
-            <!-- <div class="left"><</div>
-            <div class="right">></div> -->
+            <div class="left"><</div>
+            <div class="right">></div>
         </div>
     </div>
     <a href="#" id="gotop">
