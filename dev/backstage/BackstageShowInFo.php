@@ -685,7 +685,7 @@ try	{
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator where admin_authority >= 0  ; " ;
+		$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -695,14 +695,28 @@ try	{
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
-			 <tr>
-             <td class='pink'><?=$prodRow["管理員編號"]?></td>
-             <td><?=$prodRow["姓名"]?></td>
-             <td><?=$prodRow["暱稱"]?></td>
-             <td><?=$prodRow["電子信箱"]?></td>
-             <td><?=$prodRow["建立時間"]?></td>
-			 <td><label><input type="button" value="edit" name="edit?<?=$prodRow["管理員編號"]?>">停權</label></td>
+			<tr>
+				<td class='pink'><?=$prodRow["管理員編號"]?>
+					<input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>' />
+				</td>
+				<td><input type="text" name="adminNAME<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["姓名"]?>'></td>
+				<td><input type="text" name="adminID<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["暱稱"]?>'></td>
+				<td><input type="text" name="adminMAIL<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["電子信箱"]?>'></td>
+				<td><?=$prodRow["建立時間"]?></td>
+				<td><label><input name="<?=$prodRow["管理員編號"]?>" type="button" value="修改" class="editadmin"></label></td>
             </tr>
+
+			<script>
+				function checkAdminAuth(){
+					console.log(<?=$prodRow["管理員編號"]?>);
+					console.log(<?=$prodRow["管理員權限"]?>);
+					if ( <?=$prodRow["管理員權限"]?> == 1 ){
+						$("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
+
+					}
+				}
+					checkAdminAuth();
+			</script>
 
 			<?php } ?>
 		</table>
@@ -711,9 +725,64 @@ try	{
 	}
 ?>
 
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
+</script>
+
+<script>
+	// 管理員 － 修改
+	$(Document).ready(function(){
+		$(".editadmin").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				let temp = $(this).attr('name');
+				let EDITadmin_name = $("input[name='adminNAME"+temp+"']").val();
+				let EDITadmin_id = $("input[name='adminID"+temp+"']").val();
+				let EDITadmin_mail = $("input[name='adminMAIL"+temp+"']").val();
+				let EDITadmin_authority = $("input[name='adminAUTH"+temp+"']").val();
+				
+				console.log(EDITadmin_authority);
+				$.ajax({
+					url: './BackstageEditAdministrator.php',
+					data: {	admin_no: temp,
+							EDITadmin_name: EDITadmin_name ,
+							EDITadmin_id:EDITadmin_id,
+							EDITadmin_mail:EDITadmin_mail,
+							EDITadmin_authority:EDITadmin_authority
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	})
+</script>
+
+<h3>管理員 - 新增</h3>
+<form id="newAdministrator" method="post" action="./BackstageAddAdministrator.php" >
+	<div class="block">
+		<div class="itembox">暱稱：<input id="admin_id" name="admin_id" type="text"></div>
+		<div class="itembox">姓名：<input id="admin_name" name="admin_name" type="text"></div>
+		<div class="itembox">帳號：<input id="admin_acc" name="admin_acc" type="text"></div>
+		<div class="itembox">密碼：<input id="admin_psw" name="admin_psw" type="password"></div><label><input class="itembox" type="checkbox" id="pswCheck">顯示密碼</label>
+		<div class="itembox">信箱：<input id="admin_mail" name="admin_mail" type="text"></div>
+	</div>
+	<button type="button" id="newAdministratorBtnSend">送出</button>
+</form>
+
+
 
 <h3>近期訂單</h3>
-<form id="searchOrder" method="get" action="./BackstageShowOrderDetail.php">
+<form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
 	<select id="orderSearchBar" name="orderSearchBar">
 		<option value="order_no" selected="selected">依訂單編號</option>
 		<option value="member_no">依會員編號</option>
@@ -759,11 +828,12 @@ try	{
 <h3>訂單詳情</h3>
 
 <script>
+	// 訂單詳情
 	$(Document).ready(function(){
 		$("#searchOrderBtnSend").click(function(){
 			let orderSearchBar = $("#orderSearchBar").val();
 			let searchKey = $("#searchKey").val();
-				$.get("./BackstageShowOrderDetail.php",
+				$.post("./BackstageShowOrderDetail.php",
 					{orderSearchBar: orderSearchBar,
 					searchKey: searchKey,
 					})
@@ -824,9 +894,8 @@ try	{
 				},
 				function(){
 				//要導去另外正確頁面
-				// window.location.reload(true);
+				window.location.reload(true);
 			})
-			console.log(234);
 		})
 		$('#pswCheck').click(function(){
                 $(this).is(':checked') ? $('#admin_psw').attr('type', 'text') : $('#admin_psw').attr('type', 'password');
