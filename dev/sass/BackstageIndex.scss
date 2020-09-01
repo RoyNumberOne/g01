@@ -1,0 +1,142 @@
+@import 'BackstageHeader';
+#BackstageNav {       
+    & .index {
+        & .title {
+            color: #1A95DB !important;
+            font-size: 20px;
+            height: 50px;
+        }
+    }
+}
+
+$background:#eaf1f4;
+body{
+    height: 100vh;
+    background-color:$background !important;
+    // overflow: hidden;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    position: relative;
+    aside{
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        // height: 100%;
+        #BackstageNav {
+            width: 120px;
+            *{
+                text-align: center;
+                user-select: none;
+            }
+            & ul {
+                padding: 25px 0px;
+                height: 80px;
+                position: relative;
+                background-color: $mt_blue2;
+                transition: 0.2s all ease-in-out;
+                &.index {
+                    border-radius: 0px 10px 0px 0px;
+                }
+                &.administer {
+                    border-radius: 0px 0px 10px 0px;
+                }
+                & p.title {
+                    color: white;
+                    font-size: 20px;
+                    height: 50px;
+                }
+                & a {
+                    padding: 25px 0px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none !important;
+                }
+                & li {
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 0%;
+                    visibility: hidden;
+                    width: 120px;
+                    height: 80px;
+                    &.navli a{
+                        padding: 15px 20px 20px 20px;
+                        background-color: $mt_blue2;
+                        transition: 0.2s background-color ease-in-out;
+                        &:hover {
+                            background-color: $mt_yellow;
+                        }
+                        & p {
+                            color: white;
+                        }
+                        & div.note{
+                            position: absolute;
+                            width: 100% !important;
+                            left: 0;
+                            bottom: 0;
+                            background-color: $mt_blue4;
+                            & p{
+                                color: $mt_pink;
+                            }
+                        }
+                    }
+                    &.tour{
+                        margin-left: 120px;
+                    }
+                    &.forum{
+                        margin-left: 240px;
+                    }
+                    &.comment{
+                        margin-left: 360px;
+                        border-radius: 0px 10px 10px 0px;
+                        overflow: hidden;
+                    }
+                    &.realname{
+                        margin-left: 120px;
+                    }
+                    &.guide{
+                        margin-left: 240px;
+                        border-radius: 0px 10px 10px 0px;
+                        overflow: hidden;
+                    }
+                }
+                &.index:hover ,
+                &.product:hover ,
+                &.administer:hover{
+                    background-color: $mt_yellow;
+                }
+                &.report:hover li.navli,
+                &.verify:hover li.navli {
+                    visibility: visible;
+                }
+            }
+            // & .ulat p.title,
+            // & .liat p.desc{ 
+            //     // color: $mt_blue1 !important;
+            // }
+        }
+    }
+    section{
+        max-width: 960px;
+        width: 100%;
+        height: 100%;
+        margin: 80px auto 0;
+        header{
+            width: 100%;
+            height: 50px;
+            text-align: end;
+            background-color: $mt_blue2;
+            font-size: 25px;
+        }
+        div{
+            margin-top: 20px;
+        }
+    }
+}

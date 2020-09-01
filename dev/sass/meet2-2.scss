@@ -262,6 +262,7 @@ $textColor1: $mt_fontdark;
                 }
                 
                 .tour_image{
+                    background-color: sandybrown;
                     flex-grow: 2;
                     display: flex;
                     flex-wrap: wrap;
@@ -282,6 +283,11 @@ $textColor1: $mt_fontdark;
                         img{
                             @include imgs;
                         }
+                    }
+                    >img{
+                        width: 30%;
+                        margin: 5px;
+                        border-radius: 10px;
                     }
                 }
             }

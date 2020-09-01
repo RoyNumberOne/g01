@@ -1,6 +1,15 @@
 @import 'common';
 @import 'BackstageMain';
 @import 'BackstageHeader';
+#BackstageNav {       
+    & .report {
+        & .title {
+            color: #1A95DB !important;
+            font-size: 20px;
+            height: 50px;
+        }
+    }
+}
 div{
     .report_total{
         display: flex;

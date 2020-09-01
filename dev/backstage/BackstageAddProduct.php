@@ -1,4 +1,3 @@
-
 <?php
 try {
 	require_once ('connectMeetain.php');
