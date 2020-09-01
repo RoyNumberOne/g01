@@ -44,7 +44,10 @@
                     <button type="submit" class="btnB_L_yellow_2" id="loadButton_3"><p>新增</p><div class="bg2"></div></button>
             </div>
             <div id="ccc">
-                <h3>商品 - 上架中</h3>
+                <h3>
+                <?php if($_REQUEST["name"]==1){echo '商品 - 上架中';}?>
+                <?php if($_REQUEST["name"]==0){echo '商品 - 未上架';}?>
+                </h3>
                 <?php
                 $name =  $_REQUEST["name"];
                 try	{
@@ -132,8 +135,6 @@
     $('#loadButton_3').click(function () {
         $('#ccc').load('BackstageproductAdd.php');
     });
-
-
 </script>
 <script>
 	// 商品 - 新增

@@ -81,9 +81,13 @@ div.wrap{
                     overflow: hidden;
                     .product_name{
                         transition: .5s ease;
+                        color: #fff;
+                        text-shadow: 0.1em 0.1em 0.2em #555555;
                     }
                     .product_price{
                         transition: .5s ease;
+                        color: #fff;
+                        text-shadow: 0.1em 0.1em 0.2em #555555;
                     }
                 }
                     a{
