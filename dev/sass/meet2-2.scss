@@ -234,13 +234,11 @@ $textColor1: $mt_fontdark;
             justify-content: space-between;
             .tour_info3{
                 width: 60%;
-                // display: flex;
-                // justify-content: space-between;
                 label{
-                    border: 1px solid #000;
+                    // border: 1px solid #000;
                     position: relative;
                     input{ //上傳照片
-                        border: 1px solid #000;
+                        // border: 1px solid #000;
                         width: 25px;
                         height: 25px;
                         padding: 0;
@@ -249,7 +247,7 @@ $textColor1: $mt_fontdark;
                     }
     
                     .upload_tourimg{ //＋＋
-                        border: 1px solid #000;
+                        // border: 1px solid #000;
                         position: absolute;
                         width: 25px;
                         height: 25px;
@@ -262,7 +260,7 @@ $textColor1: $mt_fontdark;
                 }
                 
                 .tour_image{
-                    background-color: sandybrown;
+                    // background-color: sandybrown;
                     flex-grow: 2;
                     display: flex;
                     flex-wrap: wrap;
@@ -284,15 +282,6 @@ $textColor1: $mt_fontdark;
                         img{
                             @include imgs;
                         }
-                    }
-                    >img{
-                        width: 30%;
-                        margin-top: 15px;
-
-                        // margin: 5px;
-                        border-radius: 10px;
-                        // align-self: center;
-
                     }
                 }
             }
