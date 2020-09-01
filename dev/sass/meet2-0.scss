@@ -239,22 +239,67 @@ $textColor1: $mt_fontdark;
             div{
                 border: 1px solid #222;
                 // background-color: salmon;
+                width: 50px;
+                height: 40px;
                 display: flex;
                 align-items: center;
-                padding:7px 15px ;
+                // padding:7px 15px ;
                 cursor: pointer;
+                position: relative;
                 img{
                     width: 30px;
+                }
+                &:hover{
+                    opacity: .6;
+                }
+                &::before{
+                    content: "";
+                    width: 30px;
+                    padding-top: 30px;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    @include ab_center;
+                    display: none;
+                }
+                &::after{
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    @include ab_center;
                 }
             }
             .typeCard{
                 border-radius: 8px 0 0 8px;
+                &::before{
+                    background-image: url(../images/icons/icon_card_w.svg);
+                }
+                &::after{
+                    background-image: url(../images/icons/icon_card_b.svg);
+                }
             }
             .typeList{
                 border-radius: 0 8px 8px 0;
+                &::before{
+                    background-image: url(../images/icons/icon_list_w.svg);
+                    background-size:contain;
+                }
+                &::after{
+                    background-image: url(../images/icons/icon_list_b.svg);
+                    background-size:contain;
+                }
             }
             div.-on{
                 background-color: $mt_yellow;
+                &::before{
+                    display: inline-block;
+                }
+                &::after{
+                    display: none;
+                }
             }
         }
         

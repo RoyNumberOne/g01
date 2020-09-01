@@ -1,6 +1,6 @@
 [
     {
-        "id:": "1",
+        "id:": "40001",
         "degree_category": "1",
         "category": "登山鞋",
         "product_name": "KEEN 低筒健行鞋",
@@ -11,7 +11,7 @@
         "product_image3": "./images/products/shoes/shoes13.png"
     },
     {
-        "id:": "2",
+        "id:": "40002",
         "degree_category": "2",
         "category": "登山鞋",
         "product_name": "Zamberlan 輕量低筒健行鞋",
@@ -22,7 +22,7 @@
         "product_image3": "./images/products/shoes/shoes23.png"
     },
     {
-        "id:": "3",
+        "id:": "40003",
         "degree_category": "3",
         "category": "登山鞋",
         "product_name": "防水長筒皮革重裝登山鞋",
@@ -33,7 +33,7 @@
         "product_image3": "./images/products/shoes/shoes33.png"
     },
     {
-        "id:": "4",
+        "id:": "40004",
         "degree_category": "4",
         "category": "登山鞋",
         "product_name": "防水高筒皮革重裝登山鞋/冰攀靴",

@@ -21,7 +21,7 @@ div.wrap{
                     content: '';
                     position: absolute;
                     top: 0;
-                    background: linear-gradient(180deg, #FFC400,#000000);
+                    background: linear-gradient(180deg, $mt_yellow,#000000);
                     opacity: .5;
                     height: 100%;
                     width: 400px;
@@ -48,11 +48,11 @@ div.wrap{
                     cursor: pointer;
                     transition: .3s ease;
                     &:hover{
-                        background-color: #FFC400;
+                        background-color: $mt_yellow;
                     }
                 }
                 .pick{
-                    background-color: #FFC400;
+                    background-color: $mt_yellow;
                 }
             }
             .move{
@@ -93,7 +93,7 @@ div.wrap{
             .top{
                 display: flex;
                 align-items: center;
-                margin: 20px 0;
+                margin: 10px 0 20px;
                 h2{
                     margin: 0 20px 0 0;
                 }
@@ -110,10 +110,16 @@ div.wrap{
             .money_chart{
                 display: flex;
                 align-items: center;
-                // margin: 20px auto;
                 .money{
                     font-size: 50px;
                     margin: 0 20px 20px 0;
+                }
+                .discount_num{
+                    margin: 0 0 0 20px;
+                }
+                .copy_num{
+                    margin: 0 0 0 20px;
+                    cursor: pointer;
                 }
             }
             .size_block{
@@ -130,24 +136,34 @@ div.wrap{
                     color: #bbb;
                     transition: all .3s ease;
                     &:hover{
-                        background-color: #FFC400;
+                        background-color: $mt_yellow;
                         color: #fff;
                     }
                 }
                 .picked_size{
-                    background-color: #FFC400;
+                    background-color: $mt_yellow;
                     color: #fff;
                 }
             }
             .product_count{
                 display: flex;
+                border: 1px solid #ccc;
+                box-shadow: 1px 1px 3px #555555;
+                border-radius: 5px;
+                width: 120px;
+                >button{
+                    width: 40px;
+                    height: 40px;
+                    background-color: #e9e9e9;
+                }
                 >div{
-                    margin: auto 40px;
+                    margin: auto;
+                    width: 40px;
                     text-align: center;
                 }
             }
             .artical{
-                margin: 10px 0 0;
+                margin: 30px 0 0;
                 h3.related_artical{
                     display: inline-block;
                 }
@@ -158,7 +174,7 @@ div.wrap{
                 }
                 .at_dots{
                     display: inline-flex;
-                    background-color: #FFC400;
+                    background-color: $mt_yellow;
                     .at_dot{
                         height: 5px;
                         width: 5px;
@@ -170,7 +186,7 @@ div.wrap{
                 a{
                     transition: 1s ease;
                     :hover{
-                        color: #FFC400;
+                        color: $mt_yellow;
                     }
                     .at_title{
                         margin: 15px 0 0 0;
