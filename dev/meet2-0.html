@@ -354,10 +354,12 @@
         
         <section class="newMeet"> <!-- 最新揪團 -->
             <h2 class="text_underline">最新揪團</h2>
+
             <div class="changeTypeBtn">
-                <button class="typeCard -on">卡片</button>
-                <button class="typeList">清單</button>
+                <div class="typeCard -on"><img class="icon_card" src="./images/icons/icon_card_w.svg" alt=""></div>
+                <div class="typeList"><img src="./images/icons/icon_list_b.svg" alt=""></div>
             </div>
+
             <div class="newMeetActivity card">
                 
                 <div class="item">
@@ -672,36 +674,37 @@
             
 
             // 點擊按鈕typeCard
-            $("button.typeCard").on("click", function(){
+            $("div.typeCard").on("click", function(){
                 // div.newMeetActivity
                     //移除 list 樣式
                 $("div.newMeetActivity").removeClass("list");
-                $("div.member_styleA").removeClass("column");
+                $(".newMeet div.member_styleA").removeClass("column");
                     // 加上 card 樣式
                 $("div.newMeetActivity").addClass("card");
-                $("div.member_styleA").addClass("row");
+                $(".newMeet div.member_styleA").addClass("row");
                 
                 //btn
-                $("button.typeList").removeClass("-on");
-                $("button.typeCard").addClass("-on");
+                $("div.typeList").removeClass("-on");
+                $("div.typeCard").addClass("-on");
             });
 
             // 點擊按鈕typeList
-            $("button.typeList").on("click", function(){
+            $("div.typeList").on("click", function(){
                 // div.newMeetActivity
                     //移除 card 樣式
                 $("div.newMeetActivity").removeClass("card");
-                $("div.member_styleA").removeClass("row");
+                $(".newMeet div.member_styleA").removeClass("row");
                     //加上 list 樣式
                 $("div.newMeetActivity").addClass("list");
-                $("div.member_styleA").addClass("column");
+                $(".newMeet div.member_styleA").addClass("column");
 
                 //btn
-                $("button.typeCard").removeClass("-on");
-                $("button.typeList").addClass("-on");
+                $("div.typeCard").removeClass("-on");
+                $("div.typeList").addClass("-on");
             });
         });
     </script>
+
     
     <!-- 頁碼 -->
     <script>
@@ -751,6 +754,7 @@
         });
     });
     </script>
+
     <script src="./js/header.js" ></script>
 </body>
 </html>

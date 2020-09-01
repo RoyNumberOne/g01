@@ -230,17 +230,17 @@
                 <div class="tour_info3">
                     <div> 
                         <label for=""> 相關照片上傳
-                            <input type="file" accept="image/*" multiple="multiple">
+                            <input id="upload_tourimg_input" type="file" accept="image/*" multiple="multiple">
                            <img class="upload_tourimg" src="./images/icons/icon_upload.svg" alt="">
                         </label>
                     </div>
                     <div class="tour_image">
-                        <div class="tour_image_1"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
-                        <div class="tour_image_2"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
-                        <div class="tour_image_3"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
-                        <div class="tour_image_4"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
-                        <div class="tour_image_5"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
-                        <div class="tour_image_6"><img src="./images/meet/2-2-uploadimg.svg" alt=""></div>
+                        <div class="tour_image_1"></div>
+                        <div class="tour_image_2"></div>
+                        <div class="tour_image_3"></div>
+                        <div class="tour_image_4"></div>
+                        <div class="tour_image_5"></div>
+                        <div class="tour_image_6"></div>
                     </div>
                 </div>
                 <div class="btn_box">
@@ -304,7 +304,7 @@
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
-    <!-- /////載入JS檔案///// -->
+    <!-- /////切換步驟///// -->
     <script>
         $(function() {
             // preventDefault
@@ -372,6 +372,31 @@
 
         });
     </script>
+
+    <!-- /////圖片上傳預覽///// -->
+    <script>
+        // $("#upload_tourimg_input").change(function(){
+        //     $(".tour_image").html(""); // 清除預覽
+        //     readURL(this);
+        // });
+
+        function readURL(input){
+            if (input.files && input.files.length >= 0) {
+                for(var i = 0; i < input.files.length; i ++){
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("<img>").attr('src', e.target.result);
+                        $(".tour_image_1").appendChild(img); //
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }else{
+                var noPictures = $("<p>目前尚未上傳圖片</p>");
+                $(".tour_image").append(noPictures);
+            }
+        }
+    </script>
+
     <script src="./js/header.js" ></script>
 </body>
 </html>
