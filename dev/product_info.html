@@ -104,17 +104,21 @@
                 </div>
                 <div class="money_chart">
                     <div class="money">${{currentProduct.product_price}}</div>
-                    <button class="btnB_XL_yellow add_chart" @click="addCount += 1"><p>加入購物車</p><div class="bg"></div></button>
+                    <button class="btnB_XL_yellow add_chart" @click="addCount += 1; addToCart();"><p>加入購物車</p><div class="bg"></div></button>
+                    <div class="discount_num">優惠券代碼：</div>
+                    <div id="discount_num">9453</div>
+                    <button class="btnB_L_blue copy_num" name="discount_num"><p>複製</p><div class="bg"></div></button>
                 </div>
                 <div class="size_block">
+                    <div>尺寸：</div>
                     <div class="size">S</div>
                     <div class="size">M</div>
                     <div class="size">L</div>
                 </div>
                 <div class="product_count">
-                    <button class="btnB_L_grey" @click="productCount -= 1"><p>－</p><div class="bg"></div></button>
-                    <div>數量：{{productCount}}</div>
-                    <button class="btnB_L_yellow" @click="productCount += 1"><p>＋</p><div class="bg"></div></button>
+                    <button @click="productCountDecrease">－</button>
+                    <div>{{productCount}}</div>
+                    <button @click="productCountPlus">＋</button>
                 </div>
                 <div class="artical">
                     <h3 class="related_artical text_underline">相關討論文章</h3>
@@ -183,7 +187,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/product_info.js"></script>
     <script src="./js/header.js" ></script>
 </body>
