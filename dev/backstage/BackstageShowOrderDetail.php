@@ -4,8 +4,6 @@ try	{
     require_once('connectMeetain.php');
 	
 		$sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_logistics_deliver '運送方式' , order_cashflow '付款方式' , order_position '訂單狀態' , order_logistics_address '收件地址' , order_total '原始金額' , order_discount '折扣' , order_logistics_fee '運費' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders where {$_POST['orderSearchBar']} = {$_POST['searchKey']}; " ;
-        
-
         $pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>

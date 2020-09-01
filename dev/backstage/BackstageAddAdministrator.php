@@ -12,14 +12,12 @@ try {
     VALUES ('$admin_id', '$admin_name','$admin_acc','$admin_psw','$admin_mail');";
     $pdoStatement = $pdo->query($sql);
     echo "New record created successfully";
-    console.log(345);
 
     // 建立管理員前台帳戶
     $sql = "INSERT INTO member (mem_id, mem_name , mem_acc , mem_psw , mem_mail )
     VALUES ('$admin_id', '$admin_name','$admin_acc','$admin_psw','$admin_mail');";
     $pdoStatement = $pdo->query($sql);
     echo "New record created successfully";
-    console.log(456);
 	// $pdoStatement = $pdo->exec($sql);
 	// $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 
