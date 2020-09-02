@@ -30,7 +30,7 @@ main {
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: grid;
-	height: 100vh;
+	height: 150vh;
 	place-items: center;
 }
 
@@ -58,7 +58,6 @@ main {
         z-index: 1;
         text-align: center;
         .mobile_logo{
-            width: 200px;
             margin: 20px auto;
             display: none;
             img{
@@ -78,7 +77,9 @@ main {
         }
         input{
             width: 250px;
-            height: 30px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
             margin-bottom: 20px;
         }
     }
@@ -90,7 +91,6 @@ main {
         z-index: 2;
         text-align: center;
         .mobile_logo{
-            width: 200px;
             margin: 20px auto;
             display: none;
             img{
@@ -99,7 +99,7 @@ main {
         }
         h2{
             font-weight: 300;
-            margin: 18% 0;
+            margin: 6% 0;
             margin-bottom: 1.25rem;
         }
         a{
@@ -115,7 +115,9 @@ main {
             margin-bottom: 10px;
             input{
                 width: 250px;
-                height: 30px;
+                height: 40px;
+                border: none;
+                border-radius: 8px;
                 margin-bottom: 10px;
             }
         }
@@ -244,66 +246,39 @@ main {
 	transform: translateX(20%);
 }
 
-// 手機板
-
-.mobile{
-    background-color:rgba(255,255,255,0.8);
-    border-radius: var(--button-radius);
-    display: none;
-    flex-direction: column;
-    width: 300px;
-    padding: 20px;
-    .mobile_logo{
-        width: 200px;
-        margin: 20px auto;
-        img{
-            width: 100%;
-        }
-    }
-    form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h3{
-            margin-bottom: 15px;
-        }
-        p{
-            margin: 5px;
-            font-size: 12px;
-        }
-        p.forApply{
-            display: none;
-        }
-        input.forApply{
-            display: none;
-        }
-        button#mobileLogin_submit{
-            margin: 15px;
-        }
-        a{
-            font-size: 12px;
-        }
-        a.clickMe_log{
-            display: none;
-        }
-    }
-}
-
 //RWD
 
 @media screen and (min-width: 1440px) {
     .container{
         max-width: 1366px;
+        .container--signin{
+            display: block !important;
+        }
+        .container--signup{
+            display: block !important;
+        }
     }
 }
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     .container{
         max-width: 1152px;
+        .container--signin{
+            display: block !important;
+        }
+        .container--signup{
+            display: block !important;
+        }
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px){
     .container{
         max-width: 960px;
+        .container--signin{
+            display: block !important;
+        }
+        .container--signup{
+            display: block !important;
+        }
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -311,14 +286,20 @@ main {
         max-width: 720px;
         height: 620px;
         width:90%;
+        .container--signin{
+            display: block !important;
+        }
+        .container--signup{
+            display: block !important;
+        }
     }
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     main{
         height: 1000px;
         .container{
-            width: 80%;
-            height: 720px;
+            width: 70%;
+            height: 750px;
             .container--signin{
                 width: 50%;
                 .mobile_logo{
@@ -357,8 +338,8 @@ main {
     main{
         height: 1000px;
         .container{
-            width: 100%;
-            height: 720px;
+            width: 90%;
+            height: 750px;
             .container--signin{
                 width: 50%;
                 .mobile_logo{
@@ -367,12 +348,16 @@ main {
                 a{
                     display: block;
                 }
+                input{
+                    transform: translateX(-15%);
+                }
             }
             .container--signup{
                 display: none;
                 transform: translate(50%);
                 .form__detail{
                     width: fit-content;
+                    transform: translateX(-15%);
                 }
                 button{
                     margin: 20px;
