@@ -3,5 +3,4 @@ package-lock.json
 dist
 dev/css
 .vscode
-dev/connectMeetain.php
-dev/backstage/connectMeetain.php
+connectMeetain.php
