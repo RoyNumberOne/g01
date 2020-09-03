@@ -164,7 +164,7 @@
 				//要導去另外正確頁面
 				window.location.reload(true);
 			})
-		})
+        })
 	})
 </script>
 <script src="./js/backstage.js"></script>
