@@ -1,5 +1,3 @@
-<script>console.log('step0')</script>
-
 <?php
 $errMsg = "";
 
@@ -38,4 +36,3 @@ try{
 }
 
 ?>
-<script>console.log('step1')</script>
