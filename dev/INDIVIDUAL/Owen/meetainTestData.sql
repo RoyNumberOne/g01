@@ -155,6 +155,11 @@ select count(*) from tour_report tr join tour t on tr.tour_report_tour = t.tour_
 SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理" ;
 -- 揪團檢舉 - 已處理已通過 - 後台
 SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由", tour_report_banLong "檢舉時長", ban_tour_date "解封時間" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no join member mem on tour_report_mem = mem.mem_no where tr.tour_report_situation = "已處理已通過" ;
+
+update tour_report set  tour_report_situation = '已處理已通過' , tour_report_banLong = '5 minute' where tour_report_no = '1003';
+
+update member set  ban_tour = 1 ,ban_tour_date = date_add(current_timestamp, interval 5 minute) where mem_no = 10012;
+update member set  ban_tour = 0 , ban_tour_date = null where mem_no = 10013;
 -- 揪團檢舉 - 已處理未通過 - 後台
 SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由",tour_report_situation "檢舉狀態" from tour_report tr join tour t on tr.tour_no = fp.forum_post_no where fr.forum_report_situation = "已處理未通過" ;
 

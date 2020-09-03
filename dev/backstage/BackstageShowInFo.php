@@ -103,12 +103,12 @@
 try	{
     require_once('connectMeetain.php');
 	// $status = '未處理';
-		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "未處理";';
+		$sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '未處理';";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">揪團編號</th><th width="300px">揪團標題</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
+		<tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">揪團編號</th><th width="300px">揪團標題</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th><th width="80px"></th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
@@ -116,19 +116,20 @@ try	{
              <td class='pink'><?=$prodRow["檢舉編號"]?></td>
              <td><?=$prodRow["揪團編號"]?></td>
              <td><?=$prodRow["揪團標題"]?></td>
-             <td><?=$prodRow["被檢舉人"]?></td>
+             <td><input type="text" name="REVIEWtrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
              <td><?=$prodRow["檢舉時間"]?></td>
              <td><?=$prodRow["檢舉緣由"]?></td>
-             <td>   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                    <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                    <select name="BanLong">
+             <td>   <label><input type="radio" value="已處理未通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>">未通過</label><br>
+                    <label><input type="radio" value="已處理已通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
+                    <select name="BANLONGtr<?=$prodRow["檢舉編號"]?>">
                         <option value="5">5分鐘</option>
-                        <option value="3" selected="selected">3天</option>
-                        <option value="7">7天</option>
-                        <option value="14">14天</option>
-                        <option value="28">28天</option>
+                        <option value="4320" selected="selected">3天</option>
+                        <option value="10080">7天</option>
+                        <option value="20160"">14天</option>
+                        <option value="40320">28天</option>
                     </select>
             </td>
+			<td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" disabled class="sendtourreport"></label></td>
             </tr>
 
 			<?php } ?>
@@ -137,12 +138,75 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
+
+<script>
+// 有選結果才能打開送出button
+$('input[name^="REVIEWtr"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+	// 揪團檢舉 － 結果送出
+	$(Document).ready(function(){
+		$(".sendtourreport").click(function(){
+
+			var temp = $(this).attr('name');
+			let REVIEWtrIfPass = $("input[name='REVIEWtr"+temp+"']:checked").val();
+			let REVIEWtrBanLong = $("select[name='BANLONGtr"+temp+"']").val();
+			let REVIEWtrMember = $("input[name='REVIEWtrMember"+temp+"']").val();
+			
+			console.log(temp);
+			console.log(REVIEWtrIfPass);
+			console.log(REVIEWtrBanLong);
+			console.log(REVIEWtrMember);
+
+			// if (REVIEWtrBanLong)
+
+			if ( REVIEWtrIfPass == '已處理未通過'){
+				console.log ('已處理未通過')
+
+				$.ajax({
+					url: './BackstageREVIEWtrUnPass.php',
+					data: {	tour_report_no: temp,
+							REVIEWtrIfPass: REVIEWtrIfPass ,
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+			}	else	{
+				console.log ('已處理已通過')
+
+				$.ajax({
+					url: './BackstageREVIEWtrPass.php',
+					data: {	tour_report_no: temp,
+							REVIEWtrIfPass: REVIEWtrIfPass ,
+							REVIEWtrBanLong: REVIEWtrBanLong,
+							REVIEWtrMember: REVIEWtrMember,
+						},
+					type: 'POST',   
+					success(){
+						console.log('ya')
+					} ,
+				});
+
+			}
+			$(this).prop('disabled', 'disabled');
+			$(this).parent().parent().prev().children().prop("disabled","disabled");
+			$(this).parent().parent().prev().children().children().prop("disabled","disabled");
+		})
+	})
+// </script>
+
+
 <h3>揪團檢舉 - 已處理已通過</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由", tour_report_banLong "檢舉時長", ban_tour_date "解封時間" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no join member mem on tour_report_mem = mem.mem_no where tr.tour_report_situation = "已處理已通過" ;';
+		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由", tour_report_banLong "檢舉時長", ban_tour_date "解封時間" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no join member mem on tour_report_mem = mem.mem_no where tr.tour_report_situation = "已處理已通過" order by tour_report_build ; ';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -171,7 +235,7 @@ try	{
 <?php 
 try	{
     require_once('connectMeetain.php');
-		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由",tour_report_situation "檢舉狀態" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "已處理未通過" ;';
+		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由",tour_report_situation "檢舉狀態" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = "已處理未通過" order by tour_report_build ;';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -585,26 +649,38 @@ try	{
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT product_no "商品編號" , degree_category "難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 1; ';
+		$sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 1; ";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th></tr>
+		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th><th width="80px">修改</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["商品編號"]?></td>
+             <td class='pink'><?=$prodRow["商品編號"]?>
+				<input type="checkbox" name="productAUTH<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品狀態"]?>'>
+			</td>
              <td><?=$prodRow["難度等級"]?></td>
              <td><?=$prodRow["商品分類"]?></td>
-             <td><?=$prodRow["商品名稱"]?></td>
-             <td><?=$prodRow["商品價格"]?></td>
-             <td><?=$prodRow["商品說明"]?></td>
+             <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
+             <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
+             <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
              <td><?=$prodRow["商品圖片一"]?></td>
              <td><?=$prodRow["商品圖片二"]?></td>
              <td><?=$prodRow["商品圖片三"]?></td>
+			<td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
+
+			<script>
+				function checkProductAuth(){
+					if ( <?=$prodRow["商品狀態"]?> == 1 ){
+						$("input[name='productAUTH<?=$prodRow["商品編號"]?>'").prop("checked","checked");
+					}
+				}
+					checkProductAuth();
+			</script>
 
 			<?php } ?>
 		</table>
@@ -612,31 +688,86 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
+
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
+</script>
+
+<script>
+	// 商品修改 － 上架中
+	$(Document).ready(function(){
+		$(".editproduct").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				var temp = $(this).attr('name');
+				let EDITproduct_name = $("input[name='productNAME"+temp+"']").val();
+				let EDITproduct_price = $("input[name='productPRICE"+temp+"']").val();
+				let EDITproduct_description = $("input[name='productDESC"+temp+"']").val();
+				let EDITproduct_situation = $("input[name='productAUTH"+temp+"']").val();
+				
+				// console.log(EDITproduct_situation);
+				$.ajax({
+					url: './BackstageEditProduct.php',
+					data: {	product_no: temp,
+							EDITproduct_name: EDITproduct_name ,
+							EDITproduct_price:EDITproduct_price,
+							EDITproduct_description:EDITproduct_description,
+							EDITproduct_situation:EDITproduct_situation
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	})
+</script>
+
 <h3>商品 - 未上架</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT product_no "商品編號" , degree_category "難度等級" , product_category "商品分類" , product_name "商品名稱" , product_price "商品價格" , product_description "商品說明" , product_image1 "商品圖片一" , product_image2 "商品圖片二" , product_image3 "商品圖片三" from product where product_situation = 0; ';
+		$sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態'  from product where product_situation = 0; ";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th></tr>
+		<tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th><th width="80px">修改</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["商品編號"]?></td>
+             <td class='pink'><?=$prodRow["商品編號"]?>
+				<input type="checkbox" name="productAUTH<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品狀態"]?>'>
+			</td>
              <td><?=$prodRow["難度等級"]?></td>
              <td><?=$prodRow["商品分類"]?></td>
-             <td><?=$prodRow["商品名稱"]?></td>
-             <td><?=$prodRow["商品價格"]?></td>
-             <td><?=$prodRow["商品說明"]?></td>
+             <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
+             <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
+             <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
              <td><?=$prodRow["商品圖片一"]?></td>
              <td><?=$prodRow["商品圖片二"]?></td>
              <td><?=$prodRow["商品圖片三"]?></td>
+			 <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
+
+		<script>
+			function checkProductAuth(){
+				if ( <?=$prodRow["商品狀態"]?> == 1 ){
+					$("input[name='productAUTH<?=$prodRow["商品編號"]?>'").prop("checked","checked");
+				}
+			}
+				checkProductAuth();
+		</script>
 
 			<?php } ?>
 		</table>
@@ -644,6 +775,48 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
+
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
+</script>
+
+<!-- <script>
+	// 商品修改 － 未上架
+	$(Document).ready(function(){
+		$(".editproduct").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				var temp = $(this).attr('name');
+				let EDITproduct_name = $("input[name='productNAME"+temp+"']").val();
+				let EDITproduct_price = $("input[name='productPRICE"+temp+"']").val();
+				let EDITproduct_description = $("input[name='productDESC"+temp+"']").val();
+				let EDITproduct_situation = $("input[name='productAUTH"+temp+"']").val();
+				
+				console.log(EDITproduct_situation);
+				$.ajax({
+					url: './BackstageEditProduct.php',
+					data: {	product_no: temp,
+							EDITproduct_name: EDITproduct_name ,
+							EDITproduct_price:EDITproduct_price,
+							EDITproduct_description:EDITproduct_description,
+							EDITproduct_situation:EDITproduct_situation
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	})
+</script> -->
 
 <h3>商品 - 新增</h3>
 <form id="newProduct" method="post" action="backstageAddProduct.php" >
@@ -697,7 +870,7 @@ try	{
 		?>
 			<tr>
 				<td class='pink'><?=$prodRow["管理員編號"]?>
-					<input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>' />
+					<input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>'>
 				</td>
 				<td><input type="text" name="adminNAME<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["姓名"]?>'></td>
 				<td><input type="text" name="adminID<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["暱稱"]?>'></td>
@@ -708,8 +881,8 @@ try	{
 
 			<script>
 				function checkAdminAuth(){
-					console.log(<?=$prodRow["管理員編號"]?>);
-					console.log(<?=$prodRow["管理員權限"]?>);
+					// console.log(<?=$prodRow["管理員編號"]?>);
+					// console.log(<?=$prodRow["管理員權限"]?>);
 					if ( <?=$prodRow["管理員權限"]?> == 1 ){
 						$("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
 
@@ -740,13 +913,13 @@ $('input[type="checkbox"]').change(function(){
 				$(this).prop('value', '儲存');
 				$(this).parent().parent().siblings().children().removeAttr("disabled");
 			}	else	{
-				let temp = $(this).attr('name');
+				var temp = $(this).attr('name');
 				let EDITadmin_name = $("input[name='adminNAME"+temp+"']").val();
 				let EDITadmin_id = $("input[name='adminID"+temp+"']").val();
 				let EDITadmin_mail = $("input[name='adminMAIL"+temp+"']").val();
 				let EDITadmin_authority = $("input[name='adminAUTH"+temp+"']").val();
 				
-				console.log(EDITadmin_authority);
+				// console.log(EDITadmin_authority);
 				$.ajax({
 					url: './BackstageEditAdministrator.php',
 					data: {	admin_no: temp,
