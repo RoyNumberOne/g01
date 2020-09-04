@@ -143,10 +143,10 @@ div{
     }
 }
 #ccc2{
-    display: flex;
     width: 100%;
+    width: 300px;
     margin: 20px auto;
-    transform:translateX(40%);
+    text-align: center;
     #addadmin{
         input{
             outline: none;
@@ -157,22 +157,22 @@ div{
         #admin_psw1{
             position: relative;
             img{position: absolute;
-                top: 8px;
-                right: 10px;
+                top: 5px;
+                right: 48px;
                 opacity: 0.7;
+                padding-left: 10px;
             }
             #pswCheck {
-                opacity: 0;
+                display: none;
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                top: 11px;
+                right: 0px;
             }
         }
-    }
-    #btnB22{
-        display: flex;
-        align-items: flex-end;
-        margin-left: 50px;
+
+        #btnB22{
+            margin-top: 50px;
+            margin-left: 50px;
         .btnB2{ 
             margin-left: 10px;
             position: relative;
@@ -225,6 +225,7 @@ div{
             left: 0%;
         } 
         }
+    }
     }
 
 }

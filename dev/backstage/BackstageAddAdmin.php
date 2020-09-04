@@ -41,15 +41,13 @@
 						<div class="itembox">姓名：<input id="admin_name" name="admin_name" type="text"></div>
 						<div class="itembox">帳號：<input id="admin_acc" name="admin_acc" type="text"></div>
 						<div class="itembox" id="admin_psw1">密碼：<input id="admin_psw" name="admin_psw" type="password">
-							<img src="../images/icons/icon_Invisible.svg" alt="" width=20 height=20 id="eye">
 							<input class="itembox" type="checkbox" id="pswCheck">
-							<!-- <label for="pswCheck">顯示密碼</label> -->
+							<label for="pswCheck"><img src="../images/icons/icon_Invisible.svg" alt="" width=30 height=30 id="eye"></label>
 						</div>
 						<div class="itembox">信箱：<input id="admin_mail" name="admin_mail" type="text"></div>
+						<div id="btnB22"><button type="button" class="btnB2" id="newAdministratorBtnSend"><p>送出</p><div class="bg2"></div></button></div>
 					</div>	
 				</form>
-				<div id="btnB22"><button type="button" class="btnB2" id="newAdministratorBtnSend"><p>送出</p><div class="bg2"></div></button></div>
-                
             </div>
         </div>
     </section>
