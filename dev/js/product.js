@@ -81,6 +81,9 @@ $(document).ready(function(){
         $('.p_per').css('display', 'flex'); 
         $('.category_list').removeClass('close');
     });
+    $('.category_list').click(function() {
+        $('.items_block').css('display', 'block'); 
+    });
 });
 
 // function groupByCategory(products){
