@@ -70,12 +70,12 @@
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form action="./Member_v2.html" class="form" id="form1">
+				<form action="./Member_v2.html" class="form" id="signInForm">
 					<h2 class="form__title">會員登入</h2>
 					<input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
                     <a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
-					<button type="submit" class="btnB_L_blue submitBtn_log" onClick="submit()"><p>登入</p><div class="bg"></div></button>
+					<button type="submit" class="btnB_L_blue submitBtn_log"><p>登入</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -94,9 +94,9 @@
                         <label for="mem_mail">*電子信箱</label><br>
                         <input type="email" name="mem_mail" id="mem_mail" placeholder="不可為空" required/><br>
                         <label for="mem_acc">*帳號</label><br>
-                        <input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
+                        <input type="text" name="mem_acc" id="mem_acc_app" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
                         <label for="mem_psw">*密碼</label><br>
-                        <input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
+                        <input type="password" name="mem_psw" id="mem_psw_app" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
                         <label for="mem_psw">*確認密碼</label><br>
                         <input type="password" name="mem_psw" placeholder="確認密碼"><br>
                     </div>
@@ -214,6 +214,36 @@
 				$('.container--signin').css('display','block');
 			});
 		});
+
+//=====================使用Ajax 回server端,取回登入者姓名, 放到頁面上  
+        let member;
+
+        function $id(id){
+            return document.getElementById(id);
+        }
+
+        function sendForm(){
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                member = JSON.parse(xhr.responseText);
+                if(member.mem_acc === undefined){
+                    alert("帳密錯誤");
+                }else{ //登入成功
+                    $("#signInForm").submit();
+                }
+            }else{
+            alert(xhr.status);
+            }
+        }
+
+  xhr.open("post", "login_v2.php", true);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  let data_info = `mem_acc=${$id("mem_acc").value}&mem_psw=${$id("mem_psw").value}`;
+  xhr.send(data_info);
+  
+}
 	</script>
     <script src="./js/header.js" ></script>
 </body>
