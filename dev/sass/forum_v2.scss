@@ -294,12 +294,12 @@
                     .forum_post_image{
                         // border: 1px solid lawngreen;
                         width: 600px;
-                        height: 282px; //圖片先給固定高
+                        height: 260px; //圖片先給固定高
                         max-width: 100%;
                         overflow: hidden;
                         img{
                             width: 100%;
-                            height: 100%;
+                            // height: 100%;
                             overflow: hidden;
                         }
                     }
@@ -327,15 +327,28 @@
                                     border-radius: 50%;
                                 }
                             }
+
+                            .users-hand{
+                                .icon img{
+                                    width: 20px;
+                                    max-width: 100%;
+                                }
+                                .bn img{
+                                width: 70px;
+                                }
+                                .name{p{font-size: 14px;}}
+                            }
                         }
                         .forum_groups{
                             // border: 1px solid rgb(55, 223, 209);
                             margin: auto;
                             .heart{
                                 display: flex;
+                                .heart-icon img{width: 25px; margin: 0 2px;}
                             }
                             .message{
                                 display: flex;
+                                .message-icon img{width: 25px; margin: 0 2px;}
                             }
                         }
                         .post_situation{
@@ -344,9 +357,12 @@
                             text-align: right;
                             .post_time{
                                 display: flex;
+                                justify-content: flex-end;
+                                p{font-size: 14px;}
                             }
                             .remessage_time{
                                 display: flex;
+                                p{font-size: 14px;}
                             }
                         }
                     }

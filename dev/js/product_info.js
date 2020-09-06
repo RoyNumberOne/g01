@@ -6,6 +6,7 @@ new Vue({
         currentImageIndex: 0,
         addCount: 0,
         productCount: 1,
+        productList:'',
     },
     mounted(){
         axios.get('./json/Initial_product.json')
@@ -19,7 +20,14 @@ new Vue({
             // .then(res => {console.log(res.data)})
             .catch(error => {console.log(error)});
         
-
+        if(localStorage.getItem('productList')){
+            try{
+                this.cat = JSON.parse(`[${localStorage.getItem('productList')}]`);
+                console.log(JSON.parse(`[${this.productList}]`));
+            }catch(e){
+                localStorage.removeItem('productList');
+            }
+        };
     },
     computed: {
         productsCount() {
@@ -73,6 +81,29 @@ new Vue({
             this.currentIndex = this.preIndex;
             this.currentImageIndex = 0;
         },
+        addToCart(){
+ 
+            if(localStorage.getItem('productList')){
+                parsed = [];
+                parsed.push(localStorage.getItem('productList'));
+
+            }else{
+                parsed = [];
+            }
+            parsed.push(JSON.stringify(this.currentProduct));
+            localStorage.setItem('productList',parsed);
+            console.log(JSON.parse(`[${parsed}]`));
+        },
+        productCountDecrease(){
+            if(this.productCount>1){
+                this.productCount -= 1;
+            }
+        },
+        productCountPlus(){
+            if(this.productCount<99){
+                this.productCount += 1;
+            }
+        }
     },
 });
 
@@ -108,4 +139,19 @@ $(document).ready(function(){
         $(this).addClass("picked_size");
         $(this).siblings().removeClass("picked_size");
     });
+
+    //copy discount_num
+
+        $(".copy_num").click(function() {
+          var name = $(this).attr('name');
+          var el = document.getElementById(name);
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          document.execCommand('copy');
+          alert("已複製優惠券代碼");
+          return false;
+        });
 });

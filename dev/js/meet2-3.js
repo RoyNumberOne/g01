@@ -142,7 +142,7 @@ $(function() {
     $('.mg_confirm').click(function() {
         $('.mg_reporting').css('display', 'none');
         $('.mg_be_reported').css('display', 'block');
-        // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
+        $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
     });
 });
 

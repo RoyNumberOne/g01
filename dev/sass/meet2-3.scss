@@ -85,6 +85,32 @@ div.wrap{
                 .report{
                     .report_bt{
                         cursor: pointer;
+                        position: relative;
+                        .report_hover{
+                            width: 40px;
+                            background-color: $mt_grey1;
+                            position: absolute;
+                            display: none;
+                            top: -30px;
+                            right: 0;
+                            text-align: center;
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                bottom: -10px;
+                                right: 5px;
+                                width: 0;
+                                height: 0;
+                                border-style: solid;
+                                border-width: 10px 7px 0 3px;
+                                border-color: $mt_grey1 transparent transparent transparent;
+                            }
+                        }
+                        &:hover{
+                            .report_hover{
+                                display: block;
+                            }
+                        }
                     }   
                 }
             }
@@ -370,15 +396,36 @@ div.wrap{
                         top: 0;
                         right: 10px;
                         cursor: pointer;
+                        .mg_report_pic{
+                            transform: scale(.7);
+                        }
                         .mg_text{
                             display: none;
+                            width: 40px;
+                            text-align: center;
+                            border-radius: 5px;
+                            background-color: $mt_grey1;
                         }
                         &:hover{
-                            .mg_dots{
-                                display: none;
-                            }
+                            // .mg_report_pic{
+                            //     display: none;
+                            // }
                             .mg_text{
+                                position: absolute;
                                 display: block;
+                                top: -30px;
+                                right: 0;
+                                &::after{
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -10px;
+                                    right: 5px;
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 10px 7px 0 3px;
+                                    border-color: $mt_grey1 transparent transparent transparent;
+                                }
                             }
                         }
                     }
@@ -421,6 +468,7 @@ div.wrap{
             }
         }
         .left{
+            display: none;
             cursor: pointer;
             padding: 10px;
             border-radius: 5px;
@@ -436,6 +484,7 @@ div.wrap{
         }
 
         .right{
+            display: none;
             cursor: pointer;
             padding: 10px;
             border-radius: 5px;
@@ -529,8 +578,8 @@ div.wrap{
             height: 20px;
             line-height: 20px;
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 20px;
             cursor: pointer;
             // border: 1px solid #555;
             border-radius: 50%;
@@ -548,9 +597,6 @@ div.wrap{
                 margin: 20px auto;
             }
             >div{
-                margin: 5px 0;
-            }
-            >ul li{
                 margin: 5px 0;
             }
             >textarea{
@@ -607,8 +653,8 @@ div.wrap{
             height: 20px;
             line-height: 20px;
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 20px;
             cursor: pointer;
             // border: 1px solid #555;
             border-radius: 50%;
@@ -626,9 +672,6 @@ div.wrap{
                 margin: 20px auto;
             }
             >div{
-                margin: 5px 0;
-            }
-            >ul li{
                 margin: 5px 0;
             }
             >textarea{
@@ -685,8 +728,8 @@ div.wrap{
             height: 20px;
             line-height: 20px;
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 20px;
             cursor: pointer;
             border-radius: 50%;
             &:hover{
@@ -746,7 +789,7 @@ div.wrap{
                     }         
                 }
             }
-        }  
+        }
     }
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
@@ -802,6 +845,33 @@ div.wrap{
                 }
             }
         }
+        .message{
+            .message_board_block{
+                .sent_message{
+                    .message_text{
+                        .mg_report_bt{
+                            .mg_text{
+                                position: absolute;
+                                display: block;
+                                top: -30px;
+                                right: 0;
+                                &::after{
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -10px;
+                                    right: 5px;
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 10px 7px 0 3px;
+                                    border-color: $mt_grey1 transparent transparent transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }  
     }
 }
 

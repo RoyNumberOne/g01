@@ -72,8 +72,8 @@
                 </div>
 				<form action="./Member_v2.html" class="form" id="form1">
 					<h2 class="form__title">會員登入</h2>
-					<input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
-					<input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
+					<input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
+					<input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
                     <a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
 					<button type="submit" class="btnB_L_blue submitBtn_log" onClick="submit()"><p>登入</p><div class="bg"></div></button>
 				</form>
@@ -84,24 +84,24 @@
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form action="./Member_v2.html" class="form" id="form2">
+				<form action="#" class="form" id="form2">
                     <h2 class="form__title">註冊帳號</h2>
                     <div class="form__detail">
-                        <label for="mem_id">暱稱</label><br>
-                        <input type="text" name="mem_id" id="mem_id" placeholder="暱稱" /><br>
-                        <label for="mem_name">姓名</label><br>
-                        <input type="text" name="mem_name" id="mem_name" placeholder="姓名" /><br>
-                        <label for="mem_mail">電子信箱</label><br>
-                        <input type="text" name="mem_mail" id="mem_mail" placeholder="電子信箱" /><br>
-                        <label for="mem_acc">帳號</label><br>
-                        <input type="text" name="mem_acc" id="mem_acc" placeholder="帳號" /><br>
-                        <label for="mem_psw">密碼</label><br>
-                        <input type="password" name="mem_psw" id="mem_psw" placeholder="密碼" /><br>
-                        <label for="mem_psw">確認密碼</label><br>
+                        <label for="mem_id">*暱稱</label><br>
+                        <input type="text" name="mem_id" id="mem_id" placeholder="限12字以內" maxlength="12" required/><br>
+                        <label for="mem_name">*姓名</label><br>
+                        <input type="text" name="mem_name" id="mem_name" placeholder="不可為空" required/><br>
+                        <label for="mem_mail">*電子信箱</label><br>
+                        <input type="email" name="mem_mail" id="mem_mail" placeholder="不可為空" required/><br>
+                        <label for="mem_acc">*帳號</label><br>
+                        <input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
+                        <label for="mem_psw">*密碼</label><br>
+                        <input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
+                        <label for="mem_psw">*確認密碼</label><br>
                         <input type="password" name="mem_psw" placeholder="確認密碼"><br>
                     </div>
                     <a href="#" class="clickMe_log">已有帳號?點我登入</a>
-					<button type="submit" class="btnB_L_blue submitBtn_app" onClick="submit()"><p>註冊</p><div class="bg"></div></button>
+					<button type="submit" class="btnB_L_blue submitBtn_app"><p>註冊</p><div class="bg"></div></button>
 				</form>
 			</div>
 
