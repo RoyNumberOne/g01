@@ -15,22 +15,22 @@ try	{
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["訂單編號"]?></td>
-             <td><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["收件人"]?></td>
-             <td><?=$prodRow["聯絡電話"]?></td>
-             <td><?=$prodRow["訂單狀態"]?></td>
-             <td><?=$prodRow["運送方式"]?></td>
-             <td><?=$prodRow["收件地址"]?></td>
+             <td class='pink'><?=$prodRow['訂單編號']?></td>
+             <td><?=$prodRow['會員編號']?></td>
+             <td><?=$prodRow['收件人']?></td>
+             <td><?=$prodRow['聯絡電話']?></td>
+             <td><?=$prodRow['訂單狀態']?></td>
+             <td><?=$prodRow['運送方式']?></td>
+             <td><?=$prodRow['收件地址']?></td>
             </tr>
 			 <tr>
              <td></td>
-             <td><?=$prodRow["付款方式"]?></td>
-             <td><?=$prodRow["原始金額"]?></td>
-             <td><?=$prodRow["折扣"]?></td>
-             <td><?=$prodRow["運費"]?></td>
-             <td><?=$prodRow["付款金額"]?></td>
-             <td><?=$prodRow["訂單成立時間"]?></td>
+             <td><?=$prodRow['付款方式']?></td>
+             <td><?=$prodRow['原始金額']?></td>
+             <td><?=$prodRow['折扣']?></td>
+             <td><?=$prodRow['運費']?></td>
+             <td><?=$prodRow['付款金額']?></td>
+             <td><?=$prodRow['訂單成立時間']?></td>
             </tr>
 
 			<?php } ?>
@@ -43,7 +43,7 @@ try	{
 		?>
 
 		<table>
-		<tr class='cyan'><th width="110px">商品預覽</th><th width="110px">商品編號</th><th width="200px">商品名稱</th><th width="80px">難度等級</th><th width=80px">購買數量</th><th width=80px">商品單價</th></tr>
+		<tr class='cyan'><th width='110px'>商品預覽</th><th width='110px'>商品編號</th><th width='200px'>商品名稱</th><th width='80px'>難度等級</th><th width='80px'>購買數量</th><th width='80px'>商品單價</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>

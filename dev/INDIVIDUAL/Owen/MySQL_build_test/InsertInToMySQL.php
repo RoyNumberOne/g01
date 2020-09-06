@@ -177,7 +177,7 @@ try	{
 			echo "連線成功<br>";
             // :::::::::: 5類別*4難度 + 3備用::::::::::
             for($a=0 ; $a<23 ; $a++){
-            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description,product_situation) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."','".$data[$a]['product_situation']."');";
+            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description,product_image1,product_image2,product_image3,product_situation) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."',concat('../images/product_image/','".$data[$a]['product_name']."','0.png'),concat('../images/product_image/','".$data[$a]['product_name']."','1.png'),concat('../images/product_image/','".$data[$a]['product_name']."','2.png'),'".$data[$a]['product_situation']."');";
             echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
@@ -286,7 +286,7 @@ try	{
 		if($pdo != false){
 			echo "連線成功<br>";
             // :::::::::: 3筆訂單::::::::::
-            for($a=0 ; $a<3 ; $a++){
+            for($a=0 ; $a<4 ; $a++){
             $sql = "insert into orders (member_no,order_total,order_logistics_fee,order_discount,order_logistics_deliver,order_logistics_recipient,order_logistics_phone,order_logistics_address,order_cashflow) value  ('".$data[$a]['member_no']."','".$data[$a]['order_total']."','".$data[$a]['order_logistics_fee']."','".$data[$a]['order_discount']."','".$data[$a]['order_logistics_deliver']."','".$data[$a]['order_logistics_recipient']."','".$data[$a]['order_logistics_phone']."','".$data[$a]['order_logistics_address']."','".$data[$a]['order_cashflow']."');";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
@@ -312,7 +312,7 @@ try	{
 		if($pdo != false){
 			echo "連線成功<br>";
             // :::::::::: 3筆訂單的詳細::::::::::
-            for($a=0 ; $a<9 ; $a++){
+            for($a=0 ; $a<12 ; $a++){
             $sql = "insert into order_list (order_no,product_no,product_number,product_price) value  ('".$data[$a]['order_no']."','".$data[$a]['product_no']."','".$data[$a]['product_number']."','".$data[$a]['product_price']."');";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
@@ -363,7 +363,7 @@ try	{
                 echo "連線成功<br>";
                 // :::::::::: 實名制審核 ::::::::::
                 for($a=0 ; $a<11 ; $a++){
-                $sql = "insert into member_realname (mem_idno,mem_no,mem_realname,mem_idno_image) value  ('".$data[$a]['mem_idno']."','".$data[$a]['mem_no']."','".$data[$a]['mem_realname']."','".$data[$a]['mem_idno_image']."');";
+                $sql = "insert into member_realname (mem_idno,mem_no,mem_realname,mem_idno_image) value  ('".$data[$a]['mem_idno']."','".$data[$a]['mem_no']."','".$data[$a]['mem_realname']."',concat('../images/realname_image/','".$data[$a]['mem_idno']."','.jpg'));";
                echo $sql."<br>";
                 $affectedRow = $pdo -> exec($sql);
                 }
@@ -385,7 +385,7 @@ try	{
                 echo "連線成功<br>";
                 // :::::::::: 嚮導審核 ::::::::::
                 for($a=0 ; $a<12 ; $a++){
-                $sql = "insert into member_guide (guide_no,mem_no,guide_period_start,guide_period_end,guide_image) value  ('".$data[$a]['guide_no']."','".$data[$a]['mem_no']."','".$data[$a]['guide_period_start']."',date_add('".$data[$a]['guide_period_start']."', interval 4 year),'".$data[$a]['guide_image']."');";
+                $sql = "insert into member_guide (guide_no,mem_no,guide_period_start,guide_period_end,guide_image) value  ('".$data[$a]['guide_no']."','".$data[$a]['mem_no']."','".$data[$a]['guide_period_start']."',date_add('".$data[$a]['guide_period_start']."', interval 4 year),concat('../images/guide_image/','".$data[$a]['guide_no']."','.jpg'));";
                 echo $sql."<br>";
                 $affectedRow = $pdo -> exec($sql);
                 }
