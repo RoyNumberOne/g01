@@ -65,6 +65,7 @@ a {
 // ===============var===============
 $mt_black: #222222;         //最黑的顏色，請替代black，不要用在文字上
 $mt_fontdark: #555555;      //深色字，淺色背景使用
+$mt_fontspan: #999999;      //span使用字體色彩
 $mt_fontlight: #ffffff;     //淺色字，深色背景使用
 $mt_grey1: #F3F3F3;         //
 $mt_grey2: #EAF1F4;         //取消按鈕,各種框的底色(ex:input,textarea,有框起來會員.....) 
@@ -131,6 +132,7 @@ span {
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.4px;
+    color: $mt_fontspan;
     @media screen and (max-width: 1439px){
         font-size: 12px;
     }

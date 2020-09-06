@@ -417,6 +417,20 @@ $textColor1: $mt_fontdark;
 
 }
 
+@media screen and (max-width: 991px){
+    #meet2-0{
+        .serchMeet{
+            .searchFormMap{
+                form.serch{
+                    align-items: center;
+                    width: auto;
+                }
+            }
+            
+        }
+        
+    }
+}
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
          // max-width: 960px;
@@ -462,7 +476,6 @@ $textColor1: $mt_fontdark;
                             margin-bottom: -20%;
                         }
                     }
-                    
                 }
                 .top3{
                     .hot_meet_top3{
@@ -487,8 +500,15 @@ $textColor1: $mt_fontdark;
 @media screen and (min-width: 576px) and (max-width: 767px){
   // 請用540
         // max-width: 540px;
+
+    html,body{
+        overflow-x: hidden !important;
+        width: 100%;
+    }
+    
     #meet2-0{
         max-width: 540px; 
+        width: 100%;
         .serchMeet{
             .searchFormMap{
                 flex-direction: column;
@@ -503,13 +523,25 @@ $textColor1: $mt_fontdark;
                 >div{
                     .hot_meet_top3{
                         width: 500px;
+                        margin-bottom: 50px;
                         .meet_mountain_img{
                             margin-bottom: -25%;
                         }
                         .meet_content{
                             flex-wrap: wrap;
                             justify-content: flex-end;
+                            border: 1px solid #0f0;
+                            padding: 0;
+                            *{
+                                // border: 1px solid #000;
+                            }
+                            .bg_cloud{
+                                width: 130%;
+                                bottom: -30px;
+                                left: -30px;
+                            }
                             .member_styleA{
+                                margin-bottom: 20px;
                                 width: 211px;
                                 display: inline-block;
                                 margin-right: 50px;
@@ -524,6 +556,8 @@ $textColor1: $mt_fontdark;
                             }
                             .title_info_text{
                                 width: 330px;
+                                flex-grow: 0.5;
+                                margin-right: 10px;
                                 .meetContent{
                                     @include towLine;
                                 }
@@ -544,6 +578,9 @@ $textColor1: $mt_fontdark;
         }
         .newMeet{
             .changeTypeBtn{
+                .typeCard{
+                    border-radius: 8px;
+                }
                 .typeList{
                     display: none;
                 }
@@ -656,6 +693,24 @@ $textColor1: $mt_fontdark;
                     }
                     
                 }
+            }
+        }
+    }
+}
+@media screen and (max-width: 390px){
+    #meet2-0{
+        .serchMeet{
+            .searchFormMap{
+                .serch{
+                    >div{
+                        flex-wrap: wrap;
+                        >div{
+                            margin: auto;
+                        }
+                    }
+                   
+                }
+                
             }
         }
     }
