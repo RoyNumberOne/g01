@@ -92,7 +92,8 @@ desc member_keep;
 select * from member_keep;
 
 CREATE TABLE IF NOT EXISTS member_realname (								-- :::::實名制認證::::: 
-    `mem_idno` 				char(10)		primary key not null,			-- 身分證字號
+    `member_realname_no` 	int				primary key auto_increment,		-- 實名認證案件編號
+    `mem_idno` 				char(10)		unique not null,				-- 身分證字號
     `mem_no` 				int				not null,						-- 會員編號
     `mem_realname` 			varchar(18)		not null,						-- 真實姓名
     `mem_idno_image` 		varchar(200)	not null,						-- 證件照片
@@ -101,12 +102,14 @@ CREATE TABLE IF NOT EXISTS member_realname (								-- :::::實名制認證:::::
     `mem_realname_situation`	varchar(30)		not null default'未審核',	-- 審核狀態 未審核/已審核未通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
+alter table member_realname auto_increment = 4001;
 desc member_realname;
 select * from member_realname;
 
 
 CREATE TABLE IF NOT EXISTS member_guide (									-- :::::嚮導認證::::: 
-    `guide_no` 				varchar(25)		primary key not null,			-- 嚮導證編號
+    `member_guide_no` 		int				primary key auto_increment,		-- 嚮導案件編號
+    `guide_no` 				varchar(25)		unique not null,				-- 嚮導證編號
     `mem_no` 				int				not null,						-- 會員編號
     `guide_period_start` 	date			not null,						-- 嚮導證發證日期
     `guide_period_end` 		date			not null,						-- 嚮導證有效日期
@@ -116,6 +119,7 @@ CREATE TABLE IF NOT EXISTS member_guide (									-- :::::嚮導認證:::::
     `mem_guide_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核未通過/已審核已通過
     foreign key (`mem_no`) references member(`mem_no`) on delete cascade on update cascade
 ) ;
+alter table member_guide auto_increment = 5001;
 desc member_guide;
 select * from member_guide;
 
@@ -138,9 +142,9 @@ CREATE TABLE IF NOT EXISTS product (											-- :::::商城商品:::::
     `product_name` 				Varchar(60)		not null,						-- 商品名稱
     `product_price` 			Int				not null,						-- 商品價格
     `product_description` 		Varchar(600)	not null,						-- 商品說明		
-    `product_image1` 			varchar(200)	not null default'default',		-- 商品圖1
-    `product_image2` 			varchar(200)	not null default'default',		-- 商品圖2
-    `product_image3` 			varchar(200)	not null default'default',		-- 商品圖3
+    `product_image1` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖1
+    `product_image2` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖2
+    `product_image3` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖3
     `product_situation` 		Boolean			not null default'1',			-- 商品狀態  1上架/0下架
     foreign key (`degree_category`) references degree(`degree_category`) on delete cascade on update cascade
 );

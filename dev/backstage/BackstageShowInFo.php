@@ -206,7 +206,7 @@ $('input[name^="REVIEWtr"]').change(function(){
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由", tour_report_banLong "檢舉時長", ban_tour_date "解封時間" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no join member mem on tour_report_mem = mem.mem_no where tr.tour_report_situation = "已處理已通過" order by tour_report_build ; ';
+		$sql = 'SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_title "揪團標題" , tour_hoster "被檢舉人" , tour_report_build "檢舉時間", tour_report_reason "檢舉緣由", tour_report_banLong "檢舉時長", mem.ban_tour_date "解封時間" from tour_report tr join tour t on tr.tour_report_tour = t.tour_no join member mem on tour_hoster = mem.mem_no where tr.tour_report_situation = "已處理已通過" order by tour_report_build ; ';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -370,7 +370,7 @@ $('input[name^="REVIEWfr"]').change(function(){
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由", forum_report_banLong "檢舉時長", ban_forum_date "解封時間" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_report_mem = mem.mem_no where fr.forum_report_situation = "已處理已通過" order by forum_report_build ;';
+		$sql = 'SELECT forum_report_no "檢舉編號" , forum_report_post "討論編號" , forum_post_title "討論標題" , forum_post_poster "被檢舉人" , forum_report_build "檢舉時間", forum_report_reason "檢舉緣由", forum_report_banLong "檢舉時長", mem.ban_forum_date "解封時間" from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_post_poster = mem.mem_no where fr.forum_report_situation = "已處理已通過" order by forum_report_build ;';
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -595,28 +595,31 @@ try	{
 	}
 ?>
 
-<h3>實名制審核 - 未處理</h3>
+<h3>實名制審核 - 未審核</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間"  FROM member_realname where mem_realname_situation = "未審核" order by "申請時間" ;';
+		$sql = "SELECT member_realname_no 'no' ,  mem_no '會員編號' , mem_idno_image '證件照片' , mem_idno '身分證字號' , mem_realname '真實姓名' , mem_realname_apply '申請時間'  FROM member_realname where mem_realname_situation = '未審核' order by mem_realname_apply ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="220px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="110px">申請狀態</th><th width="80px"></th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
+             <td class='pink'><?=$prodRow["no"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
              <td><?=$prodRow["身分證字號"]?></td>
              <td><?=$prodRow["真實姓名"]?></td>
              <td><?=$prodRow["申請時間"]?></td>
-             <td>   <label><input type="radio" value="Pass" name="review?<?=$prodRow["會員編號"]?>">通過</label><br>
-                    <label><input type="radio" value="unPass" name="review?<?=$prodRow["會員編號"]?>">未通過</label> </td>
+             <td>   <label><input type="radio" value="已審核已通過" name="VERIFYname<?=$prodRow["no"]?>">通過</label><br>
+					<label><input type="radio" value="已審核未通過" name="VERIFYname<?=$prodRow["no"]?>">未通過</label>
+			</td>
+			<td><label><input name="<?=$prodRow["no"]?>" type="button" value="送出" disabled class="sendverifyname"></label></td>
             </tr>
 
 			<?php } ?>
@@ -625,23 +628,61 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
-<h3>實名制審核 - 已處理已通過</h3>
+
+<script>
+// 有選結果才能打開送出button
+$('input[name^="VERIFYname"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+	// 實名制認證 － 結果送出
+	$(Document).ready(function(){
+		$(".sendverifyname").click(function(){
+
+			var temp = $(this).attr('name');
+			let VERIFYnameIfPass = $("input[name='VERIFYname"+temp+"']:checked").val();
+			
+			console.log(temp);
+			console.log(VERIFYnameIfPass);
+
+				$.ajax({
+					url: './BackstageVERIFYname.php',
+					data: {	member_realname_no: temp,
+							VERIFYnameIfPass: VERIFYnameIfPass ,
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+
+			$(this).prop('disabled', 'disabled');
+			$(this).parent().parent().prev().children().prop("disabled","disabled");
+			$(this).parent().parent().prev().children().children().prop("disabled","disabled");
+		})
+	})
+ </script>
+
+<h3>實名制審核 - 已審核已通過</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核未通過" order by "審核時間" ;';
+		$sql = "SELECT member_realname_no 'no' ,  mem_no '會員編號' , mem_idno_image '證件照片' , mem_idno '身分證字號' , mem_realname '真實姓名' , mem_realname_apply '申請時間' , mem_realname_verify '審核時間'  FROM member_realname where mem_realname_situation = '已審核已通過' order by  mem_realname_verify desc ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
+             <td class='pink'><?=$prodRow["no"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
              <td><?=$prodRow["身分證字號"]?></td>
              <td><?=$prodRow["真實姓名"]?></td>
              <td><?=$prodRow["申請時間"]?></td>
@@ -654,23 +695,24 @@ try	{
 	}	catch	(PDOException $e)	{
 	}
 ?>
-<h3>實名制審核 - 已處理未通過</h3>
+<h3>實名制審核 - 已審核未通過</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , mem_idno_image "證件照片" , mem_idno "身分證字號" , mem_realname "真實姓名" , mem_realname_apply "申請時間" , mem_realname_verify "審核時間"  FROM member_realname where mem_realname_situation = "已審核未通過" order by "審核時間" ;';
+		$sql = "SELECT member_realname_no 'no' ,  mem_no '會員編號' , mem_idno_image '證件照片' , mem_idno '身分證字號' , mem_realname '真實姓名' , mem_realname_apply '申請時間' , mem_realname_verify '審核時間'  FROM member_realname where mem_realname_situation = '已審核未通過' order by  mem_realname_verify desc ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="150px">審核時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-             <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
+             <td class='pink'><?=$prodRow["no"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
              <td><?=$prodRow["身分證字號"]?></td>
              <td><?=$prodRow["真實姓名"]?></td>
              <td><?=$prodRow["申請時間"]?></td>
@@ -684,30 +726,33 @@ try	{
 	}
 ?>
 
-<h3>嚮導審核 - 未處理</h3>
+<h3>嚮導審核 - 未審核</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間"  FROM member_guide where mem_guide_situation = "未審核" order by "審核時間" ;';
+		$sql = "SELECT member_guide_no 'no' ,  mem_no '會員編號' , guide_image '證件照片' , guide_no '嚮導證編號' , guide_period_start '發證日期' , guide_period_end '有效日期' , mem_guide_apply '申請時間'  FROM member_guide where mem_guide_situation = '未審核' order by mem_guide_apply ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th><th width="80px"></th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
-			 <tr>
-             <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
-             <td><?=$prodRow["嚮導證編號"]?></td>
-             <td><?=$prodRow["發證日期"]?></td>
-             <td><?=$prodRow["有效日期"]?></td>
-             <td><?=$prodRow["申請時間"]?></td>
-             <td>   <label><input type="radio" value="Pass" name="review?<?=$prodRow["會員編號"]?>">通過</label><br>
-                    <label><input type="radio" value="unPass" name="review?<?=$prodRow["會員編號"]?>">未通過</label> </td>
-            </tr>
+			<tr>
+			<td class='pink'><?=$prodRow["no"]?></td>
+			<td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
+			<td><?=$prodRow["嚮導證編號"]?></td>
+			<td><?=$prodRow["發證日期"]?></td>
+			<td><?=$prodRow["有效日期"]?></td>
+			<td><?=$prodRow["申請時間"]?></td>
+			<td><label><input type="radio" value="已審核已通過" name="VERIFYguide<?=$prodRow["no"]?>">通過</label><br>
+				<label><input type="radio" value="已審核未通過" name="VERIFYguide<?=$prodRow["no"]?>">未通過</label>
+			</td>
+			<td><label><input name="<?=$prodRow["no"]?>" type="button" value="送出" disabled class="sendverifyguide"></label></td>
+			</tr>
 		
 			<?php } ?>
 		</table>
@@ -716,23 +761,62 @@ try	{
 	}
 ?>
 
-<h3>實名制審核 - 已處理已通過</h3>
+<script>
+// 有選結果才能打開送出button
+$('input[name^="VERIFYguide"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+	// 實名制認證 － 結果送出
+	$(Document).ready(function(){
+		$(".sendverifyguide").click(function(){
+
+			var temp = $(this).attr('name');
+			let VERIFYguideIfPass = $("input[name='VERIFYguide"+temp+"']:checked").val();
+			
+			console.log(temp);
+			console.log(VERIFYguideIfPass);
+
+				$.ajax({
+					url: './BackstageVERIFYguide.php',
+					data: {	member_guide_no: temp,
+							VERIFYguideIfPass: VERIFYguideIfPass ,
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+
+			$(this).prop('disabled', 'disabled');
+			$(this).parent().parent().prev().children().prop("disabled","disabled");
+			$(this).parent().parent().prev().children().children().prop("disabled","disabled");
+		})
+	})
+ </script>
+
+
+
+<h3>嚮導審核 - 已審核已通過</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核已通過" order by "審核時間" ;';
+		$sql = "SELECT member_guide_no 'no' , mem_no '會員編號' , guide_image '證件照片' , guide_no '嚮導證編號' , guide_period_start '發證日期' , guide_period_end '有效日期' , mem_guide_apply '申請時間' , mem_guide_verify '審核時間'  FROM member_guide where mem_guide_situation = '已審核已通過' order by mem_guide_verify desc ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-			 <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
+             <td class='pink'><?=$prodRow["no"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
              <td><?=$prodRow["嚮導證編號"]?></td>
              <td><?=$prodRow["發證日期"]?></td>
              <td><?=$prodRow["有效日期"]?></td>
@@ -747,23 +831,24 @@ try	{
 	}
 ?>
 
-<h3>實名制審核 - 已處理未通過</h3>
+<h3>嚮導審核 - 已審核未通過</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間" , mem_guide_verify "審核時間"  FROM member_guide where mem_guide_situation = "已審核未通過" order by "審核時間" ;';
+		$sql = "SELECT member_guide_no 'no' , mem_no '會員編號' , guide_image '證件照片' , guide_no '嚮導證編號' , guide_period_start '發證日期' , guide_period_end '有效日期' , mem_guide_apply '申請時間' , mem_guide_verify '審核時間'  FROM member_guide where mem_guide_situation = '已審核未通過' order by mem_guide_verify desc ;";
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width="110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="110px">審核時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
 			 <tr>
-			 <td class='pink'><?=$prodRow["會員編號"]?></td>
-             <td><?=$prodRow["證件照片"]?></td>
+             <td class='pink'><?=$prodRow["no"]?></td>
+             <td><?=$prodRow["會員編號"]?></td>
+             <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
              <td><?=$prodRow["嚮導證編號"]?></td>
              <td><?=$prodRow["發證日期"]?></td>
              <td><?=$prodRow["有效日期"]?></td>
@@ -802,9 +887,9 @@ try	{
              <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
              <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
              <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
-             <td><?=$prodRow["商品圖片一"]?></td>
-             <td><?=$prodRow["商品圖片二"]?></td>
-             <td><?=$prodRow["商品圖片三"]?></td>
+             <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+             <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+             <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
 			<td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
 
@@ -889,9 +974,9 @@ try	{
              <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
              <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
              <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
-             <td><?=$prodRow["商品圖片一"]?></td>
-             <td><?=$prodRow["商品圖片二"]?></td>
-             <td><?=$prodRow["商品圖片三"]?></td>
+             <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+             <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+             <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
 			 <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
 
@@ -954,7 +1039,7 @@ $('input[type="checkbox"]').change(function(){
 </script> -->
 
 <h3>商品 - 新增</h3>
-<form id="newProduct" method="post" action="backstageAddProduct.php" >
+<form id="newProduct" method="post"  enctype="multipart/form-data"  action="backstageAddProduct.php" >
 	<div class="block left">
 		<div class="itembox">商品名稱：<input id="product_name" name="product_name" type="text"></div>
 		<div class="itembox">商品類別：
@@ -975,9 +1060,12 @@ $('input[type="checkbox"]').change(function(){
 		<div class="itembox">商品說明：<input id="product_description" name="product_description" type="text"></div>
 	</div>
 	<div class="block right">
-		<div class="itembox">商品圖片：<input id="product_image1" name="product_image1" type="file"></div>
-		<div class="itembox">商品圖片：<input id="product_image2" name="product_image2" type="file"></div>
-		<div class="itembox">商品圖片：<input id="product_image3" name="product_image3" type="file"></div>
+		<div class="itembox">商品圖片<input type="file" name="upFile[]" multiple accept="image/*" id="product_image"></div>
+		<div class="productUploadImage">
+			<div class="imgPreview1"><img width="200px" name="product_image1" id="product_image1" src="" alt=""></div>
+			<div class="imgPreview2"><img width="200px" name="product_image2" id="product_image2" src="" alt=""></div>
+			<div class="imgPreview3"><img width="200px" name="product_image3" id="product_image3" src="" alt=""></div>
+		</div>
 		<div class="itembox">上架狀態：
 			<label><input class="product_situation" type="radio" value="1" name="product_situation">直接上架</label>
 			<label><input class="product_situation" type="radio" value="0" name="product_situation">先不要上架</label>
@@ -986,14 +1074,108 @@ $('input[type="checkbox"]').change(function(){
 	<button type="button" id="newProductBtnSend">送出</button>
 </form>
 
+<script>
+	// 商品 - 新增
+	$(Document).ready(function(){
+		$("#newProductBtnSend").click(function(e){
+
+			e.preventDefault();
+
+			// let product_name = $("#product_name").val();
+			// let product_category = $("#product_category").val();
+			// let degree_category = $(".degree_category:checked").val();
+			// let product_price = $("#product_price").val();
+			// let product_description = $("#product_description").val();
+			// let product_img1 = $_FILES["upFile"]["error"][0];
+			// let product_img2 = $_FILES["upFile"]["error"][1];
+			// let product_img3 = $_FILES["upFile"]["error"][2];
+			// let product_situation = $(".product_situation:checked").val();
+			
+
+
+
+				$.ajax({
+					url: './BackstageAddProduct.php',
+					type: "POST",
+					data:  new FormData(document.getElementById("newProduct")),
+					contentType: false,
+					cache: false,
+					processData:false,
+					success: function(data){
+						// $("#targetLayer").html(data);
+					},
+					error: function(){
+					},
+				});
+		})
+	})
+</script>
+ <!-- 上傳商品圖預覽  -->
+<script>
+    $("#product_image").change(function(){
+        $("div.productUploadImage div").html(""); // 清除預覽
+        console.log ( this.files.length );
+        if(this.files.length !== 3) {
+            alert('請上傳三張照片');
+        }   else {
+            readURL(this);
+        }
+    });
+
+    function readURL(input){
+        if (input.files && input.files.length >= 0) {
+            for(var i = 0; i < input.files.length; i ++){
+                let t;
+                t = i + 1;
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = $("<img>").attr({src : e.target.result , id : "productImg" + i , width : "200px"});
+                    $(".imgPreview"+t).append(img);
+
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        }else{
+            var noPictures = $("<p>目前尚未上傳圖片</p>");
+            $(".imgPreview").append(noPictures);
+        }
+    }
+</script>
+
+
+
 
 <h3>管理員</h3>
-		<label><input type="checkbox" class="center" id="byeAdministrator">顯示已停權之管理員</label>
+	<form id="AUTHADMIN">
+		<!-- <label><input type="checkbox" name="ADMINtype" value="0" class="center" id="byeAdministrator" onclick="type_admin();"> -->
+		<label><input type="checkbox" name="ADMINtype1" value="1" class="center" id="byeAdministrator" onchange="this.form.submit();">
+		顯示已停權之管理員</label>
+	</form>
+
+	<script>
+	// checkbox 切換更動 value
+	// $(Document).ready(function ADMINtype(){
+		function type_admin(){
+			// $("input#byeAdministrator").change(function(){
+				this.value = (Number(this.checked));
+				console.log(123);
+				// $('#AUTHADMIN').submit();
+				console.log(23);
+			// })
+		}
+	// });
+	</script>
+
+
 <?php 
 try	{
     require_once('connectMeetain.php');
 	
-		$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
+		if (isset($_REQUEST['ADMINtype1'])===true){
+			$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
+		}	else {
+			$sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 1  ; " ;
+		}
 		$pdoStatement = $pdo->query($sql);
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
@@ -1088,10 +1270,36 @@ $('input[type="checkbox"]').change(function(){
 </form>
 
 
+<script>
+	// 管理員 - 新增
+	$(Document).ready(function(){
+		$("#newAdministratorBtnSend").click(function(){
+			let admin_id = $("#admin_id").val();
+			let admin_name = $("#admin_name").val();
+			let admin_acc = $("#admin_acc").val();
+			let admin_psw = $("#admin_psw").val();
+			let admin_mail = $("#admin_mail").val();
+			$.post("./BackstageAddAdministrator.php",
+				{admin_id: admin_id,
+				admin_name: admin_name,
+				admin_acc: admin_acc,
+				admin_psw: admin_psw,
+				admin_mail: admin_mail,
+				},
+				function(){
+				//要導去另外正確頁面
+				window.location.reload(true);
+			})
+		})
+		$('#pswCheck').click(function(){
+                $(this).is(':checked') ? $('#admin_psw').attr('type', 'text') : $('#admin_psw').attr('type', 'password');
+		});
+	})
+</script>
 
 <h3>近期訂單</h3>
-<form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
-	<select id="orderSearchBar" name="orderSearchBar">
+<form id="searchOrder" method="post" action="./BackstageShowOrderDetail2.php">
+	<select width="200px" id="orderSearchBar" name="orderSearchBar">
 		<option value="order_no" selected="selected">依訂單編號</option>
 		<option value="member_no">依會員編號</option>
 		<option value="order_logistics_phone">聯絡電話</option>
@@ -1099,6 +1307,29 @@ $('input[type="checkbox"]').change(function(){
 	<label><input type="text" id="searchKey" name="searchKey"></label>
 	<button type="submit" id="searchOrderBtnSend">查詢</button>
 </form>
+
+
+<script>
+	// 訂單詳情
+	$(Document).ready(function(){
+		$("#searchOrderBtnSend").click(function(e){
+			e.preventDefault();
+				$.ajax({
+					url: './BackstageShowOrderDetail2.php',
+					type: "POST",
+					data:  new FormData(document.getElementById("searchOrder")),
+					contentType: false,
+					cache: false,
+					processData:false,
+					success: function(data){
+						$("#ShowSearchOrder").html(data);
+					},
+					error: function(){
+					},
+				});
+		})
+	})
+</script>
 
 <?php 
 try	{
@@ -1134,82 +1365,13 @@ try	{
 
 
 <h3>訂單詳情</h3>
-
-<script>
-	// 訂單詳情
-	$(Document).ready(function(){
-		$("#searchOrderBtnSend").click(function(){
-			let orderSearchBar = $("#orderSearchBar").val();
-			let searchKey = $("#searchKey").val();
-				$.post("./BackstageShowOrderDetail.php",
-					{orderSearchBar: orderSearchBar,
-					searchKey: searchKey,
-					})
-			})
-	})
-</script>
+<div id="ShowSearchOrder"></div>
 
 
 
 
-<script>
-	// 商品 - 新增
-	$(Document).ready(function(){
-		$("#newProductBtnSend").click(function(){
-			let product_name = $("#product_name").val();
-			let product_category = $("#product_category").val();
-			let degree_category = $(".degree_category:checked").val();
-			let product_price = $("#product_price").val();
-			let product_description = $("#product_description").val();
-			let product_image1 = $("#product_image1").val();
-			let product_image2 = $("#product_image2").val();
-			let product_image3 = $("#product_image3").val();
-			let product_situation = $(".product_situation:checked").val();
-			$.post("./backstageAddProduct.php",
-				{product_name: product_name,
-				product_category: product_category,
-				degree_category: degree_category,
-				product_price: product_price,
-				product_description: product_description,
-				product_image1: product_image1,
-				product_image2: product_image2,
-				product_image3: product_image3,
-				product_situation: product_situation
-				},
-				function(){
-				//要導去另外正確頁面
-				window.location.reload(true);
-			})
-		})
-	})
-</script>
 
-<script>
-	// 管理員 - 新增
-	$(Document).ready(function(){
-		$("#newAdministratorBtnSend").click(function(){
-			let admin_id = $("#admin_id").val();
-			let admin_name = $("#admin_name").val();
-			let admin_acc = $("#admin_acc").val();
-			let admin_psw = $("#admin_psw").val();
-			let admin_mail = $("#admin_mail").val();
-			$.post("./BackstageAddAdministrator.php",
-				{admin_id: admin_id,
-				admin_name: admin_name,
-				admin_acc: admin_acc,
-				admin_psw: admin_psw,
-				admin_mail: admin_mail,
-				},
-				function(){
-				//要導去另外正確頁面
-				window.location.reload(true);
-			})
-		})
-		$('#pswCheck').click(function(){
-                $(this).is(':checked') ? $('#admin_psw').attr('type', 'text') : $('#admin_psw').attr('type', 'password');
-		});
-	})
-</script>
+
 
 </body>
 </html>

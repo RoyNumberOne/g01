@@ -31,5 +31,16 @@
         "order_logistics_phone": "0919456456",
         "order_logistics_address": "中大路300號",
         "order_cashflow": "點數扣款"
+    },
+    {
+        "member_no": "10011",
+        "order_total": "20610",
+        "order_logistics_fee": "0",
+        "order_discount": "10",
+        "order_logistics_deliver": "宅配",
+        "order_logistics_recipient": "Handsome",
+        "order_logistics_phone": "0919999999",
+        "order_logistics_address": "中大路300號",
+        "order_cashflow": "點數扣款"
     }
 ]

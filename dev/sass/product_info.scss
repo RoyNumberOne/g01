@@ -30,7 +30,7 @@ div.wrap{
                 }
                 img{
                     height: 100%;
-                    transition: .5s ease-in-out;
+                    transition: .2s ease-in-out;
                     &:hover{
                         transform: scale(1.1);
                     }
@@ -316,7 +316,7 @@ div.wrap{
 
  //demo使用之後刪掉
  .add_count{
-    display: none;
+    // display: none;
     border-radius: 50%;
     color: #fff;
     background-color: red;
