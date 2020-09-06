@@ -89,7 +89,7 @@
                         <div class="product_name">{{product.product_name}}</div>
                         <div class="product_price">${{product.product_price}}</div>
                     </div>
-                    <a href="./product_info.html">
+                    <a :href="'./product_info.html?productId=' + product.id">
                         <img :src="product.product_image1" alt="">
                         <div class="show_hover">
                             <div class="p_title">更多詳細資訊</div>
