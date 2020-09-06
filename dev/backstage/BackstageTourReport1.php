@@ -46,7 +46,8 @@
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                             $start = ($pageNo-1) * $recPerPage; 
-                            $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' limit $start,$recPerPage";
+                            // $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' limit $start,$recPerPage";
+		                    $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' order by tour_report_build limit $start,$recPerPage";
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>

@@ -48,7 +48,7 @@
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage;
-                       	$sql = "SELECT forum_report_no '檢舉編號' , forum_report_post '討論編號' , forum_post_title '討論標題' , forum_post_poster '被檢舉人' , forum_report_build '檢舉時間', forum_report_reason '檢舉緣由', forum_report_situation '檢舉狀態' from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = '已處理未通過' limit $start,$recPerPage";
+                       	$sql = "SELECT forum_report_no '檢舉編號' , forum_report_post '討論編號' , forum_post_title '討論標題' , forum_post_poster '被檢舉人' , forum_report_build '檢舉時間', forum_report_reason '檢舉緣由', forum_report_situation '檢舉狀態' from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no where fr.forum_report_situation = '已處理未通過' order by forum_report_build  limit $start,$recPerPage";
                         $pdoStatement = $pdo->query($sql);
                         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
@@ -58,13 +58,13 @@
                 foreach ( $prodRows as $i => $prodRow){
                 ?>
                     <tr>
-                    <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                    <td><?=$prodRow["討論編號"]?></td>
-                    <td><?=$prodRow["討論標題"]?></td>
-                    <td><?=$prodRow["被檢舉人"]?></td>
-                    <td><?=$prodRow["檢舉時間"]?></td>
-                    <td><?=$prodRow["檢舉緣由"]?></td>
-                    <td><?=$prodRow["檢舉狀態"]?></td>
+                        <td class='pink'><?=$prodRow["檢舉編號"]?></td>
+                        <td><?=$prodRow["討論編號"]?></td>
+                        <td><?=$prodRow["討論標題"]?></td>
+                        <td><?=$prodRow["被檢舉人"]?></td>
+                        <td><?=$prodRow["檢舉時間"]?></td>
+                        <td><?=$prodRow["檢舉緣由"]?></td>
+                        <td><?=$prodRow["檢舉狀態"]?></td>
                     </tr>
 
                     <?php } ?>
