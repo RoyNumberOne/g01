@@ -64,7 +64,9 @@
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage; 
-                        $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' from product where product_situation=:situation limit $start,$recPerPage";
+                        // $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' from product where product_situation=:situation limit $start,$recPerPage";
+		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 1 limit $start,$recPerPage";
+                        
                         $products = $pdo->prepare($sql); 
                         $products -> bindValue(":situation",$name);
                         $products->execute();
@@ -76,28 +78,27 @@
                         foreach ( $prodRows as $i => $prodRow){
                         ?>
                             <tr>
-                            <td class='pink'><?=$prodRow["商品編號"]?></td>
+                            <td class='pink'><?=$prodRow["商品編號"]?>
+                                <input type="checkbox" name="productAUTH<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品狀態"]?>'>
+                            </td>
                             <td><?=$prodRow["難度等級"]?></td>
                             <td><?=$prodRow["商品分類"]?></td>
-                            <td><?=$prodRow["商品名稱"]?></td>
-                            <td><?=$prodRow["商品價格"]?></td>
-                            <td style="overflow:hidden;
-                                        white-space: nowrap;
-                                        text-overflow: ellipsis;
-                                        display: -webkit-box;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        white-space: normal;">
-                                        <?=mb_substr($prodRow["商品說明"],0,25)?></td>
-                            <td><?=$prodRow["商品圖片一"]?></td>
-                            <td><?=$prodRow["商品圖片二"]?></td>
-                            <td><?=$prodRow["商品圖片三"]?></td>
-                            <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                            <p>修改</p>
-                            <div class="bg"></div>
-                            </button></td>
+                            <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
+                            <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
+                            <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
+                            <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+                            <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+                            <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
+                            <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
                             </tr>
-
+                            <script>
+                                function checkProductAuth(){
+                                    if ( <?=$prodRow["商品狀態"]?> == 1 ){
+                                        $("input[name='productAUTH<?=$prodRow["商品編號"]?>'").prop("checked","checked");
+                                    }
+                                }
+                                    checkProductAuth();
+                            </script>
                             <?php } ?>
                         </table>
                     <?php
@@ -116,6 +117,57 @@
     </section>
 
 </main>
+<script>
+	// 商品修改 － 上架中
+	$(Document).ready(function(){
+		$(".editproduct").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				var temp = $(this).attr('name');
+				let EDITproduct_name = $("input[name='productNAME"+temp+"']").val();
+				let EDITproduct_price = $("input[name='productPRICE"+temp+"']").val();
+				let EDITproduct_description = $("input[name='productDESC"+temp+"']").val();
+				let EDITproduct_situation = $("input[name='productAUTH"+temp+"']").val();
+				
+				// console.log(EDITproduct_situation);
+				$.ajax({
+					url: './BackstageEditProduct.php',
+					data: {	product_no: temp,
+							EDITproduct_name: EDITproduct_name ,
+							EDITproduct_price:EDITproduct_price,
+							EDITproduct_description:EDITproduct_description,
+							EDITproduct_situation:EDITproduct_situation
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	})
+</script>
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
+</script>
+
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script>
 //load php
     $('#loadButton_1').click(function () {

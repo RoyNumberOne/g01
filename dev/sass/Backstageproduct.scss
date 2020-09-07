@@ -119,6 +119,13 @@ div{
             }
             margin: 5px auto;
             cursor: pointer;
+
+            input{
+                outline: none;
+                border-radius: 8px;
+                border: solid 1px #9999;
+                padding: 5px 5px;
+            }
         }
         img{
             width: 90%;

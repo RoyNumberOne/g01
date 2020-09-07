@@ -31,7 +31,7 @@
             <div class="report_total"> 
                 <h4>討論文檢舉</h4>
                 <span id="loadButton_1"><a href="./BackstageForumReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageForumReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageForumReport0.php">已通過</a></span>
                 <span id="loadButton_3" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageForumReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -83,64 +83,16 @@
     </section>
 </main>
 <script>
-// =====button class="btnA_S" 的頁碼切換=====
-$(document).ready(function(){
-    function checkpg(){
-    if ($(".pgprev").next().hasClass("-active")) {
-        $(".pgprev").css("visibility","hidden");
-    }   else {
-        $(".pgprev").css("visibility","visible");
-    }
-    if ($(".pgnext").prev().hasClass("-active")) {
-        $(".pgnext").css("visibility","hidden");
-    }   else{
-        $(".pgnext").css("visibility","visible");
-    }
-}
-checkpg();
-$(".pg").click(function(){
-    $(this).parent().children().removeClass("-active");
-    $(this).addClass("-active");
-    checkpg();
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
 });
-$(".pgprev").click(function(){
-    if (!$(".pgprev").next().hasClass("-active")) {
-        $(".-active").prev().addClass("-active");
-        $(".-active").next(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-$(".pgnext").click(function(){
-    if (!$(".pgnext").prev().hasClass("-active")) {
-        $(".-active").next().addClass("-active");
-        $(".-active").prev(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-// =====button class="btnA_S" 的頁碼切換=====
-
-//load php
-    $('#loadButton_1').click(function () {
-        $('#ccc').load('BackstageCommentReport_4.php',{ name_4: '未處理' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-    $('#loadButton_2').click(function () {
-        $('#ccc').load('BackstageCommentReport_2.php', { name_2: '已處理已通過' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-    $('#loadButton_3').click(function () {
-        $('#ccc').load('BackstageCommentReport_3.php', { name_3: '已處理未通過' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-
-});
-
 </script>
 <script src="./js/backstage.js"></script>
 </body>

@@ -29,7 +29,7 @@
             <div class="report_total"> 
                 <h4>揪團檢舉</h4>
                 <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageTourReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageTourReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -89,9 +89,22 @@
                 echo "<a href='BackstageTourReport.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                 }
             ?>
+            
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script>
 // 有選結果才能打開送出button
 $('input[name^="REVIEWtr"]').change(function(){
