@@ -8,10 +8,10 @@
 	<link rel="stylesheet" href="./css/fa5.14.0all.min.css">
 	<link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
 	<script src="./js/jquery.min.js" ></script>
-	<script src="./js/fa5.14.0all.js" ></script>
-	<link rel="stylesheet" href="./css/login_v2.css">
+    <script src="./js/fa5.14.0all.js" ></script>
+    <link rel="stylesheet" href="./css/login_v2.css">
 	<link rel="stylesheet" href="./css/footer.css">
-	<link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
     
@@ -75,7 +75,7 @@
 					<input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
                     <a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
-					<button type="submit" class="btnB_L_blue submitBtn_log"><p>登入</p><div class="bg"></div></button>
+					<button type="button" class="btnB_L_blue submitBtn_log" id="btnLogin"><p>登入</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -183,11 +183,12 @@
         </div>
     </footer>
 
-    <script src="jquery/jquery-3.5.1.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/login_v2.js"></script>
     <script>
         const signInBtn = document.getElementById("signIn");
         const signUpBtn = document.getElementById("signUp");
-        const fistForm = document.getElementById("form1");
+        const fistForm = document.getElementById("signInForm");
         const secondForm = document.getElementById("form2");
         const container = document.querySelector(".container");
 
@@ -214,36 +215,6 @@
 				$('.container--signin').css('display','block');
 			});
 		});
-
-//=====================使用Ajax 回server端,取回登入者姓名, 放到頁面上  
-        let member;
-
-        function $id(id){
-            return document.getElementById(id);
-        }
-
-        function sendForm(){
-        let xhr = new XMLHttpRequest();
-
-        xhr.onload = function(){
-            if(xhr.status == 200){
-                member = JSON.parse(xhr.responseText);
-                if(member.mem_acc === undefined){
-                    alert("帳密錯誤");
-                }else{ //登入成功
-                    $("#signInForm").submit();
-                }
-            }else{
-            alert(xhr.status);
-            }
-        }
-
-  xhr.open("post", "login_v2.php", true);
-  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-  let data_info = `mem_acc=${$id("mem_acc").value}&mem_psw=${$id("mem_psw").value}`;
-  xhr.send(data_info);
-  
-}
 	</script>
     <script src="./js/header.js" ></script>
 </body>

@@ -1,17 +1,7 @@
-<?php
-// 資料庫主機設定
-$db_host = "localhost";
-$db_username = "root";
-$db_password = "tibame";
-$db_name = "meetain";
-
-// 連線資料庫
-$db_link = @new mysqli($db_host, $db_username, $db_password, $db_name);
-
-// 錯誤處理
-if ($db_link->connect_error != ""){
-    echo "資料庫連線失敗";
-}else{
-    echo "連線成功";
-}
+<?php 
+ $dsn = "mysql:host=localhost;port=3306;dbname=meetain;charset=utf8";
+ $user = "root";
+ $password = "tibame";
+ $options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+ $pdo = new PDO($dsn , $user , $password, $options);
 ?>

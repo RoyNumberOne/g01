@@ -4,6 +4,8 @@ try{
     require_once("./login_v2_connect.php");
     $sql = "select * from `member` where mem_acc=:mem_acc and mem_psw=:mem_psw"; 
     $member = $pdo->prepare($sql);
+    // $member->bindValue(":mem_acc", $_GET["mem_acc"]);
+    // $member->bindValue(":mem_psw", $_GET["mem_psw"]);
     $member->bindValue(":mem_acc", $_POST["mem_acc"]);
     $member->bindValue(":mem_psw", $_POST["mem_psw"]);
     $member->execute();
