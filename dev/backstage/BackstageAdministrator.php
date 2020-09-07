@@ -32,25 +32,33 @@
                 <a href="BackstageAdministrator.php"><h4>管理員</h4></a>
                 <a href="BackstageAddAdmin.php"><button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增管理員</p><div class="bg2"></div></button></a>
             </div>
+            <form id="AUTHADMIN">
+                <!-- <label><input type="checkbox" name="ADMINtype" value="0" class="center" id="byeAdministrator" onclick="type_admin();"> -->
+                <label><input type="checkbox" name="ADMINtype1" value="1" class="center" id="byeAdministrator" onchange="this.form.submit();">
+                顯示已停權之管理員</label>
+            </form>
             <div id="ccc">
-                <label><input type="checkbox" class="center" id="byeAdministrator">顯示已停權之管理員</label>
                     <?php 
                     try	{
                         require_once('connectMeetain.php');
                         
-                            $sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
+                            if (isset($_REQUEST['ADMINtype1'])===true){
+                                $sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
+                            }	else {
+                                $sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 1  ; " ;
+                            }
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
 
                             <table>
-                            <tr class='cyan'><th width="80px">管理員編號</th><th width="100px">姓名</th><th width="100px">暱稱</th><th width="200px">電子信箱</th><th width=110px">建立時間</th><th width=80px">修改</th></tr>
+                            <tr class='cyan'><th>管理員編號</th><th>姓名</th><th>暱稱</th><th>電子信箱</th><th>建立時間</th><th>修改</th></tr>
                             <?php
                             foreach ( $prodRows as $i => $prodRow){
                             ?>
                                 <tr>
                                     <td class='pink'><?=$prodRow["管理員編號"]?>
-                                        <input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>' />
+                                        <input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>'>
                                     </td>
                                     <td><input type="text" name="adminNAME<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["姓名"]?>'></td>
                                     <td><input type="text" name="adminID<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["暱稱"]?>'></td>
@@ -70,14 +78,28 @@
     </section>
 </main>
 <script>
-    function checkAdminAuth(){
-        console.log(<?=$prodRow["管理員編號"]?>);
-        console.log(<?=$prodRow["管理員權限"]?>);
-        if ( <?=$prodRow["管理員權限"]?> == 1 ){
-            $("input name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
-        }
+// checkbox 切換更動 value
+// $(Document).ready(function ADMINtype(){
+    function type_admin(){
+        // $("input#byeAdministrator").change(function(){
+            this.value = (Number(this.checked));
+            console.log(123);
+            // $('#AUTHADMIN').submit();
+            console.log(23);
+        // })
     }
-        checkAdminAuth();
+// });
+</script>
+<script>
+function checkAdminAuth(){
+    // console.log(<?=$prodRow["管理員編號"]?>);
+    // console.log(<?=$prodRow["管理員權限"]?>);
+    if ( <?=$prodRow["管理員權限"]?> == 1 ){
+        $("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
+
+    }
+}
+    checkAdminAuth();
 </script>
 <script>
 // checkbox 切換更動 value

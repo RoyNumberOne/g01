@@ -29,8 +29,8 @@
         <div>
             <div class="product_total">
                 <h4>商品管理</h4>
-                <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./Backstageproduct.php">已上架</a></span>
-                <span id="loadButton_2"><a href="./Backstageproduct0.php">未上架</a></span>
+                <span id="loadButton_1"><a href="./Backstageproduct.php">已上架</a></span>
+                <span id="loadButton_2"  style="background-color:#2C5E9E; color:#FFF"><a href="./Backstageproduct0.php">未上架</a></span>
                 <button type="submit" class="btnB_L_yellow_2" id="loadButton_3"><p>新增</p><div class="bg2"></div></button>
             </div>
             <div id="ccc">
@@ -38,7 +38,7 @@
                 <?php
                 try	{
                     require_once('connectMeetain.php');
-                        $sql = "select count(*) totalCount from product where product_situation= 1";
+                        $sql = "select count(*) totalCount from product where product_situation= 0";
                         $stmt = $pdo->query($sql); 
                         $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                         $totalRecords = $row["totalCount"]; 
@@ -47,12 +47,12 @@
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage; 
-		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 1 limit $start,$recPerPage";
+		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 0 limit $start,$recPerPage";
                         $pdoStatement = $pdo->query($sql);
                         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                         <table>
-                        <tr class='cyan'><th width="80px">商品編號</th><th style="width:60px;">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th style="width:200px;">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th><th></th></tr>
+                        <tr class='cyan'><th width="80px">商品編號</th><th style="width:60px;">難度等級</th><th style="width:150px;">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th style="width:200px;">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th><th></th></tr>
                         <?php
                         foreach ( $prodRows as $i => $prodRow){
                         ?>
@@ -87,7 +87,7 @@
                 <div class="pagebtn">
                     <?php 
                         for($i=1; $i<=$totalPages; $i++){
-                        echo "<a href='Backstageproduct.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                        echo "<a href='Backstageproduct0.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                         }
                     ?>
                 </div>
