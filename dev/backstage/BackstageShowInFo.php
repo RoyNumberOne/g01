@@ -1298,7 +1298,7 @@ $('input[type="checkbox"]').change(function(){
 </script>
 
 <h3>近期訂單</h3>
-<form id="searchOrder" method="post" action="./BackstageShowOrderDetail2.php">
+<form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
 	<select width="200px" id="orderSearchBar" name="orderSearchBar">
 		<option value="order_no" selected="selected">依訂單編號</option>
 		<option value="member_no">依會員編號</option>
@@ -1315,7 +1315,7 @@ $('input[type="checkbox"]').change(function(){
 		$("#searchOrderBtnSend").click(function(e){
 			e.preventDefault();
 				$.ajax({
-					url: './BackstageShowOrderDetail2.php',
+					url: './BackstageShowOrderDetail.php',
 					type: "POST",
 					data:  new FormData(document.getElementById("searchOrder")),
 					contentType: false,

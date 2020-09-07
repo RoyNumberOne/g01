@@ -54,6 +54,10 @@ desc forum_keep;
 
 SELECT * FROM forum_post;
 desc forum_post;
+-- 熱門討論文
+select f.forum_post_no '討論文編號' , count(*) '留言數量' from forum_post f join comment_post c on f.forum_post_no = c.forum_post_no where c.comment_class="討論區" group by f.forum_post_no order by count(*) desc,f.forum_post_no desc; 
+-- 最新討論文
+select forum_post_no '討論文編號' , forum_post_time '發文時間' from forum_post order by forum_post_no desc; 
 
 SELECT * FROM forum_report;
 desc forum_report;
@@ -145,6 +149,10 @@ desc product_keep;
 
 SELECT * FROM tour;
 desc tour;
+-- 熱門揪團文
+select t.tour_no '討論文編號' , count(*) '留言數量' from tour t join comment_post c on t.tour_no = c.tour_post_no where c.comment_class="揪團區" group by t.tour_no order by count(*) desc,t.tour_no desc; 
+-- 最新揪團文
+select tour_no '討論文編號' , tour_build '發文時間' from tour order by tour_no desc; 
 
 SELECT * FROM tour_keep;
 desc tour_keep;
