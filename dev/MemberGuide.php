@@ -13,16 +13,24 @@
     <div id="certificationGuide">
         <h2><span>感謝您的申請</span></h2>  
         <?php 
+            // $mem_no = ; 我先給預設 這裡之後要抓session的會員身份
+            $mem_no = 10008;
+            $guide_no = $_POST['guide_no'];
+            $guide_period_start = $_POST['guide_period_start'];
             switch($_FILES["guide_image"]["error"]){
                 case UPLOAD_ERR_OK:
-                    $dir = "images/member/memGuide_Id";
+                    $dir = "./images/guide_image";
                     if(file_exists($dir)==false){
                         mkdir($dir);
                     }
                     $from = $_FILES["guide_image"]["tmp_name"];
-                    $to = "$dir/".$_FILES["guide_image"]["name"];
+                    $to = $dir."/".$guide_no.'.jpg';
+                    $guide_image = '.'.$to;
                     copy($from,$to);
                     echo "已送出審核","<br>";
+                    require_once ('./connectMeetain.php');
+                    $sql = "INSERT INTO member_guide (guide_no,mem_no,guide_period_start,guide_period_end,guide_image) VALUES ('$guide_no','$mem_no','$guide_period_start', date_add('$guide_period_start', interval 4 year),'$guide_image');";
+                    $pdoStatement = $pdo->query($sql);
                     break;
                 case UPLOAD_ERR_INI_SIZE:
                     echo "上傳檔案過大,不得超過",ini_get("upload_max_filesize"),"<br>";
@@ -41,7 +49,7 @@
             }
             ?>
             <div id="photo_b">
-                <img src="<?php echo "./$dir/".$_FILES["guide_image"]["name"]; ?> " width="400px" height="250px" id="photo"/>
+                <img src='<?php echo "$dir"."/"."$guide_no".".jpg"; ?> ' width="400px" height="250px" id="photo"/>
                 <div><p>已送出審核</p></div>
             </div>
                 <br> 

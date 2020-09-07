@@ -19,7 +19,14 @@ select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , a
 
 
 SELECT * FROM comment_post;
+select * from comment_post where comment_class = "揪團區" ;
+select tour_post_no , count(*) from comment_post where comment_class = "揪團區" group by tour_post_no ;
 desc comment_post;
+
+SELECT c.tour_post_no, COUNT(1) AS "number_of_appointments"
+FROM comment_post c
+  LEFT JOIN tour t ON t.tour_no = c.tour_post_no
+GROUP BY c.tour_post_no;
 
 SELECT * FROM comment_report;
 desc comment_report;
@@ -150,9 +157,10 @@ desc product_keep;
 SELECT * FROM tour;
 desc tour;
 -- 熱門揪團文
-select t.tour_no '討論文編號' , count(*) '留言數量' from tour t join comment_post c on t.tour_no = c.tour_post_no where c.comment_class="揪團區" group by t.tour_no order by count(*) desc,t.tour_no desc; 
+select distinct t.tour_no '討論文編號' , count(*) '留言數量' from tour t join comment_post c on t.tour_no = c.tour_post_no where c.comment_class="揪團區" group by t.tour_no order by count(*) desc,t.tour_no desc; 
 -- 最新揪團文
 select tour_no '討論文編號' , tour_build '發文時間' from tour order by tour_no desc; 
+
 
 SELECT * FROM tour_keep;
 desc tour_keep;
