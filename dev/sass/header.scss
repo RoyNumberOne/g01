@@ -667,6 +667,21 @@ div#hamburgerBG{
     }
 }
 
+// cartCount
+.add_count{
+    // display: none;
+    border-radius: 50%;
+    color: #fff;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
 
 // 所在位置 //
