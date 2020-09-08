@@ -1,4 +1,12 @@
 @import "common";
+@mixin threeLine {
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    /*!autoprefixer:off*/
+    -webkit-box-orient: vertical;
+    /*autoprefixer:on*/
+    overflow:hidden;
+}
 
 #banner{
     width: 100%;
@@ -185,9 +193,6 @@
                     background-color: #fdfdfd;
                     border: 1px solid #eee;
                     text-align: center;
-                    p{
-                        margin: auto;
-                    }
                 }
                     
                 .prev-btn{
@@ -195,6 +200,10 @@
                     position: absolute;
                     top: 40%;
                     left: 0;
+                    img{
+                        transform: translateY(25px);
+                        opacity: 80%;
+                    }
                 }
                     
                 .next-btn{
@@ -202,13 +211,17 @@
                     position: absolute;
                     top: 40%;
                     right: 0;
+                    img{
+                        transform: translateY(25px);
+                        opacity: 80%;
+                    }
                 }
             }
             .forum-block{
                 // border: 2px solid rgb(198, 35, 204);
                 width: 100%;
                 h2{
-                    color: rgb(43, 43, 43);
+                    color: rgb(117, 94, 94);
                     font-size: 30px;
                     font-weight: 600;   
                     margin:50px auto;
@@ -307,6 +320,15 @@
                         // border: 2px solid khaki;
                         width: 100%;
                         padding: 20px;
+                        .tittle{
+                            // color: #DB931A;
+                            .innertext{
+                                >p{
+                                    @include threeLine;
+                                }
+                            }
+                        }
+                        
                     }
                     .poster-block{
                         display: flex;
@@ -374,8 +396,8 @@
             }
         
     #forum_aside{
-        width: 30%;
         padding: 12px;
+        margin-left: 3%;
         // border: 3px solid purple;
         .tour-tittle{
             h2{
@@ -532,7 +554,6 @@
         // border: 1px solid red;
         max-width: 1366px;
         #forum_container{
-            width: 74%;
             .forum_container-right{
                 .forum-block{
                     #forum_list{
@@ -764,6 +785,7 @@
                     }
                     #forum_list{
                         flex-direction: column;
+                        margin-top: 15%;
                         .forum-infor{
                             .poster-block{
                                 display: block;
