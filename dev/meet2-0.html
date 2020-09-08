@@ -351,7 +351,7 @@
 
         </section>
         
-        <section class="newMeet"> <!-- 最新揪團 -->
+        <section class="newMeet" > <!-- 最新揪團 -->
             <h2 class="text_underline">最新揪團</h2>
 
             <div class="changeTypeBtn">
@@ -360,8 +360,68 @@
             </div>
 
             <div class="newMeetActivity card">
-                
-                <div class="item">
+             
+                <div class="item" id="newMeetItem" v-for="(meet, index) in meetList">
+                    <a href="./meet2-3.html">
+                        <div class="newImg">
+                            <img src="./images/meet/mountain/4south.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="newMeetTextCont">
+                        <div class="tittleLike">
+                            <a href="./meet2-3.html">
+                                <h3>{{meet.tour_title}}</h3>
+                            </a>
+                            <div class="heartIcon">
+                                <div class="changeIcon">
+                                    <img class="heart" src="./images/icons/icon_heart.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <span class="tag">＃玉山</span>
+                            <span class="tag">＃2天</span>
+                            <span class="tag">＃南部</span>
+                            <div class="locationDegree">
+                                <span class="location">南部</span>
+                                <span class="degree">難度</span>
+                            </div>
+                            <span class="date">2020/09/08</span><span>出發</span>
+                            ｜
+                            <span class="date">2020/09/10</span><span>回程</span>
+                        </div>
+                        <div class="meetContent">
+                            <p class="textContent">
+                                {{meet.tour_innertext}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="member_styleA row">
+                        <div class="memberImg">
+                            <img src="./images/meet/member/vivian.jpeg" alt="">
+                        </div>
+                        <div class="memberInfo">
+                            <div class="certification">
+                                <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
+                                <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="memberId">Vivian</div>
+                            <div class="memberBadge">
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="item">
                     <a href="./meet2-3.html">
                         <div class="newImg">
                             <img src="./images/meet/mountain/4south.jpg" alt="">
@@ -392,9 +452,9 @@
                         </div>
                         <div class="meetContent">
                             <p class="textContent">
-                                第一天:1800板橋火車站北二門集合(欲共乘者 可載4人)-->2300望鄉部落民宿
-                                第二天:0600早餐-->0700出發-->0810檢查哨-->0830塔塔加登山口-->0930孟祿亭\r\n-->1130西峰觀景台(自備午餐)-->1500排雲山莊
-                                第三天:0300排雲山莊(早早餐)-->0330出發-->0430主南岔路-->0530主北岔路-->0600玉山主峰(海拔3952m)​-->0800排雲山莊(早午餐)-->1400塔塔加登山口(自備午餐)-->1700水里晚餐-->2100板橋火車站解散(與團主共乘者)
+                                第一天:1800板橋火車站北二門集合(欲共乘者 可載4人)- - > 2300望鄉部落民宿
+                                第二天:0600早餐- -> 0700出發 - - >0810檢查哨- - >0830塔塔加登山口- - > 0930孟祿亭\r\n- - > 1130西峰觀景台(自備午餐)- - > 1500排雲山莊
+                                第三天:0300排雲山莊(早早餐)- - >0330出發- - >0430主南岔路- - > 0530主北岔路- - > 0600玉山主峰(海拔3952m)​- - > 0800排雲山莊(早午餐)- - > 1400塔塔加登山口(自備午餐)- - > 1700水里晚餐- - > 2100板橋火車站解散(與團主共乘者)
                                 ＊＊＊很重要＊＊＊費用600元(包含排雲山莊住宿費480元＆水里晚餐120元) 
                                 自付：需自備現金，代付：於出發前7日轉帳給我，本行程為玉山主峰登山團 不適合第一次登山 千萬別『逞強』~
                             </p>
@@ -423,8 +483,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
+                </div>  -->
+                <!-- <div class="item">
                     <a href="./meet2-3.html">
                         <div class="newImg">
                             <img src="./images/meet/mountain/4east.jpg" alt="">
@@ -505,8 +565,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
+                </div> -->
+                <!-- <div class="item">
                     <a href="./meet2-3.html">
                         <div class="newImg">
                             <img src="./images/meet/mountain/1north.jpg" alt="">
@@ -565,7 +625,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
 
@@ -647,6 +707,9 @@
     
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script src="./js/meet2-0.js"></script>
+    
     <!----go top裡面的箭頭需要用到的js----->
     <script src="./js/fa5.14.0all.js"></script>
     <script type="text/javascript">
@@ -668,8 +731,9 @@
         });
     </script>
 
+
     <!-- 更換Card  list樣式 -->
-    <script>
+    <!-- <script>
         $(function() {
             //click
             
@@ -704,19 +768,20 @@
                 $("div.typeList").addClass("-on");
             });
         });
-    </script>
-        <!-- 換icon -->
-        <script>
-            $(document).ready(function(){
-                $(".icon_card").click(function(){
-                    if($(.icon_card).attr('src') === "./images/icons/icon_card_w.svg"){
-                        $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-                    }else{
-                        $(this).attr("src","./images/icons/icon_card_w.svg");
-                    }
-                });
+    </script> -->
+    
+    <!-- 換icon -->
+    <script>
+        $(document).ready(function(){
+            $(".icon_card").click(function(){
+                if($(icon_card).attr('src') === "./images/icons/icon_card_w.svg"){
+                    $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+                }else{
+                    $(this).attr("src","./images/icons/icon_card_w.svg");
+                }
             });
-            </script>
+        });
+    </script>
     
     <!-- 頁碼 -->
     <script>

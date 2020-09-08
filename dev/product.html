@@ -84,12 +84,12 @@
             </div>
             <h3 class="inner_p_per">個別商品</h3>
             <div class="product_block">
-                <div v-for="(product, index) in currentProducts" class="items_block" :key='product.id' :class="backgroundColor(index)">
+                <div v-for="(product, index) in currentProducts" class="items_block" :key='product.product_no' :class="backgroundColor(index)">
                     <div class="product_title">
                         <div class="product_name">{{product.product_name}}</div>
                         <div class="product_price">${{product.product_price}}</div>
                     </div>
-                    <a :href="'./product_info.html?productId=' + product.id">
+                    <a :href="'./product_info.html?productNo=' + product.product_no">
                         <img :src="product.product_image1" alt="">
                         <div class="show_hover">
                             <div class="p_title">更多詳細資訊</div>

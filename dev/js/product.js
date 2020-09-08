@@ -4,19 +4,26 @@ new Vue ({
         products: [],
         currentCategory: '機能服飾',
     },
-    mounted(){
-        axios.get('./json/Initial_product.json')
-
-            .then((res) => {
-              this.products = res.data;
-              console.log(res.data);
-            })
+    created(){
+        axios.get('./product_info.php').then(res => {
+            this.products = res.data;
+            console.log('success');
+            console.log(this.products);
+        })
     },
+    // mounted(){
+    //     axios.get('./json/Initial_product.json')
+
+    //         .then((res) => {
+    //           this.products = res.data;
+    //           console.log(res.data);
+    //         })
+    // },
     computed:{
         groupByCategory(){
             let result = {};
             for(let product of this.products){
-                const category = product.category
+                const category = product.product_category
                 if(result[category] !== undefined){
                     result[category].push(product);
                 }else{
