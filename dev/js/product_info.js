@@ -7,25 +7,27 @@ new Vue({
         productCount: 1,
         cartList: {},
     },
-    created(){
-        axios.get('./product_info.php').then(res => {
+    // created(){
+        // axios.get('./phpForConnect/product_info.php').then(res => {
+        //     this.products = res.data;
+        //     console.log('success');
+        //     console.log(this.products);
+        // })
+        // axios.get('./phpForConnect/product_info_related_artical.php').then(res => {
+        //     this.products = res.data;
+        //     console.log('success');
+        //     console.log(this.products);
+        // })
+    // },
+    mounted(){
+        axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);
         })
-    },
-    // mounted(){
-    //     axios.get('./json/Initial_product.json')
+        this.checkAndInitCart();
+        this.showCart();
 
-    //  
-    //         .catch(error => {console.log(error)});
-        
-    //         this.checkAndInitCart();
-    //         this.showCart();
-
-
-            // .then(res => this.products = res.data)
-            // .then(res => {console.log(res.data)})
         
         // if(localStorage.getItem('cartList')){
         //     try{
@@ -35,7 +37,7 @@ new Vue({
         //         localStorage.removeItem('cartList');
         //     }
         // };
-    // },
+    },
     computed: {
         productsCount() {
             return this.products.length;
@@ -111,11 +113,11 @@ new Vue({
 
         checkAndInitCart(){
             if(localStorage.getItem('cartList') === null){
-                const cart = JSON.stringify({})
+                let cart = JSON.stringify({})
                 localStorage.setItem('cartList', cart)
                 this.cartList = {}
             }else{
-                const cartList = JSON.parse(localStorage.getItem('cartList'))
+                let cartList = JSON.parse(localStorage.getItem('cartList'))
                 this.cartList = cartList
             }
         },
