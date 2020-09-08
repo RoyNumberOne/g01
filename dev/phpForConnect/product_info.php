@@ -2,7 +2,7 @@
 try{
     header("connect-type: text/html; charset=utf-8");
     
-    require_once('connectMeetain.php');
+    require_once('../connectMeetain.php');
     
     $sql= " SELECT * FROM product where product_situation = 1; ";
 

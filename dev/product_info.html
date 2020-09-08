@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- @@include('header.html') -->
-<div id="app">  <!-- demo之後刪掉 -->
+<!-- <div id="app">  demo之後刪掉 -->
     <header> 
 
         <div id="headerbox">
@@ -42,7 +42,8 @@
                 <ul class="link_list llright">
                     <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html" style="position:relative;"><i class="fa fa-shopping-cart"></i></a></li>
-                    <div class="add_count">{{cartCount}}</div>
+                    <!-- <div class="add_count">{{cartCount}}</div> -->
+                    <div class="add_count"></div>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -69,7 +70,7 @@
     </header>
 
     <!-- <div class="wrap" id="app"> demo之後修改回來-->
-    <div class="wrap">
+    <div class="wrap" id="app">
         <a href="./product.html"><button class="btnA_LwLA"><p>回總覽</p><div class="btnArrowL"></div></button></a>        
         <div class="product_block">
             <div class="left">
@@ -139,7 +140,7 @@
             </div>
         </div>
     </div>
-</div>  <!-- demo之後刪掉 -->
+<!-- </div>  demo之後刪掉 -->
     <!-- @@include('footer.html') -->
     <footer class="footer">
         <div class="footer_logo_block">

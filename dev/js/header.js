@@ -76,3 +76,7 @@ var $hamburger = $(".hamburger");
         $("li.bg3").css("opacity","0");
         $("#picProduct").css("top","100%");
     });
+
+
+    //shopcart cartCount
+    // localStorage.getItem('cartList');
