@@ -41,7 +41,7 @@ main{
                 &.index {
                     border-radius: 0px 10px 0px 0px;
                 }
-                &.administer {
+                &.orderdeta {
                     border-radius: 0px 0px 10px 0px;
                 }
                 & p.title {
@@ -117,10 +117,6 @@ main{
                     visibility: visible;
                 }
             }
-            // & .ulat p.title,
-            // & .liat p.desc{ 
-            //     // color: $mt_blue1 !important;
-            // }
         }
     }
     section{
