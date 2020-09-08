@@ -65,9 +65,9 @@
                             <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
                             <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'style="width:60px;"></td>
                             <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
-                            <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
-                            <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
-                            <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
                             <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
                             </tr>
                             <script>
@@ -140,10 +140,12 @@ $('input[type="checkbox"]').change(function(){
 <script>
 $(Document).ready(function(){
     let url = new URL(window.location.href);
-    console.log(url);
+    // console.log(url);
     let curPage = new URLSearchParams(url.search);
     curPage = curPage.get("pageNo") - 1;
-    console.log(curPage);
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
     $(".pagebtn").children().eq(curPage).children().addClass('-active')
 });
 </script>
@@ -166,37 +168,6 @@ $(Document).ready(function(){
         $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
         $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
     });
-</script>
-<script>
-	// 商品 - 新增
-	$(Document).ready(function(){
-		$("#newProductBtnSend").click(function(){
-			let product_name = $("#product_name").val();
-			let product_category = $("#product_category").val();
-			let degree_category = $(".degree_category:checked").val();
-			let product_price = $("#product_price").val();
-			let product_description = $("#product_description").val();
-			let product_image1 = $("#product_image1").val();
-			let product_image2 = $("#product_image2").val();
-			let product_image3 = $("#product_image3").val();
-			let product_situation = $(".product_situation:checked").val();
-			$.post("./backstageAddProduct.php",
-				{product_name: product_name,
-				product_category: product_category,
-				degree_category: degree_category,
-				product_price: product_price,
-				product_description: product_description,
-				product_image1: product_image1,
-				product_image2: product_image2,
-				product_image3: product_image3,
-				product_situation: product_situation
-				},
-				function(){
-				//要導去另外正確頁面
-				window.location.reload(true);
-			})
-        })
-	})
 </script>
 <script src="./js/backstage.js"></script>
 </body>

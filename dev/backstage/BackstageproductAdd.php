@@ -116,31 +116,26 @@ function readURL3(input){
 <script>
 	// 商品 - 新增
 	$(Document).ready(function(){
-		$("#newProductBtnSend").click(function(){
-			let product_name = $("#product_name").val();
-			let product_category = $("#product_category").val();
-			let degree_category = $(".degree_category:checked").val();
-			let product_price = $("#product_price").val();
-			let product_description = $("#product_description").val();
-			let product_image1 = $("#product_image1").val();
-			let product_image2 = $("#product_image2").val();
-			let product_image3 = $("#product_image3").val();
-			let product_situation = $(".product_situation:checked").val();
-			$.post("./backstageAddProduct.php",
-				{product_name: product_name,
-				product_category: product_category,
-				degree_category: degree_category,
-				product_price: product_price,
-				product_description: product_description,
-				product_image1: product_image1,
-				product_image2: product_image2,
-				product_image3: product_image3,
-				product_situation: product_situation
-				},
-				function(){
-				//要導去另外正確頁面
-				window.location.reload(true);
-			})
+		$("#newProductBtnSend").click(function(e){
+
+			e.preventDefault();
+            $.ajax({
+                url: './BackstageAddProduct.php',
+                type: "POST",
+                data:  new FormData(document.getElementById("newProduct")),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data){
+                },
+                error: function(){
+                },
+            });
+            if ($(".product_situation:checked").val() == 0) {
+                window.location.href = "./Backstageproduct0.php"
+            }   else    {
+                window.location.href = "./Backstageproduct.php"
+            }
 		})
 	})
 </script>
