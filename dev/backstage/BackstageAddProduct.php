@@ -17,11 +17,11 @@ try {
         for($i=0;$i<3;$i++){
             if(is_uploaded_file($_FILES["upFile"]["tmp_name"][$i])) {
                 $sourcePath = $_FILES["upFile"]["tmp_name"][$i];
-                $targetPath = "../images/product_image/".$product_name.$i;    
+                $targetPath = "./images/product_image/".$product_name.$i;    
                 // $targetPath = "../images/product_image/".$_FILES["upFile"]["name"][$i];        
         		array_push($product_imgpath,$targetPath);
                 // $product_image0=$targetPath;
-            if(move_uploaded_file($sourcePath,$targetPath)) {
+            if(move_uploaded_file($sourcePath,('.'.$targetPath))) {
                 }
             }
         }

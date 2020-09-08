@@ -177,7 +177,7 @@ try	{
 			echo "連線成功<br>";
             // :::::::::: 5類別*4難度 + 3備用::::::::::
             for($a=0 ; $a<23 ; $a++){
-            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description,product_image1,product_image2,product_image3,product_situation) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."',concat('../images/product_image/','".$data[$a]['product_name']."','0.png'),concat('../images/product_image/','".$data[$a]['product_name']."','1.png'),concat('../images/product_image/','".$data[$a]['product_name']."','2.png'),'".$data[$a]['product_situation']."');";
+            $sql = "insert into product (degree_category,product_category,product_name,product_price,product_description,product_image1,product_image2,product_image3,product_situation) value  ('".$data[$a]['degree_category']."','".$data[$a]['product_category']."','".$data[$a]['product_name']."','".$data[$a]['product_price']."','".$data[$a]['product_description']."',concat('./images/product_image/','".$data[$a]['product_name']."','0.png'),concat('./images/product_image/','".$data[$a]['product_name']."','1.png'),concat('./images/product_image/','".$data[$a]['product_name']."','2.png'),'".$data[$a]['product_situation']."');";
             echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }

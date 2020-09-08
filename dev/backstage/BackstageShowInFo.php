@@ -887,9 +887,9 @@ try	{
              <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
              <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
              <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
-             <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
-             <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
-             <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
 			<td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
 
@@ -974,9 +974,9 @@ try	{
              <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
              <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'></td>
              <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
-             <td><img src="<?=$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
-             <td><img src="<?=$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
-             <td><img src="<?=$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+             <td><img src="<?='.'.$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
 			 <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
             </tr>
 
@@ -1298,11 +1298,8 @@ $('input[type="checkbox"]').change(function(){
 </script>
 
 <h3>近期訂單</h3>
-<form id="searchOrder" method="post" action="./BackstageShowOrderDetail2.php">
-	<select width="200px" id="orderSearchBar" name="orderSearchBar">
-		<option value="order_no" selected="selected">依訂單編號</option>
-		<option value="member_no">依會員編號</option>
-		<option value="order_logistics_phone">聯絡電話</option>
+<form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
+	<label><input type='hidden' readonly width="200px" id="orderSearchBar" name="orderSearchBar" value="order_no">訂單編號</label>
 	</select>
 	<label><input type="text" id="searchKey" name="searchKey"></label>
 	<button type="submit" id="searchOrderBtnSend">查詢</button>
@@ -1315,7 +1312,7 @@ $('input[type="checkbox"]').change(function(){
 		$("#searchOrderBtnSend").click(function(e){
 			e.preventDefault();
 				$.ajax({
-					url: './BackstageShowOrderDetail2.php',
+					url: './BackstageShowOrderDetail.php',
 					type: "POST",
 					data:  new FormData(document.getElementById("searchOrder")),
 					contentType: false,
