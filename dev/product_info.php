@@ -4,7 +4,7 @@ try{
     
     require_once('connectMeetain.php');
     
-    $sql= " SELECT * FROM product; ";
+    $sql= " SELECT * FROM product where product_situation = 1; ";
 
     $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
