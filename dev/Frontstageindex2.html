@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css//jquery.fullpage.css">
     <link rel="stylesheet" href="./css/FrontstageIndex2.css">
     <link rel="stylesheet" href="./css/headerIndex.css">
+    <script src="./js/axios.min.js"></script>
     <script src="./js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/jquery.min.js"></script>
@@ -272,7 +273,8 @@
                 </div>
                 <div id="tourbox">
                         <div id="toursearchbar"></div>
-                        <div id="tourhotbox"></div>
+                        <div id="tourhotbox">
+                        </div>
                 </div>
                 
             </div>
@@ -372,25 +374,80 @@
                 $(".menu").toggleClass("show");
             },200)
         });
-      </script>
+    </script>
 
-      <script>
-          $("a.tour").hover(function(){
-                $("li.y1 div").css("opacity","0.9");
-            },function(){
-                $("li.y1 div").css("opacity","0");
-            });
-          $("a.forum").hover(function(){
-                $("li.y2 div").css("opacity","0.9");
-            },function(){
-                $("li.y2 div").css("opacity","0");
-            });
-          $("a.product").hover(function(){
-                $("li.y3 div").css("opacity","0.9");
-            },function(){
-                $("li.y3 div").css("opacity","0");
-            });
-      </script>
+    <script>
+        $("a.tour").hover(function(){
+            $("li.y1 div").css("opacity","0.9");
+        },function(){
+            $("li.y1 div").css("opacity","0");
+        });
+        $("a.forum").hover(function(){
+            $("li.y2 div").css("opacity","0.9");
+        },function(){
+            $("li.y2 div").css("opacity","0");
+        });
+        $("a.product").hover(function(){
+            $("li.y3 div").css("opacity","0.9");
+        },function(){
+            $("li.y3 div").css("opacity","0");
+        });
+    </script>
+
+    <script>
+        let vTour = new Vue({
+            el: "#sec2box",
+            data: {
+                Tour: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexTour.php').then(res => {
+                this.Tour = res.data; 
+                console.log('success'); 
+                console.log(this.Tour);
+                })
+            },
+        });
+        let vForumHot = new Vue({
+            el: "#sec3-1box",
+            data: {
+                ForumHot: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexForumHot.php').then(res => {
+                this.ForumHot = res.data; 
+                console.log('success'); 
+                console.log(this.ForumHot);
+                })
+            },
+        });
+        let vForumNew = new Vue({
+            el: "#sec3-2box",
+            data: {
+                ForumNew: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexForumNew.php').then(res => {
+                this.ForumNew = res.data; 
+                console.log('success'); 
+                console.log(this.ForumNew);
+                })
+            },
+        });
+        let vProduct = new Vue({
+            el: "#sec4box",
+            data: {
+                Product: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexProduct.php').then(res => {
+                this.Product = res.data; 
+                console.log('success'); 
+                console.log(this.Product);
+                })
+            },
+        });
+    </script>
 
     <script src="./js/FrontstageIndex2.js" ></script>
     
