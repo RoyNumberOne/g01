@@ -30,98 +30,92 @@
             <div class="verify_total">
                 <h4>審核嚮導證</h4>
                     <span id="loadButton_1"style="background-color:#2C5E9E; color:#FFF">未處理</span>
-                    <span id="loadButton_2">已處理</span>
+                    <span id="loadButton_2">已通過</span>
                     <span id="loadButton_3">未通過</span>
             </div>
             <div id="ccc">
                 <h3>嚮導審核 - 未處理</h3>
-                <?php 
+                    <?php 
                     try	{
                         require_once('connectMeetain.php');
                         
-                        $sql = 'SELECT mem_no "會員編號" , guide_image "證件照片" , guide_no "嚮導證編號" , guide_period_start "發證日期" , guide_period_end "有效日期" , mem_guide_apply "申請時間"  FROM member_guide where mem_guide_situation = "未審核" order by "審核時間" ;';
-                        $pdoStatement = $pdo->query($sql);
-                        $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-                        ?>
-                        <table>
-                        <tr class='cyan'><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th></tr>
-                        <?php
-                        foreach ( $prodRows as $i => $prodRow){
-                        ?>
-                            <tr>
-                            <td class='pink'><?=$prodRow["會員編號"]?></td>
-                            <td><?=$prodRow["證件照片"]?></td>
-                            <td><?=$prodRow["嚮導證編號"]?></td>
-                            <td><?=$prodRow["發證日期"]?></td>
-                            <td><?=$prodRow["有效日期"]?></td>
-                            <td><?=$prodRow["申請時間"]?></td>
-                            <td style="text-align: left;padding-left: 5px;">   <label><input type="radio" value="Pass" name="review?<?=$prodRow["會員編號"]?>">通過</label><br>
-                                    <label><input type="radio" value="unPass" name="review?<?=$prodRow["會員編號"]?>">未通過</label> </td>
-                            <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                            <p>送出</p>
-                            <div class="bg"></div>
-                            </button></td>
-                            </tr>
-                        
-                            <?php } ?>
+                            $sql = "SELECT member_guide_no 'no' ,  mem_no '會員編號' , guide_image '證件照片' , guide_no '嚮導證編號' , guide_period_start '發證日期' , guide_period_end '有效日期' , mem_guide_apply '申請時間'  FROM member_guide where mem_guide_situation = '未審核' order by mem_guide_apply ;";
+                            $pdoStatement = $pdo->query($sql);
+                            $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+                            <table>
+                            <tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th><th width="80px"></th></tr>
+                            <?php
+                            foreach ( $prodRows as $i => $prodRow){
+                            ?>
+                                <tr>
+                                <td class='pink'><?=$prodRow["no"]?></td>
+                                <td><?=$prodRow["會員編號"]?></td>
+                                <td><img src="<?=$prodRow["證件照片"]?>" width="220px" alt=""></td>
+                                <td><?=$prodRow["嚮導證編號"]?></td>
+                                <td><?=$prodRow["發證日期"]?></td>
+                                <td><?=$prodRow["有效日期"]?></td>
+                                <td><?=$prodRow["申請時間"]?></td>
+                                <td><label><input type="radio" value="已審核已通過" name="VERIFYguide<?=$prodRow["no"]?>">通過</label><br>
+                                    <label><input type="radio" value="已審核未通過" name="VERIFYguide<?=$prodRow["no"]?>">未通過</label>
+                                </td>
+                                <td><label><input name="<?=$prodRow["no"]?>" type="button" value="送出" disabled class="sendverifyguide"></label></td>
+                                </tr>
+                            
+                                <?php } ?>
                             </table>
                         <?php
                         }	catch	(PDOException $e)	{
                         }
-                ?>
+                    ?>
             </div>
         </div>
         <div class="pagebtn">
-            <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-            <button class="btnA_S pg -active"><p>01</p></button>
-            <button class="btnA_S pg"><p>02</p></button>
-            <button class="btnA_S pg"><p>03</p></button>
-            <button class="btnA_S pg"><p>04</p></button>
-            <button class="btnA_S pg"><p>05</p></button>
-            <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+            <!-- <button></button> -->
         </div>
     </section>
 </main>
 <script>
+// 有選結果才能打開送出button
+$('input[name^="VERIFYguide"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+	// 實名制認證 － 結果送出
+	$(Document).ready(function(){
+		$(".sendverifyguide").click(function(){
+
+			var temp = $(this).attr('name');
+			let VERIFYguideIfPass = $("input[name='VERIFYguide"+temp+"']:checked").val();
+			
+			console.log(temp);
+			console.log(VERIFYguideIfPass);
+
+				$.ajax({
+					url: './BackstageVERIFYguide.php',
+					data: {	member_guide_no: temp,
+							VERIFYguideIfPass: VERIFYguideIfPass ,
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+
+			$(this).prop('disabled', 'disabled');
+			$(this).parent().parent().prev().children().prop("disabled","disabled");
+			$(this).parent().parent().prev().children().children().prop("disabled","disabled");
+		})
+	})
+ </script>
+<script>
 // =====button class="btnA_S" 的頁碼切換=====
 $(document).ready(function(){
-    function checkpg(){
-    if ($(".pgprev").next().hasClass("-active")) {
-        $(".pgprev").css("visibility","hidden");
-    }   else {
-        $(".pgprev").css("visibility","visible");
-    }
-    if ($(".pgnext").prev().hasClass("-active")) {
-        $(".pgnext").css("visibility","hidden");
-    }   else{
-        $(".pgnext").css("visibility","visible");
-    }
-}
-checkpg();
-$(".pg").click(function(){
-    $(this).parent().children().removeClass("-active");
-    $(this).addClass("-active");
-    checkpg();
-});
-$(".pgprev").click(function(){
-    if (!$(".pgprev").next().hasClass("-active")) {
-        $(".-active").prev().addClass("-active");
-        $(".-active").next(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-$(".pgnext").click(function(){
-    if (!$(".pgnext").prev().hasClass("-active")) {
-        $(".-active").next().addClass("-active");
-        $(".-active").prev(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-// =====button class="btnA_S" 的頁碼切換=====
-
 //load php
     $('#loadButton_1').click(function () {
-        $('#ccc').load('BackstageMemGuide_4.php',{ name_4: '未審核' });
+        $('#ccc').load('BackstageMemGuide_4.php');
         $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
         $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
         $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});

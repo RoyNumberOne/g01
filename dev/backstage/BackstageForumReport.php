@@ -31,7 +31,7 @@
             <div class="report_total"> 
                 <h4>討論文檢舉</h4>
                 <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageForumReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageForumReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageForumReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageForumReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -43,7 +43,6 @@
                         $stmt = $pdo->query($sql); 
                         $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                         $totalRecords = $row["totalCount"]; 
-                        // echo $totalRecords;
                         $recPerPage= 3;
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
@@ -53,31 +52,29 @@
                         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                         <table>
-                        <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">討論編號</th><th width="300px">討論標題</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
+                        <tr class='cyan'><th>檢舉編號</th><th>討論編號</th><th>討論標題</th><th>被檢舉人</th><th>檢舉時間</th><th>檢舉緣由</th><th>檢舉狀態</th><th>確認</th></tr>
                         <?php
                         foreach ( $prodRows as $i => $prodRow){
                         ?>
                             <tr>
-                            <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                            <td><?=$prodRow["討論編號"]?></td>
-                            <td style="text-align: left;padding-left: 10px;"><?=$prodRow["討論標題"]?></td>
-                            <td><?=$prodRow["被檢舉人"]?></td>
-                            <td><?=$prodRow["檢舉時間"]?></td>
-                            <td><?=$prodRow["檢舉緣由"]?></td>
-                            <td style="text-align: left;padding-left: 10px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                                    <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                                    <select name="BanLong">
+                                <td class='pink'><?=$prodRow["檢舉編號"]?></td>
+                                <td><?=$prodRow["討論編號"]?></td>
+                                <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["討論標題"]?></td>
+                                <td><input type="text" disabled name="REVIEWfrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
+                                <td><?=$prodRow["檢舉時間"]?></td>
+                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
+                                <td style="text-align: left;padding-left: 10px;">   
+                                    <label><input type="radio" value="已處理未通過" name="REVIEWfr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
+                                    <label><input type="radio" value="已處理已通過" name="REVIEWfr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
+                                    <select name="BANLONGfr<?=$prodRow["檢舉編號"]?>">
                                         <option value="5">5分鐘</option>
-                                        <option value="3" selected="selected">3天</option>
-                                        <option value="7">7天</option>
-                                        <option value="14">14天</option>
-                                        <option value="28">28天</option>
+                                        <option value="4320" selected="selected">3天</option>
+                                        <option value="10080">7天</option>
+                                        <option value="20160">14天</option>
+                                        <option value="40320">28天</option>
                                     </select>
-                            </td>
-                            <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                                <p>送出</p>
-                                <div class="bg"></div>
-                            </button></td>
+                                </td>
+                                <td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" disabled class="sendforumreport"></label></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -95,65 +92,78 @@
     </section>
 </main>
 <script>
-// =====button class="btnA_S" 的頁碼切換=====
-$(document).ready(function(){
-    function checkpg(){
-    if ($(".pgprev").next().hasClass("-active")) {
-        $(".pgprev").css("visibility","hidden");
-    }   else {
-        $(".pgprev").css("visibility","visible");
-    }
-    if ($(".pgnext").prev().hasClass("-active")) {
-        $(".pgnext").css("visibility","hidden");
-    }   else{
-        $(".pgnext").css("visibility","visible");
-    }
-}
-checkpg();
-$(".pg").click(function(){
-    $(this).parent().children().removeClass("-active");
-    $(this).addClass("-active");
-    checkpg();
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
 });
-$(".pgprev").click(function(){
-    if (!$(".pgprev").next().hasClass("-active")) {
-        $(".-active").prev().addClass("-active");
-        $(".-active").next(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-$(".pgnext").click(function(){
-    if (!$(".pgnext").prev().hasClass("-active")) {
-        $(".-active").next().addClass("-active");
-        $(".-active").prev(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-// =====button class="btnA_S" 的頁碼切換=====
-
-//load php
-    $('#loadButton_1').click(function () {
-        $('#ccc').load('BackstageCommentReport_4.php',{ name_4: '未處理' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-    $('#loadButton_2').click(function () {
-        $('#ccc').load('BackstageCommentReport_2.php', { name_2: '已處理已通過' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_3').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-    $('#loadButton_3').click(function () {
-        $('#ccc').load('BackstageCommentReport_3.php', { name_3: '已處理未通過' });
-        $(this).css({"background-color":"#2C5E9E","color":"#FFF"});
-        $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-        $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
-    });
-
-});
-
 </script>
+<script>
+// 有選結果才能打開送出button
+$('input[name^="REVIEWfr"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+	// 揪團檢舉 － 結果送出
+$(Document).ready(function(){
+    $(".sendforumreport").click(function(){
+
+        var temp = $(this).attr('name');
+        let REVIEWfrIfPass = $("input[name='REVIEWfr"+temp+"']:checked").val();
+        let REVIEWfrBanLong = $("select[name='BANLONGfr"+temp+"']").val();
+        let REVIEWfrMember = $("input[name='REVIEWfrMember"+temp+"']").val();
+        
+        console.log(temp);
+        console.log(REVIEWfrIfPass);
+        console.log(REVIEWfrBanLong);
+        console.log(REVIEWfrMember);
+
+        // if (REVIEWfrBanLong)
+
+        if ( REVIEWfrIfPass == '已處理未通過'){
+            console.log ('已處理未通過')
+
+            $.ajax({
+                url: './BackstageREVIEWfrUnPass.php',
+                data: {	forum_report_no: temp,
+                        REVIEWfrIfPass: REVIEWfrIfPass ,
+                    },
+                type: 'POST',   
+                success(){
+                } ,
+            });
+
+        }	else	{
+            console.log ('已處理已通過')
+
+            $.ajax({
+                url: './BackstageREVIEWfrPass.php',
+                data: {	forum_report_no: temp,
+                        REVIEWfrIfPass: REVIEWfrIfPass ,
+                        REVIEWfrBanLong: REVIEWfrBanLong,
+                        REVIEWfrMember: REVIEWfrMember,
+                    },
+                type: 'POST',   
+                success(){
+                    console.log('ya')
+                } ,
+            });
+
+        }
+        $(this).prop('disabled', 'disabled');
+        $(this).parent().parent().prev().children().prop("disabled","disabled");
+        $(this).parent().parent().prev().children().children().prop("disabled","disabled");
+    })
+})
+ </script>
+
 <script src="./js/backstage.js"></script>
 </body>
 </html>

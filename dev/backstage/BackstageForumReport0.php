@@ -31,7 +31,7 @@
             <div class="report_total"> 
                 <h4>討論文檢舉</h4>
                 <span id="loadButton_1"><a href="./BackstageForumReport.php">未處理</a></span>
-                <span id="loadButton_2" style="background-color:#2C5E9E; color:#FFF" ><a href="./BackstageForumReport0.php">已處理</a></span>
+                <span id="loadButton_2" style="background-color:#2C5E9E; color:#FFF" ><a href="./BackstageForumReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageForumReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -48,7 +48,7 @@
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                             $start = ($pageNo-1) * $recPerPage;
-                            $sql = "SELECT forum_report_no '檢舉編號' , forum_report_post '討論編號' , forum_post_title '討論標題' , forum_post_poster '被檢舉人' , forum_report_build '檢舉時間', forum_report_reason '檢舉緣由', forum_report_banLong '檢舉時長', ban_forum_date '解封時間' from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_report_mem = mem.mem_no where fr.forum_report_situation = '已處理已通過' limit $start,$recPerPage";
+                            $sql = "SELECT forum_report_no '檢舉編號' , forum_report_post '討論編號' , forum_post_title '討論標題' , forum_post_poster '被檢舉人' , forum_report_build '檢舉時間', forum_report_reason '檢舉緣由', forum_report_banLong '檢舉時長', ban_forum_date '解封時間' from forum_report fr join forum_post fp on fr.forum_report_post = fp.forum_post_no join member mem on forum_report_mem = mem.mem_no where fr.forum_report_situation = '已處理已通過' order by forum_report_build limit $start,$recPerPage";
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
@@ -84,6 +84,18 @@
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>

@@ -4,31 +4,38 @@ new Vue({
         products:[{}],
         currentIndex: 0 ,
         currentImageIndex: 0,
-        addCount: 0,
         productCount: 1,
-        productList:'',
+        cartList: {},
     },
-    mounted(){
-        axios.get('./json/Initial_product.json')
+    created(){
+        axios.get('./product_info.php').then(res => {
+            this.products = res.data;
+            console.log('success');
+            console.log(this.products);
+        })
+    },
+    // mounted(){
+    //     axios.get('./json/Initial_product.json')
 
-            .then((res) => {
-                this.products = res.data;
-                console.log(res.data);
-            })
+    //  
+    //         .catch(error => {console.log(error)});
         
+    //         this.checkAndInitCart();
+    //         this.showCart();
+
+
             // .then(res => this.products = res.data)
             // .then(res => {console.log(res.data)})
-            .catch(error => {console.log(error)});
         
-        if(localStorage.getItem('productList')){
-            try{
-                this.cat = JSON.parse(`[${localStorage.getItem('productList')}]`);
-                console.log(JSON.parse(`[${this.productList}]`));
-            }catch(e){
-                localStorage.removeItem('productList');
-            }
-        };
-    },
+        // if(localStorage.getItem('cartList')){
+        //     try{
+        //         this.cart = JSON.parse(`[${localStorage.getItem('cartList')}]`);
+        //         console.log(JSON.parse(`[${this.cartList}]`));
+        //     }catch(e){
+        //         localStorage.removeItem('cartList');
+        //     }
+        // };
+    // },
     computed: {
         productsCount() {
             return this.products.length;
@@ -71,29 +78,70 @@ new Vue({
         //     this.nextImage = this.currentImageIndex.product_image1;
         //     return this.nextImage;
         // },
+        cartCount(){
+            return Object.keys(this.cartList).length;
+        },
     },
     methods:{
         next(){
             this.currentIndex = this.nextIndex;
             this.currentImageIndex = 0;
+            this.productCount = 1;
+            $('.dot :first-child').addClass('pick');
         },
         pre(){
             this.currentIndex = this.preIndex;
             this.currentImageIndex = 0;
+            this.productCount = 1;
+            $('.dot :first-child').addClass('pick');
         },
-        addToCart(){
+        // addToCart(){
  
-            if(localStorage.getItem('productList')){
-                parsed = [];
-                parsed.push(localStorage.getItem('productList'));
+        //     if(localStorage.getItem('cartList')){
+        //         parsed = [];
+        //         parsed.push(localStorage.getItem('cartList'));
 
+        //     }else{
+        //         parsed = [];
+        //     }
+        //     parsed.push(JSON.stringify(this.currentProduct));
+        //     localStorage.setItem('cartList',parsed);
+        //     console.log(JSON.parse(`[${parsed}]`));
+        // },
+
+        checkAndInitCart(){
+            if(localStorage.getItem('cartList') === null){
+                const cart = JSON.stringify({})
+                localStorage.setItem('cartList', cart)
+                this.cartList = {}
             }else{
-                parsed = [];
+                const cartList = JSON.parse(localStorage.getItem('cartList'))
+                this.cartList = cartList
             }
-            parsed.push(JSON.stringify(this.currentProduct));
-            localStorage.setItem('productList',parsed);
-            console.log(JSON.parse(`[${parsed}]`));
         },
+
+        addToCart(){
+            if(this.cartList[this.currentProduct.product_no] === undefined){
+                let cartItem = {}
+                cartItem[this.currentProduct.product_no] = { product: this.currentProduct, count: this.productCount}
+                // this.cartList = { ...this.cartList, ...cartItem }  es6 //把剛才創的cartItem放進cartList裡面
+                this.cartList = Object.assign({}, this.cartList, cartItem)
+                this.upDateLocalStorage();    
+            }else{
+                this.cartList[this.currentProduct.product_no].count += this.productCount;
+                console.log(this.cartList);
+                this.upDateLocalStorage();    
+            }
+        },
+
+        upDateLocalStorage(){
+            localStorage.setItem('cartList',this.cartListJsonString());
+        },
+
+        cartListJsonString(){
+            return JSON.stringify(this.cartList);
+        },
+
         productCountDecrease(){
             if(this.productCount>1){
                 this.productCount -= 1;
@@ -103,14 +151,19 @@ new Vue({
             if(this.productCount<99){
                 this.productCount += 1;
             }
-        }
-    },
+        },
+        showCart(){
+            if(Object.keys(this.cartList).length>0){
+                $(".add_count").css("display", "block");
+            }
+        },
+    }, 
 });
 
 
 //.heart chage img src
 $(document).ready(function(){
-    $(".changeIcon").click(function(){
+    $(".productCollect").click(function(){
         if($(".heart").attr('src') === "./images/icons/icon_heart.svg"){
             $(".heart").attr("src","./images/icons/icon_heart_h&c.svg");
         }else{
@@ -151,7 +204,7 @@ $(document).ready(function(){
           sel.removeAllRanges();
           sel.addRange(range);
           document.execCommand('copy');
-          alert("已複製優惠券代碼");
+        //   alert("已複製優惠券代碼");
           return false;
         });
 });

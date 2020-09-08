@@ -29,75 +29,55 @@
         <div>
             <div class="product_total">
                 <h4>商品管理</h4>
-                    <span id="loadButton_1" 
-                    <?php if($_REQUEST["name"]==1){
-                        echo 'style="background-color:#2C5E9E; color:#FFF"';
-                    }
-                    ?>
-                    ><a href="BackstageProduct.php?pageNo=1&name=1">上架中</a></span>
-                    <span id="loadButton_2"
-                    <?php if($_REQUEST["name"]==0){
-                        echo 'style="background-color:#2C5E9E; color:#FFF"';
-                    }
-                    ?>
-                    ><a href="BackstageProduct.php?pageNo=1&name=0">未上架</a></span>
-                    <button type="submit" class="btnB_L_yellow_2" id="loadButton_3"><p>新增</p><div class="bg2"></div></button>
+                <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./Backstageproduct.php">已上架</a></span>
+                <span id="loadButton_2"><a href="./Backstageproduct0.php">未上架</a></span>
+                <button type="submit" class="btnB_L_yellow_2" id="loadButton_3"><p>新增</p><div class="bg2"></div></button>
             </div>
             <div id="ccc">
-                <h3>
-                <?php if($_REQUEST["name"]==1){echo '商品 - 上架中';}?>
-                <?php if($_REQUEST["name"]==0){echo '商品 - 未上架';}?>
-                </h3>
+                <h3>商品 - 已上架</h3>
                 <?php
-                $name =  $_REQUEST["name"];
                 try	{
                     require_once('connectMeetain.php');
-                        $sql = "select count(*) totalCount from product where product_situation=:situation";
-                        $stmt = $pdo->prepare($sql); 
-                        $stmt -> bindValue(":situation",$name);
-                        $stmt->execute();
+                        $sql = "select count(*) totalCount from product where product_situation= 1";
+                        $stmt = $pdo->query($sql); 
                         $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                         $totalRecords = $row["totalCount"]; 
                         // echo $totalRecords;
                         $recPerPage= 5;
-                        
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage; 
-                        $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' from product where product_situation=:situation limit $start,$recPerPage";
-                        $products = $pdo->prepare($sql); 
-                        $products -> bindValue(":situation",$name);
-                        $products->execute();
-                        $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
+		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 1 limit $start,$recPerPage";
+                        $pdoStatement = $pdo->query($sql);
+                        $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                         <table>
-                        <tr class='cyan'><th width="80px">商品編號</th><th width="100px">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th width="300px">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th></tr>
+                        <tr class='cyan'><th width="80px">商品編號</th><th style="width:60px;">難度等級</th><th width="100px">商品分類</th><th width="160px">商品名稱</th><th width="80px">商品價格</th><th style="width:200px;">商品說明</th><th width="100px">商品圖片一</th><th width="100px">商品圖片二</th><th width="100px">商品圖片三</th><th></th></tr>
                         <?php
                         foreach ( $prodRows as $i => $prodRow){
                         ?>
                             <tr>
-                            <td class='pink'><?=$prodRow["商品編號"]?></td>
-                            <td><?=$prodRow["難度等級"]?></td>
-                            <td><?=$prodRow["商品分類"]?></td>
-                            <td><?=$prodRow["商品名稱"]?></td>
-                            <td><?=$prodRow["商品價格"]?></td>
-                            <td style="overflow:hidden;
-                                        white-space: nowrap;
-                                        text-overflow: ellipsis;
-                                        display: -webkit-box;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        white-space: normal;">
-                                        <?=mb_substr($prodRow["商品說明"],0,25)?></td>
-                            <td><?=$prodRow["商品圖片一"]?></td>
-                            <td><?=$prodRow["商品圖片二"]?></td>
-                            <td><?=$prodRow["商品圖片三"]?></td>
-                            <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                            <p>修改</p>
-                            <div class="bg"></div>
-                            </button></td>
+                            <td class='pink'><?=$prodRow["商品編號"]?>
+                                <input type="checkbox" name="productAUTH<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品狀態"]?>'>
+                            </td>
+                            <td style="width:20px;"><?=$prodRow["難度等級"]?></td>
+                            <td style="width:150px;"><?=$prodRow["商品分類"]?></td>
+                            <td><input type="text" name="productNAME<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品名稱"]?>'></td>
+                            <td><input type="text" name="productPRICE<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品價格"]?>'style="width:60px;"></td>
+                            <td><input type="text" name="productDESC<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品說明"]?>'></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片一"]?>" width="100px" alt=""></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片二"]?>" width="100px" alt=""></td>
+                            <td><img src="<?='.'.$prodRow["商品圖片三"]?>" width="100px" alt=""></td>
+                            <td><label><input name="<?=$prodRow["商品編號"]?>" type="button" value="修改" class="editproduct"></label></td>
                             </tr>
-
+                            <script>
+                                function checkProductAuth(){
+                                    if ( <?=$prodRow["商品狀態"]?> == 1 ){
+                                        $("input[name='productAUTH<?=$prodRow["商品編號"]?>'").prop("checked","checked");
+                                    }
+                                }
+                                    checkProductAuth();
+                            </script>
                             <?php } ?>
                         </table>
                     <?php
@@ -107,7 +87,7 @@
                 <div class="pagebtn">
                     <?php 
                         for($i=1; $i<=$totalPages; $i++){
-                        echo "<a href='BackstageProduct.php?pageNo=$i&name=$name'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                        echo "<a href='Backstageproduct.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                         }
                     ?>
                 </div>
@@ -116,6 +96,59 @@
     </section>
 
 </main>
+<script>
+	// 商品修改 － 上架中
+	$(Document).ready(function(){
+		$(".editproduct").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				var temp = $(this).attr('name');
+				let EDITproduct_name = $("input[name='productNAME"+temp+"']").val();
+				let EDITproduct_price = $("input[name='productPRICE"+temp+"']").val();
+				let EDITproduct_description = $("input[name='productDESC"+temp+"']").val();
+				let EDITproduct_situation = $("input[name='productAUTH"+temp+"']").val();
+				
+				// console.log(EDITproduct_situation);
+				$.ajax({
+					url: './BackstageEditProduct.php',
+					data: {	product_no: temp,
+							EDITproduct_name: EDITproduct_name ,
+							EDITproduct_price:EDITproduct_price,
+							EDITproduct_description:EDITproduct_description,
+							EDITproduct_situation:EDITproduct_situation
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
+
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	})
+</script>
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
+</script>
+
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script>
 //load php
     $('#loadButton_1').click(function () {
@@ -135,37 +168,6 @@
         $('#loadButton_2').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
         $('#loadButton_1').css({"background-color":"#eaf1f4","color":"#2C5E9E"});
     });
-</script>
-<script>
-	// 商品 - 新增
-	$(Document).ready(function(){
-		$("#newProductBtnSend").click(function(){
-			let product_name = $("#product_name").val();
-			let product_category = $("#product_category").val();
-			let degree_category = $(".degree_category:checked").val();
-			let product_price = $("#product_price").val();
-			let product_description = $("#product_description").val();
-			let product_image1 = $("#product_image1").val();
-			let product_image2 = $("#product_image2").val();
-			let product_image3 = $("#product_image3").val();
-			let product_situation = $(".product_situation:checked").val();
-			$.post("./backstageAddProduct.php",
-				{product_name: product_name,
-				product_category: product_category,
-				degree_category: degree_category,
-				product_price: product_price,
-				product_description: product_description,
-				product_image1: product_image1,
-				product_image2: product_image2,
-				product_image3: product_image3,
-				product_situation: product_situation
-				},
-				function(){
-				//要導去另外正確頁面
-				window.location.reload(true);
-			})
-		})
-	})
 </script>
 <script src="./js/backstage.js"></script>
 </body>

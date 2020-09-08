@@ -42,7 +42,7 @@
                 <ul class="link_list llright">
                     <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html" style="position:relative;"><i class="fa fa-shopping-cart"></i></a></li>
-                    <div class="add_count">{{addCount}}</div>
+                    <div class="add_count">{{cartCount}}</div>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -77,7 +77,7 @@
                     <img :src="currentImage" alt="">
                 </div>
                 <div class="dot">
-                    <div class="pic" @click="currentImageIndex = 0"></div>
+                    <div class="pic pick" @click="currentImageIndex = 0"></div>
                     <div class="pic" @click="currentImageIndex = 1"></div>
                     <div class="pic" @click="currentImageIndex = 2"></div>
                 </div>
@@ -95,33 +95,35 @@
             <div class="right">
                 <div class="top">
                     <h2>{{currentProduct.product_name}}</h2>
-                    <div class="changeIcon">
+                    <div class="productCollect">
                         <img class="heart" src="./images/icons/icon_heart.svg" alt="">
                     </div>
                 </div>
                 <div class="product_text">
                     <p>{{currentProduct.product_description}}</p>
                 </div>
-                <div class="money_chart">
+                <div class="money_block">
                     <div class="money">${{currentProduct.product_price}}</div>
-                    <button class="btnB_XL_yellow add_chart" @click="addCount += 1; addToCart();"><p>加入購物車</p><div class="bg"></div></button>
+                </div>
+                <div class="discount_block">
                     <div class="discount_num">優惠券代碼：</div>
                     <div id="discount_num">9453</div>
                     <div class="copy_num" name="discount_num">
                         <img src="./images/icons/icon_copy.svg" alt="">
                     </div>
                 </div>
-                <div class="size_block">
+                <!-- <div class="size_block">
                     <div>尺寸：</div>
                     <div class="size">S</div>
                     <div class="size">M</div>
                     <div class="size">L</div>
-                </div>
+                </div> -->
                 <div class="product_count">
                     <button @click="productCountDecrease">－</button>
                     <div>{{productCount}}</div>
                     <button @click="productCountPlus">＋</button>
                 </div>
+                <button class="btnB_XL_yellow add_chart" @click="addToCart"><p>加入購物車</p><div class="bg"></div></button>
                 <div class="artical">
                     <h3 class="related_artical text_underline">相關討論文章</h3>
                     <a href="./comment.html">

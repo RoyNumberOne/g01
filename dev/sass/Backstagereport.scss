@@ -60,10 +60,50 @@ div{
             }
         }
         th,td{
+            vertical-align:top;
             padding: 15px 0;
-            width: 150px;
+            width: 100px;
             &:nth-child(even){
                 background-color: rgb(230, 230, 230);
+            }
+            #sendtourreport,.sendforumreport,.sendcommentreport{
+                border-style: none;
+                align-items: center;
+                margin: 0 auto;
+                width: 95px;
+                height: 45px;
+                outline: 0px !important;
+                border-radius: 15px;
+                justify-content: center;
+                background-color:$mt_yellow;
+                cursor: pointer;
+                color: #fff;
+                &:hover{
+                    background-color:$mt_blue2;
+                }
+            }
+            input{
+                width: 80px;
+                outline: none;
+                border-radius: 8px;
+                border: solid 0px #9999;
+                padding: 5px 5px;
+            }
+            .inputsize{
+                width: 10px;
+                margin-right: 5px;
+            }
+
+        }
+        #comm{
+            display : inline-block;
+            overflow : hidden;
+            text-overflow : ellipsis;
+            white-space : nowrap;
+            width : 120px;
+            &:hover{
+                overflow : visible;
+                white-space: normal;
             }
         }
         select{
@@ -71,58 +111,6 @@ div{
             border-radius: 5px;
             outline: none;
             background-color:rgb(229, 243, 243);
-        }
-        .btnB_L_yellow{
-            position: relative;
-            z-index: 2;
-            width: 95px;
-            height: 45px;
-            outline: 0px !important;
-            &::after {
-                content: "";
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                border: 4px solid $mt_yellow;
-                border-radius: 15px;
-            }
-            & p {
-                z-index: 1;
-                color: white;
-                transition: 0.3s2all ease-in-out;
-            }
-            & div.bg{
-                z-index: -1;
-                position: absolute;
-                top: -20px;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 15px;
-                background-color: $mt_yellow;
-                overflow: hidden;
-                &::after {
-                    content: "";
-                    z-index: -1;
-                    position: absolute;
-                    top: 0;
-                    left: 100%;
-                    width: 130%;
-                    height: 100%;
-                    // border-radius: 15px;
-                    background-color: white;
-                    transform: skewX(15deg);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-            &:hover p{
-                color: $mt_yellow;
-            }
-            &:hover div.bg::after{
-                left: 0%;
-            }   
         }
     }
 

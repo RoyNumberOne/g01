@@ -29,7 +29,7 @@
             <div class="report_total"> 
                 <h4>揪團檢舉</h4>
                 <span id="loadButton_1" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageTourReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageTourReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -41,7 +41,6 @@
                             $stmt = $pdo->query($sql); 
                             $row = $stmt->fetch(PDO::FETCH_ASSOC); 
                             $totalRecords = $row["totalCount"]; 
-                            // echo $totalRecords;
                             $recPerPage= 2;
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
@@ -51,31 +50,29 @@
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <table>
-                            <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">揪團編號</th><th width="300px">揪團標題</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
+                            <tr class='cyan'><th>檢舉編號</th><th>揪團編號</th><th>揪團標題</th><th>被檢舉人</th><th>檢舉緣由</th><th>檢舉時間</th><th>檢舉狀態</th><th>確認</th></tr>
                             <?php
                             foreach ( $prodRows as $i => $prodRow){
                             ?>
                                 <tr>
-                                <td class='pink'><?=$prodRow["檢舉編號"]?></td>
+                                <td class='pink' style="width:90px;"><?=$prodRow["檢舉編號"]?></td>
                                 <td><?=$prodRow["揪團編號"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["揪團標題"]?></td>
-                                <td ><?=$prodRow["被檢舉人"]?></td>
+                                <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["揪團標題"]?></td>
+                                <td><input type="text" disabled name="REVIEWtrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
+                                <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["檢舉緣由"]?></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
-                                <td style="text-align: left;padding-left: 10px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                                        <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                                        <select name="BanLong">
+                                <td style="text-align: left;padding-left: 10px;">
+                                    <label><input type="radio" value="已處理未通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
+                                    <label><input type="radio" value="已處理已通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
+                                        <select name="BANLONGtr<?=$prodRow["檢舉編號"]?>">
                                             <option value="5">5分鐘</option>
-                                            <option value="3" selected="selected">3天</option>
-                                            <option value="7">7天</option>
-                                            <option value="14">14天</option>
-                                            <option value="28">28天</option>
+                                            <option value="4320" selected="selected">3天</option>
+                                            <option value="10080">7天</option>
+                                            <option value="20160">14天</option>
+                                            <option value="40320">28天</option>
                                         </select>
                                 </td>
-                                <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                                    <p>送出</p>
-                                    <div class="bg"></div>
-                                </button></td>
+                                <td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" class="sendtourreport" id="sendtourreport" disabled></label></td>
                                 </tr>
 
                                 <?php } ?>
@@ -92,9 +89,82 @@
                 echo "<a href='BackstageTourReport.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                 }
             ?>
+            
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
+<script>
+// 有選結果才能打開送出button
+$('input[name^="REVIEWtr"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+<script>
+// 揪團檢舉 － 結果送出
+$(Document).ready(function(){
+    $(".sendtourreport").click(function(){
+
+        var temp = $(this).attr('name');
+        let REVIEWtrIfPass = $("input[name='REVIEWtr"+temp+"']:checked").val();
+        let REVIEWtrBanLong = $("select[name='BANLONGtr"+temp+"']").val();
+        let REVIEWtrMember = $("input[name='REVIEWtrMember"+temp+"']").val();
+        
+        console.log(temp);
+        console.log(REVIEWtrIfPass);
+        console.log(REVIEWtrBanLong);
+        console.log(REVIEWtrMember);
+
+        // if (REVIEWtrBanLong)
+
+        if ( REVIEWtrIfPass == '已處理未通過'){
+            console.log ('已處理未通過')
+
+            $.ajax({
+                url: './BackstageREVIEWtrUnPass.php',
+                data: {	tour_report_no: temp,
+                        REVIEWtrIfPass: REVIEWtrIfPass ,
+                    },
+                type: 'POST',   
+                success(){
+                } ,
+            });
+
+        }	else	{
+            console.log ('已處理已通過')
+
+            $.ajax({
+                url: './BackstageREVIEWtrPass.php',
+                data: {	tour_report_no: temp,
+                        REVIEWtrIfPass: REVIEWtrIfPass ,
+                        REVIEWtrBanLong: REVIEWtrBanLong,
+                        REVIEWtrMember: REVIEWtrMember,
+                    },
+                type: 'POST',   
+                success(){
+                    console.log('ya')
+                } ,
+            });
+
+        }
+        $(this).prop('disabled', 'disabled');
+        $(this).parent().parent().prev().children().prop("disabled","disabled");
+        $(this).parent().parent().prev().children().children().prop("disabled","disabled");
+    })
+})
+ </script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>

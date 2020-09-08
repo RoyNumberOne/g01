@@ -30,7 +30,7 @@
             <div class="report_total"> 
                 <h4>留言檢舉</h4>
                 <span style="background-color:#2C5E9E; color:#FFF" id="loadButton_1"><a href="./BackstageCommentReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageCommentReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageCommentReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageCommentReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -60,31 +60,29 @@
                        
                             ?>
                             <table>
-                            <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">留言編號</th><th width="300px">留言內文</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></tr>
+                            <tr class='cyan'><th width="80px">檢舉編號</th><th width="80px">留言編號</th><th width="300px">留言內文</th><th width="80px">被檢舉人</th><th width="110px">檢舉時間</th><th width="110px">檢舉板塊</th><th width="150px">檢舉緣由</th><th width="230px">檢舉狀態</th></th><th width="80px">確認</th></tr>
                             <?php
                             foreach ( $prodRows as $i => $prodRow){
-                            ?>
-                                <tr>
-                                <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                <td><?=$prodRow["留言編號"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["留言內文"]?></td>
-                                <td><?=$prodRow["被檢舉人"]?></td>
-                                <td><?=$prodRow["檢舉時間"]?></td>
-                                <td style="text-align: left;padding-left: 5px;"><?=$prodRow["檢舉緣由"]?></td>
-                                <td style="text-align: left;padding-left: 5px;">   <label><input type="radio" value="unPass" name="review?<?=$prodRow["檢舉編號"]?>">未通過</label><br>
-                                        <label><input type="radio" value="Pass" name="review?<?=$prodRow["檢舉編號"]?>">通過，禁言</label>
-                                        <select name="BanLong">
-                                            <option value="5">5分鐘</option>
-                                            <option value="3" selected="selected">3天</option>
-                                            <option value="7">7天</option>
-                                            <option value="14">14天</option>
-                                            <option value="28">28天</option>
-                                        </select>
-                                </td>
-                                <td style="background-color: #eaf1f4;" ><button type="submit" class="btnB_L_yellow">
-                                    <p>送出</p>
-                                    <div class="bg"></div>
-                                </button></td>
+                            ?> 
+                                 <tr>
+                                    <td class='pink'><?=$prodRow["檢舉編號"]?></td>
+                                    <td><?=$prodRow["留言編號"]?></td>
+                                    <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["留言內文"]?></td>
+                                    <td><input type="text" name="REVIEWcrMember<?=$prodRow["檢舉編號"]?>" disabled readonly value="<?=$prodRow["被檢舉人"]?>"></td>
+                                    <td><?=$prodRow["檢舉時間"]?></td>
+                                    <td><input type="text" name="REVIEWcrClass<?=$prodRow["檢舉編號"]?>" disabled readonly value="<?=$prodRow["檢舉板塊"]?>"></td>
+                                    <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["檢舉緣由"]?></td>
+                                    <td style="text-align: left;padding-left: 10px;width:150px;">   <label><input type="radio" value="已處理未通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
+                                            <label><input type="radio" value="已處理已通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
+                                            <select name="BANLONGcr<?=$prodRow["檢舉編號"]?>">
+                                                <option value="5">5分鐘</option>
+                                                <option value="4320" selected="selected">3天</option>
+                                                <option value="10080">7天</option>
+                                                <option value="20160">14天</option>
+                                                <option value="40320">28天</option>
+                                            </select>
+                                    </td>
+                                    <td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" disabled class="sendcommentreport"></label></td>
                                 </tr>
 
                                 <?php } ?>
@@ -105,13 +103,80 @@
     </section>
 </main>
 <script>
-// =====button class="btnA_S" 的頁碼切換=====
-$(document).ready(function(){
-
-
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
 });
-
 </script>
+<script>
+// 有選結果才能打開送出button
+$('input[name^="REVIEWcr"]').change(function(){
+    $(this).parent().parent().next().children().children().removeAttr("disabled");
+});
+</script>
+
+
+<script>
+$(Document).ready(function(){
+    $(".sendcommentreport").click(function(){
+
+        var temp = $(this).attr('name');
+        let REVIEWcrClass = $("input[name='REVIEWcrClass"+temp+"']").val();
+        let REVIEWcrIfPass = $("input[name='REVIEWcr"+temp+"']:checked").val();
+        let REVIEWcrBanLong = $("select[name='BANLONGcr"+temp+"']").val();
+        let REVIEWcrMember = $("input[name='REVIEWcrMember"+temp+"']").val();
+        
+        console.log(temp);
+        console.log(REVIEWcrClass)
+        console.log(REVIEWcrIfPass);
+        console.log(REVIEWcrBanLong);
+        console.log(REVIEWcrMember);
+
+        // if (REVIEWcrBanLong)
+
+        if ( REVIEWcrIfPass == '已處理未通過'){
+            console.log ('已處理未通過')
+
+            $.ajax({
+                url: './BackstageREVIEWcrUnPass.php',
+                data: {	comment_report_no: temp,
+                        REVIEWcrIfPass: REVIEWcrIfPass ,
+                    },
+                type: 'POST',   
+                success(){
+                } ,
+            });
+
+        }	else	{
+            console.log ('已處理已通過')
+
+            $.ajax({
+                url: './BackstageREVIEWcrPass.php',
+                data: {	comment_report_no: temp,
+                        REVIEWcrClass: REVIEWcrClass ,
+                        REVIEWcrIfPass: REVIEWcrIfPass ,
+                        REVIEWcrBanLong: REVIEWcrBanLong,
+                        REVIEWcrMember: REVIEWcrMember,
+                    },
+                type: 'POST',   
+                success(){
+                    console.log('ya')
+                } ,
+            });
+
+        }
+        $(this).prop('disabled', 'disabled');
+        $(this).parent().parent().prev().children().prop("disabled","disabled");
+        $(this).parent().parent().prev().children().children().prop("disabled","disabled");
+    })
+})
+ </script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ div.wrap{
                 }
                 img{
                     height: 100%;
-                    transition: .5s ease-in-out;
+                    transition: .2s ease-in-out;
                     &:hover{
                         transform: scale(1.1);
                     }
@@ -97,7 +97,7 @@ div.wrap{
                 h2{
                     margin: 0 20px 0 0;
                 }
-                .changeIcon{
+                .productCollect{
                     cursor: pointer;
                 }
             }
@@ -107,16 +107,16 @@ div.wrap{
                    margin: 10px 0;
                 }
             }
-            .money_chart{
+            .money_block{
                 display: flex;
                 align-items: center;
                 .money{
                     font-size: 50px;
                     margin: 0 20px 20px 0;
                 }
-                .discount_num{
-                    margin: 0 0 0 20px;
-                }
+            }
+            .discount_block{
+                display: flex;
                 .copy_num{
                     margin: 0 0 0 20px;
                     cursor: pointer;
@@ -128,35 +128,36 @@ div.wrap{
                     }
                 }
             }
-            .size_block{
-                display: flex;
-                margin: 10px auto;
-                text-align: center;
-                .size{
-                    width: 20px;
-                    height: 20px;
-                    line-height: 20px;
-                    border-radius: 50%;
-                    margin: 0 20px;
-                    cursor: pointer;
-                    color: #bbb;
-                    transition: all .3s ease;
-                    &:hover{
-                        background-color: $mt_yellow;
-                        color: #fff;
-                    }
-                }
-                .picked_size{
-                    background-color: $mt_yellow;
-                    color: #fff;
-                }
-            }
+            // .size_block{
+            //     display: flex;
+            //     margin: 10px auto;
+            //     text-align: center;
+            //     .size{
+            //         width: 20px;
+            //         height: 20px;
+            //         line-height: 20px;
+            //         border-radius: 50%;
+            //         margin: 0 20px;
+            //         cursor: pointer;
+            //         color: #bbb;
+            //         transition: all .3s ease;
+            //         &:hover{
+            //             background-color: $mt_yellow;
+            //             color: #fff;
+            //         }
+            //     }
+            //     .picked_size{
+            //         background-color: $mt_yellow;
+            //         color: #fff;
+            //     }
+            // }
             .product_count{
                 display: flex;
                 border: 1px solid #ccc;
                 box-shadow: 1px 1px 3px #555555;
                 border-radius: 5px;
                 width: 120px;
+                margin: 0 0 30px;
                 >button{
                     width: 40px;
                     height: 40px;

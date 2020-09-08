@@ -29,58 +29,127 @@
 
         <div>
             <div class="Administrator">
-                管理管理員
+                <a href="BackstageAdministrator.php"><h4>管理員</h4></a>
+                <a href="BackstageAddAdmin.php"><button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增</p><div class="bg2"></div></button></a>
             </div>
-        </div>
-        <div class="pagebtn">
-            <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-            <button class="btnA_S pg -active"><p>01</p></button>
-            <button class="btnA_S pg"><p>02</p></button>
-            <button class="btnA_S pg"><p>03</p></button>
-            <button class="btnA_S pg"><p>04</p></button>
-            <button class="btnA_S pg"><p>05</p></button>
-            <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+            <form id="AUTHADMIN">
+                <!-- <label><input type="checkbox" name="ADMINtype" value="0" class="center" id="byeAdministrator" onclick="type_admin();"> -->
+                <label style="display: none;"><input type="checkbox" name="ADMINtype" value="1" class="center" id="byeAdministrator" onchange="this.form.submit();">
+                顯示已停權之管理員</label>
+            </form>
+            <div id="ccc">
+                    <?php 
+                    try	{
+                        require_once('connectMeetain.php');
+                        
+                            // if (isset($_REQUEST['ADMINtype1'])===true){
+                                // $sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 0  ; " ;
+                            // }	else {
+                                $sql = "SELECT admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' , admin_authority '管理員權限' from  administrator where admin_authority >= 1  ; " ;
+                            // }
+                            $pdoStatement = $pdo->query($sql);
+                            $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+
+                            <table>
+                            <tr class='cyan'><th>管理員編號</th><th>姓名</th><th>暱稱</th><th>電子信箱</th><th>建立時間</th><th>修改</th></tr>
+                            <?php
+                            foreach ( $prodRows as $i => $prodRow){
+                            ?>
+                                <tr>
+                                    <td class='pink'><?=$prodRow["管理員編號"]?>
+                                        <input type="checkbox" name="adminAUTH<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["管理員權限"]?>'>
+                                    </td>
+                                    <td><input type="text" name="adminNAME<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["姓名"]?>'></td>
+                                    <td><input type="text" name="adminID<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["暱稱"]?>'></td>
+                                    <td><input type="text" name="adminMAIL<?=$prodRow["管理員編號"]?>" disabled value='<?=$prodRow["電子信箱"]?>'></td>
+                                    <td><?=$prodRow["建立時間"]?></td>
+                                    <td><label><input name="<?=$prodRow["管理員編號"]?>" type="button" value="修改" class="editadmin"></label></td>
+                                </tr>
+                                <script>
+                                    function checkAdminAuth(){
+                                        // console.log(<?=$prodRow["管理員編號"]?>);
+                                        // console.log(<?=$prodRow["管理員權限"]?>);
+                                        if ( <?=$prodRow["管理員權限"]?> == 1 ){
+                                            $("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
+
+                                        }
+                                    }
+                                        checkAdminAuth();
+                                </script>
+                                <?php } ?>
+                            </table>
+                        <?php
+                        }	catch	(PDOException $e)	{
+                        }
+                    ?>
+            </div>
         </div>
     </section>
 </main>
 <script>
-// =====button class="btnA_S" 的頁碼切換=====
-$(document).ready(function(){
-    function checkpg(){
-    if ($(".pgprev").next().hasClass("-active")) {
-        $(".pgprev").css("visibility","hidden");
-    }   else {
-        $(".pgprev").css("visibility","visible");
+// checkbox 切換更動 value
+// $(Document).ready(function ADMINtype(){
+    function type_admin(){
+        // $("input#byeAdministrator").change(function(){
+            this.value = (Number(this.checked));
+            console.log(123);
+            // $('#AUTHADMIN').submit();
+            console.log(23);
+        // })
     }
-    if ($(".pgnext").prev().hasClass("-active")) {
-        $(".pgnext").css("visibility","hidden");
-    }   else{
-        $(".pgnext").css("visibility","visible");
+// });
+</script>
+<script>
+function checkAdminAuth(){
+    // console.log(<?=$prodRow["管理員編號"]?>);
+    // console.log(<?=$prodRow["管理員權限"]?>);
+    if ( <?=$prodRow["管理員權限"]?> == 1 ){
+        $("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
+
     }
 }
-checkpg();
-$(".pg").click(function(){
-    $(this).parent().children().removeClass("-active");
-    $(this).addClass("-active");
-    checkpg();
+    checkAdminAuth();
+</script>
+<script>
+// checkbox 切換更動 value
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
 });
-$(".pgprev").click(function(){
-    if (!$(".pgprev").next().hasClass("-active")) {
-        $(".-active").prev().addClass("-active");
-        $(".-active").next(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-$(".pgnext").click(function(){
-    if (!$(".pgnext").prev().hasClass("-active")) {
-        $(".-active").next().addClass("-active");
-        $(".-active").prev(".-active").removeClass("-active");
-    }
-    checkpg();
-});
-// =====button class="btnA_S" 的頁碼切換=====
-});
+</script>
+<script>
+	// 管理員 － 修改
+	$(Document).ready(function(){
+		$(".editadmin").click(function(){
+			if ($(this).val() == '修改'){
+				$(this).prop('value', '儲存');
+				$(this).parent().parent().siblings().children().removeAttr("disabled");
+			}	else	{
+				let temp = $(this).attr('name');
+				let EDITadmin_name = $("input[name='adminNAME"+temp+"']").val();
+				let EDITadmin_id = $("input[name='adminID"+temp+"']").val();
+				let EDITadmin_mail = $("input[name='adminMAIL"+temp+"']").val();
+				let EDITadmin_authority = $("input[name='adminAUTH"+temp+"']").val();
+				
+				console.log(EDITadmin_authority);
+				$.ajax({
+					url: './BackstageEditAdministrator.php',
+					data: {	admin_no: temp,
+							EDITadmin_name: EDITadmin_name ,
+							EDITadmin_id:EDITadmin_id,
+							EDITadmin_mail:EDITadmin_mail,
+							EDITadmin_authority:EDITadmin_authority
+						},
+					type: 'POST',   
+					success(){
+					} ,
+				});
 
+				$(this).prop('value', '修改');
+				$(this).parent().parent().siblings().children().prop("disabled","disabled");
+			}
+		})
+	});
 </script>
 <script src="./js/backstage.js"></script>
 </body>

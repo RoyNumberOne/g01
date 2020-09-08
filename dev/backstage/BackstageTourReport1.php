@@ -29,7 +29,7 @@
             <div class="report_total"> 
                 <h4>揪團檢舉</h4>
                 <span id="loadButton_1"><a href="./BackstageTourReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageTourReport0.php">已通過</a></span>
                 <span id="loadButton_3" style="background-color:#2C5E9E; color:#FFF"><a href="./BackstageTourReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -46,7 +46,8 @@
                             $totalPages = ceil($totalRecords / $recPerPage);
                             $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                             $start = ($pageNo-1) * $recPerPage; 
-                            $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' limit $start,$recPerPage";
+                            // $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' limit $start,$recPerPage";
+		                    $sql = "SELECT tour_report_no '檢舉編號' , tour_report_tour '揪團編號' , tour_title '揪團標題' , tour_hoster '被檢舉人' , tour_report_build '檢舉時間', tour_report_reason '檢舉緣由',tour_report_situation '檢舉狀態' from tour_report tr join tour t on tr.tour_report_tour = t.tour_no where tr.tour_report_situation = '已處理未通過' order by tour_report_build limit $start,$recPerPage";
                             $pdoStatement = $pdo->query($sql);
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
@@ -82,6 +83,16 @@
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>
