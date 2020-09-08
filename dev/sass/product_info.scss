@@ -308,7 +308,7 @@ div.wrap{
 
     & a.product p::after {
         display: block;
-        @media screen and (min-width: 1199px) {left: 380px;}
+        @media screen and (min-width: 1199px) {left: 310px;}
         @media screen and (min-width: 992px) and (max-width: 1199px){left: 281px; }
         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }

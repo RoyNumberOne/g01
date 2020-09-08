@@ -65,6 +65,38 @@ header{
                     & i {
                         display: inline;
                     }
+                    #mem_avatar_box{
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid white;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 0px;
+                        top: -7px;
+                        visibility: hidden;
+                        img{
+                            width:100%;
+                        }
+                    }
+                    #mem_info_id{
+                        display: inline-block;
+                        text-align: center;
+                        line-height: 50px;
+                        position: absolute;
+                        left: 57px;
+                        top: -7px;
+                        color: white;
+                        visibility: hidden;
+                    }
+                    button.btnB_L_grey{
+                        display: inline-block;
+                        left: 24px;
+                        top: 8px;
+                        visibility: hidden;
+                        margin: 0 18px;
+                    }
                 }
             }
         }
@@ -228,7 +260,7 @@ div#hamburgerBG{
                 
             }
             & ul.link_list.llright{
-                margin-left: 540px;
+                margin-left: 300px;
                 & li{
                     margin: 0 18px;
                 }
@@ -272,14 +304,14 @@ div#hamburgerBG{
                 
             }
             & ul.link_list.llright{
-                margin-left: 420px;
+                margin-left: 190px;
                 & li{
                     margin: 0 18px;
                 }
             }
         }
         div#imagebox{
-            left: 750px;
+            left: 650px;
         }
         .hamburger{
             display: none;
@@ -316,14 +348,16 @@ div#hamburgerBG{
                 }
             }
             & ul.link_list.llright{
-                margin-left: 290px;
                 & li{
                     margin: 0 18px;
                 }
             }
         }
         div#imagebox{
-            left: 600px;
+            left: 545px;
+            img{
+                width: 70%;
+            }
         }
         .hamburger{
             display: none;
@@ -397,6 +431,14 @@ div#hamburgerBG{
                     left: 130px;
                     top: 1px;
                 }
+                & li{
+                    #mem_avatar_box{
+                        display: none;
+                    }
+                    #mem_info_id{
+                        display: none;
+                    }
+                }  
             }
             &.on{
                 display: block !important; 
@@ -408,7 +450,6 @@ div#hamburgerBG{
         & .hamburger{
             display: block;
         }
-
     }
     div#imagebox{
         display: none;
@@ -424,6 +465,8 @@ div#hamburgerBG{
             width: 400px;
         }
     }
+
+    
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     //540
