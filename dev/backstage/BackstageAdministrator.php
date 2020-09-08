@@ -30,11 +30,11 @@
         <div>
             <div class="Administrator">
                 <a href="BackstageAdministrator.php"><h4>管理員</h4></a>
-                <a href="BackstageAddAdmin.php"><button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增管理員</p><div class="bg2"></div></button></a>
+                <a href="BackstageAddAdmin.php"><button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增</p><div class="bg2"></div></button></a>
             </div>
             <form id="AUTHADMIN">
                 <!-- <label><input type="checkbox" name="ADMINtype" value="0" class="center" id="byeAdministrator" onclick="type_admin();"> -->
-                <label><input type="checkbox" name="ADMINtype1" value="1" class="center" id="byeAdministrator" onchange="this.form.submit();">
+                <label style="display: none;"><input type="checkbox" name="ADMINtype" value="1" class="center" id="byeAdministrator" onchange="this.form.submit();">
                 顯示已停權之管理員</label>
             </form>
             <div id="ccc">
@@ -66,7 +66,17 @@
                                     <td><?=$prodRow["建立時間"]?></td>
                                     <td><label><input name="<?=$prodRow["管理員編號"]?>" type="button" value="修改" class="editadmin"></label></td>
                                 </tr>
+                                <script>
+                                    function checkAdminAuth(){
+                                        // console.log(<?=$prodRow["管理員編號"]?>);
+                                        // console.log(<?=$prodRow["管理員權限"]?>);
+                                        if ( <?=$prodRow["管理員權限"]?> == 1 ){
+                                            $("input[name='adminAUTH<?=$prodRow["管理員編號"]?>'").prop("checked","checked");
 
+                                        }
+                                    }
+                                        checkAdminAuth();
+                                </script>
                                 <?php } ?>
                             </table>
                         <?php
