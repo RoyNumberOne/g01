@@ -1,43 +1,28 @@
 
 // 最新揪團
 new Vue({
-    el: "#newMeetItem",
+    el: "#meetGroup", //html的位置
     data: {
-        meetlList: [],
-        meetIndex: 0,   //[]
+        meetList: [],
+        meetIndex: [],  //
     },
 
     mounted(){
         axios.get('./json/Initial_tour.json') //根據哪個json
         
         .then((res) => {
-            this.meetlList = res.data;
+            this.meetList = res.data;
 
             console.log(res.data); //測試是否成功
 
-            // for(let i = 0; i< this.meetlList.length; i++){  //動態生成內容，依據json有幾筆
-            //     this.meetIndex.push(i)
-            // }
+            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
+                this.meetIndex.push(i)
+            }
         })
         .catch(error => {console.log(error)}); 
     },
 
 });
-
-/* <div id="forum_list" v-for="(artical, index) in articalList" class="rest02">
-<div class="forum_post_image">
-    <img :src="artical.forum_post_image" alt="">
-</div>
-<div class="forum-infor">
-    <a href="./comment.html">
-        <div class="tittle">
-            <h3>{{artical.forum_post_title}}</h3>
-            <div class="innertext">
-                <p>
-                    {{artical.forum_post_innertext}}
-                </p>
-            </div> 
-*/
 
 
 // 更換Card  list樣式          
