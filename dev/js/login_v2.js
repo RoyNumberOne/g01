@@ -29,27 +29,36 @@ xhr.onload = function(){
 
 }
 
+
+
+// header抓會員資料
 function getLoginInFo(){
     let xhr = new XMLHttpRequest();
 
     xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
+        if (member.mem_id){
+            $id("mem_info_id").innerText = member.mem_name;
+            $('#mem_avatar_box').css('visibility','visible');
+            $('#mem_info_id').css('visibility','visible');
+            $('#Logout_btn').css('visibility','visible');
+        }   
     }
 
-    xhr.open("POST", "./login_v2_LoginInFo.php",true);
+    xhr.open("post", "./login_v2_LoginInFo.php",true);
     xhr.send(null);
 }
 
-function init(){
-    getLoginInFo();
-    $id('btnLogin').onclick = sendForm;
-}; 
+
 
 // 登出
 function logout(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
+            $('#mem_avatar_box').css('visibility','hidden');
+            $('#mem_info_id').css('visibility','hidden');
+            $('#Logout_btn').css('visibility','hidden');
         } else  {
         }
     }
@@ -59,5 +68,13 @@ function logout(){
 };
 
 $('#Logout_btn').click(logout);
+
+
+
+function init(){
+    getLoginInFo();
+    $('#btnLogin').click(sendForm);
+}; 
+
 
 window.addEventListener("load", init, false);

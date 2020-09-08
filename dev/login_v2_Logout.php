@@ -1,3 +1,11 @@
-<?php
-    session_destroy();
+<?php 
+    session_start();
+    unset($_SESSION['mem_no']);
+    unset($_SESSION['mem_id']);
+    unset($_SESSION['mem_name']);
+    unset($_SESSION['mem_acc']);
+    unset($_SESSION['mem_psw']);
+    unset($_SESSION['mem_mail']);
+    unset($_SESSION['mem_build']);
+    unset($_SESSION['mem_point']);
 ?>

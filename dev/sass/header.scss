@@ -75,24 +75,27 @@ header{
                         position: absolute;
                         left: 0px;
                         top: -7px;
+                        visibility: hidden;
                         img{
                             width:100%;
                         }
                     }
                     #mem_info_id{
                         display: inline-block;
-                        width: 50px;
-                        height: 50px;
                         text-align: center;
                         line-height: 50px;
                         position: absolute;
-                        left: 50px;
+                        left: 57px;
                         top: -7px;
                         color: white;
+                        visibility: hidden;
                     }
                     button.btnB_L_grey{
+                        display: inline-block;
                         left: 24px;
                         top: 8px;
+                        visibility: hidden;
+                        margin: 0 18px;
                     }
                 }
             }
@@ -257,7 +260,7 @@ div#hamburgerBG{
                 
             }
             & ul.link_list.llright{
-                margin-left: 540px;
+                margin-left: 300px;
                 & li{
                     margin: 0 18px;
                 }
@@ -301,14 +304,14 @@ div#hamburgerBG{
                 
             }
             & ul.link_list.llright{
-                margin-left: 230px;
+                margin-left: 190px;
                 & li{
                     margin: 0 18px;
                 }
             }
         }
         div#imagebox{
-            left: 750px;
+            left: 650px;
         }
         .hamburger{
             display: none;
@@ -345,7 +348,6 @@ div#hamburgerBG{
                 }
             }
             & ul.link_list.llright{
-                margin-left: 90px;
                 & li{
                     margin: 0 18px;
                 }
