@@ -31,7 +31,7 @@
             <div class="report_total"> 
                 <h4>討論文檢舉</h4>
                 <span id="loadButton_1"><a href="./BackstageForumReport.php">未處理</a></span>
-                <span id="loadButton_2" style="background-color:#2C5E9E; color:#FFF" ><a href="./BackstageForumReport0.php">已處理</a></span>
+                <span id="loadButton_2" style="background-color:#2C5E9E; color:#FFF" ><a href="./BackstageForumReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageForumReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -84,6 +84,18 @@
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script src="./js/backstage.js"></script>
 </body>
 </html>

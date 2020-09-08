@@ -524,53 +524,8 @@ div#section2 {
                     color: $mt_fontlight;
                 }
                 & div.inforbox{
-                    height: 100px;
-                    padding: 5px;
-                    & div {
-                        float: left;
-                    }
-                    & div.avator {
-                        margin-left: 30px;
-                        width: 90px;
-                        height: 90px;
-                        overflow: hidden;
-                        border-radius: 50%;
-                        & img {
-                            height: 100%;
-                        }
-                    }
-                    & div.posterinfor {
-                        margin-left: 30px;
-                        display: flex;
-                        flex-direction: column;
-                        & div.posterVerify {
-                            width: 70px;
-                            height: 25px;
-                            padding: 0px 5px;
-                            & span {
-                                margin-right: 10px;
-                                & path{
-                                    color: white;
-                                }
-                            }
-                        }
-                        & div.posterId {
-                            & p {
-                                color: $mt_fontlight;
-                                text-align: left;
-                                padding: 0px 5px;
-                            }
-                        }
-                        & div.posterBadge {
-                            height: 35px;
-                            & div.badge {
-                                width: 35px;
-                                height: 35px;
-                                & img {
-                                    width: 100%;
-                                }
-                            }
-                        }
+                    & * {
+                        color: $mt_fontlight
                     }
                 }
                 & div.tourinfor{

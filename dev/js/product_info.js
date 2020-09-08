@@ -7,17 +7,25 @@ new Vue({
         productCount: 1,
         cartList: {},
     },
-    mounted(){
-        axios.get('./json/Initial_product.json')
+    created(){
+        axios.get('./product_info.php').then(res => {
+            this.products = res.data;
+            console.log('success');
+            console.log(this.products);
+        })
+    },
+    // mounted(){
+    //     axios.get('./json/Initial_product.json')
 
-            .then((res) => {
-                this.products = res.data;
-                console.log(res.data);
-            })
+    //  
+    //         .catch(error => {console.log(error)});
         
+    //         this.checkAndInitCart();
+    //         this.showCart();
+
+
             // .then(res => this.products = res.data)
             // .then(res => {console.log(res.data)})
-            .catch(error => {console.log(error)});
         
         // if(localStorage.getItem('cartList')){
         //     try{
@@ -27,8 +35,7 @@ new Vue({
         //         localStorage.removeItem('cartList');
         //     }
         // };
-        this.checkAndInitCart();
-    },
+    // },
     computed: {
         productsCount() {
             return this.products.length;
@@ -73,7 +80,7 @@ new Vue({
         // },
         cartCount(){
             return Object.keys(this.cartList).length;
-        }
+        },
     },
     methods:{
         next(){
@@ -114,14 +121,14 @@ new Vue({
         },
 
         addToCart(){
-            if(this.cartList[this.currentProduct.id] === undefined){
+            if(this.cartList[this.currentProduct.product_no] === undefined){
                 let cartItem = {}
-                cartItem[this.currentProduct.id] = { product: this.currentProduct, count: this.productCount}
+                cartItem[this.currentProduct.product_no] = { product: this.currentProduct, count: this.productCount}
                 // this.cartList = { ...this.cartList, ...cartItem }  es6 //把剛才創的cartItem放進cartList裡面
                 this.cartList = Object.assign({}, this.cartList, cartItem)
                 this.upDateLocalStorage();    
             }else{
-                this.cartList[this.currentProduct.id].count += this.productCount;
+                this.cartList[this.currentProduct.product_no].count += this.productCount;
                 console.log(this.cartList);
                 this.upDateLocalStorage();    
             }
@@ -144,14 +151,19 @@ new Vue({
             if(this.productCount<99){
                 this.productCount += 1;
             }
-        }
-    },
+        },
+        showCart(){
+            if(Object.keys(this.cartList).length>0){
+                $(".add_count").css("display", "block");
+            }
+        },
+    }, 
 });
 
 
 //.heart chage img src
 $(document).ready(function(){
-    $(".changeIcon").click(function(){
+    $(".productCollect").click(function(){
         if($(".heart").attr('src') === "./images/icons/icon_heart.svg"){
             $(".heart").attr("src","./images/icons/icon_heart_h&c.svg");
         }else{

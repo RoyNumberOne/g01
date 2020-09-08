@@ -34,6 +34,8 @@ function getLoginInFo(){
       if (administrator.admin_id){
         $id("admin_no").innerText = "#" + administrator.admin_no;
         $id("admin_id").innerText = administrator.admin_id;
+      } else  {
+        window.location.href = './BackstageLogin.html';
       }
     }
 

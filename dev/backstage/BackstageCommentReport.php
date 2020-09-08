@@ -30,7 +30,7 @@
             <div class="report_total"> 
                 <h4>留言檢舉</h4>
                 <span style="background-color:#2C5E9E; color:#FFF" id="loadButton_1"><a href="./BackstageCommentReport.php">未處理</a></span>
-                <span id="loadButton_2"><a href="./BackstageCommentReport0.php">已處理</a></span>
+                <span id="loadButton_2"><a href="./BackstageCommentReport0.php">已通過</a></span>
                 <span id="loadButton_3"><a href="./BackstageCommentReport1.php">未通過</a></span>
             </div>
             <div id="ccc">
@@ -102,6 +102,18 @@
         </div>
     </section>
 </main>
+<script>
+$(Document).ready(function(){
+    let url = new URL(window.location.href);
+    // console.log(url);
+    let curPage = new URLSearchParams(url.search);
+    curPage = curPage.get("pageNo") - 1;
+    // console.log(curPage);
+    if (curPage == -1) { curPage = 0}
+    // console.log(curPage);
+    $(".pagebtn").children().eq(curPage).children().addClass('-active')
+});
+</script>
 <script>
 // 有選結果才能打開送出button
 $('input[name^="REVIEWcr"]').change(function(){
