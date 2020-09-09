@@ -44,7 +44,7 @@
                             $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <table>
-                            <tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th><th width="80px"></th></tr>
+                            <tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="300px">證件照片</th><th width="140px">嚮導證編號</th><th width=110px">發證日期</th><th width="110px">有效日期</th><th width="110px">申請時間</th><th width="150px">申請狀態</th><th>確認</th></tr>
                             <?php
                             foreach ( $prodRows as $i => $prodRow){
                             ?>
@@ -56,7 +56,8 @@
                                 <td><?=$prodRow["發證日期"]?></td>
                                 <td><?=$prodRow["有效日期"]?></td>
                                 <td><?=$prodRow["申請時間"]?></td>
-                                <td><label><input type="radio" value="已審核已通過" name="VERIFYguide<?=$prodRow["no"]?>">通過</label><br>
+                                <td style="text-align: left;padding-left: 10px;">
+                                    <label><input type="radio" value="已審核已通過" name="VERIFYguide<?=$prodRow["no"]?>">通過</label><br>
                                     <label><input type="radio" value="已審核未通過" name="VERIFYguide<?=$prodRow["no"]?>">未通過</label>
                                 </td>
                                 <td><label><input name="<?=$prodRow["no"]?>" type="button" value="送出" disabled class="sendverifyguide"></label></td>

@@ -62,9 +62,13 @@ div{
             &:nth-child(even){
                 background-color: rgb(230, 230, 230);
             }
-        }
-        img{
+            img{
             width: 90%;
+            &:hover{
+                transform: scale(3);
+                transition: 1.1s;
+            }
+            }
         }
         .sendverifyguide,.sendverifyname{
             border-style: none;
