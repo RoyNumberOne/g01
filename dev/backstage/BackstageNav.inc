@@ -129,4 +129,7 @@
     <ul class="page administer"><a href="./BackstageAdministrator.php">
             <p class="title">管理員</p>
         </a></ul>
+    <ul class="page orderdeta"><a href="./BackstageOrder.php">
+            <p class="title">訂單查詢</p>
+        </a></ul>
 </nav>

@@ -32,7 +32,7 @@ main{
                 &.index {
                     border-radius: 0px 10px 0px 0px;
                 }
-                &.administer {
+                &.orderdeta {
                     border-radius: 0px 0px 10px 0px;
                 }
                 & p.title {
@@ -100,7 +100,8 @@ main{
                 }
                 &.index:hover ,
                 &.product:hover ,
-                &.administer:hover{
+                &.administer:hover,
+                &.orderdeta:hover{
                     background-color: $mt_yellow;
                 }
                 &.report:hover li.navli,

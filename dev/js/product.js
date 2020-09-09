@@ -5,7 +5,7 @@ new Vue ({
         currentCategory: '機能服飾',
     },
     created(){
-        axios.get('./product_info.php').then(res => {
+        axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);

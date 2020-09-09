@@ -1,43 +1,28 @@
 
 // 最新揪團
 new Vue({
-    el: "#newMeetItem",
+    el: "#meetGroup", //html的位置
     data: {
-        meetlList: [],
-        meetIndex: 0,   //[]
+        meetList: [],
+        meetIndex: [],  //
     },
 
     mounted(){
         axios.get('./json/Initial_tour.json') //根據哪個json
         
         .then((res) => {
-            this.meetlList = res.data;
+            this.meetList = res.data;
 
             console.log(res.data); //測試是否成功
 
-            // for(let i = 0; i< this.meetlList.length; i++){  //動態生成內容，依據json有幾筆
-            //     this.meetIndex.push(i)
-            // }
+            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
+                this.meetIndex.push(i)
+            }
         })
         .catch(error => {console.log(error)}); 
     },
 
 });
-
-/* <div id="forum_list" v-for="(artical, index) in articalList" class="rest02">
-<div class="forum_post_image">
-    <img :src="artical.forum_post_image" alt="">
-</div>
-<div class="forum-infor">
-    <a href="./comment.html">
-        <div class="tittle">
-            <h3>{{artical.forum_post_title}}</h3>
-            <div class="innertext">
-                <p>
-                    {{artical.forum_post_innertext}}
-                </p>
-            </div> 
-*/
 
 
 // 更換Card  list樣式          
@@ -76,5 +61,80 @@ $(function() {
     });
 });
         
+//<!-- 換icon card/list-->
+$(document).ready(function(){
+    $(".icon_card").click(function(){
+        if($(".icon_card").attr('src') === "./images/icons/icon_card_w.svg"){
+            $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+        }else{
+            $(this).attr("src","./images/icons/icon_card_w.svg");
+        }
+    });
+});
 
+//<!-- 收藏 換愛心 -->
+$(document).ready(function(){
+    $(".heart").click(function(){
+        if($(this).attr('src') === "./images/icons/icon_heart.svg"){
+            $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+        }else{
+            $(this).attr("src","./images/icons/icon_heart.svg");
+        }
+    });
+});
 
+//<!----go top裡面的箭頭需要用到的js----->
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+    
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+
+//<!-- 頁碼 -->
+function checkpg(){
+    if ($(".pgprev").next().hasClass("-active")) {
+        $(".pgprev").css("visibility","hidden");
+    }   else {
+        $(".pgprev").css("visibility","visible");
+    }
+    if ($(".pgnext").prev().hasClass("-active")) {
+        $(".pgnext").css("visibility","hidden");
+    }   else{
+        $(".pgnext").css("visibility","visible");
+    }
+}
+
+checkpg();
+
+$(".pg").click(function(){
+    $(this).parent().children().removeClass("-active");
+    $(this).addClass("-active");
+    checkpg();
+});
+
+$(".pgprev").click(function(){
+    if (!$(".pgprev").next().hasClass("-active")) {
+        $(".-active").prev().addClass("-active");
+        $(".-active").next(".-active").removeClass("-active");
+    }
+    checkpg();
+});
+
+$(".pgnext").click(function(){
+    if (!$(".pgnext").prev().hasClass("-active")) {
+        $(".-active").next().addClass("-active");
+        $(".-active").prev(".-active").removeClass("-active");
+    }
+    checkpg();
+});

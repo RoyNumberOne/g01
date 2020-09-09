@@ -14,13 +14,16 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
     <script src="./js/fa5.14.0all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
 </head>
 <body>
 
-    <header> 
 
+    <header>
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -39,6 +42,13 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
@@ -61,9 +71,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
 
     <main id="meet2-0">
@@ -359,9 +367,9 @@
                 <div class="typeList"></div>
             </div>
 
-            <div class="newMeetActivity card">
-             
-                <div class="item" id="newMeetItem" v-for="(meet, index) in meetList">
+            <div class="newMeetActivity card" id="meetGroup">
+                <!-- v-for="(meet, index) in meetList" -->
+                <div class="item" v-for="(meet, index) in meetList">
                     <a href="./meet2-3.html">
                         <div class="newImg">
                             <img src="./images/meet/mountain/4south.jpg" alt="">
@@ -707,131 +715,12 @@
     
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    <script src="./js/meet2-0.js"></script>
-    
-    <!----go top裡面的箭頭需要用到的js----->
+
+    <!----go top----->
     <script src="./js/fa5.14.0all.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            /* 按下GoTop按鈕時的事件 */
-            $('#gotop').click(function(){
-                $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-                return false;
-            });
-            
-            /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 400){
-                    $('#gotop').fadeIn();
-                } else {
-                    $('#gotop').fadeOut();
-                }
-            });
-        });
-    </script>
 
-
-    <!-- 更換Card  list樣式 -->
-    <!-- <script>
-        $(function() {
-            //click
-            
-
-            // 點擊按鈕typeCard
-            $("div.typeCard").on("click", function(){
-                // div.newMeetActivity
-                    //移除 list 樣式
-                $("div.newMeetActivity").removeClass("list");
-                $(".newMeet div.member_styleA").removeClass("column");
-                    // 加上 card 樣式
-                $("div.newMeetActivity").addClass("card");
-                $(".newMeet div.member_styleA").addClass("row");
-                
-                //btn
-                $("div.typeList").removeClass("-on");
-                $("div.typeCard").addClass("-on");
-            });
-
-            // 點擊按鈕typeList
-            $("div.typeList").on("click", function(){
-                // div.newMeetActivity
-                    //移除 card 樣式
-                $("div.newMeetActivity").removeClass("card");
-                $(".newMeet div.member_styleA").removeClass("row");
-                    //加上 list 樣式
-                $("div.newMeetActivity").addClass("list");
-                $(".newMeet div.member_styleA").addClass("column");
-
-                //btn
-                $("div.typeCard").removeClass("-on");
-                $("div.typeList").addClass("-on");
-            });
-        });
-    </script> -->
-    
-    <!-- 換icon -->
-    <script>
-        $(document).ready(function(){
-            $(".icon_card").click(function(){
-                if($(icon_card).attr('src') === "./images/icons/icon_card_w.svg"){
-                    $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-                }else{
-                    $(this).attr("src","./images/icons/icon_card_w.svg");
-                }
-            });
-        });
-    </script>
-    
-    <!-- 頁碼 -->
-    <script>
-        function checkpg(){
-            if ($(".pgprev").next().hasClass("-active")) {
-                $(".pgprev").css("visibility","hidden");
-            }   else {
-                $(".pgprev").css("visibility","visible");
-            }
-            if ($(".pgnext").prev().hasClass("-active")) {
-                $(".pgnext").css("visibility","hidden");
-            }   else{
-                $(".pgnext").css("visibility","visible");
-            }
-        }
-        checkpg();
-        $(".pg").click(function(){
-            $(this).parent().children().removeClass("-active");
-            $(this).addClass("-active");
-            checkpg();
-        });
-        $(".pgprev").click(function(){
-            if (!$(".pgprev").next().hasClass("-active")) {
-                $(".-active").prev().addClass("-active");
-                $(".-active").next(".-active").removeClass("-active");
-            }
-            checkpg();
-        });
-        $(".pgnext").click(function(){
-            if (!$(".pgnext").prev().hasClass("-active")) {
-                $(".-active").next().addClass("-active");
-                $(".-active").prev(".-active").removeClass("-active");
-            }
-            checkpg();
-        });
-    </script>
-
-    <!-- 換愛心 -->
-    <script>
-    $(document).ready(function(){
-        $(".heart").click(function(){
-            if($(this).attr('src') === "./images/icons/icon_heart.svg"){
-                $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-            }else{
-                $(this).attr("src","./images/icons/icon_heart.svg");
-            }
-        });
-    });
-    </script>
-
+    <script src="./js/meet2-0.js"></script>
     <script src="./js/header.js" ></script>
+    <script src="./js/login_v2.js"></script>
 </body>
 </html>
