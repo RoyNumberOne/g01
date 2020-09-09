@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-    require_once("./login_v2_connect.php");
+    require_once("./connectMeetain.php");
     $sql = "select * from `member` where mem_acc=:mem_acc and mem_psw=:mem_psw"; 
     $member = $pdo->prepare($sql);
     // $member->bindValue(":mem_acc", $_GET["mem_acc"]);

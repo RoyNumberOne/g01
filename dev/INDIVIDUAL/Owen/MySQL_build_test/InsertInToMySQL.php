@@ -150,7 +150,7 @@ try	{
 			echo "連線成功<br>";
             // ::::::::::新建16座山::::::::::
             for($a=0 ; $a<16 ; $a++){
-            $sql = "insert into mountain (degree_category,mountain_name,mountain_latitude,mountain_longitude,mountain_area,mountain_image ) value  ('".$data[$a]['degree_category']."','".$data[$a]['mountain_name']."','".$data[$a]['mountain_latitude']."','".$data[$a]['mountain_longitude']."','".$data[$a]['mountain_area']."','".$data[$a]['mountain_image']."');";
+            $sql = "insert into mountain (degree_category,mountain_name,mountain_latitude,mountain_longitude,mountain_area,mountain_image ) value  ('".$data[$a]['degree_category']."','".$data[$a]['mountain_name']."','".$data[$a]['mountain_latitude']."','".$data[$a]['mountain_longitude']."','".$data[$a]['mountain_area']."',concat('./images/mountain_image/','".$data[$a]['mountain_name']."','.jpg'));";
             echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }

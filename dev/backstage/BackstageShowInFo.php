@@ -1338,7 +1338,7 @@ try	{
 		?>
 
 		<table>
-		<tr class='cyan'><th width="80px">訂單編號</th><th width="80px">會員編號</th><th width="80px">收件人</th><th width="110px">聯絡電話</th><th width="80px">付款方式</th><th width=80px">訂單狀態</th><th width=80px">付款金額</th><th width=110px">訂單成立時間</th></tr>
+		<tr class='cyan'><th width="80px">訂單編號</th><th width="80px">會員編號</th><th width="80px">收件人</th><th width="110px">聯絡電話</th><th width="80px">付款方式</th><th>訂單狀態</th><th width=80px">付款金額</th><th>訂單成立時間</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
