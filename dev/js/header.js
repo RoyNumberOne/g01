@@ -78,5 +78,24 @@ var $hamburger = $(".hamburger");
     });
 
 
-    //shopcart cartCount
-    // localStorage.getItem('cartList');
+//shopcart cartCount
+let cartCounted = function(){
+    var i=0;
+    for (prop in JSON.parse(localStorage.cartList)) {
+    i++;
+      console.log(JSON.parse(localStorage.cartList)[prop]);
+    }
+    console.log(i);
+
+    $('.add_count')[0].innerText = i;
+
+    // if(i != 0){
+    //     $('.add_count').css('display', 'block')
+    // }else if(i=''){
+    //     $('.add_count').css('display', 'none')    
+    // }else{
+    //     $('.add_count').css('display', 'none')     
+    // }
+}
+
+cartCounted();
