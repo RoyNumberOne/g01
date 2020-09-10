@@ -88,7 +88,8 @@ new Vue({
                 product_no:  this.currentProduct.product_no,
                 product_name: this.currentProduct.product_name,
                 product_price: this.currentProduct.product_price,
-                product_image1 : this.currentProduct.product_image1
+                product_image1 : this.currentProduct.product_image1,
+                product_description : this.currentProduct.product_description
             }
             return pickedProductInfo;
         },
@@ -207,4 +208,13 @@ $(document).ready(function(){
     //   alert("已複製優惠券代碼");
         return false;
     });
+
+    //assign url by productNo
+    // let url = new URL(window.location.href);
+    // console.log(url);
+    // let productNo = new URLSearchParams(url.search);
+    // productNo = productNo.get("productNo");
+    // console.log(productNo);
+    // var formProduct = new FormData;
+    // formProduct.append('productNo' ,productNo);
 });
