@@ -6,6 +6,7 @@ new Vue({
         currentImageIndex: 0,
         productCount: 1,
         cartList: {},
+        // cartCount: '',
     },
     // created(){
         // axios.get('./phpForConnect/product_info.php').then(res => {
@@ -20,14 +21,13 @@ new Vue({
         // })
     // },
     mounted(){
-        axios.get('./phpForConnect/product_info.php').then(res => {
+        axios.post('./phpForConnect/product_ItemInfo.php',formProduct).then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);
         })
         this.checkAndInitCart();
         this.showCart();
-
         
         // if(localStorage.getItem('cartList')){
         //     try{
@@ -97,19 +97,6 @@ new Vue({
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
         },
-        // addToCart(){
- 
-        //     if(localStorage.getItem('cartList')){
-        //         parsed = [];
-        //         parsed.push(localStorage.getItem('cartList'));
-
-        //     }else{
-        //         parsed = [];
-        //     }
-        //     parsed.push(JSON.stringify(this.currentProduct));
-        //     localStorage.setItem('cartList',parsed);
-        //     console.log(JSON.parse(`[${parsed}]`));
-        // },
 
         checkAndInitCart(){
             if(localStorage.getItem('cartList') === null){
@@ -138,6 +125,7 @@ new Vue({
 
         upDateLocalStorage(){
             localStorage.setItem('cartList',this.cartListJsonString());
+            // this.cartCount = Object.keys(this.cartList).length;   //debug使用目前失敗
         },
 
         cartListJsonString(){
@@ -156,7 +144,7 @@ new Vue({
         },
         showCart(){
             if(Object.keys(this.cartList).length>0){
-                $(".add_count").css("display", "block");
+                $(".add_count_vue").css("display", "block");
             }
         },
     }, 
@@ -173,9 +161,9 @@ $(document).ready(function(){
         }
     });
 
-    //show .add_count
+    //show .add_count_vue
     $(".add_chart").click(function(){
-        $(".add_count").css("display", "block");
+        $(".add_count_vue").css("display", "block");
     }); 
 
     //dot .pic change bgcolor

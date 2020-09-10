@@ -87,15 +87,15 @@ let cartCounted = function(){
     }
     console.log(i);
 
-    $('.add_count')[0].innerText = i;
+    $('.add_count_others')[0].innerText = i;
 
-    // if(i != 0){
-    //     $('.add_count').css('display', 'block')
-    // }else if(i=''){
-    //     $('.add_count').css('display', 'none')    
-    // }else{
-    //     $('.add_count').css('display', 'none')     
-    // }
+    if(i != 0){
+        $('.add_count_others').css('display', 'block')
+    }else if(i=''){
+        $('.add_count_others').css('display', 'none')    
+    }else{
+        $('.add_count_others').css('display', 'none')     
+    }
 }
 
 cartCounted();
