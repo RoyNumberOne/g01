@@ -110,64 +110,60 @@
 
 
             <div class="top1-3">
-                <div>
-                    <div class="top1">
-                        <div class="hot_meet_top3">
+                <div class="meettop" id="meettop">
+                    <div class="top1" v-for="(hotmeet, index) in meetList">
+                        <div class="hot_meet_top3" >
                             <div class="meet_mountain_img">
                                 <img src="./images/meet/mountain/4south.jpg" alt="">
                             </div>
                             <div class="meet_content">
                                 <img  class="bg_cloud" src="./images/meet/2-0-cloud2.svg" alt="">
+                                
                                 <div class="member_styleA column">
                                     <div class="memberImg">
-                                        <img src="./images/meet/member/vivian.jpeg" alt="">
+                                        <img src="./images/meet/member/Chris.jpg" alt="">
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                            <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
-                                        <div class="memberId">Vivian</div>
+                                        <div class="memberId">{{hotmeet.mem_id}}</div>
                                         <div class="memberBadge">
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge1}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge2}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge3}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
                                         </div>
                                     </div>
                                 </div>
+                                    
                                 <div class="title_info_text">
                                     <div class="upspace"></div>
-                                    <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                    <h3>{{hotmeet.tour_title}}</h3>
                                     <div class="info">
                                         <span class="tag">＃玉山</span>
                                         <span class="tag">＃2天</span>
                                         <span class="tag">＃南部</span>
                                         <div class="locationDegree">
                                             <i class="fas fa-map-marker-alt"></i>
-                                            <span class="location">嘉義</span>
+                                            <span class="location">{{hotmeet.mountain_area}}</span>
                                             |
-                                            <span class="degree">難度</span>
+                                            <span class="degree">s06{{hotmeet.degree_category}}</span>
                                             <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
                                         </div>
-                                        <span class="date">2020/09/08</span><span>出發</span>
+                                        <span class="date">{{hotmeet.tour_activitystart}}</span><span>出發</span>
                                         ｜
-                                        <span class="date">2020/09/10</span><span>回程</span>
+                                        <span class="date">{{hotmeet.tour_activityend}}</span><span>回程</span>
     
                                     </div>
                                     <div class="meetContent">
-                                        <p class="textContent">
-                                            第一天:1800板橋火車站北二門集合(欲共乘者 可載4人)-->2300望鄉部落民宿
-                                            第二天:0600早餐-->0700出發-->0810檢查哨-->0830塔塔加登山口-->0930孟祿亭\r\n-->1130西峰觀景台(自備午餐)-->1500排雲山莊
-                                            第三天:0300排雲山莊(早早餐)-->0330出發-->0430主南岔路-->0530主北岔路-->0600玉山主峰(海拔3952m)​-->0800排雲山莊(早午餐)-->1400塔塔加登山口(自備午餐)-->1700水里晚餐-->2100板橋火車站解散(與團主共乘者)
-                                            ＊＊＊很重要＊＊＊費用600元(包含排雲山莊住宿費480元＆水里晚餐120元) 
-                                            自付：需自備現金，代付：於出發前7日轉帳給我，本行程為玉山主峰登山團 不適合第一次登山 千萬別『逞強』~
-                                        </p>
+                                        <p class="textContent">{{hotmeet.tour_innertext}}</p>
                                     </div>
                                 </div>
                                 <div class="like_btn">
@@ -183,7 +179,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="top2">
+                    <!-- <div class="top2">
                         <div class="hot_meet_top3">
                             <div class="meet_mountain_img">
                                 <img src="./images/meet/mountain/4east.jpg" alt="">
@@ -345,7 +341,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="top1-3_bg">
                     <img src="./images/meet/2-0-bg_top3_1.svg" alt="">
@@ -367,7 +363,7 @@
                 <div class="typeList"></div>
             </div>
 
-            <div class="newMeetActivity card" id="meetGroup">
+            <div class="newMeetActivity card" id="newmeet">
                 <!-- v-for="(meet, index) in meetList" -->
                 <div class="item" v-for="(meet, index) in meetList">
                     <a href="./meet2-3.html">
@@ -391,12 +387,12 @@
                             <span class="tag">＃2天</span>
                             <span class="tag">＃南部</span>
                             <div class="locationDegree">
-                                <span class="location">南部</span>
-                                <span class="degree">難度</span>
+                                <span class="location">{{meet.mountain_area}}</span>
+                                <span class="degree">難度{{meet.degree_category}}</span>
                             </div>
-                            <span class="date">2020/09/08</span><span>出發</span>
+                            <span class="date">{{meet.tour_activitystart}}</span><span>出發</span>
                             ｜
-                            <span class="date">2020/09/10</span><span>回程</span>
+                            <span class="date">{{meet.tour_activityend}}</span><span>回程</span>
                         </div>
                         <div class="meetContent">
                             <p class="textContent">
@@ -406,27 +402,28 @@
                     </div>
                     <div class="member_styleA row">
                         <div class="memberImg">
-                            <img src="./images/meet/member/vivian.jpeg" alt="">
+                            <img src="./images/meet/member/Chris.jpg" alt="">
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt="">{{meet.mem_realname}}</span>
+                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt="">{{meet.guide_no}}</span>
                             </div>
-                            <div class="memberId">Vivian</div>
+                            <div class="memberId">{{meet.mem_id}}</div>
                             <div class="memberBadge">
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge1}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge2}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge3}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
                             </div>
                         </div>
                     </div>
+                   
                 </div>
 
                 <!-- <div class="item">
@@ -715,130 +712,11 @@
     
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    <script src="./js/meet2-0.js"></script>
-    
-    <!----go top裡面的箭頭需要用到的js----->
+
+    <!----go top----->
     <script src="./js/fa5.14.0all.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            /* 按下GoTop按鈕時的事件 */
-            $('#gotop').click(function(){
-                $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-                return false;
-            });
-            
-            /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 400){
-                    $('#gotop').fadeIn();
-                } else {
-                    $('#gotop').fadeOut();
-                }
-            });
-        });
-    </script>
 
-
-    <!-- 更換Card  list樣式 -->
-    <script>
-        $(function() {
-            //click
-            
-
-            // 點擊按鈕typeCard
-            $("div.typeCard").on("click", function(){
-                // div.newMeetActivity
-                    //移除 list 樣式
-                $("div.newMeetActivity").removeClass("list");
-                $(".newMeet div.member_styleA").removeClass("column");
-                    // 加上 card 樣式
-                $("div.newMeetActivity").addClass("card");
-                $(".newMeet div.member_styleA").addClass("row");
-                
-                //btn
-                $("div.typeList").removeClass("-on");
-                $("div.typeCard").addClass("-on");
-            });
-
-            // 點擊按鈕typeList
-            $("div.typeList").on("click", function(){
-                // div.newMeetActivity
-                    //移除 card 樣式
-                $("div.newMeetActivity").removeClass("card");
-                $(".newMeet div.member_styleA").removeClass("row");
-                    //加上 list 樣式
-                $("div.newMeetActivity").addClass("list");
-                $(".newMeet div.member_styleA").addClass("column");
-
-                //btn
-                $("div.typeCard").removeClass("-on");
-                $("div.typeList").addClass("-on");
-            });
-        });
-    </script>
-        <!-- 換icon -->
-        <script>
-            $(document).ready(function(){
-                $(".icon_card").click(function(){
-                    if($(".icon_card").attr('src') === "./images/icons/icon_card_w.svg"){
-                        $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-                    }else{
-                        $(this).attr("src","./images/icons/icon_card_w.svg");
-                    }
-                });
-            });
-    </script>
-    
-    <!-- 頁碼 -->
-    <script>
-        function checkpg(){
-            if ($(".pgprev").next().hasClass("-active")) {
-                $(".pgprev").css("visibility","hidden");
-            }   else {
-                $(".pgprev").css("visibility","visible");
-            }
-            if ($(".pgnext").prev().hasClass("-active")) {
-                $(".pgnext").css("visibility","hidden");
-            }   else{
-                $(".pgnext").css("visibility","visible");
-            }
-        }
-        checkpg();
-        $(".pg").click(function(){
-            $(this).parent().children().removeClass("-active");
-            $(this).addClass("-active");
-            checkpg();
-        });
-        $(".pgprev").click(function(){
-            if (!$(".pgprev").next().hasClass("-active")) {
-                $(".-active").prev().addClass("-active");
-                $(".-active").next(".-active").removeClass("-active");
-            }
-            checkpg();
-        });
-        $(".pgnext").click(function(){
-            if (!$(".pgnext").prev().hasClass("-active")) {
-                $(".-active").next().addClass("-active");
-                $(".-active").prev(".-active").removeClass("-active");
-            }
-            checkpg();
-        });
-    </script>
-
-    <!-- 換愛心 -->
-    <script>
-    $(document).ready(function(){
-        $(".heart").click(function(){
-            if($(this).attr('src') === "./images/icons/icon_heart.svg"){
-                $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-            }else{
-                $(this).attr("src","./images/icons/icon_heart.svg");
-            }
-        });
-    });
-    </script>
-
+    <script src="./js/meet2-0.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 </body>

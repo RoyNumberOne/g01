@@ -29,52 +29,49 @@
             <div class="order_detail"> 
                 <h3>訂單查詢</h3>
                 <form id="searchOrder" method="post" action="./BackstageShowOrderDetail.php">
-                    <label><input type='hidden' readonly width="200px" id="orderSearchBar" name="orderSearchBar" value="order_no">訂單編號</label>
-                    </select>
-                    <label><input type="text" id="searchKey" name="searchKey"></label>
+                    <label><input type='hidden' readonly width="200px" id="orderSearchBar" name="orderSearchBar" value="order_no" class="copy_inp">訂單編號：</label>
+                    <label><input type="text" id="searchKey" name="searchKey" minlength="6" maxlength="6" placeholder="請輸入6位編號"></label>
                     <button type="submit" class="btnB_L_yellow_2" id="searchOrderBtnSend"><p>查詢</p><div class="bg2"></div></button>
                 </form>
             </div>
             <hr>
-            <div id="ccc">
-            <h3>近期訂單</h3>
-            <?php 
-            try	{
-                require_once('connectMeetain.php');
-                
-                    $sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders order by order_no limit 6; " ;
-                    $pdoStatement = $pdo->query($sql);
-                    $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
-
-                    <table>
-                    <tr class='cyan'><th width="80px">訂單編號</th><th width="80px">會員編號</th><th width="80px">收件人</th><th width="110px">聯絡電話</th><th width="80px">付款方式</th><th width=80px">訂單狀態</th><th width=80px">付款金額</th><th width=110px">訂單成立時間</th></tr>
-                    <?php
-                    foreach ( $prodRows as $i => $prodRow){
-                    ?>
-                        <tr>
-                        <td class='pink'><?=$prodRow["訂單編號"]?></td>
-                        <td><?=$prodRow["會員編號"]?></td>
-                        <td><?=$prodRow["收件人"]?></td>
-                        <td><?=$prodRow["聯絡電話"]?></td>
-                        <td><?=$prodRow["付款方式"]?></td>
-                        <td><?=$prodRow["訂單狀態"]?></td>
-                        <td><?=$prodRow["付款金額"]?></td>
-                        <td><?=$prodRow["訂單成立時間"]?></td>
-                        </tr>
-
-                        <?php } ?>
-                    </table>
-                    <hr>
-                <?php
-                }	catch	(PDOException $e)	{
-                }
-            ?>
+            <div class="ShowSearchOrder">
+                <div id="ShowSearchOrder"></div>   
             </div>
-        </div>
-        <div class="ShowSearchOrder">
-            <h3>訂單詳情</h3>
-            <div id="ShowSearchOrder"></div>   
+            <div id="ccc">
+            <h3>最新10筆訂單</h3>
+                <?php 
+                try	{
+                    require_once('connectMeetain.php');
+                    
+                        $sql = "SELECT order_no '訂單編號' , member_no '會員編號' , order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders order by order_no limit 10; " ;
+                        $pdoStatement = $pdo->query($sql);
+                        $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                        ?>
+
+                        <table>
+                        <tr class='cyan'><th>訂單編號</th><th>會員編號</th><th>收件人</th><th width="110px">聯絡電話</th><th>付款方式</th><th>訂單狀態</th><th>付款金額</th><th>訂單成立時間</th></tr>
+                        <?php
+                        foreach ( $prodRows as $i => $prodRow){
+                        ?>
+                            <tr>
+                            <td><?=$prodRow["訂單編號"]?></td>
+                            <td><?=$prodRow["會員編號"]?></td>
+                            <td><?=$prodRow["收件人"]?></td>
+                            <td><?=$prodRow["聯絡電話"]?></td>
+                            <td><?=$prodRow["付款方式"]?></td>
+                            <td><?=$prodRow["訂單狀態"]?></td>
+                            <td><?=$prodRow["付款金額"]?></td>
+                            <td><?=$prodRow["訂單成立時間"]?></td>
+                            </tr>
+                        <?php } ?>
+                        </table>
+                        <hr>
+                    <?php
+                    }	catch	(PDOException $e)	{
+                    }
+                ?>
+            </div>
         </div>
     </section>
 </main>
@@ -108,8 +105,8 @@ $(Document).ready(function(){
                 error: function(){
                 },
             });
-    })
-})
+    });
+});
 </script>
 <script src="./js/backstage.js"></script>
 </body>

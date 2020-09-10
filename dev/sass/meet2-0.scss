@@ -131,12 +131,18 @@ $textColor1: $mt_fontdark;
         }
         .top1-3{
             position: relative;
-            >div{
+            
+            >div.meettop{
+                &>:nth-child(1),&>:nth-child(3){
+                    border: 1px solid #00f;
+                    display: flex;
+                    justify-content: center;
+                }
                 // border: 1px solid #000;
                 display: flex;
                 flex-direction: column;
                 .hot_meet_top3{
-                    // border: 1px solid green;
+                    
                     width: 50%;
                     min-width: 500px;
                     .meet_mountain_img{
@@ -185,12 +191,14 @@ $textColor1: $mt_fontdark;
                         }
     
                     }
+                   
                 }
-                .top1,.top3{
-                    // border: 1px solid #00f;
-                    display: flex;
-                    justify-content: center;
-                }
+                
+                // .top1,.top3{
+                //     // border: 1px solid #00f;
+                //     display: flex;
+                //     justify-content: center;
+                // }
             }
             .top1-3_bg{
                 // border: 1px solid #000;
@@ -397,324 +405,323 @@ $textColor1: $mt_fontdark;
 }
 
 
-@media screen and (min-width: 1200px) and (max-width: 1439px){
-    // 請用1152
-    #meet2-0{
-        max-width: 1152px; 
-        .hotMeet1{
-            .top1-3{
-                >div{
-                    .hot_meet_top3{
-                        .meet_mountain_img{
-                            margin-bottom: -10%;
-                        }
-                    }
+// @media screen and (min-width: 1200px) and (max-width: 1439px){
+//     // 請用1152
+//     #meet2-0{
+//         max-width: 1152px; 
+//         .hotMeet1{
+//             .top1-3{
+//                 >div{
+//                     .hot_meet_top3{
+//                         .meet_mountain_img{
+//                             margin-bottom: -10%;
+//                         }
+//                     }
                     
-                }
-            }
-        }
-    }
+//                 }
+//             }
+//         }
+//     }
 
-}
+// }
 
-@media screen and (max-width: 991px){
-    #meet2-0{
-        .serchMeet{
-            .searchFormMap{
-                form.serch{
-                    align-items: center;
-                    width: auto;
-                }
-            }
+// @media screen and (max-width: 991px){
+//     #meet2-0{
+//         .serchMeet{
+//             .searchFormMap{
+//                 form.serch{
+//                     align-items: center;
+//                     width: auto;
+//                 }
+//             }
             
-        }
+//         }
         
-    }
-}
-@media screen and (min-width: 992px) and (max-width: 1199px){
-    // 請用960
-         // max-width: 960px;
-    #meet2-0{
-        max-width: 960px; 
-        .hotMeet1{
-            .top1-3{
-                >div{
-                    .hot_meet_top3{
-                        .meet_mountain_img{
-                            margin-bottom: -15%;
-                        }
-                    }
+//     }
+// }
+// @media screen and (min-width: 992px) and (max-width: 1199px){
+//     // 請用960
+//          // max-width: 960px;
+//     #meet2-0{
+//         max-width: 960px; 
+//         .hotMeet1{
+//             .top1-3{
+//                 >div{
+//                     .hot_meet_top3{
+//                         .meet_mountain_img{
+//                             margin-bottom: -15%;
+//                         }
+//                     }
                     
-                }
-            }
-        }
-    }
-}
+//                 }
+//             }
+//         }
+//     }
+// }
 
-@media screen and (min-width: 768px) and (max-width: 991px){
-    // 請用720
-        // max-width: 720px;
-    #meet2-0{
-        max-width: 720px; 
+// @media screen and (min-width: 768px) and (max-width: 991px){
+//     // 請用720
+//         // max-width: 720px;
+//     #meet2-0{
+//         max-width: 720px; 
 
-        .serchMeet{
-            .searchFormMap{
-                flex-direction: column;
-                align-items: center;
-                .serchMap{
-                    width: 100%;
-                }
-            }
-        }
+//         .serchMeet{
+//             .searchFormMap{
+//                 flex-direction: column;
+//                 align-items: center;
+//                 .serchMap{
+//                     width: 100%;
+//                 }
+//             }
+//         }
 
-        .hotMeet1{
-            .top1-3{
-                >div{
-                    .hot_meet_top3{
-                        width: 500px;
-                        .meet_mountain_img{
-                            margin-bottom: -20%;
-                        }
-                    }
-                }
-                .top3{
-                    .hot_meet_top3{
-                        margin-right: 40px;
-                    }
-                }
-                .decoration_draw{
-                    height: 90%;
-                    top:10%;
-                    right:-35px;
-                    img{
-                        top:15%;
-                    }
-                }
-            }
-        }
+//         .hotMeet1{
+//             .top1-3{
+//                 >div{
+//                     .hot_meet_top3{
+//                         width: 500px;
+//                         .meet_mountain_img{
+//                             margin-bottom: -20%;
+//                         }
+//                     }
+//                 }
+//                 .top3{
+//                     .hot_meet_top3{
+//                         margin-right: 40px;
+//                     }
+//                 }
+//                 .decoration_draw{
+//                     height: 90%;
+//                     top:10%;
+//                     right:-35px;
+//                     img{
+//                         top:15%;
+//                     }
+//                 }
+//             }
+//         }
         
-    }
+//     }
    
-}
+// }
 
-@media screen and (min-width: 576px) and (max-width: 767px){
-  // 請用540
-        // max-width: 540px;
+// @media screen and (min-width: 576px) and (max-width: 767px){
+//   // 請用540
+//         // max-width: 540px;
 
-    html,body{
-        overflow-x: hidden !important;
-        width: 100%;
-    }
+//     html,body{
+//         overflow-x: hidden !important;
+//         width: 100%;
+//     }
     
-    #meet2-0{
-        max-width: 540px; 
-        width: 100%;
-        .serchMeet{
-            .searchFormMap{
-                flex-direction: column;
-                align-items: center;
-                .serchMap{
-                    width: 100%;
-                }
-            }
-        }
-        .hotMeet1{
-            .top1-3{
-                >div{
-                    .hot_meet_top3{
-                        width: 500px;
-                        margin-bottom: 50px;
-                        .meet_mountain_img{
-                            margin-bottom: -25%;
-                        }
-                        .meet_content{
-                            flex-wrap: wrap;
-                            justify-content: flex-end;
-                            border: 1px solid #0f0;
-                            padding: 0;
-                            // *{
-                            //     // border: 1px solid #000;
-                            // }
-                            .bg_cloud{
-                                width: 130%;
-                                bottom: -30px;
-                                left: -30px;
-                            }
-                            .member_styleA{
-                                margin-bottom: 20px;
-                                width: 211px;
-                                display: inline-block;
-                                margin-right: 50px;
-                                .memberInfo{
-                                    .certification{
-                                        justify-content: flex-start;
-                                    }
-                                    .memberBadge{
-                                        display: inline-block;
-                                    }
-                                }
-                            }
-                            .title_info_text{
-                                width: 330px;
-                                flex-grow: 0.5;
-                                margin-right: 10px;
-                                .meetContent{
-                                    @include towLine;
-                                }
-                            }
+//     #meet2-0{
+//         max-width: 540px; 
+//         width: 100%;
+//         .serchMeet{
+//             .searchFormMap{
+//                 flex-direction: column;
+//                 align-items: center;
+//                 .serchMap{
+//                     width: 100%;
+//                 }
+//             }
+//         }
+//         .hotMeet1{
+//             .top1-3{
+//                 >div{
+//                     .hot_meet_top3{
+//                         width: 500px;
+//                         margin-bottom: 50px;
+//                         .meet_mountain_img{
+//                             margin-bottom: -25%;
+//                         }
+//                         .meet_content{
+//                             flex-wrap: wrap;
+//                             justify-content: flex-end;
+//                             padding: 0;
+//                             // *{
+//                             //     // border: 1px solid #000;
+//                             // }
+//                             .bg_cloud{
+//                                 width: 130%;
+//                                 bottom: -30px;
+//                                 left: -30px;
+//                             }
+//                             .member_styleA{
+//                                 margin-bottom: 20px;
+//                                 width: 211px;
+//                                 display: inline-block;
+//                                 margin-right: 50px;
+//                                 .memberInfo{
+//                                     .certification{
+//                                         justify-content: flex-start;
+//                                     }
+//                                     .memberBadge{
+//                                         display: inline-block;
+//                                     }
+//                                 }
+//                             }
+//                             .title_info_text{
+//                                 width: 330px;
+//                                 flex-grow: 0.5;
+//                                 margin-right: 10px;
+//                                 .meetContent{
+//                                     @include towLine;
+//                                 }
+//                             }
                             
-                        }
-                    }
-                }
-                .top3{
-                    .hot_meet_top3{
-                        margin-right: 40px;
-                    }
-                }
-                .decoration_draw{
-                    display: none;
-                }
-            }
-        }
-        .newMeet{
-            .changeTypeBtn{
-                .typeCard{
-                    border-radius: 8px;
-                }
-                .typeList{
-                    display: none;
-                }
-            }
-            .newMeetActivity.list{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                .item{
-                    width: 350px;
-                    margin-top: 100px;
-                    display: inline-block;
-                    .newImg{
-                        width: 100%;
-                        padding-top: 100%;
-                        margin: -70px auto auto auto;
-                    }
+//                         }
+//                     }
+//                 }
+//                 .top3{
+//                     .hot_meet_top3{
+//                         margin-right: 40px;
+//                     }
+//                 }
+//                 .decoration_draw{
+//                     display: none;
+//                 }
+//             }
+//         }
+//         .newMeet{
+//             .changeTypeBtn{
+//                 .typeCard{
+//                     border-radius: 8px;
+//                 }
+//                 .typeList{
+//                     display: none;
+//                 }
+//             }
+//             .newMeetActivity.list{
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 justify-content: space-around;
+//                 .item{
+//                     width: 350px;
+//                     margin-top: 100px;
+//                     display: inline-block;
+//                     .newImg{
+//                         width: 100%;
+//                         padding-top: 100%;
+//                         margin: -70px auto auto auto;
+//                     }
                     
-                }
-            }
-        }
-    }
+//                 }
+//             }
+//         }
+//     }
   
-}
+// }
 
-@media screen and (max-width: 575px){
-    // 請用100%
-        // max-width: 100%;
-    #meet2-0{
-        max-width: 100%;
-        .serchMeet{
-            .searchFormMap{
-                flex-direction: column;
-                align-items: center;
-                .serchMap{
-                    width: 100%;
-                    height: 80vh;
-                }
-            }
-        } 
-        .hotMeet1{
-            .top1-3{
-                background-color: $mt_grey2;
-                overflow-y:auto;
-                height:auto;
-                >div{
-                    .hot_meet_top3{
-                        // border: 1px solid #000;
-                        .meet_mountain_img{
-                            margin-bottom: -30%;
-                        }
-                        .meet_content{
-                            flex-wrap: wrap;
-                            justify-content: flex-end;
-                            .member_styleA{
-                                width: 211px;
-                                display: inline-block;
-                                margin-right: 50px;
-                                .memberInfo{
-                                    .certification{
-                                        justify-content: flex-start;
-                                    }
-                                    .memberBadge{
-                                        display: inline-block;
-                                    }
-                                }
-                            }
-                            .title_info_text{
-                                width: 330px;
-                                .meetContent{
-                                    @include towLine;
-                                }
-                            }
+// @media screen and (max-width: 575px){
+//     // 請用100%
+//         // max-width: 100%;
+//     #meet2-0{
+//         max-width: 100%;
+//         .serchMeet{
+//             .searchFormMap{
+//                 flex-direction: column;
+//                 align-items: center;
+//                 .serchMap{
+//                     width: 100%;
+//                     height: 80vh;
+//                 }
+//             }
+//         } 
+//         .hotMeet1{
+//             .top1-3{
+//                 background-color: $mt_grey2;
+//                 overflow-y:auto;
+//                 height:auto;
+//                 >div{
+//                     .hot_meet_top3{
+//                         // border: 1px solid #000;
+//                         .meet_mountain_img{
+//                             margin-bottom: -30%;
+//                         }
+//                         .meet_content{
+//                             flex-wrap: wrap;
+//                             justify-content: flex-end;
+//                             .member_styleA{
+//                                 width: 211px;
+//                                 display: inline-block;
+//                                 margin-right: 50px;
+//                                 .memberInfo{
+//                                     .certification{
+//                                         justify-content: flex-start;
+//                                     }
+//                                     .memberBadge{
+//                                         display: inline-block;
+//                                     }
+//                                 }
+//                             }
+//                             .title_info_text{
+//                                 width: 330px;
+//                                 .meetContent{
+//                                     @include towLine;
+//                                 }
+//                             }
                             
-                        }
-                    }
-                }
-                .top2{
-                    display: flex;
-                    justify-content: center;
-                }
-                .top3{
-                    .hot_meet_top3{
-                        margin-right: 0;
-                    }
-                }
-                .decoration_draw{
-                    display: none;
-                }
-            }
-        }
-        .newMeet{
-            .changeTypeBtn{
-                .typeList{
-                    display: none;
-                }
-            }
-            .newMeetActivity.list{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                .item{
-                    width: 350px;
-                    margin-top: 100px;
-                    display: inline-block;
-                    .newImg{
-                        width: 100%;
-                        padding-top: 100%;
-                        margin: -70px auto auto auto;
-                    }
+//                         }
+//                     }
+//                 }
+//                 .top2{
+//                     display: flex;
+//                     justify-content: center;
+//                 }
+//                 .top3{
+//                     .hot_meet_top3{
+//                         margin-right: 0;
+//                     }
+//                 }
+//                 .decoration_draw{
+//                     display: none;
+//                 }
+//             }
+//         }
+//         .newMeet{
+//             .changeTypeBtn{
+//                 .typeList{
+//                     display: none;
+//                 }
+//             }
+//             .newMeetActivity.list{
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 justify-content: space-around;
+//                 .item{
+//                     width: 350px;
+//                     margin-top: 100px;
+//                     display: inline-block;
+//                     .newImg{
+//                         width: 100%;
+//                         padding-top: 100%;
+//                         margin: -70px auto auto auto;
+//                     }
                     
-                }
-            }
-        }
-    }
-}
-@media screen and (max-width: 390px){
-    #meet2-0{
-        .serchMeet{
-            .searchFormMap{
-                .serch{
-                    >div{
-                        flex-wrap: wrap;
-                        >div{
-                            margin: auto;
-                        }
-                    }
+//                 }
+//             }
+//         }
+//     }
+// }
+// @media screen and (max-width: 390px){
+//     #meet2-0{
+//         .serchMeet{
+//             .searchFormMap{
+//                 .serch{
+//                     >div{
+//                         flex-wrap: wrap;
+//                         >div{
+//                             margin: auto;
+//                         }
+//                     }
                    
-                }
+//                 }
                 
-            }
-        }
-    }
-}
+//             }
+//         }
+//     }
+// }
 //<!-- --------------------aside link------------------ -->
 #aside-link{
     display:block;

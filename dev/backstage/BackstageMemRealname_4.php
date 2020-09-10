@@ -1,3 +1,4 @@
+<h3>審核實名制 - 未審核</h3>
 <?php 
 try	{
     require_once('connectMeetain.php');
@@ -7,7 +8,7 @@ try	{
 		$prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 		?>
 		<table>
-		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="220px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="110px">申請狀態</th><th width="80px"></th></tr>
+		<tr class='cyan'><th width="30px">no.</th><th width="80px">會員編號</th><th width="220px">證件照片</th><th width="140px">身分證字號</th><th width="80px">真實姓名</th><th width="110px">申請時間</th><th width="110px">申請狀態</th><th>確認</th></tr>
 		<?php
 		foreach ( $prodRows as $i => $prodRow){
 		?>
@@ -18,8 +19,9 @@ try	{
              <td><?=$prodRow["身分證字號"]?></td>
              <td><?=$prodRow["真實姓名"]?></td>
              <td><?=$prodRow["申請時間"]?></td>
-             <td>   <label><input type="radio" value="已審核已通過" name="VERIFYname<?=$prodRow["no"]?>">通過</label><br>
-					<label><input type="radio" value="已審核未通過" name="VERIFYname<?=$prodRow["no"]?>">未通過</label>
+             <td style="text-align: left;padding-left: 10px;">   
+			 	<label><input type="radio" value="已審核已通過" name="VERIFYname<?=$prodRow["no"]?>">通過</label><br>
+				<label><input type="radio" value="已審核未通過" name="VERIFYname<?=$prodRow["no"]?>">未通過</label>
 			</td>
 			<td><label><input name="<?=$prodRow["no"]?>" type="button" value="送出" disabled class="sendverifyname"></label></td>
             </tr>
