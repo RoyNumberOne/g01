@@ -8,6 +8,14 @@
     overflow:hidden;
 }
 
+@mixin imgs {
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+
 #banner{
     width: 100%;
     height: 40vh;
@@ -53,6 +61,7 @@
                 .news_list{
                     width: 80%;
                     margin: 2% auto;
+                    border: 3px solid hotpink;
                     .list{
                         display: flex;
                         border-bottom: 1px solid black;
@@ -172,20 +181,20 @@
                               }
                           }
                           .memberBadge{
-                            display: flex;
-                            justify-content:center;
-                          .memberBadgeIcon{
-                              display: inline-block;
-                              width: 25px;
-                              padding-top: 25px;
-                              overflow: hidden;
-                              position: relative;
-                              filter: drop-shadow(1px 1px 3px rgb(77, 77, 77));
-                              img{
-                                  @include imgs;
-                                  }
-                              }   
-                         }
+                              display: flex;
+                              justify-content:center;
+                            .memberBadgeIcon{
+                                display: inline-block;
+                                width: 25px;
+                                padding-top: 25px;
+                                overflow: hidden;
+                                position: relative;
+                                filter: drop-shadow(1px 1px 3px rgb(77, 77, 77));
+                                img{
+                                    @include imgs;
+                                    }
+                                }   
+                           }
                         }
                         .container{
                           padding: 20px;
@@ -351,6 +360,7 @@
                         // .user:nth-child(1){width: 40%;}
                         // .forum_keep:nth-child(2){width: 20%;}
                         // .post_situation:nth-child(3){width: 35%;}
+                        
                         //////會員款式Ａ/////
                         .member_styleA{
                             flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
@@ -389,7 +399,6 @@
                                 }
                                 .memberBadge{
                                     .memberBadgeIcon{
-                                        display: inline-block;
                                         width: 25px;
                                         padding-top: 25px;
                                         overflow: hidden;
@@ -398,17 +407,6 @@
                                             @include imgs;
                                         }
                                     }
-                                }
-                            }
-                        }
-
-                        //////橫/////
-                        .member_styleA.row{
-                            width: 211px;
-                            display: inline-block;
-                            .memberInfo{
-                                .memberBadge{
-                                    display: inline-block;
                                 }
                             }
                         }
