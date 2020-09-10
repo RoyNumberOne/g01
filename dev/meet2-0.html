@@ -110,64 +110,60 @@
 
 
             <div class="top1-3">
-                <div>
-                    <div class="top1">
-                        <div class="hot_meet_top3">
+                <div class="meettop" id="meettop">
+                    <div class="top1" v-for="(hotmeet, index) in meetList">
+                        <div class="hot_meet_top3" >
                             <div class="meet_mountain_img">
                                 <img src="./images/meet/mountain/4south.jpg" alt="">
                             </div>
                             <div class="meet_content">
                                 <img  class="bg_cloud" src="./images/meet/2-0-cloud2.svg" alt="">
+                                
                                 <div class="member_styleA column">
                                     <div class="memberImg">
-                                        <img src="./images/meet/member/vivian.jpeg" alt="">
+                                        <img src="./images/meet/member/Chris.jpg" alt="">
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                            <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
-                                        <div class="memberId">Vivian</div>
+                                        <div class="memberId">{{hotmeet.mem_id}}</div>
                                         <div class="memberBadge">
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge1}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge2}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
-                                            <span class="memberBadgeIcon">
+                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge3}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
                                         </div>
                                     </div>
                                 </div>
+                                    
                                 <div class="title_info_text">
                                     <div class="upspace"></div>
-                                    <h3>【台灣的屋脊】東北亞最高峰 玉山主峰</h3>
+                                    <h3>{{hotmeet.tour_title}}</h3>
                                     <div class="info">
                                         <span class="tag">＃玉山</span>
                                         <span class="tag">＃2天</span>
                                         <span class="tag">＃南部</span>
                                         <div class="locationDegree">
                                             <i class="fas fa-map-marker-alt"></i>
-                                            <span class="location">嘉義</span>
+                                            <span class="location">{{hotmeet.mountain_area}}</span>
                                             |
-                                            <span class="degree">難度</span>
+                                            <span class="degree">s06{{hotmeet.degree_category}}</span>
                                             <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
                                         </div>
-                                        <span class="date">2020/09/08</span><span>出發</span>
+                                        <span class="date">{{hotmeet.tour_activitystart}}</span><span>出發</span>
                                         ｜
-                                        <span class="date">2020/09/10</span><span>回程</span>
+                                        <span class="date">{{hotmeet.tour_activityend}}</span><span>回程</span>
     
                                     </div>
                                     <div class="meetContent">
-                                        <p class="textContent">
-                                            第一天:1800板橋火車站北二門集合(欲共乘者 可載4人)-->2300望鄉部落民宿
-                                            第二天:0600早餐-->0700出發-->0810檢查哨-->0830塔塔加登山口-->0930孟祿亭\r\n-->1130西峰觀景台(自備午餐)-->1500排雲山莊
-                                            第三天:0300排雲山莊(早早餐)-->0330出發-->0430主南岔路-->0530主北岔路-->0600玉山主峰(海拔3952m)​-->0800排雲山莊(早午餐)-->1400塔塔加登山口(自備午餐)-->1700水里晚餐-->2100板橋火車站解散(與團主共乘者)
-                                            ＊＊＊很重要＊＊＊費用600元(包含排雲山莊住宿費480元＆水里晚餐120元) 
-                                            自付：需自備現金，代付：於出發前7日轉帳給我，本行程為玉山主峰登山團 不適合第一次登山 千萬別『逞強』~
-                                        </p>
+                                        <p class="textContent">{{hotmeet.tour_innertext}}</p>
                                     </div>
                                 </div>
                                 <div class="like_btn">
@@ -183,7 +179,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="top2">
+                    <!-- <div class="top2">
                         <div class="hot_meet_top3">
                             <div class="meet_mountain_img">
                                 <img src="./images/meet/mountain/4east.jpg" alt="">
@@ -345,7 +341,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="top1-3_bg">
                     <img src="./images/meet/2-0-bg_top3_1.svg" alt="">
@@ -367,7 +363,7 @@
                 <div class="typeList"></div>
             </div>
 
-            <div class="newMeetActivity card" id="meetGroup">
+            <div class="newMeetActivity card" id="newmeet">
                 <!-- v-for="(meet, index) in meetList" -->
                 <div class="item" v-for="(meet, index) in meetList">
                     <a href="./meet2-3.html">
@@ -391,12 +387,12 @@
                             <span class="tag">＃2天</span>
                             <span class="tag">＃南部</span>
                             <div class="locationDegree">
-                                <span class="location">南部</span>
-                                <span class="degree">難度</span>
+                                <span class="location">{{meet.mountain_area}}</span>
+                                <span class="degree">難度{{meet.degree_category}}</span>
                             </div>
-                            <span class="date">2020/09/08</span><span>出發</span>
+                            <span class="date">{{meet.tour_activitystart}}</span><span>出發</span>
                             ｜
-                            <span class="date">2020/09/10</span><span>回程</span>
+                            <span class="date">{{meet.tour_activityend}}</span><span>回程</span>
                         </div>
                         <div class="meetContent">
                             <p class="textContent">
@@ -406,27 +402,28 @@
                     </div>
                     <div class="member_styleA row">
                         <div class="memberImg">
-                            <img src="./images/meet/member/vivian.jpeg" alt="">
+                            <img src="./images/meet/member/Chris.jpg" alt="">
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt="">{{meet.mem_realname}}</span>
+                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt="">{{meet.guide_no}}</span>
                             </div>
-                            <div class="memberId">Vivian</div>
+                            <div class="memberId">{{meet.mem_id}}</div>
                             <div class="memberBadge">
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge1}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge2}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
-                                <span class="memberBadgeIcon">
+                                <span class="memberBadgeIcon">{{meet.mem_badge3}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
                             </div>
                         </div>
                     </div>
+                   
                 </div>
 
                 <!-- <div class="item">
