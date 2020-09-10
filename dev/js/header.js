@@ -78,5 +78,15 @@ var $hamburger = $(".hamburger");
     });
 
 
-    //shopcart cartCount
-    // localStorage.getItem('cartList');
+//shopcart cartCount
+let cartCounted = function(){
+    var i=0;
+    for (prop in JSON.parse(localStorage.cartList)) {
+    i++;
+      console.log(JSON.parse(localStorage.cartList)[prop]);
+    }
+    console.log(i);
+
+    document.getElementsByClassName('add_count')[0].innerText = i;
+}
+cartCounted();
