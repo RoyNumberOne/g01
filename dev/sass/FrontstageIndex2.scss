@@ -291,9 +291,9 @@ div#section1 {
     }
 }
 div#section2 {
-    & * {
-        border: 2px solid lightcoral;
-    }
+    // & * {
+        // border: 2px solid lightcoral;
+    // }
     & div#sec2box {
         border-radius: 30px;
         overflow: hidden;
@@ -481,9 +481,49 @@ div#section2 {
                 height: 100px;
                 width: 100%;
             }
-            & #tourhoxbox {
+            & #tourhotbox {
                 height: calc(100% - 100px);
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                & .top1 {
+                    background-color: red;
+                }
+                & .top2 {
+                    background-color: green;
+                }
+                & .top3 {
+                    background-color: blue;
+                }
+
+                & >:nth-child(1) {
+                    border:1px solid darkcyan;
+                    // overflow: hidden;
+                    background-color: rgba(red,0.1);
+                    position: relative;
+                    width: 50%;
+                    height: 100%;
+                    & h2.top {
+                        color: $mt_fontlight;
+                    }
+                }
+                & >:nth-child(2) {
+                    border:1px solid darkcyan;
+                    background-color: rgba(green,0.1);
+                    flex-grow: 1;
+                    overflow: hidden;
+                    width: 50%;
+                    height: 50%;
+                }
+                & >:nth-child(3) {
+                    border:1px solid darkcyan;
+                    background-color: rgba(blue,0.1);
+                    flex-grow: 1;
+                    overflow: hidden;
+                    width: 50%;
+                    height: 50%;
+                }
             }
         }
     }

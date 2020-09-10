@@ -13,7 +13,7 @@ try{
             JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no
     WHERE t.tour_situation = 1 and tour_progress = '報名中'
     GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no
-    ORDER BY t.tour_build DESC , t.tour_no DESC LIMIT 3 ;";
+    ORDER BY t.tour_build DESC , t.tour_no DESC LIMIT 1 ;";
 
     $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);

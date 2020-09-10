@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 function checkbg(){
     if($("#section1").hasClass("active")){
-        console.log('section1')
+        // console.log('section1')
         $(".scene.r > img").css("opacity","0");
         $(".mountainmiddle.r > img").css("opacity","0");
         $(".mountainfirst.r > img").css("opacity","0");
