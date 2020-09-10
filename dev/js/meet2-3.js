@@ -124,7 +124,7 @@ $(function() {
 //report message
 $(function() {
     //report lightbox
-    $('.mg_text').click(function() {
+    $('.mg_report_bt').click(function() {
         $('#report_block_message').removeClass('close');
     })
 
