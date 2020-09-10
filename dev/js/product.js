@@ -93,6 +93,7 @@ $(document).ready(function(){
     });
 });
 
+
 // function groupByCategory(products){
 //     let result = {};
 //     for(let product of products){
