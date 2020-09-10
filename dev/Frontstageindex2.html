@@ -274,12 +274,48 @@
                 <div id="tourbox">
                         <div id="toursearchbar"></div>
                         <div id="tourhotbox">
-                            <div v-for="(t1 , index) in Tour1">
-                                <h2 class="top">TOP{{index +1}}</h2>
-                            </div>
-                            <div v-for="(t23 , index) in Tour23" >
-                                <p>TOP{{index +2}}<br>{{t23.tour_title}}</p>
-                            </div>
+                            <article class="tourinforbox" v-for="(t1 , index , mountain_area) in Tour1">
+                                <p class="top">TOP{{index +1}}</p>
+                                <div class="tourimg">
+                                    <img :src="t1.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t1.mountain_area | Area}} - {{t1.mountain_name}} - {{t1.degree_category}}
+                                    </div>
+                                </div>
+
+                                <div class="member_styleA row">
+                                    <div class="memberImg">
+                                        <img src="./images/meet/member/Chris.jpg" alt="">
+                                    </div>
+                                    <div class="memberInfo">
+                                        <div class="certification">
+                                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                        </div>
+                                        <div class="memberId">{{t1.mem_id}}</div>
+                                        <div class="memberBadge">
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t1.tour_title}}</h3>
+                                    <span>{{t1.tour_activitystart}} ~ {{t1.tour_activityend}}</span>
+
+                                </div>
+                            </article>
+                            <article class="tourinforbox" v-for="(t23 , index) in Tour23" >
+                                <p class="top">TOP{{index +2}}</p>
+                                <div class="tourimg"><img src="" alt=""></div>
+                            </article>
                         </div>
                 </div>
                 
@@ -401,24 +437,47 @@
     </script>
 
     <script>
+        // Vue.filter('area', function(value) {
+        //     return '北部啦幹';
+        // });
+
         let vTour = new Vue({
             el: "#sec2box",
             data: {
                 Tour1: [],
                 Tour23: [],
+                mountain_area :'north',
+                
             },
             created() {
                 axios.get('./phpForConnect/frontstageindexTour1.php').then(res => {
                 this.Tour1 = res.data; 
-                console.log('success'); 
-                console.log(this.Tour1);
                 })
                 axios.get('./phpForConnect/frontstageindexTour23.php').then(res => {
                 this.Tour23 = res.data; 
-                console.log('success'); 
-                console.log(this.Tour23);
                 })
             },
+            filters: {
+                // var mountain_area = this.Tour1.mountain_area;
+                Area: function(value) {
+                    // switch(value){
+                        // case('north'):
+                            return '北部';
+                        // break;
+                        // default:
+                            // return '沒成功哦';
+                        // break;
+                    // }
+                }
+            },
+            // computed: {
+            //     filteredClients() {
+            //     const tour1 = this.Tour1.toLowerCase().trim();
+
+            //     if (!tour1) return this.t1;
+
+            //     return this.clients.filter(c => c.name.toLowerCase().indexOf(search) > -1);
+            // }},
         });
         let vForumHot = new Vue({
             el: "#sec3-1box",

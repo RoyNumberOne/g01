@@ -487,41 +487,80 @@ div#section2 {
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
-                & .top1 {
-                    background-color: red;
-                }
-                & .top2 {
-                    background-color: green;
-                }
-                & .top3 {
-                    background-color: blue;
-                }
-
-                & >:nth-child(1) {
-                    border:1px solid darkcyan;
-                    // overflow: hidden;
-                    background-color: rgba(red,0.1);
+                & article.tourinforbox {
                     position: relative;
+                    overflow: auto;
                     width: 50%;
-                    height: 100%;
-                    & h2.top {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2.5% 2.5%;
+                    transition: 0.2s all;
+                    cursor: pointer;
+                    // border:1px solid darkcyan;
+                    & * {
+                        color: $mt_fontlight !important;
+                    }
+                    & p.top{
+                        z-index: 3;
                         color: $mt_fontlight;
+                        position: absolute;
+                        left: 4px;
+                        top: 4px;
+                        transform: rotate(-30deg);
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            left: -20px;
+                            top: -8px;
+                            z-index: -1;
+                            border-style: solid;
+                            border-width: 70px 115px 0 0;
+                            transform: rotate(30deg);
+                            border-color: $mt_pink transparent transparent transparent;
+                        }
+                    }
+                    &:hover {
+                        background-color: rgba($mt_fontlight,0.05);
                     }
                 }
+                & >:nth-child(1) {
+                    // background-color: rgba(red,0.1);
+                    height: 100%;
+                    & .tourimg{
+                        width: 100%;
+                        height: 40%;
+                        overflow: hidden;
+                        position: relative;
+                        & img {
+                            width: 100%;
+                        }
+                        & .tourmtinfor{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            padding: 5px 0px;
+                            background-color: rgba($mt_black,0.9);
+                        }
+                    }
+                    & .memberInfo {
+                        margin-top: 20px;
+                    }
+                    & .tourtitle {
+                        margin-top: 20px;
+                    }
+
+                }
                 & >:nth-child(2) {
-                    border:1px solid darkcyan;
                     background-color: rgba(green,0.1);
                     flex-grow: 1;
-                    overflow: hidden;
-                    width: 50%;
                     height: 50%;
                 }
                 & >:nth-child(3) {
-                    border:1px solid darkcyan;
                     background-color: rgba(blue,0.1);
                     flex-grow: 1;
-                    overflow: hidden;
-                    width: 50%;
                     height: 50%;
                 }
             }
