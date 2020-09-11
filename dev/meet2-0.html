@@ -115,7 +115,10 @@
                     <div class="top1" v-for="(hotmeet, index) in meetList">
                         <div class="hot_meet_top3" >
                             <div class="meet_mountain_img">
-                                <img src="./images/meet/mountain/4south.jpg" alt="">
+                                <!-- <img src="./images/meet/mountain/4south.jpg" alt=""> -->
+                                <img v-bind:src="hotmeet.mountain_image" alt="">
+
+                                
                             </div>
                             <div class="meet_content">
                                 <img  class="bg_cloud" src="./images/meet/2-0-cloud2.svg" alt="">
@@ -123,6 +126,7 @@
                                 <div class="member_styleA column">
                                     <div class="memberImg">
                                         <img src="./images/meet/member/Chris.jpg" alt="">
+                                        
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
@@ -155,7 +159,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <span class="location">{{hotmeet.mountain_area}}</span>
                                             |
-                                            <span class="degree">s06{{hotmeet.degree_category}}</span>
+                                            <span class="degree">s06{{hotmeet.degree_category}}<span></span></span>
                                             <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
                                         </div>
                                         <span class="date">{{hotmeet.tour_activitystart}}</span><span>出發</span>
@@ -369,7 +373,8 @@
                 <div class="item" v-for="(meet, index) in meetList">
                     <a href="./meet2-3.html">
                         <div class="newImg">
-                            <img src="./images/meet/mountain/4south.jpg" alt="">
+                            <!-- <img src="./images/meet/mountain/4south.jpg" alt=""> -->
+                            <img v-bind:src="meet.mountain_image" alt="">
                         </div>
                     </a>
                     <div class="newMeetTextCont">
@@ -403,7 +408,9 @@
                     </div>
                     <div class="member_styleA row">
                         <div class="memberImg">
-                            <img src="./images/meet/member/Chris.jpg" alt="">
+                            <!-- <img src="./images/meet/member/Chris.jpg" alt=""> -->
+                            <img v-bind:src="meet.mem_avator" alt="">
+
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
