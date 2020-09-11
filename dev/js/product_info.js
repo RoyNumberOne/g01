@@ -89,7 +89,7 @@ new Vue({
                 product_name: this.currentProduct.product_name,
                 product_price: this.currentProduct.product_price,
                 product_image1 : this.currentProduct.product_image1,
-                product_description : this.currentProduct.product_description
+                product_category : this.currentProduct.product_category
             }
             return pickedProductInfo;
         },
