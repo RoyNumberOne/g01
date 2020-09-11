@@ -170,6 +170,7 @@ div.wrap{
                 }
             }
             .artical{
+                display: none;
                 margin: 30px 0 0;
                 h3.related_artical{
                     display: inline-block;
@@ -316,7 +317,7 @@ div.wrap{
 }
 
  //demo使用之後刪掉
- .add_count{
+ .add_count_vue{
     display: none;
     border-radius: 50%;
     color: #fff;

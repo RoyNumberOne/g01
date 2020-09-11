@@ -49,8 +49,6 @@ function getLoginInFo(){
     xhr.send(null);
 }
 
-
-
 // 登出
 function logout(){
     let xhr = new XMLHttpRequest();
@@ -75,6 +73,21 @@ function init(){
     getLoginInFo();
     $('#btnLogin').click(sendForm);
 }; 
+
+
+//header判斷是否登入
+
+function loginStatus(){
+    if($('#mem_info_id').html() === ''){
+        alert ('請先登入');
+        window.location.href = './login_v2.html';
+    }else{
+        alert('歡迎登入');
+        window.location.href = './Member_v2.html';
+    }
+}
+
+$('#member_jumpTo').click(loginStatus);
 
 
 window.addEventListener("load", init, false);

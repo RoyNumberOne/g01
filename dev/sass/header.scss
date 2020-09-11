@@ -21,6 +21,7 @@ header{
         & a{
             width: 190px;
             height: 70px;
+            cursor: pointer;
             & img {
                 position: relative;
                 top: 9px;
@@ -668,7 +669,7 @@ div#hamburgerBG{
 }
 
 // cartCount
-.add_count{
+.add_count_others{
     display: none;
     border-radius: 50%;
     color: #fff;
@@ -682,6 +683,7 @@ div#hamburgerBG{
     bottom: 0;
     right: 0;
 }
+
 
 
 // 所在位置 //

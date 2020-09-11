@@ -6,6 +6,7 @@ new Vue({
         currentImageIndex: 0,
         productCount: 1,
         cartList: {},
+        // cartCount: '',
     },
     // created(){
         // axios.get('./phpForConnect/product_info.php').then(res => {
@@ -20,14 +21,13 @@ new Vue({
         // })
     // },
     mounted(){
-        axios.get('./phpForConnect/product_info.php').then(res => {
+        axios.post('./phpForConnect/product_ItemInfo.php',formProduct).then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);
         })
         this.checkAndInitCart();
         this.showCart();
-
         
         // if(localStorage.getItem('cartList')){
         //     try{
@@ -83,6 +83,16 @@ new Vue({
         cartCount(){
             return Object.keys(this.cartList).length;
         },
+        pickedProductInfo() {
+            let pickedProductInfo = {
+                product_no:  this.currentProduct.product_no,
+                product_name: this.currentProduct.product_name,
+                product_price: this.currentProduct.product_price,
+                product_image1 : this.currentProduct.product_image1,
+                product_category : this.currentProduct.product_category
+            }
+            return pickedProductInfo;
+        },
     },
     methods:{
         next(){
@@ -90,6 +100,7 @@ new Vue({
             this.currentImageIndex = 0;
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
+            
         },
         pre(){
             this.currentIndex = this.preIndex;
@@ -97,19 +108,6 @@ new Vue({
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
         },
-        // addToCart(){
- 
-        //     if(localStorage.getItem('cartList')){
-        //         parsed = [];
-        //         parsed.push(localStorage.getItem('cartList'));
-
-        //     }else{
-        //         parsed = [];
-        //     }
-        //     parsed.push(JSON.stringify(this.currentProduct));
-        //     localStorage.setItem('cartList',parsed);
-        //     console.log(JSON.parse(`[${parsed}]`));
-        // },
 
         checkAndInitCart(){
             if(localStorage.getItem('cartList') === null){
@@ -125,7 +123,7 @@ new Vue({
         addToCart(){
             if(this.cartList[this.currentProduct.product_no] === undefined){
                 let cartItem = {}
-                cartItem[this.currentProduct.product_no] = { product: this.currentProduct, count: this.productCount}
+                cartItem[this.currentProduct.product_no] = { product: this.pickedProductInfo, count: this.productCount}
                 // this.cartList = { ...this.cartList, ...cartItem }  es6 //把剛才創的cartItem放進cartList裡面
                 this.cartList = Object.assign({}, this.cartList, cartItem)
                 this.upDateLocalStorage();    
@@ -138,6 +136,7 @@ new Vue({
 
         upDateLocalStorage(){
             localStorage.setItem('cartList',this.cartListJsonString());
+            // this.cartCount = Object.keys(this.cartList).length;   //debug使用目前失敗
         },
 
         cartListJsonString(){
@@ -156,7 +155,7 @@ new Vue({
         },
         showCart(){
             if(Object.keys(this.cartList).length>0){
-                $(".add_count").css("display", "block");
+                $(".add_count_vue").css("display", "block");
             }
         },
     }, 
@@ -173,9 +172,9 @@ $(document).ready(function(){
         }
     });
 
-    //show .add_count
+    //show .add_count_vue
     $(".add_chart").click(function(){
-        $(".add_count").css("display", "block");
+        $(".add_count_vue").css("display", "block");
     }); 
 
     //dot .pic change bgcolor
@@ -209,4 +208,13 @@ $(document).ready(function(){
     //   alert("已複製優惠券代碼");
         return false;
     });
+
+    //assign url by productNo
+    // let url = new URL(window.location.href);
+    // console.log(url);
+    // let productNo = new URLSearchParams(url.search);
+    // productNo = productNo.get("productNo");
+    // console.log(productNo);
+    // var formProduct = new FormData;
+    // formProduct.append('productNo' ,productNo);
 });
