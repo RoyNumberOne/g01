@@ -95,13 +95,13 @@
                     <div class="shop_del">刪除</div>
                 </div>
                 <div class="itemBox">
-                    <div class="item"  v-for="(item,index) in productList" :key="item.id">
-                        <a href="./product.html"><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
+                    <div class="item"  v-for="(item,index) in productList">
+                        <a href="product_info.html?productNo=400005"><img :src="item.product.product_image1" alt=""><p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p></a>
                         
                         <div class="item_name">
                             <a href="./product_info.html">
-                            <h2>{{item.name}}</h2>
-                            <h3>{{item.sort}}</h3></a>
+                            <h2>{{item.product.product_name}}</h2>
+                            <h3>{{item.product.product_category}}</h3></a>
                         </div>
                         <div class="item_num">
                             <span>
@@ -110,8 +110,8 @@
                                 <button @click="add_count(item)">+</button>
                             </span>
                         </div>
-                        <p>{{item.price*item.count}}</p>
-                        <div class="item_del" @click="deleteitem(index)">
+                        <p>{{item.product.product_price*item.count}}</p>
+                        <div class="item_del" @click="deleteitem(item)">
                             <img class="item_delimg" src="./images/icons/icon_trash.svg" alt="">
                         </div>
                     </div>
@@ -292,34 +292,34 @@
     var app = new Vue({
     el:'#app',
     data:{
-        productList:[
-            {
-                id:'1',
-                name:'輕便登山杖',
-                sort:'周邊產品',
-                pic:'./images/shoppingcart/登山杖.png',
-                price:'1800',
-                count:'1',
-            },
-            {
-                id:'2',
-                name:'超保暖極輕便外套',
-                sort:'衣服',
-                pic:'./images/shoppingcart/衣服.png',
-                price:'2400',
-                count:'1',
-            },
-            {
-                id:'3',
-                name:'媒山友聯名款登山靴',
-                sort:'鞋子',
-                pic:'./images/shoppingcart/鞋子.png',
-                price:'3600',
-                count:'1',
+        // productList:[
+        //     {
+        //         id:'1',
+        //         name:'輕便登山杖',
+        //         sort:'周邊產品',
+        //         pic:'./images/shoppingcart/登山杖.png',
+        //         price:'1800',
+        //         count:'1',
+        //     },
+        //     {
+        //         id:'2',
+        //         name:'超保暖極輕便外套',
+        //         sort:'衣服',
+        //         pic:'./images/shoppingcart/衣服.png',
+        //         price:'2400',
+        //         count:'1',
+        //     },
+        //     {
+        //         id:'3',
+        //         name:'媒山友聯名款登山靴',
+        //         sort:'鞋子',
+        //         pic:'./images/shoppingcart/鞋子.png',
+        //         price:'3600',
+        //         count:'1',
 
-            },
-           
-        ],
+        //     },
+        // ],
+        productList:'',
 
         dis:true,
 
@@ -353,13 +353,18 @@
             }else if(this.count < 1){
                 this.dis=true;
             }
+             localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
         add_count(item){
             item.count++;
             this.dis=false;
+            localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
-        deleteitem(index){
-            this.productList.splice(index,1);
+        deleteitem(item){
+            let a = item.product.product_no;
+            this.$delete(this.productList,a);
+            console.log(this.productList);
+            localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
         delivery_Price(x,y){
             this.delivery_price =x;
@@ -382,15 +387,27 @@
             alert("完成驗證");
         },
     },
+    mounted() {
+        this.productList = new Array();
+        console.log(this.productList);
+        // Object.value('cartList');
+        this.productList= JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
+        console.log(this.productList);
+    },
     computed: {
         total(){
             let totalcount = 0;
-            for(let i=0; i<this.productList.length;i++){
-                totalcount += this.productList[i].price*this.productList[i].count;
+            // for(let i=0; i<this.productList.length;i++){
+            //     totalcount += this.productList[i].price*this.productList[i].count;
+            // }
+            
+            for (const key in this.productList) {
+                // console.log(this.productList[key].product.product_price);
+                // console.log(this.productList[key].count);
+                totalcount += (this.productList[key].product.product_price) * (this.productList[key].count);
             }
             return totalcount;
         },
-        
     },
     watch:{
         productList:function(){
@@ -401,7 +418,7 @@
             }
         },
     },
-    });
+});
 </script>
 <script src="./js/vue.js"></script>
 <script src="./js/header.js"></script>
