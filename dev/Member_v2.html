@@ -12,6 +12,9 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/Member_v2.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -897,6 +900,32 @@
                     <a href="javascript:void(0)" class="classify tablink product_classify" onclick="openClass(event, 'class3')">商品收藏</a>
                 </div>
                 <div id="class1" class="container class">
+
+                    <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
+                    <div class="post_list FavoritesList_group" id="keep_forum"> 
+
+                        <div class="item_1 card" v-for="(forumList, index) in keep_forumList">
+                            <div class="Card_img">
+                                <!-- <img src="./images/form_img/g10.jpg"> -->
+                                <img v-bind:src="forumList.forum_post_image" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{forumList.forum_post_title}}</h3>
+                                <p>{{forumList.forum_post_innertext}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a href="./comment.html">
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div id="class1" class="container class">
                     <div class="post_list FavoritesList_group">     
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1069,7 +1098,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div id="class2" class="container class">
                     <div class="travel_list FavoritesList_group">
                         <div class="item_1 card">
@@ -1869,6 +1898,8 @@
 <script src="./js/common.js"></script>
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
+
+<script src="./js/member_v2Keepforum.js"></script>
 
 <!-- ======================script-end========================= -->
 <!-- ======================script-(手機版切換)======================= -->
