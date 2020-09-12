@@ -902,9 +902,9 @@
                 <div id="class1" class="container class">
 
                     <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
-                    <div class="post_list FavoritesList_group" id="keep_forum"> 
+                    <div class="post_list FavoritesList_group" id="Favorites_forum"> 
 
-                        <div class="item_1 card" v-for="(forumList, index) in keep_forumList">
+                        <div class="item_1 card" v-for="(forumList, index) in Favorites_forumList">
                             <div class="Card_img">
                                 <!-- <img src="./images/form_img/g10.jpg"> -->
                                 <img v-bind:src="forumList.forum_post_image" alt="">
@@ -915,6 +915,31 @@
                             </div>
                             <div class="Card_btn">
                                 <a :href="'./comment.html?forum_post_no=' + forumList.forum_post_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="class2" class="container class">
+
+                    <div class="travel_list FavoritesList_group" id="Favorites_tour">
+
+                        <div class="item_1 card" v-for="(tourList, index) in Favorites_tourList">
+                            <div class="Card_img">
+                                <img v-bind:src="tourList.tour_image_1" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{tourList.tour_title}}</h3>
+                                <p>{{tourList.tour_innertext}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./comment.html?tour_no=' + tourList.tour_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -1099,7 +1124,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div id="class2" class="container class">
+                <!-- <div id="class2" class="container class">
                     <div class="travel_list FavoritesList_group">
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1289,8 +1314,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="class3" class="container class">
+                </div> -->
+                <!-- <div id="class3" class="container class">
                     <div class="product_list FavoritesList_group">
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1463,7 +1488,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- 文章 -->
@@ -1899,7 +1924,8 @@
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
 
-<script src="./js/member_v2Keepforum.js"></script>
+<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏討論文章php -->
+<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團文章php -->
 
 <!-- ======================script-end========================= -->
 <!-- ======================script-(手機版切換)======================= -->

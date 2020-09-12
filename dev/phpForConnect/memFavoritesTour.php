@@ -1,19 +1,18 @@
-
 <?php
 try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT fk.forum_keep_mem,fk.forum_iskept_post,fp.forum_post_no,fp.forum_post_title,fp.forum_post_image,fp.forum_post_innertext,fp.forum_post_time
-                from forum_keep fk 
-                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                WHERE fk.forum_keep_mem = 10008 -- :test
-                order BY fp.forum_post_time DESC;
+    $sql= "SELECT tk.tour_keep_mem'誰收藏', tk.tour_iskept_tour'收藏哪團', T.tour_no'揪團編號', T.tour_image_1'圖片上傳1', T.tour_title'揪團文標題', T.tour_innertext'活動簡介', T.tour_build'建立時間'
+                from tour_keep tk
+                    join tour T on(tk.tour_iskept_tour = T.tour_no)
+                WHERE tk.tour_keep_mem = 10008  -- 之後改變數
+                order BY T.tour_build DESC;;
                 ";
 
     // $statement = $pdo -> prepare($sql);
-    // //$statement -> bindValue(":forum_keep_mem" , $mtN); //套用變數
+    // //$statement -> bindValue(":tour_keep_mem" , $mtN); //套用變數
     // $statement -> bindValue(":test" ,10008); //套用變數
     // $statement ->execute(); //執行mySQL指令
 
