@@ -11,7 +11,15 @@ $textColor1: $mt_fontdark;
     letter-spacing: 1px;
 }
 
-
+//文字最多只顯示一行
+@mixin oneLine {
+    display: -webkit-inline-box;
+    -webkit-line-clamp:1;
+    /*!autoprefixer:off*/
+    -webkit-box-orient: vertical;
+    /*autoprefixer:on*/
+    overflow:hidden;
+}
 
 //文字最多只顯示兩行
 @mixin towLine {
@@ -134,7 +142,7 @@ $textColor1: $mt_fontdark;
             
             >div.meettop{
                 &>:nth-child(1),&>:nth-child(3){
-                    border: 1px solid #00f;
+                    // border: 1px solid #00f;
                     display: flex;
                     justify-content: center;
                 }
@@ -628,6 +636,10 @@ $textColor1: $mt_fontdark;
 @media screen and (max-width: 575px){
     // 請用100%
         // max-width: 100%;
+    html,body.meet2-0_body{
+        overflow-x: hidden !important;
+        width: 100%;
+    }
     #meet2-0{
         max-width: 100%;
         .serchMeet{
@@ -642,19 +654,29 @@ $textColor1: $mt_fontdark;
         } 
         .hotMeet1{
             .top1-3{
-                background-color: $mt_grey2;
-                overflow-y:auto;
-                height:auto;
                 >div.meettop{
+                    &>:nth-child(1),&>:nth-child(3){
+                        justify-content: initial;
+                    }
                     .hot_meet_top3{
-                        border: 1px solid #000;
+                        width: auto;
+                        min-width: initial;
+                        margin-bottom: 100px;
+                        padding: 10px;
                         .meet_mountain_img{
-                            margin-bottom: -30%;
+                            margin-bottom: -20%;
                         }
                         .meet_content{
                             flex-wrap: wrap;
                             justify-content: flex-end;
+                            padding: 0;
+                            .bg_cloud{
+                                width: 188%;
+                                bottom: -22px;
+                                left: -134px;
+                            }
                             .member_styleA{
+                                margin-bottom: 20px;
                                 width: 211px;
                                 display: inline-block;
                                 margin-right: 50px;
@@ -668,23 +690,33 @@ $textColor1: $mt_fontdark;
                                 }
                             }
                             .title_info_text{
-                                width: 330px;
+                                flex-grow: 0.5;
+                                margin-right: 10px;
+                                h3{
+                                    @include oneLine;
+                                }
                                 .meetContent{
                                     @include towLine;
                                 }
                             }
+                            .like_btn{
+                                >div{
+                                    height:initial;
+                                    margin-right: 20px;
+                                    .changeIcon{
+                                        position: absolute;
+                                        left: 0;
+                                        top: 65px;
+                                    }
+                                }
+                            }
                             
                         }
+                        
                     }
-                    &>:nth-child(2){
-                        display: flex;
-                        justify-content: center;
-                    }
-                    &>:nth-child(3){
-                        .hot_meet_top3{
-                            margin-right: 0;
-                        }
-                    }
+                }
+                .top1-3_bg{
+                    background-color: $mt_grey2;
                 }
                 .decoration_draw{
                     display: none;
@@ -693,6 +725,10 @@ $textColor1: $mt_fontdark;
         }
         .newMeet{
             .changeTypeBtn{
+                .typeCard{
+                    border-radius: 8px;
+                    margin-right: 10px;
+                }
                 .typeList{
                     display: none;
                 }
