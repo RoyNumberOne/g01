@@ -5,7 +5,7 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "  SELECT  t.tour_no , t.tour_hoster, m.mem_avator,m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area ,mt.degree_category, t.tour_mountain , mt.mountain_name,mt.mountain_image ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
+    $sql= "  SELECT  t.tour_no , t.tour_hoster, m.mem_avator,m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area ,mt.degree_category, t.tour_mountain , mt.mountain_name,mt.mountain_image ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) ,t.tour_min_number,t.tour_max_number, DATEDIFF(t.tour_activityend ,t.tour_activitystart)+1 days
     FROM tour t
             LEFT OUTER JOIN member_realname r ON ( t.tour_hoster = r.mem_no and r.mem_realname_situation = '已審核已通過')
             LEFT OUTER JOIN member_guide g ON ( t.tour_hoster = g.mem_no and g.mem_guide_situation = '已審核已通過')
