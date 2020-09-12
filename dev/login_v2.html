@@ -75,7 +75,7 @@
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form action="./Member_v2.html" class="form" id="signInForm">
+				<form class="form" id="signInForm" method="post">
 					<h2 class="form__title">會員登入</h2>
 					<input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
 					<input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
@@ -89,7 +89,7 @@
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form action="#" class="form" id="form2">
+				<form class="form" id="signUpForm" method="get">
                     <h2 class="form__title">註冊帳號</h2>
                     <div class="form__detail">
                         <label for="mem_id">*暱稱</label><br>
@@ -106,7 +106,7 @@
                         <input type="password" name="mem_psw" placeholder="確認密碼"><br>
                     </div>
                     <a href="#" class="clickMe_log">已有帳號?點我登入</a>
-					<button type="submit" class="btnB_L_blue submitBtn_app"><p>註冊</p><div class="bg"></div></button>
+					<button type="button" class="btnB_L_blue submitBtn_app" id="btnSignUp"><p>註冊</p><div class="bg"></div></button>
 				</form>
 			</div>
 
@@ -194,7 +194,7 @@
         const signInBtn = document.getElementById("signIn");
         const signUpBtn = document.getElementById("signUp");
         const fistForm = document.getElementById("signInForm");
-        const secondForm = document.getElementById("form2");
+        const secondForm = document.getElementById("signUpForm");
         const container = document.querySelector(".container");
 
         signUpBtn.addEventListener("click", () => {
@@ -220,7 +220,7 @@
 				$('.container--signin').css('display','block');
 			});
         });
-	</script>
+    </script>
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 </body>
