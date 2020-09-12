@@ -12,6 +12,9 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/Member_v2.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -44,6 +47,7 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -896,6 +900,82 @@
                     <a href="javascript:void(0)" class="classify tablink product_classify" onclick="openClass(event, 'class3')">商品收藏</a>
                 </div>
                 <div id="class1" class="container class">
+
+                    <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
+                    <div class="post_list FavoritesList_group" id="Favorites_forum"> 
+
+                        <div class="item_1 card" v-for="(forumList, index) in Favorites_forumList">
+                            <div class="Card_img">
+                                <!-- <img src="./images/form_img/g10.jpg"> -->
+                                <img v-bind:src="forumList.forum_post_image" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{forumList.forum_post_title}}</h3>
+                                <p>{{forumList.forum_post_innertext}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./comment.html?forum_post_no=' + forumList.forum_post_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="class2" class="container class">
+
+                    <div class="travel_list FavoritesList_group" id="Favorites_tour">
+
+                        <div class="item_1 card" v-for="(tourList, index) in Favorites_tourList">
+                            <div class="Card_img">
+                                <img v-bind:src="tourList.tour_image_1" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{tourList.tour_title}}</h3>
+                                <p>{{tourList.tour_innertext}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./comment.html?tour_no=' + tourList.tour_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="class3" class="container class">
+
+                    <div class="product_list FavoritesList_group" id="Favorites_product">
+
+                        <div class="item_1 card" v-for="(productList, index) in Favorites_productList">
+                            <div class="Card_img">
+                                <img v-bind:src="productList.product_image1" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{productList.product_name}}</h3>
+                                <p>{{productList.product_description}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./comment.html?product_no=' + productList.product_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div id="class1" class="container class">
                     <div class="post_list FavoritesList_group">     
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1068,8 +1148,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="class2" class="container class">
+                </div> -->
+                <!-- <div id="class2" class="container class">
                     <div class="travel_list FavoritesList_group">
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1259,8 +1339,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="class3" class="container class">
+                </div> -->
+                <!-- <div id="class3" class="container class">
                     <div class="product_list FavoritesList_group">
                         <div class="item_1 card">
                             <div class="Card_img">
@@ -1433,7 +1513,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- 文章 -->
@@ -1868,6 +1948,10 @@
 <script src="./js/common.js"></script>
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
+
+<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏討論文章php -->
+<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團文章php -->
+<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品文章php -->
 
 <!-- ======================script-end========================= -->
 <!-- ======================script-(手機版切換)======================= -->

@@ -83,6 +83,16 @@ new Vue({
         cartCount(){
             return Object.keys(this.cartList).length;
         },
+        pickedProductInfo() {
+            let pickedProductInfo = {
+                product_no:  this.currentProduct.product_no,
+                product_name: this.currentProduct.product_name,
+                product_price: this.currentProduct.product_price,
+                product_image1 : this.currentProduct.product_image1,
+                product_category : this.currentProduct.product_category
+            }
+            return pickedProductInfo;
+        },
     },
     methods:{
         next(){
@@ -90,6 +100,7 @@ new Vue({
             this.currentImageIndex = 0;
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
+            
         },
         pre(){
             this.currentIndex = this.preIndex;
@@ -112,7 +123,7 @@ new Vue({
         addToCart(){
             if(this.cartList[this.currentProduct.product_no] === undefined){
                 let cartItem = {}
-                cartItem[this.currentProduct.product_no] = { product: this.currentProduct, count: this.productCount}
+                cartItem[this.currentProduct.product_no] = { product: this.pickedProductInfo, count: this.productCount}
                 // this.cartList = { ...this.cartList, ...cartItem }  es6 //把剛才創的cartItem放進cartList裡面
                 this.cartList = Object.assign({}, this.cartList, cartItem)
                 this.upDateLocalStorage();    
@@ -197,4 +208,13 @@ $(document).ready(function(){
     //   alert("已複製優惠券代碼");
         return false;
     });
+
+    //assign url by productNo
+    // let url = new URL(window.location.href);
+    // console.log(url);
+    // let productNo = new URLSearchParams(url.search);
+    // productNo = productNo.get("productNo");
+    // console.log(productNo);
+    // var formProduct = new FormData;
+    // formProduct.append('productNo' ,productNo);
 });
