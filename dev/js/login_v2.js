@@ -1,4 +1,4 @@
-//登入抓資料
+//登入抓資料+驗證
 let member;
 
 function $id(id){
@@ -15,6 +15,7 @@ xhr.onload = function(){
             alert("帳密錯誤");
         }else{ //登入成功
             $("#signInForm").submit();
+            window.location.href = './Member_v2.html';
         }
     }else{
         alert(xhr.status);
@@ -24,12 +25,36 @@ xhr.onload = function(){
     xhr.open("post", "./login_v2.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     let data_info = `mem_acc=${$id("mem_acc").value}&mem_psw=${$id("mem_psw").value}`;
-    // console.log("-----",data_info);
     xhr.send(data_info);
 
 }
 
+// 註冊抓資料
+function checkId(){  
+    
+    var xhr = new XMLHttpRequest();
 
+    xhr.onload = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                alert(xhr.responseText);
+            }else{
+                alert(xhr.status);
+            }
+        }
+    } 
+    //設定好所要連結的程式
+    let url = "login_v2_Signup.php?mem_acc_app=" + document.getElementById("mem_acc_app").value;
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.open("get", url, true);
+
+    xhr.send(null);
+}
+
+
+window.addEventListener("load", function(){
+    document.getElementById("btnSignUp").addEventListener("click", checkId, false);
+});
 
 // header抓會員資料
 function getLoginInFo(){
@@ -45,7 +70,7 @@ function getLoginInFo(){
         }   
     }
 
-    xhr.open("post", "./login_v2_LoginInFo.php",true);
+    xhr.open("get", "./login_v2_LoginInFo.php",true);
     xhr.send(null);
 }
 
