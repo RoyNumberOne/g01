@@ -12,3 +12,10 @@ select tk.tour_keep_mem'誰收藏', tk.tour_iskept_tour'收藏哪團', T.tour_no
 		join tour T on(tk.tour_iskept_tour = T.tour_no)
 	WHERE tk.tour_keep_mem = 10008  -- 之後改變數
     order BY T.tour_build DESC;
+
+-- 會員收藏商品品項，由編號小到大排序
+select pk.product_keep_mem'誰收藏', pk.product_iskept_no'收藏哪項', P.product_no'商品編號', P.product_image1'商品圖1', P.product_name'商品名稱', P.product_description'商品說明'
+	from product_keep pk
+		join product P on(pk.product_iskept_no = P.product_no)
+        WHERE pk.product_keep_mem = 10008  -- 之後改變數and
+        order BY P.product_no DESC; -- 因為沒有建立日期所以用編號排序

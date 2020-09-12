@@ -4,11 +4,11 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT tk.tour_keep_mem, tk.tour_iskept_tour, T.tour_no, T.tour_image_1, T.tour_title, T.tour_innertext, T.tour_build
-                from tour_keep tk
-                    join tour T on(tk.tour_iskept_tour = T.tour_no)
-                WHERE tk.tour_keep_mem = 10008  -- 之後改變數
-                order BY T.tour_build DESC;
+    $sql= "SELECT pk.product_keep_mem, pk.product_iskept_no, P.product_no, P.product_image1, P.product_name, P.product_description
+                from product_keep pk
+                    join product P on(pk.product_iskept_no = P.product_no)
+                WHERE pk.product_keep_mem = 10008  -- 之後改變數and
+                order BY P.product_no DESC; -- 因為沒有建立日期所以用編號排序
                 ";
 
     // $statement = $pdo -> prepare($sql);

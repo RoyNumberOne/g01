@@ -950,6 +950,31 @@
 
                     </div>
                 </div>
+
+                <div id="class3" class="container class">
+
+                    <div class="product_list FavoritesList_group" id="Favorites_product">
+
+                        <div class="item_1 card" v-for="(productList, index) in Favorites_productList">
+                            <div class="Card_img">
+                                <img v-bind:src="productList.product_image1" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <h3>{{productList.product_name}}</h3>
+                                <p>{{productList.product_description}}</p>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./comment.html?product_no=' + productList.product_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <button class="Card_delete">
+                                <img src="./images/icons/icon_trash.svg">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
                 <!-- <div id="class1" class="container class">
                     <div class="post_list FavoritesList_group">     
                         <div class="item_1 card">
@@ -1926,6 +1951,7 @@
 
 <script src="./js/memFavoritesForum.js"></script>      <!-- 收藏討論文章php -->
 <script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團文章php -->
+<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品文章php -->
 
 <!-- ======================script-end========================= -->
 <!-- ======================script-(手機版切換)======================= -->
