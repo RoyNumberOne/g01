@@ -279,7 +279,7 @@
                                 <div class="tourimg">
                                     <img :src="t1.mountain_image" alt="">
                                     <div class="tourmtinfor">
-                                        {{t1.mountain_area | Area}} - {{t1.mountain_name}} - {{t1.degree_category}}
+                                        {{t1.mountain_area | Area}} - {{t1.mountain_name}} - <div class="degreeImg" v-html="Degree(t1.degree_category)"></div>
                                     </div>
                                 </div>
 
@@ -309,12 +309,21 @@
                                 <div class="tourtitle">
                                     <h3>{{t1.tour_title}}</h3>
                                     <span>{{t1.tour_activitystart}} ~ {{t1.tour_activityend}}</span>
-
+                                    <div><p class="innertext">{{t1.tour_innertext}}</p></div>
                                 </div>
                             </article>
                             <article class="tourinforbox" v-for="(t23 , index) in Tour23" >
                                 <p class="top">TOP{{index +2}}</p>
-                                <div class="tourimg"><img src="" alt=""></div>
+                                <div class="tourimg">
+                                    <img :src="t23.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t23.mountain_area | Area}} - {{t23.mountain_name}} - <div class="degreeImg" v-html="Degree(t23.degree_category)"></div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t23.tour_title}}</h3>
+                                    <span>{{t23.tour_activitystart}} ~ {{t23.tour_activityend}}</span>
+                                </div>
                             </article>
                         </div>
                 </div>
@@ -331,7 +340,12 @@
 
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    
+                    <div class="innerboxleft">
+                        <div class="picbig"><img src="" alt=""></div>
+                    </div>
+                    <div class="innerboxright">
+
+                    </div>
                 </div>
             </div>
 
@@ -460,14 +474,44 @@
             filters: {
                 // var mountain_area = this.Tour1.mountain_area;
                 Area: function(value) {
-                    // switch(value){
-                        // case('north'):
+                    switch(value){
+                        case('north'):
                             return '北部';
-                        // break;
-                        // default:
-                            // return '沒成功哦';
-                        // break;
-                    // }
+                        break;
+                        case('west'):
+                            return '中部';
+                        break;
+                        case('south'):
+                            return '南部';
+                        break;
+                        case('east'):
+                            return '東部';
+                        break;
+                        default:
+                            return '沒成功哦';
+                        break;
+                    }
+                },
+            },
+            methods: {
+                Degree(value) {
+                    switch(value){
+                        case('1'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('2'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('3'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('4'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        default:
+                            return '應該很難';
+                        break;
+                    }
                 }
             },
             // computed: {

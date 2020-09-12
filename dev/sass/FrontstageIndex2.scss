@@ -290,6 +290,9 @@ div#section1 {
         }
     }
 }
+
+
+
 div#section2 {
     // & * {
         // border: 2px solid lightcoral;
@@ -488,6 +491,7 @@ div#section2 {
                 flex-direction: column;
                 flex-wrap: wrap;
                 & article.tourinforbox {
+                    background-color: rgba($mt_fontlight,0);
                     position: relative;
                     overflow: auto;
                     width: 50%;
@@ -543,6 +547,19 @@ div#section2 {
                             width: 100%;
                             padding: 5px 0px;
                             background-color: rgba($mt_black,0.9);
+                            & .degreeImg {
+                                display: inline-block;
+                                & div.iconBox{
+                                    display: inline-block;
+                                    margin: 2px;
+                                    height: 24px;
+                                    width: 24px;
+                                    & img.iconDegree {
+                                        transform: translateY(3px);
+                                        width: 100%;
+                                    }
+                                }
+                            }
                         }
                     }
                     & .memberInfo {
@@ -551,17 +568,94 @@ div#section2 {
                     & .tourtitle {
                         margin-top: 20px;
                     }
-
+                    & p.innertext{
+                        margin-top: 15px;
+                        /*!autoprefixer:off*/
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 6;
+                        /*autoprefixer:on*/
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: wrap;
+                        width: 100%;
+                        height: 165px;
+                        // background-color: red;
+                    }
                 }
                 & >:nth-child(2) {
-                    background-color: rgba(green,0.1);
                     flex-grow: 1;
                     height: 50%;
+                    & .tourimg{
+                        width: 100%;
+                        height: 78%;
+                        overflow: hidden;
+                        position: relative;
+                        & img {
+                            width: 100%;
+                        }
+                        & .tourmtinfor{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            padding: 5px 0px;
+                            background-color: rgba($mt_black,0.9);
+                            & .degreeImg {
+                                display: inline-block;
+                                & div.iconBox{
+                                    display: inline-block;
+                                    margin: 2px;
+                                    height: 24px;
+                                    width: 24px;
+                                    & img.iconDegree {
+                                        transform: translateY(3px);
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    & .tourtitle {
+                        margin-top: 20px;
+                    }
                 }
                 & >:nth-child(3) {
-                    background-color: rgba(blue,0.1);
                     flex-grow: 1;
                     height: 50%;
+                    & .tourimg{
+                        width: 100%;
+                        height: 78%;
+                        overflow: hidden;
+                        position: relative;
+                        & img {
+                            width: 100%;
+                        }
+                        & .tourmtinfor{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            padding: 5px 0px;
+                            background-color: rgba($mt_black,0.9);
+                            & .degreeImg {
+                                display: inline-block;
+                                & div.iconBox{
+                                    display: inline-block;
+                                    margin: 2px;
+                                    height: 24px;
+                                    width: 24px;
+                                    & img.iconDegree {
+                                        transform: translateY(3px);
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    & .tourtitle {
+                        margin-top: 20px;
+                    }
                 }
             }
         }
@@ -569,9 +663,9 @@ div#section2 {
 }
 
 div#section3 {
-    // & * {
-    //     border: 2px solid lightcyan;
-    // }
+    & * {
+        border: 2px solid lightcyan;
+    }
     & div#sec3-1box , & div#sec3-2box{
         border-radius: 30px;
         overflow: hidden;
@@ -581,8 +675,18 @@ div#section3 {
         background-color: rgba($mt_black,0.9);
         display: flex;
     }
-    // div#sec3-1box{
-    // }
+    div#sec3-1box{
+        display: flex;
+        & div.innerboxleft{
+            width: 50%;
+            padding: 5px;
+            
+        }
+        & div.innerboxright{
+            width: 50%;
+            padding: 5px;
+        }
+    }
     // div#sec3-2box{
     // }
 }
@@ -639,7 +743,7 @@ div#section4 {
 
 // debug
 
-    div#section1,div#section3,div#section4 {
+    div#section1,div#section2,div#section4 {
         display: none;
     }
     
