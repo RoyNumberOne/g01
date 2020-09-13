@@ -1519,8 +1519,32 @@
             <!-- 文章 -->
             <div id="MemPost" class="pages">
                 <h2 class="title">我的文章</h2>
-                <div class="post_list">
-                    <div class="item_1 page">
+                <div class="post_list" id="ForumPost">
+                    <div class="page" v-for="(ForumPostList, index) in ForumPostList">
+                        <div class="img_box">
+                            <img v-bind:src="ForumPostList.forum_post_image" alt="">
+                        </div>
+                        <div class="text_box">
+                            <div class="text_title TP">
+                                <h3 class="title_value">{{ForumPostList.forum_post_title}}</h3>
+                            </div>
+                            <div class="text_content TP">
+                                <p class="content_value">{{ForumPostList.forum_post_innertext}}</p>
+                            </div>
+                            <div class="text_time TP">
+                                <p class="release_date">發文時間：</p>
+                                <p class="RD_value">{{ForumPostList.forum_post_time}}</p>
+                            </div>
+                            <!-- <div class="text_reply TP">
+                                <p class="replay_account">最新回覆：</p>
+                                <p class="RA_value-date">2020-08-17</p>
+                                &emsp;
+                                <p class="RA_value-ID">RoyCantFly</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- <div class="item_1 page">
                         <div class="img_box">
                             <img src="./images/form_img/g1.jpg">
                         </div>
@@ -1688,7 +1712,7 @@
                         <button class="btnA_S pg"><p>04</p></button>
                         <button class="btnA_S pg"><p>05</p></button>
                         <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -1937,7 +1961,7 @@
         </div>
     </footer>
 
-<!-- ======================script-start======================= -->
+<!-- ======================script-(start)======================= -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
@@ -1949,11 +1973,15 @@
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
 
-<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏討論文章php -->
-<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團文章php -->
-<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品文章php -->
+<!-- ======================script-(end)========================= -->
+<!-- ======================PHP by hiko-(start)======================= -->
 
-<!-- ======================script-end========================= -->
+<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏文章php -->
+<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團php -->
+<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品php -->
+<script src="./js/memForumPost.js"></script>           <!-- 收藏商品php -->
+
+<!-- ======================PHP by hiko-(end)======================= -->
 <!-- ======================script-(手機版切換)======================= -->
 <script>
     $(document).ready(function(){
