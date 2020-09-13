@@ -295,7 +295,7 @@ div#section1 {
 
 div#section2 {
     // & * {
-        // border: 2px solid lightcoral;
+    //     border: 2px solid lightcoral;
     // }
     & div#sec2box {
         border-radius: 30px;
@@ -325,26 +325,37 @@ div#section2 {
                             position: relative;
                             & .text_area {
                                 position: absolute;
-                                top: 55px;
-                                left: 27px;
+                                width: 100%;
                                 & * {
                                     color: $mt_fontlight; 
                                 }
-                                & .temperature {
-                                    display: block;
-                                    font-size: 75px;
-                                    margin-bottom: 0px;
-                                    font-weight: 100;
-                                    transition-duration: 0.5s;
+                                & .infos {
+                                    position: relative;
+                                    & #NowT {
+                                        position: absolute;
+                                        left: 30px;
+                                        top: 75px;
+                                        display: inline-block;
+                                        font-size: 75px;
+                                    }
+                                    & #TtoT {
+                                        position: absolute;
+                                        left: 110px;
+                                        top: 180px;
+                                    }
+                                    & .PoP{
+                                        position: absolute;
+                                        right: 20px;
+                                        top: 100px;
+                                        display: inline-block;
+                                    }
+                                    & .RH {
+                                        position: absolute;
+                                        right: 20px;
+                                        top: 160px;
+                                        display: inline-block;
+                                    }
                                 }
-                                & .text_area .infos {
-                                    margin-top: -10px;
-                                    display: block;
-                                    letter-spacing: 1px;
-                                    font-size: 13px;
-                                    opacity: 0.7;
-                                    transition-duration: 0.5s;
-                                  }
                             }
                           }
                         & .moon {
@@ -417,35 +428,46 @@ div#section2 {
                         height: 35%;
                         display: flex;
                         padding-top: 30px;
-                        // margin-bottom: 3%;
                         & div.next {
                             height: 100%;
                             width: calc(100% / 7);
-                            & p {
+                            & p.date{
+                                color: $mt_fontdark;
+                                background-color: $mt_yellow;
+                                margin-bottom: 7px;
+                            }
+                            & p.TopT{
                                 color: $mt_fontlight;
+                                border-bottom: 1px solid rgba($mt_yellow,0.5);
+                                padding-bottom: 5px;
                             }
-                            & svg {
-                                width: 100%;
-                                max-width: 30px;
-                                & .sun {
-                                    fill: #FFD633;
-                                    stroke-width: 30px;
-                                    stroke: rgba(255, 214, 51, 0.5);
-                                    stroke-dasharray: 5px;
-                                }
-                                & .rain {
-                                    stroke: #4DACFF;
-                                    stroke-width: 5px;
-                                }
-                                & .cloud {
-                                    fill: #ccc;
-                                }
+                            & p.ButtonT{
+                                color: $mt_fontlight;
+                                margin-top: 5px;
                             }
+                            // & svg {
+                            //     width: 100%;
+                            //     max-width: 30px;
+                            //     & .sun {
+                            //         fill: #FFD633;
+                            //         stroke-width: 30px;
+                            //         stroke: rgba(255, 214, 51, 0.5);
+                            //         stroke-dasharray: 5px;
+                            //     }
+                            //     & .rain {
+                            //         stroke: #4DACFF;
+                            //         stroke-width: 5px;
+                            //     }
+                            //     & .cloud {
+                            //         fill: #ccc;
+                            //     }
+                            // }
                             
                         }
                     }
                 }
             & div.weatherselect{
+                margin-top: 40px;
                 border-top: 3px solid $mt_fontlight;
                 padding-top: 30px;
                 height: 80px;
@@ -1008,7 +1030,7 @@ div#section4 {
 
 // debug
 
-    // div#section1,div#section2,div#section3 {
-    //     display: none;
-    // }
+    div#section1,div#section3,div#section4 {
+        display: none;
+    }
     

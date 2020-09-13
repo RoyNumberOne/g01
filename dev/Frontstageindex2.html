@@ -162,75 +162,94 @@
                         <div class="weathernow">
                             <div class="top">
                                 <div class="text_area">
-                                  <div class="temperature">26°C</div>
                                   <div class="infos">
-                                    <div class="address">中部 - 玉山</div>
-                                    <div class="time">星期四 下午2:00</div>
+                                    <p id="NowT"></p>
+                                    <div id="TtoT">
+                                        <span id="MinT"></span>&nbsp~&nbsp<span id="MaxT"></span>
+                                    </div>
+                                    <div class="PoP">降雨機率<p id="PoP"></p></div>
+                                    <div class="RH">相對濕度<p id="RH"></p></div>
+                                    <!-- <div class="address">中部 - 玉山</div> -->
+                                    <!-- <div class="time">星期四 下午2:00</div> -->
                                   </div>
                                 </div>
-                                <div class="moon"></div>
+                                <!-- <div class="moon"></div>
                                 <div class="cloud">
                                   <div class="rain"></div>
                                   <div class="rain rain2"></div>
                                   <div class="rain rain3"></div>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
                         <div class="weatherweek">
                             <div class="next next1">
-                                <p>Fri</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date1">Fri</p>
+                                <p class="TopT" id="Ttop1"></p>
+                                <p class="ButtonT" id="Tbutton1"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next2">
-                                <p>Sat</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date2">Sat</p>
+                                <p class="TopT" id="Ttop2"></p>
+                                <p class="ButtonT" id="Tbutton2"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next3">
-                                <p>Sun</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date3">Sun</p>
+                                <p class="TopT" id="Ttop3"></p>
+                                <p class="ButtonT" id="Tbutton3"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next4">
-                                <p>Mon</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date4">Mon</p>
+                                <p class="TopT" id="Ttop4"></p>
+                                <p class="ButtonT" id="Tbutton4"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next5">
-                                <p>Tue</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date5">Tue</p>
+                                <p class="TopT" id="Ttop5"></p>
+                                <p class="ButtonT" id="Tbutton5"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next6">
-                                <p>Wed</p>
-                                <svg viewbox="-63 -40 100 100">
+                                <p class="date" id="date6">Wed</p>
+                                <p class="TopT" id="Ttop6"></p>
+                                <p class="ButtonT" id="Tbutton6"></p>
+                                <!-- <svg viewbox="-63 -40 100 100">
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next7">
-                                <p>Thr</p>
-                                <svg viewbox="-63 -40 100 100">
+                                <p class="date" id="date7">Thr</p>
+                                <p class="TopT" id="Ttop7"></p>
+                                <p class="ButtonT" id="Tbutton7"></p>
+                                <!-- <svg viewbox="-63 -40 100 100">
                                   <line class="rain" x1="-25" y1="15" x2="-25" y2="35"></line>
                                   <line class="rain" x1="-14" y1="5" x2="-14" y2="25"></line>
                                   <line class="rain" x1="-5" y1="20" x2="-5" y2="45"></line>
@@ -239,25 +258,25 @@
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                         </div>
                     </div>
                     <div class="weatherselect">
                         <div class="dropdown area">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              區域
+                            <button class="btn btn-secondary dropdown-toggle btnarea" type="button" id="dropdownAreaButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="北部">
+                              北部
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" value="北部">北部</a>
-                              <a class="dropdown-item" value="中部">中部</a>
-                              <a class="dropdown-item" value="南部">南部</a>
-                              <a class="dropdown-item" value="東部">東部</a>
+                              <a class="dropdown-item" id="N" value="北部">北部</a>
+                              <a class="dropdown-item" id="W" value="中部">中部</a>
+                              <a class="dropdown-item" id="S" value="南部">南部</a>
+                              <a class="dropdown-item" id="E" value="東部">東部</a>
                             </div>
                         </div>
                         <div class="dropdown mountain">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              山
+                            <button class="btn btn-secondary dropdown-toggle btnmountain" type="button" id="dropdownMountainButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                              塔曼山
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="#">塔曼山</a>
@@ -269,7 +288,7 @@
                           
                     </div>
                     <div class="weatherdesc">
-                        <p>今（26）日上午大多為多雲到晴、高溫炎熱的天氣，午後在文山區及信義區有短暫陣雨；在溫度方面，臺北站測得的高溫為37.7度，低溫為28.2度。</p>
+                        <p id="weatherp">123</p>
                     </div>
                 </div>
                 <div id="tourbox">
@@ -692,7 +711,10 @@
             },
         });
     </script>
+
+    <script>
+    </script>
     <script src="./js/FrontstageIndex2.js" ></script>
-    
+
 </body>
 </html>
