@@ -341,11 +341,55 @@
 
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    <div class="innerboxleft">
-                        <div class="picbig"><img src="" alt=""></div>
+                    <div class="innerboxleft" v-for="fh in ForumHot.slice(0, 1)">
+                        <div class="bigpic">
+                            <img src="./images/mountain_image/七星山.jpg" alt="">
+                            <div><p>{{fh.forum_post_category}}</p></div>
+                        </div>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                </div>
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                    </div>
+                                    <div class="memberId">{{fh.mem_id}}</div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forumtitle"><h3>{{fh.forum_post_title}}</h3><span>{{fh.forum_post_time}}</span></div>
+                        </div>
+                        <div class="forumtext"><p>{{fh.forum_post_innertext}}</p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p>{{fh.收藏人數}}</p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p>{{fh.回覆人數}}</p><span>最後回覆於 : {{fh.最新回覆時間}}</span></div>
+                        </div>
                     </div>
                     <div class="innerboxright">
-
+                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" v-on:click="toggleActive"  ref="smallbox">
+                            <div class="smallpic">
+                                <img src="./images/mountain_image/七星山.jpg" alt="">
+                                <div><p>{{fh.forum_post_category}}</p></div>
+                            </div>
+                            <div class="graymask">
+                                <h3>{{fh.forum_post_title}}</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -355,7 +399,56 @@
             
             <div class="slide" data-anchor="slide2">
                 <div id="sec3-2box">
-                    
+                    <div class="innerboxleft" v-for="fn in ForumNew.slice(0, 1)">
+                        <div class="bigpic">
+                            <img src="./images/mountain_image/七星山.jpg" alt="">
+                            <div><p>{{fn.forum_post_category}}</p></div>
+                        </div>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                </div>
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                    </div>
+                                    <div class="memberId">{{fn.mem_id}}</div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forumtitle"><h3>{{fn.forum_post_title}}</h3><span>{{fn.forum_post_time}}</span></div>
+                        </div>
+                        <div class="forumtext"><p>{{fn.forum_post_innertext}}</p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p>{{fn.收藏人數}}</p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p>{{fn.回覆人數}}</p><span>最後回覆於 : {{fn.最新回覆時間}}</span></div>
+                        </div>
+                    </div>
+                    <div class="innerboxright">
+                        <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': isActive}" v-on:click="toggleActive"  ref="fnno">
+                            <div class="smallpic">
+                                <img src="./images/mountain_image/七星山.jpg" alt="">
+                                <div><p>{{fn.forum_post_category}}</p></div>
+                            </div>
+                            <div class="graymask">
+                                <h3>{{fn.forum_post_title}}</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -364,10 +457,29 @@
         
         <div id="section4" class="section section4">
             <div id="sec4box">
-                
-
-
-
+                <div class="boxbig" v-for="(p,index) in Product.slice(0, 1)">
+                    <div class="picbig">
+                        <!-- <div class="top"> 
+                            <div><h3> TOP {{index+1}} </h3></div>
+                            <p>已售出 {{p.銷售數量}}個</p>
+                        </div> -->
+                        <div class="circlebig"></div>
+                        <div class="propicbig"><img :src="p.product_image1" alt=""></div>
+                        <div class="btngo"><button class="btnA_XLwRA"><p>詳細資訊</p><div class="btnArrowXL"></div></button></div>
+                    </div>
+                    <div class="prodesc">
+                        <div class="protitle"><h3>{{p.product_name}}</h3></div>
+                        <div class="prosubtitle"><p>{{p.product_description}}</p></div>
+                        <div class="proprice"><p>${{p.product_price}}</p></div>
+                    </div>
+                </div>
+                <div class="smalls">
+                    <div class="boxsmall" v-for="(p,index) in Product.slice(1, 4)">
+                        <div class="circlesmall"></div>
+                        <div class="propicsmall"><img :src="p.product_image1" alt=""></div>
+                        <div class="protitle"><p>{{p.product_name}}</p></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -532,24 +644,38 @@
             created() {
                 axios.get('./phpForConnect/frontstageindexForumHot.php').then(res => {
                 this.ForumHot = res.data; 
-                console.log('success'); 
-                console.log(this.ForumHot);
                 })
+            },
+            methods: {
+            toggleActive: function(event) {
+                // this.isActive = !this.isActive;
+                // event.target.parentElement.classList.remove('-active')
+                this.$el.querySelector(".smallbox").classList.remove('-active')
+                // this.$refs.smallbox.classList.remove('-active')
+                console.log(this)
+                event.target.parentNode.classList.add('-active')
+            }},
+            mounted() {
+
             },
         });
         let vForumNew = new Vue({
             el: "#sec3-2box",
             data: {
                 ForumNew: [],
+                isActive: false
             },
             created() {
                 axios.get('./phpForConnect/frontstageindexForumNew.php').then(res => {
                 this.ForumNew = res.data; 
-                console.log('success'); 
-                console.log(this.ForumNew);
                 })
             },
             methods: {
+            toggleActive: function() {
+                this.isActive = !this.isActive;
+            }},
+            mounted() {
+
             },
         });
         let vProduct = new Vue({

@@ -71,22 +71,22 @@ select f.forum_post_no '討論文編號' , count(*) '留言數量' from forum_po
 -- 最新討論文
 select forum_post_no '討論文編號' , forum_post_time '發文時間' from forum_post order by forum_post_no desc; 
 -- 討論區首頁貼文 -- 非公告 -- 熱門
-SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
+SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) , min(c.comment_time) , c.comment_innertext
 FROM forum_post f
 		LEFT OUTER JOIN member_realname r ON ( f.forum_post_poster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( f.forum_post_poster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON f.forum_post_poster = m.mem_no
-        JOIN comment_post c ON f.forum_post_no = c.forum_post_no
+        JOIN comment_post c ON (f.forum_post_no = c.forum_post_no  and c.comment_situation = 1)
 WHERE f.forum_post_situation = 1 and forum_post_category not in ('公告')
 GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no
-ORDER BY COUNT(*) DESC , f.forum_post_time DESC;
+ORDER BY COUNT(*) DESC , f.forum_post_no DESC;
 -- 討論區首頁貼文 -- 非公告 -- 最新
 SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
 FROM forum_post f
 		LEFT OUTER JOIN member_realname r ON ( f.forum_post_poster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( f.forum_post_poster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON f.forum_post_poster = m.mem_no
-        JOIN comment_post c ON f.forum_post_no = c.forum_post_no
+        JOIN comment_post c ON  (f.forum_post_no = c.forum_post_no  and c.comment_situation = 1)
 WHERE f.forum_post_situation = 1 and forum_post_category not in ('公告')
 GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no
 ORDER BY f.forum_post_time DESC , f.forum_post_no DESC;
