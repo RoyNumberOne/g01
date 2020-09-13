@@ -6,7 +6,6 @@ new Vue({
         currentImageIndex: 0,
         productCount: 1,
         cartList: {},
-        // cartCount: '',
     },
     // created(){
         // axios.get('./phpForConnect/product_info.php').then(res => {
@@ -21,22 +20,20 @@ new Vue({
         // })
     // },
     mounted(){
-        axios.post('./phpForConnect/product_ItemInfo.php',formProduct).then(res => {
+        axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);
         })
+        
+        let urlSearchParams = (new URL(document.location)).searchParams;
+        let productNo = urlSearchParams.get('productNo');
+        console.log(productNo);
+
         this.checkAndInitCart();
         this.showCart();
-        
-        // if(localStorage.getItem('cartList')){
-        //     try{
-        //         this.cart = JSON.parse(`[${localStorage.getItem('cartList')}]`);
-        //         console.log(JSON.parse(`[${this.cartList}]`));
-        //     }catch(e){
-        //         localStorage.removeItem('cartList');
-        //     }
-        // };
+        this.currentIndex = this.findProductIndex(productNo);
+
     },
     computed: {
         productsCount() {
@@ -53,8 +50,10 @@ new Vue({
         },
         nextIndex() {
         if (this.currentIndex === this.productsCount -1) { // current product is the last product
+                // console.log(123);
                 return 0;
             } else {
+                // console.log(456);
                 return this.currentIndex + 1;
             }
         },
@@ -96,16 +95,20 @@ new Vue({
     },
     methods:{
         next(){
+            console.log(777888);
             this.currentIndex = this.nextIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
-            
+            const newUrl = 'http://localhost:8888/g01/dev/product_info.html?productNo=' + this.currentProduct.product_no;
+            history.pushState('', '', newUrl);
         },
         pre(){
             this.currentIndex = this.preIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
+            const newUrl = 'http://localhost:8888/g01/dev/product_info.html?productNo=' + this.currentProduct.product_no;
+            history.pushState('', '', newUrl);
             $('.dot :first-child').addClass('pick');
         },
 
@@ -136,7 +139,6 @@ new Vue({
 
         upDateLocalStorage(){
             localStorage.setItem('cartList',this.cartListJsonString());
-            // this.cartCount = Object.keys(this.cartList).length;   //debug使用目前失敗
         },
 
         cartListJsonString(){
@@ -156,6 +158,15 @@ new Vue({
         showCart(){
             if(Object.keys(this.cartList).length>0){
                 $(".add_count_vue").css("display", "block");
+            }
+        },
+        findProductIndex(productNo){
+            for(i = 0; i < this.products.length; i += 1 ) { 
+                if(this.products[i].product_no === productNo){
+                    return i;
+                }else{
+                    return 0;
+                }
             }
         },
     }, 
