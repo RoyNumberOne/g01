@@ -49,6 +49,17 @@ new Vue({
         })
         .catch(error => {console.log(error)}); 
     },
+    methods: {
+        changeHeart: function(event){
+                if($(event.target).attr('src') === "./images/icons/icon_heart.svg"){
+                    $(event.target).attr("src","./images/icons/icon_heart_h&c.svg");
+                    console.log(123)
+                }else{
+                    $(event.target).attr("src","./images/icons/icon_heart.svg");
+                    console.log(234)
+                }
+        }
+    },
 
 });
 
@@ -93,7 +104,7 @@ $(function() {
 $(document).ready(function(){
     $(".icon_card").click(function(){
         if($(".icon_card").attr('src') === "./images/icons/icon_card_w.svg"){
-            $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+            $(this).attr("src","./images/icons/icon_card_b.svg");
         }else{
             $(this).attr("src","./images/icons/icon_card_w.svg");
         }
@@ -105,8 +116,10 @@ $(document).ready(function(){
     $(".heart").click(function(){
         if($(this).attr('src') === "./images/icons/icon_heart.svg"){
             $(this).attr("src","./images/icons/icon_heart_h&c.svg");
+            console.log(123)
         }else{
             $(this).attr("src","./images/icons/icon_heart.svg");
+            console.log(234)
         }
     });
 });

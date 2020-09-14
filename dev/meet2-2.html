@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="./css/meet2-2.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 <body>
 
@@ -82,12 +85,12 @@
                 <li class="step_icon3"> <div><img src="./images/icons/icon_2-2scstep_3.svg" alt=""></div></li>
             </ul>
         </section>
-        <form class="tour_build_form">
+        <form class="tour_build_form" id="tour_build_form">
             <!-- 步驟一 -->
-            <section class="tour_build_step1  -on"> 
+            <section class="tour_build_step1  -on" v-for="(mt, index) in mtList"> 
                 <section>
                     <div class="mountain_image">
-                        <img src="" alt="">
+                        <img :src="mt.mountain_image" alt="">
                     </div>
                 </section>
                 <section class="tour_info1_btn">
@@ -170,7 +173,22 @@
                         <label for="">
                             揪團山名<br>
                             <select name="tour_mountain" id="">
-
+                                <option value="1" selected>塔曼山</option>
+                                <option value="2" >七星山</option>
+                                <option value="3" >雪白山</option>
+                                <option value="4" >大霸尖山</option>
+                                <option value="5" >五步哭山</option>
+                                <option value="6" >橫山</option>
+                                <option value="7" >石壁山</option>
+                                <option value="8" >雪山</option>
+                                <option value="9" >紅毛埤</option>
+                                <option value="10">大凍山</option>
+                                <option value="11">北大武山</option>
+                                <option value="12">玉山</option>
+                                <option value="13">五分山</option>
+                                <option value="14">關山</option>
+                                <option value="15">南湖東峰</option>
+                                <option value="16">秀姑巒山</option>
                             </select>
                         </label><br>
                         <!-- <label for="">
@@ -185,11 +203,11 @@
                         <div class="area_degree">
                             <div class="mountain_area">
                                 揪團地區<br>
-                                <p>地區</p>
+                                <p>地區{{mt.mountain_area}}</p>
                             </div>
                             <div class="degree_category">
                                 揪團難度<br>
-                                <p>難度</p>
+                                <p>難度{{mt.degree_category}}</p>
                             </div>
                         </div>
                         
@@ -316,118 +334,9 @@
 
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="./js/meet2-2.js"></script>
     
-    <!-- /////切換步驟///// -->
-    <script>
-        $(function() {
-            // preventDefault
-            $("button#step1_to_stpe2","button#step2_to_stpe1","button#step2_to_stpe3","button#step3_to_stpe2")
-                .on("click", function(event){
-                event.preventDefault();
-                console.log("click");
-            });
-
-            //1>2
-            $("button#step1_to_stpe2").on("click", function(){
-                console.log("click");
-                
-                    //移除 -on 樣式
-                $("section.tour_build_step1").removeClass("-on");
-                $("li.step_icon1").removeClass("-on");
-
-                    // 加上 -on 樣式
-                $("section.tour_build_step2").addClass("-on");
-                $("li.step_icon2").addClass("-on");
-                
-            });
-
-            //2>1
-            $("button#step2_to_stpe1").on("click", function(){
-                console.log("click");
-                
-                    //移除 -on 樣式
-                $("section.tour_build_step2").removeClass("-on");
-                $("li.step_icon2").removeClass("-on");
-
-                    // 加上 -on 樣式
-                $("section.tour_build_step1").addClass("-on");
-                $("li.step_icon1").addClass("-on");
-                
-            });
-
-            //2>3
-            $("button#step2_to_stpe3").on("click", function(){
-                console.log("click");
-                
-                    //移除 -on 樣式
-                $("section.tour_build_step2").removeClass("-on");
-                $("li.step_icon2").removeClass("-on");
-
-                    // 加上 -on 樣式
-                $("section.tour_build_step3").addClass("-on");
-                $("li.step_icon3").addClass("-on");
-                
-            });
-
-            //3>2
-            $("button#step3_to_stpe2").on("click", function(){
-                console.log("click");
-                
-                    //移除 -on 樣式
-                $("section.tour_build_step3").removeClass("-on");
-                $("li.step_icon3").removeClass("-on");
-
-                    // 加上 -on 樣式
-                $("section.tour_build_step2").addClass("-on");
-                $("li.step_icon2").addClass("-on");
-                
-            });
-
-        });
-    </script>
-
-    <!-- /////圖片上傳預覽///// -->
-    <script>
-
-        $("#upload_tourimg_input").change(function(){
-            // var docObj = document.getElementById("upload_tourimg_input");
-            // var fileList = docObj.files;
-            $(".tour_image div").html(""); // 清除預覽
-            console.log ( this.files.length );
-            if(this.files.length > 6) {
-                alert('最多只能上傳六張照片');
-            }   else {
-                readURL(this);
-            }
-        });
-
-        function readURL(input){
-            if (input.files && input.files.length >= 0) {
-                for(var i = 0; i < input.files.length; i ++){
-                    let t;
-                    t = i + 1;
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        var img = $("<img>").attr({src : e.target.result , id : "iimg" + i});
-                        $("div.tour_image_"+t).append(img);
-
-
-                        // $(".tour_image_"+i).append(img); //
-                        // $(".tour_image").append(img); //
-                        // $(".tour_image").prepend("<div id = img"+i+"></div>");
-                        // $(".tour_image div#img"+i).append(img);
-                        // $(".tour_image").prepend('</div>'); //
-                        // $(".tour_image").append('<div>').append(img).append('</div>');
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }else{
-                var noPictures = $("<p>目前尚未上傳圖片</p>");
-                $(".tour_image").append(noPictures);
-            }
-        }
-    </script>
-
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 </body>
