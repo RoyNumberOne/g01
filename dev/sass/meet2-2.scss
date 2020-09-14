@@ -13,6 +13,14 @@ $textColor1: $mt_fontdark;
     letter-spacing: 1px;
 }
 
+@mixin inputType {
+    outline: none;
+    background-color: $mt_grey2 ;
+    border:none;
+    height: 40px;
+    border-radius: 8px;
+    padding: 5px;
+}
 
 //被div裁型的圖片
 @mixin imgs {
@@ -101,15 +109,11 @@ $textColor1: $mt_fontdark;
         .btn_box{
             align-self: flex-end;
         }
-        input,select,textarea,.degree_category{
-            outline: none;
+        input,select,textarea{
             width: 100%;
-            background-color: $mt_grey2 ;
-            border:none;
-            height: 40px;
-            border-radius: 8px;
-            padding: 5px;
+            @include inputType;
         }
+        
         .tour_build_step1{ //步驟一
             // border: 1px solid rgb(167, 50, 50);
             display: none;
@@ -143,6 +147,19 @@ $textColor1: $mt_fontdark;
                             width: 30%;
                         }
                     }
+                    .area_degree{
+                        display: inline-flex;
+                        justify-content: space-between;
+                        .mountain_area,.degree_category{
+                            display: inline;
+                            width: 45%;
+                            >p{
+                                @include inputType;
+                            }
+                            
+                        }
+                    }
+                    
                 }
             }
         }
@@ -492,7 +509,7 @@ nav.menu ul.link_list.llleft li{
     }
     & a.tour p::after {
         display: block;
-        @media screen and (min-width: 1199px) {left: 48px;}
+        @media screen and (min-width: 1199px) {left: 32px;}
         @media screen and (min-width: 992px) and (max-width: 1199px){left: 27px; }
         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }

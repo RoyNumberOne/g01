@@ -19,53 +19,59 @@
 </head>
 <body>
 
-<header> 
-    <div id="headerbox">
-        <a href="./FrontstageIndex.html" class="logo">
-            <img class="logo" src="./images/logo/LOGO_white.png" alt="">
-        </a> 
+    <header>
+        <div id="headerbox">
+            <a href="./Frontstageindex.html" class="logo">
+                <img class="logo" src="./images/logo/LOGO_white.png" alt="">
+            </a> 
 
-        <nav class="menuhover">
-            <ul class="menuhover">
-                <li class="bg bg1"></li>
-                <li class="bg bg2"></li>
-                <li class="bg bg3"></li>
-            </ul>
-        </nav>
+            <nav class="menuhover">
+                <ul class="menuhover">
+                    <li class="bg bg1"></li>
+                    <li class="bg bg2"></li>
+                    <li class="bg bg3"></li>
+                </ul>
+            </nav>
 
-        <nav class="menu">
-            <ul class="link_list llleft">
-                <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
-                <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
-                <li><a class="product" href="./product.html"><p>商品區</p></a></li>
-            </ul>
-            <ul class="link_list llright">
-                <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
-                <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-        </nav>
-        <div id="imagebox">
-            <img id="picTour" src="./images/header/tour.png" alt="">
-            <img id="picForum" src="./images/header/forum.png" alt="">
-            <img id="picProduct" src="./images/header/product.png" alt="">
+            <nav class="menu">
+                <ul class="link_list llleft">
+                    <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
+                    <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
+                    <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+                </ul>
+                <ul class="link_list llright">
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
+                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
+                </ul>
+            </nav>
+            <div id="imagebox">
+                <img id="picTour" src="./images/header/tour.png" alt="">
+                <img id="picForum" src="./images/header/forum.png" alt="">
+                <img id="picProduct" src="./images/header/product.png" alt="">
+            </div>
+
+            <div id="greymask"></div>
+            <div id="hamburgerBG">
+                <div class="ab white"></div>
+                <div class="ab yellow1"></div>
+                <div class="ab yellow2"></div>
+                <div class="ab yellow3"></div>
+            </div>
+            <button class="hamburger hamburger--collapse" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
-
-        <div id="greymask"></div>
-        <div id="hamburgerBG">
-            <div class="ab white"></div>
-            <div class="ab yellow1"></div>
-            <div class="ab yellow2"></div>
-            <div class="ab yellow3"></div>
-        </div>
-        <button class="hamburger hamburger--collapse" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button> 
-
-    </div>
-
-</header>
+    </header>
 <main id="app">
     <aside>
         <div>
@@ -89,13 +95,13 @@
                     <div class="shop_del">刪除</div>
                 </div>
                 <div class="itemBox">
-                    <div class="item"  v-for="(item,index) in productList" :key="item.id">
-                        <a href="./product.html"><img :src="item.pic" alt=""><p id="item_name2" style="opacity: 0;">{{item.name}}</p></a>
+                    <div class="item"  v-for="(item,index) in productList">
+                        <a href="product_info.html?productNo=400005"><img :src="item.product.product_image1" alt=""><p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p></a>
                         
                         <div class="item_name">
                             <a href="./product_info.html">
-                            <h2>{{item.name}}</h2>
-                            <h3>{{item.sort}}</h3></a>
+                            <h2>{{item.product.product_name}}</h2>
+                            <h3>{{item.product.product_category}}</h3></a>
                         </div>
                         <div class="item_num">
                             <span>
@@ -104,8 +110,8 @@
                                 <button @click="add_count(item)">+</button>
                             </span>
                         </div>
-                        <p>{{item.price*item.count}}</p>
-                        <div class="item_del" @click="deleteitem(index)">
+                        <p>{{item.product.product_price*item.count}}</p>
+                        <div class="item_del" @click="deleteitem(item)">
                             <img class="item_delimg" src="./images/icons/icon_trash.svg" alt="">
                         </div>
                     </div>
@@ -286,34 +292,34 @@
     var app = new Vue({
     el:'#app',
     data:{
-        productList:[
-            {
-                id:'1',
-                name:'輕便登山杖',
-                sort:'周邊產品',
-                pic:'./images/shoppingcart/登山杖.png',
-                price:'1800',
-                count:'1',
-            },
-            {
-                id:'2',
-                name:'超保暖極輕便外套',
-                sort:'衣服',
-                pic:'./images/shoppingcart/衣服.png',
-                price:'2400',
-                count:'1',
-            },
-            {
-                id:'3',
-                name:'媒山友聯名款登山靴',
-                sort:'鞋子',
-                pic:'./images/shoppingcart/鞋子.png',
-                price:'3600',
-                count:'1',
+        // productList:[
+        //     {
+        //         id:'1',
+        //         name:'輕便登山杖',
+        //         sort:'周邊產品',
+        //         pic:'./images/shoppingcart/登山杖.png',
+        //         price:'1800',
+        //         count:'1',
+        //     },
+        //     {
+        //         id:'2',
+        //         name:'超保暖極輕便外套',
+        //         sort:'衣服',
+        //         pic:'./images/shoppingcart/衣服.png',
+        //         price:'2400',
+        //         count:'1',
+        //     },
+        //     {
+        //         id:'3',
+        //         name:'媒山友聯名款登山靴',
+        //         sort:'鞋子',
+        //         pic:'./images/shoppingcart/鞋子.png',
+        //         price:'3600',
+        //         count:'1',
 
-            },
-           
-        ],
+        //     },
+        // ],
+        productList:'',
 
         dis:true,
 
@@ -347,13 +353,18 @@
             }else if(this.count < 1){
                 this.dis=true;
             }
+             localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
         add_count(item){
             item.count++;
             this.dis=false;
+            localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
-        deleteitem(index){
-            this.productList.splice(index,1);
+        deleteitem(item){
+            let a = item.product.product_no;
+            this.$delete(this.productList,a);
+            console.log(this.productList);
+            localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
         delivery_Price(x,y){
             this.delivery_price =x;
@@ -376,15 +387,27 @@
             alert("完成驗證");
         },
     },
+    mounted() {
+        this.productList = new Array();
+        console.log(this.productList);
+        // Object.value('cartList');
+        this.productList= JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
+        console.log(this.productList);
+    },
     computed: {
         total(){
             let totalcount = 0;
-            for(let i=0; i<this.productList.length;i++){
-                totalcount += this.productList[i].price*this.productList[i].count;
+            // for(let i=0; i<this.productList.length;i++){
+            //     totalcount += this.productList[i].price*this.productList[i].count;
+            // }
+            
+            for (const key in this.productList) {
+                // console.log(this.productList[key].product.product_price);
+                // console.log(this.productList[key].count);
+                totalcount += (this.productList[key].product.product_price) * (this.productList[key].count);
             }
             return totalcount;
         },
-        
     },
     watch:{
         productList:function(){
@@ -395,10 +418,11 @@
             }
         },
     },
-    });
+});
 </script>
 <script src="./js/vue.js"></script>
 <script src="./js/header.js"></script>
 <script src="./js/fa5.14.0all.js"></script>
+<script src="./js/login_v2.js"></script>
 </body>
 </html>

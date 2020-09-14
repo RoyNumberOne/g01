@@ -2,40 +2,54 @@ new Vue({
     el: '#app',
     data: {
         products:[{}],
-        currentIndex: 0 ,
+        currentIndex: 0,
         currentImageIndex: 0,
         productCount: 1,
         cartList: {},
+        productNo: null,
     },
-    created(){
-        axios.get('./product_info.php').then(res => {
+    // created(){
+        // axios.get('./phpForConnect/product_info.php').then(res => {
+        //     this.products = res.data;
+        //     console.log('success');
+        //     console.log(this.products);
+        // })
+        // axios.get('./phpForConnect/product_info_related_artical.php').then(res => {
+        //     this.products = res.data;
+        //     console.log('success');
+        //     console.log(this.products);
+        // })
+    // },
+    mounted(){
+        axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
             console.log('success');
             console.log(this.products);
+            
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            this.productNo = urlSearchParams.get('productNo');
+            // console.log(productNo);
+    
+            this.checkAndInitCart();
+            this.showCart();
+            console.log(this.products.length)
+
+            this.currentIndex = this.findProductIndex(this.productNo);
+            console.log(this.currentIndex);
+            console.log(this.productNo);
+
+
         })
+        
+        // let urlSearchParams = (new URL(document.location)).searchParams;
+        // let productNo = urlSearchParams.get('productNo');
+        // console.log(productNo);
+
+        // this.checkAndInitCart();
+        // this.showCart();
+        // this.currentIndex = this.findProductIndex(productNo);
+        // alert(productNo);
     },
-    // mounted(){
-    //     axios.get('./json/Initial_product.json')
-
-    //  
-    //         .catch(error => {console.log(error)});
-        
-    //         this.checkAndInitCart();
-    //         this.showCart();
-
-
-            // .then(res => this.products = res.data)
-            // .then(res => {console.log(res.data)})
-        
-        // if(localStorage.getItem('cartList')){
-        //     try{
-        //         this.cart = JSON.parse(`[${localStorage.getItem('cartList')}]`);
-        //         console.log(JSON.parse(`[${this.cartList}]`));
-        //     }catch(e){
-        //         localStorage.removeItem('cartList');
-        //     }
-        // };
-    // },
     computed: {
         productsCount() {
             return this.products.length;
@@ -81,41 +95,43 @@ new Vue({
         cartCount(){
             return Object.keys(this.cartList).length;
         },
+        pickedProductInfo() {
+            let pickedProductInfo = {
+                product_no:  this.currentProduct.product_no,
+                product_name: this.currentProduct.product_name,
+                product_price: this.currentProduct.product_price,
+                product_image1 : this.currentProduct.product_image1,
+                product_category : this.currentProduct.product_category
+            }
+            return pickedProductInfo;
+        },
     },
     methods:{
         next(){
+            // console.log(777888);
             this.currentIndex = this.nextIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
             $('.dot :first-child').addClass('pick');
+            const newUrl = 'http://localhost:8888/g01/dev/product_info.html?productNo=' + this.currentProduct.product_no;
+            history.pushState('', '', newUrl);
         },
         pre(){
             this.currentIndex = this.preIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
+            const newUrl = 'http://localhost:8888/g01/dev/product_info.html?productNo=' + this.currentProduct.product_no;
+            history.pushState('', '', newUrl);
             $('.dot :first-child').addClass('pick');
         },
-        // addToCart(){
- 
-        //     if(localStorage.getItem('cartList')){
-        //         parsed = [];
-        //         parsed.push(localStorage.getItem('cartList'));
-
-        //     }else{
-        //         parsed = [];
-        //     }
-        //     parsed.push(JSON.stringify(this.currentProduct));
-        //     localStorage.setItem('cartList',parsed);
-        //     console.log(JSON.parse(`[${parsed}]`));
-        // },
 
         checkAndInitCart(){
             if(localStorage.getItem('cartList') === null){
-                const cart = JSON.stringify({})
+                let cart = JSON.stringify({})
                 localStorage.setItem('cartList', cart)
                 this.cartList = {}
             }else{
-                const cartList = JSON.parse(localStorage.getItem('cartList'))
+                let cartList = JSON.parse(localStorage.getItem('cartList'))
                 this.cartList = cartList
             }
         },
@@ -123,7 +139,7 @@ new Vue({
         addToCart(){
             if(this.cartList[this.currentProduct.product_no] === undefined){
                 let cartItem = {}
-                cartItem[this.currentProduct.product_no] = { product: this.currentProduct, count: this.productCount}
+                cartItem[this.currentProduct.product_no] = { product: this.pickedProductInfo, count: this.productCount}
                 // this.cartList = { ...this.cartList, ...cartItem }  es6 //把剛才創的cartItem放進cartList裡面
                 this.cartList = Object.assign({}, this.cartList, cartItem)
                 this.upDateLocalStorage();    
@@ -154,7 +170,16 @@ new Vue({
         },
         showCart(){
             if(Object.keys(this.cartList).length>0){
-                $(".add_count").css("display", "block");
+                $(".add_count_vue").css("display", "block");
+            }
+        },
+        findProductIndex(productNo){
+            for(let i = 0; i < this.products.length; i ++ ) { 
+                if(this.products[i].product_no === productNo){
+                    return i;
+                }else{
+                    console.log('not find')
+                }
             }
         },
     }, 
@@ -171,9 +196,9 @@ $(document).ready(function(){
         }
     });
 
-    //show .add_count
+    //show .add_count_vue
     $(".add_chart").click(function(){
-        $(".add_count").css("display", "block");
+        $(".add_count_vue").css("display", "block");
     }); 
 
     //dot .pic change bgcolor
@@ -195,16 +220,25 @@ $(document).ready(function(){
 
     //copy discount_num
 
-        $(".copy_num").click(function() {
-          var name = $(this).attr('name');
-          var el = document.getElementById(name);
-          var range = document.createRange();
-          range.selectNodeContents(el);
-          var sel = window.getSelection();
-          sel.removeAllRanges();
-          sel.addRange(range);
-          document.execCommand('copy');
-        //   alert("已複製優惠券代碼");
-          return false;
-        });
+    $(".copy_num").click(function() {
+        var name = $(this).attr('name');
+        var el = document.getElementById(name);
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+    //   alert("已複製優惠券代碼");
+        return false;
+    });
+
+    //assign url by productNo
+    // let url = new URL(window.location.href);
+    // console.log(url);
+    // let productNo = new URLSearchParams(url.search);
+    // productNo = productNo.get("productNo");
+    // console.log(productNo);
+    // var formProduct = new FormData;
+    // formProduct.append('productNo' ,productNo);
 });

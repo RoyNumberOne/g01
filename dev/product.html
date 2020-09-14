@@ -18,10 +18,9 @@
 </head>
 <body>
     
-    <header> 
-
+    <header>
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -40,8 +39,16 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
-                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -62,9 +69,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
     <div class="wrap" id="wrap">
         <div class="cate_per">
@@ -84,12 +89,12 @@
             </div>
             <h3 class="inner_p_per">個別商品</h3>
             <div class="product_block">
-                <div v-for="(product, index) in currentProducts" class="items_block" :key='product.id' :class="backgroundColor(index)">
+                <div v-for="(product, index) in currentProducts" class="items_block" :key='product.product_no' :class="backgroundColor(index)" :name="product.product_no">
                     <div class="product_title">
                         <div class="product_name">{{product.product_name}}</div>
                         <div class="product_price">${{product.product_price}}</div>
                     </div>
-                    <a :href="'./product_info.html?productId=' + product.id">
+                    <a :href="'./product_info.html?productNo=' + product.product_no">
                         <img :src="product.product_image1" alt="">
                         <div class="show_hover">
                             <div class="p_title">更多詳細資訊</div>
@@ -215,5 +220,6 @@
     </footer>
 <script src="./js/header.js" ></script>
 <script src="./js/product.js"></script>
+<script src="./js/login_v2.js"></script>
 </body>
 </html>

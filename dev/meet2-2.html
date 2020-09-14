@@ -18,10 +18,9 @@
 <body>
 
 
-    <header> 
-
+    <header>
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -40,8 +39,16 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
-                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -62,9 +69,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
 
 
@@ -79,7 +84,7 @@
         </section>
         <form class="tour_build_form">
             <!-- 步驟一 -->
-            <section class="tour_build_step1  "> 
+            <section class="tour_build_step1  -on"> 
                 <section>
                     <div class="mountain_image">
                         <img src="" alt="">
@@ -161,7 +166,14 @@
                             </select>
                             人
                         </div><br>
+                        
                         <label for="">
+                            揪團山名<br>
+                            <select name="tour_mountain" id="">
+
+                            </select>
+                        </label><br>
+                        <!-- <label for="">
                             揪團地區<br>
                             <select name="" id="">
                                 <option value="north" selected>北部</option>
@@ -169,19 +181,18 @@
                                 <option value="south" selected>南部</option>
                                 <option value="east" selected>東部</option>
                             </select>
-                        </label><br>
-                        <label for="">
-                            揪團山名<br>
-                            <select name="tour_mountain" id="">
-
-                            </select>
-                        </label><br>
-                        <div>
-                            揪團難度(自動跳轉)<br>
+                        </label><br> -->
+                        <div class="area_degree">
+                            <div class="mountain_area">
+                                揪團地區<br>
+                                <p>地區</p>
+                            </div>
                             <div class="degree_category">
-
+                                揪團難度<br>
+                                <p>難度</p>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="btn_box">
                        <button class="btnA_LwRA" id="step1_to_stpe2" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
@@ -223,7 +234,7 @@
 
             </section>
             <!-- 步驟三 -->
-            <section class="tour_build_step3 -on">
+            <section class="tour_build_step3 ">
                 <div class="btn_box">
                     <button class="btnA_LwLA" id="step3_to_stpe2" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
                 </div>
@@ -418,5 +429,6 @@
     </script>
 
     <script src="./js/header.js" ></script>
+    <script src="./js/login_v2.js"></script>
 </body>
 </html>

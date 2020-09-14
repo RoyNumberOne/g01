@@ -17,11 +17,11 @@
 </head>
 <body>
     <!-- @@include('header.html') -->
-<div id="app">  <!-- demo之後刪掉 -->
+<div id="app">  
     <header> 
 
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -40,9 +40,16 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
-                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html" style="position:relative;"><i class="fa fa-shopping-cart"></i></a></li>
-                    <div class="add_count">{{cartCount}}</div>
+                    <div class="add_count_vue">{{cartCount}}</div>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -63,9 +70,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
 
     <!-- <div class="wrap" id="app"> demo之後修改回來-->
@@ -139,7 +144,7 @@
             </div>
         </div>
     </div>
-</div>  <!-- demo之後刪掉 -->
+</div>  
     <!-- @@include('footer.html') -->
     <footer class="footer">
         <div class="footer_logo_block">
@@ -191,7 +196,17 @@
             </div>
         </div>
     </footer>
-    <script src="./js/product_info.js"></script>
-    <script src="./js/header.js" ></script>
+<!-- <script>
+        let url = new URL(window.location.href);
+        console.log(url);
+        let productNo = new URLSearchParams(url.search);
+        productNo = productNo.get("productNo");
+        console.log(productNo);
+        var formProduct = new FormData;
+        formProduct.append('productNo' ,productNo);
+</script> -->
+<script src="./js/header.js" ></script>
+<script src="./js/product_info.js"></script>
+<script src="./js/login_v2.js"></script>
 </body>
 </html>

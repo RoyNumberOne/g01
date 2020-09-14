@@ -62,61 +62,29 @@ div{
             &:nth-child(even){
                 background-color: rgb(230, 230, 230);
             }
-        }
-        img{
+            img{
             width: 90%;
+            &:hover{
+                transform: scale(3);
+                transition: 1.1s;
+            }
+            }
         }
-        .btnB_L_yellow{
-            position: relative;
-            z-index: 2;
+        .sendverifyguide,.sendverifyname{
+            border-style: none;
+            align-items: center;
+            margin: 0 auto;
             width: 95px;
             height: 45px;
             outline: 0px !important;
-            &::after {
-                content: "";
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                border: 4px solid $mt_yellow;
-                border-radius: 15px;
+            border-radius: 15px;
+            justify-content: center;
+            background-color:$mt_yellow;
+            cursor: pointer;
+            color: #fff;
+            &:hover{
+                background-color:$mt_blue2;
             }
-            & p {
-                z-index: 1;
-                color: white;
-                transition: 0.3s2all ease-in-out;
-            }
-            & div.bg{
-                z-index: -1;
-                position: absolute;
-                top: -20px;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 15px;
-                background-color: $mt_yellow;
-                overflow: hidden;
-                &::after {
-                    content: "";
-                    z-index: -1;
-                    position: absolute;
-                    top: 0;
-                    left: 100%;
-                    width: 130%;
-                    height: 100%;
-                    // border-radius: 15px;
-                    background-color: white;
-                    transform: skewX(15deg);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-            &:hover p{
-                color: $mt_yellow;
-            }
-            &:hover div.bg::after{
-                left: 0%;
-            }   
         }
     }
 

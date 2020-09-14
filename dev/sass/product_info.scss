@@ -170,6 +170,7 @@ div.wrap{
                 }
             }
             .artical{
+                display: none;
                 margin: 30px 0 0;
                 h3.related_artical{
                     display: inline-block;
@@ -308,7 +309,7 @@ div.wrap{
 
     & a.product p::after {
         display: block;
-        @media screen and (min-width: 1199px) {left: 380px;}
+        @media screen and (min-width: 1199px) {left: 310px;}
         @media screen and (min-width: 992px) and (max-width: 1199px){left: 281px; }
         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
@@ -316,7 +317,7 @@ div.wrap{
 }
 
  //demo使用之後刪掉
- .add_count{
+ .add_count_vue{
     display: none;
     border-radius: 50%;
     color: #fff;

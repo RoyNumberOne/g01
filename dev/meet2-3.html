@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="./css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
 </head>
 <body>
     
-    <header> 
-
+    <header>
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -37,8 +38,16 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
-                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
+                    <li>
+                        <div id="mem_avatar_box">
+                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
+                        </div>
+                    </li>
+                    <li><div id="mem_info_id"></div></li>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -59,11 +68,9 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
-    <div class="wrap">
+    <div class="wrap" id="app">
         <main id="meet2-3-1" class="close">
             <div class="lightbox">
                 <div class="close">
@@ -180,13 +187,13 @@
                 </div>
             </div>
             <div class="activity">
-                <h3 class="activity_title">玉山GOGOGO</h3>
+                <h3 class="activity_title">{{currentTour.tour_title}}</h3>
                 <div class="activity_report">
-                    <dic class="activity_info">
+                    <div class="activity_info">
                         <div class="hashtag">#玉山</div>
                         <div class="mountain_level"><img src="./images/icons/icon_location.svg" alt=""> 中部｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""></div>
-                        <div class="activity_date"><img src="./images/icons/icon_date.svg" alt=""> 2020/9/30（三）</div>
-                    </dic>
+                        <div class="activity_date"><img src="./images/icons/icon_date.svg" alt="">{{currentTour.tour_activitystart}}</div>
+                    </div>
                     <div class="report">
                         <div class="report_bt">
                             <img src="./images/icons/icon_report.svg" alt="" class="report_pic">
@@ -197,11 +204,11 @@
                 <div class="info_icon">
                     <div class="mountain_icon_part">
                         <div class="mountain_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                        <div class="mountain_text">玉山</div>
+                        <div class="mountain_text">{{currentTour.tour_mountain}}</div>
                     </div>
                     <div class="participant_icon_part">
                         <div class="participant_icon"><img src="./images/icons/icon_tournumber.svg" alt=""></div>
-                        <div class="participant_text">開團人數4~6人</div>
+                        <div class="participant_text">開團人數{{currentTour.tour_min_number}}~{{currentTour.tour_max_number}}人</div>
                     </div>
                     <div class="collection_icon_part">
                         <div class="collection_icon"><img src="./images/icons/icon_heart.svg" alt="" class="heart"></div>
@@ -332,14 +339,14 @@
             </div>
             <div class="introduction-application_info">
                 <div class="activity_introduction">
-                    <p id="tour_end">報名截止日期: 2020/09/01</p>
-                    <p id="tour_activitystart">活動起始日期: 2020/09/08</p>
-                    <p id="tour_activityend">活動結束日期: 2020/09/10</p>
-                    <p id="tour_min_number">活動人數下限: 8 人</p>
-                    <p id="tour_max_number">活動人數上限: 16 人</p>
-                    <p id="tour_title">活動標題: 北1【台灣的屋脊】東北亞最高峰 玉山主峰</p>
-                    <p id="tour_notice">活動注意事項: 大家前一個晚上要記得吃飽哦</p>
-                    <p id="tour_innertext">活動內容: 第一天: \r\n1800板橋火車站北二門集合(欲共乘者 可載4人)-->2300望鄉部落民宿\r\n\r\n第二天: \r\n0600早餐-->0700出發-->0810檢查哨-->0830塔塔加登山口-->0930孟祿亭\r\n-->1130西峰觀景台(自備午餐)-->1500排雲山莊\r\n\r\n第三天: \r\n0300排雲山莊(早早餐)-->0330出發-->0430主南岔路-->0530主北岔路-->0600玉山主峰(海拔3952m)​-->0800排雲山莊(早午餐)-->1400塔塔加登山口(自備午餐)-->1700水里晚餐-->2100板橋火車站解散(與團主共乘者)\r\n\r\n＊＊＊很重要＊＊＊\r\n費用600元 \r\n(包含排雲山莊住宿費480元＆水里晚餐120元) \r\n自付：需自備現金\r\n代付：於出發前7日轉帳給我\r\n\r\n本行程為玉山主峰登山團 不適合第一次登山 千萬別『逞強』~</p>
+                    <p id="tour_end">報名截止日期: {{currentTour.tour_end}}</p>
+                    <p id="tour_activitystart">活動起始日期: {{currentTour.tour_activitystart}}</p>
+                    <p id="tour_activityend">活動結束日期: {{currentTour.tour_activityend}}</p>
+                    <p id="tour_min_number">活動人數下限: {{currentTour.tour_min_number}}人</p>
+                    <p id="tour_max_number">活動人數上限: {{currentTour.tour_max_number}}人</p>
+                    <p id="tour_title">活動標題: {{currentTour.tour_title}}</p>
+                    <p id="tour_notice">活動注意事項: {{currentTour.tour_notice}}</p>
+                    <p id="tour_innertext">活動內容: {{currentTour.tour_innertext}}</p>
                 </div>
                 <div class="activity_application">
                     <p class="no_applied">目前還沒有人申請！</p>
@@ -374,7 +381,29 @@
             </div>
         </div>
         <div class="message">
-            <div class="message_board_block">
+            <div class="message_board_block" v-for = "comment in comments">
+                <div class="person">
+                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
+                    <div class="person_info">
+                        <div class="person_name-badge">
+                            <div class="person_name"><a href="./Member.html">{{comment.comment_poster}}</a></div>
+                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
+                        </div>
+                        <div class="person_following">追蹤人數:123人</div>
+                    </div>
+                </div>
+                <div class="sent_message">
+                    <div class="message_text">
+                        <div class="mg_text">{{comment.comment_innertext}}</div>
+                        <div class="mg_time">{{comment.comment_time}}</div>
+                        <div class="mg_report_bt" @click=openReportModal(comment.id)>
+                            <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
+                            <div class="mg_text">檢舉</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="message_board_block">
                 <div class="person">
                     <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
                     <div class="person_info">
@@ -395,29 +424,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                        </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">
-                            <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
-                            <div class="mg_text">檢舉</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
             <div class="change_page">
                 <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                 <button class="btnA_S pg -active"><p>01</p></button>
@@ -537,5 +544,6 @@
 <script src="./js/fa5.14.0all.js"></script>
 <script src="./js/header.js" ></script>
 <script src="./js/meet2-3.js"></script>
+<script src="./js/login_v2.js"></script>
 </body>
 </html>
