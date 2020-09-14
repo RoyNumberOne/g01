@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("./connectMeetain.php");
-  $sql = "select * from `administrator` where admin_acc=:admin_acc and admin_psw=:admin_psw"; 
+  $sql = "SELECT *  from administrator JOIN member on administrator.admin_acc = member.mem_acc where admin_acc=:admin_acc and admin_psw=:admin_psw"; 
   $administrator = $pdo -> prepare($sql);
   $administrator->bindValue(":admin_acc",$_POST["admin_acc"]);
   $administrator->bindValue(":admin_psw",$_POST["admin_psw"]);
@@ -21,6 +21,7 @@ try{
     $_SESSION["admin_mail"] = $adminRow["admin_mail"];
     $_SESSION["admin_authority"] = $adminRow["admin_authority"];
     $_SESSION["admin_build"] = $adminRow["admin_build"];
+    $_SESSION["admin_avator"] = $adminRow["mem_avator"];
     //送出登入者的姓名資料
     $result = array("admin_no"=>$adminRow["admin_no"],
                     "admin_id"=>$adminRow["admin_id"],
@@ -29,7 +30,8 @@ try{
                     "admin_psw"=>$adminRow["admin_psw"],
                     "admin_mail"=>$adminRow["admin_mail"],
                     "admin_authority"=>$adminRow["admin_authority"],
-                    "admin_build"=>$adminRow["admin_build"]);
+                    "admin_build"=>$adminRow["admin_build"],
+                    "admin_avator"=>$adminRow["mem_avator"]);
     echo json_encode($result);
     // echo $adminRow["memName"];
   }
