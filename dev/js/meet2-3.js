@@ -1,14 +1,14 @@
 new Vue({
     el: '#app',
     data: {
-        hosterData: [],
+        // hosterData: [],
         tourData: [],
         comments: [],
         // reportNo: null,
     },
     mounted() {
         axios.get('./phpForConnect/meet2-3_tour.php').then(res => {
-            this.tourData = res.data;
+            this.tourData = res.data[0];
             console.log('success tourData');
             console.log(this.tourData);
         }),
@@ -16,17 +16,17 @@ new Vue({
             this.comments = res.data;
             console.log('success comments');
             console.log(this.comments);
-        }),
-        axios.get('./phpForConnect/meet2-3_member.php').then(res => {
-            this.hosterData = res.data;
-            console.log('success hosterData');
-            console.log(this.hosterData);
         })
+        // axios.get('./phpForConnect/meet2-3_member.php').then(res => {
+        //     this.hosterData = res.data;
+        //     console.log('success hosterData');
+        //     console.log(this.hosterData);
+        // })
     },
     computed: {
         currentTour(){
-            return this.tourData[0];
-        }
+            return this.tourData;
+        },
     },
     methods: {
         // openReportModal(commentId) {
