@@ -2,10 +2,11 @@ new Vue({
     el: '#app',
     data: {
         products:[{}],
-        currentIndex: 0 ,
+        currentIndex: 0,
         currentImageIndex: 0,
         productCount: 1,
         cartList: {},
+        productNo: null,
     },
     // created(){
         // axios.get('./phpForConnect/product_info.php').then(res => {
@@ -24,16 +25,30 @@ new Vue({
             this.products = res.data;
             console.log('success');
             console.log(this.products);
+            
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            this.productNo = urlSearchParams.get('productNo');
+            // console.log(productNo);
+    
+            this.checkAndInitCart();
+            this.showCart();
+            console.log(this.products.length)
+
+            this.currentIndex = this.findProductIndex(this.productNo);
+            console.log(this.currentIndex);
+            console.log(this.productNo);
+
+
         })
         
-        let urlSearchParams = (new URL(document.location)).searchParams;
-        let productNo = urlSearchParams.get('productNo');
-        console.log(productNo);
+        // let urlSearchParams = (new URL(document.location)).searchParams;
+        // let productNo = urlSearchParams.get('productNo');
+        // console.log(productNo);
 
-        this.checkAndInitCart();
-        this.showCart();
-        this.currentIndex = this.findProductIndex(productNo);
-
+        // this.checkAndInitCart();
+        // this.showCart();
+        // this.currentIndex = this.findProductIndex(productNo);
+        // alert(productNo);
     },
     computed: {
         productsCount() {
@@ -50,10 +65,8 @@ new Vue({
         },
         nextIndex() {
         if (this.currentIndex === this.productsCount -1) { // current product is the last product
-                // console.log(123);
                 return 0;
             } else {
-                // console.log(456);
                 return this.currentIndex + 1;
             }
         },
@@ -95,7 +108,7 @@ new Vue({
     },
     methods:{
         next(){
-            console.log(777888);
+            // console.log(777888);
             this.currentIndex = this.nextIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
@@ -161,11 +174,11 @@ new Vue({
             }
         },
         findProductIndex(productNo){
-            for(i = 0; i < this.products.length; i += 1 ) { 
+            for(let i = 0; i < this.products.length; i ++ ) { 
                 if(this.products[i].product_no === productNo){
                     return i;
                 }else{
-                    return 0;
+                    console.log('not find')
                 }
             }
         },
