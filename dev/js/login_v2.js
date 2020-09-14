@@ -30,31 +30,30 @@ xhr.onload = function(){
 }
 
 // 註冊抓資料
-function checkId(){  
+// function checkId(){  
     
-    var xhr = new XMLHttpRequest();
+//     var xhr = new XMLHttpRequest();
 
-    xhr.onload = function(){
-        if(xhr.readyState == 4){
-            if(xhr.status == 200){
-                alert(xhr.responseText);
-            }else{
-                alert(xhr.status);
-            }
-        }
-    } 
-    //設定好所要連結的程式
-    let url = "login_v2_Signup.php?mem_acc_app=" + document.getElementById("mem_acc_app").value;
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.open("get", url, true);
+//     xhr.onreadystatechange = function(){
+//         if(xhr.readyState == 4){
+//             if(xhr.status == 200){
+//                 alert(xhr.responseText);
+//             }else{
+//                 alert(xhr.status, xhr.responseText);
+//             }
+//         }
+//     } 
+//     //設定好所要連結的程式
+//     let url = "login_v2_Signup.php?mem_acc_app=" + document.getElementById("mem_acc_app").value;
+//     xhr.open("get", url, true);
 
-    xhr.send(null);
-}
+//     xhr.send(null);
+// }
 
 
-window.addEventListener("load", function(){
-    document.getElementById("btnSignUp").addEventListener("click", checkId, false);
-});
+// window.addEventListener("load", function(){
+//     document.getElementById("btnSignUp").addEventListener("click", checkId, false);
+// });
 
 // header抓會員資料
 function getLoginInFo(){

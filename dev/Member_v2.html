@@ -1798,23 +1798,23 @@
                     <!-- 修改資料 -->
                     <div id="MemDetail" class="pages">
                         <h2 class="title">修改資料</h2>
-                        <form>
+                        <form method="POST">
                             <div class="mem_frame">
                                 <div class="mem_change">
-                                    <p>暱稱</p><p>Hiko</p><br>
-                                    <input type="text" id="mem_id">
+                                    <p>暱稱</p><p id="memEdit_id"></p><br>
+                                    <input type="text" name="mem_id" id="mem_id">
                                 </div>
                                 <div class="mem_change">
-                                    <p>信箱</p><p>Hiko@gmail.com</p><br>
-                                    <input type="text" id="mem_mail">
+                                    <p>信箱</p><p id="memEdit_mail"></p><br>
+                                    <input type="text" name="mem_mail" id="mem_mail">
                                 </div>
                                 <div class="mem_change">
                                     <p>密碼</p><br>
-                                    <input type="text" id="mem_psw">
+                                    <input type="text" name="mem_psw" id="mem_psw">
                                 </div>
                                 <div class="mem_change">
                                     <p>確認密碼</p><br>
-                                    <input type="text">
+                                    <input type="text" name="repassword" id="repassword">
                                 </div>
                                 <div class="mem_button">
                                     <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
@@ -1886,7 +1886,6 @@
             </div>
         </div>
     </footer>
-
 <!-- ======================script-start======================= -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -1928,6 +1927,48 @@
         readURL(this);
     });
 </script>
-<!-- ======================script-(功能名?)======================= -->
+<!-- ======================(script-暱稱/email抓ID)======================= -->
+
+<script>
+    function getMemberDetail(){
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            member = JSON.parse(xhr.responseText);
+            if (member.mem_id){
+                $id("memEdit_id").innerText = member.mem_id;
+                $id("memEdit_mail").innerText = member.mem_mail;
+            }   
+        }
+
+        xhr.open("get", "./login_v2_LoginInFo.php",true);
+        xhr.send(null);
+    }
+    
+    getMemberDetail();
+</script>
+
+<!-- ======================(script-修改)======================= -->
+<script>
+    function editDetail(){
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    alert(xhr.responseText); //回傳php回應的值
+                }else{
+                    alert(xhr.status);
+                }
+            }
+        }
+
+        xhr.open("post", "./phpForConnect/member_v2_edit.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
+        xhr.send(data_info);
+    }
+</script>
+
 </body>
 </html>
