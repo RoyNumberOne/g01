@@ -18,7 +18,6 @@
     <script src="./js/vue.js"></script>
 </head>
 <body>
-
     <header>
         <div id="headerbox">
             <a href="./Frontstageindex.html" class="logo">
@@ -96,7 +95,7 @@
                 </div>
                 <div class="itemBox">
                     <div class="item"  v-for="(item,index) in productList">
-                        <a href="product_info.html?productNo=400005"><img :src="item.product.product_image1" alt=""><p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p></a>
+                        <a :href="'product_info.html?productNo='+ item.product.product_no"><img :src="item.product.product_image1" alt=""><p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p></a>
                         
                         <div class="item_name">
                             <a href="./product_info.html">
@@ -153,8 +152,6 @@
                                 <input type="submit" value="送出驗證">
                             </div>
                             <div id="pointp">
-                                <div>點數餘額：<span id="momey">9,945</span></div>
-                                <!-- <input type="submit" value="查看" id="moneybtn"> -->
                             </div>
                         </div>
                         <div id="pay_infor">
@@ -192,28 +189,28 @@
                     <table class="order_item">
                         <tr>
                             <th>運送方式：</th>
-                            <td>{{delivery_terms}}</td>
+                            <td id="order_logistics_deliver" name="order_logistics_deliver">{{delivery_terms}}</td>
                         </tr>
                         <tr>
                             <th>付款方式：</th>
-                            <td>{{pay_terms}}</td>
+                            <td id="order_cashflow" name="order_cashflow">{{pay_terms}}</td>
                         </tr>
                         <tr>
                             <th>總金額為：</th>
-                            <td v-if="discountsale!=9453">{{total+delivery_price}}元</td>
-                            <td v-else>{{(total+delivery_price)*discount}}元</td>
+                            <td v-if="discountsale!=9453" id="order_total" name="order_total">{{total+delivery_price}}</td>
+                            <td v-else id="order_total" name="order_total">{{(total+delivery_price)*discount}}</td>
                         </tr>
                         <tr>
                             <th>姓&emsp;&emsp;名：</th>
-                            <td>{{purchaser.name}}</td>
+                            <td id="order_logistics_recipient" name="order_logistics_recipient">{{purchaser.name}}</td>
                         </tr>
                         <tr>
                             <th>電&emsp;&emsp;話：</th>
-                            <td>{{purchaser.phone}}</td>
+                            <td id="order_logistics_phone" name="order_logistics_phone">{{purchaser.phone}}</td>
                         </tr>
                         <tr>
                             <th>地&emsp;&emsp;址：</th>
-                            <td>{{purchaser.address}}</td>
+                            <td id="order_logistics_address" name="order_logistics_address">{{purchaser.address}}</td>
                         </tr>
                     </table>
                 </div>
@@ -231,7 +228,7 @@
                 <p>下一步</p>
                 <div class="btnArrowL"></div>
             </button>
-            <button id="checkbtn" class="btnA_L" type="submit">
+            <button id="ordercheckbtn" class="btnA_L" type="button">
                 <p>送出訂單</p>
             </button>
         </div>
@@ -292,33 +289,6 @@
     var app = new Vue({
     el:'#app',
     data:{
-        // productList:[
-        //     {
-        //         id:'1',
-        //         name:'輕便登山杖',
-        //         sort:'周邊產品',
-        //         pic:'./images/shoppingcart/登山杖.png',
-        //         price:'1800',
-        //         count:'1',
-        //     },
-        //     {
-        //         id:'2',
-        //         name:'超保暖極輕便外套',
-        //         sort:'衣服',
-        //         pic:'./images/shoppingcart/衣服.png',
-        //         price:'2400',
-        //         count:'1',
-        //     },
-        //     {
-        //         id:'3',
-        //         name:'媒山友聯名款登山靴',
-        //         sort:'鞋子',
-        //         pic:'./images/shoppingcart/鞋子.png',
-        //         price:'3600',
-        //         count:'1',
-
-        //     },
-        // ],
         productList:'',
 
         dis:true,
@@ -343,15 +313,16 @@
         discount:'0.5',
 
         sale:'',
+           
     },
     methods:{
         zero(item){
             if(item.count > 1){
                 item.count -=1; 
-                this.dis=false;
+                // this.dis=false;
 
             }else if(this.count < 1){
-                this.dis=true;
+                // this.dis=true;
             }
              localStorage.setItem('cartList', JSON.stringify(this.productList));
         },
@@ -389,10 +360,8 @@
     },
     mounted() {
         this.productList = new Array();
-        console.log(this.productList);
         // Object.value('cartList');
         this.productList= JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
-        console.log(this.productList);
     },
     computed: {
         total(){
@@ -400,22 +369,19 @@
             // for(let i=0; i<this.productList.length;i++){
             //     totalcount += this.productList[i].price*this.productList[i].count;
             // }
-            
             for (const key in this.productList) {
-                // console.log(this.productList[key].product.product_price);
-                // console.log(this.productList[key].count);
-                totalcount += (this.productList[key].product.product_price) * (this.productList[key].count);
+                totalcount += Math.round((this.productList[key].product.product_price) * (this.productList[key].count));
             }
             return totalcount;
         },
     },
     watch:{
         productList:function(){
-            let shopimg = this.productList.length;
-            console.log(shopimg);
-            if(shopimg===0){
-                this.shopImg=true;
+            let length = 0;
+            for (const key in this.productList) {
+                length++;
             }
+            if(length==0)this.shopImg=true;
         },
     },
 });
