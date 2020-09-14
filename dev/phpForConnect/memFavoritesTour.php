@@ -4,9 +4,10 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT tk.tour_keep_mem, tk.tour_iskept_tour, T.tour_no, T.tour_image_1, T.tour_title, T.tour_innertext, T.tour_build
+    $sql= "SELECT tk.tour_keep_mem, tk.tour_iskept_tour, T.tour_no, T.tour_image_1, T.tour_title, T.tour_innertext, T.tour_build, M.mountain_image
                 from tour_keep tk
                     join tour T on(tk.tour_iskept_tour = T.tour_no)
+                    join mountain M on(T.tour_mountain = M.mountain_no)
                 WHERE tk.tour_keep_mem = 10008  -- 之後改變數
                 order BY T.tour_build DESC;
                 ";
