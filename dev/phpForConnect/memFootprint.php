@@ -4,15 +4,16 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT fk.forum_keep_mem,fk.forum_iskept_post,fp.forum_post_no,fp.forum_post_title,fp.forum_post_image,fp.forum_post_innertext,fp.forum_post_time, fp.forum_post_category
-                from forum_keep fk 
-                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                WHERE fk.forum_keep_mem = 10008 -- :test
-                order BY fp.forum_post_time DESC;
+    $sql= "SELECT tp.tour_participate_mem, tp.tour_participate_tour, T.tour_no,T.tour_progress, T.tour_activitystart, T.tour_activityend, M.mountain_image, M.mountain_area, M.mountain_name
+                from tour_participate tp
+                    join tour T on(tp.tour_participate_tour = T.tour_no)
+                    join mountain M on(T.tour_mountain = M.mountain_no)
+                WHERE tp.tour_participate_mem = 10009 and T.tour_progress = '已結束'
+                order BY T.tour_activitystart DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);
-    // //$statement -> bindValue(":forum_keep_mem" , $mtN); //套用變數
+    // //$statement -> bindValue(":tour_keep_mem" , $mtN); //套用變數
     // $statement -> bindValue(":test" ,10008); //套用變數
     // $statement ->execute(); //執行mySQL指令
 

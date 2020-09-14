@@ -129,12 +129,19 @@ $textColor1: $mt_fontdark;
                     margin: auto;
                     background-color: #ccc;
                     position: relative;
+                    overflow: hidden;
                     &::after{
                         content: "將依據您所選擇地點跳轉圖片";
                         font: 20px;
                         position: absolute;
                         color: $mt_fontdark;
                         @include ab_center;
+                    }
+                    img{
+                        @include imgs;
+                        z-index: 3;
+                        width: initial;
+                        height: 100%;
                     }
                 }
                 .tour_info1{
