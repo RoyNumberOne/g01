@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜揪團｜揪團資訊</title>
-    <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
     <link rel="stylesheet" href="./css/meet2-3.css">
@@ -163,28 +163,34 @@
             </div>
         </div>
         <div class="person">
-            <!-- <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div> -->
-            <div class="person_headtag"><img :src="hosterData.avator" alt="大頭照"></div>
+            <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
+            <!-- <div class="person_headtag"><img :src="hosterData.avator" alt="大頭照"></div> -->
             <div class="person_info">
                 <div class="person_name-badge">
-                    <div class="person_name"><a href="./Member.html">{{hosterData.mem_id}}</a></div>
-                    <!-- <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div> -->
-                    <div class="person_badge"><img :src="hosterData.mem_badge1" alt="徽章"></div>
+                    <!-- <div class="person_name"><a href="./Member.html">{{hosterData.mem_id}}</a></div> -->
+                    <div class="person_name"><a href="./Member.html">Roy</a></div>
+                    <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
+                    <!-- <div class="person_badge"><img :src="hosterData.mem_badge1" alt="徽章"></div> -->
                 </div>
                 <div class="person_following">追蹤人數:123人</div>
             </div>
         </div>
         <div class="public_pic-activity">
-            <div class="public_pic"><img src="./images/MOUNTAIn.png" alt="公版照片">
+            <div class="public_pic"><img :src="tourData.mountain_image" alt="公版照片">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
-                        <div class="related_pic_item"><img src="./images/MOUNTAIn.png" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
+                        <!-- <div class="related_pic_item"><img :src="tourData.tour_image_1" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt="相關照片"></div> -->
                     </div>
                 </div>
             </div>
@@ -320,6 +326,15 @@
                                 </div>
                             </a>
                             </div>
+                        <div class="equipment">
+                            <a href="./product_info.html">
+                                <img src="./images/products/bag/bag0.png" alt="">
+                                <div class="show_hover">
+                                    <div class="p_title">包包</div>
+                                    <div class="go_shop">來去逛逛</div>
+                                </div>
+                            </a>
+                        </div>
                         <div class="equipment">
                             <a href="./product_info.html">
                                 <img src="./images/products/bag/bag0.png" alt="">
