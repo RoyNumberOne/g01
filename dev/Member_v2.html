@@ -707,37 +707,41 @@
                 <div class="tabs">
                     <input type="radio" name="tabs" id="tabone" checked="checked">
                     <label for="tabone">發起的揪團</label>
-                    <div class="myself_list list_style tab">
-                        <a href="./meet2-3.html">
-                            <div class="item_1 page">
+                    <div class="myself_list list_style tab" id="TravelBySelf">
+                        <a href="'./meet2-3.html?tour_no=' + TravelBySelfList.tour_no'">
+                            <div class="page" v-for="(TravelBySelfList, index) in TravelBySelfList">
                             <div class="img_box">
-                                <img src="./images/member/fake/mountain01.jpg">
+                                <img v-bind:src="TravelBySelfList.mountain_image" alt="">
                             </div>
                             <div class="text_box">
-                                <h3 class="text_title">假日運動團-象山自然步道 台北最夯的登山步道</h3>
+                                <h3 class="text_title">【{{TravelBySelfList.mountain_name}}】{{TravelBySelfList.tour_title}}</h3>
+                                <div class="text_content">
+                                    <p>{{TravelBySelfList.tour_innertext}}</p>
+                                </div>
                                 <div class="text_prompt">
                                     <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="TP_area TP">北部</div>
+                                    <div class="TP_area TP">{{TravelBySelfList.mountain_area}}</div>
                                     <div class="TP_title TP">難度</div>
-                                    <div class="TP_level TP">
-                                        <i class="fas fa-mountain Lv1"></i>
+                                    <div class="TP_level TP">{{TravelBySelfList.degree_category}}
+                                        <!-- <i class="fas fa-mountain Lv1"></i>
                                         <i class="fas fa-mountain Lv2"></i>
                                         <i class="fas fa-mountain Lv3"></i>
-                                        <i class="fas fa-mountain Lv4"></i>
+                                        <i class="fas fa-mountain Lv4"></i> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="info_box">
                                 <div class="info_title">報名人數</div>
-                                <div class="info_value">4</div>
+                                <div class="info_value">{{TravelBySelfList.tour_apply}}</div>
                             </div>
                             <div class="date_box">
                                 <div class="date_title">開團日期</div>
-                                <div class="date_value">2020-09-12(六)</div>
+                                <div class="date_value">{{TravelBySelfList.tour_activitystart}}</div>
                             </div>
                             </div>
                         </a>
-                        <a href="./meet2-3.html">
+
+                        <!-- <a href="./meet2-3.html">
                             <div class="item_2 page">
                                 <div class="img_box">
                                     <img src="./images/member/fake/mountain02.jpg">
@@ -823,7 +827,7 @@
                                     <div class="date_value">2020-09-07(一)</div>
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
                     
                     <input type="radio" name="tabs" id="tabtwo">
@@ -903,14 +907,13 @@
 
                     <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
                     <div class="post_list FavoritesList_group" id="Favorites_forum"> 
-
                         <div class="item_1 card" v-for="(forumList, index) in Favorites_forumList">
                             <div class="Card_img">
                                 <!-- <img src="./images/form_img/g10.jpg"> -->
                                 <img v-bind:src="forumList.forum_post_image" alt="">
                             </div>
                             <div class="Card_info">
-                                <h3>{{forumList.forum_post_title}}</h3>
+                                <h3>【{{forumList.forum_post_category}}】{{forumList.forum_post_title}}</h3>
                                 <p>{{forumList.forum_post_innertext}}</p>
                             </div>
                             <div class="Card_btn">
@@ -932,14 +935,14 @@
 
                         <div class="item_1 card" v-for="(tourList, index) in Favorites_tourList">
                             <div class="Card_img">
-                                <img v-bind:src="tourList.tour_image_1" alt="">
+                                <img v-bind:src="tourList.mountain_image" alt="">
                             </div>
                             <div class="Card_info">
                                 <h3>{{tourList.tour_title}}</h3>
                                 <p>{{tourList.tour_innertext}}</p>
                             </div>
                             <div class="Card_btn">
-                                <a :href="'./comment.html?tour_no=' + tourList.tour_no"> 
+                                <a :href="'./meet2-3.html?tour_no=' + tourList.tour_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -1526,7 +1529,7 @@
                         </div>
                         <div class="text_box">
                             <div class="text_title TP">
-                                <h3 class="title_value">{{ForumPostList.forum_post_title}}</h3>
+                                <h3 class="title_value">【{{ForumPostList.forum_post_category}}】{{ForumPostList.forum_post_title}}</h3>
                             </div>
                             <div class="text_content TP">
                                 <p class="content_value">{{ForumPostList.forum_post_innertext}}</p>
@@ -1976,6 +1979,8 @@
 <!-- ======================script-(end)========================= -->
 <!-- ======================PHP by hiko-(start)======================= -->
 
+<script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團php -->
+<script src="./js/memTravelByOther.js"></script>       <!-- 發起的揪團php -->
 <script src="./js/memFavoritesForum.js"></script>      <!-- 收藏文章php -->
 <script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團php -->
 <script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品php -->
