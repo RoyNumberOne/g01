@@ -7,19 +7,13 @@ new Vue({
                 comment_no: 1,
                 comment_innertext: 'test',
                 comment_poster: 'Zoe',
-                comment_time: '2020/07/13/20:30',
+                comment_time: 2020/07/13-2030,
             },
             {
                 comment_no: 1,
                 comment_innertext: 'test2',
                 comment_poster: 'Zoe2',
-                comment_time: '2020/07/13/20:30',
-            },
-            {
-                comment_no: 1,
-                comment_innertext: 'test3',
-                comment_poster: 'Zoe3',
-                comment_time: '2020/07/13/20:30',
+                comment_time: 2020/07/13-2030,
             }
         ],
         reportNo: null,
@@ -29,11 +23,6 @@ new Vue({
             this.tourData = res.data;
             console.log('success');
             console.log(this.tourData);
-        }),
-        axios.get('./phpForConnect/meet2-3_comment.php').then(res => {
-            this.comments = res.data;
-            console.log('success');
-            console.log(this.comments);
         })
     },
     computed: {
@@ -45,30 +34,7 @@ new Vue({
         openReportModal(commentId) {
             this.reportNo = commentId;
             // 打開彈窗
-            $(function() {
-                //report lightbox
-                $('.mg_report_bt').click(function() {
-                    $('#report_block_message').removeClass('close');
-                })
-            
-                //click rp_close
-                $('.mg_close').click(function() {
-                    $('#report_block_message').addClass('close');
-                })
-                
-                //click cancle
-                $('.mg_cancle').click(function() {
-                    $('#report_block_message').addClass('close');
-                })
-            
-                //click confirm
-                $('.mg_confirm').click(function() {
-                    $('.mg_reporting').css('display', 'none');
-                    $('.mg_be_reported').css('display', 'block');
-                    $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-                })
-            })
-        },
+          }
     },
 })
 
@@ -198,29 +164,29 @@ $(document).ready(function (){
     });
     
     //report message
-    // $(function() {
-    //     //report lightbox
-    //     $('.mg_report_bt').click(function() {
-    //         $('#report_block_message').removeClass('close');
-    //     })
+    $(function() {
+        //report lightbox
+        $('.mg_report_bt').click(function() {
+            $('#report_block_message').removeClass('close');
+        })
     
-    //     //click rp_close
-    //     $('.mg_close').click(function() {
-    //         $('#report_block_message').addClass('close');
-    //     });
+        //click rp_close
+        $('.mg_close').click(function() {
+            $('#report_block_message').addClass('close');
+        });
         
-    //     //click cancle
-    //     $('.mg_cancle').click(function() {
-    //         $('#report_block_message').addClass('close');
-    //     })
+        //click cancle
+        $('.mg_cancle').click(function() {
+            $('#report_block_message').addClass('close');
+        })
     
-    //     //click confirm
-    //     $('.mg_confirm').click(function() {
-    //         $('.mg_reporting').css('display', 'none');
-    //         $('.mg_be_reported').css('display', 'block');
-    //         $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-    //     });
-    // });
+        //click confirm
+        $('.mg_confirm').click(function() {
+            $('.mg_reporting').css('display', 'none');
+            $('.mg_be_reported').css('display', 'block');
+            $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
+        });
+    });
     
     //heart
     $(function() {
