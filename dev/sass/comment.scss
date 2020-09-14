@@ -1,4 +1,11 @@
 @import "common";
+@mixin imgs {
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
 
 #banner{
     width: 100%;
@@ -18,7 +25,6 @@
     // width: 1200px;
     max-width: 100%;
     margin: 5% auto;
-    // border: 1px solid black;
 }
 
 #comment-block{
@@ -66,12 +72,12 @@
         .poster-report{
             // margin: auto;
             display: flex;
-        }
-        .report{
-            margin: auto 10px;
-        }
-        .likes{
-            margin: auto 5px;
+            .commentCollect{
+                margin: auto;
+            }
+            .report{
+                margin: auto 10px;
+            }
         }
     }
 
@@ -102,15 +108,54 @@
         // width: 1040px;
         max-width: 100%;
 
-        .poster-infor{
-            margin: 1% 1.5%;
-            .userpic{
-                max-width: 100%;
-                width: 120px;
-                height: 120px;
+        .member_styleA{
+            flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+            .memberImg{
+                display: inline-block;
+                background-color: #555;
                 border-radius: 50%;
+                width: 65px;
+                padding-top: 65px;
+                overflow: hidden;
+                position: relative;
+                img{
+                    @include imgs;
+                }
             }
-            .poster-name{ text-align: center;}
+            .memberInfo{
+                display: inline-block;
+                .certification{
+                    .certificationIcon{
+                        display: inline-block;
+                        width: 15px;
+                        height: 15px;
+                        position: relative;
+                        img{
+                            height: 100%;
+                            position: absolute;
+                            top:0;
+                        }
+                    }
+                }
+                .memberId{
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 20px;
+                    letter-spacing: 1.5px;
+                }
+                .memberBadge{
+                    .memberBadgeIcon{
+                        display: inline-block;
+                        width: 25px;
+                        padding-top: 25px;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            @include imgs;
+                        }
+                    }
+                }
+            }
         }
         .post-text{
             width: 100%;
@@ -125,6 +170,12 @@
                     }
                     .report{
                         display: flex;
+                        img{
+                            width: 18px;
+                            height: 18px;
+                            max-width: 100%;
+                            margin: auto 5px;
+                        }
                     }
                 }
         }
@@ -161,15 +212,54 @@
         // width: 1040px;
         max-width: 100%;
     }
-        .poster-infor2{
-            margin: 1% 1.5%;
-            .userpic2{
-                max-width: 100%;
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
+    .member_styleA{
+        flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+        .memberImg{
+            display: inline-block;
+            background-color: #555;
+            border-radius: 50%;
+            width: 65px;
+            padding-top: 65px;
+            overflow: hidden;
+            position: relative;
+            img{
+                @include imgs;
             }
-            .poster-name2{ text-align: center;}
+        }
+        .memberInfo{
+            display: inline-block;
+            .certification{
+                .certificationIcon{
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    position: relative;
+                    img{
+                        height: 100%;
+                        position: absolute;
+                        top:0;
+                    }
+                }
+            }
+            .memberId{
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 20px;
+                letter-spacing: 1.5px;
+            }
+            .memberBadge{
+                .memberBadgeIcon{
+                    display: inline-block;
+                    width: 25px;
+                    padding-top: 25px;
+                    overflow: hidden;
+                    position: relative;
+                    img{
+                        @include imgs;
+                    }
+                }
+            }
+        }
     }
 
     .post-text{
@@ -190,6 +280,12 @@
                     }
                     .report{
                         display: flex;
+                        img{
+                            width: 18px;
+                            height: 18px;
+                            max-width: 100%;
+                            margin: auto 5px;
+                        }
                     }
             }
         }
@@ -377,6 +473,11 @@
                         .report{
                             display: block;
                             text-align: center;
+                            width: 30%;
+                            margin: auto;
+                            >img{
+                                width: 15px;
+                            }
                         }
                     }
                 }
@@ -389,6 +490,11 @@
                         .report{
                             display: block;
                             text-align: center;
+                            width: 30%;
+                            margin: auto;
+                            >img{
+                                width: 15px;
+                            }
                         }
                     }
                 }

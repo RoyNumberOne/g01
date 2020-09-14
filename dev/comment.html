@@ -67,31 +67,30 @@
         </div>
 
     </header>
-
-
-    <div id="banner">
+    
+    <!-- <div id="banner">
         <img src="./images/form_img/banner_03.jpg" alt="">
-    </div>
+    </div> -->
 
     <main id="comment">
-        <div id="comment-block">
+        <div id="comment-block"  v-for="(reflection, index) in reflection">
             <div class="ntittle">
-                <h2>【新手專區】新手發問！請推薦登山裝備</h2>
+                <h2>{{reflection.forum_post_title}}</h2>
             </div>
 
             <div class="original-poster-block">
                 <div class="poster">
                     <div class="original"><img src="./images/form_img/username1.jpg" alt=""></div>
                     <div class="name_time">
-                        <p class="poster-name">Wendy 鄒鄒要說甚麼呢</p>
+                        <p class="poster-name">{{reflection.mem_id}}</p>
                         <div class="poster-time">
-                            <sapn>2020-08-17 發表</sapn>
+                            <sapn>{{reflection.forum_post_time}}</sapn>
                         </div>
                     </div>
                 </div>
                 <div class="poster-report">
-                    <div class="likes">
-                        <img src="./images/form_img/empty-gray.png" alt="">
+                    <div class="commentCollect">
+                        <img class="heart" src="./images/icons/icon_heart.svg" alt="">
                         <p>收藏</p>
                     </div>
                     <div class="report">
@@ -106,27 +105,35 @@
                 <div class="post-image">
                     <img src="./images/form_img/jade-mountain1.jpg" alt="">
                 </div>
-                <p class="write-top">－－－－－－－－－－－－－本文為網友的心得，以下內容不代表媒山友立場。－－－－－－－－－－－－－</p>
+                <p class="write-top">－－－本文為網友的心得，以下內容不代表媒山友立場。－－－</p>
                 <br>
-                <p>自從山林開放政策推動以來，登山健行已經成為國人踏足戶外的新顯學，其中淡蘭古道更是成為北部民眾週末踏青
-                    不可不知的路線。在主要分為北、中、南三路的諸多路線當中，從新北福隆通往宜蘭大里的北路無疑是開發最甚、步道鋪設與維護最完善的一路，
-                    其中更以鄰近福隆的草嶺古道難度最低，也最適合親子同遊。</p>
-                    <br>
-                <p>今（2020）年 8 月 15 日，東北角風景區將舉辦草嶺古道健行日邀請民眾共襄盛舉，追隨領路人的腳步從福隆走到大里，一起見證先民生活的痕跡。</p>
-                    <br>
-                <p>在這之前，先讓小弟我來替大家暖一暖草嶺古樸的石板，讓我用影像帶些草嶺的空氣回來給螢幕前的您嚐鮮。哦，對了！這次我打算從大里往回走到貢寮，
-                    而不是大家習慣的從福隆走到大里，一方面是我自己私心以為反過來走的風景也非常值得與大家分享，另一方面則是考量到海上有一個颱風正在逼近中，
-                    下午會有變天的風險，因此將山路為主的草嶺路段安排在上午。
-                </p>
-            <br>
+                <p>{{reflection.forum_post_innertext}}</p>
             <hr>
             </div>
 
             <div class="post-poster-block01">
-                <div class="poster-infor">
-                    <img class="userpic" src="./images/form_img/username1.jpg" alt="">
-                    <div class="poster-name">Weady Zou</div>
-                    <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                <div class="member_styleA column">
+                    <div class="memberImg">
+                        <img src="./images/meet/member/Chris.jpg" alt="">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                        </div>
+                        <div class="memberId">Chris</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="post-text">
@@ -153,18 +160,36 @@
                 </div>
             </div>
 
-            <div class="post-poster-block02">
-                <div class="poster-infor2">
-                    <img class="userpic2" src="./images/form_img/yen1.jpg" alt="">
-                    <div class="poster-name2">YU-YAN -PENG</div>
-                    <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
+            <div class="post-poster-block02" v-for="(dialog, index) in dialog">
+                <div class="member_styleA column">
+                    <div class="memberImg">
+                        <img src="./images/meet/member/Chris.jpg" alt="">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                        </div>
+                        <div class="memberId">{{dialog.mem_id}}</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="post-text">
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
-                            <p>2 F  2020-07-13 09:12</p>
+                            <p>2 F {{dialog.comment_time}}</p>
                             <div class="report">
                                 <img class="report" src="./images/form_img/report.png" alt="">
                                 <p>檢舉</p>
@@ -172,11 +197,7 @@
                             </div>
                             <hr>
                             <div class="innertext">
-                                <p>最近我們一群朋友開始愛上爬山~上禮拜去了抹茶山，我上山都還ok，
-                                    下山時覺得大腿內側超痠還有點痛….
-                                    好幾年前跑步有過拉傷，後來復原了朋友說是我的肌肉耐力不足，下個
-                                    月約好了要挑戰五寮尖(聽說難度很高)，大家有推薦帶什麼裝備嗎？
-                                    有想買個護膝護具～有沒有推薦的
+                                <p>{{dialog.comment_innertext}}
                                 </p>
                             </div>
                         </div>
@@ -184,11 +205,29 @@
                 </div>
             </div>
 
-            <div class="post-poster-block02">
-                <div class="poster-infor2">
-                    <img class="userpic2" src="./images/form_img/rainie_yeung.png" alt="">
-                    <div class="poster-name2">CHENG-LIN -YANG</div>
-                    <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
+            <!-- <div class="post-poster-block02">
+                <div class="member_styleA column">
+                    <div class="memberImg">
+                        <img src="./images/meet/member/Chris.jpg" alt="">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                        </div>
+                        <div class="memberId">Chris</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="post-text">
@@ -213,13 +252,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="post-poster-block01">
-                <div class="poster-infor">
-                    <img class="userpic" src="./images/form_img/username1.jpg" alt="">
-                    <div class="poster-name">Weady Zou</div>
-                    <div class="badge-icon"><img src="./images/form_img/badge-icon.png" alt=""></div>
+                <div class="member_styleA column">
+                    <div class="memberImg">
+                        <img src="./images/meet/member/Chris.jpg" alt="">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                        </div>
+                        <div class="memberId">Chris</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="post-text">
@@ -394,6 +451,7 @@
             });
         });
     </script>
+    
 
     <script>
         var $hamburger = $(".hamburger");
@@ -478,6 +536,7 @@
   </script>
 
 <script src="./js/header.js" ></script>
+<script src="./js/comment.js"></script>
     
 </body>
 </html>
