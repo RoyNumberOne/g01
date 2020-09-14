@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS tour (											-- :::::揪團:::::
     `tour_verify` 			int				not null default'0',			-- 未審核人數
     `tour_reject` 			int				not null default'0',			-- 否決審核人數
     `tour_title` 			varchar(100)	not null,						-- 揪團文標題
-    `tour_notice` 			varchar(3000)	,						-- 注意事項
+    `tour_notice` 			varchar(3000)	,								-- 注意事項
     `tour_innertext` 		varchar(9000)	not null,						-- 活動簡介
     `tour_situation` 		boolean			not null default'1',			-- 檢舉狀態	 	1:上架/0下架
     `tour_equip_1` 			boolean			default'0',						-- 裝備要求1y/0n
@@ -206,8 +206,8 @@ desc tour_keep;
 select * from tour_keep;
 
 CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團參加::::: 
-    `tour_participate_mem` 			int			 	not null,						-- "誰"參加
-    `tour_participate_tour` 		int				not null,						-- 參加"哪團"
+    `tour_participate_mem` 			int			 	not null,						-- "誰"追蹤
+    `tour_participate_tour` 		int				not null,						-- 收藏"哪團"
     `tour_participate_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
     foreign key (`tour_participate_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`tour_participate_tour`) references tour(`tour_no`) on delete cascade on update cascade,
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS orders (												-- :::::訂單:::::
     `order_no` 					int				primary key auto_increment,		-- 訂單編號
     `member_no` 				int				not null,						-- 會員編號
     `order_total` 				int				not null,						-- 原始總價
-    `order_logistics_fee` 		int				not null,						-- 運費		
+    `order_logistics_fee` 		int				not null default'60',			-- 運費		
     `order_discount` 			int				not null default'0',			-- 折數
     `order_build` 				datetime		not null default current_timestamp,		-- 建立時間
     `order_position` 			varchar(24)		not null default'待出貨',		-- 訂單狀態 待出貨/已出貨/待取貨/已取貨		

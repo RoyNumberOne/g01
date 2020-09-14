@@ -362,7 +362,7 @@
                 <div id="sec3-1box">
                     <div class="innerboxleft" v-for="fh in ForumHot.slice(0, 1)">
                         <div class="bigpic">
-                            <img src="./images/mountain_image/七星山.jpg" alt="">
+                            <img :src="fh.forum_post_image" alt="">
                             <div><p>{{fh.forum_post_category}}</p></div>
                         </div>
                         <div class="theinfor">
@@ -402,7 +402,7 @@
                     <div class="innerboxright">
                         <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" v-on:click="toggleActive"  ref="smallbox">
                             <div class="smallpic">
-                                <img src="./images/mountain_image/七星山.jpg" alt="">
+                                <img :src="fh.forum_post_image" alt="">
                                 <div><p>{{fh.forum_post_category}}</p></div>
                             </div>
                             <div class="graymask">
@@ -420,7 +420,7 @@
                 <div id="sec3-2box">
                     <div class="innerboxleft" v-for="fn in ForumNew.slice(0, 1)">
                         <div class="bigpic">
-                            <img src="./images/mountain_image/七星山.jpg" alt="">
+                            <img :src="fn.forum_post_image" alt="">
                             <div><p>{{fn.forum_post_category}}</p></div>
                         </div>
                         <div class="theinfor">
@@ -460,7 +460,7 @@
                     <div class="innerboxright">
                         <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': isActive}" v-on:click="toggleActive"  ref="fnno">
                             <div class="smallpic">
-                                <img src="./images/mountain_image/七星山.jpg" alt="">
+                                <img :src="fn.forum_post_image" alt="">
                                 <div><p>{{fn.forum_post_category}}</p></div>
                             </div>
                             <div class="graymask">
