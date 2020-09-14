@@ -13,10 +13,11 @@ desc member;
 SELECT * FROM administrator;
 desc administrator;
 -- 顯示所有管理員
-select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator;
+select admin_no , admin_name , admin_id , admin_mail , admin_build from administrator ;
 -- 顯示未停權管理員
 select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator where admin_authority > 0;
-
+-- 顯示所有管理員連動前台會員帳密資訊
+select admin_no , admin_name , admin_id , admin_mail , admin_build , mem_avator from administrator join member on admin_acc = member.mem_acc;
 
 SELECT * FROM comment_post;
 select * from comment_post where comment_class = "揪團區" ;
@@ -195,6 +196,8 @@ desc product_keep;
 
 SELECT * FROM tour;
 desc tour;
+
+update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') where tour_no in (100001);
 -- 揪團區首頁貼文  -- 熱門
 SELECT  t.tour_no , t.tour_hoster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area , t.tour_mountain , mt.mountain_name , mt.mountain_image , mt.degree_category , t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
 FROM tour t

@@ -75,7 +75,7 @@ try	{
             }
 
             // ::::::::::更新前7位超強帳號::::::::::
-            $sql = "update member set mem_point = 80000 , total_post = 200 , total_host = 200 , total_join = 500 , mem_point_forumpost = 20000 , mem_point_tourhost = 20000 , mem_point_tourjoin = 20000 , mem_point_game = 20000 where mem_no between 10001 and 10007;";
+            $sql = "update member set mem_avator = concat('./images/avator_image/',`mem_no`,'.jpg') , mem_point = 80000 , total_post = 200 , total_host = 200 , total_join = 500 , mem_point_forumpost = 20000 , mem_point_tourhost = 20000 , mem_point_tourjoin = 20000 , mem_point_game = 20000 where mem_no between 10001 and 10007;";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
 
@@ -108,6 +108,9 @@ try	{
             for($a=0 ; $a<7 ; $a++){
             $sql = "insert into member (mem_id,mem_name,mem_acc,mem_psw,mem_mail,class) value ('".$data[$a]['admin_id']."','".$data[$a]['admin_name']."','".$data[$a]['admin_acc']."','".$data[$a]['admin_psw']."','".$data[$a]['admin_mail']."','1');";
             echo $sql;
+            $affectedRow = $pdo -> exec($sql);
+            $sql = "update member set mem_avator = concat('./images/avator_image/',`mem_no`,'.jpg')  where mem_no between 10015 and 10021;";
+            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
 
@@ -208,7 +211,32 @@ try	{
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
-
+            // :::::::更新16個團的上傳照片:::::::
+            //使用者上傳0張照片的就不用update
+            //使用者上傳1張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') where tour_no in ('100004');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
+            //使用者上傳2張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') , tour_image_2 = concat('./images/tour_image/',`tour_no`,'_2.jpg') where tour_no in ('100010','100011');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
+            //使用者上傳3張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') , tour_image_2 = concat('./images/tour_image/',`tour_no`,'_2.jpg') , tour_image_3 = concat('./images/tour_image/',`tour_no`,'_3.jpg') where tour_no in ('100007','100008','100009');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
+            //使用者上傳4張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') , tour_image_2 = concat('./images/tour_image/',`tour_no`,'_2.jpg') , tour_image_3 = concat('./images/tour_image/',`tour_no`,'_3.jpg') , tour_image_4 = concat('./images/tour_image/',`tour_no`,'_4.jpg') where tour_no in ('100002','100012');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
+            //使用者上傳5張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') , tour_image_2 = concat('./images/tour_image/',`tour_no`,'_2.jpg') , tour_image_3 = concat('./images/tour_image/',`tour_no`,'_3.jpg') , tour_image_4 = concat('./images/tour_image/',`tour_no`,'_4.jpg') , tour_image_5 = concat('./images/tour_image/',`tour_no`,'_5.jpg') where tour_no in ('100006','100013');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
+            //使用者上傳6張照片的
+            $sql = "update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') , tour_image_2 = concat('./images/tour_image/',`tour_no`,'_2.jpg') , tour_image_3 = concat('./images/tour_image/',`tour_no`,'_3.jpg') , tour_image_4 = concat('./images/tour_image/',`tour_no`,'_4.jpg') , tour_image_5 = concat('./images/tour_image/',`tour_no`,'_5.jpg') , tour_image_6 = concat('./images/tour_image/',`tour_no`,'_6.jpg') where tour_no in ('100001','100003','100005','100016');";
+            echo $sql."<br>";
+            $affectedRow = $pdo -> exec($sql);
 
 
 			echo "<br>異動成功<br>";

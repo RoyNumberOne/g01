@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS member (											-- :::::會員:::::
 	`ban_forum_date` 		datetime		,								-- 會員討論區解除禁言日期
 	`ban_tour` 				Boolean			not null default'0',			-- 會員揪團區禁言
 	`ban_tour_date`			datetime		,								-- 會員揪團區禁言解禁日期
-	`mem_avator`			Varchar(200)	not null default'default',		-- 會員大頭貼位子
-	`mem_bg`				Varchar(200)	not null default'default',		-- 會員背景圖片位子
+	`mem_avator`			Varchar(200)	not null default './images/avator_image/default.jpg',		-- 會員大頭貼位子
+	`mem_bg`				Varchar(200)	not null default './images/memberbg_image/default.jpg',		-- 會員背景圖片位子
     `mem_badge1`			int				,								-- 徽章秀1
     `mem_badge2`			int				,								-- 徽章秀2
     `mem_badge3`			int				,								-- 徽章秀3
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS mountain (										-- :::::山:::::
     `mountain_latitude` 	varchar(30)		not null,						-- 山的緯度
     `mountain_longitude` 	varchar(30)		not null,						-- 山的經度
     `mountain_area` 		varchar(30)		not null,						-- 山的地區 (北/西/南/東)
-    `mountain_image` 		varchar(200)	not null default'default',		-- 山的圖片
+    `mountain_image` 		varchar(200)	not null,						-- 山的圖片
     foreign key (`degree_category`) references degree(`degree_category`) on delete cascade on update cascade
 ) ;
 alter table mountain auto_increment = 1;
@@ -142,9 +142,9 @@ CREATE TABLE IF NOT EXISTS product (											-- :::::商城商品:::::
     `product_name` 				Varchar(60)		not null,						-- 商品名稱
     `product_price` 			Int				not null,						-- 商品價格
     `product_description` 		Varchar(600)	not null,						-- 商品說明		
-    `product_image1` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖1
-    `product_image2` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖2
-    `product_image3` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖3
+    `product_image1` 			varchar(300)	not null,						-- 商品圖1
+    `product_image2` 			varchar(300)	not null,						-- 商品圖2
+    `product_image3` 			varchar(300)	not null,						-- 商品圖3
     `product_situation` 		Boolean			not null default'1',			-- 商品狀態  1上架/0下架
     foreign key (`degree_category`) references degree(`degree_category`) on delete cascade on update cascade
 );

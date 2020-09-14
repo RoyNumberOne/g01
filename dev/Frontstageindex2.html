@@ -666,13 +666,15 @@
                 })
             },
             methods: {
-            toggleActive: function(event) {
+            toggleActive: function(e) {
+                // alert(e.target.parentNode.nextSibling.nodeName)
+                console.log($(e.target.parentNode).siblings())
                 // this.isActive = !this.isActive;
                 // event.target.parentElement.classList.remove('-active')
-                this.$el.querySelector(".smallbox").classList.remove('-active')
+                // this.$el.querySelector(".smallbox").classList.remove('-active')
                 // this.$refs.smallbox.classList.remove('-active')
-                console.log(this)
-                event.target.parentNode.classList.add('-active')
+                // console.log(this)
+                // e.target.parentNode.classList.add('-active')
             }},
             mounted() {
 

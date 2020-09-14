@@ -843,9 +843,9 @@ div#section4 {
         height: 80vh;
         width: 80vw;
         background-color: rgba($mt_black,0.9);
-        & * {
-            // border: 1px solid rosybrown;
-        }
+        // & * {
+        //     border: 1px solid rosybrown;
+        // }
         & .boxbig{
             position: relative;
             & .picbig{
@@ -1030,7 +1030,7 @@ div#section4 {
 
 // debug
 
-    div#section1,div#section3,div#section4 {
-        display: none;
-    }
+    // div#section1,div#section3,div#section4 {
+    //     display: none;
+    // }
     
