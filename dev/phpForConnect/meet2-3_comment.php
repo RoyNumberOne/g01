@@ -4,13 +4,13 @@ $errMsg = "";
 try{
     header("connect-type: text/html; charset=utf-8");
     
-    require_once('../connectMeetain.php');
-    $productNo = $_get["productNo"];
-    $sql= " SELECT * FROM product where product_situation = 1 and product_no = $productNo ; " ;
+    require_once('./connectMeetain.php');
+    $sql = "SELECT * FROM comment_post where tour_post_no = :tour_no";
 
-
-    $products = $pdo->prepare($sql);
-    $pdoStatement = $pdo->query($sql);
+    $pdoStatement = $pdo->prepare($sql);
+    // $pdoStatement = $pdo->query($sql);
+    $pdoStatement->bindValue(":tour_no", 100003);
+    $pdoStatement->execute();
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     echo(json_encode($result));
     

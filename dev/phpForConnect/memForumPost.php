@@ -4,15 +4,15 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT fk.forum_keep_mem,fk.forum_iskept_post,fp.forum_post_no,fp.forum_post_title,fp.forum_post_image,fp.forum_post_innertext,fp.forum_post_time, fp.forum_post_category
+    $sql= "SELECT fk.forum_keep_mem, fk.forum_iskept_post, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category 
                 from forum_keep fk 
                     join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                WHERE fk.forum_keep_mem = 10008 -- :test
+                WHERE fk.forum_keep_mem = 10008  -- 之後改變數
                 order BY fp.forum_post_time DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);
-    // //$statement -> bindValue(":forum_keep_mem" , $mtN); //套用變數
+    // //$statement -> bindValue(":tour_keep_mem" , $mtN); //套用變數
     // $statement -> bindValue(":test" ,10008); //套用變數
     // $statement ->execute(); //執行mySQL指令
 

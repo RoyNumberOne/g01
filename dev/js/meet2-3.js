@@ -1,40 +1,38 @@
 new Vue({
     el: '#app',
     data: {
+        // hosterData: [],
         tourData: [],
-        comments: [
-            {
-                comment_no: 1,
-                comment_innertext: 'test',
-                comment_poster: 'Zoe',
-                comment_time: 2020/07/13-2030,
-            },
-            {
-                comment_no: 1,
-                comment_innertext: 'test2',
-                comment_poster: 'Zoe2',
-                comment_time: 2020/07/13-2030,
-            }
-        ],
-        reportNo: null,
+        comments: [],
+        // reportNo: null,
     },
     mounted() {
-        axios.get('./phpForConnect/meet2-3.php').then(res => {
-            this.tourData = res.data;
-            console.log('success');
+        axios.get('./phpForConnect/meet2-3_tour.php').then(res => {
+            this.tourData = res.data[0];
+            console.log('success tourData');
             console.log(this.tourData);
+        }),
+        axios.get('./phpForConnect/meet2-3_comment.php').then(res => {
+            this.comments = res.data;
+            console.log('success comments');
+            console.log(this.comments);
         })
+        // axios.get('./phpForConnect/meet2-3_member.php').then(res => {
+        //     this.hosterData = res.data;
+        //     console.log('success hosterData');
+        //     console.log(this.hosterData);
+        // })
     },
     computed: {
         currentTour(){
-            return this.tourData[0];
-        }
+            return this.tourData;
+        },
     },
     methods: {
-        openReportModal(commentId) {
-            this.reportNo = commentId;
-            // 打開彈窗
-          }
+        // openReportModal(commentId) {
+        //     this.reportNo = commentId;
+        //     // 打開彈窗
+        // }
     },
 })
 

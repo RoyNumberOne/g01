@@ -4,10 +4,10 @@ $errMsg = "";
 try{
     header("connect-type: text/html; charset=utf-8");
     
-    require_once('../connectMeetain.php');
-    $sql = "SELECT * FROM tour WHERE tour_no = 100001";
+    require_once('./connectMeetain.php');
+    $sql = "SELECT m.* FROM member m join tour t on m.mem_no = t.tour_hoster WHERE tour_no = 100001";
 
-    $tourtData = $pdo->prepare($sql);
+    // $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     echo(json_encode($result));
