@@ -67,9 +67,9 @@
 
     </header>
 
-    <div id="banner">
+    <!-- <div id="banner">
         <img src="./images/form_img/banner_forumindex.png" alt="">
-    </div>
+    </div> -->
 
     <main id="main_forum">
         <div id="forum_container">
@@ -300,12 +300,24 @@
                     <div class="search-block">
                         <div class="outline">
                             <div class="item_btns">
-                                <form action="#" method="post" enctype="multipart/form-data">
-                                    <button type="submit">全部</button>
-                                    <button type="submit">爬山心得</button>
-                                    <button type="submit">裝備資訊</button>
-                                    <button type="submit">新手專區</button>
-                                    <button type="submit">登山知識</button>
+                                <form action="#" method="#" enctype="multipart/form-data">
+                                    <input type="button" name="
+                                    category" id="article-all" value="全部">
+
+                                    <input type="button" name="
+                                    category" id="article-
+                                    experience" value="爬山心得">
+
+                                    <input type="button" name="
+                                    category" id="article-
+                                    equipment" value="裝備資訊">
+
+                                    <input type="button" name="
+                                    category" id="article-novice" value="新手專區">
+
+                                    <input type="button" name="
+                                    category" id="article-
+                                    knowledge" value="登山知識">
                                 </form>
                             </div>
                             <div class="bar-block">
@@ -325,19 +337,17 @@
                         </div>
                     </div>
 
-                    <div id="forum_list">
+                    <div id="forum_list" v-for="(artical, index) in articalList" class="rest02">
                         <div class="forum_post_image">
-                            <img src="./images/form_img/g1.jpg" alt="">
+                            <img :src="artical.forum_post_image" alt="">
                         </div>
                         <div class="forum-infor">
                             <a href="./comment.html">
                                 <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
+                                    <h3>{{artical.forum_post_title}}</h3>
                                     <div class="innertext">
                                         <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
+                                            {{artical.forum_post_innertext}}
                                         </p>
                                     </div>
 
@@ -351,76 +361,7 @@
                                                     <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                                     <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                                 </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g7.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
+                                                <div class="memberId">{{artical.mem_id}}</div>
                                                 <div class="memberBadge">
                                                     <span class="memberBadgeIcon">
                                                         <img src="./images/member/Ach_list_03.png" alt="">
@@ -437,7 +378,7 @@
                                         <div class="forum_groups">
                                             <div class="heart">
                                                 <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
+                                                <div class="heart-infor"><span>22人收藏</span></div>
                                             </div>
 
                                             <div class="message">
@@ -448,7 +389,7 @@
                                         <div class="post_situation">
                                             <div class="post_time">
                                                 <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
+                                                <div class="uptime"><span>{{artical.forum_post_time}}</span></div>
                                             </div>
 
                                             <div class="remessage_time">
@@ -461,551 +402,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g3.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g4.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g5.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g6.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g5.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g8.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g9.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="forum_list">
-                        <div class="forum_post_image">
-                            <img src="./images/form_img/g2.jpg" alt="">
-                        </div>
-                        <div class="forum-infor">
-                            <a href="./comment.html">
-                                <div class="tittle">
-                                    <h3>[新手專區]5個容易忽略的健行風險 百岳單功篇</h3>
-                                    <div class="innertext">
-                                        <p>
-                                            今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                            二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往
-                                            ....(more)
-                                        </p>
-                                    </div>
-
-                                    <div class="poster-block">
-                                        <div class="member_styleA row">
-                                            <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
-                                            </div>
-                                            <div class="memberInfo">
-                                                <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                                                </div>
-                                                <div class="memberId">煞氣a星爵</div>
-                                                <div class="memberBadge">
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                    <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="forum_groups">
-                                            <div class="heart">
-                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</sapn></div>
-                                            </div>
-
-                                            <div class="message">
-                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="post_situation">
-                                            <div class="post_time">
-                                                <p>發表於</p>
-                                                <div class="uptime"><span>2020/06/18 20:57</span></div>
-                                            </div>
-
-                                            <div class="remessage_time">
-                                                <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="nextpage-btn">
@@ -1400,6 +796,7 @@
         
         }).call(this);
     </script>
+    <script src="./js/forum_test.js"></script>
     
 </body>
 </html>
