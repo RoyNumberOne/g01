@@ -89,21 +89,21 @@
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form class="form" id="signUpForm" method="get">
+				<form class="form" id="signUpForm" method="post">
                     <h2 class="form__title">註冊帳號</h2>
                     <div class="form__detail">
-                        <label for="mem_id">*暱稱</label><br>
+                        <label for="mem_id">暱稱</label><br>
                         <input type="text" name="mem_id" id="mem_id" placeholder="限12字以內" maxlength="12" required/><br>
-                        <label for="mem_name">*姓名</label><br>
+                        <label for="mem_name">姓名</label><br>
                         <input type="text" name="mem_name" id="mem_name" placeholder="不可為空" required/><br>
-                        <label for="mem_mail">*電子信箱</label><br>
+                        <label for="mem_mail">電子信箱</label><br>
                         <input type="email" name="mem_mail" id="mem_mail" placeholder="不可為空" required/><br>
-                        <label for="mem_acc">*帳號</label><br>
-                        <input type="text" name="mem_acc" id="mem_acc_app" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
-                        <label for="mem_psw">*密碼</label><br>
-                        <input type="password" name="mem_psw" id="mem_psw_app" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="限8-12英數字" required/><br>
-                        <label for="mem_psw">*確認密碼</label><br>
-                        <input type="password" name="mem_psw" placeholder="確認密碼"><br>
+                        <label for="mem_acc">帳號</label><br>
+                        <input type="text" name="mem_acc" id="mem_acc_app" placeholder="限8-12英數字" required/><br>
+                        <label for="mem_psw">密碼</label><span class="tip_length" style="color: red;">密碼長度錯誤</span><br>
+                        <input type="password" name="mem_psw" id="mem_psw_app" onblur="checkpas1();" placeholder="限8-12英數字" required/><br>
+                        <label for="repassword">確認密碼</label><span class="tip" style="color: red;">輸入密碼不一致</span><br>
+                        <input type="password" name="repassword" id="repassword" onChange="checkpas();" placeholder="確認密碼" required><br>
                     </div>
                     <a href="#" class="clickMe_log">已有帳號?點我登入</a>
 					<button type="button" class="btnB_L_blue submitBtn_app" id="btnSignUp"><p>註冊</p><div class="bg"></div></button>
@@ -210,6 +210,7 @@
 	</script>
 	
 	<script>
+// 手機板註冊會員切換
 		$(document).ready(function(){
 			$('.clickMe_app').click(function(){
 				$('.container--signin').css('display','none');
@@ -220,7 +221,57 @@
 				$('.container--signin').css('display','block');
 			});
         });
+
+// 註冊判斷帳號是否使用過
+        function checkId(){  
+        
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        alert(xhr.responseText); //回傳php回應的值
+                    }else{
+                        alert(xhr.status);
+                    }
+                }
+            } 
+
+            xhr.open("post", "./login_v2_Signup.php", true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            let data_info = `mem_acc=${$id("mem_acc_app").value}&mem_id=${$id("mem_id").value}&mem_name=${$id("mem_name").value}&mem_psw=${$id("mem_psw_app").value}&mem_mail=${$id("mem_mail").value}`;
+            xhr.send(data_info);
+        }
+
+
+        window.addEventListener("load", function(){
+        document.getElementById("btnSignUp").addEventListener("click", checkId, false);
+        }, false);
+
+// 確認密碼
+        $(".tip").hide();
+        $(".tip_length").hide();
+        function checkpas1(){//當第一個密碼框失去焦點時，觸發checkpas1事件
+            var pas1=document.getElementById("mem_psw_app").value;
+            var pas2=document.getElementById("repassword").value;
+
+            if(pas1.length<8 ^ pas1.length>12){
+                $(".tip_length").show();
+            }else{
+                $(".tip_length").hide();
+            }
+        }
+        function checkpas(){//當第一個密碼框失去焦點時，觸發checkpas2件
+            var pas1=document.getElementById("mem_psw_app").value;
+            var pas2=document.getElementById("repassword").value;//獲取兩個密碼框的值
+            if(pas1!=pas2){
+                $(".tip").show();//當兩個密碼不相等時則顯示錯誤資訊
+            }else{
+                $(".tip").hide();
+            }
+        }
     </script>
+
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 </body>
