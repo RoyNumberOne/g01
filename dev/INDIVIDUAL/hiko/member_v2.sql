@@ -31,8 +31,12 @@ select T.tour_hoster'揪團主', T.tour_no'揪團編號', T.tour_title'揪團文
     order BY T.tour_activitystart DESC;
 
 -- 會員參加的揪團，由出團時間近到遠排序
-
-
+select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', tp.tour_participate_situation'審核狀態', T.tour_no'揪團編號', T.tour_title'揪團文標題',T.tour_innertext'活動簡介', T.tour_apply'已報名人數', T.tour_activitystart'活動開始日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.degree_category'山的難度', M.mountain_name'山的名字'
+	from tour_participate tp
+		join tour T on(tp.tour_participate_tour = T.tour_no)
+        join mountain M on(T.tour_mountain = M.mountain_no)
+	WHERE tp.tour_participate_mem = 10009  -- 之後改變數
+	order BY T.tour_activitystart DESC;
 ----------------------------------------------------------------------------------------------------------
 
 -- 會員發佈的文章，由發布時間新到舊排序
