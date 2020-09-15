@@ -70,3 +70,21 @@ function tabArea(evt, className) {
 var mybtn = document.getElementsByClassName("this")[0];
 mybtn.click();
 // =====================足跡頁地區切換========================
+// =====================005修改頁抓id/email======================
+function getMemberDetail(){
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = function(){
+      member = JSON.parse(xhr.responseText);
+      if (member.mem_id){
+          $id("memEdit_id").innerText = member.mem_id;
+          $id("memEdit_mail").innerText = member.mem_mail;
+      }   
+  }
+
+  xhr.open("get", "./login_v2_LoginInFo.php",true);
+  xhr.send(null);
+}
+
+getMemberDetail();
+// =====================修改頁抓id/email========================

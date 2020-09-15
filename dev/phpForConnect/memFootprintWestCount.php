@@ -4,12 +4,14 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT tp.tour_participate_mem, tp.tour_participate_tour, T.tour_no,T.tour_progress, T.tour_activitystart, T.tour_activityend, M.mountain_image, M.mountain_area, M.mountain_name
-                from tour_participate tp
-                    join tour T on(tp.tour_participate_tour = T.tour_no)
-                    join mountain M on(T.tour_mountain = M.mountain_no)
-                WHERE tp.tour_participate_mem = 10009 and T.tour_progress = '已結束'
-                order BY T.tour_activitystart DESC;
+    $sql= "	SELECT Count(*) Count
+                    from tour_participate tp
+                        join tour T on(tp.tour_participate_tour = T.tour_no)
+                        join mountain M on(T.tour_mountain = M.mountain_no)
+                    WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+                    and T.tour_progress = '已結束' 
+                    and M.mountain_area = 'west'
+                    order BY T.tour_activitystart DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);

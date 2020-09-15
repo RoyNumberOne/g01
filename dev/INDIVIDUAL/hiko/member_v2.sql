@@ -1,11 +1,28 @@
 
--- 會員已完成的揪團，由出團時間近到遠排序
-select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', T.tour_no'揪團編號',T.tour_progress'揪團狀態', T.tour_activitystart'活動開始日期', T.tour_activityend'活動結束日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.mountain_name'山的名字'
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 北部
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 中部(西部)
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 南部
+select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', T.tour_no'揪團編號',T.tour_progress'揪團狀態', T.tour_activitystart'活動開始日期', T.tour_activityend'活動結束日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.mountain_name'山的名字', M.degree_category'山的難度'
 	from tour_participate tp
 		join tour T on(tp.tour_participate_tour = T.tour_no)
         join mountain M on(T.tour_mountain = M.mountain_no)
-	WHERE tp.tour_participate_mem = 10009  -- and T.tour_progress = '已結束'
+	WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+	and T.tour_progress = '已結束' 
+	and M.mountain_area = 'south'
 	order BY T.tour_activitystart DESC;
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 南部(筆數)
+	select COUNT(*)
+		from tour_participate tp
+			join tour T on(tp.tour_participate_tour = T.tour_no)
+			join mountain M on(T.tour_mountain = M.mountain_no)
+		WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+		and T.tour_progress = '已結束' 
+		and M.mountain_area = 'south'
+		order BY T.tour_activitystart DESC;
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 東部
 
 ----------------------------------------------------------------------------------------------------------
 -- 會員收藏討論文章，由新到舊排序

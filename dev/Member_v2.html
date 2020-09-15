@@ -180,32 +180,33 @@
                         <div class="background">
                             <img src="./images/member/location_record_map.png">
                         </div>
-                        <button href="javascript:void(0)" class="point1 point tabarea North-area this" onclick="tabArea(event, 'North-area_info')">
+                        <button id="FootprintNorthCount" href="javascript:void(0)" class="point1 point tabarea North-area this" onclick="tabArea(event, 'North-area_info')">
                             <img src="./images/member/Pushpin.png">
-                            <div class="value_box">
-                                <span>4</span>
+                            <div class="value_box" v-for="(FootprintNorthCountList, index) in FootprintNorthCountList">
+                                <span>{{FootprintNorthCountList.Count}}</span>
                             </div>
                         </button>
-                        <button href="javascript:void(0)" class="point2 point tabarea West-area" onclick="tabArea(event, 'West-area_info')">
+                        <button id="FootprintWestCount" href="javascript:void(0)" class="point2 point tabarea West-area" onclick="tabArea(event, 'West-area_info')">
                             <img src="./images/member/Pushpin.png">
-                            <div class="value_box">
-                                <span>5</span>
+                            <div class="value_box" v-for="(FootprintWestCountList, index) in FootprintWestCountList">
+                                <span>{{FootprintWestCountList.Count}}</span>
                             </div>
                         </button>
-                        <button href="javascript:void(0)" class="point3 point tabarea East-area" onclick="tabArea(event, 'East-area_info')">
+                        <button id="FootprintEastCount" href="javascript:void(0)" class="point3 point tabarea East-area" onclick="tabArea(event, 'East-area_info')">
                             <img src="./images/member/Pushpin.png">
-                            <div class="value_box">
-                                <span>2</span>
+                            <div class="value_box" v-for="(FootprintEastCountList, index) in FootprintEastCountList">
+                                <span>{{FootprintEastCountList.Count}}</span>
                             </div>
                         </button>
-                        <button href="javascript:void(0)" class="point4 point tabarea South-area" onclick="tabArea(event, 'South-area_info')">
+                        <button id="FootprintSouthCount" href="javascript:void(0)" class="point4 point tabarea South-area" onclick="tabArea(event, 'South-area_info')">
                             <img src="./images/member/Pushpin.png">
-                            <div class="value_box">
-                                <span>3</span>
+                            <div class="value_box" v-for="(FootprintSouthCountList, index) in FootprintSouthCountList">
+                                <span>{{FootprintSouthCountList.Count}}</span>
                             </div>
                         </button>
                     </div>
                     <div class="location_item">
+
                         <!-- 北部 -->
                         <div id="North-area_info" class="text_record area">
                             <div class="TR_title">
@@ -213,101 +214,34 @@
                                 <div class="title">登山活動紀錄</div>
                                 <div><hr></div>
                             </div>
-                            <div class="TR_boxlist">
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g5.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
+                            <div class="TR_boxlist" id="FootprintNorth">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintNorthList.tour_no">
+                                    <div class="TR_box" v-for="(FootprintNorthList, index) in FootprintNorthList">
+                                        <div class="img_value">
+                                            <img v-bind:src="FootprintNorthList.mountain_image" alt="">
                                         </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g6.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
+                                        <div class="text_value">
+                                            <div class="TV_travel TV">
+                                                <p>攀登路線：{{FootprintNorthList.mountain_name}}({{FootprintNorthList.mountain_area}})</p>
+                                            </div>
+                                            <div class="TV_hardlv">
+                                                <p>山岳難度：{{FootprintNorthList.degree_category}}</p>
+                                            </div>
+                                            <div class="TV_dateStart TV">
+                                                <p>開始日期：{{FootprintNorthList.tour_activitystart}}</p>
+                                            </div>
+                                            <div class="TV_dateEnd TV">
+                                                <p>結束日期：{{FootprintNorthList.tour_activityend}}</p>
+                                            </div>
+                                            <div class="TV_points TV">
+                                                <p>獲得點數：400 (點)</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g8.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box4 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g4.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
+
                         <!-- 中部(西部) -->
                         <div id="West-area_info" class="text_record area">
                             <div class="TR_title">
@@ -315,124 +249,34 @@
                                 <div class="title">登山活動紀錄</div>
                                 <div><hr></div>
                             </div>
-                            <div class="TR_boxlist">
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g2.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
+                            <div class="TR_boxlist" id="FootprintWest">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintWestList.tour_no">
+                                    <div class="TR_box" v-for="(FootprintWestList, index) in FootprintWestList">
+                                        <div class="img_value">
+                                            <img v-bind:src="FootprintWestList.mountain_image" alt="">
                                         </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g3.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
+                                        <div class="text_value">
+                                            <div class="TV_travel TV">
+                                                <p>攀登路線：{{FootprintWestList.mountain_name}}({{FootprintWestList.mountain_area}})</p>
+                                            </div>
+                                            <div class="TV_hardlv">
+                                                <p>山岳難度：{{FootprintWestList.degree_category}}</p>
+                                            </div>
+                                            <div class="TV_dateStart TV">
+                                                <p>開始日期：{{FootprintWestList.tour_activitystart}}</p>
+                                            </div>
+                                            <div class="TV_dateEnd TV">
+                                                <p>結束日期：{{FootprintWestList.tour_activityend}}</p>
+                                            </div>
+                                            <div class="TV_points TV">
+                                                <p>獲得點數：400 (點)</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g4.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box4 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g8.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box5 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g7.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
+
                         <!-- 東部 -->
                         <div id="East-area_info" class="text_record area">
                             <div class="TR_title">
@@ -440,78 +284,34 @@
                                 <div class="title">登山活動紀錄</div>
                                 <div><hr></div>
                             </div>
-                            <div class="TR_boxlist">
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g6.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
+                            <div class="TR_boxlist" id="FootprintEast">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintEastList.tour_no">
+                                    <div class="TR_box" v-for="(FootprintEastList, index) in FootprintEastList">
+                                        <div class="img_value">
+                                            <img v-bind:src="FootprintEastList.mountain_image" alt="">
                                         </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g5.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
+                                        <div class="text_value">
+                                            <div class="TV_travel TV">
+                                                <p>攀登路線：{{FootprintEastList.mountain_name}}({{FootprintEastList.mountain_area}})</p>
+                                            </div>
+                                            <div class="TV_hardlv">
+                                                <p>山岳難度：{{FootprintEastList.degree_category}}</p>
+                                            </div>
+                                            <div class="TV_dateStart TV">
+                                                <p>開始日期：{{FootprintEastList.tour_activitystart}}</p>
+                                            </div>
+                                            <div class="TV_dateEnd TV">
+                                                <p>結束日期：{{FootprintEastList.tour_activityend}}</p>
+                                            </div>
+                                            <div class="TV_points TV">
+                                                <p>獲得點數：400 (點)</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g4.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
+
                         <!-- 南部 -->
                         <div id="South-area_info" class="text_record area">
                             <div class="TR_title">
@@ -519,78 +319,34 @@
                                 <div class="title">登山活動紀錄</div>
                                 <div><hr></div>
                             </div>
-                            <div class="TR_boxlist">
-                                <div class="TR_box1 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g7.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
+                            <div class="TR_boxlist" id="FootprintSouth">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintSouthList.tour_no">
+                                    <div class="TR_box" v-for="(FootprintSouthList, index) in FootprintSouthList">
+                                        <div class="img_value">
+                                            <img v-bind:src="FootprintSouthList.mountain_image" alt="">
                                         </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="TR_box2 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g8.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
+                                        <div class="text_value">
+                                            <div class="TV_travel TV">
+                                                <p>攀登路線：{{FootprintSouthList.mountain_name}}({{FootprintSouthList.mountain_area}})</p>
+                                            </div>
+                                            <div class="TV_hardlv">
+                                                <p>山岳難度：{{FootprintSouthList.degree_category}}</p>
+                                            </div>
+                                            <div class="TV_dateStart TV">
+                                                <p>開始日期：{{FootprintSouthList.tour_activitystart}}</p>
+                                            </div>
+                                            <div class="TV_dateEnd TV">
+                                                <p>結束日期：{{FootprintSouthList.tour_activityend}}</p>
+                                            </div>
+                                            <div class="TV_points TV">
+                                                <p>獲得點數：400 (點)</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="TR_box3 TR_box">
-                                    <div class="img_value">
-                                        <img src="./images/form_img/g9.jpg">
-                                    </div>
-                                    <div class="text_value">
-                                        <div class="TV_travel TV">
-                                            <p>路線：</p>
-                                            <p class="value1 TV_value">曼塔山登山步道 (Lv3)</p>
-                                        </div>
-                                        <div class="TV_date TV">
-                                            <p>日期：</p>
-                                            <p class="value2 TV_value">2020-05-04 (一)</p>
-                                        </div>
-                                        <div class="TV_distance TV">
-                                            <p>路線長度：</p>
-                                            <p class="value3 TV_value">12000 (公尺)</p>
-                                        </div>
-                                        <div class="TV_points TV">
-                                            <p>獲得點數：</p>
-                                            <p class="value4 TV_value">400 (點)</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -937,134 +693,36 @@
             <!-- 訂單 -->
             <div id="MemOrder" class="pages">
                 <h2 class="title">我的訂單</h2>
-                <div class="memOrder_pc">
-                    <div class="memOrder_form">
-                        <table>
-                            <tr>
-                                <th>訂單編號</th>
-                                <th>訂單日期</th>
-                                <th>訂單狀態</th>
-                                <th>總金額</th>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000001</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000002</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000003</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000004</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000005</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000006</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000007</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000008</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000009</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000010</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000011</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000012</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                            <tr>
-                                <td><a href="./MemberOrder.html" target="_blank">000013</a></td>
-                                <td>2020/08/11</td>
-                                <td>出貨中</td>
-                                <td>$9999</td>
-                            </tr>
-                        </table>
-                            </div>
-                            <div class="orderPages">
-                                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                                <button class="btnA_S pg -active"><p>01</p></button>
-                                <button class="btnA_S pg"><p>02</p></button>
-                                <button class="btnA_S pg"><p>03</p></button>
-                                <button class="btnA_S pg"><p>04</p></button>
-                                <button class="btnA_S pg"><p>05</p></button>
-                                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                            </div>
+                <div id="MemOrder_info"></div>
+            </div>
+            <!-- 修改資料 -->
+            <div id="MemDetail" class="pages">
+                <h2 class="title">修改資料</h2>
+                <form method="post">
+                    <div class="mem_frame">
+                        <div class="mem_change">
+                            <p>暱稱</p><p id="memEdit_id"></p><br>
+                            <input type="text" name="mem_id" id="mem_id">
+                        </div>
+                        <div class="mem_change">
+                            <p>信箱</p><p id="memEdit_mail"></p><br>
+                            <input type="text" name="mem_mail" id="mem_mail">
+                        </div>
+                        <div class="mem_change">
+                            <p>密碼</p><br>
+                            <input type="text" name="mem_psw" id="mem_psw">
+                        </div>
+                        <div class="mem_change">
+                            <p>確認密碼</p><br>
+                            <input type="text" name="repassword" id="repassword">
+                        </div>
+                        <div class="mem_button">
+                            <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
+                            <button class="btnB_L_yellow" id="editConfirm"><p>送出</p><div class="bg"></div></button>
                         </div>
                     </div>
-                    <!-- 修改資料 -->
-                    <div id="MemDetail" class="pages">
-                        <h2 class="title">修改資料</h2>
-                        <form method="POST">
-                            <div class="mem_frame">
-                                <div class="mem_change">
-                                    <p>暱稱</p><p id="memEdit_id"></p><br>
-                                    <input type="text" name="mem_id" id="mem_id">
-                                </div>
-                                <div class="mem_change">
-                                    <p>信箱</p><p id="memEdit_mail"></p><br>
-                                    <input type="text" name="mem_mail" id="mem_mail">
-                                </div>
-                                <div class="mem_change">
-                                    <p>密碼</p><br>
-                                    <input type="text" name="mem_psw" id="mem_psw">
-                                </div>
-                                <div class="mem_change">
-                                    <p>確認密碼</p><br>
-                                    <input type="text" name="repassword" id="repassword">
-                                </div>
-                                <div class="mem_button">
-                                    <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
-                                    <button class="btnB_L_yellow"><p>送出</p><div class="bg"></div></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                </form>
+            </div>
 
         </div><!-- ----------各頁面內容放這(end)-------------------- -->
         <div class="nav_mob">
@@ -1145,7 +803,15 @@
 <!-- ======================script-(end)========================= -->
 <!-- ======================PHP by hiko-(start)======================= -->
 
-<script src="./js/memFootprint.js"></script>           <!-- 完成的揪團php -->
+<script src="./js/memFootprintNorthCount.js"></script> <!-- (北部)已完成揪團數php -->
+<script src="./js/memFootprintWestCount.js"></script>  <!-- (中西)已完成揪團數php -->
+<script src="./js/memFootprintSouthCount.js"></script> <!-- (南部)已完成揪團數php -->
+<script src="./js/memFootprintEastCount.js"></script>  <!-- (東部)已完成揪團數php -->
+
+<script src="./js/memFootprintNorth.js"></script>      <!-- (北部)已完成揪團列php -->
+<script src="./js/memFootprintWest.js"></script>       <!-- (中西)已完成揪團列php -->
+<script src="./js/memFootprintSouth.js"></script>      <!-- (南部)已完成揪團列php -->
+<script src="./js/memFootprintEast.js"></script>       <!-- (東部)已完成揪團列php -->
 
 <script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團php -->
 <script src="./js/memTravelByOther.js"></script>       <!-- 參加的揪團php -->
@@ -1181,27 +847,6 @@
         readURL(this);
     });
 </script>
-<!-- ======================(script-暱稱/email抓ID)======================= -->
-
-<script>
-    function getMemberDetail(){
-        let xhr = new XMLHttpRequest();
-
-        xhr.onload = function(){
-            member = JSON.parse(xhr.responseText);
-            if (member.mem_id){
-                $id("memEdit_id").innerText = member.mem_id;
-                $id("memEdit_mail").innerText = member.mem_mail;
-            }   
-        }
-
-        xhr.open("get", "./login_v2_LoginInFo.php",true);
-        xhr.send(null);
-    }
-    
-    getMemberDetail();
-</script>
-
 <!-- ======================(script-修改)======================= -->
 <script>
     function editDetail(){
@@ -1222,7 +867,13 @@
         let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
         xhr.send(data_info);
     }
+    window.addEventListener("load", function(){
+        document.getElementById("editConfirm").addEventListener("click", editDetail, false);
+    }, false);
 </script>
-
+<!-- ======================(script-傳送值去訂單)======================= -->
+<script>
+    $('#MemOrder_info').load('./phpForConnect/member_v2_order.php');
+</script>
 </body>
 </html>
