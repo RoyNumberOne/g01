@@ -184,7 +184,7 @@
                         </div>
                         <div class="weatherweek">
                             <div class="next next1">
-                                <p class="date" id="date1">Fri</p>
+                                <p class="date" id="date1"></p>
                                 <p class="TopT" id="Ttop1"></p>
                                 <p class="ButtonT" id="Tbutton1"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -192,7 +192,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next2">
-                                <p class="date" id="date2">Sat</p>
+                                <p class="date" id="date2"></p>
                                 <p class="TopT" id="Ttop2"></p>
                                 <p class="ButtonT" id="Tbutton2"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -200,7 +200,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next3">
-                                <p class="date" id="date3">Sun</p>
+                                <p class="date" id="date3"></p>
                                 <p class="TopT" id="Ttop3"></p>
                                 <p class="ButtonT" id="Tbutton3"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -213,7 +213,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next4">
-                                <p class="date" id="date4">Mon</p>
+                                <p class="date" id="date4"></p>
                                 <p class="TopT" id="Ttop4"></p>
                                 <p class="ButtonT" id="Tbutton4"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -226,7 +226,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next5">
-                                <p class="date" id="date5">Tue</p>
+                                <p class="date" id="date5"></p>
                                 <p class="TopT" id="Ttop5"></p>
                                 <p class="ButtonT" id="Tbutton5"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -234,7 +234,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next6">
-                                <p class="date" id="date6">Wed</p>
+                                <p class="date" id="date6"></p>
                                 <p class="TopT" id="Ttop6"></p>
                                 <p class="ButtonT" id="Tbutton6"></p>
                                 <!-- <svg viewbox="-63 -40 100 100">
@@ -246,7 +246,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next7">
-                                <p class="date" id="date7">Thr</p>
+                                <p class="date" id="date7"></p>
                                 <p class="TopT" id="Ttop7"></p>
                                 <p class="ButtonT" id="Tbutton7"></p>
                                 <!-- <svg viewbox="-63 -40 100 100">
@@ -279,10 +279,10 @@
                               塔曼山
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">塔曼山</a>
-                              <a class="dropdown-item" href="#">七星山</a>
-                              <a class="dropdown-item" href="#">雪白山</a>
-                              <a class="dropdown-item" href="#">大霸尖山</a>
+                              <a class="dropdown-item" >塔曼山</a>
+                              <a class="dropdown-item" >七星山</a>
+                              <a class="dropdown-item" >雪白山</a>
+                              <a class="dropdown-item" >大霸尖山</a>
                             </div>
                         </div>
                           
@@ -305,7 +305,7 @@
 
                                 <div class="member_styleA row">
                                     <div class="memberImg">
-                                        <img src="./images/meet/member/Chris.jpg" alt="">
+                                        <img :src="t1.mem_avator" alt="">
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
@@ -360,22 +360,22 @@
 
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    <div class="innerboxleft" v-for="fh in ForumHot.slice(0, 1)">
+                    <div class="innerboxleft">
                         <div class="bigpic">
-                            <img :src="fh.forum_post_image" alt="">
-                            <div><p>{{fh.forum_post_category}}</p></div>
+                            <img src="" alt="">
+                            <div><p></p></div>
                         </div>
                         <div class="theinfor">
                             <div class="member_styleA row">
                                 <div class="memberImg">
-                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
                                         <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                         <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
-                                    <div class="memberId">{{fh.mem_id}}</div>
+                                    <div class="memberId"></div>
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
                                             <img src="./images/member/Ach_list_03.png" alt="">
@@ -389,25 +389,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="forumtitle"><h3>{{fh.forum_post_title}}</h3><span>{{fh.forum_post_time}}</span></div>
+                            <div class="forumtitle"><h3></h3><span></span></div>
                         </div>
-                        <div class="forumtext"><p>{{fh.forum_post_innertext}}</p></div>
+                        <div class="forumtext"><p></p></div>
                         <div class="sub">
                             <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                            <div><p>{{fh.收藏人數}}</p></div>
+                            <div><p></p></div>
                             <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                            <div><p>{{fh.回覆人數}}</p><span>最後回覆於 : {{fh.最新回覆時間}}</span></div>
+                            <div><p></p><span>最後回覆於 : </span></div>
                         </div>
                     </div>
                     <div class="innerboxright">
-                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" v-on:click="toggleActive"  ref="smallbox">
+                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" ref="smallbox">
                             <div class="smallpic">
                                 <img :src="fh.forum_post_image" alt="">
-                                <div><p>{{fh.forum_post_category}}</p></div>
+                                <div><p >{{fh.forum_post_category}}</p></div>
                             </div>
-                            <div class="graymask">
-                                <h3>{{fh.forum_post_title}}</h3>
+                            <div class="graymask" v-on:click="toggleActive"  >
+                                <h3 v-on:click="toggleActiveP">{{fh.forum_post_title}}</h3>
                             </div>
+                            <input class="TEMPforum_post_title" type="hidden" :value="fh.forum_post_title">
+                            <input class="TEMPforum_post_category" type="hidden" :value="fh.forum_post_category">
+                            <input class="TEMPforum_post_innertext" type="hidden" :value="fh.forum_post_innertext">
+                            <input class="TEMPforum_post_image" type="hidden" :value="fh.forum_post_image">
+                            <input class="TEMPforum_post_time" type="hidden" :value="fh.forum_post_time">
+                            <input class="TEMPmem_avator" type="hidden" :value="fh.mem_avator">
+                            <input class="TEMPguide_no" type="hidden" :value="fh.guide_no">
+                            <input class="TEMPmem_realname" type="hidden" :value="fh.mem_realname">
+                            <input class="TEMPforum_reply" type="hidden" :value="fh.回覆人數">
+                            <input class="TEMPforum_keep" type="hidden" :value="fh.收藏人數">
+                            <input class="TEMPforum_replytime" type="hidden" :value="fh.最新回覆時間">
                         </div>
                     </div>
                 </div>
@@ -426,7 +437,7 @@
                         <div class="theinfor">
                             <div class="member_styleA row">
                                 <div class="memberImg">
-                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                    <img :src="fn.mem_avator" alt="">
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
@@ -667,17 +678,27 @@
             },
             methods: {
             toggleActive: function(e) {
-                // alert(e.target.parentNode.nextSibling.nodeName)
-                console.log($(e.target.parentNode).siblings())
-                // this.isActive = !this.isActive;
-                // event.target.parentElement.classList.remove('-active')
-                // this.$el.querySelector(".smallbox").classList.remove('-active')
-                // this.$refs.smallbox.classList.remove('-active')
-                // console.log(this)
-                // e.target.parentNode.classList.add('-active')
+                $(e.target.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode).addClass("-active")
+            },
+            toggleActiveP: function(e) {
+                $(e.target.parentNode.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode.parentNode).addClass("-active")
             }},
-            mounted() {
-
+            updated() {
+                var TEMPforum_post_innertext = $(".innerboxright .-active .TEMPforum_post_innertext").val();
+                // var TEMPforum_post_innertext ='123';
+                console.log(TEMPforum_post_innertext);
+                $(".innerboxleft .bigpic img").attr('src',$(".TEMPforum_post_image").val())
+                $(".innerboxleft .bigpic div p").text(TEMPforum_post_category)
+                $(".innerboxleft .theinfor .member_styleA .").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                $(".innerboxleft .forumtext p").text(TEMPforum_post_innertext)
             },
         });
         let vForumNew = new Vue({
