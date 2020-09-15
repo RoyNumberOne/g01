@@ -180,7 +180,7 @@ $(document).on('keydown',function(e) {
                     console.log('oh no');
                 },
                 success: function (N1N3) {
-                    // console.log(N1N3)
+                    console.log(N1N3)
                     N1N3data = N1N3 ;
                 }
             });
