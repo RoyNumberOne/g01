@@ -5,13 +5,11 @@ try{
     
     require_once('./connectMeetain.php');
     
+    $MTno = 1;
 
-    $MTno = $_REQUEST['MTno'];
-    // if ($MTno == 1){
-        $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` FROM `mountain`  where `mountain_no` = $MTno ;";
-    // }  else  {
-        // $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` FROM `mountain`  where `mountain_no` = $MTno ;";
-    // }
+
+    $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` FROM `mountain`  where `mountain_no` = $MTno ;";
+
 
 
     $pdoStatement = $pdo->query($sql); //執行mySQL指令
