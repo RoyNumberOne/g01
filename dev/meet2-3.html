@@ -370,14 +370,14 @@
                 </div>
                 <div class="activity_application">
                     <p class="no_applied">目前還沒有人申請！</p>
-                    <div class="applicant">
+                    <div class="applicant" v-for = "participate in tourParticipates">
                         <div class="memPic">
                             <a href="./Member.html">
-                                <img src="./images/king.jpeg" alt="">
+                                <img :src="participate.mem_avator" alt="大頭照">
                             </a>
                         </div>
                         <div class="memName">
-                            <h3>Roy</h3>
+                            <h3>{{participate.mem_id}}</h3>
                         </div>
                         <ul class="medal">
                             <li><img src="./images/member/Ach_list_16.png"></li>
@@ -458,7 +458,17 @@
         <h3>相關文章</h3>
         <div class="related_article">
             <ul class="content">
-                <li class="article">
+                <li class="article" v-for = "artical in articals">
+                    <div class="art_pic">
+                        <a href="./comment.html">
+                            <img :src="artical.forum_post_image" alt="">
+                        </a>
+                    </div>
+                    <div class="art_title">
+                        <a href="./comment.html">{{artical.forum_post_title}}</a>
+                    </div>
+                </li>
+                <!-- <li class="article">
                     <div class="art_pic">
                         <a href="./comment.html">
                             <img src="./images/MOUNTAIn.png" alt="">
@@ -487,17 +497,7 @@
                     <div class="art_title">
                         <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
                     </div>
-                </li>
-                <li class="article">
-                    <div class="art_pic">
-                        <a href="./comment.html">
-                            <img src="./images/MOUNTAIn.png" alt="">
-                        </a>
-                    </div>
-                    <div class="art_title">
-                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                    </div>
-                </li>
+                </li> -->
             </ul>
             <div class="left"><</div>
             <div class="right">></div>

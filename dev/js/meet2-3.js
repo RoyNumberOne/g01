@@ -4,6 +4,8 @@ new Vue({
         // hosterData: [],
         tourData: [],
         comments: [],
+        tourParticipates: [],
+        articals: [],
         // reportNo: null,
     },
     mounted() {
@@ -16,6 +18,16 @@ new Vue({
             this.comments = res.data;
             console.log('success comments');
             console.log(this.comments);
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_participate.php').then(res => {
+            this.tourParticipates = res.data;
+            console.log('success tourParticipats');
+            console.log(this.tourParticipates);
+        }),
+        axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
+            this.articals = res.data;
+            console.log('success articals');
+            console.log(this.articals);
         })
         // axios.get('./phpForConnect/meet2-3_member.php').then(res => {
         //     this.hosterData = res.data;
@@ -45,7 +57,7 @@ $(document).ready(function (){
         $('.application_bt').removeClass('change');
     });
     $('.application_bt').click(function(){
-        $('.activity_application').css('display','block');
+        $('.activity_application').css('display','flex');
         $('.activity_introduction').css('display','none');
         $(this).addClass('change');
         $('.introduction_bt').removeClass('change');
