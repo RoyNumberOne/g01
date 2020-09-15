@@ -25,6 +25,8 @@ try{
         $_SESSION["mem_mail"] = $memRow["mem_mail"];
         $_SESSION["mem_build"] = $memRow["mem_build"];
         $_SESSION["mem_point"] = $memRow["mem_point"];
+        $_SESSION["mem_avator"] = $memRow["mem_avator"];
+        $_SESSION["mem_bg"] = $memRow["mem_bg"];
   
       //送出登入者的姓名資料
       $result = array("mem_no"=>$memRow["mem_no"], 
@@ -34,7 +36,9 @@ try{
                     "mem_psw"=>$memRow["mem_psw"],
                     "mem_mail"=>$memRow["mem_mail"],
                     "mem_build"=>$memRow["mem_build"],
-                    "mem_point"=>$memRow["mem_point"]);
+                    "mem_point"=>$memRow["mem_point"],
+                    "mem_avator"=>$memRow["mem_avator"],
+                    "mem_bg"=>$memRow["mem_bg"]);
       echo json_encode($result);
     }
   }catch(PDOException $e){

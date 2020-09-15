@@ -88,3 +88,23 @@ function getMemberDetail(){
 
 getMemberDetail();
 // =====================修改頁抓id/email========================
+// =====================會員大頭照/背景/name========================
+function getMemberFo(){
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = function(){
+      member = JSON.parse(xhr.responseText);
+      if (member.mem_id){
+          $id("memProfile_img").src = member.mem_avator; //會員頁大頭照
+          $id("mem_bg").src = member.mem_bg; //會員頁背景
+          $id("memProfile_name").innerText = member.mem_name; //會員頁名稱
+
+      }   
+  }
+
+  xhr.open("get", "./login_v2_LoginInFo.php",true);
+  xhr.send(null);
+}
+
+getMemberFo();
+// =====================會員大頭照/背景/name========================
