@@ -36,15 +36,23 @@ new Vue({
     //             this.currentIndex.push(i)
     //         }
     //     })
-    //     // .then(res => this.articalList = res.data)
-    //     // .then(res => {console.log(res.data)})
+    //     .then(res => this.articalList = res.data)
+    //     .then(res => {console.log(res.data)})
 
     //     .catch(error => {console.log(error)});
     // },
-    // methods:{
+    methods:{
 
-    // },
-    // computed:{
-
-    // },
+    },
+    computed:{
+        articleList(){
+            if(this.input.type== '全部'){
+                return this.articalList.filter(item=>{
+                    return item.type == this.input.type
+                })
+            }else{
+                return this.articalList
+            }
+        },
+    }
 })
