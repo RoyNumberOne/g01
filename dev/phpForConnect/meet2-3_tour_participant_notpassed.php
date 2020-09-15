@@ -5,9 +5,8 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('../connectMeetain.php');
-    // $sql = "SELECT * FROM tour WHERE tour_no = 100001";
-    // $sql = "SELECT m.*, t.* FROM member m join tour t on m.mem_no = t.tour_hoster WHERE tour_no = 100001";
-    $sql = "SELECT m.*, t.*, mt.mountain_name, mt.mountain_area, mt.mountain_image, DATEDIFF(tour_activityend , tour_activitystart)+1 'days' FROM member m join tour t on m.mem_no = t.tour_hoster join mountain mt on t.tour_mountain = mt.mountain_no WHERE tour_no = 100001";
+    $sql = "SELECT tp.tour_participate_tour, m.mem_no, m.mem_id, tp.tour_participate_situation, m.mem_avator, m.mem_badge1, m.mem_badge2, m.mem_badge3 FROM member m JOIN tour_participate tp ON m.mem_no = tp.tour_participate_mem WHERE tp.tour_participate_situation = '已審核不通過' ORDER BY tp.tour_participate_tour";
+
 
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);

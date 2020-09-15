@@ -179,18 +179,12 @@
             <div class="public_pic"><img :src="tourData.mountain_image" alt="公版照片">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.mountain_image" alt="相關照片"></div>
-                        <!-- <div class="related_pic_item"><img :src="tourData.tour_image_1" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt="相關照片"></div>
                         <div class="related_pic_item"><img :src="tourData.tour_image_2" alt="相關照片"></div>
                         <div class="related_pic_item"><img :src="tourData.tour_image_3" alt="相關照片"></div>
                         <div class="related_pic_item"><img :src="tourData.tour_image_4" alt="相關照片"></div>
                         <div class="related_pic_item"><img :src="tourData.tour_image_5" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt="相關照片"></div> -->
+                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt="相關照片"></div>
                     </div>
                 </div>
             </div>
@@ -198,9 +192,9 @@
                 <h3 class="activity_title">{{currentTour.tour_title}}</h3>
                 <div class="activity_report">
                     <div class="activity_info">
-                        <div class="hashtag">#玉山</div>
+                        <div class="hashtag">#{{currentTour.mountain_name}} #{{currentTour.days}}天 #{{currentTour.tour_min_number}}~{{currentTour.tour_max_number}}人</div>
                         <div class="mountain_level">
-                            <img src="./images/icons/icon_location.svg" alt=""> 中部｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt="">
+                            <img src="./images/icons/icon_location.svg" alt=""> {{currentTour.mountain_area | Area}}｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt="">
                             <!-- <img src="./images/icons/icon_location.svg" alt=""> 中部｜難易度: <img :src="" alt=""> -->
                         </div>
                         <div class="activity_date"><img src="./images/icons/icon_date.svg" alt="">{{currentTour.tour_activitystart}}</div>
@@ -233,31 +227,10 @@
                 <div class="applied_participant">
                     <h3 class="text_underline">已通過報名人員</h3>
                     <div class="applied_participant_block">
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
+                        <div class="applied_participant_item" v-for = "participant in passedParticipant">
+                            <div class="applied_participant_pic"><img :src="participant.mem_avator" alt="參加者大頭照"></div>
                             <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
+                                <div class="applied_participant_name">{{participant.mem_id}}</div>
                                 <div class="applied_participant_badge">badge</div>
                             </div>
                         </div>
@@ -266,7 +239,14 @@
                 <div class="applied_participant">
                     <h3 class="text_underline">已拒絕人員</h3>
                     <div class="applied_participant_block">
-                        <div class="applied_participant_item">
+                        <div class="applied_participant_item" v-for = "participant in notPassedParticipant">
+                            <div class="applied_participant_pic"><img :src="participant.mem_avator" alt="參加者大頭照"></div>
+                            <div class="applied_participant_name-badge">
+                                <div class="applied_participant_name">{{participant.mem_id}}</div>
+                                <div class="applied_participant_badge">badge</div>
+                            </div>
+                        </div>
+                        <!-- <div class="applied_participant_item">
                             <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
                             <div class="applied_participant_name-badge">
                                 <div class="applied_participant_name">Roy</div>
@@ -286,14 +266,7 @@
                                 <div class="applied_participant_name">Roy</div>
                                 <div class="applied_participant_badge">badge</div>
                             </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="equip_recommend">
@@ -403,7 +376,7 @@
         <div class="message">
             <div class="message_board_block" v-for = "comment in comments">
                 <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
+                    <div class="person_headtag"><img :src="comment.mem_avator" alt="大頭照"></div>
                     <div class="person_info">
                         <div class="person_name-badge">
                             <div class="person_name"><a href="./Member.html">{{comment.comment_poster}}</a></div>
