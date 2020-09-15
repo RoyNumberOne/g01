@@ -1,3 +1,20 @@
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 北部
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 中部(西部)
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 南部
+select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', T.tour_no'揪團編號',T.tour_progress'揪團狀態', T.tour_activitystart'活動開始日期', T.tour_activityend'活動結束日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.mountain_name'山的名字', M.degree_category'山的難度'
+	from tour_participate tp
+		join tour T on(tp.tour_participate_tour = T.tour_no)
+        join mountain M on(T.tour_mountain = M.mountain_no)
+	WHERE tp.tour_participate_mem = 10009 --之後改變數
+	and T.tour_progress = '已結束' 
+	and M.mountain_area = 'north'
+	order BY T.tour_activitystart DESC;
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 東部
+
+----------------------------------------------------------------------------------------------------------
 -- 會員收藏討論文章，由新到舊排序
 select fk.forum_keep_mem'誰收藏', fk.forum_iskept_post'收藏哪篇' ,fp.forum_post_no'討論文章編號' ,fp.forum_post_category'討論文章類別' ,fp.forum_post_title'討論文標題' ,fp.forum_post_image'討論文圖片' ,fp.forum_post_innertext'討論文內文' ,fp.forum_post_time'發文時間' 
 	from forum_keep fk 
@@ -31,7 +48,12 @@ select T.tour_hoster'揪團主', T.tour_no'揪團編號', T.tour_title'揪團文
     order BY T.tour_activitystart DESC;
 
 -- 會員參加的揪團，由出團時間近到遠排序
-
+select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', tp.tour_participate_situation'審核狀態', T.tour_no'揪團編號', T.tour_title'揪團文標題',T.tour_innertext'活動簡介', T.tour_apply'已報名人數', T.tour_activitystart'活動開始日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.degree_category'山的難度', M.mountain_name'山的名字'
+	from tour_participate tp
+		join tour T on(tp.tour_participate_tour = T.tour_no)
+        join mountain M on(T.tour_mountain = M.mountain_no)
+	WHERE tp.tour_participate_mem = 10009  -- 之後改變數
+	order BY T.tour_activitystart DESC;
 
 ----------------------------------------------------------------------------------------------------------
 

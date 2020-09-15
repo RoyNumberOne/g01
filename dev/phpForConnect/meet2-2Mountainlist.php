@@ -5,10 +5,14 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` 
-	FROM `mountain` 
-    where `mountain_no` = 1;
-     ";
+
+    $MTno = $_REQUEST['MTno'];
+    // if ($MTno == 1){
+        $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` FROM `mountain`  where `mountain_no` = $MTno ;";
+    // }  else  {
+        // $sql= " SELECT `mountain_no`, `degree_category`, `mountain_name`, `mountain_area`, `mountain_image` FROM `mountain`  where `mountain_no` = $MTno ;";
+    // }
+
 
     $pdoStatement = $pdo->query($sql); //執行mySQL指令
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC); //fetchAll回傳二維陣列

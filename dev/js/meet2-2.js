@@ -8,19 +8,91 @@ new Vue({
     },
 
     mounted(){
-        axios.get('./phpForConnect/meet2-2Mountainlist.php')
+        
+        // console.log($("#tour_mountain").value)
+
+        // $.post("./phpForConnect/meet2-2Mountainlist.php",
+        // {MTno: '1'},
+        // function(){
+        //     console.log('ya');
+        // })
+
+        axios.get('./phpForConnect/meet2-2MountainlistF.php')
 
         .then((res) => {
             this.mtList = res.data;
-            console.log(res.data); //測試是否成功
-
-            for(let i = 0; i< this.mtList.length; i++){  //動態生成內容，依據json有幾筆
-                this.mtIndex.push(i)
-            }
+            // console.log(res.data); //測試是否成功
         })
         .catch(error => {console.log(error)}); 
     },
+    methods:{
+        findMT: function(){
+            let mtData 
+            let MTarea
+            let MTdegree
+            let MTno = $("select#tour_mountain").val()
+            console.log(MTno) 
 
+            $.post("./phpForConnect/meet2-2Mountainlist.php",
+            {MTno: MTno},
+
+            function(mt){
+                console.log(JSON.parse(mt));
+                mtData = JSON.parse(mt);  ////將資料轉json
+                console.log(mtData[0].mountain_area)
+                
+                switch (mtData[0].mountain_area){
+                    case('north'):
+                        $(".mountain_area p").text('北部');
+                    break;
+                    case('west'):
+                        $(".mountain_area p").text('中部');
+                    break;
+                    case('south'):
+                        $(".mountain_area p").text('南部');
+                    break;
+                    case('east'):
+                        $(".mountain_area p").text('東部');
+                    break;
+                }
+
+                console.log(mtData[0].degree_category)
+                $(".degree_category p").text(mtData[0].degree_category);
+                console.log(mtData[0].mountain_image)
+                $(".mountain_image img").attr('src',mtData[0].mountain_image);
+            })
+            
+            // console.log(ya);
+            
+            // $.ajax({
+            //     url: "./phpForConnect/meet2-2Mountainlist.php",
+            //     data: {
+            //         MTno: MTno,
+            //     },
+            //     type: 'POST',
+            //     success(){
+            //         console.log(MTno) 
+            //     },
+            // })
+
+
+            // var formMT = new FormData;
+            // var MTNO = $("tour_mountain").val();
+            // formMT.append("MTNO",MTNO)
+
+            // axios.get('./phpForConnect/meet2-2Mountainlist.php',formMT)
+    
+            // .then((res) => {
+            //     this.mtList = res.data;
+            //     console.log(res.data); //測試是否成功
+    
+            //     for(let i = 0; i< this.mtList.length; i++){  //動態生成內容，依據json有幾筆
+            //         this.mtIndex.push(i)
+            //     }
+            // })
+            // .catch(error => {console.log(error)}); 
+        }
+    },
 });
 
  

@@ -162,75 +162,94 @@
                         <div class="weathernow">
                             <div class="top">
                                 <div class="text_area">
-                                  <div class="temperature">26°C</div>
                                   <div class="infos">
-                                    <div class="address">中部 - 玉山</div>
-                                    <div class="time">星期四 下午2:00</div>
+                                    <p id="NowT"></p>
+                                    <div id="TtoT">
+                                        <span id="MinT"></span>&nbsp~&nbsp<span id="MaxT"></span>
+                                    </div>
+                                    <div class="PoP">降雨機率<p id="PoP"></p></div>
+                                    <div class="RH">相對濕度<p id="RH"></p></div>
+                                    <!-- <div class="address">中部 - 玉山</div> -->
+                                    <!-- <div class="time">星期四 下午2:00</div> -->
                                   </div>
                                 </div>
-                                <div class="moon"></div>
+                                <!-- <div class="moon"></div>
                                 <div class="cloud">
                                   <div class="rain"></div>
                                   <div class="rain rain2"></div>
                                   <div class="rain rain3"></div>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
                         <div class="weatherweek">
                             <div class="next next1">
-                                <p>Fri</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date1">Fri</p>
+                                <p class="TopT" id="Ttop1"></p>
+                                <p class="ButtonT" id="Tbutton1"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next2">
-                                <p>Sat</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date2">Sat</p>
+                                <p class="TopT" id="Ttop2"></p>
+                                <p class="ButtonT" id="Tbutton2"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next3">
-                                <p>Sun</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date3">Sun</p>
+                                <p class="TopT" id="Ttop3"></p>
+                                <p class="ButtonT" id="Tbutton3"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next4">
-                                <p>Mon</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date4">Mon</p>
+                                <p class="TopT" id="Ttop4"></p>
+                                <p class="ButtonT" id="Tbutton4"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next5">
-                                <p>Tue</p>
-                                <svg viewbox="-50 -50 100 100">
+                                <p class="date" id="date5">Tue</p>
+                                <p class="TopT" id="Ttop5"></p>
+                                <p class="ButtonT" id="Tbutton5"></p>
+                                <!-- <svg viewbox="-50 -50 100 100">
                                   <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next6">
-                                <p>Wed</p>
-                                <svg viewbox="-63 -40 100 100">
+                                <p class="date" id="date6">Wed</p>
+                                <p class="TopT" id="Ttop6"></p>
+                                <p class="ButtonT" id="Tbutton6"></p>
+                                <!-- <svg viewbox="-63 -40 100 100">
                                   <circle class="cloud" cx="-30" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-15" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="next next7">
-                                <p>Thr</p>
-                                <svg viewbox="-63 -40 100 100">
+                                <p class="date" id="date7">Thr</p>
+                                <p class="TopT" id="Ttop7"></p>
+                                <p class="ButtonT" id="Tbutton7"></p>
+                                <!-- <svg viewbox="-63 -40 100 100">
                                   <line class="rain" x1="-25" y1="15" x2="-25" y2="35"></line>
                                   <line class="rain" x1="-14" y1="5" x2="-14" y2="25"></line>
                                   <line class="rain" x1="-5" y1="20" x2="-5" y2="45"></line>
@@ -239,25 +258,25 @@
                                   <circle class="cloud" cx="0" cy="30" r="20"></circle>
                                   <circle class="cloud" cx="-25" cy="10" r="15"></circle>
                                   <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                </svg> -->
                             </div>
                         </div>
                     </div>
                     <div class="weatherselect">
                         <div class="dropdown area">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              區域
+                            <button class="btn btn-secondary dropdown-toggle btnarea" type="button" id="dropdownAreaButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="北部">
+                              北部
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" value="北部">北部</a>
-                              <a class="dropdown-item" value="中部">中部</a>
-                              <a class="dropdown-item" value="南部">南部</a>
-                              <a class="dropdown-item" value="東部">東部</a>
+                              <a class="dropdown-item" id="N" value="北部">北部</a>
+                              <a class="dropdown-item" id="W" value="中部">中部</a>
+                              <a class="dropdown-item" id="S" value="南部">南部</a>
+                              <a class="dropdown-item" id="E" value="東部">東部</a>
                             </div>
                         </div>
                         <div class="dropdown mountain">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              山
+                            <button class="btn btn-secondary dropdown-toggle btnmountain" type="button" id="dropdownMountainButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                              塔曼山
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="#">塔曼山</a>
@@ -269,12 +288,63 @@
                           
                     </div>
                     <div class="weatherdesc">
-                        <p>今（26）日上午大多為多雲到晴、高溫炎熱的天氣，午後在文山區及信義區有短暫陣雨；在溫度方面，臺北站測得的高溫為37.7度，低溫為28.2度。</p>
+                        <p id="weatherp">123</p>
                     </div>
                 </div>
                 <div id="tourbox">
                         <div id="toursearchbar"></div>
                         <div id="tourhotbox">
+                            <article class="tourinforbox" v-for="(t1 , index , mountain_area) in Tour1">
+                                <p class="top">TOP{{index +1}}</p>
+                                <div class="tourimg">
+                                    <img :src="t1.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t1.mountain_area | Area}} - {{t1.mountain_name}} - <div class="degreeImg" v-html="Degree(t1.degree_category)"></div>
+                                    </div>
+                                </div>
+
+                                <div class="member_styleA row">
+                                    <div class="memberImg">
+                                        <img src="./images/meet/member/Chris.jpg" alt="">
+                                    </div>
+                                    <div class="memberInfo">
+                                        <div class="certification">
+                                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                        </div>
+                                        <div class="memberId">{{t1.mem_id}}</div>
+                                        <div class="memberBadge">
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t1.tour_title}}</h3>
+                                    <span>{{t1.tour_activitystart}} ~ {{t1.tour_activityend}}</span>
+                                    <div><p class="innertext">{{t1.tour_innertext}}</p></div>
+                                </div>
+                            </article>
+                            <article class="tourinforbox" v-for="(t23 , index) in Tour23" >
+                                <p class="top">TOP{{index +2}}</p>
+                                <div class="tourimg">
+                                    <img :src="t23.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t23.mountain_area | Area}} - {{t23.mountain_name}} - <div class="degreeImg" v-html="Degree(t23.degree_category)"></div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t23.tour_title}}</h3>
+                                    <span>{{t23.tour_activitystart}} ~ {{t23.tour_activityend}}</span>
+                                </div>
+                            </article>
                         </div>
                 </div>
                 
@@ -290,7 +360,56 @@
 
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    
+                    <div class="innerboxleft" v-for="fh in ForumHot.slice(0, 1)">
+                        <div class="bigpic">
+                            <img :src="fh.forum_post_image" alt="">
+                            <div><p>{{fh.forum_post_category}}</p></div>
+                        </div>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                </div>
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                    </div>
+                                    <div class="memberId">{{fh.mem_id}}</div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forumtitle"><h3>{{fh.forum_post_title}}</h3><span>{{fh.forum_post_time}}</span></div>
+                        </div>
+                        <div class="forumtext"><p>{{fh.forum_post_innertext}}</p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p>{{fh.收藏人數}}</p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p>{{fh.回覆人數}}</p><span>最後回覆於 : {{fh.最新回覆時間}}</span></div>
+                        </div>
+                    </div>
+                    <div class="innerboxright">
+                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" v-on:click="toggleActive"  ref="smallbox">
+                            <div class="smallpic">
+                                <img :src="fh.forum_post_image" alt="">
+                                <div><p>{{fh.forum_post_category}}</p></div>
+                            </div>
+                            <div class="graymask">
+                                <h3>{{fh.forum_post_title}}</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -299,7 +418,56 @@
             
             <div class="slide" data-anchor="slide2">
                 <div id="sec3-2box">
-                    
+                    <div class="innerboxleft" v-for="fn in ForumNew.slice(0, 1)">
+                        <div class="bigpic">
+                            <img :src="fn.forum_post_image" alt="">
+                            <div><p>{{fn.forum_post_category}}</p></div>
+                        </div>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                </div>
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                    </div>
+                                    <div class="memberId">{{fn.mem_id}}</div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forumtitle"><h3>{{fn.forum_post_title}}</h3><span>{{fn.forum_post_time}}</span></div>
+                        </div>
+                        <div class="forumtext"><p>{{fn.forum_post_innertext}}</p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p>{{fn.收藏人數}}</p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p>{{fn.回覆人數}}</p><span>最後回覆於 : {{fn.最新回覆時間}}</span></div>
+                        </div>
+                    </div>
+                    <div class="innerboxright">
+                        <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': isActive}" v-on:click="toggleActive"  ref="fnno">
+                            <div class="smallpic">
+                                <img :src="fn.forum_post_image" alt="">
+                                <div><p>{{fn.forum_post_category}}</p></div>
+                            </div>
+                            <div class="graymask">
+                                <h3>{{fn.forum_post_title}}</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -308,10 +476,29 @@
         
         <div id="section4" class="section section4">
             <div id="sec4box">
-                
-
-
-
+                <div class="boxbig" v-for="(p,index) in Product.slice(0, 1)">
+                    <div class="picbig">
+                        <!-- <div class="top"> 
+                            <div><h3> TOP {{index+1}} </h3></div>
+                            <p>已售出 {{p.銷售數量}}個</p>
+                        </div> -->
+                        <div class="circlebig"></div>
+                        <div class="propicbig"><img :src="p.product_image1" alt=""></div>
+                        <div class="btngo"><button class="btnA_XLwRA"><p>詳細資訊</p><div class="btnArrowXL"></div></button></div>
+                    </div>
+                    <div class="prodesc">
+                        <div class="protitle"><h3>{{p.product_name}}</h3></div>
+                        <div class="prosubtitle"><p>{{p.product_description}}</p></div>
+                        <div class="proprice"><p>${{p.product_price}}</p></div>
+                    </div>
+                </div>
+                <div class="smalls">
+                    <div class="boxsmall" v-for="(p,index) in Product.slice(1, 4)">
+                        <div class="circlesmall"></div>
+                        <div class="propicsmall"><img :src="p.product_image1" alt=""></div>
+                        <div class="protitle"><p>{{p.product_name}}</p></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -396,18 +583,77 @@
     </script>
 
     <script>
+        // Vue.filter('area', function(value) {
+        //     return '北部啦幹';
+        // });
+
         let vTour = new Vue({
             el: "#sec2box",
             data: {
-                Tour: [],
+                Tour1: [],
+                Tour23: [],
+                mountain_area :'north',
+                
             },
             created() {
-                axios.get('./phpForConnect/frontstageindexTour.php').then(res => {
-                this.Tour = res.data; 
-                console.log('success'); 
-                console.log(this.Tour);
+                axios.get('./phpForConnect/frontstageindexTour1.php').then(res => {
+                this.Tour1 = res.data; 
+                })
+                axios.get('./phpForConnect/frontstageindexTour23.php').then(res => {
+                this.Tour23 = res.data; 
                 })
             },
+            filters: {
+                // var mountain_area = this.Tour1.mountain_area;
+                Area: function(value) {
+                    switch(value){
+                        case('north'):
+                            return '北部';
+                        break;
+                        case('west'):
+                            return '中部';
+                        break;
+                        case('south'):
+                            return '南部';
+                        break;
+                        case('east'):
+                            return '東部';
+                        break;
+                        default:
+                            return '沒成功哦';
+                        break;
+                    }
+                },
+            },
+            methods: {
+                Degree(value) {
+                    switch(value){
+                        case('1'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('2'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('3'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('4'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        default:
+                            return '應該很難';
+                        break;
+                    }
+                }
+            },
+            // computed: {
+            //     filteredClients() {
+            //     const tour1 = this.Tour1.toLowerCase().trim();
+
+            //     if (!tour1) return this.t1;
+
+            //     return this.clients.filter(c => c.name.toLowerCase().indexOf(search) > -1);
+            // }},
         });
         let vForumHot = new Vue({
             el: "#sec3-1box",
@@ -417,22 +663,40 @@
             created() {
                 axios.get('./phpForConnect/frontstageindexForumHot.php').then(res => {
                 this.ForumHot = res.data; 
-                console.log('success'); 
-                console.log(this.ForumHot);
                 })
+            },
+            methods: {
+            toggleActive: function(e) {
+                // alert(e.target.parentNode.nextSibling.nodeName)
+                console.log($(e.target.parentNode).siblings())
+                // this.isActive = !this.isActive;
+                // event.target.parentElement.classList.remove('-active')
+                // this.$el.querySelector(".smallbox").classList.remove('-active')
+                // this.$refs.smallbox.classList.remove('-active')
+                // console.log(this)
+                // e.target.parentNode.classList.add('-active')
+            }},
+            mounted() {
+
             },
         });
         let vForumNew = new Vue({
             el: "#sec3-2box",
             data: {
                 ForumNew: [],
+                isActive: false
             },
             created() {
                 axios.get('./phpForConnect/frontstageindexForumNew.php').then(res => {
                 this.ForumNew = res.data; 
-                console.log('success'); 
-                console.log(this.ForumNew);
                 })
+            },
+            methods: {
+            toggleActive: function() {
+                this.isActive = !this.isActive;
+            }},
+            mounted() {
+
             },
         });
         let vProduct = new Vue({
@@ -450,7 +714,9 @@
         });
     </script>
 
+    <script>
+    </script>
     <script src="./js/FrontstageIndex2.js" ></script>
-    
+
 </body>
 </html>

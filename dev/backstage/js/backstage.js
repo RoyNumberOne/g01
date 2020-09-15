@@ -31,7 +31,9 @@ function getLoginInFo(){
 
     xhr.onload = function(){
       administrator = JSON.parse(xhr.responseText);
+      console.log(administrator)
       if (administrator.admin_id){
+        $("#avator").attr("src","."+administrator.admin_avator)
         $id("admin_no").innerText = "#" + administrator.admin_no;
         $id("admin_id").innerText = administrator.admin_id;
       } else  {
