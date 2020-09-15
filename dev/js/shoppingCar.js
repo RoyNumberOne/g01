@@ -122,34 +122,5 @@ $(".item_delimg").hover(function(){
     },function(){
     $(".item_delimg").attr("src", "./images/icons/icon_trash.svg");
 });
-//送出訂單
-    $("#ordercheckbtn").click(function () {
-        let order_logistics_deliver = $("#order_logistics_deliver").text();//運送方式
-        let order_logistics_fee = $("#order_logistics_fee").text();//運費
-        let order_cashflow = $("#order_cashflow").text();//付款方式
-        let order_total = $("#order_total").text();//總金額
-        let order_logistics_recipient = $("#order_logistics_recipient").text();//姓名
-        let order_logistics_phone = $("#order_logistics_phone").text();//電話：
-        let order_logistics_address = $("#order_logistics_address").text();//地址
-        $.post(
-          "./shoppingcartorder.php",
-          {
-            order_logistics_deliver: order_logistics_deliver,
-            order_logistics_fee: order_logistics_fee,
-            order_cashflow: order_cashflow,
-            order_total: order_total,
-            order_logistics_recipient: order_logistics_recipient,
-            order_logistics_phone: order_logistics_phone,
-            order_logistics_address: order_logistics_address,
-          },
-          function () {
-            //要導去另外正確頁面
-            window.location.reload(true);
-          }
-        );
-        alert("訂單已送出");
-        localStorage.removeItem("cartList");
-    })
-
 });
 
