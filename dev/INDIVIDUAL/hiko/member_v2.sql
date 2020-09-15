@@ -7,10 +7,20 @@ select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團
 	from tour_participate tp
 		join tour T on(tp.tour_participate_tour = T.tour_no)
         join mountain M on(T.tour_mountain = M.mountain_no)
-	WHERE tp.tour_participate_mem = 10009 --之後改變數
+	WHERE tp.tour_participate_mem = 10009 -- 之後改變數
 	and T.tour_progress = '已結束' 
-	and M.mountain_area = 'north'
+	and M.mountain_area = 'south'
 	order BY T.tour_activitystart DESC;
+
+-- 會員已完成的揪團，由出團時間近到遠排序  -- 南部(筆數)
+	select COUNT(*)
+		from tour_participate tp
+			join tour T on(tp.tour_participate_tour = T.tour_no)
+			join mountain M on(T.tour_mountain = M.mountain_no)
+		WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+		and T.tour_progress = '已結束' 
+		and M.mountain_area = 'south'
+		order BY T.tour_activitystart DESC;
 
 -- 會員已完成的揪團，由出團時間近到遠排序  -- 東部
 
