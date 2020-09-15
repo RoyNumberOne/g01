@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS member (											-- :::::會員:::::
 	`ban_forum_date` 		datetime		,								-- 會員討論區解除禁言日期
 	`ban_tour` 				Boolean			not null default'0',			-- 會員揪團區禁言
 	`ban_tour_date`			datetime		,								-- 會員揪團區禁言解禁日期
-	`mem_avator`			Varchar(200)	not null default'default',		-- 會員大頭貼位子
-	`mem_bg`				Varchar(200)	not null default'default',		-- 會員背景圖片位子
+	`mem_avator`			Varchar(200)	not null default './images/avator_image/default.jpg',		-- 會員大頭貼位子
+	`mem_bg`				Varchar(200)	not null default './images/memberbg_image/default.jpg',		-- 會員背景圖片位子
     `mem_badge1`			int				,								-- 徽章秀1
     `mem_badge2`			int				,								-- 徽章秀2
     `mem_badge3`			int				,								-- 徽章秀3
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS mountain (										-- :::::山:::::
     `mountain_latitude` 	varchar(30)		not null,						-- 山的緯度
     `mountain_longitude` 	varchar(30)		not null,						-- 山的經度
     `mountain_area` 		varchar(30)		not null,						-- 山的地區 (北/西/南/東)
-    `mountain_image` 		varchar(200)	not null default'default',		-- 山的圖片
+    `mountain_image` 		varchar(200)	not null,						-- 山的圖片
     foreign key (`degree_category`) references degree(`degree_category`) on delete cascade on update cascade
 ) ;
 alter table mountain auto_increment = 1;
@@ -142,9 +142,9 @@ CREATE TABLE IF NOT EXISTS product (											-- :::::商城商品:::::
     `product_name` 				Varchar(60)		not null,						-- 商品名稱
     `product_price` 			Int				not null,						-- 商品價格
     `product_description` 		Varchar(600)	not null,						-- 商品說明		
-    `product_image1` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖1
-    `product_image2` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖2
-    `product_image3` 			varchar(300)	default '../images/product_image/default.png',		-- 商品圖3
+    `product_image1` 			varchar(300)	not null,						-- 商品圖1
+    `product_image2` 			varchar(300)	not null,						-- 商品圖2
+    `product_image3` 			varchar(300)	not null,						-- 商品圖3
     `product_situation` 		Boolean			not null default'1',			-- 商品狀態  1上架/0下架
     foreign key (`degree_category`) references degree(`degree_category`) on delete cascade on update cascade
 );
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS tour (											-- :::::揪團:::::
     `tour_verify` 			int				not null default'0',			-- 未審核人數
     `tour_reject` 			int				not null default'0',			-- 否決審核人數
     `tour_title` 			varchar(100)	not null,						-- 揪團文標題
-    `tour_notice` 			varchar(3000)	,						-- 注意事項
+    `tour_notice` 			varchar(3000)	,								-- 注意事項
     `tour_innertext` 		varchar(9000)	not null,						-- 活動簡介
     `tour_situation` 		boolean			not null default'1',			-- 檢舉狀態	 	1:上架/0下架
     `tour_equip_1` 			boolean			default'0',						-- 裝備要求1y/0n
@@ -206,8 +206,8 @@ desc tour_keep;
 select * from tour_keep;
 
 CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團參加::::: 
-    `tour_participate_mem` 			int			 	not null,						-- "誰"參加
-    `tour_participate_tour` 		int				not null,						-- 參加"哪團"
+    `tour_participate_mem` 			int			 	not null,						-- "誰"追蹤
+    `tour_participate_tour` 		int				not null,						-- 收藏"哪團"
     `tour_participate_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
     foreign key (`tour_participate_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`tour_participate_tour`) references tour(`tour_no`) on delete cascade on update cascade,
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS orders (												-- :::::訂單:::::
     `order_no` 					int				primary key auto_increment,		-- 訂單編號
     `member_no` 				int				not null,						-- 會員編號
     `order_total` 				int				not null,						-- 原始總價
-    `order_logistics_fee` 		int				not null,						-- 運費		
+    `order_logistics_fee` 		int				not null default'60',			-- 運費		
     `order_discount` 			int				not null default'0',			-- 折數
     `order_build` 				datetime		not null default current_timestamp,		-- 建立時間
     `order_position` 			varchar(24)		not null default'待出貨',		-- 訂單狀態 待出貨/已出貨/待取貨/已取貨		

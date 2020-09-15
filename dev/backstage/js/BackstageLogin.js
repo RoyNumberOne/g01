@@ -11,7 +11,7 @@ function $id(id){
 
       xhr.onload = function(){
         if(xhr.status == 200){  
-          console.log(xhr.responseText);
+          // console.log(xhr.responseText);
           administrator = JSON.parse(xhr.responseText);
           if (administrator.admin_acc === undefined){
             $id('admin_psw').value = '';

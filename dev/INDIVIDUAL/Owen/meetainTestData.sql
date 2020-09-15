@@ -13,10 +13,11 @@ desc member;
 SELECT * FROM administrator;
 desc administrator;
 -- 顯示所有管理員
-select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator;
+select admin_no , admin_name , admin_id , admin_mail , admin_build from administrator ;
 -- 顯示未停權管理員
 select admin_no '管理員編號'  , admin_name '姓名' , admin_id '暱稱' , admin_mail '電子信箱' , admin_build '建立時間' from  administrator where admin_authority > 0;
-
+-- 顯示所有管理員連動前台會員帳密資訊
+select admin_no , admin_name , admin_id , admin_mail , admin_build , mem_avator from administrator join member on admin_acc = member.mem_acc;
 
 SELECT * FROM comment_post;
 select * from comment_post where comment_class = "揪團區" ;
@@ -58,6 +59,11 @@ desc degree;
 
 SELECT * FROM forum_keep;
 desc forum_keep;
+-- 個人追蹤的文章
+select fk.forum_keep_mem '會員編號', fk.forum_iskept_post '文章編號' , fp.forum_post_category '文章類別', fp.forum_post_title '文章標題' , forum_post_innertext '文章內文' from forum_keep fk 
+	join member m on fk.forum_keep_mem = m.mem_no
+    join forum_post fp on fk.forum_iskept_post = fp.forum_post_no
+    where fk.forum_keep_mem = 10012;
 
 SELECT * FROM forum_post;
 desc forum_post;
@@ -66,24 +72,26 @@ select f.forum_post_no '討論文編號' , count(*) '留言數量' from forum_po
 -- 最新討論文
 select forum_post_no '討論文編號' , forum_post_time '發文時間' from forum_post order by forum_post_no desc; 
 -- 討論區首頁貼文 -- 非公告 -- 熱門
-SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
+SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT( distinct c.comment_innertext) , min(c.comment_time) , COUNT( distinct fk.forum_keep_mem) 
 FROM forum_post f
 		LEFT OUTER JOIN member_realname r ON ( f.forum_post_poster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( f.forum_post_poster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON f.forum_post_poster = m.mem_no
-        JOIN comment_post c ON f.forum_post_no = c.forum_post_no
+        JOIN comment_post c ON (f.forum_post_no = c.forum_post_no  and c.comment_situation = 1)
+        LEFT OUTER JOIN forum_keep fk on fk .forum_iskept_post = f.forum_post_no
 WHERE f.forum_post_situation = 1 and forum_post_category not in ('公告')
-GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no
-ORDER BY COUNT(*) DESC , f.forum_post_time DESC;
+GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no 
+ORDER BY COUNT(*) DESC , f.forum_post_no DESC;
 -- 討論區首頁貼文 -- 非公告 -- 最新
-SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
+SELECT  f.forum_post_no , f.forum_post_poster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT( distinct c.comment_innertext) , min(c.comment_time) , COUNT( distinct fk.forum_keep_mem) 
 FROM forum_post f
 		LEFT OUTER JOIN member_realname r ON ( f.forum_post_poster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( f.forum_post_poster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON f.forum_post_poster = m.mem_no
-        JOIN comment_post c ON f.forum_post_no = c.forum_post_no
+        JOIN comment_post c ON (f.forum_post_no = c.forum_post_no  and c.comment_situation = 1)
+        LEFT OUTER JOIN forum_keep fk on fk .forum_iskept_post = f.forum_post_no
 WHERE f.forum_post_situation = 1 and forum_post_category not in ('公告')
-GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no
+GROUP BY f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no 
 ORDER BY f.forum_post_time DESC , f.forum_post_no DESC;
 
 -- 討論區首頁貼文 -- 公告 -- 最新3篇
@@ -188,43 +196,34 @@ desc product_keep;
 
 SELECT * FROM tour;
 desc tour;
+
+update tour set tour_image_1 = concat('./images/tour_image/',`tour_no`,'_1.jpg') where tour_no in (100001);
 -- 揪團區首頁貼文  -- 熱門
-SELECT  t.tour_no , t.tour_hoster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area , t.tour_mountain , mt.mountain_name , mt.mountain_image , t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
+SELECT  t.tour_no , t.tour_hoster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area , t.tour_mountain , mt.mountain_name , mt.mountain_image , mt.degree_category , t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
 FROM tour t
 		LEFT OUTER JOIN member_realname r ON ( t.tour_hoster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( t.tour_hoster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON t.tour_hoster = m.mem_no
-        JOIN comment_post c ON t.tour_no = c.tour_post_no
+        LEFT OUTER JOIN comment_post c ON t.tour_no = c.tour_post_no
         JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no
 WHERE t.tour_situation = 1 and tour_progress = '報名中'
-GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no
+GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no , c.tour_post_no
 ORDER BY COUNT(*) DESC , t.tour_build DESC;
 -- 揪團區首頁貼文 -- 最新
-SELECT  t.tour_no , t.tour_hoster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area , t.tour_mountain , mt.mountain_name ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
+SELECT  t.tour_no , t.tour_hoster, m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area , t.tour_mountain , mt.mountain_name , mt.mountain_image , mt.degree_category ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
 FROM tour t
 		LEFT OUTER JOIN member_realname r ON ( t.tour_hoster = r.mem_no and r.mem_realname_situation = '已審核已通過')
 		LEFT OUTER JOIN member_guide g ON ( t.tour_hoster = g.mem_no and g.mem_guide_situation = '已審核已通過')
         JOIN member m ON t.tour_hoster = m.mem_no
-        JOIN comment_post c ON t.tour_no = c.tour_post_no
+        LEFt OUTER JOIN comment_post c ON t.tour_no = c.tour_post_no
         JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no
 WHERE t.tour_situation = 1 and tour_progress = '報名中'
-GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no
+GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no , c.tour_post_no
 ORDER BY t.tour_build DESC , t.tour_no DESC;
 
 select * from member;
 select * from member_realname;
-SELECT 
-    m.mem_no ,r.mem_realname 
-FROM
-    member m
-        left outer JOIN
-    member_realname r ON (m.mem_no = r.mem_no );
-SELECT 	
-    m.mem_no , ifnull(r.mem_realname,2) 
-FROM
-    member m
-        left outer JOIN
-    member_realname r ON (m.mem_no = r.mem_no );
+SELECT m.mem_no ,r.mem_realname FROM member m left outer JOIN member_realname r ON (m.mem_no = r.mem_no );
 
 select tour_no '討論文編號' , tour_build '發文時間' from tour order by tour_no desc; 
 

@@ -2,7 +2,6 @@
     {
         "member_no": "10009",
         "order_total": "33440",
-        "order_logistics_fee": "0",
         "order_discount": "0",
         "order_logistics_deliver": "宅配",
         "order_logistics_recipient": "Sara",
@@ -13,7 +12,6 @@
     {
         "member_no": "10010",
         "order_total": "20610",
-        "order_logistics_fee": "0",
         "order_discount": "0",
         "order_logistics_deliver": "宅配",
         "order_logistics_recipient": "Amy",
@@ -24,7 +22,6 @@
     {
         "member_no": "10011",
         "order_total": "6130",
-        "order_logistics_fee": "0",
         "order_discount": "0",
         "order_logistics_deliver": "宅配",
         "order_logistics_recipient": "Handsome",
@@ -35,7 +32,6 @@
     {
         "member_no": "10011",
         "order_total": "20610",
-        "order_logistics_fee": "0",
         "order_discount": "10",
         "order_logistics_deliver": "宅配",
         "order_logistics_recipient": "Handsome",

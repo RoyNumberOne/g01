@@ -4,10 +4,11 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT forum_post_poster, forum_post_no, forum_post_category, forum_post_image, forum_post_time, forum_post_title, forum_post_innertext, (forum_post_situation = 1)
-                from forum_post
-                where forum_post_poster = 10008 -- 之後改變數
-                order BY forum_post_time DESC;
+    $sql= "SELECT fk.forum_keep_mem, fk.forum_iskept_post, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category 
+                from forum_keep fk 
+                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
+                WHERE fk.forum_keep_mem = 10008  -- 之後改變數
+                order BY fp.forum_post_time DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);
