@@ -39,9 +39,7 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box">
-                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
-                        </div>
+                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
                     <li><div id="mem_info_id"></div></li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
@@ -72,12 +70,10 @@
     </header>
     <main>
         <div class="top">
-            <div class="banner"></div>
+            <div class="banner"><img id="mem_bg" src=""></div>
             <div class="memProfile">
                 <div class="memProfile_AVA">
-                    <div class="memProfile_AVA_img">
-                        <img src="./images/member/memAvatar_test.jpg" id="img_ava">
-                    </div>
+                    <div class="memProfile_AVA_img"><img id="memProfile_img" src=""></div>
                     <div class="memProfile_AVA_change">
                         <label class="camera_i">
                             <input type="file" id="imgInp" accept="image/*" />
@@ -86,7 +82,7 @@
                 </div>
                 <div class="memProfile_DET">
                     <div class="memProfile_DET_name">
-                        <h2>Hiko Huang</h2>
+                        <h2 id="memProfile_name"></h2>
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="memProfile_DET_fol">
