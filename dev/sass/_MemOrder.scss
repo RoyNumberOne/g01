@@ -8,62 +8,21 @@
         text-align: center;
         letter-spacing: 10px;
     }
-    .memOrder_pc{
-        text-align: center;
-        // border: 1px solid blue;
-        margin: 50px auto;
-        .memOrder_form{
-            // border: 1px solid red;
-            background-color:#EAF1F4;
-            border-radius:10px;
-            display: inline-block;
-            width: 80%;
-            table{
-                border-collapse: collapse;
-                text-align: center;
-                width: 100%;
-                margin: 0 auto;
-                th{
-                    border-bottom: 1px solid black;
-                    color: #2C5E9E;
-                    padding: 25px 20px;
-                    font-size: 18px;
-                }
-                td{
-                    border-bottom: 1px solid black;
-                    padding: 25px 0px;
-                    font-size: 16px;
-                    a{
-                        text-decoration: underline;
-                        &:hover{
-                            font-size:18px;
-                        }
-                    }
-                }
-            }
-        }
-        .orderPages{
+    #MemOrder_info{
+        table{
+            border-style: double ;
+            border: double 1px #999;
+            border-collapse: separate; 
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            margin: 20px auto;
             text-align: center;
-        }
-    }
-}
-
-
-// RWD
-@media screen and (min-width: 576px) and (max-width: 767px){
-    #MemOrder{
-        .memOrder_pc{
-            .memOrder_form{
-                width: 100%;
-            }
-        }
-    }
-}
-@media screen and (max-width: 575px){
-    #MemOrder{
-        .memOrder_pc{
-            .memOrder_form{
-                width: 100%;
+            td{
+                a{
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
             }
         }
     }
