@@ -203,9 +203,11 @@ div.wrap{
                 .equip_block{
                     display: flex;
                     .equipment{
+                        width: 120px;
+                        height: 120px;
                         position: relative;
                         img{
-                            width: 100%;
+                            @include imgs;
                             cursor: pointer;
                         }
                         .show_hover{
@@ -228,7 +230,7 @@ div.wrap{
                             .p_title{
                                 // height: 100%;
                                 color: #fff;
-                                font-size: 40px;
+                                font-size: 30px;
                                 // display: flex;
                                 // justify-content: center;
                                 // align-items: center;
