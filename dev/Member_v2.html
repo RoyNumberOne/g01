@@ -222,7 +222,7 @@
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintNorthList.mountain_name}}({{FootprintNorthList.mountain_area}})</p>
+                                                <p>攀登路線：{{FootprintNorthList.mountain_name}}({{FootprintNorthList.mountain_area | Area}})</p>
                                             </div>
                                             <div class="TV_hardlv">
                                                 <p>山岳難度：{{FootprintNorthList.degree_category}}</p>
@@ -257,7 +257,7 @@
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintWestList.mountain_name}}({{FootprintWestList.mountain_area}})</p>
+                                                <p>攀登路線：{{FootprintWestList.mountain_name}}({{FootprintWestList.mountain_area | Area}})</p>
                                             </div>
                                             <div class="TV_hardlv">
                                                 <p>山岳難度：{{FootprintWestList.degree_category}}</p>
@@ -292,7 +292,7 @@
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintEastList.mountain_name}}({{FootprintEastList.mountain_area}})</p>
+                                                <p>攀登路線：{{FootprintEastList.mountain_name}}({{FootprintEastList.mountain_area | Area}})</p>
                                             </div>
                                             <div class="TV_hardlv">
                                                 <p>山岳難度：{{FootprintEastList.degree_category}}</p>
@@ -327,7 +327,7 @@
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintSouthList.mountain_name}}({{FootprintSouthList.mountain_area}})</p>
+                                                <p>攀登路線：{{FootprintSouthList.mountain_name}}({{FootprintSouthList.mountain_area | Area}})</p>
                                             </div>
                                             <div class="TV_hardlv">
                                                 <p>山岳難度：{{FootprintSouthList.degree_category}}</p>
@@ -480,7 +480,7 @@
                                 </div>
                                 <div class="text_prompt">
                                     <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="TP_area TP">{{TravelBySelfList.mountain_area}}</div>
+                                    <div class="TP_area TP">{{TravelBySelfList.mountain_area | Area}}</div>
                                     <div class="TP_title TP">難度</div>
                                     <div class="TP_level TP">{{TravelBySelfList.degree_category}}</div>
                                 </div>
@@ -512,7 +512,7 @@
                                     </div>
                                     <div class="text_prompt">
                                         <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                        <div class="TP_area TP">{{TravelByOtherList.mountain_area}}</div>
+                                        <div class="TP_area TP">{{TravelByOtherList.mountain_area | Area}}</div>
                                         <div class="TP_title TP">難度</div>
                                         <div class="TP_level TP">{{TravelByOtherList.degree_category}}</div>
                                     </div>
@@ -631,9 +631,11 @@
                             <div class="text_content TP">
                                 <p class="content_value">{{ForumPostList.forum_post_innertext}}</p>
                             </div>
-                            <div class="text_time TP">
-                                <p class="release_date">發文時間：</p>
-                                <p class="RD_value">{{ForumPostList.forum_post_time}}</p>
+                            <div class="text_posttime TP">
+                                <p class="release_date">發文時間：{{ForumPostList.forum_post_time}}</p>
+                            </div>
+                            <div class="text_reply TP">
+                                <p>最新回覆：{{ForumPostList.Min}}</p>
                             </div>
                         </div>
                     </div>
