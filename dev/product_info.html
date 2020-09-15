@@ -18,8 +18,7 @@
 <body>
     <!-- @@include('header.html') -->
 <div id="app">  
-    <header> 
-
+    <header>
         <div id="headerbox">
             <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
@@ -41,15 +40,13 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box">
-                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
-                        </div>
+                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
                     <li><div id="mem_info_id"></div></li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
-                    <li><a class="cart" href="./shoppingcart.html" style="position:relative;"><i class="fa fa-shopping-cart"></i></a></li>
-                    <div class="add_count_vue">{{cartCount}}</div>
+                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -72,7 +69,6 @@
             </button>
         </div>
     </header>
-
     <!-- <div class="wrap" id="app"> demo之後修改回來-->
     <div class="wrap">
         <a href="./product.html"><button class="btnA_LwLA"><p>回總覽</p><div class="btnArrowL"></div></button></a>        

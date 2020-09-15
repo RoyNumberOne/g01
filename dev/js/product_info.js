@@ -5,7 +5,7 @@ new Vue({
         currentIndex: 0,
         currentImageIndex: 0,
         productCount: 1,
-        cartList: {},
+        cartList: [{}],
         productNo: null,
     },
     // created(){
