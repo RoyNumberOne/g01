@@ -43,7 +43,8 @@ try	{
 			echo "連線成功<br>";
             // ::::::::::15個成就::::::::::
             for($a=0 ; $a<15 ; $a++){
-            $sql = "INSERT INTO achievement (achievement_category,achievement_name,achievement_require) value  ('".$data[$a]['achievement_category']."','".$data[$a]['achievement_name']."','".$data[$a]['achievement_require']."');";
+                $j=$a+1;
+            $sql = "INSERT INTO achievement (achievement_category,achievement_name,achievement_require,achievement_image) value  ('".$data[$a]['achievement_category']."','".$data[$a]['achievement_name']."','".$data[$a]['achievement_require']."',concat('./images/badge_image/$j.png'));";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
             }
