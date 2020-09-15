@@ -5,12 +5,10 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-    $sql = "SELECT c.*, m.* FROM comment_post c join member m on c.comment_poster = m.mem_no where tour_post_no = :tour_no";
+    $sql = "SELECT * FROM forum_post where forum_post_category = '登山知識'";
 
-    $pdoStatement = $pdo->prepare($sql);
-    // $pdoStatement = $pdo->query($sql);
-    $pdoStatement->bindValue(":tour_no", 100001);
-    $pdoStatement->execute();
+    // $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     echo(json_encode($result));
     

@@ -4,13 +4,14 @@ try{
     
     require_once('./connectMeetain.php');
     
-    $sql= "SELECT fk.forum_keep_mem, fk.forum_iskept_post, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category, c.comment_poster, min(c.comment_time) Min, m.mem_id
-                from forum_keep fk 
-                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                    join comment_post c on(fp.forum_post_no = c.forum_post_no and c.comment_situation = 1)
-                    join member m on(c.comment_poster = m.mem_no)
-                WHERE fk.forum_keep_mem = 10008  -- 之後改變數
-                order BY fp.forum_post_time DESC;
+    $sql= "	SELECT Count(*) Count
+                    from tour_participate tp
+                        join tour T on(tp.tour_participate_tour = T.tour_no)
+                        join mountain M on(T.tour_mountain = M.mountain_no)
+                    WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+                    and T.tour_progress = '已結束' 
+                    and M.mountain_area = 'south'
+                    order BY T.tour_activitystart DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);

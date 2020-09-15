@@ -1,23 +1,23 @@
-// 會員參加的揪團，由出團時間近到遠排序
+// 會員已完成的揪團，由出團時間近到遠排序
 new Vue({
-    el: "#TravelByOther", //html的位置 id
+    el: "#FootprintSouth", //html的位置 id
     data: {
-        TravelByOtherList: [],  //BBB
-        TravelByOtherIndex: [],  //CCC
+        FootprintSouthList: [],  //BBB
+        FootprintSouthIndex: [],  //CCC
     },
 
     mounted(){
-        axios.get('./phpForConnect/memTravelByOther.php') //根據哪個php
-        // axios.get(`./phpForConnect/memTravelByOther.php?test=${test}`)
+        axios.get('./phpForConnect/memFootprintSouth.php') //根據哪個php
+        // axios.get(`./phpForConnect/memFootprintSouth.php?test=${test}`)
 
         .then((res) => {
-            this.TravelByOtherList = res.data; //this.BBB = res.data;
+            this.FootprintSouthList = res.data; //this.BBB = res.data;
 
             console.log(res.data); //測試是否成功
 
             // console.log(this.meetList);
-            for(let i = 0; i< this.TravelByOtherList.length; i++){  //動態生成內容，依據json有幾筆
-                this.TravelByOtherIndex.push(i)
+            for(let i = 0; i< this.FootprintSouthList.length; i++){  //動態生成內容，依據json有幾筆
+                this.FootprintSouthIndex.push(i)
             }
             // for(let i = 0; i< this.BBB.length; i++){  
             //     this.CCC.push(i)

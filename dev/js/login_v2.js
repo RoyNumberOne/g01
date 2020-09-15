@@ -29,32 +29,6 @@ xhr.onload = function(){
 
 }
 
-// 註冊抓資料
-// function checkId(){  
-    
-//     var xhr = new XMLHttpRequest();
-
-//     xhr.onreadystatechange = function(){
-//         if(xhr.readyState == 4){
-//             if(xhr.status == 200){
-//                 alert(xhr.responseText);
-//             }else{
-//                 alert(xhr.status, xhr.responseText);
-//             }
-//         }
-//     } 
-//     //設定好所要連結的程式
-//     let url = "login_v2_Signup.php?mem_acc_app=" + document.getElementById("mem_acc_app").value;
-//     xhr.open("get", url, true);
-
-//     xhr.send(null);
-// }
-
-
-// window.addEventListener("load", function(){
-//     document.getElementById("btnSignUp").addEventListener("click", checkId, false);
-// });
-
 // header抓會員資料
 function getLoginInFo(){
     let xhr = new XMLHttpRequest();
@@ -62,10 +36,12 @@ function getLoginInFo(){
     xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
         if (member.mem_id){
-            $id("mem_info_id").innerText = member.mem_name;
+            $id("mem_info_id").innerText = member.mem_id;
+            $id("mem_avatar_img").src = member.mem_avator;
             $('#mem_avatar_box').css('visibility','visible');
             $('#mem_info_id').css('visibility','visible');
             $('#Logout_btn').css('visibility','visible');
+
         }   
     }
 

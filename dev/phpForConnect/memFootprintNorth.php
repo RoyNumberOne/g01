@@ -10,7 +10,7 @@ try{
                     join mountain M on(T.tour_mountain = M.mountain_no)
                 WHERE tp.tour_participate_mem = 10009  -- 之後改變數  
                 and T.tour_progress = '已結束' 
-                and M.mountain_area = 'north'  -- 南部
+                and M.mountain_area = 'north'  -- 北部
                 order BY T.tour_activitystart DESC;
                 ";
 
