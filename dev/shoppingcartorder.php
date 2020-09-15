@@ -1,8 +1,11 @@
 <?php
-
+session_start();
+if (isset($_SESSION["mem_acc"]) === true){
+    //送出登入者的姓名資料
+    $member_no = $_SESSION["mem_no"];
 try {
     require_once ('connectMeetain.php');
-    $member_no = 10001;
+    // $member_no = 10001;
     $order_logistics_deliver = $_POST['order_logistics_deliver'];
     $order_logistics_fee = $_POST['order_logistics_fee'];
     $order_cashflow = $_POST['order_cashflow'];
@@ -15,8 +18,6 @@ try {
 	$sql = "INSERT INTO orders (member_no,order_logistics_deliver, order_logistics_fee , order_cashflow , order_total , order_logistics_recipient , order_logistics_phone , order_logistics_address )
     VALUES ('$member_no','$order_logistics_deliver','$order_logistics_fee','$order_cashflow','$order_total','$order_logistics_recipient','$order_logistics_phone','$order_logistics_address');";
     $pdoStatement = $pdo->query($sql);
-   
-
         foreach ($_REQUEST["arr"] as $key => $value) {
                 $product_number = $value['numbers'];
                 $product_no = $value['product'];
@@ -46,5 +47,9 @@ catch(PDOException $e)
     {
     	// echo $sql . "<br>" . $e->getMessage();
     }
+}  
+else    {
+    echo "{}";
+}
 ?>
 

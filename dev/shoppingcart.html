@@ -161,7 +161,7 @@
                             <label for="">優惠券：<input id="sale" type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="優惠券代碼"></label><br>
                             <p style="color: rgb(46, 49, 54); font-weight: 400;padding-left:10px">{{sale}}</p>
                             <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}元</div>
-                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total*discount)+delivery_price}}元</span></div>
+                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{parseInt(total*discount)+delivery_price}}元</span></div>
                         </div>
                     </form>
                 </div>
@@ -203,8 +203,8 @@
                         </tr>
                         <tr>
                             <th>總金額為：</th>
-                            <td v-if="discountsale!=9453" id="order_total" name="order_total">{{total+delivery_price}}</td>
-                            <td v-else id="order_total" name="order_total">{{(total+delivery_price)*discount}}</td>
+                            <td v-if="discountsale!=9453" id="order_total" name="order_total">{{parseInt(total+delivery_price)}}</td>
+                            <td v-else id="order_total" name="order_total">{{parseInt((total*discount)+delivery_price)}}</td>
                         </tr>
                         <tr>
                             <th>姓&emsp;&emsp;名：</th>
@@ -409,9 +409,10 @@
             //     totalcount += this.productList[i].price*this.productList[i].count;
             // }
             for (const key in this.productList) {
-                totalcount += Math.round((this.productList[key].product.product_price) * (this.productList[key].count));
+                totalcount += (this.productList[key].product.product_price * (this.productList[key].count));
             }
-            return totalcount;
+            // totalcount = Math.round(totalcount);
+            return parseInt(totalcount);
         },
     },
     watch:{
