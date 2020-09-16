@@ -299,7 +299,7 @@ $(document).on('keydown',function(e) {
                     console.log('oh no');
                 },
                 success: function (S2) {
-                    // console.log(S2)
+                    console.log(S2)
                     S2data = S2 ;
                 }
             });

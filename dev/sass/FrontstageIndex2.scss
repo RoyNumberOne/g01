@@ -557,6 +557,11 @@ div#section2 {
                             border-color: $mt_pink transparent transparent transparent;
                         }
                     }
+                    & div.member_styleA {
+                        & * {
+                            text-align: left;
+                        }
+                    }
                     &:hover {
                         background-color: rgba($mt_fontlight,0.05);
                     }
@@ -739,7 +744,9 @@ div#section3 {
                 & .member_styleA {
                     display: inline-block;
                     vertical-align: middle !important;
-                    // float: left;
+                    & * {
+                        text-align: left;
+                    }
                 }
                 & .forumtitle {
                     width: calc(100% - 211px);
@@ -1042,7 +1049,7 @@ div#section4 {
 
 // debug
 
-    div#section1,div#section4,div#section2 {
-        display: none;
-    }
+    // div#section1,div#section4,div#section2 {
+    //     display: none;
+    // }
     
