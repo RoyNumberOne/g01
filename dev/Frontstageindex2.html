@@ -184,7 +184,7 @@
                         </div>
                         <div class="weatherweek">
                             <div class="next next1">
-                                <p class="date" id="date1">Fri</p>
+                                <p class="date" id="date1"></p>
                                 <p class="TopT" id="Ttop1"></p>
                                 <p class="ButtonT" id="Tbutton1"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -192,7 +192,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next2">
-                                <p class="date" id="date2">Sat</p>
+                                <p class="date" id="date2"></p>
                                 <p class="TopT" id="Ttop2"></p>
                                 <p class="ButtonT" id="Tbutton2"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -200,7 +200,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next3">
-                                <p class="date" id="date3">Sun</p>
+                                <p class="date" id="date3"></p>
                                 <p class="TopT" id="Ttop3"></p>
                                 <p class="ButtonT" id="Tbutton3"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -213,7 +213,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next4">
-                                <p class="date" id="date4">Mon</p>
+                                <p class="date" id="date4"></p>
                                 <p class="TopT" id="Ttop4"></p>
                                 <p class="ButtonT" id="Tbutton4"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -226,7 +226,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next5">
-                                <p class="date" id="date5">Tue</p>
+                                <p class="date" id="date5"></p>
                                 <p class="TopT" id="Ttop5"></p>
                                 <p class="ButtonT" id="Tbutton5"></p>
                                 <!-- <svg viewbox="-50 -50 100 100">
@@ -234,7 +234,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next6">
-                                <p class="date" id="date6">Wed</p>
+                                <p class="date" id="date6"></p>
                                 <p class="TopT" id="Ttop6"></p>
                                 <p class="ButtonT" id="Tbutton6"></p>
                                 <!-- <svg viewbox="-63 -40 100 100">
@@ -246,7 +246,7 @@
                                 </svg> -->
                             </div>
                             <div class="next next7">
-                                <p class="date" id="date7">Thr</p>
+                                <p class="date" id="date7"></p>
                                 <p class="TopT" id="Ttop7"></p>
                                 <p class="ButtonT" id="Tbutton7"></p>
                                 <!-- <svg viewbox="-63 -40 100 100">
@@ -279,10 +279,10 @@
                               塔曼山
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">塔曼山</a>
-                              <a class="dropdown-item" href="#">七星山</a>
-                              <a class="dropdown-item" href="#">雪白山</a>
-                              <a class="dropdown-item" href="#">大霸尖山</a>
+                              <a class="dropdown-item" >塔曼山</a>
+                              <a class="dropdown-item" >七星山</a>
+                              <a class="dropdown-item" >雪白山</a>
+                              <a class="dropdown-item" >大霸尖山</a>
                             </div>
                         </div>
                           
@@ -305,7 +305,7 @@
 
                                 <div class="member_styleA row">
                                     <div class="memberImg">
-                                        <img src="./images/meet/member/Chris.jpg" alt="">
+                                        <img :src="t1.mem_avator" alt="">
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
@@ -315,13 +315,13 @@
                                         <div class="memberId">{{t1.mem_id}}</div>
                                         <div class="memberBadge">
                                             <span class="memberBadgeIcon">
-                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                                <img :src="t1.badge1" alt="">
                                             </span>
                                             <span class="memberBadgeIcon">
-                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                                <img :src="t1.badge2" alt="">
                                             </span>
                                             <span class="memberBadgeIcon">
-                                                <img src="./images/member/Ach_list_03.png" alt="">
+                                                <img :src="t1.badge3" alt="">
                                             </span>
                                         </div>
                                     </div>
@@ -360,54 +360,69 @@
 
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    <div class="innerboxleft" v-for="fh in ForumHot.slice(0, 1)">
+                    <div class="innerboxleft">
                         <div class="bigpic">
-                            <img :src="fh.forum_post_image" alt="">
-                            <div><p>{{fh.forum_post_category}}</p></div>
+                            <img src="" alt="">
+                            <div><p></p></div>
                         </div>
                         <div class="theinfor">
                             <div class="member_styleA row">
                                 <div class="memberImg">
-                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
                                         <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                         <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
-                                    <div class="memberId">{{fh.mem_id}}</div>
+                                    <div class="memberId"></div>
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="forumtitle"><h3>{{fh.forum_post_title}}</h3><span>{{fh.forum_post_time}}</span></div>
+                            <div class="forumtitle"><h3></h3><span></span></div>
                         </div>
-                        <div class="forumtext"><p>{{fh.forum_post_innertext}}</p></div>
+                        <div class="forumtext"><p></p></div>
                         <div class="sub">
                             <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                            <div><p>{{fh.收藏人數}}</p></div>
+                            <div><p></p></div>
                             <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                            <div><p>{{fh.回覆人數}}</p><span>最後回覆於 : {{fh.最新回覆時間}}</span></div>
+                            <div><p></p><span>最後回覆於 : </span></div>
                         </div>
                     </div>
                     <div class="innerboxright">
-                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" v-on:click="toggleActive"  ref="smallbox">
+                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" ref="smallbox">
                             <div class="smallpic">
                                 <img :src="fh.forum_post_image" alt="">
-                                <div><p>{{fh.forum_post_category}}</p></div>
+                                <div><p >{{fh.forum_post_category}}</p></div>
                             </div>
-                            <div class="graymask">
-                                <h3>{{fh.forum_post_title}}</h3>
+                            <div class="graymask" v-on:click="toggleActive"  >
+                                <h3 v-on:click="toggleActiveP">{{fh.forum_post_title}}</h3>
                             </div>
+                            <input class="TEMPforum_post_title" type="hidden" :value="fh.forum_post_title">
+                            <input class="TEMPforum_post_category" type="hidden" :value="fh.forum_post_category">
+                            <input class="TEMPforum_post_innertext" type="hidden" :value="fh.forum_post_innertext">
+                            <input class="TEMPforum_post_image" type="hidden" :value="fh.forum_post_image">
+                            <input class="TEMPforum_post_time" type="hidden" :value="fh.forum_post_time">
+                            <input class="TEMPmem_avator" type="hidden" :value="fh.mem_avator">
+                            <input class="TEMPmem_id" type="hidden" :value="fh.mem_id">
+                            <input class="TEMPmem_badge1" type="hidden" :value="fh.badge1">
+                            <input class="TEMPmem_badge2" type="hidden" :value="fh.badge2">
+                            <input class="TEMPmem_badge3" type="hidden" :value="fh.badge3">
+                            <input class="TEMPguide_no" type="hidden" :value="fh.guide_no">
+                            <input class="TEMPmem_realname" type="hidden" :value="fh.mem_realname">
+                            <input class="TEMPforum_reply" type="hidden" :value="fh.回覆人數">
+                            <input class="TEMPforum_keep" type="hidden" :value="fh.收藏人數">
+                            <input class="TEMPforum_replytime" type="hidden" :value="fh.最新回覆時間">
                         </div>
                     </div>
                 </div>
@@ -418,54 +433,69 @@
             
             <div class="slide" data-anchor="slide2">
                 <div id="sec3-2box">
-                    <div class="innerboxleft" v-for="fn in ForumNew.slice(0, 1)">
+                    <div class="innerboxleft">
                         <div class="bigpic">
-                            <img :src="fn.forum_post_image" alt="">
-                            <div><p>{{fn.forum_post_category}}</p></div>
+                            <img src="" alt="">
+                            <div><p></p></div>
                         </div>
                         <div class="theinfor">
                             <div class="member_styleA row">
                                 <div class="memberImg">
-                                    <img src="./images/meet/member/Chris.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
                                         <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                         <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
-                                    <div class="memberId">{{fn.mem_id}}</div>
+                                    <div class="memberId"></div>
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img src="" alt="">
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="forumtitle"><h3>{{fn.forum_post_title}}</h3><span>{{fn.forum_post_time}}</span></div>
+                            <div class="forumtitle"><h3></h3><span></span></div>
                         </div>
-                        <div class="forumtext"><p>{{fn.forum_post_innertext}}</p></div>
+                        <div class="forumtext"><p></p></div>
                         <div class="sub">
                             <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                            <div><p>{{fn.收藏人數}}</p></div>
+                            <div><p></p></div>
                             <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                            <div><p>{{fn.回覆人數}}</p><span>最後回覆於 : {{fn.最新回覆時間}}</span></div>
+                            <div><p></p><span>最後回覆於 : </span></div>
                         </div>
                     </div>
                     <div class="innerboxright">
-                        <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': isActive}" v-on:click="toggleActive"  ref="fnno">
+                        <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': index === 0 }" ref="smallbox">
                             <div class="smallpic">
                                 <img :src="fn.forum_post_image" alt="">
-                                <div><p>{{fn.forum_post_category}}</p></div>
+                                <div><p >{{fn.forum_post_category}}</p></div>
                             </div>
-                            <div class="graymask">
-                                <h3>{{fn.forum_post_title}}</h3>
+                            <div class="graymask" v-on:click="toggleActive"  >
+                                <h3 v-on:click="toggleActiveP">{{fn.forum_post_title}}</h3>
                             </div>
+                            <input class="TEMPforum_post_title" type="hidden" :value="fn.forum_post_title">
+                            <input class="TEMPforum_post_category" type="hidden" :value="fn.forum_post_category">
+                            <input class="TEMPforum_post_innertext" type="hidden" :value="fn.forum_post_innertext">
+                            <input class="TEMPforum_post_image" type="hidden" :value="fn.forum_post_image">
+                            <input class="TEMPforum_post_time" type="hidden" :value="fn.forum_post_time">
+                            <input class="TEMPmem_avator" type="hidden" :value="fn.mem_avator">
+                            <input class="TEMPmem_id" type="hidden" :value="fn.mem_id">
+                            <input class="TEMPmem_badge1" type="hidden" :value="fn.badge1">
+                            <input class="TEMPmem_badge2" type="hidden" :value="fn.badge2">
+                            <input class="TEMPmem_badge3" type="hidden" :value="fn.badge3">
+                            <input class="TEMPguide_no" type="hidden" :value="fn.guide_no">
+                            <input class="TEMPmem_realname" type="hidden" :value="fn.mem_realname">
+                            <input class="TEMPforum_reply" type="hidden" :value="fn.回覆人數">
+                            <input class="TEMPforum_keep" type="hidden" :value="fn.收藏人數">
+                            <input class="TEMPforum_replytime" type="hidden" :value="fn.最新回覆時間">
                         </div>
                     </div>
                 </div>
@@ -484,19 +514,31 @@
                         </div> -->
                         <div class="circlebig"></div>
                         <div class="propicbig"><img :src="p.product_image1" alt=""></div>
-                        <div class="btngo"><button class="btnA_XLwRA"><p>詳細資訊</p><div class="btnArrowXL"></div></button></div>
+                        <div class="btngo" @click="gotoPRODUCT"><button class="btnA_XLwRA"><p>詳細資訊</p><div class="btnArrowXL"></div></button></div>
                     </div>
                     <div class="prodesc">
                         <div class="protitle"><h3>{{p.product_name}}</h3></div>
                         <div class="prosubtitle"><p>{{p.product_description}}</p></div>
                         <div class="proprice"><p>${{p.product_price}}</p></div>
                     </div>
+                    <input class="proNO" type="hidden" :value="p.product_no">
+                    <input class="proNAME" type="hidden" :value="p.product_name">
+                    <input class="proIMG" type="hidden" :value="p.product_image1">
+                    <input class="proPRICE" type="hidden" :value="p.product_price">
+                    <input class="proDESC" type="hidden" :value="p.product_description">
+                    <input class="proSOLD" type="hidden" :value="p.銷售數量">
                 </div>
                 <div class="smalls">
                     <div class="boxsmall" v-for="(p,index) in Product.slice(1, 4)">
                         <div class="circlesmall"></div>
-                        <div class="propicsmall"><img :src="p.product_image1" alt=""></div>
-                        <div class="protitle"><p>{{p.product_name}}</p></div>
+                        <div class="propicsmall"><img :src="p.product_image1" @click="ExchangePRO" alt=""></div>
+                        <div class="protitle"><p @click="ExchangePRO" >{{p.product_name}}</p></div>
+                        <input class="proNO" type="hidden" :value="p.product_no">
+                        <input class="proNAME" type="hidden" :value="p.product_name">
+                        <input class="proIMG" type="hidden" :value="p.product_image1">
+                        <input class="proPRICE" type="hidden" :value="p.product_price">
+                        <input class="proDESC" type="hidden" :value="p.product_description">
+                        <input class="proSOLD" type="hidden" :value="p.銷售數量">
                     </div>
                 </div>
             </div>
@@ -583,9 +625,6 @@
     </script>
 
     <script>
-        // Vue.filter('area', function(value) {
-        //     return '北部啦幹';
-        // });
 
         let vTour = new Vue({
             el: "#sec2box",
@@ -667,24 +706,60 @@
             },
             methods: {
             toggleActive: function(e) {
-                // alert(e.target.parentNode.nextSibling.nodeName)
-                console.log($(e.target.parentNode).siblings())
-                // this.isActive = !this.isActive;
-                // event.target.parentElement.classList.remove('-active')
-                // this.$el.querySelector(".smallbox").classList.remove('-active')
-                // this.$refs.smallbox.classList.remove('-active')
-                // console.log(this)
-                // e.target.parentNode.classList.add('-active')
-            }},
-            mounted() {
-
+                $(e.target.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            toggleActiveP: function(e) {
+                $(e.target.parentNode.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            renderForumData: function(){
+                //抓值
+                var TEMPforum_post_image = $("#sec3-1box .innerboxright .-active .TEMPforum_post_image").val();
+                var TEMPmem_avator = $("#sec3-1box .innerboxright .-active .TEMPmem_avator").val();
+                var TEMPforum_post_innertext = $("#sec3-1box .innerboxright .-active .TEMPforum_post_innertext").val();
+                var TEMPforum_post_category = $("#sec3-1box .innerboxright .-active .TEMPforum_post_category").val();
+                var TEMPforum_post_title = $("#sec3-1box .innerboxright .-active .TEMPforum_post_title").val();
+                var TEMPforum_post_time = $("#sec3-1box .innerboxright .-active .TEMPforum_post_time").val();
+                var TEMPguide_no = $("#sec3-1box .innerboxright .-active .TEMPguide_no").val();
+                var TEMPmem_realname = $("#sec3-1box .innerboxright .-active .TEMPmem_realname").val();
+                var TEMPmem_id = $("#sec3-1box .innerboxright .-active .TEMPmem_id").val();
+                var TEMPmem_badge1 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge1").val();
+                var TEMPmem_badge2 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge2").val();
+                var TEMPmem_badge3 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge3").val();
+                var TEMPforum_reply = $("#sec3-1box .innerboxright .-active .TEMPforum_reply").val();
+                var TEMPforum_keep = $("#sec3-1box .innerboxright .-active .TEMPforum_keep").val();
+                var TEMPforum_replytime = $("#sec3-1box .innerboxright .-active .TEMPforum_replytime").val();
+                //渲染
+                $("#sec3-1box .innerboxleft .bigpic img").attr('src',TEMPforum_post_image)
+                $("#sec3-1box .innerboxleft .bigpic div p").text(TEMPforum_post_category)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberImg img").attr('src',TEMPmem_avator)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberId").text(TEMPmem_id)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(0).find("img").attr('src',TEMPmem_badge1)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(1).find("img").attr('src',TEMPmem_badge2)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(2).find("img").attr('src',TEMPmem_badge3)
+                $("#sec3-1box .innerboxleft .theinfor .forumtitle h3").text(TEMPforum_post_title)
+                $("#sec3-1box .innerboxleft .theinfor .forumtitle span").text(TEMPforum_post_time)
+                $("#sec3-1box .innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                // console.log('**below**memINFO**')
+                // console.log(TEMPguide_no)
+                // console.log(TEMPmem_realname)
+                // console.log('**above**memINFO**')
+                $("#sec3-1box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
+                $("#sec3-1box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
+                $("#sec3-1box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
+            },
+            },
+            updated() {
+                this.renderForumData();
             },
         });
         let vForumNew = new Vue({
             el: "#sec3-2box",
             data: {
                 ForumNew: [],
-                isActive: false
             },
             created() {
                 axios.get('./phpForConnect/frontstageindexForumNew.php').then(res => {
@@ -692,11 +767,55 @@
                 })
             },
             methods: {
-            toggleActive: function() {
-                this.isActive = !this.isActive;
-            }},
-            mounted() {
-
+            toggleActive: function(e) {
+                $(e.target.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            toggleActiveP: function(e) {
+                $(e.target.parentNode.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            renderForumData: function(){
+                //抓值
+                var TEMPforum_post_image = $("#sec3-2box .innerboxright .-active .TEMPforum_post_image").val();
+                var TEMPmem_avator = $("#sec3-2box .innerboxright .-active .TEMPmem_avator").val();
+                var TEMPforum_post_innertext = $("#sec3-2box .innerboxright .-active .TEMPforum_post_innertext").val();
+                var TEMPforum_post_category = $("#sec3-2box .innerboxright .-active .TEMPforum_post_category").val();
+                var TEMPforum_post_title = $("#sec3-2box .innerboxright .-active .TEMPforum_post_title").val();
+                var TEMPforum_post_time = $("#sec3-2box .innerboxright .-active .TEMPforum_post_time").val();
+                var TEMPguide_no = $("#sec3-2box .innerboxright .-active .TEMPguide_no").val();
+                var TEMPmem_realname = $("#sec3-2box .innerboxright .-active .TEMPmem_realname").val();
+                var TEMPmem_id = $("#sec3-2box .innerboxright .-active .TEMPmem_id").val();
+                var TEMPmem_badge1 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge1").val();
+                var TEMPmem_badge2 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge2").val();
+                var TEMPmem_badge3 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge3").val();
+                var TEMPforum_reply = $("#sec3-2box .innerboxright .-active .TEMPforum_reply").val();
+                var TEMPforum_keep = $("#sec3-2box .innerboxright .-active .TEMPforum_keep").val();
+                var TEMPforum_replytime = $("#sec3-2box .innerboxright .-active .TEMPforum_replytime").val();
+                //渲染
+                $("#sec3-2box .innerboxleft .bigpic img").attr('src',TEMPforum_post_image)
+                $("#sec3-2box .innerboxleft .bigpic div p").text(TEMPforum_post_category)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberImg img").attr('src',TEMPmem_avator)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberId").text(TEMPmem_id)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(0).find("img").attr('src',TEMPmem_badge1)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(1).find("img").attr('src',TEMPmem_badge2)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(2).find("img").attr('src',TEMPmem_badge3)
+                $("#sec3-2box .innerboxleft .theinfor .forumtitle h3").text(TEMPforum_post_title)
+                $("#sec3-2box .innerboxleft .theinfor .forumtitle span").text(TEMPforum_post_time)
+                $("#sec3-2box .innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                // console.log('**below**memINFO**')
+                // console.log(TEMPguide_no)
+                // console.log(TEMPmem_realname)
+                // console.log('**above**memINFO**')
+                $("#sec3-2box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
+                $("#sec3-2box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
+                $("#sec3-2box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
+            },
+            },
+            updated() {
+                this.renderForumData();
             },
         });
         let vProduct = new Vue({
@@ -710,6 +829,43 @@
                 console.log('success'); 
                 console.log(this.Product);
                 })
+            },
+            methods:{
+                ExchangePRO: function(e){
+                    // 先暫存點擊的資料
+                    var tempNO = $(e.target.parentNode.parentNode).find(".proNO").val();
+                    var tempNAME = $(e.target.parentNode.parentNode).find(".proNAME").val();
+                    var tempIMG = $(e.target.parentNode.parentNode).find(".proIMG").val();
+                    var tempPRICE = $(e.target.parentNode.parentNode).find(".proPRICE").val();
+                    var tempDESC = $(e.target.parentNode.parentNode).find(".proDESC").val();
+                    var tempSOLD = $(e.target.parentNode.parentNode).find(".proSOLD").val();
+                    // 轉換資料,小圖的資料便原大圖資料
+                    $(e.target.parentNode.parentNode).find(".proNO").val($(".boxbig input.proNO").val());
+                    $(e.target.parentNode.parentNode).find(".proNAME").val($(".boxbig input.proNAME").val());
+                    $(e.target.parentNode.parentNode).find(".proIMG").val($(".boxbig input.proIMG").val());
+                    $(e.target.parentNode.parentNode).find(".proPRICE").val($(".boxbig input.proPRICE").val());
+                    $(e.target.parentNode.parentNode).find(".proDESC").val($(".boxbig input.proDESC").val());
+                    $(e.target.parentNode.parentNode).find(".proSOLD").val($(".boxbig input.proSOLD").val());
+                    // 小圖變換成原大圖資料
+                    $(e.target.parentNode.parentNode).find(".propicsmall").find("img").attr('src',$(e.target.parentNode.parentNode).find(".proIMG").val());
+                    $(e.target.parentNode.parentNode).find(".protitle").find("p").text($(e.target.parentNode.parentNode).find(".proNAME").val());
+                    // // 大圖去存取原小圖的temp
+                    $(".boxbig input.proNO").val(tempNO)
+                    $(".boxbig input.proNAME").val(tempNAME)
+                    $(".boxbig input.proIMG").val(tempIMG)
+                    $(".boxbig input.proPRICE").val(tempPRICE)
+                    $(".boxbig input.proDESC").val(tempDESC)
+                    $(".boxbig input.proSoLD").val(tempSOLD)
+                    // 大圖變換成員小圖資料
+                    $(".boxbig .picbig .propicbig img").attr('src',$(".boxbig input.proIMG").val())
+                    $(".boxbig .prodesc .protitle h3").text($(".boxbig input.proNAME").val())
+                    $(".boxbig .prodesc .prosubtitle p").text($(".boxbig input.proDESC").val())
+                    $(".boxbig .prodesc .proprice p").text('$'+$(".boxbig input.proPRICE").val())
+                
+                },
+                gotoPRODUCT: function(){
+                    location.href=`./product_info.html?productNo=${$(".boxbig input.proNO").val()}`
+                },
             },
         });
     </script>

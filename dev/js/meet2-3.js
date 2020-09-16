@@ -4,6 +4,10 @@ new Vue({
         // hosterData: [],
         tourData: [],
         comments: [],
+        tourParticipates: [],
+        articals: [],
+        passedParticipant: [],
+        notPassedParticipant: [],
         // reportNo: null,
     },
     mounted() {
@@ -16,12 +20,54 @@ new Vue({
             this.comments = res.data;
             console.log('success comments');
             console.log(this.comments);
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_participate.php').then(res => {
+            this.tourParticipates = res.data;
+            console.log('success tourParticipats');
+            console.log(this.tourParticipates);
+        }),
+        axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
+            this.articals = res.data;
+            console.log('success articals');
+            console.log(this.articals);
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_participant_passed.php').then(res => {
+            this.passedParticipant = res.data;
+            console.log('success tour_participant_passed');
+            console.log(this.passedParticipant);
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_participant_notpassed.php').then(res => {
+            this.notPassedParticipant = res.data;
+            console.log('success tour_participant_notpassed');
+            console.log(this.notPassedParticipant);
         })
         // axios.get('./phpForConnect/meet2-3_member.php').then(res => {
         //     this.hosterData = res.data;
         //     console.log('success hosterData');
         //     console.log(this.hosterData);
         // })
+    },
+    filters: {
+        // var mountain_area = this.Tour1.mountain_area;
+        Area: function(value) {
+            switch(value){
+                case('north'):
+                    return '北部';
+                break;
+                case('west'):
+                    return '中部';
+                break;
+                case('south'):
+                    return '南部';
+                break;
+                case('east'):
+                    return '東部';
+                break;
+                default:
+                    return '沒成功哦';
+                break;
+            }
+        },
     },
     computed: {
         currentTour(){
@@ -32,6 +78,9 @@ new Vue({
         // openReportModal(commentId) {
         //     this.reportNo = commentId;
         //     // 打開彈窗
+        // }
+        // days(){
+        //     this.currentTour.tour_activityend - this.currentTour.tour_activitystart;
         // }
     },
 })
@@ -45,7 +94,7 @@ $(document).ready(function (){
         $('.application_bt').removeClass('change');
     });
     $('.application_bt').click(function(){
-        $('.activity_application').css('display','block');
+        $('.activity_application').css('display','flex');
         $('.activity_introduction').css('display','none');
         $(this).addClass('change');
         $('.introduction_bt').removeClass('change');

@@ -7,7 +7,7 @@ try{
     require_once('../connectMeetain.php');
     // $sql = "SELECT * FROM tour WHERE tour_no = 100001";
     // $sql = "SELECT m.*, t.* FROM member m join tour t on m.mem_no = t.tour_hoster WHERE tour_no = 100001";
-    $sql = "SELECT m.*, t.*, mt.mountain_image FROM member m join tour t on m.mem_no = t.tour_hoster join mountain mt on t.tour_mountain = mt.mountain_no WHERE tour_no = 100001";
+    $sql = "SELECT m.*, t.*, mt.mountain_name, mt.mountain_area, mt.mountain_image, DATEDIFF(tour_activityend , tour_activitystart)+1 'days' FROM member m join tour t on m.mem_no = t.tour_hoster join mountain mt on t.tour_mountain = mt.mountain_no WHERE tour_no = 100001";
 
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);

@@ -180,7 +180,7 @@ $(document).on('keydown',function(e) {
                     console.log('oh no');
                 },
                 success: function (N1N3) {
-                    // console.log(N1N3)
+                    console.log(N1N3)
                     N1N3data = N1N3 ;
                 }
             });
@@ -373,96 +373,175 @@ $(document).on('keydown',function(e) {
             });
         });
 
+        let AreaDataArray = ["N1N3data", "N2data", "N4W2data","W1data","W3data","W4E3data","S1data","S2data","S3data","S4E4data","E1data","E2data"];
 
+        function RenderWeather(AreaData){
+            // 天氣敘述
+            $id('weatherp').innerHTML = AreaData.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
+            // 渲染日期 
+            $id('date1').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10) + '日';
+            $id('date2').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10) + '日';
+            $id('date3').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10) + '日';
+            $id('date4').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10) + '日';
+            $id('date5').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10) + '日';
+            $id('date6').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10) + '日';
+            $id('date7').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10) + '日';
+            // 渲染早上平均溫度
+            $id('Ttop1').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value + '°C'
+            $id('Ttop2').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[3].elementValue[0].value + '°C'
+            $id('Ttop3').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[5].elementValue[0].value + '°C'
+            $id('Ttop4').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[7].elementValue[0].value + '°C'
+            $id('Ttop5').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[9].elementValue[0].value + '°C'
+            $id('Ttop6').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[11].elementValue[0].value + '°C'
+            $id('Ttop7').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[13].elementValue[0].value + '°C'
+            // 渲染晚上平均溫度
+            $id('Tbutton1').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[2].elementValue[0].value + '°C'
+            $id('Tbutton2').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[4].elementValue[0].value + '°C'
+            $id('Tbutton3').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[6].elementValue[0].value + '°C'
+            $id('Tbutton4').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[8].elementValue[0].value + '°C'
+            $id('Tbutton5').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[10].elementValue[0].value + '°C'
+            $id('Tbutton6').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[12].elementValue[0].value + '°C'
+            if (AreaData.records.locations[0].location[0].weatherElement[1].length === 15) {
+                $id('Tbutton7').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[14].elementValue[0].value + '°C'
+            }   else    {
+                $id('Tbutton7').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[13].elementValue[0].value + '°C'
+            }
+            // 渲染當下溫度、最低溫、最高溫、降雨機率、相對濕度
+            $id('NowT').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[0].elementValue[0].value + '°C'
+            $id('MinT').innerText = AreaData.records.locations[0].location[0].weatherElement[4].time[0].elementValue[0].value + '°C'
+            $id('MaxT').innerText = AreaData.records.locations[0].location[0].weatherElement[6].time[0].elementValue[0].value + '°C'
+            $id('PoP').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[0].elementValue[0].value + '%'
+            $id('RH').innerText = AreaData.records.locations[0].location[0].weatherElement[2].time[0].elementValue[0].value + '%'
+        }
 
     let AreaValue
+    let aarray = document.getElementsByTagName("a");
+    console.log (aarray);
     $("div.area div.dropdown-menu #N").click(function(){
-        var aarray = document.getElementsByTagName("a");
-        console.log (aarray);
-        var AreaValue = aarray[11].getAttribute("value");
-        console.log(AreaValue);
+        AreaValue = aarray[11].getAttribute("value");
         $("#dropdownAreaButton").text('北部');
 
         aarray[15].innerText= '塔曼山'
         aarray[16].innerText= '七星山'
         aarray[17].innerText= '雪白山'
         aarray[18].innerText= '大霸尖山'
+        $("#dropdownMountainButton").text(aarray[15].text);
     })
     $("div.area div.dropdown-menu #W").click(function(){
-        var aarray = document.getElementsByTagName("a");
         var AreaValue = aarray[12].getAttribute("value");
-        console.log(AreaValue);
         $("#dropdownAreaButton").text('中部');
 
         aarray[15].text= '五步哭山'
         aarray[16].text= '橫山'
         aarray[17].text= '石壁山'
         aarray[18].text= '雪山'
+        $("#dropdownMountainButton").text(aarray[15].text);
     })
     $("div.area div.dropdown-menu #S").click(function(){
-        var aarray = document.getElementsByTagName("a");
         var AreaValue = aarray[13].getAttribute("value");
-        console.log(AreaValue);
         $("#dropdownAreaButton").text('南部');
 
         aarray[15].text= '紅毛埤'
         aarray[16].text= '大凍山'
         aarray[17].text= '北大武山'
         aarray[18].text= '玉山'
+        $("#dropdownMountainButton").text(aarray[15].text);
     })
     $("div.area div.dropdown-menu #E").click(function(){
-        var aarray = document.getElementsByTagName("a");
         var AreaValue = aarray[14].getAttribute("value");
-        console.log(AreaValue);
-        $("#dropdownAreaButton").text('西部');
+        $("#dropdownAreaButton").text('東部');
 
         aarray[15].text= '五分山'
         aarray[16].text= '關山'
         aarray[17].text= '南湖東峰'
         aarray[18].text= '秀姑巒山'
+        $("#dropdownMountainButton").text(aarray[15].text);
     })
-    setTimeout(function(){
-        console.log(N1N3data)
-        // console.log(N1N3data.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value)
+
+
+    function SendArea(BtnText){
+        switch(BtnText){
+            case '塔曼山':
+                RenderWeather(N1N3data);
+            break;
+            case '七星山':
+                RenderWeather(N2data);
+            break;
+            case '雪白山':
+                RenderWeather(N1N3data);
+            break;
+            case '大霸尖山':
+                RenderWeather(N4W2data);
+            break;
+            case '五步哭山':
+                RenderWeather(W1data);
+            break;
+            case '橫山':
+                RenderWeather(N4W2data);
+            break;
+            case '石壁山':
+                RenderWeather(W3data);
+            break;
+            case '雪山':
+                RenderWeather(W4E3data);
+            break;
+            case '紅毛埤':
+                RenderWeather(S1data);
+            break;
+            case '大凍山':
+                RenderWeather(S2data);
+            break;
+            case '北大武山':
+                RenderWeather(S3data);
+            break;
+            case '玉山':
+                RenderWeather(S4E4data);
+            break;
+            case '五分山':
+                RenderWeather(E1data);
+            break;
+            case '關山':
+                RenderWeather(E2data);
+            break;
+            case '南湖東峰':
+                RenderWeather(W4E3data);
+            break;
+            case '秀姑巒山':
+                RenderWeather(S4E4data);
+            break;
+        }  
+    };
+
+    $(aarray[15]).click(function(){
+        $("#dropdownMountainButton").text(aarray[15].text);
+    })
+    $(aarray[16]).click(function(){
+        $("#dropdownMountainButton").text(aarray[16].text);
+    })
+    $(aarray[17]).click(function(){
+        $("#dropdownMountainButton").text(aarray[17].text);
+    })
+    $(aarray[18]).click(function(){
+        $("#dropdownMountainButton").text(aarray[18].text);
+    })
+
+    let temp;
+
+    $("div.area div.dropdown-menu a").on('click',function(){
+        temp = $("#dropdownMountainButton").text();
+        // console.log(temp);
+        SendArea(temp);
+    });
+    $("div.mountain div.dropdown-menu a").on('click',function(){
+        temp = $("#dropdownMountainButton").text();
+        // console.log(temp);
+        SendArea(temp);
         
-        // 天氣敘述
-        $id('weatherp').innerHTML = N1N3data.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
-        // 渲染日期 
-        $id('date1').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10) + '日';
-        $id('date2').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10) + '日';
-        $id('date3').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10) + '日';
-        $id('date4').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10) + '日';
-        $id('date5').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10) + '日';
-        $id('date6').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10) + '日';
-        $id('date7').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10) + '日';
-        // 渲染早上平均溫度
-        $id('Ttop1').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value + '°C'
-        $id('Ttop2').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[3].elementValue[0].value + '°C'
-        $id('Ttop3').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[5].elementValue[0].value + '°C'
-        $id('Ttop4').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[7].elementValue[0].value + '°C'
-        $id('Ttop5').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[9].elementValue[0].value + '°C'
-        $id('Ttop6').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[11].elementValue[0].value + '°C'
-        $id('Ttop7').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[13].elementValue[0].value + '°C'
-        // 渲染晚上平均溫度
-        $id('Tbutton1').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[2].elementValue[0].value + '°C'
-        $id('Tbutton2').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[4].elementValue[0].value + '°C'
-        $id('Tbutton3').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[6].elementValue[0].value + '°C'
-        $id('Tbutton4').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[8].elementValue[0].value + '°C'
-        $id('Tbutton5').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[10].elementValue[0].value + '°C'
-        $id('Tbutton6').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[12].elementValue[0].value + '°C'
-        if (N1N3data.records.locations[0].location[0].weatherElement[1].length === 15) {
-            $id('Tbutton7').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[14].elementValue[0].value + '°C'
-        }   else    {
-            $id('Tbutton7').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[13].elementValue[0].value + '°C'
-        }
-        // 渲染當下溫度、最低溫、最高溫、降雨機率、相對濕度
-        $id('NowT').innerText = N1N3data.records.locations[0].location[0].weatherElement[1].time[0].elementValue[0].value + '°C'
-        $id('MinT').innerText = N1N3data.records.locations[0].location[0].weatherElement[4].time[0].elementValue[0].value + '°C'
-        $id('MaxT').innerText = N1N3data.records.locations[0].location[0].weatherElement[6].time[0].elementValue[0].value + '°C'
-        $id('PoP').innerText = N1N3data.records.locations[0].location[0].weatherElement[0].time[0].elementValue[0].value + '%'
-        $id('RH').innerText = N1N3data.records.locations[0].location[0].weatherElement[2].time[0].elementValue[0].value + '%'
+    });
+    
 
-
+    setTimeout(function(){
+        RenderWeather(N1N3data);
     },1000)
     // $(document).ready(
     //     console.log(N1N3data)

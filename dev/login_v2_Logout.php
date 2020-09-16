@@ -8,4 +8,6 @@
     unset($_SESSION['mem_mail']);
     unset($_SESSION['mem_build']);
     unset($_SESSION['mem_point']);
+    unset($_SESSION['mem_avator']);
+    unset($_SESSION['mem_bg']);
 ?>
