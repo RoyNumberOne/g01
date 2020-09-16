@@ -38,9 +38,7 @@ $textColor1: $mt_fontdark;
     margin: auto;
     max-width: 1366px;
     width: 100%;
-    // img{
-    //     @include imgs;
-    // }
+   
     h2{
         text-align: center;
         margin-bottom: 30px;
@@ -149,6 +147,11 @@ $textColor1: $mt_fontdark;
                     display: flex;
                     flex-direction: column;
                     justify-content:center;
+                    .tour_date{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
                     .tour_number{
                         select{
                             width: 30%;
@@ -162,6 +165,7 @@ $textColor1: $mt_fontdark;
                             width: 45%;
                             >p{
                                 @include inputType;
+                                font-size: 14px;
                             }
                             
                         }
@@ -218,17 +222,7 @@ $textColor1: $mt_fontdark;
                                 padding: 0 5px;
                                 width: 80%;
                                 position: relative;
-                                // &::before{
-                                //     content: "";
-                                //     width: 10px;
-                                //     height: 10px;
-                                //     border-radius: 50%;
-                                //     border: 1px solid $mt_fontdark;
-                                //     position: absolute;
-                                //     top:50%;
-                                //     left:-15px;
-                                //     transform: translateY(-50%);
-                                // }
+                              
                             }
                         }
                     }
@@ -331,6 +325,18 @@ $textColor1: $mt_fontdark;
         max-width: 960px;
         width: 100%;
         .tour_build_form{
+            .tour_build_step1{
+                section{
+                    .tour_info1{
+                        .tour_date{
+                            // flex-wrap: wrap;
+                            display: initial;
+                        }
+                    }
+                    
+                }
+                
+            }
             .tour_build_step2{ //步驟二
                 .tour_info2{
                     width: 70%;
@@ -355,6 +361,18 @@ $textColor1: $mt_fontdark;
         width: 100%;
         
         .tour_build_form{
+            .tour_build_step1{
+                section{
+                    .tour_info1{
+                        .tour_date{
+                            // flex-wrap: wrap;
+                            display: initial;
+                        }
+                    }
+                    
+                }
+                
+            }
             .tour_build_step2{ //步驟二
                 .tour_info2{
                     width: 70%;
@@ -444,6 +462,12 @@ $textColor1: $mt_fontdark;
                 flex-direction: column;
                 section{
                     width: 100%;
+                    .tour_info1{
+                        .tour_date{
+                            // flex-wrap: wrap;
+                            display: initial;
+                        }
+                    }
                 }
                 .tour_info1_btn{
                     display: flex;

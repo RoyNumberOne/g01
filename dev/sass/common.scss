@@ -1224,7 +1224,7 @@ button.btnB_L_grey{
     flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
     .memberImg{
         display: inline-block;
-        background-color: #555;
+        // background-color: #555;
         border-radius: 50%;
         width: 65px;
         padding-top: 65px;
