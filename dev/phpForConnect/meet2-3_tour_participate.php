@@ -5,9 +5,11 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-    $sql = "SELECT * FROM tour_participate tp join tour t on  tp.tour_participate_tour = t.tour_no join member m on tp.tour_participate_mem = m.mem_no WHERE tour_no = 100001";
 
-    // $pdoStatement = $pdo->prepare($sql);
+    $tour_no = $_POST['tour_no'];
+    $sql = "SELECT tp.tour_participate_tour, m.mem_no, m.mem_id, tp.tour_participate_situation, m.mem_avator, m.mem_badge1, m.mem_badge2, m.mem_badge3 FROM member m JOIN tour_participate tp ON m.mem_no = tp.tour_participate_mem WHERE tp.tour_participate_situation = '' and tp.tour_participate_tour = $tour_no";
+
+    $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     echo(json_encode($result));
