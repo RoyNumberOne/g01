@@ -26,4 +26,26 @@ new Vue({
         })
         .catch(error => {console.log(error)}); 
     },
+    filters: {
+        // var mountain_area = this.Tour1.mountain_area;
+        Area: function(value) {
+            switch(value){
+                case('north'):
+                    return '北部';
+                break;
+                case('west'):
+                    return '中部';
+                break;
+                case('south'):
+                    return '南部';
+                break;
+                case('east'):
+                    return '東部';
+                break;
+                default:
+                    return '沒成功哦';
+                break;
+            }
+        }
+    }
 });

@@ -7,40 +7,6 @@ body{
 div.wrap{
     width: 1200px;
     margin: 40px auto;
-    .person{
-        display: flex;
-        .person_headtag{
-            img{
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-        }
-        div.person_info{
-            margin: auto 20px;
-            .person_name-badge{
-                display: flex;
-                margin: auto 0;
-                width: 50px;
-                .person_name{
-                    a{
-                        color: #000;
-                    }
-                }
-                .person_badge{
-                    width: 100%;
-                    img{
-                        width: 100%;
-                        margin: 0 5px;
-                    }
-                }
-            }
-            .person_following{
-                font-size: 12px;
-            }
-        }
-    }
     .public_pic-activity{
         display: flex;
         margin: 0 0 20px;
@@ -57,14 +23,19 @@ div.wrap{
                 .related_pic_block{
                     display: flex;
                     .related_pic_item{
+                        width: 90px;
+                        height: 60px;
                         margin: 0 10px 0 0;
+                        overflow: hidden;
+                        position: relative;
                         &:last-child{
                             margin: 0;
                         }
                         img{
-                            width: 100%;
-                            object-fit: cover;
-                            cursor: pointer;
+                            // width: 100%;
+                            // cursor: pointer;
+                            // object-fit: cover;
+                            @include imgs;
                         }
                     }
                 }
@@ -152,6 +123,7 @@ div.wrap{
                 }
                 .share_icon_part{
                     text-align: center;
+                    display: none;
                     div.share_icon{
                         width: 100%;
                         height: 30px;
@@ -162,7 +134,7 @@ div.wrap{
                 }
             }
             .applied_participant{
-                display: none;
+                // display: none;
                 border-bottom: 1px solid #000;
                 padding-bottom: 10px;
                 h3.text_underline{
@@ -176,6 +148,9 @@ div.wrap{
                     .applied_participant_item{
                         margin: 0 20px;
                         .applied_participant_pic{
+                            display: flex;
+                            justify-content: center;
+                            margin: 5px auto;
                             img{
                                 width: 60px;
                                 height: 60px;
@@ -184,10 +159,7 @@ div.wrap{
                             }
                         }
                         .applied_participant_name-badge{
-                            display: flex;
-                            .applied_participant_name{
-                                margin-right: 5px;
-                            }
+                            text-align: center;
                         }
                     }
                 }
@@ -197,9 +169,11 @@ div.wrap{
                 .equip_block{
                     display: flex;
                     .equipment{
+                        width: 120px;
+                        height: 120px;
                         position: relative;
                         img{
-                            width: 100%;
+                            @include imgs;
                             cursor: pointer;
                         }
                         .show_hover{
@@ -222,15 +196,15 @@ div.wrap{
                             .p_title{
                                 // height: 100%;
                                 color: #fff;
-                                font-size: 40px;
+                                font-size: 30px;
                                 // display: flex;
                                 // justify-content: center;
                                 // align-items: center;
                             }
                             .go_shop{
                                 background-color: #fff;
-                                width: 50%;
                                 align-self: center;
+                                padding: 5px;
                                 border-radius: 15px;
                             }
                         }
@@ -325,20 +299,6 @@ div.wrap{
                         h3{
                             text-align: center;
                         }
-                    }
-                    .medal{
-                        display: flex;
-                        justify-content: center;
-                        li{
-                            width: 30px;
-                            img{
-                                width: 100%;
-                            }
-                        }
-                    }
-                    .follow{
-                        display: flex;
-                        justify-content: center;
                     }
                     .applied_bt{
                         display: flex;
@@ -438,6 +398,7 @@ div.wrap{
         }
     }
     .related_article{
+        display: none;
         width: 100%;
         position: relative;
         .content{
@@ -451,10 +412,11 @@ div.wrap{
                 text-align: center;
                 margin: 0 2px;
                 position: relative;
+                width: 360px;
+                height: 240px;
                 .art_pic{
                     img{
-                        width: 100%;
-                        object-fit: cover;
+                        @include imgs;
                     }
                 }
                 .art_title{

@@ -425,9 +425,12 @@ div#section2 {
                         }
                     }
                     & div.weatherweek{
-                        height: 35%;
+                        height: auto;
                         display: flex;
                         padding-top: 30px;
+                        & >:nth-child(odd){
+                            background-color: rgba($mt_fontlight,0.1);
+                        }
                         & div.next {
                             height: 100%;
                             width: calc(100% / 7);
@@ -436,14 +439,21 @@ div#section2 {
                                 background-color: $mt_yellow;
                                 margin-bottom: 7px;
                             }
-                            & p.TopT{
+                            & .TopT{
                                 color: $mt_fontlight;
                                 border-bottom: 1px solid rgba($mt_yellow,0.5);
-                                padding-bottom: 5px;
+                                padding-bottom: 10px;
+                                font-size: 14px !important;
+                                // border-left: 1px solid rgba($mt_yellow,0.5);
+                                // border-right: 1px solid rgba($mt_yellow,0.5);
                             }
-                            & p.ButtonT{
+                            & .ButtonT{
                                 color: $mt_fontlight;
                                 margin-top: 5px;
+                                font-size: 14px !important;
+                                padding-bottom: 10px;
+                                // border-left: 1px solid rgba($mt_yellow,0.5);
+                                // border-right: 1px solid rgba($mt_yellow,0.5);
                             }
                             // & svg {
                             //     width: 100%;
@@ -545,6 +555,11 @@ div#section2 {
                             border-width: 70px 115px 0 0;
                             transform: rotate(30deg);
                             border-color: $mt_pink transparent transparent transparent;
+                        }
+                    }
+                    & div.member_styleA {
+                        & * {
+                            text-align: left;
                         }
                     }
                     &:hover {
@@ -704,6 +719,7 @@ div#section3 {
             display: flex;
             flex-direction: column;
             height: 100%;
+            cursor: pointer;
             & div.bigpic {
                 display: inline-block;
                 position: relative;
@@ -728,7 +744,9 @@ div#section3 {
                 & .member_styleA {
                     display: inline-block;
                     vertical-align: middle !important;
-                    // float: left;
+                    & * {
+                        text-align: left;
+                    }
                 }
                 & .forumtitle {
                     width: calc(100% - 211px);
@@ -789,6 +807,7 @@ div#section3 {
                 height: calc(50% - 12px );
                 margin: 6px;
                 position: relative;
+                cursor: pointer;
                 & .smallpic {
                     position: relative;
                     width: 100%;
@@ -1030,7 +1049,7 @@ div#section4 {
 
 // debug
 
-    // div#section1,div#section3,div#section4 {
+    // div#section1,div#section4,div#section2 {
     //     display: none;
     // }
     

@@ -1,4 +1,11 @@
 <?php
+// session_start();
+// if (isset($_SESSION["mem_acc"]) === true){
+//     //送出登入者的姓名資料
+//     $member_no = $_SESSION["mem_no"];
+// }else    {
+//     echo "{}";
+// }
 try {
     require_once ('connectMeetain.php');
     $member_no = 10001;
@@ -14,9 +21,16 @@ try {
 	$sql = "INSERT INTO orders (member_no,order_logistics_deliver, order_logistics_fee , order_cashflow , order_total , order_logistics_recipient , order_logistics_phone , order_logistics_address )
     VALUES ('$member_no','$order_logistics_deliver','$order_logistics_fee','$order_cashflow','$order_total','$order_logistics_recipient','$order_logistics_phone','$order_logistics_address');";
     $pdoStatement = $pdo->query($sql);
-    
+        foreach ($_REQUEST["arr"] as $key => $value) {
+                $product_number = $value['numbers'];
+                $product_no = $value['product'];
+                $product_price = $value['price'];
+        $sql = "INSERT INTO order_list (order_no,product_no, product_number, product_price) VALUES (last_insert_id(),'$product_no','$product_number','$product_price');";
+                $pdoStatement = $pdo->query($sql);
+}
+   
     if($order_cashflow =='點數付款' ){
-         //查詢
+        //查詢
         $sql = "SELECT mem_point from member where mem_no = $member_no";
         $pdoStatement = $pdo->query($sql);
         $prodRows = $pdoStatement->fetch(PDO::FETCH_ASSOC);
@@ -30,11 +44,12 @@ try {
         $memberpoint->bindValue(":mem_point",$my_points);
         $memberpoint->execute();
     }
-    echo "New record created successfully";
+    // echo "New record created successfully";
     }
 catch(PDOException $e)
     {
-    	echo $sql . "<br>" . $e->getMessage();
+    	// echo $sql . "<br>" . $e->getMessage();
     }
+  
 ?>
 

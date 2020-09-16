@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="./js/vue.js"></script>
 </head>
+
 <body>
     <header>
         <div id="headerbox">
             <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
-            </a> 
+            </a>
 
             <nav class="menuhover">
                 <ul class="menuhover">
@@ -34,17 +36,29 @@
 
             <nav class="menu">
                 <ul class="link_list llleft">
-                    <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
-                    <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
-                    <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+                    <li>
+                        <a class="tour" href="./meet2-0.html">
+                            <p>揪團區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="forum" href="./forum.html">
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="product" href="./product.html">
+                            <p>商品區</p>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box">
-                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
-                        </div>
+                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
-                    <li><div id="mem_info_id"></div></li>
+                    <li>
+                        <div id="mem_info_id"></div>
+                    </li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
@@ -71,173 +85,180 @@
             </button>
         </div>
     </header>
-<main id="app">
-    <aside>
-        <div>
-            <span id="sp1"><img src="./images/shoppingcart/bag.png" alt=""></span>
-            <span id="sp2"><img src="./images/shoppingcart/money.png" alt=""></span>
-            <span id="sp3"><img src="./images/shoppingcart/delivery.png" alt=""></span>
-            <span id="sp4"><img src="./images/shoppingcart/info (1).png" alt=""></span>
-        </div>
-    </aside>
-    <section>
-        <article>
-            <div id="step1">
-                <h3>確認購物車
-                <img style="display: none;" src="./images/shoppingcart/phsp1.png" alt="">
-                </h3>
-                <div id="title">
-                    <div class="shop_pic">商品圖片</div>
-                    <div class="shop_name">商品名稱</div>
-                    <div class="shop_num">商品數量</div>
-                    <div class="shop_price">金額</div>
-                    <div class="shop_del">刪除</div>
-                </div>
-                <div class="itemBox">
-                    <div class="item"  v-for="(item,index) in productList">
-                        <a :href="'product_info.html?productNo='+ item.product.product_no"><img :src="item.product.product_image1" alt=""><p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p></a>
-                        
-                        <div class="item_name">
-                            <a href="./product_info.html">
-                            <h2>{{item.product.product_name}}</h2>
-                            <h3>{{item.product.product_category}}</h3></a>
-                        </div>
-                        <div class="item_num">
-                            <span>
+    <main id="app">
+        <aside>
+            <div>
+                <span id="sp1"><img src="./images/shoppingcart/bag.png" alt=""></span>
+                <span id="sp2"><img src="./images/shoppingcart/money.png" alt=""></span>
+                <span id="sp3"><img src="./images/shoppingcart/delivery.png" alt=""></span>
+                <span id="sp4"><img src="./images/shoppingcart/info (1).png" alt=""></span>
+            </div>
+        </aside>
+        <section>
+            <article>
+                <div id="step1">
+                    <h3>確認購物車
+                        <img style="display: none;" src="./images/shoppingcart/phsp1.png" alt="">
+                    </h3>
+                    <div id="title">
+                        <div class="shop_pic">商品圖片</div>
+                        <div class="shop_name">商品名稱</div>
+                        <div class="shop_num">商品數量</div>
+                        <div class="shop_price">金額</div>
+                        <div class="shop_del">刪除</div>
+                    </div>
+                    <div class="itemBox">
+                        <div class="item" v-for="(item,index) in productList">
+                            <a :href="'product_info.html?productNo='+ item.product.product_no"><img :src="item.product.product_image1" alt="">
+                                <p id="item_name2" style="opacity: 0;">{{item.product.product_name}}</p>
+                            </a>
+
+                            <div class="item_name">
+                                <a href="./product_info.html">
+                                    <h2>{{item.product.product_name}}</h2>
+                                    <h3>{{item.product.product_category}}</h3>
+                                </a>
+                            </div>
+                            <div class="item_num">
+                                <span>
                                 <button @click="zero(item)"  :disabled="dis">-</button>
                                 <h1>{{item.count}}</h1>
                                 <button @click="add_count(item)">+</button>
                             </span>
-                        </div>
-                        <p>{{item.product.product_price*item.count}}</p>
-                        <div class="item_del" @click="deleteitem(item)">
-                            <img class="item_delimg" src="./images/icons/icon_trash.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="itemClean" v-show="shopImg">
-                        <a href="./product.html">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
-                    </div>
-                    <div id="shop_addnum">
-                        <p>合計購買金額：{{total}}元<p>
-                    </div>
-                </div>
-                
-            </div>
-            <div id="step2">
-                <h3>確認付款
-                <img style="display: none;" src="./images/shoppingcart/phsp2.png" alt="">
-                </h3>
-                <div class="pay">
-                    <form method="post" action="" target="targetIfr" @submit.prevent="handlesubmit">
-                        <div id="pay_delivery">
-                            <h4>運送方式：</h4>
-                            <input type="radio" name="delivery" id="deliveryA" v-on:click="delivery_Price(60,'郵寄宅配')"checked>
-                            <label for="deliveryA">郵寄宅配</label><br>
-                            <input type="radio" name="delivery" id="deliveryB" v-on:click="delivery_Price(100,'快遞宅配')" >
-                            <label for="deliveryB">快遞宅配</label>
-                            <div class="delivery_price">運&emsp;&emsp;費：<p>{{delivery_price}}</p>元</div>
-                        </div>
-                        <div id="pay_terms">
-                            <h4>付款方式：</h4>
-                            <input type="radio" name="payment" id="point" v-on:click="pay_Terms('點數付款')">
-                            <label for="point">點數付款</label><br>
-                            <input type="radio" name="payment" id="cash" v-on:click="pay_Terms('貨到付款')" checked>
-                            <label for="cash">貨到付款</label><br>
-                            <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
-                            <label for="card">線上刷卡</label><br>
-                            <div id="cardp">
-                                <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" required placeholder="請輸入10位數卡號"><br>
-                                <label for="">驗證號碼：</label><input type="password" min="0" max="999" pattern="[0-9]{3}" title="請輸入3位數安全碼" maxlength="3" placeholder="請輸入3位數安全碼" required><br>
-                                <label for="">有效日期：</label><input type="date" required><br>
-                                <input type="submit" value="送出驗證">
                             </div>
-                            <div id="pointp">
+                            <p>{{item.product.product_price*item.count}}</p>
+                            <div class="item_del" @click="deleteitem(item)">
+                                <img class="item_delimg" src="./images/icons/icon_trash.svg" alt="">
                             </div>
                         </div>
-                        <div id="pay_infor">
-                            <h4>消費資訊：</h4>
-                            <div>商品金額：{{total}}元</div>
-                            <div>運&emsp;&emsp;費：{{delivery_price}}元</div>
-                            <label for="">優惠券：<input id="sale" type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="優惠券代碼"></label><br>
-                            <p style="color: rgb(46, 49, 54); font-weight: 400;padding-left:10px">{{sale}}</p>
-                            <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}元</div>
-                            <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{(total*discount)+delivery_price}}元</span></div>
+                        <div class="itemClean" v-show="shopImg">
+                            <a href="./product.html">您還沒有將商品加入購物車唷<br><p>立即前往<p></a>
                         </div>
-                    </form>
+                        <div id="shop_addnum">
+                            <p>合計購買金額：{{total}}元
+                                <p>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <div id="step3">
-                <h3>運送資訊
-                <img style="display: none;" src="./images/shoppingcart/phsp3.png" alt="">
-                </h3>
-                <div class="purchaser">                       
-                    <fieldset>
-                        <legend>收件人資訊</legend>
-                    <form>
-                        <label for="">姓名<input type="text" name="name" v-model.lazy="purchaser.name"></label><br>
-                        <label for="">電話<input type="text" name="phone" v-model.lazy="purchaser.phone"></label><br>
-                        <label for="">地址<input type="text" name="address" v-model.lazy="purchaser.address"></label><br>
-                    </form>
-                    </fieldset>                        
+                <div id="step2">
+                    <h3>確認付款
+                        <img style="display: none;" src="./images/shoppingcart/phsp2.png" alt="">
+                    </h3>
+                    <div class="pay">
+                        <form method="post" action="" target="targetIfr" @submit.prevent="handlesubmit">
+                            <div id="pay_delivery">
+                                <h4>運送方式：</h4>
+                                <input type="radio" name="delivery" id="deliveryA" v-on:click="delivery_Price(60,'郵寄宅配')" checked>
+                                <label for="deliveryA">郵寄宅配</label><br>
+                                <input type="radio" name="delivery" id="deliveryB" v-on:click="delivery_Price(100,'快遞宅配')">
+                                <label for="deliveryB">快遞宅配</label>
+                                <div class="delivery_price">運&emsp;&emsp;費：
+                                    <p>{{delivery_price}}</p>元</div>
+                            </div>
+                            <div id="pay_terms">
+                                <h4>付款方式：</h4>
+                                <input type="radio" name="payment" id="point" v-on:click="pay_Terms('點數付款')">
+                                <label for="point">點數付款</label><br>
+                                <input type="radio" name="payment" id="cash" v-on:click="pay_Terms('貨到付款')" checked>
+                                <label for="cash">貨到付款</label><br>
+                                <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
+                                <label for="card">線上刷卡</label><br>
+                                <div id="cardp">
+                                    <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" required placeholder="請輸入10位數卡號"><br>
+                                    <label for="">驗證號碼：</label><input type="password" min="0" max="999" pattern="[0-9]{3}" title="請輸入3位數安全碼" maxlength="3" placeholder="請輸入3位數安全碼" required><br>
+                                    <label for="">有效日期：</label><input type="date" required><br>
+                                    <input type="submit" value="送出驗證">
+                                </div>
+                                <div id="pointp">
+                                </div>
+                            </div>
+                            <div id="pay_infor">
+                                <h4>消費資訊：</h4>
+                                <div>商品金額：{{total}}元</div>
+                                <div>運&emsp;&emsp;費：{{delivery_price}}元</div>
+                                <label for="">優惠券：<input id="sale" type="text" v-model.lazy="discountsale" @blur="disCount()" placeholder="優惠券代碼"></label><br>
+                                <p style="color: rgb(46, 49, 54); font-weight: 400;padding-left:10px">{{sale}}</p>
+                                <div v-if="discountsale!=9453">總金額為：{{total+delivery_price}}元</div>
+                                <div v-else>總金額為：<span style="color: red; font-weight: 650;">{{parseInt(total*discount)+delivery_price}}元</span></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div id="step4">
-                <h3>確認訂單
-                <img style="display: none;" src="./images/shoppingcart/phsp4.png" alt="">
-                </h3>
-                <div class="order">
-                    <table class="order_item">
-                        <tr>
-                            <th>運送方式：</th>
-                            <td id="order_logistics_deliver" name="order_logistics_deliver">{{delivery_terms}}</td>
-                        </tr>
-                        <tr>
-                            <th>運&emsp;&emsp;費：</th>
-                            <td id="order_logistics_fee" name="order_logistics_fee">{{delivery_price}}</td>
-                        </tr>
-                        <tr>
-                            <th>付款方式：</th>
-                            <td id="order_cashflow" name="order_cashflow">{{pay_terms}}</td>
-                        </tr>
-                        <tr>
-                            <th>總金額為：</th>
-                            <td v-if="discountsale!=9453" id="order_total" name="order_total">{{total+delivery_price}}</td>
-                            <td v-else id="order_total" name="order_total">{{(total+delivery_price)*discount}}</td>
-                        </tr>
-                        <tr>
-                            <th>姓&emsp;&emsp;名：</th>
-                            <td id="order_logistics_recipient" name="order_logistics_recipient">{{purchaser.name}}</td>
-                        </tr>
-                        <tr>
-                            <th>電&emsp;&emsp;話：</th>
-                            <td id="order_logistics_phone" name="order_logistics_phone">{{purchaser.phone}}</td>
-                        </tr>
-                        <tr>
-                            <th>地&emsp;&emsp;址：</th>
-                            <td id="order_logistics_address" name="order_logistics_address">{{purchaser.address}}</td>
-                        </tr>
-                    </table>
+                <div id="step3">
+                    <h3>運送資訊
+                        <img style="display: none;" src="./images/shoppingcart/phsp3.png" alt="">
+                    </h3>
+                    <div class="purchaser">
+                        <fieldset>
+                            <legend>收件人資訊</legend>
+                            <form>
+                                <label for="">姓名<input type="text" name="name" v-model.lazy="purchaser.name"></label><br>
+                                <label for="">電話<input type="text" name="phone" v-model.lazy="purchaser.phone"></label><br>
+                                <label for="">地址<input type="text" name="address" v-model.lazy="purchaser.address"></label><br>
+                            </form>
+                        </fieldset>
+                    </div>
                 </div>
-            </div>
-        </article>
-        <div class="setpbtn">
-            <a href="./product.html"><button id="gotoshop" class="btnA_L">
+                <div id="step4">
+                    <h3>確認訂單
+                        <img style="display: none;" src="./images/shoppingcart/phsp4.png" alt="">
+                    </h3>
+                    <div class="order">
+                        <table class="order_item">
+                            <!-- <tr><td id="product_no" name="product_no">{{item.product.product_no}}</td></tr> -->
+                            <!-- <tr><td id="product_number" name="product_number" style="display: none;">{{item.count}}</td></tr> -->
+                            <tr>
+                                <th>運送方式：</th>
+                                <td id="order_logistics_deliver" name="order_logistics_deliver">{{delivery_terms}}</td>
+                            </tr>
+                            <tr>
+                                <th>運&emsp;&emsp;費：</th>
+                                <td id="order_logistics_fee" name="order_logistics_fee">{{delivery_price}}</td>
+                            </tr>
+                            <tr>
+                                <th>付款方式：</th>
+                                <td id="order_cashflow" name="order_cashflow">{{pay_terms}}</td>
+                            </tr>
+                            <tr>
+                                <th>總金額為：</th>
+                                <td v-if="discountsale!=9453" id="order_total" name="order_total">{{parseInt(total+delivery_price)}}</td>
+                                <td v-else id="order_total" name="order_total">{{parseInt((total*discount)+delivery_price)}}</td>
+                            </tr>
+                            <tr>
+                                <th>姓&emsp;&emsp;名：</th>
+                                <td id="order_logistics_recipient" name="order_logistics_recipient">{{purchaser.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>電&emsp;&emsp;話：</th>
+                                <td id="order_logistics_phone" name="order_logistics_phone">{{purchaser.phone}}</td>
+                            </tr>
+                            <tr>
+                                <th>地&emsp;&emsp;址：</th>
+                                <td id="order_logistics_address" name="order_logistics_address">{{purchaser.address}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+            <div class="setpbtn">
+                <a href="./product.html"><button id="gotoshop" class="btnA_L">
                     <p>返回商城</p>
                 </button></a>
-            <button id="back" class="btnA_LwLA">
+                <button id="back" class="btnA_LwLA">
                 <p>上一步</p>
                 <div class="btnArrowL"></div>
             </button>
-            <button id="next" class="btnA_LwRA">
+                <button id="next" class="btnA_LwRA">
                 <p>下一步</p>
                 <div class="btnArrowL"></div>
             </button>
-            <button id="ordercheckbtn" class="btnA_L" type="button">
+                <button id="ordercheckbtn" class="btnA_L" type="button" @click="uploadCartList">
                 <p>送出訂單</p>
             </button>
-        </div>
-    </section>
-</main>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="footer_logo_block">
             <a href="./FrontstageIndex.html">
@@ -288,111 +309,164 @@
                 </div>
             </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                productList: '',
 
-<script>
-    var app = new Vue({
-    el:'#app',
-    data:{
-        productList:'',
+                dis: true,
 
-        dis:true,
+                delivery_price: 60,
 
-        delivery_price:60,
+                delivery_terms: '郵寄宅配',
 
-        delivery_terms:'郵寄宅配',
+                pay_terms: '貨到付款',
 
-        pay_terms:'貨到付款',
-        
-        purchaser:{
-            name:'',
-            phone:'',
-            address:'',
-        },
-        order_num:'00001',
+                purchaser: {
+                    name: '',
+                    phone: '',
+                    address: '',
+                },
+                order_num: '00001',
 
-        shopImg:false,
+                shopImg: false,
 
-        discountsale: '',
+                discountsale: '',
 
-        discount:'0.5',
+                discount: '0.5',
 
-        sale:'',
-           
-    },
-    methods:{
-        zero(item){
-            if(item.count > 1){
-                item.count -=1; 
-                // this.dis=false;
+                sale: '',
 
-            }else if(this.count < 1){
-                // this.dis=true;
-            }
-             localStorage.setItem('cartList', JSON.stringify(this.productList));
-        },
-        add_count(item){
-            item.count++;
-            this.dis=false;
-            localStorage.setItem('cartList', JSON.stringify(this.productList));
-        },
-        deleteitem(item){
-            let a = item.product.product_no;
-            this.$delete(this.productList,a);
-            console.log(this.productList);
-            localStorage.setItem('cartList', JSON.stringify(this.productList));
-        },
-        delivery_Price(x,y){
-            this.delivery_price =x;
-            this.delivery_terms = y;
-        },
-        pay_Terms(a){
-            this.pay_terms =a;
-        },
-        disCount(kk){
-            let koiuyt = this.discountsale;
-            if(koiuyt == 9453){
-                this.sale= "商品金額折扣50%";
-            }else if(koiuyt == ''){
-                this.sale = "";
-            }else{
-                this.sale = "優惠券碼輸入錯誤";
-            };
-        },
-        handlesubmit(){
-            alert("完成驗證");
-        },
-    },
-    mounted() {
-        this.productList = new Array();
-        // Object.value('cartList');
-        this.productList= JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
-    },
-    computed: {
-        total(){
-            let totalcount = 0;
-            // for(let i=0; i<this.productList.length;i++){
-            //     totalcount += this.productList[i].price*this.productList[i].count;
-            // }
-            for (const key in this.productList) {
-                totalcount += Math.round((this.productList[key].product.product_price) * (this.productList[key].count));
-            }
-            return totalcount;
-        },
-    },
-    watch:{
-        productList:function(){
-            let length = 0;
-            for (const key in this.productList) {
-                length++;
-            }
-            if(length==0)this.shopImg=true;
-        },
-    },
-});
-</script>
-<script src="./js/vue.js"></script>
-<script src="./js/header.js"></script>
-<script src="./js/fa5.14.0all.js"></script>
-<script src="./js/login_v2.js"></script>
+            },
+            methods: {
+                zero(item) {
+                    if (item.count > 1) {
+                        item.count -= 1;
+                        // this.dis=false;
+
+                    } else if (this.count < 1) {
+                        // this.dis=true;
+                    }
+                    localStorage.setItem('cartList', JSON.stringify(this.productList));
+                },
+                add_count(item) {
+                    item.count++;
+                    this.dis = false;
+                    localStorage.setItem('cartList', JSON.stringify(this.productList));
+                },
+                deleteitem(item) {
+                    let a = item.product.product_no;
+                    this.$delete(this.productList, a);
+                    console.log(this.productList);
+                    localStorage.setItem('cartList', JSON.stringify(this.productList));
+                    this.cartCounted()
+                },
+                cartCounted() {
+                    var i = 0;
+                    for (prop in JSON.parse(localStorage.cartList)) {
+                        i++;
+                        console.log(JSON.parse(localStorage.cartList)[prop]);
+                    };
+                    $('.add_count_others')[0].innerText = i;
+
+                    if (i != 0) {
+                        $('.add_count_others').css('display', 'block')
+                    } else if (i = '') {
+                        $('.add_count_others').css('display', 'none')
+                    } else {
+                        $('.add_count_others').css('display', 'none')
+                    }
+                },
+                delivery_Price(x, y) {
+                    this.delivery_price = x;
+                    this.delivery_terms = y;
+                },
+                pay_Terms(a) {
+                    this.pay_terms = a;
+                },
+                disCount(kk) {
+                    let koiuyt = this.discountsale;
+                    if (koiuyt == 9453) {
+                        this.sale = "商品金額折扣50%";
+                    } else if (koiuyt == '') {
+                        this.sale = "";
+                    } else {
+                        this.sale = "優惠券碼輸入錯誤";
+                    };
+                },
+                handlesubmit() {
+                    alert("完成驗證");
+                },
+                uploadCartList() {
+                    let order_logistics_deliver = $("#order_logistics_deliver").text(); //運送方式
+                    let order_logistics_fee = $("#order_logistics_fee").text(); //運費
+                    let order_cashflow = $("#order_cashflow").text(); //付款方式
+                    let order_total = $("#order_total").text(); //總金額
+                    let order_logistics_recipient = $("#order_logistics_recipient").text(); //姓名
+                    let order_logistics_phone = $("#order_logistics_phone").text(); //電話：
+                    let order_logistics_address = $("#order_logistics_address").text(); //地址
+                    let arr = [];
+                    for (const key in this.productList) {
+                        arr.push({
+                            'numbers': this.productList[key].count,
+                            'product': this.productList[key].product.product_no,
+                            'price': this.productList[key].product.product_price,
+
+                        })
+                    };
+                    $.post("./shoppingcartorder.php", {
+                        arr: arr,
+                        order_logistics_deliver: order_logistics_deliver,
+                        order_logistics_fee: order_logistics_fee,
+                        order_cashflow: order_cashflow,
+                        order_total: order_total,
+                        order_logistics_recipient: order_logistics_recipient,
+                        order_logistics_phone: order_logistics_phone,
+                        order_logistics_address: order_logistics_address
+                    }).then((res) => {
+                        //要導去另外正確頁面
+                        window.location.reload(true);
+                        console.log(res.data)
+                    })
+                    alert("訂單已送出");
+                    localStorage.removeItem("cartList");
+                }
+            },
+            mounted() {
+                this.productList = new Array();
+                // Object.value('cartList');
+                this.productList = JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
+            },
+            computed: {
+                total() {
+                    let totalcount = 0;
+                    // for(let i=0; i<this.productList.length;i++){
+                    //     totalcount += this.productList[i].price*this.productList[i].count;
+                    // }
+                    for (const key in this.productList) {
+                        totalcount += (this.productList[key].product.product_price * (this.productList[key].count));
+                    }
+                    // totalcount = Math.round(totalcount);
+                    return parseInt(totalcount);
+                },
+            },
+            watch: {
+                productList: function() {
+                    let length = 0;
+                    for (const key in this.productList) {
+                        length++;
+                    }
+                    if (length == 0) this.shopImg = true;
+                },
+            },
+        });
+    </script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/fa5.14.0all.js"></script>
+    <script src="./js/login_v2.js"></script>
 </body>
+
 </html>

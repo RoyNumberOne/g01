@@ -1,11 +1,13 @@
 [
     {
         "tour_participate_mem": "10008",
-        "tour_participate_tour": "100001"
+        "tour_participate_tour": "100001",
+        "tour_participate_situation": "未審核"
     },
     {
         "tour_participate_mem": "10009",
-        "tour_participate_tour": "100001"
+        "tour_participate_tour": "100001",
+        "tour_participate_situation": "未審核"
     },
     {
         "tour_participate_mem": "10010",
@@ -14,7 +16,8 @@
     },
     {
         "tour_participate_mem": "10012",
-        "tour_participate_tour": "100002"
+        "tour_participate_tour": "100002",
+        "tour_participate_situation": "未審核"
     },
     {
         "tour_participate_mem": "10013",
@@ -28,7 +31,8 @@
     },
     {
         "tour_participate_mem": "10009",
-        "tour_participate_tour": "100003"
+        "tour_participate_tour": "100003",
+        "tour_participate_situation": "未審核"
     },
     {
         "tour_participate_mem": "10012",
@@ -37,7 +41,8 @@
     },
     {
         "tour_participate_mem": "10011",
-        "tour_participate_tour": "100010"
+        "tour_participate_tour": "100010",
+        "tour_participate_situation": "未審核"
     },
     {
         "tour_participate_mem": "10009",

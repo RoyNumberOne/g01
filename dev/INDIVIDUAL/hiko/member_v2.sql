@@ -1,18 +1,24 @@
 
--- 會員已完成的揪團，由出團時間近到遠排序  -- 北部
--- 會員已完成的揪團，由出團時間近到遠排序  -- 中部(西部)
-
--- 會員已完成的揪團，由出團時間近到遠排序  -- 南部
+-- 會員已完成的揪團，由出團時間近到遠排序
 select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團', T.tour_no'揪團編號',T.tour_progress'揪團狀態', T.tour_activitystart'活動開始日期', T.tour_activityend'活動結束日期', M.mountain_image'山的圖片', M.mountain_area'山的地區', M.mountain_name'山的名字', M.degree_category'山的難度'
 	from tour_participate tp
 		join tour T on(tp.tour_participate_tour = T.tour_no)
         join mountain M on(T.tour_mountain = M.mountain_no)
-	WHERE tp.tour_participate_mem = 10009 --之後改變數
+	WHERE tp.tour_participate_mem = 10009 -- 之後改變數
 	and T.tour_progress = '已結束' 
-	and M.mountain_area = 'north'
+	and M.mountain_area = 'south'
 	order BY T.tour_activitystart DESC;
 
--- 會員已完成的揪團，由出團時間近到遠排序  -- 東部
+-- 會員已完成的揪團，由出團時間近到遠排序  -- (筆數)
+	select COUNT(*)
+		from tour_participate tp
+			join tour T on(tp.tour_participate_tour = T.tour_no)
+			join mountain M on(T.tour_mountain = M.mountain_no)
+		WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+		and T.tour_progress = '已結束' 
+		and M.mountain_area = 'south'
+		order BY T.tour_activitystart DESC;
+
 
 ----------------------------------------------------------------------------------------------------------
 -- 會員收藏討論文章，由新到舊排序
@@ -58,7 +64,10 @@ select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團
 ----------------------------------------------------------------------------------------------------------
 
 -- 會員發佈的文章，由發布時間新到舊排序
-select forum_post_poster'討論文發文者', forum_post_no'討論文編號', forum_post_category'討論文類別', forum_post_image'討論文圖片', forum_post_time'發文時間', forum_post_title, forum_post_innertext'討論文內文', (forum_post_situation = 1)'討論文狀態'
-	from forum_post
-    where forum_post_poster = 10008 -- 之後改變數
-	order BY forum_post_time DESC;
+select fk.forum_keep_mem, fk.forum_iskept_post, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category, c.comment_poster, min(c.comment_time) Min, m.mem_id
+                from forum_keep fk 
+                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
+                    join comment_post c on(fp.forum_post_no = c.forum_post_no and c.comment_situation = 1)
+                    join member m on(c.comment_poster = m.mem_no)
+                WHERE fk.forum_keep_mem = 10008  -- 之後改變數
+                order BY fp.forum_post_time DESC;

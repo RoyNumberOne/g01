@@ -4,24 +4,71 @@ new Vue({
         // hosterData: [],
         tourData: [],
         comments: [],
-        // reportNo: null,
+        tourParticipates: [],
+        articals: [],
+        passedParticipant: [],
+        notPassedParticipant: [],
     },
     mounted() {
-        axios.get('./phpForConnect/meet2-3_tour.php').then(res => {
+
+        let formTour = new FormData();
+
+        let urlSearchParams = (new URL(document.location)).searchParams;
+        tour_no = urlSearchParams.get('tour_no');
+        formTour.append("tour_no", tour_no);        
+
+        axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
             this.tourData = res.data[0];
             console.log('success tourData');
             console.log(this.tourData);
         }),
-        axios.get('./phpForConnect/meet2-3_comment.php').then(res => {
+        axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
             this.comments = res.data;
             console.log('success comments');
             console.log(this.comments);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+            this.tourParticipates = res.data;
+            console.log('success tourParticipats');
+            console.log(this.tourParticipates);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
+            this.passedParticipant = res.data;
+            console.log('success tour_participant_passed');
+            console.log(this.passedParticipant);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
+            this.notPassedParticipant = res.data;
+            console.log('success tour_participant_notpassed');
+            console.log(this.notPassedParticipant);
         })
-        // axios.get('./phpForConnect/meet2-3_member.php').then(res => {
-        //     this.hosterData = res.data;
-        //     console.log('success hosterData');
-        //     console.log(this.hosterData);
+        // axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
+        //     this.articals = res.data;
+        //     console.log('success articals');
+        //     console.log(this.articals);
         // })
+    },
+    filters: {
+        // var mountain_area = this.Tour1.mountain_area;
+        Area: function(value) {
+            switch(value){
+                case('north'):
+                    return '北部';
+                break;
+                case('west'):
+                    return '中部';
+                break;
+                case('south'):
+                    return '南部';
+                break;
+                case('east'):
+                    return '東部';
+                break;
+                default:
+                    return '沒成功哦';
+                break;
+            }
+        },
     },
     computed: {
         currentTour(){
@@ -32,6 +79,9 @@ new Vue({
         // openReportModal(commentId) {
         //     this.reportNo = commentId;
         //     // 打開彈窗
+        // }
+        // days(){
+        //     this.currentTour.tour_activityend - this.currentTour.tour_activitystart;
         // }
     },
 })
@@ -45,7 +95,7 @@ $(document).ready(function (){
         $('.application_bt').removeClass('change');
     });
     $('.application_bt').click(function(){
-        $('.activity_application').css('display','block');
+        $('.activity_application').css('display','flex');
         $('.activity_introduction').css('display','none');
         $(this).addClass('change');
         $('.introduction_bt').removeClass('change');
@@ -196,4 +246,13 @@ $(document).ready(function (){
             }
         });
     });
+
+    //tour_no
+    // $(function() {
+    //     let urlSearchParams = (new URL(document.location)).searchParams;
+    //     tour_no = urlSearchParams.get('tour_no');
+    //     let formTour = new FormData;
+    //     let test = formTour.append('tour_no', tour_no);
+    //     console.log(test);
+    // })
 })    
