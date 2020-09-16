@@ -7,40 +7,6 @@ body{
 div.wrap{
     width: 1200px;
     margin: 40px auto;
-    .person{
-        display: flex;
-        .person_headtag{
-            img{
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-        }
-        div.person_info{
-            margin: auto 20px;
-            .person_name-badge{
-                display: flex;
-                margin: auto 0;
-                width: 50px;
-                .person_name{
-                    a{
-                        color: #000;
-                    }
-                }
-                .person_badge{
-                    width: 100%;
-                    img{
-                        width: 100%;
-                        margin: 0 5px;
-                    }
-                }
-            }
-            .person_following{
-                font-size: 12px;
-            }
-        }
-    }
     .public_pic-activity{
         display: flex;
         margin: 0 0 20px;
@@ -182,6 +148,9 @@ div.wrap{
                     .applied_participant_item{
                         margin: 0 20px;
                         .applied_participant_pic{
+                            display: flex;
+                            justify-content: center;
+                            margin: 5px auto;
                             img{
                                 width: 60px;
                                 height: 60px;
@@ -190,10 +159,7 @@ div.wrap{
                             }
                         }
                         .applied_participant_name-badge{
-                            display: flex;
-                            .applied_participant_name{
-                                margin-right: 5px;
-                            }
+                            text-align: center;
                         }
                     }
                 }
@@ -334,20 +300,6 @@ div.wrap{
                             text-align: center;
                         }
                     }
-                    .medal{
-                        display: flex;
-                        justify-content: center;
-                        li{
-                            width: 30px;
-                            img{
-                                width: 100%;
-                            }
-                        }
-                    }
-                    .follow{
-                        display: flex;
-                        justify-content: center;
-                    }
                     .applied_bt{
                         display: flex;
                         justify-content: center;
@@ -446,6 +398,7 @@ div.wrap{
         }
     }
     .related_article{
+        display: none;
         width: 100%;
         position: relative;
         .content{

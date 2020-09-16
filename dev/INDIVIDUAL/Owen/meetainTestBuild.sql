@@ -14,7 +14,7 @@ select * from achievement;
 
 CREATE TABLE IF NOT EXISTS member (											-- :::::會員::::: 
     `mem_no` 				INT				primary key auto_increment ,	-- 會員編號
-    `mem_id` 				varchar (24)	not null unique,				-- 會員暱稱	
+    `mem_id` 				varchar (18)	not null unique,				-- 會員暱稱	
     `mem_name` 				varchar (18) 	not null,						-- 會員姓名 
     `mem_acc` 				varchar (15) 	not null unique,				-- 會員帳號 
     `mem_psw` 				varchar (15) 	not null,						-- 會員密碼 
@@ -48,7 +48,7 @@ select * from member;
 
 CREATE TABLE IF NOT EXISTS administrator (									-- :::::管理員::::: 
     `admin_no` 				int				primary key auto_increment,		-- 管理員編號
-    `admin_id` 				varchar(24)		not null unique,				-- 管理員暱稱
+    `admin_id` 				varchar(18)		not null unique,				-- 管理員暱稱
     `admin_name` 			varchar(18)		not null,						-- 管理員姓名
     `admin_acc` 			varchar(15)		not null unique,				-- 管理員帳號		
     `admin_psw` 			varchar(15)		not null,						-- 管理員密碼
@@ -208,7 +208,7 @@ select * from tour_keep;
 CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團參加::::: 
     `tour_participate_mem` 			int			 	not null,						-- "誰"追蹤
     `tour_participate_tour` 		int				not null,						-- 收藏"哪團"
-    `tour_participate_situation`	varchar(30)		not null default'未審核',		-- 審核狀態 未審核/已審核不通過/已審核已通過
+    `tour_participate_situation`	varchar(30)		not null,		-- 審核狀態 未審核/已審核不通過/已審核已通過
     foreign key (`tour_participate_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`tour_participate_tour`) references tour(`tour_no`) on delete cascade on update cascade,
     constraint tour_keep primary key (`tour_participate_mem` , `tour_participate_tour`)

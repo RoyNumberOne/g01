@@ -160,29 +160,39 @@
                 </section>
             </div>
         </div>
-        <div class="person">
-            <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-            <!-- <div class="person_headtag"><img :src="hosterData.avator" alt="大頭照"></div> -->
-            <div class="person_info">
-                <div class="person_name-badge">
-                    <!-- <div class="person_name"><a href="./Member.html">{{hosterData.mem_id}}</a></div> -->
-                    <div class="person_name"><a href="./Member.html">Roy</a></div>
-                    <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                    <!-- <div class="person_badge"><img :src="hosterData.mem_badge1" alt="徽章"></div> -->
+        <div class="member_styleA row">
+            <div class="memberImg">
+                <img :src="currentTour.mem_avator" alt="大頭照">
+            </div>
+            <div class="memberInfo">
+                <div class="certification">
+                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                 </div>
-                <div class="person_following">追蹤人數:123人</div>
+                <div class="memberId">{{currentTour.mem_id}}</div>
+                <div class="memberBadge">
+                    <span class="memberBadgeIcon">
+                        <img src="./images/member/Ach_list_03.png" alt="">
+                    </span>
+                    <span class="memberBadgeIcon">
+                        <img src="./images/member/Ach_list_03.png" alt="">
+                    </span>
+                    <span class="memberBadgeIcon">
+                        <img src="./images/member/Ach_list_03.png" alt="">
+                    </span>
+                </div>
             </div>
         </div>
         <div class="public_pic-activity">
-            <div class="public_pic"><img :src="tourData.mountain_image" alt="公版照片">
+            <div class="public_pic"><img :src="tourData.mountain_image" alt="">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt="相關照片"></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt="相關照片"></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt=""></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt=""></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt=""></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt=""></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt=""></div>
+                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -193,7 +203,6 @@
                         <div class="hashtag">#{{currentTour.mountain_name}} #{{currentTour.days}}天 #{{currentTour.tour_min_number}}~{{currentTour.tour_max_number}}人</div>
                         <div class="mountain_level">
                             <img src="./images/icons/icon_location.svg" alt=""> {{currentTour.mountain_area | Area}}｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt="">
-                            <!-- <img src="./images/icons/icon_location.svg" alt=""> 中部｜難易度: <img :src="" alt=""> -->
                         </div>
                         <div class="activity_date"><img src="./images/icons/icon_date.svg" alt="">{{currentTour.tour_activitystart}}</div>
                     </div>
@@ -229,7 +238,6 @@
                             <div class="applied_participant_pic"><img :src="participant.mem_avator" alt="參加者大頭照"></div>
                             <div class="applied_participant_name-badge">
                                 <div class="applied_participant_name">{{participant.mem_id}}</div>
-                                <div class="applied_participant_badge">badge</div>
                             </div>
                         </div>
                     </div>
@@ -241,30 +249,8 @@
                             <div class="applied_participant_pic"><img :src="participant.mem_avator" alt="參加者大頭照"></div>
                             <div class="applied_participant_name-badge">
                                 <div class="applied_participant_name">{{participant.mem_id}}</div>
-                                <div class="applied_participant_badge">badge</div>
                             </div>
                         </div>
-                        <!-- <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div>
-                        <div class="applied_participant_item">
-                            <div class="applied_participant_pic"><img src="./images/king.jpeg" alt="參加者大頭照"></div>
-                            <div class="applied_participant_name-badge">
-                                <div class="applied_participant_name">Roy</div>
-                                <div class="applied_participant_badge">badge</div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="equip_recommend">
@@ -349,15 +335,6 @@
                         <div class="memName">
                             <h3>{{participate.mem_id}}</h3>
                         </div>
-                        <ul class="medal">
-                            <li><img src="./images/member/Ach_list_16.png"></li>
-                            <li><img src="./images/member/Ach_list_14.png"></li>
-                            <li><img src="./images/member/Ach_list_01.png"></li>
-                        </ul>
-                        <div class="follow">
-                            <div class="follow_title">追蹤人數：</div>
-                            <div class="follow_value">77</div>
-                        </div>
                         <div class="applied_bt">
                             <div class="accept_bt a_bt">
                                 <button class="btnB_L_grey"><p>拒絕</p><div class="bg"></div></button>
@@ -372,14 +349,27 @@
         </div>
         <div class="message">
             <div class="message_board_block" v-for = "comment in comments">
-                <div class="person">
-                    <div class="person_headtag"><img :src="comment.mem_avator" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">{{comment.comment_poster}}</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
+                <div class="member_styleA column">
+                    <div class="memberImg">
+                        <img :src="comment.mem_avator" alt="大頭照">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
-                        <div class="person_following">追蹤人數:123人</div>
+                        <div class="memberId">{{comment.mem_id}}</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img src="./images/member/Ach_list_03.png" alt="">
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="sent_message">
@@ -393,28 +383,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="message_board_block">
-                <div class="person">
-                    <div class="person_headtag"><img src="./images/king.jpeg" alt="大頭照"></div>
-                    <div class="person_info">
-                        <div class="person_name-badge">
-                            <div class="person_name"><a href="./Member.html">Roy</a></div>
-                            <div class="person_badge"><img src="./images/member/Ach_list_16.png" alt=""></div>
-                        </div>
-                        <div class="person_following">追蹤人數:123人</div>
-                    </div>
-                </div>
-                <div class="sent_message">
-                    <div class="message_text">
-                        <div class="mg_text">請問還剩下多少名額？下雨天是否照常成行？</div>
-                        <div class="mg_time">2020/07/13 20:30</div>
-                        <div class="mg_report_bt">
-                            <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
-                            <div class="mg_text">檢舉</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="change_page">
                 <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                 <button class="btnA_S pg -active"><p>01</p></button>
@@ -425,7 +393,7 @@
                 <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
             </div>
         </div>
-        <h3>相關文章</h3>
+        <h3 style="display: none;">相關文章</h3>
         <div class="related_article">
             <ul class="content">
                 <li class="article" v-for = "artical in articals">
@@ -438,36 +406,6 @@
                         <a href="./comment.html">{{artical.forum_post_title}}</a>
                     </div>
                 </li>
-                <!-- <li class="article">
-                    <div class="art_pic">
-                        <a href="./comment.html">
-                            <img src="./images/MOUNTAIn.png" alt="">
-                        </a>
-                    </div>
-                    <div class="art_title">
-                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <div class="art_pic">
-                        <a href="./comment.html">
-                            <img src="./images/MOUNTAIn.png" alt="">
-                        </a>
-                    </div>
-                    <div class="art_title">
-                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <div class="art_pic">
-                        <a href="./comment.html">
-                            <img src="./images/MOUNTAIn.png" alt="">
-                        </a>
-                    </div>
-                    <div class="art_title">
-                        <a href="./comment.html">三峽雲森瀑布&阿花瀑布夏日好清涼</a>
-                    </div>
-                </li> -->
             </ul>
             <div class="left"><</div>
             <div class="right">></div>

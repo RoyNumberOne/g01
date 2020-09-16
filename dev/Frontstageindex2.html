@@ -288,7 +288,7 @@
                           
                     </div>
                     <div class="weatherdesc">
-                        <p id="weatherp">123</p>
+                        <p id="weatherp"></p>
                     </div>
                 </div>
                 <div id="tourbox">
@@ -309,8 +309,8 @@
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                            <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
                                         <div class="memberId">{{t1.mem_id}}</div>
                                         <div class="memberBadge">
@@ -372,7 +372,7 @@
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
-                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                         <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
                                     <div class="memberId"></div>
@@ -445,7 +445,7 @@
                                 </div>
                                 <div class="memberInfo">
                                     <div class="certification">
-                                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                         <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
                                     <div class="memberId"></div>
@@ -631,8 +631,6 @@
             data: {
                 Tour1: [],
                 Tour23: [],
-                mountain_area :'north',
-                
             },
             created() {
                 axios.get('./phpForConnect/frontstageindexTour1.php').then(res => {
@@ -685,14 +683,14 @@
                     }
                 }
             },
-            // computed: {
-            //     filteredClients() {
-            //     const tour1 = this.Tour1.toLowerCase().trim();
-
-            //     if (!tour1) return this.t1;
-
-            //     return this.clients.filter(c => c.name.toLowerCase().indexOf(search) > -1);
-            // }},
+            computed: {
+                CHECKname() {
+                    return this.Tour1[0].mem_realname;
+                },
+                CHECKguide() {
+                    return this.Tour1[0].guide_no;
+                },
+            },
         });
         let vForumHot = new Vue({
             el: "#sec3-1box",
@@ -736,6 +734,16 @@
                 $("#sec3-1box .innerboxleft .bigpic img").attr('src',TEMPforum_post_image)
                 $("#sec3-1box .innerboxleft .bigpic div p").text(TEMPforum_post_category)
                 $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberImg img").attr('src',TEMPmem_avator)
+                if (TEMPmem_realname){
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").show();
+                }   else    {
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").hide();
+                }
+                if (TEMPguide_no){
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").show();
+                }   else    {
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").hide();
+                }
                 $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberId").text(TEMPmem_id)
                 $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(0).find("img").attr('src',TEMPmem_badge1)
                 $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(1).find("img").attr('src',TEMPmem_badge2)
@@ -750,7 +758,7 @@
                 $("#sec3-1box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
                 $("#sec3-1box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
                 $("#sec3-1box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
-            },
+                },
             },
             updated() {
                 this.renderForumData();
@@ -805,10 +813,16 @@
                 $("#sec3-2box .innerboxleft .theinfor .forumtitle h3").text(TEMPforum_post_title)
                 $("#sec3-2box .innerboxleft .theinfor .forumtitle span").text(TEMPforum_post_time)
                 $("#sec3-2box .innerboxleft .forumtext p").text(TEMPforum_post_innertext)
-                // console.log('**below**memINFO**')
-                // console.log(TEMPguide_no)
-                // console.log(TEMPmem_realname)
-                // console.log('**above**memINFO**')
+                if (TEMPmem_realname){
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").show();
+                }   else    {
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").hide();
+                }
+                if (TEMPguide_no){
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").show();
+                }   else    {
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").hide();
+                }
                 $("#sec3-2box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
                 $("#sec3-2box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
                 $("#sec3-2box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
