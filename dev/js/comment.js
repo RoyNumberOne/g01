@@ -5,16 +5,25 @@ new Vue({
         reflection:[],
     },
     created(){
+    },
+    mounted() {
+        let formArticle = new FormData();
+        let urlSearchParams = (new URL(document.location)).searchParams;
+        forum_post_no = urlSearchParams.get('forum_post_no');
+        console.log(forum_post_no)
+        formArticle.append("forum_post_no", forum_post_no);  
         //文章發布
-        axios.get('./phpForConnect/commentPostReflection.php').then(res => {
+        axios.post('./phpForConnect/commentPostReflection.php',formArticle).then(res => {
             this.reflection = res.data;
             console.log('success');
             console.log(this.reflection);
-        }),
-
+        })
         // 留言回覆區
-        axios.get('./phpForConnect/commentPostDialog.php').then(res => {
-            this.dialog = res.data;
+        axios.post('./phpForConnect/commentPostDialog.php',formArticle).then(res => {
+            console.log(res.data.length);
+            for (var i = 0;i<res.data.length;i++){
+                this.dialog.push(res.data[i]);
+            };
             console.log('success');
             console.log(this.dialog);
         })
