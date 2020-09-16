@@ -4,6 +4,10 @@ new Vue({
         articalList: [],
         announcement: [],
         poprank: [],
+        input:{
+            type:'全部',
+            title: ' ',
+        }
     },
     created(){
         // 公告的貼文(預設3篇)
@@ -34,15 +38,24 @@ new Vue({
     //             this.currentIndex.push(i)
     //         }
     //     })
-    //     // .then(res => this.articalList = res.data)
-    //     // .then(res => {console.log(res.data)})
+    //     .then(res => this.articalList = res.data)
+    //     .then(res => {console.log(res.data)})
 
     //     .catch(error => {console.log(error)});
     // },
-    // methods:{
+    methods:{
 
-    // },
-    // computed:{
-
-    // },
+    },
+    computed:{
+        articleList(){
+            if(this.input.type== '全部'){
+                return this.articalList
+             }
+            else{ 
+                return this.articalList.filter(artical=>{
+                    return artical.forum_post_category == this.input.type
+                })
+            }
+        },
+    }
 })
