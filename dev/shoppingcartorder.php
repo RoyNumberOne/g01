@@ -1,11 +1,14 @@
 <?php
-session_start();
-if (isset($_SESSION["mem_acc"]) === true){
-    //送出登入者的姓名資料
-    $member_no = $_SESSION["mem_no"];
+// session_start();
+// if (isset($_SESSION["mem_acc"]) === true){
+//     //送出登入者的姓名資料
+//     $member_no = $_SESSION["mem_no"];
+// }else    {
+//     echo "{}";
+// }
 try {
     require_once ('connectMeetain.php');
-    // $member_no = 10001;
+    $member_no = 10001;
     $order_logistics_deliver = $_POST['order_logistics_deliver'];
     $order_logistics_fee = $_POST['order_logistics_fee'];
     $order_cashflow = $_POST['order_cashflow'];
@@ -47,9 +50,6 @@ catch(PDOException $e)
     {
     	// echo $sql . "<br>" . $e->getMessage();
     }
-}  
-else    {
-    echo "{}";
-}
+  
 ?>
 

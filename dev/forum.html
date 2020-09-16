@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>媒山友｜討論</title>
+    <title>媒山友｜討論區</title>
     <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
-    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/forum.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
@@ -15,13 +15,13 @@
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
 </head>
-
 <body>
-    <header>
+    <header> 
+
         <div id="headerbox">
-            <a href="./Frontstageindex.html" class="logo">
+            <a href="./FrontstageIndex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -40,6 +40,7 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
+                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
                     <li>
                         <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
@@ -47,7 +48,6 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -68,1062 +68,458 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
+
         </div>
+
     </header>
 
-    <div id="banner">
+    <!-- <div id="banner">
         <img src="./images/form_img/banner_forumindex.png" alt="">
-    </div>
+    </div> -->
 
-
-    <div id="parent_container">
-        <main id="main-forum">
-            <div class="news-block">
-                <div class="hot-top">
-                    <div class="ntittle">
+    <main id="main_forum">
+        <div id="forum_container">
+            <div class="forum_container-right">
+                <div class="news_block">
+                    <div class="hot-top">
                         <h2 class="text_underline">最新公告</h2>
                         <div class="hot-bgc_img"></div>
                     </div>
-                </div>
-                
-                <div class="news_list">
-                    <div class="list">
-                        <p><a href="./comment.html" target="_blank">炎炎夏日何處去？阿里山夏季天文營 浪漫銀河陪你一起FUN暑假</a></p>
-                        <div class="button"><a href="">NEWS</a></div>
-                    </div>
-
-                    <div class="list">
-                        <p><a href="./comment.html" target="_blank">登山運動─安全知識及講座－帶孩子爬山─開啟親子探險旅程</a></p>
-                        <div class="button"><a href="">NEWS</a></div>
-                    </div>
-
-                    <div class="list">
-                        <p><a href="./comment.html" target="_blank">戶外安全推廣專題系列課程 【登山體能 x 登山規劃概論與實作】</a></p>
-                        <div class="button"><a href="">NEWS</a></div>
+    
+                    <div class="news_list" v-for="(news, index) in announcement">
+                        <div class="list">
+                            <p><a href="./comment.html">{{news.forum_post_title}}</a></p>
+                            <div class="news-text">NEWS</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="billboard-block">
-                <div class="ntittle">
+                <div class="billboard-block">
                     <h2 class="text_underline">討論度排行榜</h2>
-                </div>
-
-            <!---------熱門討論排行榜----------->
-                <div class="swiper-container">
-                    <div class="place_img"></div>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-img">
-                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
-                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
-                                </div>
-
-                                <div class="hot-users-block">
-                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
-                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
-                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="tittle">
-                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
-                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
-                                    </div>
+                    <div class="content">
+                        <div class="slider">
+                          <ul class="slider__area">
+                            <li class="slider__item" v-for="(poprank, index) in poprank">
+                              <div class="card-block">
+                                  <div class="card">
+                                    <div class="slider-img">
+                                      <img :src="poprank.forum_post_image" alt="">
+                                      <div class="hot-tag animate__animated animate__flash animate__slower"><p>HOT</p></div>
+                                  </div>
+                                  <div class="hot-users-block">
+                                    <div class="pic"><img :src="poprank.mem_avator" alt=""></div>
+                                    <div class="user_name"><p class="usname">{{poprank.mem_id}}</p></div>
                                     
-                                    <!--btnA_XLwRA-->
-                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-img">
-                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
-                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
-                                </div>
-
-                                <div class="hot-users-block">
-                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
-                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
-                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="tittle">
-                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
-                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                        </span>
                                     </div>
-                                    
-                                    <!--btnA_XLwRA-->
-                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-img">
-                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
-                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
-                                </div>
-
-                                <div class="hot-users-block">
-                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
-                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
-                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="tittle">
-                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
-                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
-                                    </div>
-                                    
-                                    <!--btnA_XLwRA-->
-                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-img">
-                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
-                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
-                                </div>
-
-                                <div class="hot-users-block">
-                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
-                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
-                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="tittle">
-                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
-                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
-                                    </div>
-                                    
-                                    <!--btnA_XLwRA-->
-                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="slider-img">
-                                    <img src="./images/form_img/Wall mountain.jpg" alt="">
-                                    <div class="hot-tag animate__animated animate__flash animate__slower animate__infinite"><p>HOT</p></div>
-                                </div>
-
-                                <div class="hot-users-block">
-                                    <div class="pic"><img src="./images/form_img/username1.jpg" alt=""></div>
-                                    <div class="user_name"><p class="usname">Wendy Zou</p></div>
-                                    <div class="hot-icons"><img src="./images/form_img/badge-icon.png" alt=""></div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="tittle">
-                                        <h3>[新手專區]5個容易忽略的健行風險百岳單功篇</h3>
-                                        <span> 今日天氣炎熱但是相對把握難得的好天氣，一起前往這個地方，不過沿途中總有許多....</span>
-                                    </div>
-                                    
-                                    <!--btnA_XLwRA-->
-                                    <a href="./comment.html"><button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ntittle">
-                <h2 class="text_underline">討論專區</h2>
-            </div>
-
-            <div class="search-block">
-                <div class="outline">
-                    <div class="item_btns">
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <button type="submit">全部</button>
-                            <button type="submit">爬山心得</button>
-                            <button type="submit">裝備資訊</button>
-                            <button type="submit">新手專區</button>
-                            <button type="submit">登山知識</button>
-                        </form>
-                    </div>
-                    <div class="bar-block">
-                        <div class="searchbar">
-                            <input type="search" placeholder="搜尋心得">
-                            <div class="searchicon">
-                                <img src="./images/form_img/searchicon.png" alt="">
-                            </div>
-                        </div>
-    
-                        <div class="ask_btn">
-                            <!-- <form  method="post" enctype="multipart/form-data"> -->
-                                <button class="btnB_L_yellow" onclick="location.href='./post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
-                            <!-- </form> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="forum-block">
-                <div id="forum-tittle">
-                    <div></div>
-                    <div>主題</div>
-                    <div>回覆人氣</div>
-                    <div>發文時間</div>
-                    <div>最新回覆</div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
-                                    </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
-                                </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
-                        </div>
-                    </div>
-                </div>
+                                  </div>
                 
-                <div id="forum-list">
-                    <div class="form-container">
-                        <div class="img">
-                            <img src="./images/form_img/g1.jpg" alt="">
-                        </div>
-
-                        <div class="theme">
-                            <div class="tittle">
-                                <h4><a href="./comment.html">[新手專區]5個容易忽略的健行風險 百岳單功篇</a></h4>
-                            </div>
-
-                            <div class="context">
-                                <span>
-                                    今日天氣炎熱但是相對把握難得的好天氣，沿土庫尖古道而上，路上鋪設枕木步道其實來回約
-                                    二小時，只是今天平日好像沒什麼人走，只有我們探險兩人組，山頂無展望只能夠再繼續往....(more)
-                                </span>
-                            </div>
-
-                            <div id="poster-block">
-                                <div class="user">
-                                    <div class="user-pic">
-                                       <img class="user-img" src="./images/form_img/yen.jpg" alt="">
+                                  <div class="container">
+                                    <div class="tittle">
+                                      <h3>{{poprank.forum_post_title}}</h3>
+                                      <span>{{poprank.forum_post_innertext}}</span>
                                     </div>
-                                    <div class="user-name"><span>彭于晏 Peng Yuyan</span></div>
+                                    <a href="./forum-comment.html">
+                                        <button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button>
+                                    </a>
+                                  </div>
                                 </div>
-                                
-                                <div class="ulick">
-                                    <div class="remessage">
-                                        <div class="message-iocn"><img src="./images/form_img/talk.png" alt=""></div>
-                                        <div class="message-num">42則</div>
-                                    </div>
-    
-                                    <div class="like">
-                                        <div class="likes"><img src="./images/form_img/heart_gray.png" alt=""></div>
-                                        <div class="likes-num">收藏</div>
-                                    </div>
-                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="prev-btn">
+                                <img src="./images/icons/icon_arrow_right.svg" alt="">
                             </div>
-                        </div>
-
-                        <div class="response">
-                            <span class="rem">31</span>
-                        </div>
-
-                        <div class="message-time">
-                            <span>2020-07-06</span><br>
-                            <span>彭于晏</span>
-                        </div>
-
-                        <div class="renews">
-                            <span>Jinhu4  3:15</span><br>
-                            <span>2020-07-12</span><br>
-                            <span>彭于晏</span>
+                          <div class="next-btn"><img src="./images/icons/icon_arrow-left.svg" alt=""></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="nextpage-btn">
-                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                <button class="btnA_S pg -active"><p>01</p></button>
-                <button class="btnA_S pg"><p>02</p></button>
-                <button class="btnA_S pg"><p>03</p></button>
-                <button class="btnA_S pg"><p>04</p></button>
-                <button class="btnA_S pg"><p>05</p></button>
-                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-            </div>
-        </main>
 
-        <aside id="aside">
-            <div class="prod-img">
-                <a href="./product.html"><img src="./images/form_img/prod-img.jpg" alt=""></a>
-            </div>
+                <div class="forum-block">
+                    <h2 class="text_underline">討論專區</h2>
+                    <div class="search-block">
+                        <div class="outline">
+                            
+                            <div class="item_btns">
+                                <form action="#" method="#" enctype="multipart/form-data">
+                                    
+                                    <label>
+                                        <input type="radio" name="type" id="filter_top" value="全部"  v-model="input.type" style="display: none;">
+                                        全部
+                                    </label>
+                                    
+                                    <label>
+                                        <input type="radio" name="type" id="filter_1" value="揪團心得"  v-model="input.type" style="display: none;">
+                                        揪團心得
+                                    </label>
 
-            <div class="hot-title">
-                <h2 class="text_underline">精選熱門揪團</h2>
-                <div class="color-bottom01"></div>
-            </div>
+                                    <label>
+                                        <input type="radio" name="type" id="filter_2" value="裝備資訊"  v-model="input.type" style="display: none;">
+                                        裝備資訊
+                                    </label>
 
-            <div id="hot-travel-asideblock">
-                <ul class="travel-card">
-                    <a href="./meet2-0.html"><li class="card-list">
-                        <div class="pop-img">
-                            <img src="./images/form_img/snow_montain.jpg" alt="">
-                        </div>
+                                    <label>
+                                        <input type="radio" name="type" id="filter_3" value="新手專區"  v-model="input.type" style="display: none;">
+                                        新手專區
+                                    </label>
 
-                        <div class="pop-title">
-                            <h3>20200809李棟山大混山縱走/新竹區/專業嚮導)</h3>
-                            <div class="pop-like"><img src="./images/form_img/heart.png" alt=""></div>
-                        </div>
-
-                        <div class="pop-content-block">
-                            <div class="pop-user">
-                                <div class="pop-user-img">
-                                    <img src="./images/form_img/username1.jpg" alt="">
-                                </div>
-
-                                <div class="user-name">
-                                    <span>Wendy Zou</span><br>
-                                </div>
+                                    <label>
+                                        <input type="radio" name="type" id="filter_4" value="登山知識"  v-model="input.type" style="display: none;">
+                                        登山知識
+                                    </label>
+                                </form>
                             </div>
-
-                            <div class="pop-infor">
-                                <div class="pop-place">
-                                    <div class="place-icon"><img src="./images/form_img/location.png" alt=""></div>
-                                    <p>地點</p>
-                                    <div class="location">
-                                        <span>宜蘭-抹茶山抹茶山抹茶山抹茶山</span>
+                            <div class="bar-block">
+                                <div class="searchbar">
+                                    <input type="search" placeholder="搜尋心得">
+                                    <div class="searchicon">
+                                        <img src="./images/form_img/searchicon.png" alt="">
                                     </div>
                                 </div>
-
-                                <div class="pop-easy">
-                                    <div class="place-icon"><img src="./images/form_img/mountain.png" alt=""></div>
-                                    <p>難度</p>
-                                    <img id="mountains" src="./images/form_img/mountains.png" alt="">
-                                </div>
-                                <div class="pop-date">
-                                    <div class="place-icon"><img src="./images/form_img/date.png" alt=""></div>
-                                    <p>日期</p>
-                                    <span>2020/08/09(日)</span>
+            
+                                <div class="ask_btn">
+                                    <!-- <form  method="post" enctype="multipart/form-data"> -->
+                                        <button class="btnB_L_yellow" onclick="location.href='./post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
+                                    <!-- </form> -->
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    </li>
+                    </div>
 
-                    <a href="./meet2-0.html"><li class="card-list">
-                        <div class="pop-img">
-                            <img src="./images/form_img/Fivestepmon.jpg" alt="">
+                    <div id="forum_list" v-for="(artical, index) in  articleList" class="rest02">
+                        <div class="forum_post_image">
+                            <img :src="artical.forum_post_image" alt="">
                         </div>
+                        <div class="forum-infor">
+                            <a :href="'./forum-comment.html?forum_post_no=' + artical.forum_post_no">
+                                <div class="tittle">
+                                    <h3>{{artical.forum_post_title}}</h3>
+                                    <div class="innertext">
+                                        <p>
+                                            {{artical.forum_post_innertext}}
+                                        </p>
+                                    </div>
 
-                        <div class="pop-title">
-                            <h3>20200809李棟山大混山縱走/新竹區/專業嚮導)</h3>
-                            <div class="pop-like"><img src="./images/form_img/heart.png" alt=""></div>
-                        </div>
+                                    <div class="poster-block">
+                                        <div class="member_styleA row">
+                                            <div class="memberImg">
+                                                <img src="./images/meet/member/Chris.jpg" alt="">
+                                            </div>
+                                            <div class="memberInfo">
+                                                <div class="certification">
+                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                                </div>
+                                                <div class="memberId">{{artical.mem_id}}</div>
+                                                <div class="memberBadge">
+                                                    <span class="memberBadgeIcon">
+                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                    </span>
+                                                    <span class="memberBadgeIcon">
+                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                    </span>
+                                                    <span class="memberBadgeIcon">
+                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="forum_groups">
+                                            <div class="heart">
+                                                <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                                                <div class="heart-infor"><span>22人收藏</span></div>
+                                            </div>
 
-                        <div class="pop-content-block">
-                            <div class="pop-user">
-                                <div class="pop-user-img">
-                                    <img src="./images/form_img/username1.jpg" alt="">
-                                </div>
+                                            <div class="message">
+                                                <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                                                <div class="message-infor"><span>42則回覆</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="post_situation">
+                                            <div class="post_time">
+                                                <p>發表於</p>
+                                                <div class="uptime"><span>{{artical.forum_post_time}}</span></div>
+                                            </div>
 
-                                <div class="user-name">
-                                    <span>Wendy Zou</span><br>
-                                </div>
-                            </div>
-
-                            <div class="pop-infor">
-                                <div class="pop-place">
-                                    <div class="place-icon"><img src="./images/form_img/location.png" alt=""></div>
-                                    <p>地點</p>
-                                    <div class="location">
-                                        <span>宜蘭-抹茶山抹茶山抹茶山抹茶山</span>
+                                            <div class="remessage_time">
+                                                <p>最後回覆</p>
+                                                <div class="renews"><span>2020/07/25 03:15</span></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="pop-easy">
-                                    <div class="place-icon"><img src="./images/form_img/mountain.png" alt=""></div>
-                                    <p>難度</p>
-                                    <img id="mountains" src="./images/form_img/mountains.png" alt="">
+                <div class="nextpage-btn">
+                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                    <button class="btnA_S pg -active"><p>01</p></button>
+                    <button class="btnA_S pg"><p>02</p></button>
+                    <button class="btnA_S pg"><p>03</p></button>
+                    <button class="btnA_S pg"><p>04</p></button>
+                    <button class="btnA_S pg"><p>05</p></button>
+                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                </div>
+            </div>
+
+            <div id="forum_aside">
+                <div class="tour-tittle">
+                    <h2 class="text_underline">熱門揪團</h2>
+                </div>
+
+                <div id="tour-block">
+                    <div class="hot-tour-card">
+                        <div class="tour-img">
+                            <img src="./images/meet/mountain/2east.jpg" alt="">
+                        </div>
+        
+                        <div class="tour-block">
+                            <div class="tour-title-container">
+                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
+                            </div>
+        
+                            <div class="tag">
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                            </div>
+        
+                            <div class="tour-place">
+                                <div class="location">
+                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                                    <div class="area"><p>南部</p></div>
+                                    <p>｜</p>
                                 </div>
-                                <div class="pop-date">
-                                    <div class="place-icon"><img src="./images/form_img/date.png" alt=""></div>
-                                    <p>日期</p>
-                                    <span>2020/08/09(日)</span>
+        
+                                <div class="degree_category">
+                                    <div class="category_text">難度</div>
+                                    <div class="mountain_icon">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="tour-activitystart">
+                                <div class="tour-start">
+                                    <span>2020/09/08出發｜</span>
+                                </div>
+                                <div class="tour-end">
+                                    <span>2020/09/10回程</span>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    </li>
-
-                    <li class="card-list">
-                        <div class="pop-img">
+                    </div>
+    
+                    <div class="hot-tour-card">
+                        <div class="tour-img">
+                            <img src="./images/meet/mountain/3east.jpg" alt="">
+                        </div>
+        
+                        <div class="tour-block">
+                            <div class="tour-title-container">
+                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
+                            </div>
+        
+                            <div class="tag">
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                            </div>
+        
+                            <div class="tour-place">
+                                <div class="location">
+                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                                    <div class="area"><p>南部</p></div>
+                                    <p>｜</p>
+                                </div>
+        
+                                <div class="degree_category">
+                                    <div class="category_text">難度</div>
+                                    <div class="mountain_icon">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="tour-activitystart">
+                                <div class="tour-start">
+                                    <span>2020/09/08出發｜</span>
+                                </div>
+                                <div class="tour-end">
+                                    <span>2020/09/10回程</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="hot-tour-card">
+                        <div class="tour-img">
                             <img src="./images/form_img/Taiwu.jpg" alt="">
                         </div>
-
-                        <div class="pop-title">
-                            <h3>20200809李棟山大混山縱走/新竹區/專業嚮導)</h3>
-                            <div class="pop-like"><img src="./images/form_img/heart.png" alt=""></div>
-                        </div>
-
-                        <div class="pop-content-block">
-                            <div class="pop-user">
-                                <div class="pop-user-img">
-                                    <img src="./images/form_img/username1.jpg" alt="">
-                                </div>
-
-                                <div class="user-name">
-                                    <span>Wendy Zou</span><br>
-                                </div>
+        
+                        <div class="tour-block">
+                            <div class="tour-title-container">
+                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
                             </div>
-
-                            <div class="pop-infor">
-                                <div class="pop-place">
-                                    <div class="place-icon"><img src="./images/form_img/location.png" alt=""></div>
-                                    <p>地點</p>
-                                    <div class="location">
-                                        <span>宜蘭-抹茶山抹茶山抹茶山抹茶山</span>
+        
+                            <div class="tag">
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                            </div>
+        
+                            <div class="tour-place">
+                                <div class="location">
+                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                                    <div class="area"><p>南部</p></div>
+                                    <p>｜</p>
+                                </div>
+        
+                                <div class="degree_category">
+                                    <div class="category_text">難度</div>
+                                    <div class="mountain_icon">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
                                     </div>
                                 </div>
-
-                                <div class="pop-easy">
-                                    <div class="place-icon"><img src="./images/form_img/mountain.png" alt=""></div>
-                                    <p>難度</p>
-                                    <img id="mountains" src="./images/form_img/mountains.png" alt="">
+                            </div>
+        
+                            <div class="tour-activitystart">
+                                <div class="tour-start">
+                                    <span>2020/09/08出發｜</span>
                                 </div>
-                                <div class="pop-date">
-                                    <div class="place-icon"><img src="./images/form_img/date.png" alt=""></div>
-                                    <p>日期</p>
-                                    <span>2020/08/09(日)</span>
+                                <div class="tour-end">
+                                    <span>2020/09/10回程</span>
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </div>
 
-                    <li class="card-list">
-                        <div class="pop-img">
-                            <img src="./images/form_img/Kitatake.jpg" alt="">
+                    <div class="hot-tour-card">
+                        <div class="tour-img">
+                            <img src="./images/meet/mountain/4west.jpg" alt="">
                         </div>
-
-                        <div class="pop-title">
-                            <h3>20200809李棟山大混山縱走/新竹區/專業嚮導)</h3>
-                            <div class="pop-like"><img src="./images/form_img/heart.png" alt=""></div>
-                        </div>
-
-                        <div class="pop-content-block">
-                            <div class="pop-user">
-                                <div class="pop-user-img">
-                                    <img src="./images/form_img/username1.jpg" alt="">
-                                </div>
-
-                                <div class="user-name">
-                                    <span>Wendy Zou</span><br>
-                                </div>
+        
+                        <div class="tour-block">
+                            <div class="tour-title-container">
+                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
                             </div>
-
-                            <div class="pop-infor">
-                                <div class="pop-place">
-                                    <div class="place-icon"><img src="./images/form_img/location.png" alt=""></div>
-                                    <p>地點</p>
-                                    <div class="location">
-                                        <span>宜蘭-抹茶山抹茶山抹茶山抹茶山</span>
+        
+                            <div class="tag">
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                            </div>
+        
+                            <div class="tour-place">
+                                <div class="location">
+                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                                    <div class="area"><p>南部</p></div>
+                                    <p>｜</p>
+                                </div>
+        
+                                <div class="degree_category">
+                                    <div class="category_text">難度</div>
+                                    <div class="mountain_icon">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        
                                     </div>
                                 </div>
-
-                                <div class="pop-easy">
-                                    <div class="place-icon"><img src="./images/form_img/mountain.png" alt=""></div>
-                                    <p>難度</p>
-                                    <img id="mountains" src="./images/form_img/mountains.png" alt="">
+                            </div>
+        
+                            <div class="tour-activitystart">
+                                <div class="tour-start">
+                                    <span>2020/09/08出發｜</span>
                                 </div>
-                                <div class="pop-date">
-                                    <div class="place-icon"><img src="./images/form_img/date.png" alt=""></div>
-                                    <p>日期</p>
-                                    <span>2020/08/09(日)</span>
+                                <div class="tour-end">
+                                    <span>2020/09/10回程</span>
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </div>
 
-                    <li class="card-list">
-                        <div class="pop-img">
-                            <img src="./images/form_img/Redpin.jpg" alt="">
+                    <div class="hot-tour-card">
+                        <div class="tour-img">
+                            <img src="./images/meet/mountain/2west.jpg" alt="">
                         </div>
-
-                        <div class="pop-title">
-                            <h3>20200809李棟山大混山縱走/新竹區/專業嚮導)</h3>
-                            <div class="pop-like"><img src="./images/form_img/heart.png" alt=""></div>
-                        </div>
-
-                        <div class="pop-content-block">
-                            <div class="pop-user">
-                                <div class="pop-user-img">
-                                    <img src="./images/form_img/username1.jpg" alt="">
-                                </div>
-
-                                <div class="user-name">
-                                    <span>Wendy Zou</span>
-                                </div>
+        
+                        <div class="tour-block">
+                            <div class="tour-title-container">
+                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
                             </div>
-
-                            <div class="pop-infor">
-                                <div class="pop-place">
-                                    <div class="place-icon"><img src="./images/form_img/location.png" alt=""></div>
-                                    <p>地點</p>
-                                    <div class="location">
-                                        <span>宜蘭-抹茶山抹茶山抹茶山抹茶山</span>
+        
+                            <div class="tag">
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn>#tag</span></div>
+                            </div>
+        
+                            <div class="tour-place">
+                                <div class="location">
+                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
+                                    <div class="area"><p>南部</p></div>
+                                    <p>｜</p>
+                                </div>
+        
+                                <div class="degree_category">
+                                    <div class="category_text">難度</div>
+                                    <div class="mountain_icon">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
+                                        <img src="./images/icons/icon_mountain.svg" alt="">
                                     </div>
                                 </div>
-
-                                <div class="pop-easy">
-                                    <div class="place-icon"><img src="./images/form_img/mountain.png" alt=""></div>
-                                    <p>難度</p>
-                                    <img id="mountains" src="./images/form_img/mountains.png" alt="">
+                            </div>
+        
+                            <div class="tour-activitystart">
+                                <div class="tour-start">
+                                    <span>2020/09/08出發｜</span>
                                 </div>
-                                <div class="pop-date">
-                                    <div class="place-icon"><img src="./images/form_img/date.png" alt=""></div>
-                                    <p>日期</p>
-                                    <span>2020/08/09(日)</span>
+                                <div class="tour-end">
+                                    <span>2020/09/10回程</span>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="video" style="margin-top: 5%;">
-				<iframe width="100%" height="300px" src="https://www.youtube.com/embed/PB4gId2mPNc" frameborder="0" 
-				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <div id="tag">
-                <div class="">
-
+                    </div>
                 </div>
-                <ul class="hot-tags">
-                    <li><a href="#">#玉山</a></li>
-                    <li><a href="#">#五步哭山</a></li>
-                    <li><a href="#">#台灣</a></li>
-                    <li><a href="#">#登山杖</a></li>
-                    <li><a href="#">#登山配備</a></li>
-                    <li><a href="#">#抹茶山</a></li>
-                    <li><a href="#">#玉山</a></li>
-                    <li><a href="#">#五步哭山</a></li>
-                    <li><a href="#">#台灣</a></li>
-                    <li><a href="#">#登山杖</a></li>
 
-                </ul>
+                <div id="tag">
+                    <div class="tag-tittle">
+                        <p>關鍵字</p>
+                    </div>
+                    <ul class="hot-tags">
+                        <li><a href="#">#玉山</a></li>
+                        <li><a href="#">#五步哭山</a></li>
+                        <li><a href="#">#台灣</a></li>
+                        <li><a href="#">#登山杖</a></li>
+                        <li><a href="#">#登山配備</a></li>
+                        <li><a href="#">#抹茶山</a></li>
+                        <li><a href="#">#玉山</a></li>
+                        <li><a href="#">#五步哭山</a></li>
+                        <li><a href="#">#台灣</a></li>
+                        <li><a href="#">#登山杖</a></li>
+                    </ul>
+                </div>
+
             </div>
-        </aside>
-    </div>
+        </div>
+    </main>
 
     <!-- -------------------------GO TOP------------------------- -->
     <a href="#" id="gotop">
@@ -1217,27 +613,55 @@
         });
     </script>
 
+    <script src="./js/header.js" ></script>
     <script>
-        let swiper = new Swiper ('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-            rotate: 10,
-            stretch: 300,
-            depth: 40,
-            modifier: 2,
-            slideShadows: true,
-                },
-            pagination: {
-                el: 'swiper-pagination'
-            }
+        $(window).ready(function(){
+        let liNum = $('.slider__item').length
+        let liW = $('.slider__item').width()
+        // let divW = liW * 2.7
+        // $('.slider').css({'width':divW});
+        // $('.slider__area').css({width:liW*liNum,marginLeft: -liW})
+
+        $('.slider__area').css({width:liW*liNum})
+
+        $('.prev-btn').click(function(){
+          $('.slider__area').animate({marginLeft: + liW},200, function(){
+            $('.slider__item:last-child').prependTo('.slider__area')
+            $('.slider__area').css('marginLeft','')
+          })
         });
+        $('.next-btn').click(function(){
+          $('.slider__area').animate({marginLeft: - liW},200, function(){
+            $('.slider__item:first-child').appendTo('.slider__area')
+            $('.slider__area').css('marginLeft','')
+          })
+        });
+    })
     </script>
 
-    <script src="./js/header.js" ></script>
+    <!-- <script>
+        (function () {
+          $(function () {
+            var contWidth, speed;
+            speed = 600;
+            contWidth = $('.slider__item').width();
+            $('.prev-btn').click(function () {
+              return $('.slider').find('.slider__area').animate({
+                'margin-left': '+=' + contWidth + 'px' },
+              speed);
+            });
+            return $('.next-btn').click(function () {
+              return $('.slider').find('.slider__area').animate({
+                'margin-left': '-=' + contWidth + 'px' },
+              speed);
+            });
+          });
+        
+        }).call(this);
+    </script> -->
     <script src="./js/login_v2.js"></script>
+    <script src="./js/forum.js"></script>
+    <!-- <script src="./js/login_v2.js"></script> -->
     
 </body>
 </html>
