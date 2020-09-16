@@ -1,5 +1,5 @@
  
-/////公版圖片 難度 地區
+///公版圖片 難度 地區
 new Vue({
     el: "#tour_build_form", //html的位置
     data: {
@@ -7,7 +7,7 @@ new Vue({
         mtIndex: [],  //
     },
 
-    mounted(){
+    created(){
         
         // console.log($("#tour_mountain").value)
 
@@ -21,7 +21,7 @@ new Vue({
 
         .then((res) => {
             this.mtList = res.data;
-            // console.log(res.data); //測試是否成功
+            console.log(res.data); //測試是否成功
         })
         .catch(error => {console.log(error)}); 
     },
@@ -91,39 +91,20 @@ new Vue({
             //     }
             // })
             // .catch(error => {console.log(error)}); 
-        }
-    },
-});
-
- 
- 
-/////切換步驟///// -->
-
-$(function() {
-    // preventDefault
-    $("button#step1_to_stpe2","button#step2_to_stpe1","button#step2_to_stpe3","button#step3_to_stpe2")
-        .on("click", function(event){
-        event.preventDefault();
-        console.log("click");
-    });
-
-    //1>2
-    $("button#step1_to_stpe2").on("click", function(){
-        console.log("click");
+        },
+        ONEtoTWO: function(){
+            console.log("click");
         
             //移除 -on 樣式
-        $("section.tour_build_step1").removeClass("-on");
-        $("li.step_icon1").removeClass("-on");
+            $("section.tour_build_step1").removeClass("-on");
+            $("li.step_icon1").removeClass("-on");
 
-            // 加上 -on 樣式
-        $("section.tour_build_step2").addClass("-on");
-        $("li.step_icon2").addClass("-on");
-        
-    });
-
-    //2>1
-    $("button#step2_to_stpe1").on("click", function(){
-        console.log("click");
+                // 加上 -on 樣式
+            $("section.tour_build_step2").addClass("-on");
+            $("li.step_icon2").addClass("-on");
+        },
+        TWOtoONE: function(){
+            console.log("click");
         
             //移除 -on 樣式
         $("section.tour_build_step2").removeClass("-on");
@@ -133,12 +114,10 @@ $(function() {
         $("section.tour_build_step1").addClass("-on");
         $("li.step_icon1").addClass("-on");
         
-    });
+        },
+        TWOtoTHREE: function(){
+            console.log("click");
 
-    //2>3
-    $("button#step2_to_stpe3").on("click", function(){
-        console.log("click");
-        
             //移除 -on 樣式
         $("section.tour_build_step2").removeClass("-on");
         $("li.step_icon2").removeClass("-on");
@@ -147,24 +126,92 @@ $(function() {
         $("section.tour_build_step3").addClass("-on");
         $("li.step_icon3").addClass("-on");
         
-    });
-
-    //3>2
-    $("button#step3_to_stpe2").on("click", function(){
-        console.log("click");
-        
+        },
+        THREEtoTWO: function(){
+            console.log("click");
             //移除 -on 樣式
-        $("section.tour_build_step3").removeClass("-on");
-        $("li.step_icon3").removeClass("-on");
-
-            // 加上 -on 樣式
-        $("section.tour_build_step2").addClass("-on");
-        $("li.step_icon2").addClass("-on");
-        
-    });
-
+            $("section.tour_build_step3").removeClass("-on");
+            $("li.step_icon3").removeClass("-on");
+    
+                // 加上 -on 樣式
+            $("section.tour_build_step2").addClass("-on");
+            $("li.step_icon2").addClass("-on");
+        },
+        THREEtoSEND: function(){
+            $("#tour_build_form").submit();
+        }
+    },
 });
 
+ 
+/////切換步驟///// -->
+
+// $(function() {
+    // // preventDefault
+    // $("button#step1_to_step2","button#step2_to_step1","button#step2_to_step3","button#step3_to_step2")
+    //     .on("click", function(event){
+    //     event.preventDefault();
+    //     console.log("click");
+    // });
+
+    // 1>2
+    // $("button#step1_to_step2").on("click",function(){
+    //     console.log("click");
+        
+    //         //移除 -on 樣式
+    //     $("section.tour_build_step1").removeClass("-on");
+    //     $("li.step_icon1").removeClass("-on");
+
+    //         // 加上 -on 樣式
+    //     $("section.tour_build_step2").addClass("-on");
+    //     $("li.step_icon2").addClass("-on");
+        
+    // });
+
+    // //2>1
+    // $("button#step2_to_step1").on("click", function(){
+    //     console.log("click");
+        
+    //         //移除 -on 樣式
+    //     $("section.tour_build_step2").removeClass("-on");
+    //     $("li.step_icon2").removeClass("-on");
+
+    //         // 加上 -on 樣式
+    //     $("section.tour_build_step1").addClass("-on");
+    //     $("li.step_icon1").addClass("-on");
+        
+    // });
+
+    // //2>3
+    // $("button#step2_to_step3").on("click", function(){
+    //     console.log("click");
+        
+    //         //移除 -on 樣式
+    //     $("section.tour_build_step2").removeClass("-on");
+    //     $("li.step_icon2").removeClass("-on");
+
+    //         // 加上 -on 樣式
+    //     $("section.tour_build_step3").addClass("-on");
+    //     $("li.step_icon3").addClass("-on");
+        
+    // });
+
+    // //3>2
+    // $("button#step3_to_step2").on("click", function(){
+    //     console.log("click");
+        
+    //         //移除 -on 樣式
+    //     $("section.tour_build_step3").removeClass("-on");
+    //     $("li.step_icon3").removeClass("-on");
+
+    //         // 加上 -on 樣式
+    //     $("section.tour_build_step2").addClass("-on");
+    //     $("li.step_icon2").addClass("-on");
+        
+   // });
+
+    // 3>send
+// });
 
 
 /////圖片上傳預覽///// -->

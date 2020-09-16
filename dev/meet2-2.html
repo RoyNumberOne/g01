@@ -19,6 +19,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <!-- 載入 jQuery -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="./js/jquery-3.5.1.js"></script>
 </head>
 <body>
 
@@ -85,7 +88,7 @@
                 <li class="step_icon3"> <div><img src="./images/icons/icon_2-2scstep_3.svg" alt=""></div></li>
             </ul>
         </section>
-        <form class="tour_build_form" id="tour_build_form">
+        <form method="post" action="./meet2-2.php" class="tour_build_form" id="tour_build_form">
             <!-- 步驟一 -->
             <section class="tour_build_step1  -on" v-for="(mt, index) in mtList"> 
                 <section>
@@ -95,14 +98,22 @@
                 </section>
                 <section class="tour_info1_btn">
                     <div class="tour_info1">
-                        <label for="">
+                        <label>
                             揪團名稱<br>
-                            <input type="text">
+                            <input name="tour_title" type="text" >
                         </label><br>
-                        <label for="">
-                            揪團日期<br>
-                            <input type="date" name="">
-                        </label><br>
+
+                        <div class="tour_date">
+                            <label for="tour_activitystart">
+                                揪團開始日期<br>
+                                <input name="tour_activitystart" type="date" name="">
+                            </label>
+                            <label for="">
+                                揪團結束日期<br>
+                                <input name="tour_activityend" type="date" name="">
+                            </label>
+                        </div>
+                        
                         <div class="tour_number">
                             揪團人數<br>
                             <select name="tour_min_number">
@@ -193,15 +204,6 @@
                                 <option value="16">秀姑巒山</option>
                             </select>
                         </label><br>
-                        <!-- <label for="">
-                            揪團地區<br>
-                            <select name="" id="">
-                                <option value="north" selected>北部</option>
-                                <option value="west" selected>中部</option>
-                                <option value="south" selected>南部</option>
-                                <option value="east" selected>東部</option>
-                            </select>
-                        </label><br> -->
                         <div class="area_degree">
                             <div class="mountain_area">
                                 揪團地區<br>
@@ -215,14 +217,14 @@
                         
                     </div>
                     <div class="btn_box">
-                       <button class="btnA_LwRA" id="step1_to_stpe2" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
+                       <button class="btnA_LwRA" @click="ONEtoTWO" id="step1_to_step2" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
                     </div>
                 </section>
             </section>
             <!-- 步驟二 -->
             <section class="tour_build_step2  ">
                 <div class="btn_box">
-                    <button class="btnA_LwLA" id="step2_to_stpe1" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
+                    <button class="btnA_LwLA" @click="TWOtoONE" id="step2_to_step1" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
                 </div>
                 <div class="tour_info2">
                     <div> <!-- 建議裝備+注意事項 -->
@@ -230,24 +232,24 @@
                             建議裝備<br>
                             <div>
                                 <label for="tour_equip_1"><input type="checkbox" name="tour_equip_1" id="tour_equip_1"><p>機能服飾</p></label>
-                                <label for="tour_equip_2"><input type="checkbox" name="tour_equip_2" id="tour_equip_2"><p>登山鞋</p></label>
-                                <label for="tour_equip_3"><input type="checkbox" name="tour_equip_3" id="tour_equip_3"><p>登山配件</p></label>
-                                <label for="tour_equip_4"><input type="checkbox" name="tour_equip_4" id="tour_equip_4"><p>登山背包</p></label>
-                                <label for="tour_equip_5"><input type="checkbox" name="tour_equip_5" id="tour_equip_5"><p>露營裝備</p></label>
+                                <label for="tour_equip_2"><input type="checkbox" name="tour_equip_2" id="tour_equip_2"><p>登山背包</p></label>
+                                <label for="tour_equip_3"><input type="checkbox" name="tour_equip_3" id="tour_equip_3"><p>登山鞋</p></label>
+                                <label for="tour_equip_4"><input type="checkbox" name="tour_equip_4" id="tour_equip_4"><p>露營裝備</p></label>
+                                <label for="tour_equip_5"><input type="checkbox" name="tour_equip_5" id="tour_equip_5"><p>登山配件</p></label>
                             </div>
                         </div>
                         <div class="notice">
                             注意事項<br>
-                            <textarea  placeholder="行程中是否有需注意的呢？"></textarea>
+                            <textarea name="tour_notice" placeholder="行程中是否有需注意的呢？"></textarea>
                         </div>
                     </div>
                     <label for="" class="tour_innertext">
                         <p>活動簡介</p>
-                        <textarea  placeholder="介紹一下本團行程吧！"></textarea>
+                        <textarea name="tour_innertext" placeholder="介紹一下本團行程吧！"></textarea>
                     </label>
                 </div>
                 <div class="btn_box">
-                    <button class="btnA_LwRA" id="step2_to_stpe3" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
+                    <button class="btnA_LwRA" @click="TWOtoTHREE" id="step2_to_step3" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
 
                 </div>
 
@@ -256,8 +258,9 @@
             <!-- 步驟三 -->
             <section class="tour_build_step3 ">
                 <div class="btn_box">
-                    <button class="btnA_LwLA" id="step3_to_stpe2" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
+                    <button class="btnA_LwLA" @click="THREEtoTWO" id="step3_to_step2" type="button"><p>上一步</p><div class="btnArrowL"></div></button>
                 </div>
+
                 <div class="tour_info3">
                     <div> 
                         <label> 相關照片上傳
@@ -276,8 +279,9 @@
                     </div>
 
                 </div>
+
                 <div class="btn_box">
-                    <button type="button" class="btnA_L" id="tour_build_over" ><p>發起揪團</p></button>
+                    <button type="button" @click="THREEtoSEND" class="btnA_L" id="tour_build_over" ><p>發起揪團</p></button>
                 </div>
             </section>
         </form>
@@ -333,9 +337,12 @@
             </div>
         </div>
     </footer>
-
-    <!-- 載入 jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+        // $("button").click(function(){
+        //     alert('123');
+        // })
+    </script>
 
     <script src="./js/meet2-2.js"></script>
     
