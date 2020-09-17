@@ -4,6 +4,8 @@ new Vue({
         articalList: [],
         announcement: [],
         poprank: [],
+        meetList: [],
+        meetIndex: [],
         input:{
             type:'全部',
             title: ' ',
@@ -28,6 +30,27 @@ new Vue({
             console.log('success');
             console.log(this.poprank);
         })
+        // axios.get('./phpForConnect/meet2-0Hotmeet.php').then(res => {
+        //     this.hotmeet = res.data;
+        //     console.log('success');
+        //     console.log(this.hotmeet);
+        // })
+        
+    },
+    mounted(){
+        //axios.get('./json/Initial_tour.json') //根據哪個json
+        axios.get('./phpForConnect/meet2-0Hotmeet.php')
+
+        .then((res) => {
+            this.meetList = res.data;
+
+            console.log(res.data); //測試是否成功
+            // console.log(this.meetList);
+            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
+                this.meetIndex.push(i)
+            }
+        })
+        .catch(error => {console.log(error)}); 
     },
     // mounted(){
     //     axios.get('./json/Initial_forum_post.json')

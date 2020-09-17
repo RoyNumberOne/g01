@@ -457,15 +457,16 @@
         }
 
         #tour-block{
-            height: 1050px;
             margin-top: 8%;
-            overflow: scroll;
-            // border: 1px solid gold;
             list-style: none;
-            overflow-x: hidden;
-            overflow-y: auto;
+            // height: 1050px;
+            // overflow: scroll;
+            // border: 1px solid gold;
+            // overflow-x: hidden;
+            // overflow-y: auto;
 
             .hot-tour-card{
+                background-color: $mt_grey1;
                 .tour-img{
                     max-width: 100%;
                     margin-top: 5%;
@@ -481,8 +482,8 @@
                     .tag{
                         display: flex;
                         .tag_click{
-                            background-color: #DB931A;
-                            padding: 2px 10px;
+                            // background-color: #DB931A;
+                            // padding: 2px 10px;
                             border-radius: 5px;
                             margin: 5px;
                             .sapn{
