@@ -53,6 +53,17 @@ div.wrap{
                 display: flex;
                 justify-content: space-between;
                 margin: 0 20px;
+                .activity_info{
+                    .mountain_level{
+                        display: flex;
+                        .location_icon{
+                            width: 1em;
+                        }
+                        .degree_img{
+                            display: flex;
+                        }
+                    }
+                }
                 .report{
                     .report_bt{
                         cursor: pointer;
@@ -312,13 +323,17 @@ div.wrap{
         }
     }
     .message{
-        .leave_message_block{
+        h3{
+            margin: 20px 0 10px;
+        }
+        .write_message_block{
             display: flex;
             flex-direction: column;
             margin: 20px 0;
             textarea{
                 resize: none;
                 padding: 10px;
+                font-size: 18px;
                 &:focus{
                     outline: none;
                 }

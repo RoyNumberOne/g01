@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>媒山友｜討論｜文章資訊</title>
+    <title>媒山友｜討論｜公告</title>
     <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
     <!-- <link rel="stylesheet" href="./css/common.css"> -->
@@ -78,18 +78,18 @@
     </div> -->
 
     <main id="comment">
-        <div id="comment-block"  v-for="(reflection, index) in reflection">
+        <div id="comment-block"  v-for="(issuanarea, index) in issuanarea">
             <div class="ntittle">
-                <h2>{{reflection.forum_post_title}}</h2>
+                <h2>{{issuanarea.forum_post_title}}</h2>
             </div>
 
             <div class="original-poster-block">
                 <div class="poster">
-                    <div class="original"><img :src="reflection.mem_avator" alt=""></div>
+                    <div class="original"><img :src="issuanarea.mem_avator" alt=""></div>
                     <div class="name_time">
-                        <p class="poster-name">{{reflection.mem_id}}</p>
+                        <p class="poster-name">{{issuanarea.mem_id}}</p>
                         <div class="poster-time">
-                            <sapn>{{reflection.forum_post_time}}</sapn>
+                            <sapn>{{issuanarea.forum_post_time}}</sapn>
                         </div>
                     </div>
                 </div>
@@ -108,16 +108,16 @@
 
             <div id="innertext-block">
                 <div class="post-image">
-                    <img :src="reflection.forum_post_image" alt="">
+                    <img :src="issuanarea.forum_post_image" alt="">
                 </div>
                 <p class="write-top">－－－本文為網友的心得，以下內容不代表媒山友立場。－－－</p>
                 <br>
-                <p>{{reflection.forum_post_innertext}}</p>
+                <p>{{issuanarea.forum_post_innertext}}</p>
             <hr>
             </div>
 
 
-            <div class="post-poster-block02" v-for="(dialog, index) in dialog">
+            <div class="post-poster-block02" v-for="(messagearea, index) in messagearea">
                 <div class="member_styleA column">
                     <div class="memberImg">
                         <img src="./images/meet/member/Chris.jpg" alt="">
@@ -127,7 +127,7 @@
                             <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                             <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
-                        <div class="memberId">{{dialog.mem_id}}</div>
+                        <div class="memberId">{{messagearea.mem_id}}</div>
                         <div class="memberBadge">
                             <span class="memberBadgeIcon">
                                 <img src="./images/member/Ach_list_03.png" alt="">
@@ -146,7 +146,7 @@
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
-                            <p>{{index+1}}F 發表於 {{dialog.comment_time}}</p>
+                            <p>{{index+1}}F 發表於 {{messagearea.comment_time}}</p>
                             <div class="report">
                                 <img class="report" src="./images/form_img/report.png" alt="">
                                 <p>檢舉</p>
@@ -154,7 +154,7 @@
                             </div>
                             <hr>
                             <div class="innertext">
-                                <p>{{dialog.comment_innertext}}
+                                <p>{{messagearea.comment_innertext}}
                                 </p>
                             </div>
                         </div>
@@ -445,7 +445,7 @@
   </script>
 
 <script src="./js/header.js" ></script>
-<script src="./js/comment.js"></script>
+<script src="./js/forum-announcement.js"></script>
 <script src="./js/login_v2.js"></script>
 </body>
 </html>

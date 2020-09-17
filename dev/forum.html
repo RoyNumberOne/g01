@@ -86,9 +86,9 @@
                         <div class="hot-bgc_img"></div>
                     </div>
     
-                    <div class="news_list" v-for="(news, index) in announcement">
+                    <div class="news_list" v-for="(announcement, index) in announcement">
                         <div class="list">
-                            <p><a href="./comment.html">{{news.forum_post_title}}</a></p>
+                            <p><a :href="'./forum-announcement.html?forum_post_no=' + announcement.forum_post_no">{{announcement.forum_post_title}}</a></p>
                             <div class="news-text">NEWS</div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                       <h3>{{poprank.forum_post_title}}</h3>
                                       <span>{{poprank.forum_post_innertext}}</span>
                                     </div>
-                                    <a href="./forum-comment.html">
+                                    <a :href="'./forum-comment.html?forum_post_no=' + poprank.forum_post_no">
                                         <button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button>
                                     </a>
                                   </div>
@@ -212,7 +212,7 @@
                                     <div class="poster-block">
                                         <div class="member_styleA row">
                                             <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
+                                                <img :src="artical.mem_avator" alt="">
                                             </div>
                                             <div class="memberInfo">
                                                 <div class="certification">
@@ -279,20 +279,21 @@
                 </div>
 
                 <div id="tour-block">
-                    <div class="hot-tour-card">
+                    <div class="hot-tour-card"  v-for="(hotmeet, index) in meetList">
+                        <a :href="'./meet2-3.html?tour_no=' + hotmeet.tour_no">
                         <div class="tour-img">
-                            <img src="./images/meet/mountain/2east.jpg" alt="">
+                            <img v-bind:src="hotmeet.mountain_image" alt="">
                         </div>
         
                         <div class="tour-block">
                             <div class="tour-title-container">
-                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
+                                <h3>{{hotmeet.tour_title}}</h3>
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.mountain_name}}</span></div>
+                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.days}}天</span></div>
+                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.tour_min_number}}~{{hotmeet.tour_max_number}}人</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -314,16 +315,17 @@
         
                             <div class="tour-activitystart">
                                 <div class="tour-start">
-                                    <span>2020/09/08出發｜</span>
+                                    <span>{{hotmeet.tour_activitystart}}出發 </span>
                                 </div>
                                 <div class="tour-end">
-                                    <span>2020/09/10回程</span>
+                                    <span>{{hotmeet.tour_activityend}}回程</span>
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>
     
-                    <div class="hot-tour-card">
+                    <!-- <div class="hot-tour-card">
                         <div class="tour-img">
                             <img src="./images/meet/mountain/3east.jpg" alt="">
                         </div>
@@ -363,9 +365,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
     
-                    <div class="hot-tour-card">
+                    <!-- <div class="hot-tour-card">
                         <div class="tour-img">
                             <img src="./images/form_img/Taiwu.jpg" alt="">
                         </div>
@@ -407,9 +409,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="hot-tour-card">
+                    <!-- <div class="hot-tour-card">
                         <div class="tour-img">
                             <img src="./images/meet/mountain/4west.jpg" alt="">
                         </div>
@@ -452,9 +454,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="hot-tour-card">
+                    <!-- <div class="hot-tour-card">
                         <div class="tour-img">
                             <img src="./images/meet/mountain/2west.jpg" alt="">
                         </div>
@@ -496,7 +498,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div id="tag">
