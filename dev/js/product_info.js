@@ -108,7 +108,6 @@ new Vue({
     },
     methods:{
         next(){
-            // console.log(777888);
             this.currentIndex = this.nextIndex;
             this.currentImageIndex = 0;
             this.productCount = 1;
