@@ -86,9 +86,9 @@
                         <div class="hot-bgc_img"></div>
                     </div>
     
-                    <div class="news_list" v-for="(news, index) in announcement">
+                    <div class="news_list" v-for="(announcement, index) in announcement">
                         <div class="list">
-                            <p><a href="./forum-comment.html">{{news.forum_post_title}}</a></p>
+                            <p><a :href="'./forum-announcement.html?forum_post_no=' + announcement.forum_post_no">{{announcement.forum_post_title}}</a></p>
                             <div class="news-text">NEWS</div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                       <h3>{{poprank.forum_post_title}}</h3>
                                       <span>{{poprank.forum_post_innertext}}</span>
                                     </div>
-                                    <a href="./forum-comment.html">
+                                    <a :href="'./forum-comment.html?forum_post_no=' + poprank.forum_post_no">
                                         <button class="btnA_XLwRA"><p>看更多</p><div class="btnArrowXL"></div></button>
                                     </a>
                                   </div>
@@ -212,7 +212,7 @@
                                     <div class="poster-block">
                                         <div class="member_styleA row">
                                             <div class="memberImg">
-                                                <img src="./images/meet/member/Chris.jpg" alt="">
+                                                <img :src="artical.mem_avator" alt="">
                                             </div>
                                             <div class="memberInfo">
                                                 <div class="certification">
