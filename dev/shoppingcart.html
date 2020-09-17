@@ -413,26 +413,46 @@
                             'numbers': this.productList[key].count,
                             'product': this.productList[key].product.product_no,
                             'price': this.productList[key].product.product_price,
-
                         })
                     };
-                    $.post("./shoppingcartorder.php", {
-                        arr: arr,
-                        order_logistics_deliver: order_logistics_deliver,
-                        order_logistics_fee: order_logistics_fee,
-                        order_cashflow: order_cashflow,
-                        order_total: order_total,
-                        order_logistics_recipient: order_logistics_recipient,
-                        order_logistics_phone: order_logistics_phone,
-                        order_logistics_address: order_logistics_address
-                    }).then((res) => {
-                        //要導去另外正確頁面
-                        window.location.reload(true);
-                        console.log(res.data)
-                    })
-                    alert("訂單已送出");
-                    localStorage.removeItem("cartList");
-                }
+                    // $.post("./shoppingcartorder.php", {
+                    //         arr: arr,
+                    //         order_logistics_deliver: order_logistics_deliver,
+                    //         order_logistics_fee: order_logistics_fee,
+                    //         order_cashflow: order_cashflow,
+                    //         order_total: order_total,
+                    //         order_logistics_recipient: order_logistics_recipient,
+                    //         order_logistics_phone: order_logistics_phone,
+                    //         order_logistics_address: order_logistics_address
+                    //     }).then((res) => {
+                    //         //要導去另外正確頁面
+                    //         window.location.reload(true);
+                    //         // console.log(res.data)
+                    //     })
+                    // alert("訂單已送出");
+                    // localStorage.removeItem("cartList");
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(e) {
+                        if (xhr.status == 200) { //連線成功
+                            console.log(xhr.responseText)
+                            alert(xhr.responseText);
+                            if (xhr.responseText == "訂單已送出") {
+                                window.localStorage.removeItem("cartList")
+                                window.location.href = "./shoppingcart.html"
+                            }
+                        } else {
+                            alert(xhr.status);
+                        }
+
+                    }
+                    arr = JSON.stringify(arr);
+                    var url = "./shoppingcartorder.php";
+                    xhr.open("post", url, true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                    let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
+                    xhr.send(data_info);
+                },
             },
             mounted() {
                 this.productList = new Array();
