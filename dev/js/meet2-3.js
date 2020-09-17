@@ -104,48 +104,68 @@ new Vue({
                 break;
             }
         },
-        SENDmsg: function(){
-            
-            let messageData = new FormData;
-            let formTour = new FormData();
-
-            let urlSearchParams = (new URL(document.location)).searchParams;
-            tour_no = urlSearchParams.get('tour_no');
-
-            formTour.append("tour_no", tour_no);        
-
-            // console.log('aaaaa')
-            // console.log(tour_no)
-            // console.log(this.message)
-            // console.log('aaaaa')
-
-            // messageData.append("comment_class",'揪團區')
-            // messageData.append("tour_post_no",`100001`)
-            // messageData.append("comment_innertext",`dddd`)
-            
-            // for(var msgINDEX of messageData.entries()){
-            //     console.log(msgINDEX[0]+', '+msgINDEX[1])
-            // }
-            // console.log(messageData);
-            // {
-            //     comment_class : '揪團區',
-            //     tour_post_no : this.tour_no,
-            //     comment_innertext : this.message,
-            // }
-            
-            axios.get('./phpForConnect/meet2-3_message.php', {params:{
-                "comment_class" : '揪團區',
-                "tour_post_no" : tour_no,
-                "comment_innertext" : this.message,
-            }}).then(res => {
-                this.MSGfeedback = res.data;
-                console.log('success message');
-                console.log(this.MSGfeedback);
-                axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-                    this.comments = res.data;
-                })
-            })
+        clearTextarea(){
+            this.message = '';
         },
+        SENDmsg: function(){
+            if($('#mem_info_id').html() === ''){
+                alert ('請先登入');
+                window.location.href = './login_v2.html';
+            };
+            // console.log($('#send_message_block'));
+            var temp = $('#send_message_block').val();
+            // console.log(temp);
+            if(temp == ''){
+                alert('請先輸入文字');
+            }else{
+                let messageData = new FormData;
+                let formTour = new FormData();
+
+                let urlSearchParams = (new URL(document.location)).searchParams;
+                tour_no = urlSearchParams.get('tour_no');
+
+                formTour.append("tour_no", tour_no);        
+
+                // console.log('aaaaa')
+                // console.log(tour_no)
+                // console.log(this.message)
+                // console.log('aaaaa')
+
+                // messageData.append("comment_class",'揪團區')
+                // messageData.append("tour_post_no",`100001`)
+                // messageData.append("comment_innertext",`dddd`)
+                
+                // for(var msgINDEX of messageData.entries()){
+                //     console.log(msgINDEX[0]+', '+msgINDEX[1])
+                // }
+                // console.log(messageData);
+                // {
+                //     comment_class : '揪團區',
+                //     tour_post_no : this.tour_no,
+                //     comment_innertext : this.message,
+                // }
+                
+                axios.get('./phpForConnect/meet2-3_message.php', {params:{
+                    "comment_class" : '揪團區',
+                    "tour_post_no" : tour_no,
+                    "comment_innertext" : this.message,
+                }}).then(res => {
+                    this.MSGfeedback = res.data;
+                    console.log('success message');
+                    console.log(this.MSGfeedback);
+                    axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
+                    this.comments = res.data;
+                    // this.clearTextarea();
+                    $('html, body').animate({ scrollTop: 100000 }, 500);
+                    })
+                });
+            }
+        },
+        changePic(e){
+            // console.log(e.target);
+            console.log($(e.target).attr('src'));
+            $(".public_pic > img").attr('src',$(e.target).attr('src'))
+        }
     },
 })
 

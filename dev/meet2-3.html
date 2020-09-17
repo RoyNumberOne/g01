@@ -187,12 +187,13 @@
             <div class="public_pic"><img :src="tourData.mountain_image" alt="">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.mountain_image" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_1" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_2" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_3" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_4" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_5" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_6" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -307,6 +308,7 @@
                 <div>
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
+                <div>{{currentTour.tour_progress}}</div>
                 <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
             </div>
         </div>
