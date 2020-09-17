@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css//jquery.fullpage.css">
     <link rel="stylesheet" href="./css/FrontstageIndex.css">
     <link rel="stylesheet" href="./css/headerIndex.css">
+    <script src="./js/axios.min.js"></script>
     <script src="./js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/jquery.min.js"></script>
@@ -120,36 +121,6 @@
 
 
         <div id="section1" class="section section1">
-            <div id="picbox">
-                <div class="time time1">
-                    <div class="dot dot1"><img src="./images/index/pg1/pg1-11.png" alt=""></div>
-                    <div class="dot dot2"><img src="./images/index/pg1/pg1-12.png" alt=""></div>
-                    <div class="dot dot3"><img src="./images/index/pg1/pg1-13.png" alt=""></div>
-                    <div class="dot dot4"><img src="./images/index/pg1/pg1-02.png" alt=""></div>
-                    <div class="dot dot5"><img src="./images/index/pg1/pg1-07.png" alt=""></div>
-                </div>
-                <div class="time time2">
-                    <div class="dot dot1"><img src="./images/index/pg1/pg1-11.png" alt=""></div>
-                    <div class="dot dot2"><img src="./images/index/pg1/pg1-14.png" alt=""></div>
-                    <div class="dot dot3"><img src="./images/index/pg1/pg1-15.png" alt=""></div>
-                    <div class="dot dot4"><img src="./images/index/pg1/pg1-03.png" alt=""></div>
-                    <div class="dot dot5"><img src="./images/index/pg1/pg1-08.png" alt=""></div>
-                </div>
-                <div class="time time3">
-                    <div class="dot dot1"><img src="./images/index/pg1/pg1-11.png" alt=""></div>
-                    <div class="dot dot2"><img src="./images/index/pg1/pg1-16.png" alt=""></div>
-                    <div class="dot dot3"><img src="./images/index/pg1/pg1-17.png" alt=""></div>
-                    <div class="dot dot4"><img src="./images/index/pg1/pg1-04.png" alt=""></div>
-                    <div class="dot dot5"><img src="./images/index/pg1/pg1-09.png" alt=""></div>
-                </div>
-                <div class="time time4">
-                    <div class="dot dot1"><img src="./images/index/pg1/pg1-11.png" alt=""></div>
-                    <div class="dot dot2"><img src="./images/index/pg1/pg1-18.png" alt=""></div>
-                    <div class="dot dot3"><img src="./images/index/pg1/pg1-19.png" alt=""></div>
-                    <div class="dot dot4"><img src="./images/index/pg1/pg1-05.png" alt=""></div>
-                    <div class="dot dot5"><img src="./images/index/pg1/pg1-10.png" alt=""></div>
-                </div>
-            </div>
 
         </div>
 
@@ -160,192 +131,146 @@
                         <div class="weathernow">
                             <div class="top">
                                 <div class="text_area">
-                                  <div class="temperature">26°C</div>
                                   <div class="infos">
-                                    <div class="address">中部 - 玉山</div>
-                                    <div class="time">星期四 下午2:00</div>
+                                    <p id="NowT"></p>
+                                    <div id="TtoT">
+                                        <span id="MinT"></span>&nbsp~&nbsp<span id="MaxT"></span>
+                                    </div>
+                                    <div class="PoP">降雨機率<p id="PoP"></p></div>
+                                    <div class="RH">相對濕度<p id="RH"></p></div>
                                   </div>
-                                </div>
-                                <div class="moon"></div>
-                                <div class="cloud">
-                                  <div class="rain"></div>
-                                  <div class="rain rain2"></div>
-                                  <div class="rain rain3"></div>
                                 </div>
                             </div>
 
                         </div>
                         <div class="weatherweek">
                             <div class="next next1">
-                                <p>Fri</p>
-                                <svg viewbox="-50 -50 100 100">
-                                  <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                <p class="date" id="date1"></p>
+                                <p class="TopT" id="Ttop1"></p>
+                                <p class="ButtonT" id="Tbutton1"></p>
                             </div>
                             <div class="next next2">
-                                <p>Sat</p>
-                                <svg viewbox="-50 -50 100 100">
-                                  <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                <p class="date" id="date2"></p>
+                                <p class="TopT" id="Ttop2"></p>
+                                <p class="ButtonT" id="Tbutton2"></p>
                             </div>
                             <div class="next next3">
-                                <p>Sun</p>
-                                <svg viewbox="-50 -50 100 100">
-                                  <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                  <circle class="cloud" cx="-30" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-15" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="0" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-25" cy="10" r="15"></circle>
-                                  <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                <p class="date" id="date3"></p>
+                                <p class="TopT" id="Ttop3"></p>
+                                <p class="ButtonT" id="Tbutton3"></p>
                             </div>
                             <div class="next next4">
-                                <p>Mon</p>
-                                <svg viewbox="-50 -50 100 100">
-                                  <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                  <circle class="cloud" cx="-30" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-15" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="0" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-25" cy="10" r="15"></circle>
-                                  <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                <p class="date" id="date4"></p>
+                                <p class="TopT" id="Ttop4"></p>
+                                <p class="ButtonT" id="Tbutton4"></p>
                             </div>
                             <div class="next next5">
-                                <p>Tue</p>
-                                <svg viewbox="-50 -50 100 100">
-                                  <circle class="sun" cx="0" cy="0" r="22"></circle>
-                                </svg>
+                                <p class="date" id="date5"></p>
+                                <p class="TopT" id="Ttop5"></p>
+                                <p class="ButtonT" id="Tbutton5"></p>
                             </div>
                             <div class="next next6">
-                                <p>Wed</p>
-                                <svg viewbox="-63 -40 100 100">
-                                  <circle class="cloud" cx="-30" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-15" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="0" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-25" cy="10" r="15"></circle>
-                                  <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                <p class="date" id="date6"></p>
+                                <p class="TopT" id="Ttop6"></p>
+                                <p class="ButtonT" id="Tbutton6"></p>
                             </div>
                             <div class="next next7">
-                                <p>Thr</p>
-                                <svg viewbox="-63 -40 100 100">
-                                  <line class="rain" x1="-25" y1="15" x2="-25" y2="35"></line>
-                                  <line class="rain" x1="-14" y1="5" x2="-14" y2="25"></line>
-                                  <line class="rain" x1="-5" y1="20" x2="-5" y2="45"></line>
-                                  <circle class="cloud" cx="-30" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-15" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="0" cy="30" r="20"></circle>
-                                  <circle class="cloud" cx="-25" cy="10" r="15"></circle>
-                                  <circle class="cloud" cx="-7" cy="15" r="15"></circle>
-                                </svg>
+                                <p class="date" id="date7"></p>
+                                <p class="TopT" id="Ttop7"></p>
+                                <p class="ButtonT" id="Tbutton7"></p>
                             </div>
                         </div>
                     </div>
                     <div class="weatherselect">
                         <div class="dropdown area">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              區域
+                            <button class="btn btn-secondary dropdown-toggle btnarea" type="button" id="dropdownAreaButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="北部">
+                              北部
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" value="北部">北部</a>
-                              <a class="dropdown-item" value="中部">中部</a>
-                              <a class="dropdown-item" value="南部">南部</a>
-                              <a class="dropdown-item" value="東部">東部</a>
+                              <a class="dropdown-item" id="N" value="北部">北部</a>
+                              <a class="dropdown-item" id="W" value="中部">中部</a>
+                              <a class="dropdown-item" id="S" value="南部">南部</a>
+                              <a class="dropdown-item" id="E" value="東部">東部</a>
                             </div>
                         </div>
                         <div class="dropdown mountain">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              山
+                            <button class="btn btn-secondary dropdown-toggle btnmountain" type="button" id="dropdownMountainButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                              塔曼山
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">塔曼山</a>
-                              <a class="dropdown-item" href="#">七星山</a>
-                              <a class="dropdown-item" href="#">雪白山</a>
-                              <a class="dropdown-item" href="#">大霸尖山</a>
+                              <a class="dropdown-item" >塔曼山</a>
+                              <a class="dropdown-item" >七星山</a>
+                              <a class="dropdown-item" >雪白山</a>
+                              <a class="dropdown-item" >大霸尖山</a>
                             </div>
                         </div>
                           
                     </div>
                     <div class="weatherdesc">
-                        <p>今（26）日上午大多為多雲到晴、高溫炎熱的天氣，午後在文山區及信義區有短暫陣雨；在溫度方面，臺北站測得的高溫為37.7度，低溫為28.2度。</p>
+                        <p id="weatherp"></p>
                     </div>
                 </div>
                 <div id="tourbox">
-                    <div id="searchbox">
-                        <div class="searchtitle"><p>地區</p></div>
-                        <div class="searchchoice">
-                            <label><input type="checkbox" name="searcharea[]" value="北部"><p>&nbsp;北部&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="中部"><p>&nbsp;中部&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="南部"><p>&nbsp;南部&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="東部"><p>&nbsp;東部&nbsp;&nbsp;</p></label>
-                        </div>
-                        <div class="searchtitle"><p>難度</p></div>
-                        <div class="searchchoice">
-                            <label><input type="checkbox" name="searcharea[]" value="1"><p>&nbsp;1&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="2"><p>&nbsp;2&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="3"><p>&nbsp;3&nbsp;&nbsp;</p></label>
-                            <label><input type="checkbox" name="searcharea[]" value="4"><p>&nbsp;4&nbsp;&nbsp;</p></label>
-                        </div>
-                        <button class="btnB_L_blue" onclick="javascript:location.href='./meet2-0.html'"><p>搜尋</p><div class="bg"></div></button>
-                    </div>
-                    <div class="tour tourtop1" onclick="location.href='./meet2-3.html';">
-                        <div class="mainpic">
-                            <img src="./images/meet/mountain/4south.jpg" alt="" class="mainpic">
-                        </div>
-                        <p class="title">【台灣的屋脊】東北亞最高峰 玉山主峰</p>
-                        <div class="inforbox">
-            <div class="member_styleA row">
-                <div class="memberImg">
-                    <img src="./images/meet/member/Chris.jpg" alt="">
-                </div>
-                <div class="memberInfo">
-                    <div class="certification">
-                        <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                    </div>
-                    <div class="memberId">煞氣a星爵</div>
-                    <div class="memberBadge">
-                        <span class="memberBadgeIcon">
-                            <img src="./images/member/Ach_list_03.png" alt="">
-                        </span>
-                        <span class="memberBadgeIcon">
-                            <img src="./images/member/Ach_list_03.png" alt="">
-                        </span>
-                        <span class="memberBadgeIcon">
-                            <img src="./images/member/Ach_list_03.png" alt="">
-                        </span>
-                    </div>
-                </div>
-            </div>
-                        </div>
-                        <div class="tourinfor">
-                            <div class="placeicon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                            <div><p class="place">嘉義</p></div>
-                            <div><p>｜</p></div>
-                            <div><p class="degree">難度</p></div>
-                            <div class="degreeicon"><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""></div>
-                        </div>
-                        <div class="tourdesc">
-                            <p>
-                                第一天:1800板橋火車站北二門集合(欲共乘者 可載4人)-->2300望鄉部落民宿 第二天:0600早餐-->0700出發-->0810檢查哨-->0830塔塔加登山口-->0930
-                            </p>
-                        </div>
-                    </div>
-                    <div id="tour23box">
-                        <div class="tour tourtop2" onclick="location.href='./meet2-3.html';">
-                            <div class="mainpic">
-                                <img src="./images/meet/mountain/4east.jpg" alt="" class="mainpic">
-                            </div>
-                            <p class="title">奇萊主北兩天一夜</p>
-                        </div>
-                        <div class="tour tourtop3" onclick="location.href='./meet2-3.html';">
-                            <div class="mainpic">
-                                <img src="./images/meet/mountain/1north.jpg" alt="" class="mainpic">
-                            </div>
-                            <p class="title">台北放假不知道何處去? 快來爬象山吧</p></div>
+                        <div id="toursearchbar"></div>
+                        <div id="tourhotbox">
+                            <article class="tourinforbox" v-for="(t1 , index , mountain_area) in Tour1">
+                                <a :href="'./meet2-3.html?tour_no='+t1.tour_no">
+                                <p class="top">TOP{{index +1}}</p>
+                                <div class="tourimg">
+                                    <img :src="t1.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t1.mountain_area | Area}} - {{t1.mountain_name}} - <div class="degreeImg" v-html="Degree(t1.degree_category)"></div>
+                                    </div>
+                                </div>
 
-                    </div>
+                                <div class="member_styleA row">
+                                    <div class="memberImg">
+                                        <img :src="t1.mem_avator" alt="">
+                                    </div>
+                                    <div class="memberInfo">
+                                        <div class="certification">
+                                            <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                        </div>
+                                        <div class="memberId">{{t1.mem_id}}</div>
+                                        <div class="memberBadge">
+                                            <span class="memberBadgeIcon">
+                                                <img :src="t1.badge1" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="t1.badge2" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="t1.badge3" alt="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t1.tour_title}}</h3>
+                                    <span>{{t1.tour_activitystart}} ~ {{t1.tour_activityend}}</span>
+                                    <div><p class="innertext">{{t1.tour_innertext}}</p></div>
+                                </div>
+                                </a>
+                            </article>
+                            <article class="tourinforbox" v-for="(t23 , index) in Tour23" >
+                                <a :href="'./meet2-3.html?tour_no='+t23.tour_no">
+                                <p class="top">TOP{{index +2}}</p>
+                                <div class="tourimg">
+                                    <img :src="t23.mountain_image" alt="">
+                                    <div class="tourmtinfor">
+                                        {{t23.mountain_area | Area}} - {{t23.mountain_name}} - <div class="degreeImg" v-html="Degree(t23.degree_category)"></div>
+                                    </div>
+                                </div>
+                                <div class="tourtitle">
+                                    <h3>{{t23.tour_title}}</h3>
+                                    <span>{{t23.tour_activitystart}} ~ {{t23.tour_activityend}}</span>
+                                </div>
+                                </a>
+                            </article>
+                        </div>
                 </div>
+                
             </div>
 
         </div>
@@ -355,89 +280,73 @@
 
         
         <div id="section3" class="section section3">
+
             <div class="slide" data-anchor="slide1">
                 <div id="sec3-1box">
-                    <div class="big" onclick="location.href='./comment.html';">
-                        <div class="bigimg">
+                    <div class="innerboxleft" @click="gotoFORUM">
+                        <div class="bigpic">
                             <img src="" alt="">
+                            <div><p></p></div>
                         </div>
-                        <div class="posterinfor">
-                            <div class="posteravator"><img src="" alt=""></div>
-                            <div class="posterid"><p id="posteridp"></p></div>
-                            <div class="littlepic">
-                                <div class="posterverify">
-                                    <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                    <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="" alt="">
                                 </div>
-                                <div class="posterbadge">
-                                    <div class="badge badge1">
-                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
-                                    <div class="badge badge2">
-                                        <img src="./images/member/Ach_list_08.png" alt="">
-                                    </div>
-                                    <div class="badge badge3">
-                                        <img src="./images/member/Ach_list_11.png" alt="">
+                                    <div class="memberId"></div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
                                     </div>
                                 </div>
                             </div>
+                            <div class="forumtitle"><h3></h3><span></span></div>
                         </div>
-                        <div class="innertext"><p id="innertextp"></p></div>
-                        <div class="newcomment">
-                            <div class="commentmem">
-                                <img src="" alt="">
-                            </div>
-                            <div class="commenttext"><p id="commenttextp"></p></div>
+                        <div class="forumtext"><p></p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p></p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p></p><span>最後回覆於 : </span></div>
                         </div>
                     </div>
-                    <div class="smallbox">
-                        <div class="small small1 is-active">
-                            <img src="./images/form_img/g3.jpg" alt="">
-                            <div class="forumtag"><p>爬山心得</p></div>
-                            <div class="greymask"><p>攻頂，不是爬山唯一目標</p></div>
-                            <div class="inforplace">
-                                <img src="./images/form_img/username1.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Ting"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nihil impedit culpa ullam eveniet optio perspiciatis consectetur deleniti eum odit assumenda sapiente, doloribus beatae cum."></div>
-                                <img src="./images/king.jpeg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試1-1"></div>
+                    <div class="innerboxright">
+                        <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" ref="smallbox">
+                            <div class="smallpic">
+                                <img :src="fh.forum_post_image" alt="">
+                                <div><p >{{fh.forum_post_category}}</p></div>
                             </div>
-                        </div>
-                        <div class="small small2">
-                            <img src="./images/form_img/g5.jpg" alt="">
-                            <div class="forumtag"><p>裝備資訊</p></div>
-                            <div class="greymask"><p>登山健行新手錦囊《裝備篇》</p></div>
-                            <div class="inforplace">
-                                <img src="./images/form_img/yen.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="yen"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, natus. Incidunt explicabo minima soluta modi nostrum amet."></div>
-                                <img src="./images/form_img/yen1.jpg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試1-2"></div>
+                            <div class="graymask" v-on:click="toggleActive"  >
+                                <h3 v-on:click="toggleActiveP">{{fh.forum_post_title}}</h3>
                             </div>
-                        </div>
-                        <div class="small small3">
-                            <img src="./images/form_img/g6.jpg" alt="">
-                            <div class="forumtag"><p>新手專區</p></div>
-                            <div class="greymask"><p>5個容易忽略的健行風險 百岳單功篇</p></div>
-                            <div class="inforplace">
-                                <img src="./images/king.jpeg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Roy"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ipsum iusto!"></div>
-                                <img src="./images/meet/member/vivian.jpeg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試1-3"></div>
-                            </div>
-                        </div>
-                        <div class="small small4">
-                            <img src="./images/form_img/g8.jpg" alt="">
-                            <div class="forumtag"><p>登山資訊</p></div>
-                            <div class="greymask"><p>新手也能簡單駕馭的高屏爬山秘境</p></div>
-                            <div class="inforplace">
-                                <img src="./images/meet/member/Chris.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Chris"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore ullam assumenda omnis, porro, nemo odio minima numquam, sequi corporis laudantium aut."></div>
-                                <img src="./images/form_img/username1.jpg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試1-4"></div>
-                            </div>
+                            <input class="TEMPforum_post_no" type="hidden" :value="fh.forum_post_no">
+                            <input class="TEMPforum_post_title" type="hidden" :value="fh.forum_post_title">
+                            <input class="TEMPforum_post_category" type="hidden" :value="fh.forum_post_category">
+                            <input class="TEMPforum_post_innertext" type="hidden" :value="fh.forum_post_innertext">
+                            <input class="TEMPforum_post_image" type="hidden" :value="fh.forum_post_image">
+                            <input class="TEMPforum_post_time" type="hidden" :value="fh.forum_post_time">
+                            <input class="TEMPmem_avator" type="hidden" :value="fh.mem_avator">
+                            <input class="TEMPmem_id" type="hidden" :value="fh.mem_id">
+                            <input class="TEMPmem_badge1" type="hidden" :value="fh.badge1">
+                            <input class="TEMPmem_badge2" type="hidden" :value="fh.badge2">
+                            <input class="TEMPmem_badge3" type="hidden" :value="fh.badge3">
+                            <input class="TEMPguide_no" type="hidden" :value="fh.guide_no">
+                            <input class="TEMPmem_realname" type="hidden" :value="fh.mem_realname">
+                            <input class="TEMPforum_reply" type="hidden" :value="fh.回覆人數">
+                            <input class="TEMPforum_keep" type="hidden" :value="fh.收藏人數">
+                            <input class="TEMPforum_replytime" type="hidden" :value="fh.最新回覆時間">
                         </div>
                     </div>
                 </div>
@@ -448,151 +357,116 @@
             
             <div class="slide" data-anchor="slide2">
                 <div id="sec3-2box">
-                    <div class="big" onclick="location.href='./comment.html';">
-                        <div class="bigimg">
+                    <div class="innerboxleft" @click="gotoFORUM">
+                        <div class="bigpic">
                             <img src="" alt="">
+                            <div><p></p></div>
                         </div>
-                        <div class="posterinfor">
-                            <div class="posteravator"><img src="" alt=""></div>
-                            <div class="posterid"><p id="posteridp2"></p></div>
-                            <div class="littlepic">
-                                <div class="posterverify">
-                                    <span class="certificationIcon"><i class="fas fa-thumbs-up"></i></span>
-                                    <span class="certificationIcon"><i class="fas fa-check-circle"></i></span>
+                        <div class="theinfor">
+                            <div class="member_styleA row">
+                                <div class="memberImg">
+                                    <img src="" alt="">
                                 </div>
-                                <div class="posterbadge">
-                                    <div class="badge badge1">
-                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                <div class="memberInfo">
+                                    <div class="certification">
+                                        <span class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                     </div>
-                                    <div class="badge badge2">
-                                        <img src="./images/member/Ach_list_08.png" alt="">
-                                    </div>
-                                    <div class="badge badge3">
-                                        <img src="./images/member/Ach_list_11.png" alt="">
+                                    <div class="memberId"></div>
+                                    <div class="memberBadge">
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
+                                        <span class="memberBadgeIcon">
+                                            <img src="" alt="">
+                                        </span>
                                     </div>
                                 </div>
                             </div>
+                            <div class="forumtitle"><h3></h3><span></span></div>
                         </div>
-                        <div class="innertext"><p id="innertextp2"></p></div>
-                        <div class="newcomment">
-                            <div class="commentmem">
-                                <img src="" alt="">
-                            </div>
-                            <div class="commenttext"><p id="commenttextp2"></p></div>
+                        <div class="forumtext"><p></p></div>
+                        <div class="sub">
+                            <div class="keepicon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
+                            <div><p></p></div>
+                            <div class="replyicon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
+                            <div><p></p><span>最後回覆於 : </span></div>
                         </div>
                     </div>
-                    <div class="smallbox">
-                        <div class="small small1 is-active">
-                            <img src="./images/form_img/g3.jpg" alt="">
-                            <div class="forumtag"><p>爬山心得</p></div>
-                            <div class="greymask"><p>攻頂，不是爬山唯一目標</p></div>
-                            <div class="inforplace">
-                                <img src="./images/form_img/username1.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Ting"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nihil impedit culpa ullam eveniet optio perspiciatis consectetur deleniti eum odit assumenda sapiente, doloribus beatae cum."></div>
-                                <img src="./images/king.jpeg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試2-1"></div>
+                    <div class="innerboxright">
+                        <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': index === 0 }" ref="smallbox">
+                            <div class="smallpic">
+                                <img :src="fn.forum_post_image" alt="">
+                                <div><p >{{fn.forum_post_category}}</p></div>
                             </div>
-                        </div>
-                        <div class="small small2">
-                            <img src="./images/form_img/g5.jpg" alt="">
-                            <div class="forumtag"><p>裝備資訊</p></div>
-                            <div class="greymask"><p>登山健行新手錦囊《裝備篇》</p></div>
-                            <div class="inforplace">
-                                <img src="./images/form_img/yen.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="yen"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, natus. Incidunt explicabo minima soluta modi nostrum amet."></div>
-                                <img src="./images/form_img/yen1.jpg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試2-2"></div>
+                            <div class="graymask" v-on:click="toggleActive"  >
+                                <h3 v-on:click="toggleActiveP">{{fn.forum_post_title}}</h3>
                             </div>
-                        </div>
-                        <div class="small small3">
-                            <img src="./images/form_img/g6.jpg" alt="">
-                            <div class="forumtag"><p>新手專區</p></div>
-                            <div class="greymask"><p>5個容易忽略的健行風險 百岳單功篇</p></div>
-                            <div class="inforplace">
-                                <img src="./images/king.jpeg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Roy"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ipsum iusto!"></div>
-                                <img src="./images/meet/member/vivian.jpeg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試2-3"></div>
-                            </div>
-                        </div>
-                        <div class="small small4">
-                            <img src="./images/form_img/g8.jpg" alt="">
-                            <div class="forumtag"><p>登山資訊</p></div>
-                            <div class="greymask"><p>新手也能簡單駕馭的高屏爬山秘境</p></div>
-                            <div class="inforplace">
-                                <img src="./images/meet/member/Chris.jpg" alt="" class="posteravator">
-                                <div class="posterid" innerHTML="Chris"></div>
-                                <div class="innertext" innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore ullam assumenda omnis, porro, nemo odio minima numquam, sequi corporis laudantium aut."></div>
-                                <img src="./images/form_img/username1.jpg" alt="" class="commentmem">
-                                <div class="commenttext" innerHTML="我是留言測試2-4"></div>
-                            </div>
+                            <input class="TEMPforum_post_no" type="hidden" :value="fn.forum_post_no">
+                            <input class="TEMPforum_post_title" type="hidden" :value="fn.forum_post_title">
+                            <input class="TEMPforum_post_category" type="hidden" :value="fn.forum_post_category">
+                            <input class="TEMPforum_post_innertext" type="hidden" :value="fn.forum_post_innertext">
+                            <input class="TEMPforum_post_image" type="hidden" :value="fn.forum_post_image">
+                            <input class="TEMPforum_post_time" type="hidden" :value="fn.forum_post_time">
+                            <input class="TEMPmem_avator" type="hidden" :value="fn.mem_avator">
+                            <input class="TEMPmem_id" type="hidden" :value="fn.mem_id">
+                            <input class="TEMPmem_badge1" type="hidden" :value="fn.badge1">
+                            <input class="TEMPmem_badge2" type="hidden" :value="fn.badge2">
+                            <input class="TEMPmem_badge3" type="hidden" :value="fn.badge3">
+                            <input class="TEMPguide_no" type="hidden" :value="fn.guide_no">
+                            <input class="TEMPmem_realname" type="hidden" :value="fn.mem_realname">
+                            <input class="TEMPforum_reply" type="hidden" :value="fn.回覆人數">
+                            <input class="TEMPforum_keep" type="hidden" :value="fn.收藏人數">
+                            <input class="TEMPforum_replytime" type="hidden" :value="fn.最新回覆時間">
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         
         <div id="section4" class="section section4">
             <div id="sec4box">
-                <div id="big1" class="circlebg circlebgbig">
-                    <div class="productimgbig"  onclick="location.href='./product_info.html';">
-                        <img src="./images/products/clothes/clothes21.png" alt="">
+                <div class="boxbig" v-for="(p,index) in Product.slice(0, 1)">
+                    <div class="picbig">
+                        <!-- <div class="top"> 
+                            <div><h3> TOP {{index+1}} </h3></div>
+                            <p>已售出 {{p.銷售數量}}個</p>
+                        </div> -->
+                        <div class="circlebig"></div>
+                        <div class="propicbig"><img :src="p.product_image1" alt=""></div>
+                        <div class="btngo" @click="gotoPRODUCT"><button class="btnA_XLwRA"><p>詳細資訊</p><div class="btnArrowXL"></div></button></div>
+                    </div>
+                    <div class="prodesc">
+                        <div class="protitle"><h3>{{p.product_name}}</h3></div>
+                        <div class="prosubtitle"><p>{{p.product_description}}</p></div>
+                        <div class="proprice"><p>${{p.product_price}}</p></div>
+                    </div>
+                    <input class="proNO" type="hidden" :value="p.product_no">
+                    <input class="proNAME" type="hidden" :value="p.product_name">
+                    <input class="proIMG" type="hidden" :value="p.product_image1">
+                    <input class="proPRICE" type="hidden" :value="p.product_price">
+                    <input class="proDESC" type="hidden" :value="p.product_description">
+                    <input class="proSOLD" type="hidden" :value="p.銷售數量">
+                </div>
+                <div class="smalls">
+                    <div class="boxsmall" v-for="(p,index) in Product.slice(1, 4)">
+                        <div class="circlesmall"></div>
+                        <div class="propicsmall"><img :src="p.product_image1" @click="ExchangePRO" alt=""></div>
+                        <div class="protitle"><p @click="ExchangePRO" >{{p.product_name}}</p></div>
+                        <input class="proNO" type="hidden" :value="p.product_no">
+                        <input class="proNAME" type="hidden" :value="p.product_name">
+                        <input class="proIMG" type="hidden" :value="p.product_image1">
+                        <input class="proPRICE" type="hidden" :value="p.product_price">
+                        <input class="proDESC" type="hidden" :value="p.product_description">
+                        <input class="proSOLD" type="hidden" :value="p.銷售數量">
                     </div>
                 </div>
-                <div class="productinfor" onclick="location.href='./product_info.html';">
-                    <div class="productnamebig"><p id="bigp">Fjallraven 小狐狸 輕量風衣</p></div>
-                    <div class="productdescbig"><p id="bigdesc">G-1000® Air Stretch 採用有機棉與部分再生聚酯纖維。 快乾彈性布料含 70% 再生聚酯纖維。 可調整的帽兜。 插手口袋和胸前口袋搭配拉鍊與網眼內裡。 袖口有鬆緊帶。</p></div>
-                </div>
-
-
-
-                <div id="small1" class="circlebg circlebgsmall">
-                    <div class="productimgsmall">
-                        <img src="./images/products/campGear/tent11.png" alt="">
-                    </div>
-                </div>
-                <p id="small1p" class="productnamesmall">U-11 單人全方位超輕帳</p>
-                <p id="small1desc" class="smalldesc">適合輕便旅行、登山、單車旅遊等活動 外帳使用超輕40D高防水尼龍布，重量輕 內帳使用透氣撥水尼龍布。</p>
-
-                <div id="small2" class="circlebg circlebgsmall">
-                    <div class="productimgsmall">
-                        <img src="./images/products/bag/bag21.png" alt="">
-                    </div>
-                </div>
-                <p id="small2p" class="productnamesmall">Mystery Ranch 二日攻擊包 27L</p>
-                <p id="small2desc" class="smalldesc">頂袋兩處拉鍊口袋 內部多處收納袋設計，可有效分類物品 可調節式背板 靠近背部另有隔間，可攜帶15吋(以下)筆電及平板電腦 兩個內部網眼口袋，可放置小東西避免遺失。</p>
-
-                <div id="small3" class="circlebg circlebgsmall">
-                    <div class="productimgsmall">
-                        <img src="./images/products/shoes/shoes21.png" alt="">
-                    </div>
-                </div>
-                <p id="small3p" class="productnamesmall">Zamberlan 輕量低筒健行鞋</p>
-                <p id="small3desc" class="smalldesc">結合獨家技術 Hydrobloc，皮革經此技術鞣制後，能大大增強防潑水性與耐久性。 Vibram®Fuga 搭配有 MEGAGRIP® 複合材料大底針對潮濕環境設計，具有卓越的抓地力，良好的制動能力。</p>
-
-                <button class="btnB_XL_yellow" onclick="location.href='./product.html';"><p>來去逛逛</p><div class="bg"></div></button>
-
-
-
             </div>
-            <!-- <div class="meteor">
-                <div class="dot dot1"></div>
-                <div class="dot dot2"></div>
-                <div class="dot dot3"></div>
-                <div class="dot dot4"></div>
-                <div class="dot dot5"></div>
-                <div class="dot dot6"></div>
-                <div class="dot dot7"></div>
-                <div class="dot dot8"></div>
-                <div class="dot dot9"></div>
-            </div> -->
-
-
-
         </div>
 
 
@@ -602,9 +476,6 @@
 
     </div>
 
-    <!-- <footer>
-        <h2>我是footer</h2>
-    </footer> -->
 
 
 
@@ -658,32 +529,295 @@
                 $(".menu").toggleClass("show");
             },200)
         });
-      </script>
+    </script>
 
-      <script>
-          $("a.tour").hover(function(){
-                $("li.y1 div").css("opacity","0.9");
-            },function(){
-                $("li.y1 div").css("opacity","0");
-            });
-          $("a.forum").hover(function(){
-                $("li.y2 div").css("opacity","0.9");
-            },function(){
-                $("li.y2 div").css("opacity","0");
-            });
-          $("a.product").hover(function(){
-                $("li.y3 div").css("opacity","0.9");
-            },function(){
-                $("li.y3 div").css("opacity","0");
-            });
-      </script>
+    <script>
+        $("a.tour").hover(function(){
+            $("li.y1 div").css("opacity","0.9");
+        },function(){
+            $("li.y1 div").css("opacity","0");
+        });
+        $("a.forum").hover(function(){
+            $("li.y2 div").css("opacity","0.9");
+        },function(){
+            $("li.y2 div").css("opacity","0");
+        });
+        $("a.product").hover(function(){
+            $("li.y3 div").css("opacity","0.9");
+        },function(){
+            $("li.y3 div").css("opacity","0");
+        });
+    </script>
 
-      <script>
-    //       $( document ).ready(function() {
+    <script>
 
-    //         });
-    //   </script>
+        let vTour = new Vue({
+            el: "#sec2box",
+            data: {
+                Tour1: [],
+                Tour23: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexTour1.php').then(res => {
+                this.Tour1 = res.data; 
+                })
+                axios.get('./phpForConnect/frontstageindexTour23.php').then(res => {
+                this.Tour23 = res.data; 
+                })
+            },
+            filters: {
+                // var mountain_area = this.Tour1.mountain_area;
+                Area: function(value) {
+                    switch(value){
+                        case('north'):
+                            return '北部';
+                        break;
+                        case('west'):
+                            return '中部';
+                        break;
+                        case('south'):
+                            return '南部';
+                        break;
+                        case('east'):
+                            return '東部';
+                        break;
+                        default:
+                            return '沒成功哦';
+                        break;
+                    }
+                },
+            },
+            methods: {
+                Degree(value) {
+                    switch(value){
+                        case('1'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('2'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('3'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        case('4'):
+                            return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                        break;
+                        default:
+                            return '應該很難';
+                        break;
+                    }
+                }
+            },
+            computed: {
+                CHECKname() {
+                    return this.Tour1[0].mem_realname;
+                },
+                CHECKguide() {
+                    return this.Tour1[0].guide_no;
+                },
+            },
+        });
+        let vForumHot = new Vue({
+            el: "#sec3-1box",
+            data: {
+                ForumHot: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexForumHot.php').then(res => {
+                this.ForumHot = res.data; 
+                })
+            },
+            methods: {
+            toggleActive: function(e) {
+                $(e.target.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            toggleActiveP: function(e) {
+                $(e.target.parentNode.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            renderForumData: function(){
+                //抓值
+                var TEMPforum_post_image = $("#sec3-1box .innerboxright .-active .TEMPforum_post_image").val();
+                var TEMPmem_avator = $("#sec3-1box .innerboxright .-active .TEMPmem_avator").val();
+                var TEMPforum_post_innertext = $("#sec3-1box .innerboxright .-active .TEMPforum_post_innertext").val();
+                var TEMPforum_post_category = $("#sec3-1box .innerboxright .-active .TEMPforum_post_category").val();
+                var TEMPforum_post_title = $("#sec3-1box .innerboxright .-active .TEMPforum_post_title").val();
+                var TEMPforum_post_time = $("#sec3-1box .innerboxright .-active .TEMPforum_post_time").val();
+                var TEMPguide_no = $("#sec3-1box .innerboxright .-active .TEMPguide_no").val();
+                var TEMPmem_realname = $("#sec3-1box .innerboxright .-active .TEMPmem_realname").val();
+                var TEMPmem_id = $("#sec3-1box .innerboxright .-active .TEMPmem_id").val();
+                var TEMPmem_badge1 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge1").val();
+                var TEMPmem_badge2 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge2").val();
+                var TEMPmem_badge3 = $("#sec3-1box .innerboxright .-active .TEMPmem_badge3").val();
+                var TEMPforum_reply = $("#sec3-1box .innerboxright .-active .TEMPforum_reply").val();
+                var TEMPforum_keep = $("#sec3-1box .innerboxright .-active .TEMPforum_keep").val();
+                var TEMPforum_replytime = $("#sec3-1box .innerboxright .-active .TEMPforum_replytime").val();
+                //渲染
+                $("#sec3-1box .innerboxleft .bigpic img").attr('src',TEMPforum_post_image)
+                $("#sec3-1box .innerboxleft .bigpic div p").text(TEMPforum_post_category)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberImg img").attr('src',TEMPmem_avator)
+                if (TEMPmem_realname){
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").show();
+                }   else    {
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").hide();
+                }
+                if (TEMPguide_no){
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").show();
+                }   else    {
+                    $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").hide();
+                }
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberId").text(TEMPmem_id)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(0).find("img").attr('src',TEMPmem_badge1)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(1).find("img").attr('src',TEMPmem_badge2)
+                $("#sec3-1box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(2).find("img").attr('src',TEMPmem_badge3)
+                $("#sec3-1box .innerboxleft .theinfor .forumtitle h3").text(TEMPforum_post_title)
+                $("#sec3-1box .innerboxleft .theinfor .forumtitle span").text(TEMPforum_post_time)
+                $("#sec3-1box .innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                // console.log('**below**memINFO**')
+                // console.log(TEMPguide_no)
+                // console.log(TEMPmem_realname)
+                // console.log('**above**memINFO**')
+                $("#sec3-1box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
+                $("#sec3-1box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
+                $("#sec3-1box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
+                },
+                gotoFORUM: function(){
+                    location.href=`./forum-comment.html?forum_post_no=${$("#sec3-1box .innerboxright .-active .TEMPforum_post_no").val()}`
+                },
+            },
+            updated() {
+                this.renderForumData();
+            },
+        });
+        let vForumNew = new Vue({
+            el: "#sec3-2box",
+            data: {
+                ForumNew: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexForumNew.php').then(res => {
+                this.ForumNew = res.data; 
+                })
+            },
+            methods: {
+            toggleActive: function(e) {
+                $(e.target.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            toggleActiveP: function(e) {
+                $(e.target.parentNode.parentNode).siblings().removeClass("-active")
+                $(e.target.parentNode.parentNode).addClass("-active")
+                this.renderForumData();
+            },
+            renderForumData: function(){
+                //抓值
+                var TEMPforum_post_image = $("#sec3-2box .innerboxright .-active .TEMPforum_post_image").val();
+                var TEMPmem_avator = $("#sec3-2box .innerboxright .-active .TEMPmem_avator").val();
+                var TEMPforum_post_innertext = $("#sec3-2box .innerboxright .-active .TEMPforum_post_innertext").val();
+                var TEMPforum_post_category = $("#sec3-2box .innerboxright .-active .TEMPforum_post_category").val();
+                var TEMPforum_post_title = $("#sec3-2box .innerboxright .-active .TEMPforum_post_title").val();
+                var TEMPforum_post_time = $("#sec3-2box .innerboxright .-active .TEMPforum_post_time").val();
+                var TEMPguide_no = $("#sec3-2box .innerboxright .-active .TEMPguide_no").val();
+                var TEMPmem_realname = $("#sec3-2box .innerboxright .-active .TEMPmem_realname").val();
+                var TEMPmem_id = $("#sec3-2box .innerboxright .-active .TEMPmem_id").val();
+                var TEMPmem_badge1 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge1").val();
+                var TEMPmem_badge2 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge2").val();
+                var TEMPmem_badge3 = $("#sec3-2box .innerboxright .-active .TEMPmem_badge3").val();
+                var TEMPforum_reply = $("#sec3-2box .innerboxright .-active .TEMPforum_reply").val();
+                var TEMPforum_keep = $("#sec3-2box .innerboxright .-active .TEMPforum_keep").val();
+                var TEMPforum_replytime = $("#sec3-2box .innerboxright .-active .TEMPforum_replytime").val();
+                //渲染
+                $("#sec3-2box .innerboxleft .bigpic img").attr('src',TEMPforum_post_image)
+                $("#sec3-2box .innerboxleft .bigpic div p").text(TEMPforum_post_category)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberImg img").attr('src',TEMPmem_avator)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberId").text(TEMPmem_id)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(0).find("img").attr('src',TEMPmem_badge1)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(1).find("img").attr('src',TEMPmem_badge2)
+                $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .memberBadge .memberBadgeIcon").eq(2).find("img").attr('src',TEMPmem_badge3)
+                $("#sec3-2box .innerboxleft .theinfor .forumtitle h3").text(TEMPforum_post_title)
+                $("#sec3-2box .innerboxleft .theinfor .forumtitle span").text(TEMPforum_post_time)
+                $("#sec3-2box .innerboxleft .forumtext p").text(TEMPforum_post_innertext)
+                if (TEMPmem_realname){
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").show();
+                }   else    {
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .a").hide();
+                }
+                if (TEMPguide_no){
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").show();
+                }   else    {
+                    $("#sec3-2box .innerboxleft .theinfor .member_styleA .memberInfo .certification .b").hide();
+                }
+                $("#sec3-2box .innerboxleft .sub .keepicon + div p").text(TEMPforum_keep)
+                $("#sec3-2box .innerboxleft .sub .replyicon + div p").text(TEMPforum_reply)
+                $("#sec3-2box .innerboxleft .sub .replyicon + div span").text(`最後回覆於${TEMPforum_replytime}`)
+            },
+                gotoFORUM: function(){
+                    location.href=`./forum-comment.html?forum_post_no=${$("#sec3-2box .innerboxright .-active .TEMPforum_post_no").val()}`
+                },
+            },
+            updated() {
+                this.renderForumData();
+            },
+        });
+        let vProduct = new Vue({
+            el: "#sec4box",
+            data: {
+                Product: [],
+            },
+            created() {
+                axios.get('./phpForConnect/frontstageindexProduct.php').then(res => {
+                this.Product = res.data; 
+                console.log('success'); 
+                console.log(this.Product);
+                })
+            },
+            methods:{
+                ExchangePRO: function(e){
+                    // 先暫存點擊的資料
+                    var tempNO = $(e.target.parentNode.parentNode).find(".proNO").val();
+                    var tempNAME = $(e.target.parentNode.parentNode).find(".proNAME").val();
+                    var tempIMG = $(e.target.parentNode.parentNode).find(".proIMG").val();
+                    var tempPRICE = $(e.target.parentNode.parentNode).find(".proPRICE").val();
+                    var tempDESC = $(e.target.parentNode.parentNode).find(".proDESC").val();
+                    var tempSOLD = $(e.target.parentNode.parentNode).find(".proSOLD").val();
+                    // 轉換資料,小圖的資料便原大圖資料
+                    $(e.target.parentNode.parentNode).find(".proNO").val($(".boxbig input.proNO").val());
+                    $(e.target.parentNode.parentNode).find(".proNAME").val($(".boxbig input.proNAME").val());
+                    $(e.target.parentNode.parentNode).find(".proIMG").val($(".boxbig input.proIMG").val());
+                    $(e.target.parentNode.parentNode).find(".proPRICE").val($(".boxbig input.proPRICE").val());
+                    $(e.target.parentNode.parentNode).find(".proDESC").val($(".boxbig input.proDESC").val());
+                    $(e.target.parentNode.parentNode).find(".proSOLD").val($(".boxbig input.proSOLD").val());
+                    // 小圖變換成原大圖資料
+                    $(e.target.parentNode.parentNode).find(".propicsmall").find("img").attr('src',$(e.target.parentNode.parentNode).find(".proIMG").val());
+                    $(e.target.parentNode.parentNode).find(".protitle").find("p").text($(e.target.parentNode.parentNode).find(".proNAME").val());
+                    // // 大圖去存取原小圖的temp
+                    $(".boxbig input.proNO").val(tempNO)
+                    $(".boxbig input.proNAME").val(tempNAME)
+                    $(".boxbig input.proIMG").val(tempIMG)
+                    $(".boxbig input.proPRICE").val(tempPRICE)
+                    $(".boxbig input.proDESC").val(tempDESC)
+                    $(".boxbig input.proSoLD").val(tempSOLD)
+                    // 大圖變換成員小圖資料
+                    $(".boxbig .picbig .propicbig img").attr('src',$(".boxbig input.proIMG").val())
+                    $(".boxbig .prodesc .protitle h3").text($(".boxbig input.proNAME").val())
+                    $(".boxbig .prodesc .prosubtitle p").text($(".boxbig input.proDESC").val())
+                    $(".boxbig .prodesc .proprice p").text('$'+$(".boxbig input.proPRICE").val())
+                
+                },
+                gotoPRODUCT: function(){
+                    location.href=`./product_info.html?productNo=${$(".boxbig input.proNO").val()}`
+                },
+            },
+        });
+    </script>
+
+    <script>
+    </script>
     <script src="./js/FrontstageIndex.js" ></script>
-    
+
 </body>
 </html>
