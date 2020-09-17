@@ -696,30 +696,7 @@
             <!-- 修改資料 -->
             <div id="MemDetail" class="pages">
                 <h2 class="title">修改資料</h2>
-                <form method="post">
-                    <div class="mem_frame">
-                        <div class="mem_change">
-                            <p>暱稱</p><p id="memEdit_id"></p><br>
-                            <input type="text" name="mem_id" id="mem_id">
-                        </div>
-                        <div class="mem_change">
-                            <p>信箱</p><p id="memEdit_mail"></p><br>
-                            <input type="text" name="mem_mail" id="mem_mail">
-                        </div>
-                        <div class="mem_change">
-                            <p>密碼</p><br>
-                            <input type="text" name="mem_psw" id="mem_psw">
-                        </div>
-                        <div class="mem_change">
-                            <p>確認密碼</p><br>
-                            <input type="text" name="repassword" id="repassword">
-                        </div>
-                        <div class="mem_button">
-                            <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
-                            <button class="btnB_L_yellow" id="editConfirm"><p>送出</p><div class="bg"></div></button>
-                        </div>
-                    </div>
-                </form>
+                <div id="MemEdit_info"></div>
             </div>
 
         </div><!-- ----------各頁面內容放這(end)-------------------- -->
@@ -847,33 +824,11 @@
         readURL(this);
     });
 </script>
-<!-- ======================(script-修改)======================= -->
-<script>
-    function editDetail(){
-        let xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    alert(xhr.responseText); //回傳php回應的值
-                }else{
-                    alert(xhr.status);
-                }
-            }
-        }
-
-        xhr.open("post", "./phpForConnect/member_v2_edit.php", true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
-        xhr.send(data_info);
-    }
-    window.addEventListener("load", function(){
-        document.getElementById("editConfirm").addEventListener("click", editDetail, false);
-    }, false);
-</script>
 <!-- ======================(script-傳送值去訂單)======================= -->
 <script>
     $('#MemOrder_info').load('./phpForConnect/member_v2_order.php');
+    $('#MemEdit_info').load('./phpForConnect/member_v2_edit.php')
 </script>
 </body>
 </html>
