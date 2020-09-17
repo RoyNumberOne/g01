@@ -41,7 +41,7 @@ try	{
 		foreach ( $prodRows as $i => $prodRow){
     ?>
         <tr>
-			<td><img src='.".$prodRow["商品預覽"]."' width='110px' alt=''></td>
+            <td><img src="<?=$prodRow["商品預覽"]?>" width='110px' alt=''></td>
 			<td><?=$prodRow["商品編號"]?></td>
 			<td><?=$prodRow["商品名稱"]?></td>
 			<td><?=$prodRow["難度等級"]?></td>
