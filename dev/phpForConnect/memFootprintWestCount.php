@@ -4,11 +4,14 @@ try{
     
     require_once('./connectMeetain.php');
     
+    session_start();
+    $mem_no = $_SESSION['mem_no'];
+
     $sql= "	SELECT Count(*) Count
                     from tour_participate tp
                         join tour T on(tp.tour_participate_tour = T.tour_no)
                         join mountain M on(T.tour_mountain = M.mountain_no)
-                    WHERE tp.tour_participate_mem = 10009 -- 之後改變數
+                    WHERE tp.tour_participate_mem = $mem_no
                     and T.tour_progress = '已結束' 
                     and M.mountain_area = 'west'
                     order BY T.tour_activitystart DESC;
