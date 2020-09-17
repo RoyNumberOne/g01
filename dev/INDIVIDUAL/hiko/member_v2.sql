@@ -19,6 +19,15 @@ select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團
 		and M.mountain_area = 'south'
 		order BY T.tour_activitystart DESC;
 
+----------------------------------------------------------------------------------------------------------
+
+-- 會員已獲得的徽章，由獲得時間近到遠排序
+select ma.achievement_no, ma.achievement_date, M.mem_no, M.mem_name, A.achievement_name, A.achievement_image, A.achievement_category
+		from mem_achievement ma
+			join member M on(ma.mem_no = M.mem_no)
+			join achievement A on(ma.achievement_no = A.achievement_no)
+		WHERE ma.mem_no = 10001  -- 之後改變數
+		order by ma.achievement_date desc;
 
 ----------------------------------------------------------------------------------------------------------
 -- 會員收藏討論文章，由新到舊排序

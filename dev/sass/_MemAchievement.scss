@@ -12,21 +12,21 @@
     }
     p{  
         margin: 1%;
-        margin-bottom: 30px;
     }
 
     .Achievement_list{
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(3,1fr);
         grid-template-rows: repeat(5,1fr);
         transform: translateY(50px);
-        div{
+        .Ach{
             margin: 0 auto;
             text-align: center;
+            margin-bottom: 50px;
             img{
-                width: 60%;
+                width: 50%;
                 margin: 0;
             }
         }
