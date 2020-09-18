@@ -1,15 +1,32 @@
 new Vue({
     el: '#app',
     data: {
-        // hosterData: [],
         tourData: [],
         comments: [],
         tourParticipates: [],
         articals: [],
         passedParticipant: [],
         notPassedParticipant: [],
-        // MSGfeedback: [],
         message: '',
+        message_report_img: [],
+    },
+    created(){
+
+        formMessageReport = new FormData();
+        // let reportNo = $(".TEMPno").val();
+        urlSearchParams = (new URL(document.location)).searchParams;
+        tour_no = urlSearchParams.get('tour_no');        
+        // formMessageReport.append("comment_report_comment", reportNo)
+        formMessageReport.append("tour_post_no", tour_no); 
+
+        axios.get('./phpForConnect/meet2-3_message_report_img.php', {params:{
+            // "comment_report_comment" : reportNo,
+            "tour_post_no" : tour_no,
+        }}).then(res => {
+            this.message_report_img = res.data;
+            console.log(this.message_report_img);
+        })
+        
     },
     mounted() {
 
@@ -49,6 +66,23 @@ new Vue({
         //     console.log('success articals');
         //     console.log(this.articals);
         // })
+
+
+
+    },
+    updated(){
+        // console.log("LENGTH" + this.message_report_img.length)
+        for ( var t = 0 ; t < this.message_report_img.length ; t++){
+            this.CHECKnull(t);
+        }
+
+        
+        // console.log('111');
+        // console.log(this.message_report_img);
+
+        // if(reportNo !== ''){
+        //     $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
+        // }
     },
     filters: {
         // var mountain_area = this.Tour1.mountain_area;
@@ -78,10 +112,6 @@ new Vue({
         },
     },
     methods: {
-        openReportModal(commentId) {
-            this.reportNo = comment_no;
-            // 打開彈窗
-        },
         Degree(value) {
             switch(value){
                 case('1'):
@@ -104,65 +134,88 @@ new Vue({
         clearTextarea(){
             this.message = '';
         },
-        SENDmsg: function(){
+
+        openReportModal(e) {
+           if($('#mem_info_id').html() === ''){
+               alert ('請先登入');
+               window.location.href = './login_v2.html';
+           }else{
+               // 打開彈窗
+                $('.report_block_message').removeClass('close');
+                let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
+                let iconIF = $(e.target.parentNode.parentNode).find("img");
+                $(".mg_confirm").click(function(e){
+                    var temp = $('#send_report_block').val();
+                    if(temp == ''){
+                        alert('請先輸入文字');
+                    }else{
+                        let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
+                        formMessageReport = new FormData();
+                        formMessageReport.append("comment_report_comment", reportNo)
+                        formMessageReport.append("comment_report_reason", comment_report_reason)
+                        alert(reportNo);
+                        alert(comment_report_reason);
+                        axios.get('./phpForConnect/meet2-3_message_report.php', {params:{
+                            "comment_report_comment" : reportNo,
+                            "comment_report_reason" : comment_report_reason,
+                        }})
+                        $('.mg_reporting').css('display', 'none');
+                        $('.mg_be_reported').css('display', 'block');
+                        iconIF.attr('src', './images/icons/icon_report_c.svg');
+                    }
+                })
+            }
+       },
+        SENDmsg(){
             if($('#mem_info_id').html() === ''){
                 alert ('請先登入');
+                let url = window.location.href;
+                localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
-            };
-            // console.log($('#send_message_block'));
-            var temp = $('#send_message_block').val();
-            // console.log(temp);
-            if(temp == ''){
-                alert('請先輸入文字');
-            }else{
-                let messageData = new FormData;
-                let formTour = new FormData();
-
-                let urlSearchParams = (new URL(document.location)).searchParams;
-                tour_no = urlSearchParams.get('tour_no');
-
-                formTour.append("tour_no", tour_no);        
-
-                // console.log('aaaaa')
-                // console.log(tour_no)
-                // console.log(this.message)
-                // console.log('aaaaa')
-
-                // messageData.append("comment_class",'揪團區')
-                // messageData.append("tour_post_no",`100001`)
-                // messageData.append("comment_innertext",`dddd`)
-                
-                // for(var msgINDEX of messageData.entries()){
-                //     console.log(msgINDEX[0]+', '+msgINDEX[1])
-                // }
-                // console.log(messageData);
-                // {
-                //     comment_class : '揪團區',
-                //     tour_post_no : this.tour_no,
-                //     comment_innertext : this.message,
-                // }
-                
-                axios.post('./phpForConnect/meet2-3_message.php', {params:{
-                    "comment_class" : '揪團區',
-                    "tour_post_no" : tour_no,
-                    "comment_innertext" : this.message,
-                }}).then(res => {
-                    // this.MSGfeedback = res.data;
-                    console.log('success message');
-                    // console.log(this.MSGfeedback);
-                    axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-                    this.comments = res.data;
-                    this.clearTextarea();
-                    $('html, body').animate({ scrollTop: 100000 }, 500);
-                    })
-                });
+            }   else    {
+                var temp = $('#send_message_block').val();
+                console.log(temp)
+                if(temp == ''){
+                    alert('請先輸入文字');
+                }else{
+                    let formTour = new FormData();
+                    let urlSearchParams = (new URL(document.location)).searchParams;
+                    tour_no = urlSearchParams.get('tour_no');
+                    formTour.append("tour_no", tour_no);        
+                    
+                    axios.get('./phpForConnect/meet2-3_message.php', {params:{
+                        "comment_class" : '揪團區',
+                        "tour_post_no" : tour_no,
+                        "comment_innertext" : this.message,
+                    }}).then(res => {
+                        console.log('success message');
+                        axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
+                        this.comments = res.data;
+                        this.clearTextarea();
+                        $('html, body').animate({ scrollTop: 100000 }, 500);
+                        })
+                    });
+                }
             }
         },
         changePic(e){
-            // console.log(e.target);
             console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src',$(e.target).attr('src'))
-        }
+        },
+        CHECKnull(k){
+            // console.log(this.message_report_img[k].comment_no);
+            var CMTNO = this.message_report_img[k].comment_no;
+            // console.log(CMTNO);
+            // console.log(this.message_report_img[k].comment_report_mem);
+            if (this.message_report_img[k].comment_report_mem !== null) {
+                $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").find("img").attr('src','./images/icons/icon_report_c.svg')
+                $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").attr("disabled","disabled")
+                //addclass?
+
+            };
+            
+            
+        },
     },
 })
 
@@ -215,7 +268,7 @@ $(document).ready(function (){
         checkpg();
     });
     
-    // lightbox
+    //apply lightbox
     $(function(){
         $("#apply_bt").click(function(){
             $("#meet2-3-1").removeClass("close");
@@ -269,51 +322,53 @@ $(document).ready(function (){
     //report match
     $(function() {
         //report lightbox
-        $('.report_bt').click(function() {
-            $('#report_block_match').removeClass('close');
-        })
+        // $('.report_bt').click(function() {
+        //     $('#report_block_match').removeClass('close');
+        // });
     
         //click rp_close
         $('.rp_close').click(function() {
-            $('#report_block_match').addClass('close');
+            $('.report_block_match').addClass('close');
         });
         
         //click cancle
         $('.cancle').click(function() {
-            $('#report_block_match').addClass('close');
-        })
+            $('.report_block_match').addClass('close');
+        });
     
         //click confirm
-        $('.confirm').click(function() {
-            $('.reporting').css('display', 'none');
-            $('.be_reported').css('display', 'block');
-            $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
-        });
+        // $('.confirm').click(function() {
+            // $('.reporting').css('display', 'none');
+            // $('.be_reported').css('display', 'block');
+            //change report img src -> not done yet
+            // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
+        // });
     });
     
     //report message
     $(function() {
         //report lightbox
-        $('.mg_report_bt').click(function() {
-            $('#report_block_message').removeClass('close');
-        })
+        // $('.mg_report_bt').click(function() {
+        //     $('.report_block_message').removeClass('close');
+        // })
     
         //click rp_close
         $('.mg_close').click(function() {
-            $('#report_block_message').addClass('close');
+            $('.report_block_message').addClass('close');
         });
         
         //click cancle
         $('.mg_cancle').click(function() {
-            $('#report_block_message').addClass('close');
+            $('.report_block_message').addClass('close');
         })
     
         //click confirm
-        $('.mg_confirm').click(function() {
-            $('.mg_reporting').css('display', 'none');
-            $('.mg_be_reported').css('display', 'block');
-            $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-        });
+        // $('.mg_confirm').click(function() {
+        //     $('.mg_reporting').css('display', 'none');
+        //     $('.mg_be_reported').css('display', 'block');
+        //     change report img src -> not done yet
+        //     $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
+        // });
     });
     
     //heart

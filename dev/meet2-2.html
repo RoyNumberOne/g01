@@ -88,7 +88,7 @@
                 <li class="step_icon3"> <div><img src="./images/icons/icon_2-2scstep_3.svg" alt=""></div></li>
             </ul>
         </section>
-        <form method="post" action="./meet2-2.php" class="tour_build_form" id="tour_build_form">
+        <form method="post" action="./meet2-2.php" class="tour_build_form" id="tour_build_form" enctype="multipart/form-data">
             <!-- 步驟一 -->
             <section class="tour_build_step1  -on" v-for="(mt, index) in mtList"> 
                 <section>
@@ -190,9 +190,7 @@
                                 <option value="4" >大霸尖山</option>
                                 <option value="5" >五步哭山</option>
                                 <option value="6" >橫山</option>
-                                <option value="7" >石壁山</option
-                                    
-                                    >
+                                <option value="7" >石壁山</option>
                                 <option value="8" >雪山</option>
                                 <option value="9" >紅毛埤</option>
                                 <option value="10">大凍山</option>
@@ -264,7 +262,7 @@
                 <div class="tour_info3">
                     <div> 
                         <label> 相關照片上傳
-                            <input id="upload_tourimg_input" type="file" accept="image/*" multiple="multiple">
+                            <input id="upload_tourimg_input" name="upload_tourimg_input[]" type="file" accept="image/*" multiple="multiple">
                            <img class="upload_tourimg" src="./images/icons/icon_upload.svg" alt="">
                         </label>
                     </div>
@@ -338,11 +336,30 @@
         </div>
     </footer>
     
+    
     <script>
-        // $("button").click(function(){
-        //     alert('123');
-        // })
+
+        window.addEventListener("load", function(){
+            //..................upFile.onchange
+            document.getElementById("upload_tourimg_input").onchange = function(e){
+                let file = e.target.files[0];  //取得file物件
+
+                let reader = new FileReader(); //建立一個reader物件 
+                
+                reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
+                
+                // reader.onload = function(){ //reader將file內容讀取完畢時
+                //     //reader讀到的資料會放到reader.result
+                //     document.getElementById("imgPreview").src = reader.result;
+                //     console.log(reader.result);
+                // }
+
+                
+            }
+        })	
+
     </script>
+
 
     <script src="./js/meet2-2.js"></script>
     
