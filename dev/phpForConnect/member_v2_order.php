@@ -30,7 +30,7 @@ try	{
         <hr>
         
     <?php
-        $sql = "SELECT product.product_image1 '商品預覽' , order_list.product_no '商品編號' , product.product_name '商品名稱' , product.degree_category '難度等級' , order_list.product_number'購買數量' , order_list.product_price '商品單價'  from order_list join product on order_list.product_no = product.product_no join orders on order_list.order_no = orders.order_no join member on orders.member_no = member.mem_no where member_no = $memNO and orders.order_no = order_list.order_no; " ;
+        $sql = "SELECT product.product_image1 '商品預覽' , order_list.product_no '商品編號' , product.product_name '商品名稱' , product.degree_category '難度等級' , order_list.product_number'購買數量' , order_list.product_price '商品單價'  from order_list join product on order_list.product_no = product.product_no join orders on order_list.order_no = orders.order_no join member on orders.member_no = member.mem_no where member_no = $memNO and orders.order_no = order_list.order_no; ";
         $pdoStatement = $pdo->query($sql);
         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     ?>
@@ -56,7 +56,7 @@ try	{
 
         $(document).ready(function(){
             $(".showDetail").click(function(){
-                $(".prodDetail").show();
+                $(".prodDetail").show($);
             });
         });
     </script>

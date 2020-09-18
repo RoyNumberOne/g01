@@ -15,7 +15,8 @@ xhr.onload = function(){
             alert("帳密錯誤");
         }else{ //登入成功
             $("#signInForm").submit();
-            window.location.href = './Member_v2.html';
+            window.location.href = "./Member_v2.html";
+            // window.history.back();
         }
     }else{
         alert(xhr.status);
