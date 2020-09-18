@@ -92,6 +92,7 @@ new Vue({
             // })
             // .catch(error => {console.log(error)}); 
         },
+        /////切換步驟///// -->
         ONEtoTWO: function(){
             console.log("click");
         
@@ -142,76 +143,6 @@ new Vue({
         }
     },
 });
-
- 
-/////切換步驟///// -->
-
-// $(function() {
-    // // preventDefault
-    // $("button#step1_to_step2","button#step2_to_step1","button#step2_to_step3","button#step3_to_step2")
-    //     .on("click", function(event){
-    //     event.preventDefault();
-    //     console.log("click");
-    // });
-
-    // 1>2
-    // $("button#step1_to_step2").on("click",function(){
-    //     console.log("click");
-        
-    //         //移除 -on 樣式
-    //     $("section.tour_build_step1").removeClass("-on");
-    //     $("li.step_icon1").removeClass("-on");
-
-    //         // 加上 -on 樣式
-    //     $("section.tour_build_step2").addClass("-on");
-    //     $("li.step_icon2").addClass("-on");
-        
-    // });
-
-    // //2>1
-    // $("button#step2_to_step1").on("click", function(){
-    //     console.log("click");
-        
-    //         //移除 -on 樣式
-    //     $("section.tour_build_step2").removeClass("-on");
-    //     $("li.step_icon2").removeClass("-on");
-
-    //         // 加上 -on 樣式
-    //     $("section.tour_build_step1").addClass("-on");
-    //     $("li.step_icon1").addClass("-on");
-        
-    // });
-
-    // //2>3
-    // $("button#step2_to_step3").on("click", function(){
-    //     console.log("click");
-        
-    //         //移除 -on 樣式
-    //     $("section.tour_build_step2").removeClass("-on");
-    //     $("li.step_icon2").removeClass("-on");
-
-    //         // 加上 -on 樣式
-    //     $("section.tour_build_step3").addClass("-on");
-    //     $("li.step_icon3").addClass("-on");
-        
-    // });
-
-    // //3>2
-    // $("button#step3_to_step2").on("click", function(){
-    //     console.log("click");
-        
-    //         //移除 -on 樣式
-    //     $("section.tour_build_step3").removeClass("-on");
-    //     $("li.step_icon3").removeClass("-on");
-
-    //         // 加上 -on 樣式
-    //     $("section.tour_build_step2").addClass("-on");
-    //     $("li.step_icon2").addClass("-on");
-        
-   // });
-
-    // 3>send
-// });
 
 
 /////圖片上傳預覽///// -->

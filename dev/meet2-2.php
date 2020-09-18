@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>123test</title>
+    <title>新增揪團拉！</title>
     <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
@@ -14,8 +14,12 @@
 
     try {
         require_once("./connectMeetain.php");
+
         //抓取會員資訊
-        $member_no = 10001;
+        session_start();
+        $member_no = $_SESSION["mem_no"];
+
+        $member_no = 10008;
 
         $tour_hoster = $member_no;
         
@@ -34,6 +38,7 @@
         $tour_notice = $_POST['tour_notice'];
         $tour_innertext = $_POST['tour_innertext'];
 
+        // -----------------------先將除了照片以外資料建立，取得揪團編號------------------------------
         $sql = "INSERT INTO tour(tour_hoster, tour_mountain , tour_title, tour_activitystart, tour_activityend, 
                                 tour_end , tour_min_number, tour_max_number, 
                                 tour_equip_1, tour_equip_2, tour_equip_3, tour_equip_4, tour_equip_5, 
@@ -44,131 +49,77 @@
                             '$tour_notice', '$tour_innertext');";  
                             //MYSQL
 
-        $new_tour = $pdo->prepare($sql);
-        $new_tour->execute();
+        $new_tour = $pdo->prepare($sql); //將輸入資料轉為文字 避免有心人士利用SQL指令 
+        $new_tour->execute();   //執行 SQL
 
-
-        //導向頁面
+        // --------------------------取得目前新增的揪團編號-------------------------
         $sql = "SELECT tour_no FROM tour where tour_hoster = '$tour_hoster' order by tour_no desc limit 1";  
 
         $new_tour = $pdo->prepare($sql);
         $new_tour->execute();
 
-        $prodRows = $new_tour->fetchAll(PDO::FETCH_ASSOC);
+        $prodRows = $new_tour->fetchAll(PDO::FETCH_ASSOC); // 轉陣列檔 可取出其值 
 
+        $tour_no = $prodRows[0]['tour_no'];
+
+        echo "揪團編號".$prodRows[0]['tour_no']."<br>";
+
+        // ------------------------------上傳的圖片 以指定檔名存入指定地點 並存入資料庫------------------------------
+        $fileCount = count($_FILES['upload_tourimg_input']['name']); // 取得檔案上傳數量
         
-        // echo $prodRows[0]['tour_no'];
+        for ($i = 0; $i < $fileCount; $i++){
+            // 檢查檔案是否上傳成功
+            if ($_FILES['upload_tourimg_input']['error'][$i] === UPLOAD_ERR_OK){
+                echo'檔案名稱：'.$_FILES['upload_tourimg_input']['name'][$i].'<br>';
+                echo'檔案類型：'.$_FILES['upload_tourimg_input']['type'][$i].'<br>';
+                echo'檔案大小：'.($_FILES['upload_tourimg_input']['size'][$i] / 1024).'KB<br>';
+                echo'暫存名稱：'.$_FILES['upload_tourimg_input']['tmp_name'][$i].'<br>';
+                
+                // 檢察檔案是否已經存在
+                if (file_exists('/images/tour_image/'.$_FILES['upload_tourimg_input']['name'][$i])){
+                    echo '已經存在~<br>';
+                }else{
+
+                    $dir = "./images/tour_image"; // 存入地點
+                        if(file_exists($dir)==false){
+                            mkdir($dir);  //make directory
+                    }
+
+                    $file = $_FILES['upload_tourimg_input']['tmp_name'][$i]; //檔案暫存位置 檔名
+                    $c = $i+1;
+
+                    $dest = $dir."/".$tour_no.'_'.$c.'.jpg'; // 存入的檔名
+
+                    // 將檔案移至指定位置
+                    move_uploaded_file($file, $dest);
+
+                    // 將檔案位置資訊新增至資料庫中
+                    $sql = "UPDATE tour
+                    set tour_image_$c = '$dest'
+                    WHERE tour.tour_no = $tour_no ;";  
+
+                    $new_tour = $pdo->prepare($sql); 
+                    $new_tour->execute();   //執行 SQL
+                    
+                }
+
+            }else{
+                echo '錯誤代碼：'.$_FILES['upload_tourimg_input']['error'].'<br>';
+            }
+        }
+
+        // ------------------------------  導向目前開團頁面 ------------------------------
+        
         echo '<p>畫面跳轉中 . . .</p>';
-        
-    // window.location.href="./meet2-3.html?tour_no=100024"
 
-    // header("location:helloworld.html");
-    // header("loaction:meet2-3.html");
-    header("location:./meet2-3.html?tour_no=".$prodRows[0]['tour_no']);
+        header("location:./meet2-3.html?tour_no=".$prodRows[0]['tour_no']); 
 
     }catch (PDOException $e) {
         $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
         $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
       }
-    
-
-      
-
-    // // php 書
-    // if(isset($_POST["action"]) && ($_POST["action"]=="add")){
-    //     include(""); //匯入連線引入檔 ///////改
-    //     $sql_query = "INSERT INTO tour(tour_hoster, tour_title, tour_activitystart, tour_activityend, tour_min_number, tour_max_number, tour_equip_1, tour_equip_2, tour_equip_3, tour_equip_4, tour_equip_5, tour_notice, tour_innertext)
-    //                         VALUES ('$tour_hoster', '$tour_title', '$tour_activitystart', '$tour_activityend', '$tour_min_number', '$tour_max_number', '$tour_equip_1', '$tour_equip_2', '$tour_equip_3', '$tour_equip_4', '$tour_equip_5', '$tour_notice', '$tour_innertext');";  //MYSQL
-        
-    //     $stmt = $db_link -> prepare($sql_query);
-    //     $stmt -> bind_param("sssss", $_POST["tour_title"], $_POST["tour_activitystart"], $_POST["tour_activityend"], $_POST[""]);
-    //     $stmt -> excute();
-    //     $stmt -> close();  //關閉語法
-    //     $db_link -> close();  //關閉資料庫
-
-    //     header("Location: data.php");  //重新導回至data.php ///////改
-    // }
-?>
-
-
-
-
-
-
-
-<script>
-    // window.location.href="./meet2-3.html?tour_no=100024"
-</script>
-
-
-
-
- <?php
-
-// //-------------------------------------------upFile >> 資料夾名稱
-// foreach($_FILES["upFile"]["error"] as $i => $data){
-// 	switch(  $_FILES["upFile"]["error"][$i] ){
-// 		case UPLOAD_ERR_OK:
-// 			//--------檢查資料夾是否存在
-// 			$dir = "images";
-// 			if( file_exists($dir) == false){
-// 				mkdir($dir); //make directory
-// 			}
-
-// 			$from = $_FILES["upFile"]["tmp_name"][$i];
-// 			$to = "$dir/" . $_FILES["upFile"]["name"][$i];  //images/smile.gif
-// 			copy($from, $to);
-// 			echo "上傳成功~<br>";
-// 			break;	
-// 		case UPLOAD_ERR_INI_SIZE:
-// 			echo "上傳檔案太大, 不得超過", ini_get("upload_max_filesize") , "<br>";
-// 			break;
-// 		case UPLOAD_ERR_FORM_SIZE:
-// 			echo "上傳檔案太大, 不得超過", $_POST["MAX_FILE_SIZE"], "<br>";
-// 			break;
-// 		case UPLOAD_ERR_PARTIAL:
-// 			echo "上傳檔案不完整<br>";
-// 			break;
-// 		case UPLOAD_ERR_NO_FILE:
-// 			echo "檔案未選~<br>";
-// 			break;	
-// 		default: //其它的狀況通常是網站開發或維護人員的事
-// 			echo "系統錯誤，請通知維護人員<br>";
-// 	}	
-// }
 
 ?>
-<!-- // <form action="fileUploadMany.php" method="post" enctype="multipart/form-data">
-//     帳號 <input type="text" name="memId"><br>
-//     姓名<input type="text" name="memName"><br>	
-//     大頭貼們 <input type="file" name="upFile[]" multiple accept="image/*"><br>
-//     (可以選取多個檔案)
-//     <input type="submit" value="OK">
-// </form>      -->
-
- <script>
-//     window.addEventListener("load", function(){
-//         //..................
-
-//         //..................upFile.onchange
-//         document.getElementById("upFile").onchange = function(e){
-//             let file = e.target.files[0];  //取得file物件
-
-//             let reader = new FileReader(); //建立一個reader物件 
-            
-//             reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
-            
-//             reader.onload = function(){ //reader將file內容讀取完畢時
-//                 //reader讀到的資料會放到reader.result
-//                 document.getElementById("imgPreview").src = reader.result;
-//                 console.log(reader.result);
-//             }
-
-            
-//         }
-//     })	
- </script>  
-
 
 
 </body>
