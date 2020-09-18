@@ -62,35 +62,6 @@ new Vue({
                 $(".mountain_image img").attr('src',mtData[0].mountain_image);
             })
             
-            // console.log(ya);
-            
-            // $.ajax({
-            //     url: "./phpForConnect/meet2-2Mountainlist.php",
-            //     data: {
-            //         MTno: MTno,
-            //     },
-            //     type: 'POST',
-            //     success(){
-            //         console.log(MTno) 
-            //     },
-            // })
-
-
-            // var formMT = new FormData;
-            // var MTNO = $("tour_mountain").val();
-            // formMT.append("MTNO",MTNO)
-
-            // axios.get('./phpForConnect/meet2-2Mountainlist.php',formMT)
-    
-            // .then((res) => {
-            //     this.mtList = res.data;
-            //     console.log(res.data); //測試是否成功
-    
-            //     for(let i = 0; i< this.mtList.length; i++){  //動態生成內容，依據json有幾筆
-            //         this.mtIndex.push(i)
-            //     }
-            // })
-            // .catch(error => {console.log(error)}); 
         },
         /////切換步驟///// -->
         ONEtoTWO: function(){
@@ -169,13 +140,6 @@ function readURL(input){
                 var img = $("<img>").attr({src : e.target.result , id : "iimg" + i});
                 $("div.tour_image_"+t).append(img);
 
-
-                // $(".tour_image_"+i).append(img); //
-                // $(".tour_image").append(img); //
-                // $(".tour_image").prepend("<div id = img"+i+"></div>");
-                // $(".tour_image div#img"+i).append(img);
-                // $(".tour_image").prepend('</div>'); //
-                // $(".tour_image").append('<div>').append(img).append('</div>');
             }
             reader.readAsDataURL(input.files[i]);
         }
