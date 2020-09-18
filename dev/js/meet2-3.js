@@ -8,7 +8,7 @@ new Vue({
         articals: [],
         passedParticipant: [],
         notPassedParticipant: [],
-        MSGfeedback: [],
+        // MSGfeedback: [],
         message: '',
     },
     mounted() {
@@ -78,13 +78,10 @@ new Vue({
         },
     },
     methods: {
-        // openReportModal(commentId) {
-        //     this.reportNo = commentId;
-        //     // 打開彈窗
-        // }
-        // days(){
-        //     this.currentTour.tour_activityend - this.currentTour.tour_activitystart;
-        // }
+        openReportModal(commentId) {
+            this.reportNo = comment_no;
+            // 打開彈窗
+        },
         Degree(value) {
             switch(value){
                 case('1'):
@@ -145,17 +142,17 @@ new Vue({
                 //     comment_innertext : this.message,
                 // }
                 
-                axios.get('./phpForConnect/meet2-3_message.php', {params:{
+                axios.post('./phpForConnect/meet2-3_message.php', {params:{
                     "comment_class" : '揪團區',
                     "tour_post_no" : tour_no,
                     "comment_innertext" : this.message,
                 }}).then(res => {
-                    this.MSGfeedback = res.data;
+                    // this.MSGfeedback = res.data;
                     console.log('success message');
-                    console.log(this.MSGfeedback);
+                    // console.log(this.MSGfeedback);
                     axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
                     this.comments = res.data;
-                    // this.clearTextarea();
+                    this.clearTextarea();
                     $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
                 });

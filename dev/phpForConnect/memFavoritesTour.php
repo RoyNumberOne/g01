@@ -3,12 +3,15 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
+
+    session_start();
+    $mem_no = $_SESSION['mem_no'];
     
     $sql= "SELECT tk.tour_keep_mem, tk.tour_iskept_tour, T.tour_no, T.tour_image_1, T.tour_title, T.tour_innertext, T.tour_build, M.mountain_image
                 from tour_keep tk
                     join tour T on(tk.tour_iskept_tour = T.tour_no)
                     join mountain M on(T.tour_mountain = M.mountain_no)
-                WHERE tk.tour_keep_mem = 10008  -- 之後改變數
+                WHERE tk.tour_keep_mem = $mem_no
                 order BY T.tour_build DESC;
                 ";
 
