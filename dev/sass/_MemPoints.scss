@@ -7,7 +7,7 @@
         text-align: center;
         letter-spacing: 10px;
     }
-    .points_info{
+    #MemPoints_info{
         // border: 1px solid red;
         display: flex;
         flex-direction: column;
@@ -44,7 +44,9 @@
                 }
             }
             .top_right{
-                width: 40%;
+                // width: 40%;
+                width: 500px;
+                height: 320px;
                 img{
                     width: 100%;
                 }
@@ -61,11 +63,11 @@
                 width: 100%;
                 text-align: center;
                 th{
-                    padding: 5%;
+                    padding: 20px;
                     border-bottom: 1px solid black;
                 }
                 td{
-                    padding: 20px;
+                    padding: 10px;
                 }
             }
         }

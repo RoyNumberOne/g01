@@ -39,6 +39,8 @@ try{
                     "mem_point"=>$memRow["mem_point"],
                     "mem_avator"=>$memRow["mem_avator"],
                     "mem_bg"=>$memRow["mem_bg"]);
+    
+
       echo json_encode($result);
     }
   }catch(PDOException $e){
