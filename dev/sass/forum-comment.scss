@@ -25,6 +25,7 @@
     // width: 1200px;
     max-width: 100%;
     margin: 5% auto;
+    // border: 3px solid gold;
 }
 
 #comment-block{
@@ -314,12 +315,14 @@
         //     // writing-mode: vertical-lr;
         //  }
     // }
-    .area{
+    .text-arera-block{
+        .message{
             textarea{
                 resize: none;
                 outline: none;
                 padding: 15px;
             }
+        }
     }
     .message-btn{
         text-align: center;
