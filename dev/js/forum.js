@@ -11,6 +11,45 @@ new Vue({
             title: ' ',
         }
     },
+    computed:{
+        forumpost(){
+            if(this.input.type== '全部'){
+                return this.articalList
+             }
+            else{ 
+                return this.articalList.filter(artical=>{
+                    return artical.forum_post_category == this.input.type
+                })
+            }
+        },
+        searchbar(){
+            if(this.input.title){
+                return this.forumpost.filter(artical =>{
+                  var content = artical.forum_post_title.toLowerCase()
+                  var keyword = this.input.title.toLowerCase()
+                    return content.indexOf(keyword) !== -1;
+                });
+              }
+              else{
+                return this.forumpost;
+              }
+        },
+    },
+    mounted(){
+        //axios.get('./json/Initial_tour.json') //根據哪個json
+        axios.get('./phpForConnect/meet2-0Hotmeet.php')
+
+        .then((res) => {
+            this.meetList = res.data;
+
+            console.log(res.data); //測試是否成功
+            // console.log(this.meetList);
+            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
+                this.meetIndex.push(i)
+            }
+        })
+        .catch(error => {console.log(error)}); 
+    },
     created(){
         // 公告的貼文(預設3篇)
         axios.get('./phpForConnect/forumPostAnnounce.php').then(res => {
@@ -37,21 +76,7 @@ new Vue({
         // })
         
     },
-    mounted(){
-        //axios.get('./json/Initial_tour.json') //根據哪個json
-        axios.get('./phpForConnect/meet2-0Hotmeet.php')
-
-        .then((res) => {
-            this.meetList = res.data;
-
-            console.log(res.data); //測試是否成功
-            // console.log(this.meetList);
-            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
-                this.meetIndex.push(i)
-            }
-        })
-        .catch(error => {console.log(error)}); 
-    },
+    
     // mounted(){
     //     axios.get('./json/Initial_forum_post.json')
     //     .then((res) => {
@@ -66,19 +91,7 @@ new Vue({
 
     //     .catch(error => {console.log(error)});
     // },
-    methods:{
+    // methods:{
 
-    },
-    computed:{
-        articleList(){
-            if(this.input.type== '全部'){
-                return this.articalList
-             }
-            else{ 
-                return this.articalList.filter(artical=>{
-                    return artical.forum_post_category == this.input.type
-                })
-            }
-        },
-    }
+    // },
 })

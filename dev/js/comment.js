@@ -67,7 +67,7 @@ new Vue({
                     console.log('success poster_message');
                     axios.post('./phpForConnect/commentPostDialog.php', formArticle).then(res => {
                     this.dialog = res.data;
-                    // this.clearTextarea();
+                    this.clearTextarea();
                     $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
                 });
