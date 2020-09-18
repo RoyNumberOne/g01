@@ -110,13 +110,13 @@
                 </section>
             </div>       
         </main> 
-        <div id="report_block_match" class="close">
+        <div id="report_block_match" class="report_block_match close">
             <div class="rp_lightbox">
                 <div class="rp_close"><img src="./images/icons/icon_close.svg" alt=""></div>
                 <section class="reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
+                    <textarea name="" id="send_match_block" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
                     <div class="rp_bt">
                         <button class="btnB_L_grey cancle"><p>取消</p><div class="bg"></div></button>
@@ -130,17 +130,17 @@
                 </section>
             </div>
         </div>
-        <div id="report_block_message" class="close">
+        <div id="report_block_message" class="report_block_message close">
             <div class="rp_lightbox">
                 <div class="mg_close"><img src="./images/icons/icon_close.svg" alt=""></div>
                 <section class="mg_reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <textarea name="" id="additional" cols="30" rows="10" placeholder="補充說明："></textarea>
+                    <textarea name="" id="send_report_block" class="comment_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
                     <div class="rp_bt">
                         <button class="btnB_L_grey mg_cancle"><p>取消</p><div class="bg"></div></button>
-                        <button class="btnB_L_yellow mg_confirm"><p>確認</p><div class="bg"></div></button>
+                        <button class="btnB_L_yellow mg_confirm" ><p>確認</p><div class="bg"></div></button>
                     </div>
                 </section>
                 <section class="mg_be_reported">
@@ -187,12 +187,13 @@
             <div class="public_pic"><img :src="tourData.mountain_image" alt="">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.mountain_image" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_1" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_2" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_3" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_4" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_5" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_6" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -307,6 +308,7 @@
                 <div>
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
+                <div>{{currentTour.tour_progress}}</div>
                 <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
             </div>
         </div>
@@ -385,12 +387,13 @@
                     <div class="message_text">
                         <div class="mg_text">{{comment.comment_innertext}}</div>
                         <div class="mg_time">{{comment.comment_time}}</div>
-                        <div class="mg_report_bt" @click=openReportModal(comment.id)>
+                        <button type='button' class="mg_report_bt" @click=openReportModal>
                             <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
                             <div class="mg_text">檢舉</div>
-                        </div>
+                        </button>
                     </div>
                 </div>
+                <input class="TEMPno" type="hidden" :value="comment.comment_no">
             </div>
             <div class="change_page">
                 <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>

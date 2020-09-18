@@ -19,7 +19,6 @@ div.wrap{
             }
             .related_pic{
                 margin: 10px 0;
-
                 .related_pic_block{
                     display: flex;
                     .related_pic_item{
@@ -28,12 +27,13 @@ div.wrap{
                         margin: 0 10px 0 0;
                         overflow: hidden;
                         position: relative;
+                        // cursor: pointer;
                         &:last-child{
                             margin: 0;
                         }
                         img{
                             // width: 100%;
-                            // cursor: pointer;
+                            cursor: pointer;
                             // object-fit: cover;
                             @include imgs;
                         }
@@ -230,12 +230,8 @@ div.wrap{
                     }
                 }
             }
-            button.apply_bt{
+            button#apply_bt{
                 margin: 0px auto 0;
-                width: 80%;
-                height: 40px;
-                border-radius: 10px;
-                font-size: 18px;
             }
         }
     }

@@ -15,7 +15,8 @@ xhr.onload = function(){
             alert("帳密錯誤");
         }else{ //登入成功
             $("#signInForm").submit();
-            window.location.href = './Member_v2.html';
+            let redirection = localStorage.getItem('web');
+            window.location.href = redirection;
         }
     }else{
         alert(xhr.status);
@@ -62,6 +63,7 @@ function logout(){
     }
     xhr.open("get","./login_v2_Logout.php",true);
     xhr.send(null);
+    localStorage.removeItem('web');
     window.location.href = './login_v2.html';
 };
 

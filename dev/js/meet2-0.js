@@ -1,4 +1,6 @@
 
+
+
 //熱門揪團
 new Vue({
     el: "#meettop", //html的位置
@@ -6,7 +8,27 @@ new Vue({
         meetList: [],
         meetIndex: [],  //
     },
-
+    filters: {
+        Area: function(value) {
+            switch(value){
+                case('north'):
+                    return '北部';
+                break;
+                case('west'):
+                    return '中部';
+                break;
+                case('south'):
+                    return '南部';
+                break;
+                case('east'):
+                    return '東部';
+                break;
+                default:
+                    return '沒成功哦';
+                break;
+            }
+        },
+    },
     mounted(){
         //axios.get('./json/Initial_tour.json') //根據哪個json
         axios.get('./phpForConnect/meet2-0Hotmeet.php')
@@ -22,6 +44,28 @@ new Vue({
         })
         .catch(error => {console.log(error)}); 
     },
+    methods: {
+        Degree(value) {
+            switch(value){
+                case('1'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('2'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('3'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('4'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                break;
+                default:
+                    return '應該很難';
+                break;
+            }
+        },
+        
+    },
 
 });
 
@@ -33,7 +77,27 @@ new Vue({
         meetList: [],
         meetIndex: [],  //
     },
-
+    filters: {
+        Area: function(value) {
+            switch(value){
+                case('north'):
+                    return '北部';
+                break;
+                case('west'):
+                    return '中部';
+                break;
+                case('south'):
+                    return '南部';
+                break;
+                case('east'):
+                    return '東部';
+                break;
+                default:
+                    return '沒成功哦';
+                break;
+            }
+        },
+    },
     mounted(){
         //axios.get('./json/Initial_tour.json') //根據哪個json
         axios.get('./phpForConnect/meet2-0Newmeet.php')
@@ -50,6 +114,25 @@ new Vue({
         .catch(error => {console.log(error)}); 
     },
     methods: {
+        Degree(value) {
+            switch(value){
+                case('1'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('2'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('3'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                break;
+                case('4'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                break;
+                default:
+                    return '應該很難';
+                break;
+            }
+        },
         changeHeart: function(event){
                 if($(event.target).attr('src') === "./images/icons/icon_heart.svg"){
                     $(event.target).attr("src","./images/icons/icon_heart_h&c.svg");
@@ -64,11 +147,16 @@ new Vue({
 });
 
 
-// 更換Card  list樣式          
-$(function() {
-    //click
-    
 
+          
+$(function() {
+    $('.aside-com-btn').click(function (){
+        if($('#mem_info_id').html() === ''){
+            alert ('請先登入');
+            window.location.href = './login_v2.html';
+        }
+    });
+    // 更換Card  list樣式
     // 點擊按鈕typeCard
     $("div.typeCard").on("click", function(){
         // div.newMeetActivity
