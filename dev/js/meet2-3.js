@@ -110,6 +110,8 @@ new Vue({
         SENDmsg: function(){
             if($('#mem_info_id').html() === ''){
                 alert ('請先登入');
+                let url = window.location.href;
+                localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
             };
             // console.log($('#send_message_block'));
