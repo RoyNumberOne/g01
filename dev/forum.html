@@ -177,7 +177,7 @@
                             </div>
                             <div class="bar-block">
                                 <div class="searchbar">
-                                    <input type="search" placeholder="搜尋心得">
+                                    <input type="text" placeholder="搜尋心得" v-model.trim="input.title">
                                     <div class="searchicon">
                                         <img src="./images/form_img/searchicon.png" alt="">
                                     </div>
@@ -192,7 +192,7 @@
                         </div>
                     </div>
 
-                    <div id="forum_list" v-for="(artical, index) in  articleList" class="rest02">
+                    <div id="forum_list" v-for="(artical, index) in forumpost" class="rest02">
                         <div class="forum_post_image">
                             <img :src="artical.forum_post_image" alt="">
                         </div>
