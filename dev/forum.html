@@ -18,10 +18,9 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
 </head>
 <body>
-    <header> 
-
+    <header>
         <div id="headerbox">
-            <a href="./FrontstageIndex.html" class="logo">
+            <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
             </a> 
 
@@ -40,7 +39,6 @@
                     <li><a class="product" href="./product.html"><p>商品區</p></a></li>
                 </ul>
                 <ul class="link_list llright">
-                    <li><a class="member" href="./login_v2.html"><i class="fa fa-user"></i></a></li>
                     <li>
                         <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
@@ -48,6 +46,7 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <span class="add_count_others"></span>
                 </ul>
             </nav>
             <div id="imagebox">
@@ -68,9 +67,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-
         </div>
-
     </header>
 
     <!-- <div id="banner">
@@ -291,9 +288,9 @@
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.mountain_name}}</span></div>
-                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.days}}天</span></div>
-                                <div class="tag_click"><sapn class="tag">＃{{hotmeet.tour_min_number}}~{{hotmeet.tour_max_number}}人</span></div>
+                                <div class="tag_click"><span class="tag">＃{{hotmeet.mountain_name}}</span></div>
+                                <div class="tag_click"><span class="tag">＃{{hotmeet.days}}天</span></div>
+                                <div class="tag_click"><span class="tag">＃{{hotmeet.tour_min_number}}~{{hotmeet.tour_max_number}}人</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -336,9 +333,9 @@
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -378,9 +375,9 @@
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -422,9 +419,9 @@
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -467,9 +464,9 @@
                             </div>
         
                             <div class="tag">
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
-                                <div class="tag_click"><sapn>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
+                                <div class="tag_click"><span>#tag</span></div>
                             </div>
         
                             <div class="tour-place">
@@ -595,6 +592,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/header.js" ></script>
 
     <script type="text/javascript">
         $(function() {
@@ -615,7 +613,6 @@
         });
     </script>
 
-    <script src="./js/header.js" ></script>
     <script>
         $(window).ready(function(){
         let liNum = $('.slider__item').length

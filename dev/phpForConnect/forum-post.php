@@ -10,19 +10,16 @@
 
 <?php
     $errMsg = "";
+    //加了這一段php404的問題會被解決,但畫面不會跳轉
+    // header('HTTP/1.1 404 Not Found');
+    // header("status: 404 Not Found");
     
     try{
         require_once("./connectMeetain.php");
         //會員資料
         $member_no = 10003;
         $forum_post_poster = $member_no;
-
-        //發文者
-        // if( $member->rowCount() !=0){
-        //     echo "此帳號或暱稱已申請過"; //
-        // }else{
-
-            //前端送來的資料
+        //前端送來的資料
         $forum_post_category = $_POST['forum_post_category']; 
         //會接收HTML中select的選項的VALUE
         $forum_post_title = $_POST['forum_post_title'];
@@ -46,25 +43,25 @@
         $new_forum_post = $pdo->query($sql);
         // $new_forum_post->execute($sql);
         
-        echo '123';
+        echo '感謝您的發文';
         
-        //導向頁面 ---RUN SQL ---> NLL
-        // $sql = "SELECT forum_post_no from forum_post where forum_post_poster = '$forum_post_poster' order by forum_post_no desc limit 1";
+        // 導向頁面 ---RUN SQL ---> NLL
+        $sql = "SELECT forum_post_no from forum_post where forum_post_poster = '$forum_post_poster' order by forum_post_no desc limit 1";
 
-        // $new_forum_post = $pdo->query($sql);
-        // $new_forum_post->execute();
+        $new_forum_post = $pdo->query($sql);
+        $new_forum_post->execute();
 
-        // $prodRows = $new_forum_post->fetchAll(PDO::FETCH_ASSOC);
+        $prodRows = $new_forum_post->fetchAll(PDO::FETCH_ASSOC);
 
-        // echo '<p>感謝您的發文</p>';
+        echo '<p>感謝您的發文</p>';
 
-        // header("location:./forum-comment.html?forum_post_no=".$prodRows[0]['forum_post_no']
-        //);
-    // }
+        header("location:./forum-comment.html?forum_post_no=".$prodRows[0]['forum_post_no']
+        );
+    }
 
-        }catch(PDOException $e){
+        catch(PDOException $e){
             $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
-            $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
+            $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
             echo $errMsg;
         }
 
