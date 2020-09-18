@@ -4,10 +4,14 @@ try{
     
     require_once('./connectMeetain.php');
     
+    
+    session_start();
+    $mem_no = $_SESSION['mem_no'];
+
     $sql= "SELECT fk.forum_keep_mem,fk.forum_iskept_post,fp.forum_post_no,fp.forum_post_title,fp.forum_post_image,fp.forum_post_innertext,fp.forum_post_time, fp.forum_post_category
                 from forum_keep fk 
                     join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                WHERE fk.forum_keep_mem = 10008 -- :test
+                WHERE fk.forum_keep_mem = $mem_no -- :test
                 order BY fp.forum_post_time DESC;
                 ";
 

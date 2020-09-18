@@ -82,6 +82,7 @@
             </div>
 
             <div class="forum_post">
+                
                 <form id="form-table" method="post" action="./phpForConnect/forum-post.php">
                     
                     <div class="text">
@@ -89,13 +90,12 @@
                     </div>
 
                     <div class="block">
-                        <select class="custom_select" name="forum_post_category" id="forum_post_category">
-                            <option>爬山心得</option>
-                            <option>裝備資訊</option>
-                            <option>新手專區</option>
-                            <option>登山知識</option>
-                            <option disabled>網站公告</option>
-                            <!-----管理員身分才看得到的block----->
+                        <select class="custom_select" name="forum_post_category" id="forum_post_category" >
+                            <option value="爬山心得">爬山心得</option>
+                            <option value="裝備資訊">裝備資訊</option>
+                            <option value="新手專區">新手專區</option>
+                            <option value="登山知識">登山知識</option>
+                            <option disabled>網站公告</option> <!---管理員用--->
                         </select>
                     </div>
 
@@ -123,13 +123,16 @@
                     </div>
 
                     <div class="block">
-                        <textarea name="#" name="forum_post_innertext" id="forum_post_innertext" cols="30" rows="10" placeholder="我想要說...."></textarea>
+                        <textarea name="forum_post_innertext" id="forum_post_innertext" cols="30" rows="10" placeholder="我想要說...."></textarea>
                     </div>
 
                     <div class="post-btnB_XL_yellow">
-                        <button class="btnB_XL_yellow" onclick="location.href='./forum.html' "type="button" id="forum-post-btn"><p>確認送出</p><div class="bg"></div></button>
+                        <button class="btnB_XL_yellow"  
+                        type="submit" id="forum-post-btn"><p>確認送出</p><div class="bg"></div></button>
+                        <!-- onclick="location.href='./forum.html' -->
                     </div>
                 </form>
+
             </div>
         </div>
     </main>
@@ -305,7 +308,7 @@
     });
   </script>
 
-  <script>
+  <!-- <script>
     function checkId(){  
         
         var xhr = new XMLHttpRequest();
@@ -331,7 +334,8 @@
     window.addEventListener("load", function(){
     document.getElementById("forum-post-btn").addEventListener("click", checkId, false);
     }, false);
-  </script>
+  </script> -->
+    <script src="./js/forum-post.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 

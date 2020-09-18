@@ -229,6 +229,7 @@
                 if(xhr.readyState == 4){
                     if(xhr.status == 200){
                         alert(xhr.responseText); //回傳php回應的值
+                        window.location.href = "./Member_v2.html";
                     }else{
                         alert(xhr.status);
                     }

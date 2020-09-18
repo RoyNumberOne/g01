@@ -168,7 +168,7 @@
         
         <div class="C_info"><!-- ----------各頁面內容放這(start)-------------------- -->
             
-            <!-- 足跡 -->
+            <!-- 足跡 hiko-->
             <div id="MemFootprint" class="pages">
                 <h2 class="title">我的足跡</h2>
                 <div class="record_list">
@@ -347,7 +347,7 @@
                 </div>
             </div>
 
-            <!-- 認證 -->
+            <!-- 認證 hiko-->
             <div id="MemAccreditation" class="pages">
                 <h2 class="title">我的認證</h2>
                 <div class="accreditation_list">
@@ -380,84 +380,19 @@
                 </div>
             </div>
 
-            <!-- 徽章 -->
+            <!-- 徽章 hiko-->
             <div id="MemAchievement" class="pages">
                 <h2 class="title">徽章總覽</h2>
-                <div class="Achievement_list">
-                    <div class="Ach_list_01 Ach">
-                        <img src="./images/member/Ach_list_01.png">
-                        <br>
-                        <p>開團：探險新手</p>
-                    </div>
-                    <div class="Ach_list_02 Ach Nohave">
-                        <img src="./images/member/Ach_list_02.png">
-                        <br>
-                        <p>開團：冒險玩家</p>
-                    </div>
-                    <div class="Ach_list_03 Ach">
-                        <img src="./images/member/Ach_list_03.png">
-                        <br>
-                        <p>開團：探索高手</p>
-                    </div>
-                    <div class="Ach_list_04 Ach Nohave">
-                        <img src="./images/member/Ach_list_04.png">
-                        <br>
-                        <p>參團：山山來遲</p>
-                    </div>
-                    <div class="Ach_list_05 Ach Nohave">
-                        <img src="./images/member/Ach_list_05.png">
-                        <br>
-                        <p>參團：山五好友</p>
-                    </div>
-                    <div class="Ach_list_06 Ach Nohave">
-                        <img src="./images/member/Ach_list_06.png">
-                        <br>
-                        <p>參團：一山一世</p>
-                    </div>
-                    <div class="Ach_list_07 Ach">
-                        <img src="./images/member/Ach_list_07.png">
-                        <br>
-                        <p>揪團：岳岳欲試</p>
-                    </div>
-                    <div class="Ach_list_08 Ach Nohave">
-                        <img src="./images/member/Ach_list_08.png">
-                        <br>
-                        <p>揪團：翻山越嶺</p>
-                    </div>
-                    <div class="Ach_list_09 Ach">
-                        <img src="./images/member/Ach_list_09.png">
-                        <br>
-                        <p>揪團：披星戴岳</p>
-                    </div>
-                    <div class="Ach_list_10 Ach Nohave">
-                        <img src="./images/member/Ach_list_10.png">
-                        <br>
-                        <p>發文：一鳴驚人</p>
-                    </div>
-                    <div class="Ach_list_11 Ach Nohave">
-                        <img src="./images/member/Ach_list_11.png">
-                        <br>
-                        <p>發文：風雲人物</p>
-                    </div>
-                    <div class="Ach_list_12 Ach">
-                        <img src="./images/member/Ach_list_12.png">
-                        <br>
-                        <p>登入：新手上路</p>
-                    </div>
-                    <div class="Ach_list_13 Ach">
-                        <img src="./images/member/Ach_list_13.png">
-                        <br>
-                        <p>登入：嶄露頭角</p>
-                    </div>
-                    <div class="Ach_list_14 Ach Nohave">
-                        <img src="./images/member/Ach_list_14.png">
-                        <br>
-                        <p>登入：山林老師</p>
+                <div class="Achievement_list" id="AchievementHave">
+                    <div class="Ach Nohave" v-for="(AchievementHaveList, index) in AchievementHaveList">
+                        <img v-bind:src="AchievementHaveList.achievement_image" alt="">
+                        <p>【{{AchievementHaveList.achievement_category}}】{{AchievementHaveList.achievement_name}}</p>
+                        <span>{{AchievementHaveList.achievement_date}}</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 揪團 -->
+            <!-- 揪團 hiko-->
             <div id="MemTravel" class="pages">
                 <h2 class="title">我的揪團</h2>
                 <div class="tabs">
@@ -527,7 +462,7 @@
                 </div>
             </div>
 
-            <!-- 收藏 -->
+            <!-- 收藏 hiko-->
             <div id="MemFavorites" class="pages">
                 <h2 class="title">我的收藏</h2>
                 <div class="classify_list">
@@ -545,11 +480,15 @@
                                 <img v-bind:src="forumList.forum_post_image" alt="">
                             </div>
                             <div class="Card_info">
-                                <h3>【{{forumList.forum_post_category}}】{{forumList.forum_post_title}}</h3>
-                                <p>{{forumList.forum_post_innertext}}</p>
+                                <div class="CI_title">
+                                    <h3>【{{forumList.forum_post_category}}】{{forumList.forum_post_title}}</h3>
+                                </div>
+                                <div class="CI_content">
+                                    <p>{{forumList.forum_post_innertext}}</p>
+                                </div>
                             </div>
                             <div class="Card_btn">
-                                <a :href="'./comment.html?forum_post_no=' + forumList.forum_post_no"> 
+                                <a :href="'./forum.html?forum_post_no=' + forumList.forum_post_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -612,11 +551,11 @@
                 </div>
             </div>
 
-            <!-- 文章 -->
+            <!-- 文章 hiko-->
             <div id="MemPost" class="pages">
                 <h2 class="title">我的文章</h2>
                 <div class="post_list" id="ForumPost">
-                    <div class="page" v-for="(ForumPostList, index) in ForumPostList">
+                    <a :href="'./forum-comment.html?forum_post_no=' + ForumPostList.forum_post_no" class="page" v-for="(ForumPostList, index) in ForumPostList">
                         <div class="img_box">
                             <img v-bind:src="ForumPostList.forum_post_image" alt="">
                         </div>
@@ -634,7 +573,7 @@
                                 <p>最新回覆：{{ForumPostList.Min}}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -696,30 +635,7 @@
             <!-- 修改資料 -->
             <div id="MemDetail" class="pages">
                 <h2 class="title">修改資料</h2>
-                <form method="post">
-                    <div class="mem_frame">
-                        <div class="mem_change">
-                            <p>暱稱</p><p id="memEdit_id"></p><br>
-                            <input type="text" name="mem_id" id="mem_id">
-                        </div>
-                        <div class="mem_change">
-                            <p>信箱</p><p id="memEdit_mail"></p><br>
-                            <input type="text" name="mem_mail" id="mem_mail">
-                        </div>
-                        <div class="mem_change">
-                            <p>密碼</p><br>
-                            <input type="text" name="mem_psw" id="mem_psw">
-                        </div>
-                        <div class="mem_change">
-                            <p>確認密碼</p><br>
-                            <input type="text" name="repassword" id="repassword">
-                        </div>
-                        <div class="mem_button">
-                            <button class="btnB_L_blue" onClick="history.back()"><p>取消</p><div class="bg"></div></button>
-                            <button class="btnB_L_yellow" id="editConfirm"><p>送出</p><div class="bg"></div></button>
-                        </div>
-                    </div>
-                </form>
+                <div id="MemEdit_info"></div>
             </div>
 
         </div><!-- ----------各頁面內容放這(end)-------------------- -->
@@ -801,22 +717,24 @@
 <!-- ======================script-(end)========================= -->
 <!-- ======================PHP by hiko-(start)======================= -->
 
-<script src="./js/memFootprintNorthCount.js"></script> <!-- (北部)已完成揪團數php -->
-<script src="./js/memFootprintWestCount.js"></script>  <!-- (中西)已完成揪團數php -->
-<script src="./js/memFootprintSouthCount.js"></script> <!-- (南部)已完成揪團數php -->
-<script src="./js/memFootprintEastCount.js"></script>  <!-- (東部)已完成揪團數php -->
+<script src="./js/memFootprintNorthCount.js"></script> <!-- (北部)已完成揪團數 -->
+<script src="./js/memFootprintWestCount.js"></script>  <!-- (中西)已完成揪團數 -->
+<script src="./js/memFootprintSouthCount.js"></script> <!-- (南部)已完成揪團數 -->
+<script src="./js/memFootprintEastCount.js"></script>  <!-- (東部)已完成揪團數 -->
 
-<script src="./js/memFootprintNorth.js"></script>      <!-- (北部)已完成揪團列php -->
-<script src="./js/memFootprintWest.js"></script>       <!-- (中西)已完成揪團列php -->
-<script src="./js/memFootprintSouth.js"></script>      <!-- (南部)已完成揪團列php -->
-<script src="./js/memFootprintEast.js"></script>       <!-- (東部)已完成揪團列php -->
+<script src="./js/memFootprintNorth.js"></script>      <!-- (北部)已完成揪團列 -->
+<script src="./js/memFootprintWest.js"></script>       <!-- (中西)已完成揪團列 -->
+<script src="./js/memFootprintSouth.js"></script>      <!-- (南部)已完成揪團列 -->
+<script src="./js/memFootprintEast.js"></script>       <!-- (東部)已完成揪團列 -->
 
-<script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團php -->
-<script src="./js/memTravelByOther.js"></script>       <!-- 參加的揪團php -->
-<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏文章php -->
-<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏揪團php -->
-<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏商品php -->
-<script src="./js/memForumPost.js"></script>           <!-- 收藏商品php -->
+<script src="./js/memAchievementHave.js"></script>     <!-- 獲得的徽章 -->
+
+<script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團 -->
+<script src="./js/memTravelByOther.js"></script>       <!-- 參加的揪團 -->
+<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏：文章 -->
+<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏：揪團 -->
+<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏：商品 -->
+<script src="./js/memForumPost.js"></script>           <!-- 發佈的文章 -->
 
 <!-- ======================PHP by hiko-(end)======================= -->
 <!-- ======================script-(手機版切換)======================= -->
@@ -845,33 +763,11 @@
         readURL(this);
     });
 </script>
-<!-- ======================(script-修改)======================= -->
-<script>
-    function editDetail(){
-        let xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    alert(xhr.responseText); //回傳php回應的值
-                }else{
-                    alert(xhr.status);
-                }
-            }
-        }
-
-        xhr.open("post", "./phpForConnect/member_v2_edit.php", true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
-        xhr.send(data_info);
-    }
-    window.addEventListener("load", function(){
-        document.getElementById("editConfirm").addEventListener("click", editDetail, false);
-    }, false);
-</script>
 <!-- ======================(script-傳送值去訂單)======================= -->
 <script>
     $('#MemOrder_info').load('./phpForConnect/member_v2_order.php');
+    $('#MemEdit_info').load('./phpForConnect/member_v2_edit.php')
 </script>
 </body>
 </html>

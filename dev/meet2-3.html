@@ -187,12 +187,13 @@
             <div class="public_pic"><img :src="tourData.mountain_image" alt="">
                 <div class="related_pic">
                     <div class="related_pic_block">
-                        <div class="related_pic_item"><img :src="tourData.tour_image_1" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_2" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_3" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_4" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_5" alt=""></div>
-                        <div class="related_pic_item"><img :src="tourData.tour_image_6" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.mountain_image" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_1" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_2" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_3" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_4" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_5" alt=""></div>
+                        <div class="related_pic_item" @click="changePic"><img :src="tourData.tour_image_6" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -202,9 +203,11 @@
                     <div class="activity_info">
                         <div class="hashtag">#{{currentTour.mountain_name}} #{{currentTour.days}}天 #{{currentTour.tour_min_number}}~{{currentTour.tour_max_number}}人</div>
                         <div class="mountain_level">
-                            <img src="./images/icons/icon_location.svg" alt=""> {{currentTour.mountain_area | Area}}｜難易度: <img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt=""><img src="./images/icons/icon_mountain.svg" alt="">
+                            <img class="location_icon" src="./images/icons/icon_location.svg" alt="">
+                            {{currentTour.mountain_area | Area}}｜難易度 {{currentTour.degree_category}} 
+                            <div class="degree_img" v-html = "Degree(currentTour.degree_category)"></div>
                         </div>
-                        <div class="activity_date"><img src="./images/icons/icon_date.svg" alt="">{{currentTour.tour_activitystart}}</div>
+                        <div class="activity_date">{{currentTour.tour_activitystart}} 出發 | {{currentTour.tour_activityend}} 回程</div>
                     </div>
                     <div class="report">
                         <div class="report_bt">
@@ -305,6 +308,7 @@
                 <div>
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
+                <div>{{currentTour.tour_progress}}</div>
                 <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
             </div>
         </div>
@@ -348,6 +352,13 @@
             </div>
         </div>
         <div class="message">
+            <h3>留言</h3>
+            <div class="write_message_block" method="POST">
+                <textarea name="" id="send_message_block" rows="5" v-model = "message"></textarea>
+                <div class="bt_block">
+                    <button class="btnB_L_yellow" @click="SENDmsg" id="submitMessage" type="button"><p>送出</p><div class="bg"></div></button>
+                </div>
+            </div>
             <div class="message_board_block" v-for = "comment in comments">
                 <div class="member_styleA column">
                     <div class="memberImg">
