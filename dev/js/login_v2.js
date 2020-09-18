@@ -13,9 +13,12 @@ xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
         if(member.mem_acc === undefined){
             alert("帳密錯誤");
-        }else{ //登入成功
+        }else if(localStorage.getItem('web') == null){ //登入成功
             $("#signInForm").submit();
+            window.location.href = './Member_v2.html';
+        }else{
             let redirection = localStorage.getItem('web');
+            $("#signInForm").submit();
             window.location.href = redirection;
         }
     }else{
