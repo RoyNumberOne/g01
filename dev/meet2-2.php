@@ -19,7 +19,7 @@
         session_start();
         $member_no = $_SESSION["mem_no"];
 
-        $member_no = 10008;
+        // $member_no = 10008;
 
         $tour_hoster = $member_no;
         
@@ -100,6 +100,8 @@
 
                     $new_tour = $pdo->prepare($sql); 
                     $new_tour->execute();   //執行 SQL
+
+
                     
                 }
 
@@ -107,6 +109,22 @@
                 echo '錯誤代碼：'.$_FILES['upload_tourimg_input']['error'].'<br>';
             }
         }
+        // ------------------------------  會員點數增加 ------------------------------
+
+        $sql = "UPDATE member
+                    set mem_point_tourhost = mem_point_tourhost+8000, mem_point = mem_point+8000
+                    WHERE mem_no = $tour_hoster ;";  
+
+        $new_tour = $pdo->prepare($sql); 
+        $new_tour->execute();   //執行 SQL
+
+        // ------------------------------  揪團主 已審核已通過 ------------------------------
+
+        $sql = "INSERT INTO tour_participate
+                     VALUES('$tour_hoster', '$tour_no', '已審核已通過');";  
+
+        $new_tour = $pdo->prepare($sql); 
+        $new_tour->execute();   //執行 SQL
 
         // ------------------------------  導向目前開團頁面 ------------------------------
         
