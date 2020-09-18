@@ -580,52 +580,7 @@
             <!-- 點數 -->
             <div id="MemPoints" class="pages">
                 <h2 class="title">我的點數</h2>
-                <div class="points_info">
-                    <div class="top_points_info">
-                        <div class="top_left">
-                            <h3>目前累積點數</h3>
-                            <p>$2000</p>
-                            <p class="total_get">累積獲得: $213,200</p>
-                        </div>
-                        <div class="top_right">
-                            <img src="./images/member/chart.png">
-                        </div>
-                    </div>
-                    <div class="bottom_points_info">
-                        <table>
-                            <tr>
-                                <th>日期</th>
-                                <th>點數明細</th>
-                                <th>點數</th>
-                            </tr>
-                            <tr>
-                                <td>2020/08/24</td>
-                                <td>討論區發文獲得</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>2020/08/24</td>
-                                <td>揪團頁發文獲得</td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <td>2020/08/24</td>
-                                <td>討論區發文獲得</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>2020/08/24</td>
-                                <td>開團成功</td>
-                                <td>300</td>
-                            </tr>
-                            <tr>
-                                <td>2020/08/24</td>
-                                <td>入團成功</td>
-                                <td>300</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                <div id="MemPoints_info"></div>
             </div>
             <!-- 訂單 -->
             <div id="MemOrder" class="pages">
@@ -766,8 +721,9 @@
 
 <!-- ======================(script-傳送值去訂單)======================= -->
 <script>
+    $('#MemPoints_info').load('./phpForConnect/member_v2_point.php');
     $('#MemOrder_info').load('./phpForConnect/member_v2_order.php');
-    $('#MemEdit_info').load('./phpForConnect/member_v2_edit.php')
+    $('#MemEdit_info').load('./phpForConnect/member_v2_edit.php');
 </script>
 </body>
 </html>

@@ -13,8 +13,8 @@
     <div id="certificationGuide">
         <h2><span>感謝您的申請</span></h2>  
         <?php 
-            // $mem_no = ; 我先給預設 這裡之後要抓session的會員身份
-            $mem_no = 10008;
+            session_start();
+            $mem_no = $_SESSION["mem_no"];
             $guide_no = $_POST['guide_no'];
             $guide_period_start = $_POST['guide_period_start'];
             switch($_FILES["guide_image"]["error"]){
