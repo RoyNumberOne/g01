@@ -209,6 +209,7 @@ CREATE TABLE IF NOT EXISTS tour_participate (										-- :::::揪團參加:::::
     `tour_participate_mem` 			int			 	not null,						-- "誰"追蹤
     `tour_participate_tour` 		int				not null,						-- 收藏"哪團"
     `tour_participate_situation`	varchar(30)		not null,		-- 審核狀態 未審核/已審核不通過/已審核已通過
+    `tour_participate_time`			datetime		default current_timestamp, -- 建立時間
     foreign key (`tour_participate_mem`) references member(`mem_no`) on delete cascade on update cascade,
     foreign key (`tour_participate_tour`) references tour(`tour_no`) on delete cascade on update cascade,
     constraint tour_keep primary key (`tour_participate_mem` , `tour_participate_tour`)

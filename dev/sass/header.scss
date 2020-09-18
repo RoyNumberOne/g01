@@ -14,9 +14,13 @@ header{
     width: 100%;
     z-index: 99;
     & div#headerbox {
+        & * {
+            vertical-align: middle;
+        }
         // overflow: hidden;
         margin: 0 auto;
         height: 100%;
+        position: relative;
         // border: 2px solid red;
         & a{
             width: 190px;
@@ -24,14 +28,17 @@ header{
             cursor: pointer;
             & img {
                 position: relative;
-                top: 9px;
+                // top: 9px;
                 height: 50px;
             }
         }
         & nav.menu{
-            position: relative;
+            position: absolute;
             display: inline-block;
             transition: 0.3s all ease-in-out;
+            // margin-left: 60px;
+            left: 160px;
+            top: 12px;
             & ul.link_list.llleft{
                 list-style: none;
                 margin: 0;
@@ -55,17 +62,16 @@ header{
             & ul.link_list.llright{
                 position: relative;
                 list-style: none;
-                bottom: 7px;
+                // bottom: 7px;
                 padding: 0;
-                display: inline;
+                display: inline-block;
+                right: 0;
                 // border: 2px solid red;
                 & li {
                     transition: 0.2s all ease-in-out;
-                    display: inline;
-                    margin: 0 18px;
-                    & i {
-                        display: inline;
-                    }
+                    display: inline-block;
+                    margin: 0 5px;
+                    cursor: pointer;
                     #mem_avatar_box{
                         display: inline-block;
                         width: 50px;
@@ -73,9 +79,9 @@ header{
                         border: 1px solid white;
                         overflow: hidden;
                         border-radius: 50%;
-                        position: absolute;
+                        // position: absolute;
                         left: 0px;
-                        top: -7px;
+                        // top: -7px;
                         visibility: hidden;
                         img{
                             width:100%;
@@ -85,24 +91,51 @@ header{
                         display: inline-block;
                         text-align: center;
                         line-height: 50px;
-                        position: absolute;
+                        // position: absolute;
                         left: 57px;
-                        top: -7px;
+                        // top: -7px;
                         color: white;
                         visibility: hidden;
                     }
                     button.btnB_L_grey{
                         display: inline-block;
-                        left: 24px;
-                        top: 8px;
+                        // left: 24px;
+                        // top: 8px;
                         visibility: hidden;
-                        margin: 0 18px;
+                        // margin: 0 18px;
+                    }
+                    &  a.member div.memicon {
+                        width: 50px;
+                        height: 50px;
+                        padding: 10px;
+                        & .membg {
+                            width: 100%;
+                            height: 100%;
+                            background-image: url("../images/icons/icon_member.svg");
+                            background-position: center; 
+                            background-repeat: no-repeat;
+                            background-size: contain; 
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        width: 50px;
+                        height: 50px;
+                        padding: 10px;
+                        & .cartbg {
+                            width: 100%;
+                            height: 100%;
+                            background-image: url("../images/icons/icon_car.svg");
+                            background-position: center; 
+                            background-repeat: no-repeat;
+                            background-size: contain; 
+                        }
                     }
                 }
             }
         }
         div#imagebox{
-            position: absolute;
+            // border: 2px solid red;
+            position: relative;
             top: 0px;
             width: 200px;
             height: 70px;
@@ -148,29 +181,6 @@ header{
         }
     }
 
-    li{
-        @media screen and (min-width: 992px) {
-            & a{
-                svg path {
-                    color: white !important ;
-                    transform: scale(1.5) ;
-                }
-            }
-        }
-        @media screen and (max-width: 991px) {
-            & a{
-                svg path {
-                    color: $mt_blue2 !important ;
-                }
-            }
-        }
-        &:hover a{
-            & svg path {
-                color: $mt_yellow !important ;
-            }
-        }
-    
-    }
 
 div#hamburgerBG{
     position: absolute;
@@ -196,30 +206,30 @@ div#hamburgerBG{
     }
     & div.yellow1{
         opacity: 0;
-        top: 170px;
-        left: -80px;
-        height: 90px;
+        top: 141px;
+        left: 95px;
+        height: 70px;
         // border: 3px solid cyan;
         background-color: $mt_yellow;
-        transform: skew(16deg) translateX(150px)
+        transform: skew(16deg) 
     }
     & div.yellow2{
         opacity: 0;
-        top: 290px;
-        left: -45px;
-        height: 90px;
+        top: 225px;
+        left: 120px;
+        height: 70px;
         // border: 3px solid cyan;
         background-color: $mt_yellow;
-        transform: skew(16deg) translateX(150px)
+        transform: skew(16deg) 
     }
     & div.yellow3{
         opacity: 0;
-        top: 410px;
-        left: -11px;
-        height: 90px;
+        top: 309px;
+        left: 140px;
+        height: 70px;
         // border: 3px solid cyan;
         background-color: $mt_yellow;
-        transform: skew(16deg) translateX(150px)
+        transform: skew(16deg) 
     }
     &.on{
         display: block !important;
@@ -237,11 +247,13 @@ div#hamburgerBG{
         width: 1366px;
         & nav.menuhover {
             position: absolute;
+            left: 160px;
+            top: 20px;
             & li.bg{
                 opacity: 0;
                 transition: 0.2s all ease-in-out;
                 display: inline-block;
-                transform: translate(199px,-39px) skewX(15deg);
+                transform:skewX(15deg);
                 width: 120px;
                 height: 30px;
                 margin: 0 21.5px;
@@ -249,8 +261,6 @@ div#hamburgerBG{
             }
         }
         & nav.menu{
-            margin-left: 60px;
-            top: -8px;
             & ul.link_list.llleft{
                 & li{
                     margin: 0 45px;
@@ -262,13 +272,14 @@ div#hamburgerBG{
             }
             & ul.link_list.llright{
                 margin-left: 300px;
-                & li{
-                    margin: 0 18px;
-                }
+                // & li{
+                //     margin: 0 0px;
+                // }
             }
         }
         div#imagebox{
-            left: 950px;
+            display: inline-block;
+            margin-left: 500px;
         }
         .hamburger{
             display: none;
@@ -281,23 +292,23 @@ div#hamburgerBG{
         width: 1152px;
         & nav.menuhover {
             position: absolute;
+            left: 160px;
+            top: 20px;
             & li.bg{
                 opacity: 0;
                 transition: 0.2s all ease-in-out;
                 display: inline-block;
-                transform: translate(191px,-39px) skewX(15deg);
-                width: 120px;
+                transform: skewX(15deg);
+                width: 80px;
                 height: 30px;
-                margin: 0 7px;
+                margin: 0 17px;
                 background-color: $mt_yellow;
             }
         }
         & nav.menu{
-            margin-left: 50px;
-            top: -8px;
             & ul.link_list.llleft{
                 & li{
-                    margin: 0 31px;
+                    margin: 0 21px;
                     &:hover p{
                         color: $mt_blue2;
                     }
@@ -312,7 +323,8 @@ div#hamburgerBG{
             }
         }
         div#imagebox{
-            left: 650px;
+            display: inline-block;
+            left: 385px;
         }
         .hamburger{
             display: none;
@@ -324,41 +336,42 @@ div#hamburgerBG{
     //960
     div#headerbox {
         width: 960px;
+        & a.logo img.logo {
+            margin-top: 6px;
+        }
         & nav.menuhover {
             position: absolute;
+            left: 157px;
+            top: 20px;
             & li.bg{
                 opacity: 0;
                 transition: 0.2s all ease-in-out;
                 display: inline-block;
-                transform: translate(174px,-39px) skewX(15deg);
+                transform:skewX(15deg);
                 width: 80px;
                 height: 30px;
-                margin: 0 21.5px;
+                margin: 0 10.5px;
                 background-color: $mt_yellow;
             }
         }
         & nav.menu{
-            margin-left: 34px;
-            top: -8px;
             & ul.link_list.llleft{
                 & li{
-                    margin: 0 25px;
+                    margin: 0 14px;
                     &:hover p{
                         color: $mt_blue2;
                     }
                 }
             }
             & ul.link_list.llright{
+                margin-left: 20px;
                 & li{
                     margin: 0 18px;
                 }
             }
         }
         div#imagebox{
-            left: 545px;
-            img{
-                width: 70%;
-            }
+            display: none;
         }
         .hamburger{
             display: none;
@@ -370,17 +383,16 @@ div#hamburgerBG{
 
 @media screen and (min-width: 768px) and (max-width: 991px) {//漢堡開始
     //720
-    a{
-        svg path {
-            transform: scale(3) ;
-        }
-    }
     header{
         position: sticky;
         top: 0;
     }
     div#headerbox {
-        width: 720px;
+        width: 100%;
+        & a.logo img.logo {
+            margin-top: 6px;
+            margin-left: 6px;
+        }
         & nav.menuhover {
             display: none;
         }
@@ -396,48 +408,57 @@ div#hamburgerBG{
                 position: absolute !important;
                 width: 200px;
                 // border: 2px solid red;
+                & >:nth-child(1){
+                    transform: translateX(-170px);
+                }
+                & >:nth-child(2){
+                    transform: translateX(-135px);
+                }
+                & >:nth-child(3){
+                    transform: translateX(-100px);
+                }
                 & li{
                     display: block !important;
-                    margin: 50 30px !important;
+                    margin: 50px 0px !important;
                     & a {
                         & p {
                             font-size: 50px !important;
                             color: $mt_blue2 !important;
-                            transform: translateY(-20px);
+                            // transform: translateY(-20px);
                         }
-                    }
-                    & a.tour {
-                        transform: translateX(-70px) translateY(70px);
-                    }
-                    & a.forum {
-                        transform: translateX(-30px) translateY(120px);
-                    }
-                    & a.product {
-                        transform: translateX(10px) translateY(170px);
                     }
                 }
             }
             & ul.link_list.llright{
                 z-index: 20;
-                top: 470px;
+                top: 400px;
                 transform: translateX(40px);
                 position: absolute !important;
-                
-                & a.member svg{
-                    position: absolute;
-                    top: 0;
-                }
-                & a.cart svg{
-                    position: absolute;
-                    left: 130px;
-                    top: 1px;
+                min-width: 200px ;
+                width: auto;
+                max-width: 400px;
+                border: 1px solid red;
+                // & >:nth-child(1) , >:nth-child(2) , >:nth-child(4) , >:nth-child(5){
+                //     display: inline-block;
+                // }
+                & >:nth-child(3) {
+                    display: block !important;
                 }
                 & li{
+                    margin: 10px auto !important;
+                    
+                    & > * {
+                        display: inline-block !important;
+                    }
+                    & > a {
+                        width: auto !important;
+                    }
                     #mem_avatar_box{
                         display: none;
                     }
                     #mem_info_id{
                         display: none;
+                        color: $mt_fontdark !important;
                     }
                 }  
             }
@@ -471,11 +492,6 @@ div#hamburgerBG{
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     //540
-    a{
-        svg path {
-            transform: scale(3) ;
-        }
-    }
     header{
         position: sticky;
         top: 0;
@@ -524,15 +540,6 @@ div#hamburgerBG{
                 transform: translateX(40px);
                 position: absolute !important;
                 
-                & a.member svg{
-                    position: absolute;
-                    top: 0;
-                }
-                & a.cart svg{
-                    position: absolute;
-                    left: 130px;
-                    top: 1px;
-                }
             }
             &.on{
                 display: block !important; 
@@ -566,11 +573,6 @@ div#hamburgerBG{
     //100%
     a.logo img {
         transform: scale(0.75);
-    }
-    a{
-        svg path {
-            transform: scale(2) ;
-        }
     }
     header{
         position: sticky;
@@ -619,15 +621,6 @@ div#hamburgerBG{
                 top: 350px;
                 transform: translateX(-10px);
                 position: absolute !important;
-                & a.member svg{
-                    position: absolute;
-                    top: 0;
-                }
-                & a.cart svg{
-                    position: absolute;
-                    left: 90px;
-                    top: 1px;
-                }
             }
             &.on{
                 display: block !important; 
@@ -677,54 +670,55 @@ div#hamburgerBG{
     width: 20px;
     height: 20px;
     text-align: center;
-    line-height: 20px;
+    // line-height: 20px;
     font-size: 10px;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
 }
 
 
 
 // 所在位置 //
-// nav.menu ul.link_list.llleft li{
-//     & a p::after {
-//         display: none;
-//         content: "";
-//         position: absolute;
-//         border-radius: 5px;
-//         width: 70px;
-//         height: 4px;
-//         top: 37px;
-//         background-color: $mt_yellow;
-//     }
-//     & a.tour p::after {
-//         display: block;
-//         @media screen and (min-width: 1199px) {left: 48px;}
-//         @media screen and (min-width: 992px) and (max-width: 1199px){left: 27px; }
-//         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
-//         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
-//     }
-//     & a.forum p::after {
-//         display: block;
-//         @media screen and (min-width: 1199px) { left: 213px; }
-//         @media screen and (min-width: 992px) and (max-width: 1199px){left: 154px;}
-//         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
-//         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
-//     }
-//     & a.product p::after {
-//         display: block;
-//         @media screen and (min-width: 1199px) {left: 380px;}
-//         @media screen and (min-width: 992px) and (max-width: 1199px){left: 281px; }
-//         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
-//         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
-//     }
-// }
+nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 41px;
+        background-color: $mt_yellow;
+    }
+    & a.tour p::after {
+        display: block;
+        @media screen and (min-width: 1440px) {left: 47px;}
+        @media screen and (min-width: 1200px) and (max-width: 1439px){left: 22px; }
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 17px; }
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
+    }
+    & a.forum p::after {
+        display: block;
+        @media screen and (min-width: 1440px) { left: 213px; }
+        @media screen and (min-width: 1200px) and (max-width: 1439px){left: 141px;}
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 120px;}
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
+    }
+    & a.product p::after {
+        display: block;
+        @media screen and (min-width: 1440px) {left: 380px;}
+        @media screen and (min-width: 1200px) and (max-width: 1439px){left: 260px; }
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 225px; }
+        @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+        @media screen and (max-width: 575px) {top: 42px; width: 100px; }
+    }
+}
 
-// nav.menu ul.link_list.llright li{
-//     & a.cart svg path { color: $mt_yellow !important ; }
-// }
-// nav.menu ul.link_list.llright li{
-//     & a.member svg path { color: $mt_yellow !important ; }
-// }
+a.member div.memicon .membg { background-image: url("../images/icons/icon_member_h.svg") !important;}
+a.cart div.carticon .cartbg { background-image: url("../images/icons/icon_car_h.svg") !important;}
+
+
 // 結束 //

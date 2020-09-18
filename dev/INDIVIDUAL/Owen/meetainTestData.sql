@@ -12,6 +12,20 @@ update member set mem_badge1 = 2 ,mem_badge2 = 3 where mem_no = 10009;
 update member set mem_badge1 = 14 where mem_no = 10010;
 update member set mem_badge1 = 1 ,mem_badge2 = 5 , mem_badge3 = 11 where mem_no = 10011;
 desc member;
+-- 討論區發文
+select * from forum_post;
+select forum_post_no , forum_post_title '發表文章' , forum_post_time '建立時間' , 8000 '點數' 
+from forum_post
+where forum_post_poster = 10010 order by forum_post_no desc LIMIT 3;
+-- 揪團區開團 
+select t.tour_no , t.tour_title '發起揪團', tp.tour_participate_time '建立時間'  , 6000 '點數' 
+from tour_participate tp  join tour t on (tp.tour_participate_tour = t.tour_no and t.tour_hoster= 10010 )
+WHERE tp.tour_participate_mem = 10010 order by tour_no desc LIMIT 3;
+-- 揪團區參團 
+SELECT t.tour_no , t.tour_title '參加揪團' , tp.tour_participate_time '建立時間' , 3000 '點數'
+from tour_participate tp  join tour t on (tp.tour_participate_tour = t.tour_no and not t.tour_hoster= 10010 )
+WHERE tp.tour_participate_mem = 10010 order by tour_no desc LIMIT 3;
+
 
 SELECT * FROM administrator;
 desc administrator;
