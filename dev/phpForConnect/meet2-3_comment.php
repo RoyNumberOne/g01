@@ -5,7 +5,7 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-    $tour_no = $_POST['tour_no'];
+    $tour_no = $_REQUEST['tour_no'];
     // $sql = "SELECT c.*, m.* FROM comment_post c join member m on c.comment_poster = m.mem_no where c.comment_class = '揪團區' and tour_post_no = $tour_no";
     $sql = "SELECT cp.comment_no, cp.comment_poster, cp.comment_class, cp.tour_post_no, cp.comment_time, cp.comment_innertext, cp.comment_situation,
 	m.mem_no, m.mem_id, m.mem_avator, m.mem_bg, m.mem_badge1, a1.achievement_image 'badge1', m.mem_badge2, a2.achievement_image 'badge2', m.mem_badge3, a3.achievement_image 'badge3',

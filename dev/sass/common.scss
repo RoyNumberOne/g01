@@ -1308,7 +1308,20 @@ button.btnB_L_grey{
     }
 }
 
-
+// 山山山 小icon
+.degreeImg {
+    display: inline-block;
+    & div.iconBox{
+        display: inline-block;
+        margin: 2px;
+        height: 24px;
+        width: 24px;
+        & img.iconDegree {
+            transform: translateY(3px);
+            width: 100%;
+        }
+    }
+}
 
 
 

@@ -3,11 +3,14 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
+
+    session_start();
+    $mem_no = $_SESSION['mem_no'];
     
     $sql= "SELECT pk.product_keep_mem, pk.product_iskept_no, P.product_no, P.product_image1, P.product_name, P.product_description
                 from product_keep pk
                     join product P on(pk.product_iskept_no = P.product_no)
-                WHERE pk.product_keep_mem = 10008  -- 之後改變數and
+                WHERE pk.product_keep_mem = $mem_no  -- 之後改變數and
                 order BY P.product_no DESC; -- 因為沒有建立日期所以用編號排序
                 ";
 
