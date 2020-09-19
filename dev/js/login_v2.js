@@ -87,7 +87,7 @@ function loginStatus(){
         alert ('請先登入');
         window.location.href = './login_v2.html';
     }else{
-        alert('歡迎登入');
+        // alert('歡迎登入');
         window.location.href = './Member_v2.html';
     }
 }
