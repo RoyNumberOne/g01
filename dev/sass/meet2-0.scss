@@ -233,11 +233,17 @@ $textColor1: $mt_fontdark;
                             h3{
                                 @include towLine;
                             }
-                            .meetContent{
-                                @include fourLine;
+                            
+                            .text_btn{
+                                display: flex;
+                                .meetContent{
+                                    @include fourLine;
+                                }
+                               
                             }
                         }
                         .like_btn{
+                            border: 1px solid #000;
                             z-index: 2;
                             >div{
                                 height: 50%;
@@ -746,6 +752,7 @@ $textColor1: $mt_fontdark;
                                 }
                             }
                             .like_btn{
+                                border: solid 1px #333;
                                 >div{
                                     height:initial;
                                     margin-right: 20px;

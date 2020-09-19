@@ -27,6 +27,7 @@ try{
         $_SESSION["mem_point"] = $memRow["mem_point"];
         $_SESSION["mem_avator"] = $memRow["mem_avator"];
         $_SESSION["mem_bg"] = $memRow["mem_bg"];
+        $_SESSION["class"] = $memRow["class"];
   
       //送出登入者的姓名資料
       $result = array("mem_no"=>$memRow["mem_no"], 
@@ -38,7 +39,8 @@ try{
                     "mem_build"=>$memRow["mem_build"],
                     "mem_point"=>$memRow["mem_point"],
                     "mem_avator"=>$memRow["mem_avator"],
-                    "mem_bg"=>$memRow["mem_bg"]);
+                    "mem_bg"=>$memRow["mem_bg"],
+                    "class"=>$memRow["class"]);
     
 
       echo json_encode($result);
