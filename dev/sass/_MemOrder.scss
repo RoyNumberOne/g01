@@ -18,11 +18,9 @@
             width: 90%;
             margin: 20px auto;
             text-align: center;
-            td{
-                a{
-                    cursor: pointer;
-                    text-decoration: underline;
-                }
+            td.showDetail{
+                cursor: pointer;
+                text-decoration: underline;
             }
         }
         .prodDetail{
