@@ -97,7 +97,7 @@
                     </div>
                     <div>
                         <button class="btnB_L_grey" id="notagree"><p>不同意</p><div class="bg"></div></button>
-                        <button id="agree" class="btnB_L_yellow"><p>同意</p><div class="bg"></div></button>
+                        <button id="agree" class="btnB_L_yellow" @click = "applyTour"><p>同意</p><div class="bg"></div></button>
                     </div>
                 </section>
                 <section class="agree_box">
@@ -259,7 +259,7 @@
                 <div class="equip_recommend">
                     <h3 class="text_underline">建議裝備</h3>
                     <div class="equip_block">
-                        <div class="equipment">
+                        <div class="equipment eq1">
                             <a href="./product_info.html?productNo=400001">
                                 <img src="./images/products/clothes/clothes01.png" alt="機能服飾">
                                 <div class="show_hover">
@@ -268,7 +268,7 @@
                                 </div>
                             </a>
                             </div>
-                        <div class="equipment">
+                        <div class="equipment eq2">
                             <a href="./product_info.html?productNo=400005">
                                 <img src="./images/products/bag/bag0.png" alt="登山背包">                                <div class="show_hover">
                                     <div class="p_title">登山背包</div>
@@ -276,7 +276,7 @@
                                 </div>
                             </a>
                             </div>
-                        <div class="equipment">
+                        <div class="equipment eq3">
                             <a href="product_info.html?productNo=400010">
                                 <img src="./images/products/shoes/shoes0.png" alt="登山鞋">
                                 <div class="show_hover">
@@ -285,7 +285,7 @@
                                 </div>
                             </a>
                             </div>
-                        <div class="equipment">
+                        <div class="equipment eq4">
                             <a href="./product_info.html?productNo=400014">
                                 <img src="./images/products/campGear/tent0.png" alt="露營裝備">
                                 <div class="show_hover">
@@ -294,7 +294,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="equipment">
+                        <div class="equipment eq5">
                             <a href="product_info.html?productNo=400018">
                                 <img src="./images/products/others/poles0.png" alt="登山配件">
                                 <div class="show_hover">
@@ -308,7 +308,7 @@
                 <div>
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
-                <div>{{currentTour.tour_progress}}</div>
+                <!-- <div>{{currentTour.tour_progress}}</div> -->
                 <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
             </div>
         </div>
@@ -338,13 +338,15 @@
                         </div>
                         <div class="memName">
                             <h3>{{participate.mem_id}}</h3>
+                            <!-- <input type="hidden" class="participate_mem_no" :value = "participate.mem_no"> -->
                         </div>
                         <div class="applied_bt">
-                            <div class="accept_bt a_bt">
+                            <div class="deny_bt a_bt">
                                 <button class="btnB_L_grey"><p>拒絕</p><div class="bg"></div></button>
                             </div>
-                            <div class="deny_bt a_bt">
-                                <button class="btnB_L_yellow"><p>同意</p><div class="bg"></div></button>
+                            <div class="accept_bt a_bt">
+                                <button class="btnB_L_yellow" @click = "agreeJoinTour"><p>同意</p><div class="bg"></div></button>
+                                <input type="hidden" class="participate_mem_no" :value = "participate.mem_no">
                             </div>
                         </div>
                     </div>
