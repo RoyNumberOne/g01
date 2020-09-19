@@ -338,11 +338,11 @@
                         </div>
                         <div class="memName">
                             <h3>{{participate.mem_id}}</h3>
-                            <!-- <input type="hidden" class="participate_mem_no" :value = "participate.mem_no"> -->
+                            <input type="hidden" class="participate_mem_no" :value = "participate.mem_no">
                         </div>
                         <div class="applied_bt">
                             <div class="deny_bt a_bt">
-                                <button class="btnB_L_grey"><p>拒絕</p><div class="bg"></div></button>
+                                <button class="btnB_L_grey" @click = "disareeJoinTour"><p>拒絕</p><div class="bg"></div></button>
                             </div>
                             <div class="accept_bt a_bt">
                                 <button class="btnB_L_yellow" @click = "agreeJoinTour"><p>同意</p><div class="bg"></div></button>
