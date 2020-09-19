@@ -37,6 +37,30 @@ new Vue({
             console.log(this.dialog);
         })
     },
+    updated() {
+        //判斷收藏
+        let forum_post_no = this.reflection[0].forum_post_no;
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(e) {
+            if (xhr.status == 200) { //連線成功
+                console.log(xhr.responseText)
+                    // alert(xhr.responseText);
+                if (xhr.responseText != 0) {
+                    $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+                } else {
+                    $(".heart").attr("src", "./images/icons/icon_heart.svg");
+                }
+            } else {
+                alert(xhr.status);
+            }
+
+        }
+        var url = "./phpForConnect/forum_artical_Collect_pic.php";
+        xhr.open("post", url, true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+        let data = `forum_post_no=${forum_post_no}`;
+        xhr.send(data);
+    },
     methods :{
         clearTextarea(){
             this.poster_message = '';
@@ -73,37 +97,47 @@ new Vue({
                 });
             }
         },
-        forum_artical_Collect() {
-            let product_no = this.currentProduct.product_no;
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function(e) {
-                if (xhr.status == 200) { //連線成功
-                    console.log(xhr.responseText);
-                    // alert(xhr.responseText);
+        forum_artical_Collect(){
+            let forum_post_no = this.reflection[0].forum_post_no;
+            let xhr2 = new XMLHttpRequest();
+
+            xhr2.onload = function() {
+                member = JSON.parse(xhr2.responseText);
+                if (member.mem_id) {
+                    //已經登入了，可以開始做事了
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(e) {
+                        if (xhr.status == 200) { //連線成功
+                            console.log(xhr.responseText);
+                            // alert(xhr.responseText);
+                        } else {
+                            alert(xhr.status);
+                        }
+                    }
+                    var url = "./phpForConnect/forum_artical_Collect.php";
+                    xhr.open("post", url, true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                    let data = `forum_post_no=${forum_post_no}`;
+                    xhr.send(data);
+
+                    if ($(".heart").attr('src') === "./images/icons/icon_heart.svg") {
+                        $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+                    } else {
+                        $(".heart").attr("src", "./images/icons/icon_heart.svg");
+                    }
                 } else {
-                    alert(xhr.status);
+                    //沒有登入，請先登入
+                    alert("請先登入哦")
                 }
-
             }
-            var url = "./phpForConnect/forum_artical_Collect.php";
-            xhr.open("post", url, true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-            let data = `product_no=${product_no}`;
-            xhr.send(data);
-        }
+            xhr2.open("get", "./login_v2_LoginInFo.php", true);
+            xhr2.send(null);
+        },
     }
-})
+});
 
-//.heart chage img src
+// .heart chage img src
 $(document).ready(function(){
-    $(".commentCollect").click(function(){
-        if($(".heart").attr('src') === "./images/icons/icon_heart.svg"){
-            $(".heart").attr("src","./images/icons/icon_heart_h&c.svg");
-        }else{
-            $(".heart").attr("src","./images/icons/icon_heart.svg");
-        }
-    });
-
     //show .add_count
     $(".add_chart").click(function(){
         $(".add_count").css("display", "block");
