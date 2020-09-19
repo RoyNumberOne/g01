@@ -91,7 +91,7 @@
                     $dest = $dir."/".$tour_no.'_'.$c.'.jpg'; // 存入MYSQL的檔名
 
                     // 將檔案移至指定位置(從哪裡,目的地)
-                    move_uploaded_file($file, $dest);
+                    copy($file, $dest);
 
                     // 將檔案位置資訊新增至資料庫中
                     $sql = "UPDATE tour
