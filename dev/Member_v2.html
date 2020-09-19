@@ -136,7 +136,7 @@
                     </button>
                 </div>
                 <div class="nav_button">
-                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemFavorites')">
+                    <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemCollect')">
                         <i class="fas fa-book"></i>
                         <p>收藏</p>
                     </button>
@@ -465,7 +465,7 @@
             </div>
 
             <!-- 收藏 hiko-->
-            <div id="MemFavorites" class="pages">
+            <div id="MemCollect" class="pages">
                 <h2 class="title">我的收藏</h2>
                 <div class="classify_list">
                     <a href="javascript:void(0)" class="classify tablink post_classify btn" onclick="openClass(event, 'class1')">文章收藏</a>
@@ -475,8 +475,8 @@
                 <div id="class1" class="container class">
 
                     <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
-                    <div class="post_list FavoritesList_group" id="Favorites_forum"> 
-                        <div class="item_1 card" v-for="(forumList, index) in Favorites_forumList">
+                    <div class="post_list CollectList_group" id="Collect_forum"> 
+                        <div class="item_1 card" v-for="(forumList, index) in Collect_forumList">
                             <div class="Card_img">
                                 <!-- <img src="./images/form_img/g10.jpg"> -->
                                 <img v-bind:src="forumList.forum_post_image" alt="">
@@ -504,43 +504,52 @@
 
                 <div id="class2" class="container class">
 
-                    <div class="travel_list FavoritesList_group" id="Favorites_tour">
+                    <div class="travel_list CollectList_group" id="Collect_tour">
 
-                        <div class="item_1 card" v-for="(tourList, index) in Favorites_tourList">
+                        <div class="item_1 card" v-for="(tourList, index) in Collect_tourList">
                             <div class="Card_img">
                                 <img v-bind:src="tourList.mountain_image" alt="">
                             </div>
                             <div class="Card_info">
-                                <h3>{{tourList.tour_title}}</h3>
-                                <p>{{tourList.tour_innertext}}</p>
+                                <div class="CI_title">
+                                    <h3>【{{tourList.mountain_name}}】{{tourList.tour_title}}</h3>
+                                </div>
+                                <div class="CI_content">
+                                    <p>{{tourList.tour_innertext}}</p>
+                                </div>
                             </div>
                             <div class="Card_btn">
                                 <a :href="'./meet2-3.html?tour_no=' + tourList.tour_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-                            <button class="Card_delete">
-                                <img src="./images/icons/icon_trash.svg">
-                            </button>
+                            <!-- <a :href="./phpForConnect/memdeleteCollect_tour.php?tour_no=tourList.tour_no"> -->
+                                <button class="Card_delete">
+                                    <img src="./images/icons/icon_trash.svg">
+                                </button>
+                            <!-- </a> -->
                         </div>
-
                     </div>
                 </div>
 
                 <div id="class3" class="container class">
 
-                    <div class="product_list FavoritesList_group" id="Favorites_product">
+                    <div class="product_list CollectList_group" id="Collect_product">
 
-                        <div class="item_1 card" v-for="(productList, index) in Favorites_productList">
+                        <div class="item_1 card" v-for="(productList, index) in Collect_productList">
                             <div class="Card_img">
                                 <img v-bind:src="productList.product_image1" alt="">
                             </div>
                             <div class="Card_info">
-                                <h3>{{productList.product_name}}</h3>
-                                <p>{{productList.product_description}}</p>
+                                <div class="CI_title">
+                                    <h3>【{{productList.product_category}}】{{productList.product_name}}</h3>
+                                </div>
+                                <div class="CI_content">
+                                    <p>{{productList.product_description}}</p>
+                                </div>
                             </div>
                             <div class="Card_btn">
-                                <a :href="'./comment.html?product_no=' + productList.product_no"> 
+                                <a :href="'./product_info.html?product_no=' + productList.product_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -688,9 +697,9 @@
 
 <script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團 -->
 <script src="./js/memTravelByOther.js"></script>       <!-- 參加的揪團 -->
-<script src="./js/memFavoritesForum.js"></script>      <!-- 收藏：文章 -->
-<script src="./js/memFavoritesTour.js"></script>       <!-- 收藏：揪團 -->
-<script src="./js/memFavoritesProduct.js"></script>    <!-- 收藏：商品 -->
+<script src="./js/memCollectForum.js"></script>        <!-- 收藏：文章 -->
+<script src="./js/memCollectTour.js"></script>         <!-- 收藏：揪團 -->
+<script src="./js/memCollectProduct.js"></script>      <!-- 收藏：商品 -->
 <script src="./js/memForumPost.js"></script>           <!-- 發佈的文章 -->
 
 <!-- ======================PHP by hiko-(end)======================= -->
