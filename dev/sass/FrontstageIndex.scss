@@ -142,11 +142,11 @@ div.bg{
     overflow: hidden;
     & div.bgbox{
         & img{
-            width: 2000px;
-            left: calc(50vw - 1000px);
+            width: 2400px;
+            left: calc(50vw - 1200px);
             bottom: calc(-3vh);
             position: fixed; 
-            transition: 0.2s all linear;    
+            transition: 0.3s all linear;    
         }
     }
     & div.scenefade1 {
@@ -893,7 +893,7 @@ div#section4 {
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px ) and (max-height: 900px){
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 1366px !important;

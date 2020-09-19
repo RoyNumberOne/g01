@@ -296,38 +296,28 @@ div.wrap{
 
  // 所在位置 //
  nav.menu ul.link_list.llleft li{
-    & a p::after {
-        display: none;
-        content: "";
-        position: absolute;
-        border-radius: 5px;
-        width: 70px;
-        height: 4px;
-        top: 37px;
-        background-color: $mt_yellow;
-    }
-
     & a.product p::after {
         display: block;
-        @media screen and (min-width: 1199px) {left: 310px;}
-        @media screen and (min-width: 992px) and (max-width: 1199px){left: 281px; }
+        @media screen and (min-width: 1440px) {left: 380px;}
+        @media screen and (min-width: 1200px) and (max-width: 1439px){left: 260px; }
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 225px; }
         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }
 }
 
  //demo使用之後刪掉
- .add_count_vue{
-    display: none;
-    border-radius: 50%;
-    color: #fff;
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 10px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
+//  .add_count_vue{
+//     display: none;
+//     border-radius: 50%;
+//     color: #fff;
+//     background-color: red;
+//     width: 20px;
+//     height: 20px;
+//     text-align: center;
+//     line-height: 20px;
+//     font-size: 10px;
+//     position: absolute;
+//     bottom: 0;
+//     right: 0;
+// }
