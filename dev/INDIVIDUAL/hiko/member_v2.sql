@@ -73,10 +73,8 @@ select tp.tour_participate_mem'誰參加', tp.tour_participate_tour'參加哪團
 ----------------------------------------------------------------------------------------------------------
 
 -- 會員發佈的文章，由發布時間新到舊排序
-select fk.forum_keep_mem, fk.forum_iskept_post, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category, c.comment_poster, min(c.comment_time) Min, m.mem_id
-                from forum_keep fk 
-                    join forum_post fp on(fk.forum_iskept_post = fp.forum_post_no)
-                    join comment_post c on(fp.forum_post_no = c.forum_post_no and c.comment_situation = 1)
-                    join member m on(c.comment_poster = m.mem_no)
-                WHERE fk.forum_keep_mem = 10008  -- 之後改變數
-                order BY fp.forum_post_time DESC;
+select min(cp.comment_time) Min, cp.comment_poster, cp.comment_time, fp.forum_post_poster, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category
+	from comment_post cp
+		right join forum_post fp on(cp.forum_post_no = fp.forum_post_no)
+        WHERE fp.forum_post_poster = 10009
+        order BY fp.forum_post_time DESC;
