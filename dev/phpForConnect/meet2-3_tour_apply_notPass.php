@@ -9,7 +9,7 @@ try{
     $tour_participate_mem = $_REQUEST['tour_participate_mem'];
     $tour_participate_tour = $_REQUEST['tour_participate_tour'];
 
-    $sql = "UPDATE tour_participate set  tour_participate_situation = '已審核已通過'
+    $sql = "UPDATE tour_participate set  tour_participate_situation = '已審核不通過'
             where  tour_participate_mem = $tour_participate_mem and tour_participate_tour = $tour_participate_tour;";
     
     $pdoStatement = $pdo->prepare($sql);

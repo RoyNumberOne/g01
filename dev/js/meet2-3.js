@@ -169,10 +169,11 @@ new Vue({
         },
         agreeJoinTour(e){
             let tourParticipate = $(e.target.parentNode).find("input.participate_mem_no").val();
+            alert(tourParticipate);
             const nowMen = this.tourData.mem_no;
             // let formTour = new FormData();
-            // let urlSearchParams = (new URL(document.location)).searchParams;
-            // tour_no = urlSearchParams.get('tour_no');
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
             // formTour.append("tour_no", tour_no);    
             // formTour.append("tour_participate_mem", tourParticipate);
 
@@ -186,26 +187,61 @@ new Vue({
                         if (nowMen == member.mem_no){
                             // console.log('同一人')
 
-                            // let formTour = new FormData();
-                            // let urlSearchParams = (new URL(document.location)).searchParams;
-                            // tour_no = urlSearchParams.get('tour_no');
-                            // formTour.append("tour_no", tour_no);  
+                            let formTour = new FormData();
+                            let urlSearchParams = (new URL(document.location)).searchParams;
+                            tour_no = urlSearchParams.get('tour_no');
+                            formTour.append("tour_no", tour_no);  
 
                             axios.get('./phpForConnect/meet2-3_tour_apply_pass.php', {params:{
                                 "tour_participate_tour" : tour_no,
                                 "tour_participate_mem" : tourParticipate,
-                            }}).then(res => {
-                                axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
-                                    this.passedParticipant = res.data;
-                                    console.log('ohohoh')
-                                })
-                            });
-                            // .then(
+                                
+                            }})
+                            // .then(res => {
                             //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
                             //         this.passedParticipant = res.data;
-                            //         console.log('success 333');
+                            //         console.log('ohohoh')
                             //     })
-                            // )
+                            // });
+                            .then(()=>{
+                                axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
+                                .then(res => {
+                                    this.passedParticipant = res.data;
+                                    console.log('success 333');
+                                })})
+                            .then(()=>{
+                                axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
+                                .then(res => {
+                                    this.tourParticipates = res.data;
+                                    console.log('success 333');
+                                })}
+                            )
+                        }
+                    }   
+                }
+            }
+        },
+        disareeJoinTour(e){
+            let tourParticipate = $(e.target.parentNode.parentNode).find("input.participate_mem_no").val();
+            alert(tourParticipate);
+            const nowMen = this.tourData.mem_no;
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "./login_v2_LoginInFo.php",true);
+                xhr.send(null);
+            if(this.tourData.mem_no){
+                xhr.onload = function(){
+                    member = JSON.parse(xhr.responseText);
+                    if (member.mem_id){
+                        if (nowMen == member.mem_no){
+                            // console.log('同一人')
+
+                            axios.get('./phpForConnect/meet2-3_tour_apply_notPass.php', {params:{
+                                "tour_participate_tour" : tour_no,
+                                "tour_participate_mem" : tourParticipate, 
+                            }})
                         }
                     }   
                 }
