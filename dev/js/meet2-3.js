@@ -107,7 +107,9 @@ new Vue({
         // }
 
         //判斷收藏
-        let tour_participate_tour = this.tourParticipates[0].tour_participate_tour;
+        let tour_no = (new URL(document.location)).searchParams;
+        tour_no = urlSearchParams.get('tour_no');
+
         var xhr5 = new XMLHttpRequest();
         xhr5.onload = function(e) {
             if (xhr5.status == 200) { //連線成功
@@ -124,7 +126,7 @@ new Vue({
         var url = "./phpForConnect/meet_Collect_pic.php";
         xhr5.open("post", url, true);
         xhr5.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-        let data = `tour_participate_tour=${tour_participate_tour}`;
+        let data = `tour_no=${tour_no}`;
         xhr5.send(data);
     },
     filters: {
@@ -379,10 +381,9 @@ new Vue({
             }
         },
         meet_Collect() {
-
-            let tour_participate_tour = this.tourParticipates[0].tour_participate_tour;
+            let tour_no = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
             let xhr2 = new XMLHttpRequest();
-
             xhr2.onload = function() {
                 member = JSON.parse(xhr2.responseText);
                 if (member.mem_id) {
@@ -399,7 +400,7 @@ new Vue({
                     var url = "./phpForConnect/meet_Collect.php";
                     xhr.open("post", url, true);
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-                    let data = `tour_participate_tour=${tour_participate_tour}`;
+                    let data = `tour_no=${tour_no}`;
                     xhr.send(data);
 
                     if ($(".heart").attr('src') === "./images/icons/icon_heart.svg") {
