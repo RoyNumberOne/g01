@@ -75,9 +75,11 @@
                 <div class="memProfile_AVA">
                     <div class="memProfile_AVA_img"><img id="memProfile_img" src=""></div>
                     <div class="memProfile_AVA_change">
-                        <label class="camera_i">
-                            <input type="file" id="imgInp" accept="image/*" />
-                        </label>
+                        <form method="post" id="upload_Img">
+                            <label class="camera_i">
+                                <input type="file" id="imgInp" name="mem_ava_edit" accept="image/*" />
+                            </label>
+                        </form>
                     </div>
                 </div>
                 <div class="memProfile_DET">
@@ -703,23 +705,21 @@
         });
     });
 
-    function readURL(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
+// 大頭貼更換
+    window.addEventListener("load", function () {
+        document.getElementById("mem_ava_edit").onchange = function (e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
 
-            reader.onload = function(e){
-                $('#img_ava').attr('src', e.target.result);
+            reader.onload = function () {
             }
-            reader.readAsDataURL(input.files[0]);
-        }
-    };
 
-    $("#imgInp").change(function(){
-        readURL(this);
+            reader.readAsDataURL(file);
+        }
     });
 </script>
 
-<!-- ======================(script-傳送值去訂單)======================= -->
+<!-- ======================(script-connect PHP)======================= -->
 <script>
     $('#MemPoints_info').load('./phpForConnect/member_v2_point.php');
     $('#MemOrder_info').load('./phpForConnect/member_v2_order.php');

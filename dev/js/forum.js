@@ -91,7 +91,9 @@ new Vue({
 
     //     .catch(error => {console.log(error)});
     // },
-    // methods:{
-
-    // },
+    methods:{
+        // AFTERsearch: function(){
+        //     $(".forum-block").html("");
+        // },
+    },
 })
