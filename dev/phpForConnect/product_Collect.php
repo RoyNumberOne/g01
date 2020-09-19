@@ -17,11 +17,11 @@ if (isset($_SESSION["mem_acc"]) === true){
         if($prodRowCounts == 0){
             $sql_1 = "INSERT INTO `product_keep` (`product_iskept_no`,`product_keep_mem`) VALUES ($product_no, $member_no);";
             $pdoStatement = $pdo->query($sql_1);
-            echo "已加入收藏";
+            // echo "已加入收藏";
         }else{
             $sql_2="DELETE FROM `product_keep` WHERE `product_keep_mem` = $member_no AND `product_iskept_no` = $product_no;";
             $pdoStatement = $pdo->query($sql_2);
-            echo "已移除收藏";
+            // echo "已移除收藏";
         }
         
     }

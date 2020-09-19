@@ -260,6 +260,7 @@ div.wrap{
                 cursor: pointer;
             }
             .application_bt{
+                // display: none;
                 width: 100px;
                 border: 1px solid #000;
                 border-bottom: none;
@@ -720,6 +721,11 @@ div.wrap{
             }
         }
     }
+}
+
+//active
+.none{
+    display: none;
 }
 
 // media

@@ -1,3 +1,4 @@
+<script src="../js/jquery-3.5.1.js"></script>
 <?php
 session_start();
 try	{
@@ -10,31 +11,50 @@ try	{
         $pdoStatement = $pdo->query($sql);
         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     ?>
-        <table>
-        <tr class='cyan'><th>訂單編號</th><th>會員編號</th><th>收件人</th><th width="110px">聯絡電話</th><th>付款方式</th><th>訂單狀態</th><th>付款金額</th><th>訂單成立時間</th></tr>
+        <form method="post" id="clickOrderNo">
+            <table>
+            <tr class='cyan'><th>訂單編號</th><th>會員編號</th><th>收件人</th><th width="110px">聯絡電話</th><th>付款方式</th><th>訂單狀態</th><th>付款金額</th><th>訂單成立時間</th></tr>
     <?php
-        foreach ( $prodRows as $i => $prodRow){
+            foreach ( $prodRows as $i => $prodRow){
     ?>
-        <tr>
-        <td><a class="showDetail"><?=$prodRow["訂單編號"]?></a></td>
-        <td><?=$prodRow["會員編號"]?></td>
-        <td><?=$prodRow["收件人"]?></td>
-        <td><?=$prodRow["聯絡電話"]?></td>
-        <td><?=$prodRow["付款方式"]?></td>
-        <td><?=$prodRow["訂單狀態"]?></td>
-        <td><?=$prodRow["付款金額"]?></td>
-        <td><?=$prodRow["訂單成立時間"]?></td>
-        </tr>
+            <tr>
+            <td class="showDetail">
+            <?=$prodRow["訂單編號"]?>
+            </td>
+            <td><?=$prodRow["會員編號"]?></td>
+            <td><?=$prodRow["收件人"]?></td>
+            <td><?=$prodRow["聯絡電話"]?></td>
+            <td><?=$prodRow["付款方式"]?></td>
+            <td><?=$prodRow["訂單狀態"]?></td>
+            <td><?=$prodRow["付款金額"]?></td>
+            <td><?=$prodRow["訂單成立時間"]?></td>
+            </tr>
     <?php } ?>
+        </form>
 
+        <div id="showMoreDetail"></div>
     <script>
-        $(".prodDetail").hide();
+// 點擊得到訂單詳情
+        $(Document).ready(function(){
 
-        $(document).ready(function(){
-            $(".showDetail").click(function(){
-                $(".prodDetail").show();
+            $(".showDetail").click(function(e){
+                e.preventDefault();
+                let ordNo = $(e.target).html();
+                    $.ajax({
+                        url: './phpForConnect/member_v2_orderDetail.php',
+                        data:  {ordNo : ordNo},
+                        type: "POST",
+                        success: function(data){
+                            $("#showMoreDetail").html(data);
+                        },
+                        error: function(){
+                            console.log('error');
+                        },
+                    });
+
             });
         });
+
     </script>
     <?php
     }else{

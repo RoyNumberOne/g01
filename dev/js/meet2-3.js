@@ -13,14 +13,11 @@ new Vue({
     created(){
 
         formMessageReport = new FormData();
-        // let reportNo = $(".TEMPno").val();
         urlSearchParams = (new URL(document.location)).searchParams;
         tour_no = urlSearchParams.get('tour_no');        
-        // formMessageReport.append("comment_report_comment", reportNo)
         formMessageReport.append("tour_post_no", tour_no); 
 
         axios.get('./phpForConnect/meet2-3_message_report_img.php', {params:{
-            // "comment_report_comment" : reportNo,
             "tour_post_no" : tour_no,
         }}).then(res => {
             this.message_report_img = res.data;
@@ -66,17 +63,40 @@ new Vue({
         //     console.log('success articals');
         //     console.log(this.articals);
         // })
-
-
-
     },
     updated(){
         // console.log("LENGTH" + this.message_report_img.length)
         for ( var t = 0 ; t < this.message_report_img.length ; t++){
             this.CHECKnull(t);
-        }
+        };
 
-        
+        //寫完揪團記得打開
+        // const nowMen = this.tourData.mem_no;
+
+        // let xhr = new XMLHttpRequest();
+
+        // xhr.open("get", "./login_v2_LoginInFo.php",true);
+        //     xhr.send(null);
+        // if(this.tourData.mem_no){
+        //     xhr.onload = function(){
+        //         member = JSON.parse(xhr.responseText);
+        //         if (member.mem_id){
+        //             if (nowMen !== member.mem_no){
+        //                 console.log('不同一人')
+        //                 $('.application_bt').addClass('none')
+        //                 $('.applied_participant').addClass('none')
+        //             }   else    {
+        //                 console.log('同一人')
+        //                 $('.equip_recommend').css('display', 'none')
+        //             };
+        //         }   
+        //     }
+        // }
+        //寫完揪團記得打開
+
+
+        this.equipmentDisplay();
+        // this.checkHoster();
         // console.log('111');
         // console.log(this.message_report_img);
 
@@ -110,6 +130,7 @@ new Vue({
         currentTour(){
             return this.tourData;
         },
+
     },
     methods: {
         Degree(value) {
@@ -131,10 +152,68 @@ new Vue({
                 break;
             }
         },
+        applyTour(){
+            let formTour = new FormData();
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
+            formTour.append("tour_no", tour_no);    
+
+            axios.get('./phpForConnect/meet2-3_tour_apply.php', {params:{
+                "tour_participate_tour" : tour_no,
+            }}).then(res => {
+                console.log('success apply');
+                // axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+                //     this.tourParticipates = res.data;
+                // })
+            });
+        },
+        agreeJoinTour(e){
+            let tourParticipate = $(e.target.parentNode).find("input.participate_mem_no").val();
+            const nowMen = this.tourData.mem_no;
+            // let formTour = new FormData();
+            // let urlSearchParams = (new URL(document.location)).searchParams;
+            // tour_no = urlSearchParams.get('tour_no');
+            // formTour.append("tour_no", tour_no);    
+            // formTour.append("tour_participate_mem", tourParticipate);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "./login_v2_LoginInFo.php",true);
+                xhr.send(null);
+            if(this.tourData.mem_no){
+                xhr.onload = function(){
+                    member = JSON.parse(xhr.responseText);
+                    if (member.mem_id){
+                        if (nowMen == member.mem_no){
+                            // console.log('同一人')
+
+                            // let formTour = new FormData();
+                            // let urlSearchParams = (new URL(document.location)).searchParams;
+                            // tour_no = urlSearchParams.get('tour_no');
+                            // formTour.append("tour_no", tour_no);  
+
+                            axios.get('./phpForConnect/meet2-3_tour_apply_pass.php', {params:{
+                                "tour_participate_tour" : tour_no,
+                                "tour_participate_mem" : tourParticipate,
+                            }}).then(res => {
+                                axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
+                                    this.passedParticipant = res.data;
+                                    console.log('ohohoh')
+                                })
+                            });
+                            // .then(
+                            //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
+                            //         this.passedParticipant = res.data;
+                            //         console.log('success 333');
+                            //     })
+                            // )
+                        }
+                    }   
+                }
+            }
+        },
         clearTextarea(){
             this.message = '';
         },
-
         openReportModal(e) {
            if($('#mem_info_id').html() === ''){
                alert ('請先登入');
@@ -151,9 +230,9 @@ new Vue({
                         alert('請先輸入文字');
                     }else{
                         let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
-                        formMessageReport = new FormData();
-                        formMessageReport.append("comment_report_comment", reportNo)
-                        formMessageReport.append("comment_report_reason", comment_report_reason)
+                        // formMessageReport = new FormData();
+                        // formMessageReport.append("comment_report_comment", reportNo)
+                        // formMessageReport.append("comment_report_reason", comment_report_reason)
                         axios.get('./phpForConnect/meet2-3_message_report.php', {params:{
                             "comment_report_comment" : reportNo,
                             "comment_report_reason" : comment_report_reason,
@@ -165,6 +244,7 @@ new Vue({
                 })
             }
        },
+       //send message
         SENDmsg(){
             if($('#mem_info_id').html() === ''){
                 alert ('請先登入');
@@ -209,12 +289,26 @@ new Vue({
             if (this.message_report_img[k].comment_report_mem !== null) {
                 $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").find("img").attr('src','./images/icons/icon_report_c.svg')
                 $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").attr("disabled","disabled")
-                //addclass?
-
             };
-            
-            
         },
+        equipmentDisplay(){
+            if(this.tourData.tour_equip_1 == 0){
+                $('.eq1').css('display', 'none')
+            }
+            if(this.tourData.tour_equip_2 == 0){
+                $('.eq2').css('display', 'none')
+            }
+            if(this.tourData.tour_equip_3 == 0){
+                $('.eq3').css('display', 'none')
+            }
+            if(this.tourData.tour_equip_4 == 0){
+                $('.eq4').css('display', 'none')
+            }
+            if(this.tourData.tour_equip_5 == 0){
+                $('.eq5').css('display', 'none')
+            }
+        },
+
     },
 })
 
@@ -288,6 +382,9 @@ $(document).ready(function (){
             $("section.agreement").removeClass("-on");
             $("section.agree_box").addClass("-on");
             $("#apply_bt > p").text("已報名");
+            $("#apply_bt").attr("disabled","disabled");
+            $("#apply_bt").css( "cursor", "not-allowed");
+            $("#apply_bt > .bg").css("backgroundColor", "gray");
         });
     
         // 點擊X按鈕
