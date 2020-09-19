@@ -356,6 +356,130 @@
         margin: 20px auto;
     }
 
+    //留言檢舉
+    #report_block_message.close{
+        display: none;
+    }
+    
+    #report_block_message{
+        background-color: hsla(0, 0%, 0%,.5);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        .rp_lightbox{
+            background-color: #fff;
+            border-radius: 15px;
+            width: auto;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+            .mg_close{
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                // border: 1px solid #555;
+                border-radius: 50%;
+                &:hover{
+                    color: #bbb;
+                }
+            }
+            .mg_reporting{
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                margin: 0 auto;
+                text-align: left;
+                >h2{
+                    margin: 20px auto;
+                }
+                >div{
+                    margin: 5px 0;
+                }
+                >textarea{
+                    resize: none;
+                    padding: 10px;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                .rp_bt{
+                    text-align: center;
+                    button{
+                        margin: 20px;
+                    }
+                }
+            }
+            .mg_be_reported{
+                display: none;
+                h2{
+                    text-align: center;
+                }
+                p{
+                    text-align: left;
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+    
+    #banned_message.close{
+        display: none;
+    }
+    
+    #banned_message{
+        background-color: hsla(0, 0%, 0%,.5);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        .ban_lightbox{
+            background-color: #fff;
+            border-radius: 15px;
+            width: auto;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+            .ban_close{
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                border-radius: 50%;
+                &:hover{
+                    color: #bbb;
+                }
+            }
+            .ban_be_reported{
+                // display: none;
+                h2{
+                    text-align: center;
+                }
+                p{
+                    text-align: left;
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+
     //<!-- --------------------aside link------------------ -->
     #aside-link{
         display:block;

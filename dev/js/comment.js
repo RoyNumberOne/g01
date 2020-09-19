@@ -72,6 +72,24 @@ new Vue({
                     })
                 });
             }
+        },
+        forum_artical_Collect() {
+            let product_no = this.currentProduct.product_no;
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function(e) {
+                if (xhr.status == 200) { //連線成功
+                    console.log(xhr.responseText);
+                    // alert(xhr.responseText);
+                } else {
+                    alert(xhr.status);
+                }
+
+            }
+            var url = "./phpForConnect/forum_artical_Collect.php";
+            xhr.open("post", url, true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            let data = `product_no=${product_no}`;
+            xhr.send(data);
         }
     }
 })

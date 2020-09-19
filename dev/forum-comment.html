@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="poster-report">
-                    <div class="commentCollect">
+                    <div class="commentCollect" @click="forum_artical_Collect">
                         <img class="heart" src="./images/icons/icon_heart.svg" alt="">
                         <p>收藏</p>
                     </div>
@@ -266,6 +266,28 @@
         </div>
 
     </main>
+
+    <!---留言檢舉--->
+    <div id="report_block_message" class="report_block_message close">
+        <div class="rp_lightbox">
+            <div class="mg_close"><img src="./images/icons/icon_close.svg" alt=""></div>
+            <section class="mg_reporting">
+                <h2>提出檢舉</h2>
+                <div>請輸入檢舉理由：</div>
+                <textarea name="" id="send_report_block" class="comment_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
+                <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
+                <div class="rp_bt">
+                    <button class="btnB_L_grey mg_cancle"><p>取消</p><div class="bg"></div></button>
+                    <button class="btnB_L_yellow mg_confirm" ><p>確認</p><div class="bg"></div></button>
+                </div>
+            </section>
+            <section class="mg_be_reported">
+                <h2>謝謝您提出檢舉</h2>
+                <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
+                <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
+            </section>
+        </div>
+    </div>
     <!-- -------------------------GO TOP------------------------- -->
     <a href="#" id="gotop">
         <i class="fas fa-arrow-up"></i>
