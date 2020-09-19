@@ -1307,8 +1307,34 @@ button.btnB_L_grey{
         }
     }
 }
+//////會員款式C 只有頭像 ＩＤ/////
+.member_styleC{
+    flex-shrink:0;//若父層有flex，避免寬度被壓縮導致跑版
+    display: flex;
+    align-items: center;
+    .memberImg{
+        display: inline-block;
+        background-color: rgb(209, 104, 104);
+        border-radius: 50%;
+        width: 30px;
+        padding-top: 30px;
+        overflow: hidden;
+        position: relative;
+        
+        margin: auto 5px auto 3px;
+        img{
+            @include imgs;
+        }
+    }
+    .memberId{
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 1.5px;
+    }
+}
 
-// 山山山 小icon
+// ============山山山 小icon============
 .degreeImg {
     display: inline-block;
     & div.iconBox{
