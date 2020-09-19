@@ -125,6 +125,52 @@ $textColor1: $mt_fontdark;
                     width: 100%;
                     height: 100%;
                 }
+                .marker_click_info{ ///////點擊後打開的資訊
+                    // width: 450px !important;
+                    padding: 10px;
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .mountain_name{
+                        display: inline-block;
+                        h3{
+                            display: inline;
+                            position: relative;
+                            &::after{
+                                padding-top: 3px;
+                            }
+                            span{
+                                position: absolute;
+                                right: -40px;
+                            }
+                        }
+                        
+                    }
+                    .meets{
+                        width: 450px !important;
+                        a{
+                            display: inline-block;
+                            width: 100%;
+                            background-color: $mt_grey1;
+                            margin: 5px 0;
+                            padding: 10px;
+                            &:hover{
+                                background-color: $mt_grey2;
+                            }
+                            .date_member{
+                                display: flex;
+                                align-items: center;
+                                .member_styleC{
+                                    display: inline-flex;
+                                    margin-left: 5px;
+                                }
+                            }
+                           
+                            
+                           
+                        }
+                    }
+                }
             }
         }
         

@@ -17,6 +17,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
+     <!-- Google Map  -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" defer>
+        // key=YOUR_API_KEY&callback= 
+    </script>
+    <script src="./js/jquery-3.5.1.js"></script>
+
 </head>
 <body class="meet2-0_body">
 
@@ -77,7 +84,7 @@
         <section class="serchMeet">
             <h2 class="text_underline">搜尋揪團</h2>
             <div class="searchFormMap">
-                <form class="serch">
+                <!-- <form class="serch">
                     <div class="location">
                         <p>地區</p>
                         <div> 
@@ -97,9 +104,8 @@
                         </div>   
                     </div> 
                     <button type="button" class="btnB_L_yellow"><p>搜尋</p><div class="bg"></div></button>
-                </form>
-                <div class="serchMap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.5092107902983!2d121.51678581500668!3d25.050724583964524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96c310ab51d%3A0xf25565395df95e5!2zMTAz5Y-w5YyX5biC5aSn5ZCM5Y2A6ZW35a6J6KW_6LevMznomZ8!5e0!3m2!1szh-TW!2stw!4v1591581971357!5m2!1szh-TW!2stw"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </form> -->
+                <div id="searchMap" class="serchMap">
                 </div>
             </div>
         </section>
@@ -372,5 +378,7 @@
     <script src="./js/meet2-0.js"></script>
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
+    
+    <script src="./js/meet2-0_map2.js"></script>
 </body>
 </html>
