@@ -431,22 +431,38 @@ div#hamburgerBG{
             }
             & ul.link_list.llright{
                 z-index: 20;
-                top: 400px;
-                transform: translateX(40px);
+                top: 430px;
+                left: -60px;
                 position: absolute !important;
-                min-width: 200px ;
-                width: auto;
-                max-width: 400px;
-                border: 1px solid red;
-                // & >:nth-child(1) , >:nth-child(2) , >:nth-child(4) , >:nth-child(5){
-                //     display: inline-block;
-                // }
+                // border: 1px solid red;
+                width: 180px;
+                & >:nth-child(1) , >:nth-child(2) , >:nth-child(4) , >:nth-child(5){
+                    display: inline-block;
+                }
+                &  >:nth-child(4){
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-65px);
+                }
+                &  >:nth-child(5){
+                    position: absolute;
+                    top: 0;
+                    left: 0px;
+                    transform: translate(50px,-65px);
+                }
+                & >:nth-child(1) , >:nth-child(2){
+                    margin-top: 30px;
+                }
+                & >:nth-child(2) {
+                    float: right;
+                }
                 & >:nth-child(3) {
                     display: block !important;
                 }
                 & li{
                     margin: 10px auto !important;
-                    
+                    // float: right;
                     & > * {
                         display: inline-block !important;
                     }
@@ -497,7 +513,11 @@ div#hamburgerBG{
         top: 0;
     }
     div#headerbox {
-        width: 540px;
+        width: 100%;
+        & a.logo img.logo {
+            margin-top: 6px;
+            margin-left: 6px;
+        }
         & nav.menuhover {
             display: none;
         }
@@ -513,33 +533,75 @@ div#hamburgerBG{
                 position: absolute !important;
                 width: 200px;
                 // border: 2px solid red;
+                & >:nth-child(1){
+                    transform: translateX(-170px);
+                }
+                & >:nth-child(2){
+                    transform: translateX(-135px);
+                }
+                & >:nth-child(3){
+                    transform: translateX(-100px);
+                }
                 & li{
                     display: block !important;
-                    margin: 50 30px !important;
+                    margin: 50px 0px !important;
                     & a {
                         & p {
                             font-size: 50px !important;
                             color: $mt_blue2 !important;
-                            transform: translateY(-20px);
+                            // transform: translateY(-20px);
                         }
-                    }
-                    & a.tour {
-                        transform: translateX(-70px) translateY(70px);
-                    }
-                    & a.forum {
-                        transform: translateX(-30px) translateY(120px);
-                    }
-                    & a.product {
-                        transform: translateX(10px) translateY(170px);
                     }
                 }
             }
             & ul.link_list.llright{
                 z-index: 20;
-                top: 470px;
-                transform: translateX(40px);
+                top: 430px;
+                left: -60px;
                 position: absolute !important;
-                
+                // border: 1px solid red;
+                width: 180px;
+                & >:nth-child(1) , >:nth-child(2) , >:nth-child(4) , >:nth-child(5){
+                    display: inline-block;
+                }
+                &  >:nth-child(4){
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-65px);
+                }
+                &  >:nth-child(5){
+                    position: absolute;
+                    top: 0;
+                    left: 0px;
+                    transform: translate(50px,-65px);
+                }
+                & >:nth-child(1) , >:nth-child(2){
+                    margin-top: 30px;
+                }
+                & >:nth-child(2) {
+                    float: right;
+                }
+                & >:nth-child(3) {
+                    display: block !important;
+                }
+                & li{
+                    margin: 10px auto !important;
+                    // float: right;
+                    & > * {
+                        display: inline-block !important;
+                    }
+                    & > a {
+                        width: auto !important;
+                    }
+                    #mem_avatar_box{
+                        display: none;
+                    }
+                    #mem_info_id{
+                        display: none;
+                        color: $mt_fontdark !important;
+                    }
+                }  
             }
             &.on{
                 display: block !important; 
@@ -558,13 +620,13 @@ div#hamburgerBG{
     }
     div#hamburgerBG{
         & div.yellow1{
-            width: 320px;
+            width: 400px;
         }
         & div.yellow2{
-            width: 320px;
+            width: 400px;
         }
         & div.yellow3{
-            width: 320px;
+            width: 400px;
         }
     }
 
@@ -580,6 +642,10 @@ div#hamburgerBG{
     }
     div#headerbox {
         width: 100%;
+        & a.logo img.logo {
+            margin-top: 6px;
+            margin-left: 6px;
+        }
         & nav.menuhover {
             display: none;
         }
@@ -589,38 +655,82 @@ div#hamburgerBG{
             opacity: 0 !important;
             margin-left: calc(110% - 250px);
             top: -100px;
+            
             & ul.link_list.llleft{
                 z-index: 20;
-                top: 72px;
+                top: 66px;
                 position: absolute !important;
                 width: 200px;
                 // border: 2px solid red;
+                & >:nth-child(1){
+                    transform: translateX(-170px);
+                }
+                & >:nth-child(2){
+                    transform: translateX(-135px);
+                }
+                & >:nth-child(3){
+                    transform: translateX(-100px);
+                }
                 & li{
                     display: block !important;
-                    margin: 50 30px !important;
+                    margin: 20px 0px !important;
                     & a {
                         & p {
                             font-size: 30px !important;
                             color: $mt_blue2 !important;
-                            transform: translateY(-20px);
+                            // transform: translateY(-20px);
                         }
-                    }
-                    & a.tour {
-                        transform: translateX(-70px) translateY(90px);
-                    }
-                    & a.forum {
-                        transform: translateX(-50px) translateY(112px);
-                    }
-                    & a.product {
-                        transform: translateX(-30px) translateY(134px);
                     }
                 }
             }
             & ul.link_list.llright{
                 z-index: 20;
-                top: 350px;
-                transform: translateX(-10px);
+                top: 310px;
+                left: -120px;
                 position: absolute !important;
+                // border: 1px solid red;
+                width: 180px;
+                & >:nth-child(1) , >:nth-child(2) , >:nth-child(4) , >:nth-child(5){
+                    display: inline-block;
+                }
+                &  >:nth-child(4){
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-65px);
+                }
+                &  >:nth-child(5){
+                    position: absolute;
+                    top: 0;
+                    left: 0px;
+                    transform: translate(50px,-65px);
+                }
+                & >:nth-child(1) , >:nth-child(2){
+                    margin-top: 30px;
+                }
+                & >:nth-child(2) {
+                    float: right;
+                }
+                & >:nth-child(3) {
+                    // display: block !important;
+                }
+                & li{
+                    margin: 10px auto !important;
+                    // float: right;
+                    & > * {
+                        display: inline-block !important;
+                    }
+                    & > a {
+                        width: auto !important;
+                    }
+                    #mem_avatar_box{
+                        display: none;
+                    }
+                    #mem_info_id{
+                        display: none !important;
+                        color: $mt_fontdark !important;
+                    }
+                }  
             }
             &.on{
                 display: block !important; 
@@ -640,21 +750,21 @@ div#hamburgerBG{
         div#hamburgerBG{
             width: 350px;
             & div.yellow1{
-                top: 98px;
-                height: 50px;
-                left: -106px;
+                top: 107px;
+                height: 40px;
+                left: 90px;
                 width: 175px;
             }
             & div.yellow2{
-                top: 164px;
-                height: 50px;
-                left: -88px;
+                top: 159px;
+                height: 40px;
+                left: 108px;
                 width: 175px;
             }
             & div.yellow3{
-                top: 231px;
-                height: 50px;
-                left: -68px;
+                top: 213px;
+                height: 40px;
+                left: 128px;
                 width: 175px;
             }
         }
