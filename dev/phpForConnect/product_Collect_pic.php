@@ -19,7 +19,7 @@ if (isset($_SESSION["mem_acc"]) === true){
             echo $sql . "<br>" . $e->getMessage();
         }
 }
-// }else {
+// else {
 //     echo "請登入後收藏";
 // }
 

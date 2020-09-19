@@ -206,22 +206,45 @@ new Vue({
             }
         },
         product_Collect() {
-            let product_no = this.currentProduct.product_no;
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function(e) {
-                if (xhr.status == 200) { //連線成功
-                    console.log(xhr.responseText);
-                    // alert(xhr.responseText);
-                } else {
-                    alert(xhr.status);
-                }
 
+            let product_no = this.currentProduct.product_no;
+            let xhr2 = new XMLHttpRequest();
+
+            xhr2.onload = function() {
+                member = JSON.parse(xhr2.responseText);
+                if (member.mem_id) {
+                    //已經登入了，可以開始做事了
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(e) {
+                        if (xhr.status == 200) { //連線成功
+                            console.log(xhr.responseText);
+                            // alert(xhr.responseText);
+                        } else {
+                            alert(xhr.status);
+                        }
+                    }
+                    var url = "./phpForConnect/product_Collect.php";
+                    xhr.open("post", url, true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                    let data = `product_no=${product_no}`;
+                    xhr.send(data);
+
+                    if ($(".heart").attr('src') === "./images/icons/icon_heart.svg") {
+                        $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+                    } else {
+                        $(".heart").attr("src", "./images/icons/icon_heart.svg");
+                    }
+                } else {
+                    //沒有登入，請先登入
+                    alert("請先登入哦")
+                }
             }
-            var url = "./phpForConnect/product_Collect.php";
-            xhr.open("post", url, true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-            let data = `product_no=${product_no}`;
-            xhr.send(data);
+
+            xhr2.open("get", "./login_v2_LoginInFo.php", true);
+            xhr2.send(null);
+
+
+
         },
     },
 });
@@ -229,13 +252,6 @@ new Vue({
 
 //.heart chage img src
 $(document).ready(function() {
-    $(".productCollect").click(function() {
-        if ($(".heart").attr('src') === "./images/icons/icon_heart.svg") {
-            $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
-        } else {
-            $(".heart").attr("src", "./images/icons/icon_heart.svg");
-        }
-    });
 
     //show .add_count_vue
     $(".add_chart").click(function() {
