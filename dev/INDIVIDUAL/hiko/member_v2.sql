@@ -39,7 +39,7 @@ select fk.forum_keep_mem'誰收藏', fk.forum_iskept_post'收藏哪篇' ,fp.foru
 
 
 -- 會員收藏揪團行程，由新到舊排序
-select tk.tour_keep_mem'誰收藏', tk.tour_iskept_tour'收藏哪團', T.tour_no'揪團編號', T.tour_title'揪團文標題', T.tour_innertext'活動簡介', T.tour_build'建立時間', M.mountain_image'山的圖片'
+select tk.tour_keep_mem'誰收藏', tk.tour_iskept_tour'收藏哪團', T.tour_no'揪團編號', T.tour_title'揪團文標題', T.tour_innertext'活動簡介', T.tour_build'建立時間', M.mountain_image'山的圖片', M.mountain_name'山的名字'
 	from tour_keep tk
 		join tour T on(tk.tour_iskept_tour = T.tour_no)
 		join mountain M on(T.tour_mountain = M.mountain_no)
@@ -47,7 +47,7 @@ select tk.tour_keep_mem'誰收藏', tk.tour_iskept_tour'收藏哪團', T.tour_no
     order BY T.tour_build DESC;
 
 -- 會員收藏商品品項，由編號小到大排序
-select pk.product_keep_mem'誰收藏', pk.product_iskept_no'收藏哪項', P.product_no'商品編號', P.product_image1'商品圖1', P.product_name'商品名稱', P.product_description'商品說明'
+select pk.product_keep_mem'誰收藏', pk.product_iskept_no'收藏哪項', P.product_no'商品編號', P.product_image1'商品圖1', P.product_name'商品名稱', P.product_description'商品說明', P.product_category'商品類別'
 	from product_keep pk
 		join product P on(pk.product_iskept_no = P.product_no)
     WHERE pk.product_keep_mem = 10008  -- 之後改變數and

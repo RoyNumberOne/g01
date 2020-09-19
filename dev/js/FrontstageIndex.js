@@ -124,13 +124,13 @@ $(window).mousemove(function(evt){
 var pagex =evt.pageX;
 var pagey =evt.pageY;
 
-$(".scene img").css("left",`calc(50vw - 1000px + ${pagex/30}px)`)
-$(".mountainmiddle img").css("left",`calc(50vw - 1000px + ${pagex/55}px)`)
-$(".mountainfirst img").css("left",`calc(50vw - 1000px + ${pagex/80}px)`)
+$(".scene img").css("left",`calc(50vw - 1200px + ${pagex/30}px)`)
+$(".mountainmiddle img").css("left",`calc(50vw - 1200px + ${pagex/55}px)`)
+$(".mountainfirst img").css("left",`calc(50vw - 1200px + ${pagex/80}px)`)
 
-$(".scenefade img").css("left",`calc(50vw - 1000px + ${pagex/30}px)`)
-$(".mountainmiddlefade img").css("left",`calc(50vw - 1000px + ${pagex/55}px)`)
-$(".mountainfirstfade img").css("left",`calc(50vw - 1000px + ${pagex/80}px)`)
+$(".scenefade img").css("left",`calc(50vw - 1200px + ${pagex/30}px)`)
+$(".mountainmiddlefade img").css("left",`calc(50vw - 1200px + ${pagex/55}px)`)
+$(".mountainfirstfade img").css("left",`calc(50vw - 1200px + ${pagex/80}px)`)
 
 checkbg();
 })
