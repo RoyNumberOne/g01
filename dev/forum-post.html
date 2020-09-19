@@ -83,7 +83,7 @@
 
             <div class="forum_post">
                 
-                <form id="form-table" method="post" action="./phpForConnect/forum-post.php">
+                <form id="forum_post_table"  name="forum_post_table" method="post" action="./phpForConnect/forum-post.php" enctype="multipart/form-data">
                     
                     <div class="text">
                         <span>討論文類別</span>
@@ -114,7 +114,7 @@
                     <div class="block">
                         <div class="update-img">
                             <!-- <span>+上傳封面圖片</span> -->
-                            <input type="file" name="forum_post_image" id="forum_post_image">
+                            <input type="file" name="forum_post_image" id="forum_post_image" accept="image/*" multiple="multiple">
                         </div>
                     </div>
 
@@ -308,6 +308,23 @@
     });
   </script>
 
+<script>
+
+    window.addEventListener("load", function(){
+        //..................upFile.onchange
+        document.getElementById("upload_tourimg_input").onchange = function(e){
+            let file = e.target.files[0];  //取得file物件
+            let reader = new FileReader(); //建立一個reader物件 
+            reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
+            // reader.onload = function(){ //reader將file內容讀取完畢時
+            //     //reader讀到的資料會放到reader.result
+            //     document.getElementById("imgPreview").src = reader.result;
+            //     console.log(reader.result);
+            // }
+        }
+    })	
+</script>
+
   <!-- <script>
     function checkId(){  
         
@@ -335,7 +352,7 @@
     document.getElementById("forum-post-btn").addEventListener("click", checkId, false);
     }, false);
   </script> -->
-    <script src="./js/forum-post.js"></script>
+    <!-- <script src="./js/forum-post.js"></script> -->
     <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 
