@@ -7,10 +7,11 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
 
-    $sql= "SELECT min(cp.comment_time) Min, cp.comment_poster, cp.comment_time, fp.forum_post_poster, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category
-                    from comment_post cp
-                        right join forum_post fp on(cp.forum_post_no = fp.forum_post_no)
-                    WHERE fp.forum_post_poster = $mem_no
+    $sql= "SELECT max(cp.comment_time) Max, cp.comment_time, fp.forum_post_poster, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category
+                from comment_post cp
+                    right join forum_post fp on(cp.forum_post_no = fp.forum_post_no)
+                    WHERE fp.forum_post_poster = $mem_no and fp.forum_post_situation = 1
+                    GROUP by fp.forum_post_poster, cp.forum_post_no, fp.forum_post_no, fp.forum_post_title, fp.forum_post_image, fp.forum_post_innertext, fp.forum_post_time, fp.forum_post_category
                     order BY fp.forum_post_time DESC;
                 ";
 
