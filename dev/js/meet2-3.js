@@ -143,6 +143,7 @@ new Vue({
                // 打開彈窗
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
+                console.log(reportNo);
                 let iconIF = $(e.target.parentNode.parentNode).find("img");
                 $(".mg_confirm").click(function(e){
                     var temp = $('#send_report_block').val();
@@ -153,8 +154,6 @@ new Vue({
                         formMessageReport = new FormData();
                         formMessageReport.append("comment_report_comment", reportNo)
                         formMessageReport.append("comment_report_reason", comment_report_reason)
-                        alert(reportNo);
-                        alert(comment_report_reason);
                         axios.get('./phpForConnect/meet2-3_message_report.php', {params:{
                             "comment_report_comment" : reportNo,
                             "comment_report_reason" : comment_report_reason,

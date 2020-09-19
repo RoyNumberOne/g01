@@ -17,12 +17,8 @@
 
         //抓取會員資訊
         session_start();
-        $member_no = $_SESSION["mem_no"];
+        $tour_hoster = $_SESSION["mem_no"]; // 變數（會員號碼） ＝ session 抓會員號碼
 
-        // $member_no = 10008;
-
-        $tour_hoster = $member_no;
-        
         //抓前端送來的資料
         $tour_mountain = $_POST['tour_mountain'];
         $tour_title = $_POST['tour_title'];
@@ -30,11 +26,13 @@
         $tour_activityend = $_POST['tour_activityend'];
         $tour_min_number = $_POST['tour_min_number'];
         $tour_max_number = $_POST['tour_max_number'];
+
         $tour_equip_1 = isset($_POST['tour_equip_1']) ? 1 : 0;
         $tour_equip_2 = isset($_POST['tour_equip_2']) ? 1 : 0;
         $tour_equip_3 = isset($_POST['tour_equip_3']) ? 1 : 0;
         $tour_equip_4 = isset($_POST['tour_equip_4']) ? 1 : 0;
         $tour_equip_5 = isset($_POST['tour_equip_5']) ? 1 : 0;
+
         $tour_notice = $_POST['tour_notice'];
         $tour_innertext = $_POST['tour_innertext'];
 
@@ -65,6 +63,7 @@
         echo "揪團編號".$prodRows[0]['tour_no']."<br>";
 
         // ------------------------------上傳的圖片 以指定檔名存入指定地點 並存入資料庫------------------------------
+        
         $fileCount = count($_FILES['upload_tourimg_input']['name']); // 取得檔案上傳數量
         
         for ($i = 0; $i < $fileCount; $i++){
@@ -86,11 +85,12 @@
                     }
 
                     $file = $_FILES['upload_tourimg_input']['tmp_name'][$i]; //檔案暫存位置 檔名
+                    
                     $c = $i+1;
 
-                    $dest = $dir."/".$tour_no.'_'.$c.'.jpg'; // 存入的檔名
+                    $dest = $dir."/".$tour_no.'_'.$c.'.jpg'; // 存入MYSQL的檔名
 
-                    // 將檔案移至指定位置
+                    // 將檔案移至指定位置(從哪裡,目的地)
                     move_uploaded_file($file, $dest);
 
                     // 將檔案位置資訊新增至資料庫中
