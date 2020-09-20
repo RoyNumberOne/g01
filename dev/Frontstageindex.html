@@ -126,6 +126,7 @@
 
         <div id="section2" class="section section2">
             <div id="sec2box">
+                <button id="OPENweather" @click="OPENweather">天<br>氣<br>預<br>報</button>
                 <div id="weatherbox">
                     <div class="weather">
                         <div class="weathernow">
@@ -606,7 +607,19 @@
                             return '應該很難';
                         break;
                     }
+                },
+                OPENweather: function(){
+                    if($('#OPENweather').hasClass('on')) {
+                        $("#OPENweather").removeClass('on');
+                        $("#weatherbox").removeClass('on')
+                    }   else    {
+                        $("#OPENweather").addClass('on');
+                        $("#weatherbox").addClass('on')
+                    }
                 }
+                
+                    // $(document).ready(
+                    // );
             },
             computed: {
                 CHECKname() {

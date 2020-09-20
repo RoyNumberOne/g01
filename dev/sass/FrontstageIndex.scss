@@ -156,12 +156,28 @@ div#section2 {
         width: 80vw;
         background-color: rgba($mt_black,0.9);
         display: flex;
+        position: relative;
+        & #OPENweather{
+            position: absolute;
+            left: 0;
+            top: 40%;
+            width: 50px;
+            height: 120px;
+            border: 0px solid $mt_black;
+            border-radius: 0px 10px 10px 0px;
+            color: rgba($mt_fontlight,1);
+            background-color: $mt_yellow;
+            outline: none;
+            display: none;
+            transition: 0.3s all;
+        }
         & #weatherbox {
             width: 30%;
             height: 100%;
             padding: 0px 15px;
             display: flex;
             flex-direction: column;
+            transition: 0.3s all;
             & div.weather{
                     height: 45%;
                     margin-top: 5%;
@@ -294,7 +310,8 @@ div#section2 {
 
         }
         & #tourbox {
-            width: 70%;
+            width: 100% !important;
+            padding: auto 5% ;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -751,6 +768,7 @@ div#section4 {
             width: 480px;
             height: 160px;
             display: flex;
+            
             & >:nth-child(1) div.circlesmall{            
                 background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
             }
@@ -978,7 +996,8 @@ div#section4 {
     }
 }
 // 1440 * 600
-@media screen and (min-width: 1440px ) and (min-height: 600px) and (max-height: 719px){
+@media screen and (min-width: 1440px ) and (min-height: 600px) and (max-height: 719px) and (min-height: 600px){
+    //先不刻,code跟上一段RWD一樣
     & div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 1366px !important;
@@ -1065,16 +1084,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxright {
-            & .smallbox {
-                & .graymask {
-                    padding: 30% 20% !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxright {
             & .smallbox {
                 & .graymask {
@@ -1186,16 +1196,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxright {
-            & .smallbox {
-                & .graymask {
-                    padding: 30% 20% !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxright {
             & .smallbox {
                 & .graymask {
@@ -1251,33 +1252,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxleft {
-            & p{
-                /*!autoprefixer:off*/
-                -webkit-line-clamp: 7 !important;
-                /*autoprefixer:on*/
-                height: 155px !important;
-            }
-        }
-        & .innerboxright {
-            flex-direction: column;
-            & .smallbox {
-                width: calc(100% - 12px) !important;
-                height: calc(25% - 12px) !important;
-                & .smallpic {
-                    & img {
-                        height: auto !important;
-                        width: 100% !important;
-                    }
-                }
-                & .graymask {
-                    padding: 15% 30px !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1400,35 +1375,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxleft {
-            & .forumtext{
-                & p{
-                    /*!autoprefixer:off*/
-                    -webkit-line-clamp: 7 !important;
-                    /*autoprefixer:on*/
-                    height: 155px !important;
-                }
-            }
-        }
-        & .innerboxright {
-            flex-direction: column;
-            & .smallbox {
-                width: calc(100% - 12px) !important;
-                height: calc(25% - 12px) !important;
-                & .smallpic {
-                    & img {
-                        height: auto !important;
-                        width: 100% !important;
-                    }
-                }
-                & .graymask {
-                    padding: 12% 30px !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1552,35 +1499,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxleft {
-            & .forumtext{
-                & p{
-                    /*!autoprefixer:off*/
-                    -webkit-line-clamp: 7 !important;
-                    /*autoprefixer:on*/
-                    height: 155px !important;
-                }
-            }
-        }
-        & .innerboxright {
-            flex-direction: column;
-            & .smallbox {
-                width: calc(100% - 12px) !important;
-                height: calc(25% - 12px) !important;
-                & .smallpic {
-                    & img {
-                        height: auto !important;
-                        width: 100% !important;
-                    }
-                }
-                & .graymask {
-                    padding: 12% 30px !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1627,7 +1546,7 @@ div#section4 {
     }
 }
 // 1200 * 600
-@media screen and (min-width: 1200px) and (max-width: 1439px) and (max-height: 719px) and (max-height: 600px){
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (min-height: 600px) and (max-height: 719px){
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 1152px !important;
@@ -1704,35 +1623,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
-        & .innerboxleft {
-            & .forumtext{
-                & p{
-                    /*!autoprefixer:off*/
-                    -webkit-line-clamp: 7 !important;
-                    /*autoprefixer:on*/
-                    height: 155px !important;
-                }
-            }
-        }
-        & .innerboxright {
-            flex-direction: column;
-            & .smallbox {
-                width: calc(100% - 12px) !important;
-                height: calc(25% - 12px) !important;
-                & .smallpic {
-                    & img {
-                        height: auto !important;
-                        width: 100% !important;
-                    }
-                }
-                & .graymask {
-                    padding: 12% 30px !important;
-                }
-            }
-        }
-    }
-    & div#sec3-2box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1778,10 +1669,8 @@ div#section4 {
         }
     }
 }
-
-
 // 1200 * 100%
-@media screen and (min-width: 1200px) and (max-width: 1439px) and (max-height: 719px) and (max-height: 600px){
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (max-height: 599px){
     //先不刻,code跟上一段RWD一樣
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
@@ -1860,7 +1749,7 @@ div#section4 {
             }
         }
     }
-    & div#sec3-1box{
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1888,7 +1777,57 @@ div#section4 {
             }
         }
     }
-    & div#sec3-2box{
+}
+
+
+
+// 992 * 900
+@media screen and (min-width: 992px) and (max-width: 1199px) and (min-height: 900px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 960px !important;
+        max-height: 900px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
         & .innerboxleft {
             & .forumtext{
                 & p{
@@ -1911,61 +1850,2366 @@ div#section4 {
                     }
                 }
                 & .graymask {
-                    padding: 12% 30px !important;
+                    padding: 15% 30px !important;
                 }
             }
         }
     }
     & div#sec4box{
-        & .boxbig{
-            & .picbig{
-                margin-top: 30px !important;
+        & .picbig{
+            margin-top: 70px !important;
+            width: 270px !important;
+            height: 270px !important;
+            & .circlebig{
+                width: 270px !important;
+                height: 270px !important;
             }
-            & .prodesc{
-                width: 400px !important;
-                margin-left: 60px !important;
-                & .proprice {
-                    margin-top: -30px !important;
-                }
+            & .propicbig{
+                width: 270px !important;
+                height: 270px !important;
             }
         }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 370px !important;
+        }
         & .smalls {
-            margin-right: 30px !important;
+            margin-top: 100px !important;
         }
     }
 }
-
-
-
-
-@media screen and (min-width: 992px) and (max-width: 1199px) {
+// 992 * 768
+@media screen and (min-width: 992px) and (max-width: 1199px) and (min-height: 768px) and (max-height: 899px){
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 960px !important;
+        max-height: 768px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 30px !important;
+                                }
+                                & #TtoT{
+                                    top: 140px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 60px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 120px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 245px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 20px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 245px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 20px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 200px !important;
+            height: 200px !important;
+            & .circlebig{
+                width: 200px !important;
+                height: 200px !important;
+            }
+            & .propicbig{
+                width: 200px !important;
+                height: 200px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 370px !important;
+            & .proprice {
+                margin-top: -40px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 50px !important;
+        }
     }
 }
-@media screen and (min-width: 768px) and (max-width: 991px) {
+// 992 * 720
+@media screen and (min-width: 992px) and (max-width: 1199px) and (min-height: 720px) and (max-height: 767px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 960px !important;
+        max-height: 720px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #tourhotbox{
+                & >:nth-child(1){
+                    padding: 1% !important;
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & .tourtitle{
+                            margin-top: 0;
+                            & p.innertext{
+                                /*!autoprefixer:off*/
+                                -webkit-line-clamp: 6 !important;
+                                /*autoprefixer:on*/
+                                height: 131px !important;
+                            }
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 200px !important;
+            height: 200px !important;
+            & .circlebig{
+                width: 200px !important;
+                height: 200px !important;
+            }
+            & .propicbig{
+                width: 200px !important;
+                height: 200px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 370px !important;
+            & .proprice {
+                margin-top: -40px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 50px !important;
+        }
+    }
+}
+// 992 * 600
+@media screen and (min-width: 992px) and (max-width: 1199px) and (min-height: 600px) and (max-height: 719px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 960px !important;
+        max-height: 600px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #tourhotbox{
+                & >:nth-child(1){
+                    padding: 1% !important;
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & .tourtitle{
+                            margin-top: 0;
+                            & p.innertext{
+                                /*!autoprefixer:off*/
+                                -webkit-line-clamp: 6 !important;
+                                /*autoprefixer:on*/
+                                height: 131px !important;
+                            }
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 160px !important;
+            height: 160px !important;
+            & .circlebig{
+                width: 160px !important;
+                height: 160px !important;
+            }
+            & .propicbig{
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 320px !important;
+            & .proprice {
+                margin-top: -40px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 50px !important;
+            width: 390px !important;
+            height: 120px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+            }
+        }
+    }
+}
+// 992 * 100%
+@media screen and (min-width: 992px) and (max-width: 1199px) and (max-height: 599px){
+    //先不刻,code跟上一段RWD一樣
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 960px !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #tourhotbox{
+                & >:nth-child(1){
+                    padding: 1% !important;
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & .tourtitle{
+                            margin-top: 0;
+                            & p.innertext{
+                                /*!autoprefixer:off*/
+                                -webkit-line-clamp: 6 !important;
+                                /*autoprefixer:on*/
+                                height: 131px !important;
+                            }
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    padding: 1% !important;
+                    & .tourimg{
+                        max-height: 215px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 98% !important;
+                        top: 5px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 160px !important;
+            height: 160px !important;
+            & .circlebig{
+                width: 160px !important;
+                height: 160px !important;
+            }
+            & .propicbig{
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 320px !important;
+            & .proprice {
+                margin-top: -40px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 50px !important;
+            width: 390px !important;
+            height: 120px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+            }
+        }
+    }
+}
+
+
+
+// 768 * 900
+@media screen and (min-width: 768px) and (max-width: 991px) and (min-height: 900px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 720px !important;
+        max-height: 900px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .bigpic{
+                height: 25% !important;
+            }
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 20% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 180px !important;
+            height: 180px !important;
+            & .circlebig{
+                width: 180px !important;
+                height: 180px !important;
+            }
+            & .propicbig{
+                width: 180px !important;
+                height: 180px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 100px !important;
+            margin-left: 40px !important;
+            width: 290px !important;
+        }
+        & .smalls {
+            margin-top: 40px !important;
+        }
     }
 }
-@media screen and (min-width: 576px) and (max-width: 767px){
+// 768 * 768
+@media screen and (min-width: 768px) and (max-width: 991px) and (min-height: 768px) and (max-height: 899px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 720px !important;
+        max-height: 768px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 30px !important;
+                                }
+                                & #TtoT{
+                                    top: 140px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 60px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 120px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & .bigpic{
+                height: 25% !important;
+            }
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 20% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 150px !important;
+            height: 150px !important;
+            & .circlebig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+            & .propicbig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 60px !important;
+            margin-left: 70px !important;
+            width: 220px !important;
+            & .prosubtitle {
+                height: 108px !important;
+                margin-top: 10px !important;
+            }
+            & .proprice {
+                margin-top: 30px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 40px !important;
+        }
+    }
+}
+// 768 * 720
+@media screen and (min-width: 768px) and (max-width: 991px) and (min-height: 720px) and (max-height: 767px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 720px !important;
+        max-height: 720px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .bigpic{
+                height: 25% !important;
+            }
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                    margin-top: 20px;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 20% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 70px !important;
+            width: 150px !important;
+            height: 150px !important;
+            & .circlebig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+            & .propicbig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 60px !important;
+            margin-left: 70px !important;
+            width: 220px !important;
+            & .prosubtitle {
+                height: 108px !important;
+                margin-top: 10px !important;
+            }
+            & .proprice {
+                margin-top: 30px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 40px !important;
+        }
+    }
+}
+// 768 * 600
+@media screen and (min-width: 768px) and (max-width: 991px) and (min-height: 600px) and (max-height: 719px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 720px !important;
+        max-height: 600px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        max-height: 330px !important;
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 5 !important;
+                            /*autoprefixer:on*/
+                            height: 108px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .bigpic{
+                height: 25% !important;
+            }
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                    margin-top: 20px;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                    & h3{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 20px !important;
+            width: 150px !important;
+            height: 150px !important;
+            & .circlebig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+            & .propicbig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 60px !important;
+            margin-left: 70px !important;
+            width: 220px !important;
+            & .prosubtitle {
+                height: 108px !important;
+                margin-top: 10px !important;
+            }
+            & .proprice {
+                margin-top: 30px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 0px !important;
+            width: 390px !important;
+            height: 120px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+            }
+        }
+    }
+}
+// 768 * 100%
+@media screen and (min-width: 768px) and (max-width: 991px) and (max-height: 599px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
+    //先不刻,code跟上一段RWD一樣
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 720px !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        max-height: 330px !important;
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 5 !important;
+                            /*autoprefixer:on*/
+                            height: 108px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 255px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        & .innerboxleft {
+            & .bigpic{
+                height: 25% !important;
+            }
+            & .theinfor{
+                & .member_styleA{
+                    display: none !important;
+                }
+            }
+            & .forumtitle{
+                width: 100% !important;
+                & h3{
+                    height: 40px !important;
+                    text-align: center !important;
+                }
+                & span{
+                    text-align: center !important;
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                    margin-top: 20px;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                    & h3{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .picbig{
+            margin-top: 20px !important;
+            width: 150px !important;
+            height: 150px !important;
+            & .circlebig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+            & .propicbig{
+                width: 150px !important;
+                height: 150px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 60px !important;
+            margin-left: 70px !important;
+            width: 220px !important;
+            & .prosubtitle {
+                height: 108px !important;
+                margin-top: 10px !important;
+            }
+            & .proprice {
+                margin-top: 30px !important;
+            }
+        }
+        & .smalls {
+            margin-top: 0px !important;
+            width: 390px !important;
+            height: 120px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+            }
+        }
+    }
+}
+
+// 576 * 900
+@media screen and (min-width: 576px) and (max-width: 767px) and (min-height: 900px){
+    #fp-nav.left {
+        left: 3px !important;
+    }
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 540px !important;
+        max-height: 900px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            top: 15% !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                flex-wrap: wrap !important;
+                flex-direction: row !important;
+                & >:nth-child(1){
+                    width: 100% !important;
+                    height: 70% !important;
+                    & .tourimg{
+                        height: 73% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        height: 460px !important;
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 5 !important;
+                            /*autoprefixer:on*/
+                            height: 108px !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & a{
+                        height: 270px;
+                    }
+                    & .tourimg{
+                        max-height: 405px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & a{
+                        height: 270px;
+                    }
+                    & .tourimg{
+                        max-height: 405px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        & .innerboxleft {
+            width: 100% !important;
+            height: 60% !important;
+            & .bigpic{
+                height: 50% !important;
+            }
+            & .theinfor{
+                margin-top: 0 !important;
+                height: auto !important;
+                & .member_styleA{
+                    display: none !important;
+                }
+                & .forumtitle{
+                    width: 100% !important;
+                    & h3{
+                        height: 40px !important;
+                        text-align: center !important;
+                    }
+                    & span{
+                        text-align: center !important;
+                    }
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                padding-bottom: 10px !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 3 !important;
+                    /*autoprefixer:on*/
+                    height: 65px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                }
+            }
+        }
+        & .innerboxright {
+            width: 100% !important;
+            height: 40% !important;
+            flex-direction: row !important;
+            & .smallbox {
+                width: calc(50% - 12px) !important;
+                height: calc(50% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 20% 30px !important;
+                    & h3 {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        display: flex;
+        flex-direction: column;
+        & .picbig{
+            margin-top: 30px !important;
+            width: 100% !important;
+            height: 260px !important;
+            & .circlebig{
+                display: inline-block;
+                width: 180px !important;
+                height: 180px !important;
+            }
+            & .propicbig{
+                display: inline-block;
+                width: 180px !important;
+                height: 180px !important;
+                margin-left: 32% !important;
+            }
+            & .btngo{
+                bottom: 0 !important;
+                margin-top: 15px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 20px !important;
+            margin-left: 0px !important;
+            width: 100% !important;
+            padding: 0 40px !important;
+            & .protitle{
+                & h3{
+                    text-align: center;
+                }
+            }
+            & .prosubtitle{
+                height: 65px !important;
+                & p{
+                    height: 65px !important;
+                    /*!autoprefixer:off*/
+                    display: -webkit-box !important;
+                    -webkit-box-orient: vertical !important;
+                    -webkit-line-clamp: 3 !important;
+                    /*autoprefixer:on*/
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: wrap;
+                }
+            }
+            & .proprice{
+                margin-top: 5px !important;
+            }
+        }
+        & .smalls {
+            width: 100% !important;
+            padding: 0 5%;
+            margin-top: 0px !important;
+            margin-right: 0px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+            }
+        }
     }
  }
-@media screen and (max-width: 575px){
+ // 576 * 768
+@media screen and (min-width: 576px) and (max-width: 767px) and (min-height: 768px) and (max-height: 899px){
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
-        max-width: calc( 100vw - 100px) !important;
+        max-width: 540px !important;
+        max-height: 768px !important;
+    }
+    & div#sec2box{
+        & #OPENweather{
+            z-index: 16;
+            display: block !important;
+            top: 15% !important;
+            &.on{
+                left: 310px !important;
+            }
+        }
+        & #weatherbox{
+            position: absolute;
+            left: -310px;
+            z-index: 15;
+            width: 310px !important;
+            padding:  0px 10px !important;
+            background-color: $mt_black;
+            transition: 0.3s all;
+            &.on{
+                left: 0px;
+            }
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 30px !important;
+                                }
+                                & #TtoT{
+                                    top: 140px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 60px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 120px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 30px !important;
+            }
+            & #tourhotbox{
+                flex-wrap: wrap !important;
+                flex-direction: row !important;
+                & >:nth-child(1){
+                    width: 100% !important;
+                    height: 70% !important;
+                    & .tourimg{
+                        height: 73% !important;
+                    }
+                    & .member_styleA{
+                        display: none !important;
+                    }
+                    & > a {
+                        height: 460px !important;
+                        & p.innertext{
+                            display: none !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & a{
+                        height: 270px;
+                    }
+                    & .tourimg{
+                        max-height: 405px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & a{
+                        height: 270px;
+                    }
+                    & .tourimg{
+                        max-height: 405px !important;
+                    }
+                    & .tourtitle {
+                        position: absolute;
+                        width: 90% !important;
+                        top: 10px !important;
+                        background-color: rgba($mt_black,0.9);
+                        margin-top: 0px !important;
+                        & h3 {
+                            padding: 5px 10px !important;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box , & div#sec3-2box{
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        & .innerboxleft {
+            width: 100% !important;
+            height: 60% !important;
+            & .bigpic{
+                height: 50% !important;
+            }
+            & .theinfor{
+                margin-top: 0 !important;
+                height: auto !important;
+                & .member_styleA{
+                    display: none !important;
+                }
+                & .forumtitle{
+                    width: 100% !important;
+                    & h3{
+                        height: 40px !important;
+                        text-align: center !important;
+                    }
+                    & span{
+                        text-align: center !important;
+                    }
+                }
+            }
+            & .forumtext{
+                margin-top: 0 !important;
+                padding-bottom: 10px !important;
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 3 !important;
+                    /*autoprefixer:on*/
+                    height: 65px !important;
+                }
+            }
+            & .sub{
+                & div , p {
+                    display: initial !important;
+                }
+                & span{
+                    display: block !important;
+                }
+            }
+        }
+        & .innerboxright {
+            width: 100% !important;
+            height: 40% !important;
+            flex-direction: row !important;
+            & .smallbox {
+                width: calc(50% - 12px) !important;
+                height: calc(50% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 10px !important;
+                    & h3 {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        display: flex;
+        flex-direction: column;
+        & .picbig{
+            margin-top: 10px !important;
+            width: 100% !important;
+            height: 260px !important;
+            & .circlebig{
+                display: inline-block;
+                width: 180px !important;
+                height: 180px !important;
+            }
+            & .propicbig{
+                display: inline-block;
+                width: 180px !important;
+                height: 180px !important;
+                margin-left: 32% !important;
+            }
+            & .btngo{
+                bottom: 0 !important;
+                margin-top: 15px !important;
+            }
+        }
+        & .prodesc{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px !important;
+            margin-left: 0px !important;
+            width: 100% !important;
+            padding: 0 40px !important;
+            & .protitle{
+                & h3{
+                    text-align: center;
+                }
+            }
+            & .prosubtitle{
+                height: 65px !important;
+                & p{
+                    height: 65px !important;
+                    /*!autoprefixer:off*/
+                    display: -webkit-box !important;
+                    -webkit-box-orient: vertical !important;
+                    -webkit-line-clamp: 3 !important;
+                    /*autoprefixer:on*/
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: wrap;
+                }
+            }
+            & .proprice{
+                margin-top: 5px !important;
+            }
+        }
+        & .smalls {
+            width: 100% !important;
+            padding: 0 5%;
+            margin-top: 0px !important;
+            margin-right: 0px !important;
+            justify-content: space-between;
+            & .boxsmall{
+                width: 120px !important;
+                & .circlesmall {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+                & .propicsmall{
+                    width: 120px !important;
+                }
+                & .protitle{
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+// 576 * 720
+@media screen and (min-width: 576px) and (max-width: 767px) and (min-height: 720px) and (max-height: 767px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 540px !important;
+        max-height: 720px !important;
+    }
+}
+// 576 * 600
+@media screen and (min-width: 576px) and (max-width: 767px) and (min-height: 600px) and (max-height: 719px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 540px !important;
+        max-height: 600px !important;
+    }
+}
+// 576 * 100%
+@media screen and (min-width: 576px) and (max-width: 767px) and (max-height: 599px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 540px !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
     }
 }
 
 // debug
+// div#section1,div#section2,div#section3 {
+//     display: none;
+// }
 
-    // div#section1,div#section3,div#section2 {
-    //     display: none;
-    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 100% * 900
+@media screen and (max-width: 575px) and (min-height: 900px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: calc( 100vw - 50px) !important;
+        max-height: 900px !important;
+    }
+}
+// 100% * 768
+@media screen and (max-width: 575px) and (min-height: 768px) and (max-height: 899px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: calc( 100vw - 50px) !important;
+        max-height: 768px !important;
+    }
+}
+// 100% * 720
+@media screen and (max-width: 575px) and (min-height: 720px) and (max-height: 767px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: calc( 100vw - 50px) !important;
+        max-height: 720px !important;
+    }
+}
+// 100% * 600
+@media screen and (max-width: 575px) and (min-height: 600px) and (max-height: 719px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: calc( 100vw - 50px) !important;
+        max-height: 600px !important;
+    }
+}
+// 100% * 100%
+@media screen and (max-width: 575px) and (max-height: 599px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: calc( 100vw - 50px) !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+    }
+}
+
     
