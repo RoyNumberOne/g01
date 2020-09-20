@@ -64,38 +64,6 @@
     50%{ opacity: 0;} //6000
     100%{ opacity: 0;} //12000
 }
-@keyframes meteorfalls {
-    0% {
-        opacity: 0;
-        height: 11px;
-        transform: skewX(-15deg) translateY(0px);
-        // bottom: 40vw;
-    }
-    15%{
-        opacity: 0.5;
-        height: 20px;
-    }
-    50% {
-        height: 100px;
-        opacity: 0.85;
-    }
-    80%{
-        opacity: 0.5;
-        height: 150px;
-    }
-    
-    90%{
-        opacity: 0;
-        height: 11px;
-        transform: skewX(-15deg) translateY(220px);
-    }
-    100%{
-        opacity: 0;
-        height: 11px;
-        transform: skewX(-15deg) translateY(0px);
-        // bottom: 40vw;
-    }
-}
 
 .section {
     text-align:center;
@@ -142,11 +110,11 @@ div.bg{
     overflow: hidden;
     & div.bgbox{
         & img{
-            width: 2000px;
-            left: calc(50vw - 1000px);
+            width: 2400px;
+            left: calc(50vw - 1200px);
             bottom: calc(-3vh);
             position: fixed; 
-            transition: 0.2s all linear;    
+            transition: 0.3s all linear;    
         }
     }
     & div.scenefade1 {
@@ -241,71 +209,6 @@ div#section2 {
                                 }
                             }
                           }
-                        & .moon {
-                          width: 50px;
-                          height: 50px;
-                          position: absolute;
-                          left: 180px;
-                          top: 30px;
-                                  transform: translateX(-12px) translateY(-12px);
-                          border-radius: 100%;
-                          box-shadow: 12px 12px 0 0 #FFD633;
-                                  animation: moon 50s both;
-                                  transition-duration: 0.5s;
-                        }
-                        & .cloud {
-                            width: 100px;
-                            height: 36px;
-                            background-color: #f2f9fe;
-                            border-radius: 20px;
-                            position: absolute;
-                            left: 200px;
-                            top: 140px;
-                            z-index: 50;
-                            animation: floating 3s infinite;
-                            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
-                            transition-duration: 0.5s;
-                            &::before, .cloud::after {
-                                content: "";
-                                display: block;
-                                position: absolute;
-                                width: 50px;
-                                height: 50px;
-                                top: -28px;
-                                left: 16px;
-                                background-color: #f2f9fe;
-                                border-radius: 25px;
-                                z-index: 1;
-                              }
-                            &::after {
-                                top: -20px;
-                                left: 35px;
-                            }
-
-                        }
-
-                        & .rain {
-                            width: 2px;
-                            height: 10px;
-                            background-color: #f3f3f3;
-                            animation: rain 1s infinite linear;
-                            left: 45px;
-                            bottom: 15px;
-                            position: relative;
-                            transition-duration: 0.5s;
-                        }
-                        
-                        & .rain2 {
-                            animation-delay: -0.4s;
-                            left: 70px;
-                            bottom: 20px;
-                        }
-                        
-                        & .rain3 {
-                            animation-delay: -0.7s;
-                            left: 30px;
-                            bottom: 20px;
-                        }
                     }
                     & div.weatherweek{
                         height: auto;
@@ -455,6 +358,7 @@ div#section2 {
                     & .tourimg{
                         width: 100%;
                         height: 40%;
+                        max-height: 220px;
                         overflow: hidden;
                         position: relative;
                         & img {
@@ -509,6 +413,7 @@ div#section2 {
                     & .tourimg{
                         width: 100%;
                         height: 78%;
+                        max-height: 200px;
                         overflow: hidden;
                         position: relative;
                         & img {
@@ -536,9 +441,9 @@ div#section2 {
                             }
                         }
                     }
-                    & .tourtitle {
-                        margin-top: 20px;
-                    }
+                    // & .tourtitle {
+                        // margin-top: 20px;
+                    // }
                 }
                 & >:nth-child(3) {
                     flex-grow: 1;
@@ -548,6 +453,7 @@ div#section2 {
                         height: 78%;
                         overflow: hidden;
                         position: relative;
+                        max-height: 200px;
                         & img {
                             width: 100%;
                         }
@@ -892,26 +798,1153 @@ div#section4 {
         }
     }
 }
-
-@media screen and (min-width: 1440px) {
+// (1440,1200,992,768,576,100%) * (900,768,720,600,100%)
+// 1440 * 900
+@media screen and (min-width: 1440px ) and (min-height: 900px){
+    & div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1366px !important;
+        max-height: 900px !important;
+    }
+}
+// 1440 * 768
+@media screen and (min-width: 1440px ) and (min-height: 768px) and (max-height: 899px){
+    & div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1366px !important;
+        max-height: 768px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 30px !important;
+                                }
+                                & #TtoT{
+                                    top: 140px  !important;
+                                }
+                                & .PoP{
+                                    right: 40px !important;
+                                    top: 70px !important;
+                                }
+                                & .RH{
+                                    right: 40px !important;
+                                    top: 130px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 5 !important;
+                        /*autoprefixer:on*/
+                        height: 144px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 185px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 185px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 60px !important;
+            }
+            & .prodesc{
+                & .proprice {
+                    margin-top: 0px !important;
+                }
+            }
+        }
+    }
+}
+// 1440 * 720
+@media screen and (min-width: 1440px ) and (min-height: 720px) and (max-height: 767px){
+    & div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1366px !important;
+        max-height: 720px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 40px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 40px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 3 !important;
+                        /*autoprefixer:on*/
+                        height: 85px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 150px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 150px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
+    }
+}
+// 1440 * 600
+@media screen and (min-width: 1440px ) and (min-height: 600px) and (max-height: 719px){
+    & div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1366px !important;
+        max-height: 600px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: -10px !important;
+                                }
+                                & #TtoT{
+                                    top: 95px  !important;
+                                }
+                                & .PoP{
+                                    right: 70px !important;
+                                    top: 20px !important;
+                                }
+                                & .RH{
+                                    right: 70px !important;
+                                    top: 80px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 5px !important;
+                }
+            }
+            & .weatherselect {
+                padding-top: 15px !important;
+                height: 60px !important;
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & > a {
+                        height: 350px;
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 4 !important;
+                            /*autoprefixer:on*/
+                            height: 115px !important;
+                        }
+                        & .member_styleA{
+                            display: none !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 105px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                        & h3{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 105px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                        & h3{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxright {
+            & .smallbox {
+                & .graymask {
+                    padding: 30% 20% !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxright {
+            & .smallbox {
+                & .graymask {
+                    padding: 30% 20% !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
+    }
+}
+// 1440 * 100%
+@media screen and (min-width: 1440px ) and (max-height: 599px){
+    //先不刻,code跟上一段RWD一樣
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 1366px !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: -10px !important;
+                                }
+                                & #TtoT{
+                                    top: 95px  !important;
+                                }
+                                & .PoP{
+                                    right: 70px !important;
+                                    top: 20px !important;
+                                }
+                                & .RH{
+                                    right: 70px !important;
+                                    top: 80px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 5px !important;
+                }
+            }
+            & .weatherselect {
+                padding-top: 15px !important;
+                height: 60px !important;
+            }
+        }
+        & #tourbox {
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & > a {
+                        height: 350px;
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 4 !important;
+                            /*autoprefixer:on*/
+                            height: 115px !important;
+                        }
+                        & .member_styleA{
+                            display: none !important;
+                        }
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 125px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                        & h3{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 125px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                        & h3{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxright {
+            & .smallbox {
+                & .graymask {
+                    padding: 30% 20% !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxright {
+            & .smallbox {
+                & .graymask {
+                    padding: 30% 20% !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
     }
 }
-@media screen and (min-width: 1200px) and (max-width: 1439px){
+
+
+
+// 1200 * 900
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (min-height: 900px){
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 1152px !important;
+        max-height: 900px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            width: 310px !important;
+            padding:  0px 10px !important;
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #tourhotbox{
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 37% !important;
+                    }
+                    & > a {
+                        & p.innertext{
+                            /*!autoprefixer:off*/
+                            -webkit-line-clamp: 8 !important;
+                            /*autoprefixer:on*/
+                            height: 175px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & p{
+                /*!autoprefixer:off*/
+                -webkit-line-clamp: 7 !important;
+                /*autoprefixer:on*/
+                height: 155px !important;
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 15% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            // & .picbig{
+                
+            // }
+            & .prodesc{
+                width: 400px !important;
+                margin-left: 60px !important;
+                // & .proprice {
+                // }
+            }
+        }
+        & .smalls {
+            margin-right: 30px !important;
+        }
     }
 }
-@media screen and (min-width: 992px) and (max-width: 1199px){
+// 1200 * 768
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (min-height: 768px) and (max-height: 899px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1152px !important;
+        max-height: 768px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            width: 310px !important;
+            padding:  0px 10px !important;
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 30px !important;
+                                }
+                                & #TtoT{
+                                    top: 140px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 60px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 120px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 35% !important;
+                    }
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 6 !important;
+                        /*autoprefixer:on*/
+                        height: 130px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 60px !important;
+            }
+            & .prodesc{
+                width: 400px !important;
+                margin-left: 60px !important;
+                & .proprice {
+                    margin-top: 0px !important;
+                }
+            }
+        }
+        & .smalls {
+            margin-right: 30px !important;
+        }
+    }
+}
+// 1200 * 720
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (min-height: 720px) and (max-height: 767px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1152px !important;
+        max-height: 720px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            width: 310px !important;
+            padding:  0px 10px !important;
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 35% !important;
+                    }
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 3 !important;
+                        /*autoprefixer:on*/
+                        height: 85px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                width: 400px !important;
+                margin-left: 60px !important;
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
+        & .smalls {
+            margin-right: 30px !important;
+        }
+    }
+}
+// 1200 * 600
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (max-height: 719px) and (max-height: 600px){
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1152px !important;
+        max-height: 600px !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            width: 310px !important;
+            padding:  0px 10px !important;
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 35% !important;
+                    }
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 6 !important;
+                        /*autoprefixer:on*/
+                        height: 128px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                width: 400px !important;
+                margin-left: 60px !important;
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
+        & .smalls {
+            margin-right: 30px !important;
+        }
+    }
+}
+
+
+// 1200 * 100%
+@media screen and (min-width: 1200px) and (max-width: 1439px) and (max-height: 719px) and (max-height: 600px){
+    //先不刻,code跟上一段RWD一樣
+    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    {
+        max-width: 1152px !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+    }
+    & div#sec2box{
+        & #weatherbox{
+            width: 310px !important;
+            padding:  0px 10px !important;
+            & .weather {
+                & .weathernow {
+                    & .top {
+                        & .text_area{
+                            & .infos{
+                                & #NowT{
+                                    top: 20px !important;
+                                }
+                                & #TtoT{
+                                    top: 130px  !important;
+                                }
+                                & .PoP{
+                                    right: 20px !important;
+                                    top: 50px !important;
+                                }
+                                & .RH{
+                                    right: 20px !important;
+                                    top: 110px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .weatherweek{
+                    padding-top: 15px !important;
+                }
+            }
+        }
+        & #tourbox {
+            width:calc(100% - 310px) !important;
+            & #toursearchbar{
+                height: 50px !important;
+            }
+            & #tourhotbox{
+                & article.tourinforbox {
+                    padding: 5px !important;
+                }
+                & >:nth-child(1){
+                    & .tourimg{
+                        height: 35% !important;
+                    }
+                    & p.innertext{
+                        /*!autoprefixer:off*/
+                        -webkit-line-clamp: 6 !important;
+                        /*autoprefixer:on*/
+                        height: 128px !important;
+                    }
+                }
+                & >:nth-child(2){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+                & >:nth-child(3){
+                    & .tourimg{
+                        max-height: 145px !important;
+                    }
+                    & .tourtitle {
+                        margin-top: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+    & div#sec3-1box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec3-2box{
+        & .innerboxleft {
+            & .forumtext{
+                & p{
+                    /*!autoprefixer:off*/
+                    -webkit-line-clamp: 7 !important;
+                    /*autoprefixer:on*/
+                    height: 155px !important;
+                }
+            }
+        }
+        & .innerboxright {
+            flex-direction: column;
+            & .smallbox {
+                width: calc(100% - 12px) !important;
+                height: calc(25% - 12px) !important;
+                & .smallpic {
+                    & img {
+                        height: auto !important;
+                        width: 100% !important;
+                    }
+                }
+                & .graymask {
+                    padding: 12% 30px !important;
+                }
+            }
+        }
+    }
+    & div#sec4box{
+        & .boxbig{
+            & .picbig{
+                margin-top: 30px !important;
+            }
+            & .prodesc{
+                width: 400px !important;
+                margin-left: 60px !important;
+                & .proprice {
+                    margin-top: -30px !important;
+                }
+            }
+        }
+        & .smalls {
+            margin-right: 30px !important;
+        }
+    }
+}
+
+
+
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 960px !important;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 991px){
+@media screen and (min-width: 768px) and (max-width: 991px) {
     div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: 720px !important;
@@ -932,7 +1965,7 @@ div#section4 {
 
 // debug
 
-    // div#section1,div#section4,div#section2 {
+    // div#section1,div#section3,div#section2 {
     //     display: none;
     // }
     
