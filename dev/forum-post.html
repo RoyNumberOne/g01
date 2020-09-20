@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="block">
-                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題">
+                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題" required>
                     </div>
 
                     <div class="text">
@@ -311,7 +311,7 @@
 <script>
     window.addEventListener("load", function(){
         //..................upFile.onchange ----> 發文加入的code
-        document.getElementById("upload_tourimg_input").onchange = function(e){
+        document.getElementById("forum_post_image").onchange = function(e){
             let file = e.target.files[0];  //取得file物件
             let reader = new FileReader(); //建立一個reader物件 
             reader.readAsDataURL(file); //利用reader物件將file的內容讀進來

@@ -44,10 +44,10 @@
                         <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
                     <li><div id="mem_info_id"></div></li>
-                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
-                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
-                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                    <span class="add_count_others"></span>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
+                    <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
+                    
                 </ul>
             </nav>
             <div id="imagebox">
@@ -145,14 +145,16 @@
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
-                            <p>{{index+1}}F 發表於 {{commentpost.comment_time}}</p>
-                            <div class="report">
-                                <button type="button" class="mg_report_bt">
-                                    <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
-                                </button>
-                                <!-- <p>檢舉</p> -->
+                                <p>{{index+1}}F 發表於 {{commentpost.comment_time}}</p>
+                                <div class="report">
+                                    <button type="button" type="button" class="mg_report_bt" @click=openReportModal>
+                                        <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
+                                        <div class="mg_text">檢舉</div>
+                                    </button>
+                                    <!-- <p>檢舉</p> -->
+                                </div>
                             </div>
-                            </div>
+                            <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
                             <hr>
                             <div class="innertext">
                                 <p>{{commentpost.comment_innertext}}
@@ -475,8 +477,8 @@
     });
   </script>
 
-<script src="./js/login_v2.js"></script>
 <script src="./js/comment.js"></script>
 <script src="./js/header.js" ></script>
+<script src="./js/login_v2.js"></script>
 </body>
 </html>

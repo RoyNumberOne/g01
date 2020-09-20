@@ -291,7 +291,7 @@ new Vue({
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
                 console.log(reportNo);
-                let iconIF = $(e.target.parentNode.parentNode).find("img");
+                let iconIF = $(e.target.parentNode).find("img");
                 $(".mg_confirm").click(function(e) {
                     var temp = $('#send_report_block').val();
                     if (temp == '') {
