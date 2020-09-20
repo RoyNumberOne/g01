@@ -15,6 +15,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <header>
@@ -492,9 +493,7 @@
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-                            <button class="Card_delete">
-                                <img src="./images/icons/icon_trash.svg">
-                            </button>
+                            <input type="button" class="Card_delete" @click="delete_collect(forumList.forum_post_no);"></input>
                         </div>
 
                     </div>
@@ -521,11 +520,7 @@
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-
-                            <!-- <a :href="./phpForConnect/memdeleteCollect_tour.php?tour_no=tourList.tour_no"> -->
-                                <input  type="button" class="Card_delete" @click="delete_collect(tourList.tour_no);"></input>
-                            <!-- </a> -->
-
+                            <input type="button" class="Card_delete" @click="delete_collect(tourList.tour_no);"></input>
                         </div>
                     </div>
                 </div>
@@ -551,9 +546,7 @@
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-                            <button class="Card_delete">
-                                <img src="./images/icons/icon_trash.svg">
-                            </button>
+                            <input type="button" class="Card_delete" @click="delete_collect(productList.product_no);"></input>
                         </div>
 
                     </div>
@@ -666,7 +659,6 @@
     </footer>
 
 <!-- ======================script-(start)======================= -->
-<!-- ======================script-start======================= -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
@@ -678,7 +670,6 @@
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
 
-<!-- ======================script-(end)========================= -->
 <!-- ======================PHP by hiko-(start)======================= -->
 
 <script src="./js/memFootprintNorthCount.js"></script> <!-- (北部)已完成揪團數 -->
@@ -700,7 +691,10 @@
 <script src="./js/memCollectProduct.js"></script>      <!-- 收藏：商品 -->
 <script src="./js/memForumPost.js"></script>           <!-- 發佈的文章 -->
 
-<!-- ======================PHP by hiko-(end)======================= -->
+<!-- ======================PHP by owen-(start)======================= -->
+
+<script src="./js/GetBadge.js"></script>
+
 <!-- ======================script-(手機版切換)======================= -->
 <script>
     $(document).ready(function(){
