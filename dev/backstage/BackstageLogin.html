@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,11 @@
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/fa5.14.0all.js"integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="crossorigin="anonymous"></script>
+    <script src="./js/fa5.14.0all.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/BackstageLogin.js"></script>
 
 </head>
+
 <body>
     <main>
         <form id="loginBox" action="BackstageIndex.php" method="post">
@@ -22,10 +24,25 @@
             <a href="./BackstageproductAdd.php"></a>
             <span>-backstage</span><br>
             <label for="account"><i class="fa fa-user"></i></label><input type="text" name="admin_acc" id="admin_acc" placeholder="帳號"><br>
-            <label for="password"><i class="fas fa-lock"></i></label><input type="password" name="admin_psw" id="admin_psw" placeholder="密碼"><br>
+            <div id="admin_psw1">
+                <label for="password"><i class="fas fa-lock"></i></label><input type="password" name="admin_psw" id="admin_psw" placeholder="密碼"><br>
+                <img src="../images/icons/icon_Invisible.svg" alt="" width=25 height=25 id="eye">
+                <input type="checkbox" id="pswCheck" width=25 height=25>
+            </div>
             <div style="height: 30px; width: 120px; margin: 10px auto; color: red;" id="erroradmin"></div>
             <button type="button" id="btnLogin" class="btnB_L_blue"><p>登入</p><div class="bg"></div></button>
         </form>
     </main>
+    <script>
+        $('#pswCheck').click(function() {
+            $(this).is(':checked') ? $('#admin_psw').attr('type', 'text') : $('#admin_psw').attr('type', 'password');
+            if ($("#eye").attr('src') === "../images/icons/icon_Invisible.svg") {
+                $("#eye").attr("src", "../images/icons/icon_visibility.svg");
+            } else {
+                $("#eye").attr("src", "../images/icons/icon_Invisible.svg");
+            }
+        });
+    </script>
 </body>
+
 </html>
