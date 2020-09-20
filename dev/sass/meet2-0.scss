@@ -420,6 +420,10 @@ $textColor1: $mt_fontdark;
                     transition: all .2s ease-in-out;
                   }
             }
+            .page{
+                width: 100%;
+                margin-top: 40px;
+            }
         }
         .newMeetActivity.card{
             display: flex;
