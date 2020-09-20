@@ -59,13 +59,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        img{
-            width: 60%;
-            height: 60%;
-            position: absolute;
-            top: calc(50% + -30%);
-            left: calc(50% + -30%);
-        }
+        outline: none;
     }
 }
 

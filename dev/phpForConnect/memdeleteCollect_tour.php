@@ -7,11 +7,13 @@ try{
      session_start();
      $mem_no = $_SESSION["mem_no"]; // 變數（會員號碼） ＝ session 抓會員號碼
 
-    $tour_no = $_GET["tour_no"];
+     $tourList_tour_no = isset($_GET["tourList_tour_no"]) ? $_GET["tourList_tour_no"] : 1;
+
+    // $tour_no = $_GET["tour_no"];
     // $tour_no = '100012';  //mem_no = 10018
 
     $sql= " DELETE from tour_keep 
-                where tour_keep_mem = '$mem_no' and tour_iskept_tour = '$tour_no';
+                where tour_keep_mem = '$mem_no' and tour_iskept_tour = '$tourList_tour_no';
      ";
 
     $pdoStatement = $pdo->query($sql); //執行mySQL指令
