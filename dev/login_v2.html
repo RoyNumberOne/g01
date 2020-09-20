@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜會員登入</title>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/fa5.14.0all.min.css">
-	<link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
-	<script src="./js/jquery.min.js" ></script>
-    <script src="./js/fa5.14.0all.js" ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
+    <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/fa5.14.0all.js"></script>
     <link rel="stylesheet" href="./css/login_v2.css">
-	<link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
 </head>
+
 <body>
-    
+
     <header>
         <div id="headerbox">
             <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
-            </a> 
+            </a>
 
             <nav class="menuhover">
                 <ul class="menuhover">
@@ -31,15 +33,29 @@
 
             <nav class="menu">
                 <ul class="link_list llleft">
-                    <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
-                    <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
-                    <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+                    <li>
+                        <a class="tour" href="./meet2-0.html">
+                            <p>揪團區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="forum" href="./forum.html">
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="product" href="./product.html">
+                            <p>商品區</p>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="link_list llright">
                     <li>
                         <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
-                    <li><div id="mem_info_id"></div></li>
+                    <li>
+                        <div id="mem_info_id"></div>
+                    </li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
@@ -68,26 +84,30 @@
     </header>
     <main>
         <div class="container right-panel-active">
-			<!-- Sign In -->
-			<div class="container__form container--signin">
+            <!-- Sign In -->
+            <div class="container__form container--signin">
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form class="form" id="signInForm" method="post">
-					<h2 class="form__title">會員登入</h2>
-					<input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
-					<input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
+                <form class="form" id="signInForm" method="post">
+                    <h2 class="form__title">會員登入</h2>
+                    <input type="text" name="mem_acc" id="mem_acc" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="帳號" /><br>
+                    <div id="admin_psw1">
+                        <input type="password" name="mem_psw" id="mem_psw" minlength="8" maxlength="12" pattern="[A-Za-z0-9]*" placeholder="密碼" /><br>
+                        <img src="./images/icons/icon_Invisible.svg" alt="" width=25 height=25 id="eye">
+                        <input type="checkbox" id="pswCheck" width=25 height=25>
+                    </div>
                     <a href="#" class="clickMe_app">沒有帳號?點我註冊</a>
-					<button type="button" class="btnB_L_blue submitBtn_log" id="btnLogin"><p>登入</p><div class="bg"></div></button>
-				</form>
-			</div>
+                    <button type="button" class="btnB_L_blue submitBtn_log" id="btnLogin"><p>登入</p><div class="bg"></div></button>
+                </form>
+            </div>
 
-			<!-- Sign Up -->
-			<div class="container__form container--signup">
+            <!-- Sign Up -->
+            <div class="container__form container--signup">
                 <div class="mobile_logo">
                     <img src="images/logo/LOGO_black.png">
                 </div>
-				<form class="form" id="signUpForm" method="post">
+                <form class="form" id="signUpForm" method="post">
                     <h2 class="form__title">註冊帳號</h2>
                     <div class="form__detail">
                         <label for="mem_id">暱稱</label><br>
@@ -104,36 +124,32 @@
                         <input type="password" name="repassword" id="repassword" onChange="checkpas();" placeholder="確認密碼" required><br>
                     </div>
                     <a href="#" class="clickMe_log">已有帳號?點我登入</a>
-					<button type="button" class="btnB_L_blue submitBtn_app" id="btnSignUp"><p>註冊</p><div class="bg"></div></button>
-				</form>
-			</div>
+                    <button type="button" class="btnB_L_blue submitBtn_app" id="btnSignUp"><p>註冊</p><div class="bg"></div></button>
+                </form>
+            </div>
 
-			<!-- Overlay -->
-			<div class="container__overlay">
-				<div class="overlay">
-					<div class="overlay__panel overlay--left">
-						<button class="btn" id="signUp">Sign Up</button>
-					</div>
-					<div class="overlay__panel overlay--right">
-						<div class="top_info">
-							<h3>會員相關訊息</h3>
-							<p>媒山友官方網站中各項服務(解說申請、課程報名等)，需登入會員後方可使用申請。
-								為保障您的權益我們採實名制認證需填寫身分證字號，以幫助您保險和安全，會員
-								資料依個人資料保護法相關規定保存，詳見下方「個人資料保護法聲明」。</p>
-						</div>
-						<div class="bottom_info">
-							<h3>個人資料保護法聲明</h3>
-							<p>保有機關：新竹縣警政署<br>
-								個人資料蒐集目的：志工解說服務申請、登山申請及登山安全、自然教育中心課程
-								等服務 (訂位、住宿登記與購票事項、其他地方政府事務 ) 蒐集之個
-								人資料分類：個人基本資料、登山急難聯絡方式等。 (辨識個人、個人描述、意外或其他事故及有關情形) 個人資料保管期間：會員帳號
-								申請日至會員帳號刪除日，個人申請資料得自行申請刪除</p>
-						</div>
-						<button class="btn" id="signIn">Sign In</button>
-					</div>
-				</div>
-			</div>
-		</div>        
+            <!-- Overlay -->
+            <div class="container__overlay">
+                <div class="overlay">
+                    <div class="overlay__panel overlay--left">
+                        <button class="btn" id="signUp">Sign Up</button>
+                    </div>
+                    <div class="overlay__panel overlay--right">
+                        <div class="top_info">
+                            <h3>會員相關訊息</h3>
+                            <p>媒山友官方網站中各項服務(解說申請、課程報名等)，需登入會員後方可使用申請。 為保障您的權益我們採實名制認證需填寫身分證字號，以幫助您保險和安全，會員 資料依個人資料保護法相關規定保存，詳見下方「個人資料保護法聲明」。
+                            </p>
+                        </div>
+                        <div class="bottom_info">
+                            <h3>個人資料保護法聲明</h3>
+                            <p>保有機關：新竹縣警政署<br> 個人資料蒐集目的：志工解說服務申請、登山申請及登山安全、自然教育中心課程 等服務 (訂位、住宿登記與購票事項、其他地方政府事務 ) 蒐集之個 人資料分類：個人基本資料、登山急難聯絡方式等。 (辨識個人、個人描述、意外或其他事故及有關情形) 個人資料保管期間：會員帳號 申請日至會員帳號刪除日，個人申請資料得自行申請刪除
+                            </p>
+                        </div>
+                        <button class="btn" id="signIn">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer_logo_block">
@@ -169,21 +185,21 @@
                     <div class="einput">
                         <input type="text" placeholder="Email address">
                         <div class="e_bt f_color1">SUBSCRIBE</e_bt>
+                        </div>
                     </div>
-                </div>
-                <div class="link">
-                    <div class="linkup">
-                        <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
-                        <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
-                        <div><a href="" target="_blank">網站快速導覽</a></div>
-                    </div>
-                    <div class="linkdown">
-                        <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
-                        <div><a href="" target="_blank">會員使用條款</a></div>
+                    <div class="link">
+                        <div class="linkup">
+                            <div><a href="https://www.cwb.gov.tw/V8/C/" target="_blank">中央氣象局</a></div>
+                            <div><a href="https://npm.cpami.gov.tw/" target="_blank">登山證申請</a></div>
+                            <div><a href="" target="_blank">網站快速導覽</a></div>
+                        </div>
+                        <div class="linkdown">
+                            <div><a href="" target="_blank">服務條款及隱私權政策</a></div>
+                            <div><a href="" target="_blank">會員使用條款</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </footer>
 
     <script src="./js/jquery.min.js"></script>
@@ -196,45 +212,54 @@
         const container = document.querySelector(".container");
 
         signUpBtn.addEventListener("click", () => {
-		container.classList.remove("right-panel-active");
-		});
-
-		signInBtn.addEventListener("click", () => {
-			container.classList.add("right-panel-active");
-		});
-
-		fistForm.addEventListener("submit", (e) => e.preventDefault());
-		secondForm.addEventListener("submit", (e) => e.preventDefault());
-	</script>
-	
-	<script>
-// 手機板註冊會員切換
-		$(document).ready(function(){
-			$('.clickMe_app').click(function(){
-				$('.container--signin').css('display','none');
-				$('.container--signup').css('display','block');
-			});
-			$('.clickMe_log').click(function(){
-				$('.container--signup').css('display','none');
-				$('.container--signin').css('display','block');
-			});
+            container.classList.remove("right-panel-active");
         });
 
-// 註冊判斷帳號是否使用過
-        function checkId(){  
-        
+        signInBtn.addEventListener("click", () => {
+            container.classList.add("right-panel-active");
+        });
+
+        fistForm.addEventListener("submit", (e) => e.preventDefault());
+        secondForm.addEventListener("submit", (e) => e.preventDefault());
+    </script>
+
+    <script>
+        // 手機板註冊會員切換
+        $(document).ready(function() {
+            $('.clickMe_app').click(function() {
+                $('.container--signin').css('display', 'none');
+                $('.container--signup').css('display', 'block');
+            });
+            $('.clickMe_log').click(function() {
+                $('.container--signup').css('display', 'none');
+                $('.container--signin').css('display', 'block');
+            });
+
+            $('#pswCheck').click(function() {
+                $(this).is(':checked') ? $('#mem_psw').attr('type', 'text') : $('#mem_psw').attr('type', 'password');
+                if ($("#eye").attr('src') === "./images/icons/icon_Invisible.svg") {
+                    $("#eye").attr("src", "./images/icons/icon_visibility.svg");
+                } else {
+                    $("#eye").attr("src", "./images/icons/icon_Invisible.svg");
+                }
+            });
+        });
+
+        // 註冊判斷帳號是否使用過
+        function checkId() {
+
             var xhr = new XMLHttpRequest();
 
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4){
-                    if(xhr.status == 200){
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
                         alert(xhr.responseText); //回傳php回應的值
                         window.location.href = "./Member_v2.html";
-                    }else{
+                    } else {
                         alert(xhr.status);
                     }
                 }
-            } 
+            }
 
             xhr.open("post", "./login_v2_Signup.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -243,35 +268,37 @@
         }
 
 
-        window.addEventListener("load", function(){
-        document.getElementById("btnSignUp").addEventListener("click", checkId, false);
+        window.addEventListener("load", function() {
+            document.getElementById("btnSignUp").addEventListener("click", checkId, false);
         }, false);
 
-// 確認密碼
+        // 確認密碼
         $(".tip").hide();
         $(".tip_length").hide();
-        function checkpas1(){//當第一個密碼框失去焦點時，觸發checkpas1事件
-            var pas1=document.getElementById("mem_psw_app").value;
-            var pas2=document.getElementById("repassword").value;
 
-            if(pas1.length<8 ^ pas1.length>12){
+        function checkpas1() { //當第一個密碼框失去焦點時，觸發checkpas1事件
+            var pas1 = document.getElementById("mem_psw_app").value;
+            var pas2 = document.getElementById("repassword").value;
+
+            if (pas1.length < 8 ^ pas1.length > 12) {
                 $(".tip_length").show();
-            }else{
+            } else {
                 $(".tip_length").hide();
             }
         }
-        function checkpas(){//當第一個密碼框失去焦點時，觸發checkpas2件
-            var pas1=document.getElementById("mem_psw_app").value;
-            var pas2=document.getElementById("repassword").value;//獲取兩個密碼框的值
-            if(pas1!=pas2){
-                $(".tip").show();//當兩個密碼不相等時則顯示錯誤資訊
-            }else{
+
+        function checkpas() { //當第一個密碼框失去焦點時，觸發checkpas2件
+            var pas1 = document.getElementById("mem_psw_app").value;
+            var pas2 = document.getElementById("repassword").value; //獲取兩個密碼框的值
+            if (pas1 != pas2) {
+                $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
+            } else {
                 $(".tip").hide();
             }
         }
     </script>
-
-    <script src="./js/header.js" ></script>
+    <script src="./js/header.js"></script>
     <script src="./js/login_v2.js"></script>
 </body>
+
 </html>
