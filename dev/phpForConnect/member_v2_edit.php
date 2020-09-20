@@ -19,20 +19,20 @@ try{
         <form method="post">
             <div class="mem_frame">
                 <div class="mem_change">
-                    <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_id"]?></p><br>
-                    <input type="text" name="mem_id" id="mem_id" placeholder="請輸入想更改的暱稱">
+                    <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_id"]?></p>
+                    <input type="text" name="mem_id" id="mem_id" placeholder="輸入新的暱稱">
                 </div>
                 <div class="mem_change">
-                    <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_mail"]?></p><br>
-                    <input type="text" name="mem_mail" id="mem_mail">
+                    <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_mail"]?></p>
+                    <input type="mail" name="mem_mail" id="mem_mail" placeholder="輸入新的信箱">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">密碼</p><br>
-                    <input type="text" name="mem_psw" id="mem_psw">
+                    <input type="password" name="mem_psw" id="mem_psw" placeholder="輸入新的密碼">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">確認密碼</p><br>
-                    <input type="text" name="repassword" id="repassword">
+                    <input type="password" name="repassword" id="repassword" placeholder="再次輸入密碼"><br>
                     <p style=color:red;text-align:center;display:block;>送出後將登出，請重新登入</p>
                 </div>
                 <div class="mem_button">

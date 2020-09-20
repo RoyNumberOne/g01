@@ -75,11 +75,9 @@
                 <div class="memProfile_AVA">
                     <div class="memProfile_AVA_img"><img id="memProfile_img" src=""></div>
                     <div class="memProfile_AVA_change">
-                        <form method="post" id="upload_Img">
-                            <label class="camera_i">
-                                <input type="file" id="imgInp" name="mem_ava_edit" accept="image/*" />
-                            </label>
-                        </form>
+                        <label class="camera_i">
+                            <input type="file" id="mem_ava_edit" name="mem_ava_edit" accept="image/*" />
+                        </label>
                     </div>
                 </div>
                 <div class="memProfile_DET">
@@ -490,7 +488,7 @@
                                 </div>
                             </div>
                             <div class="Card_btn">
-                                <a :href="'./forum.html?forum_post_no=' + forumList.forum_post_no"> 
+                                <a :href="'./forum-comment.html?forum_post_no=' + forumList.forum_post_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -549,7 +547,7 @@
                                 </div>
                             </div>
                             <div class="Card_btn">
-                                <a :href="'./product_info.html?product_no=' + productList.product_no"> 
+                                <a :href="'./product_info.html?productNo=' + productList.product_no"> 
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
@@ -715,17 +713,34 @@
     });
 
 // 大頭貼更換
-    window.addEventListener("load", function () {
-        document.getElementById("mem_ava_edit").onchange = function (e) {
-            let file = e.target.files[0];
-            let reader = new FileReader();
+    window.addEventListener("load", function(){
 
-            reader.onload = function () {
-            }
+        document.getElementById("mem_ava_edit").onchange = function(e){
+            let file = e.target.files[0];  //取得file物件
+            let reader = new FileReader(); //建立一個reader物件 
+            reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
 
-            reader.readAsDataURL(file);
+            let formData = new FormData();
+            formData.append("mem_ava_edit", file);
+
+            e.preventDefault();
+            $.ajax({
+                url: "./phpForConnect/member_v2_edit_avator.php",
+                type: "POST",
+                data:  formData,
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data){
+                    // alert(data);
+                    location.reload();
+                },
+                error: function(){
+                    alert("error");
+                }
+            });
         }
-    });
+    })
 </script>
 
 <!-- ======================(script-connect PHP)======================= -->

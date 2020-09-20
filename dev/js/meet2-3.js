@@ -226,26 +226,32 @@ new Vue({
 
                                     }
                                 })
+                                .then(res => {
+                                    console.log('success message');
+                                    axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+                                        this.tourParticipates = res.data;
+                                    })
+                                });
                                 // .then(res => {
                                 //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
                                 //         this.passedParticipant = res.data;
                                 //         console.log('ohohoh')
                                 //     })
                                 // });
-                                .then(() => {
-                                    axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
-                                        .then(res => {
-                                            this.passedParticipant = res.data;
-                                            console.log('success 333');
-                                        })
-                                })
-                                .then(() => {
-                                    axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
-                                        .then(res => {
-                                            this.tourParticipates = res.data;
-                                            console.log('success 333');
-                                        })
-                                })
+                                // .then(() => {
+                                //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
+                                //         .then(res => {
+                                //             this.passedParticipant = res.data;
+                                //             console.log('success 333');
+                                //         })
+                                // })
+                                // .then(() => {
+                                //     axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
+                                //         .then(res => {
+                                //             this.tourParticipates = res.data;
+                                //             console.log('success 333');
+                                //         })
+                                // })
                         }
                     }
                 }
