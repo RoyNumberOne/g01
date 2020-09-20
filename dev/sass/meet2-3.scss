@@ -292,15 +292,13 @@ div.wrap{
                     margin: 5px;
                     .memPic{
                         display: flex;
-                        a{
+                        margin: 0 auto;
+                        img{
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            object-fit: cover;
                             margin: 0 auto;
-                            img{
-                                width: 100px;
-                                height: 100px;
-                                border-radius: 50%;
-                                object-fit: cover;
-                                margin: 0 auto;
-                            }
                         }
                     }
                     .memName{
