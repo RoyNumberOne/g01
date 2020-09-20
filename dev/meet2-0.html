@@ -82,7 +82,7 @@
 
     <main id="meet2-0">
         <section class="serchMeet">
-            <h2 class="text_underline">搜尋揪團</h2>
+            <h2 class="text_underline">揪團地圖</h2>
             <div class="searchFormMap">
                 <!-- <form class="serch">
                     <div class="location">
@@ -275,30 +275,21 @@
                     </div>
                    
                 </div>
-                <ul>
-                    <li v-for="i in totalPage" :key="i" @click="changeMeetlist(i)">{{i}}<li>
-                    <!-- 1.更改現在的currentPage
-                         2.用現在的頁碼,去抓那一頁的資料 -->
-                </ul>
+                
+                <div class="page">
+                    <!-- <ul>
+                        <li  v-for="i in totalPage" :key="i" @click="changeMeetlist(i)">{{i}}<li>
+                    </ul> -->
+                    <!-- 1.更改現在的currentPage  2.用現在的頁碼,去抓那一頁的資料 -->
+
+                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                    <button class="btnA_S pg " v-for="i in totalPage" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
+                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                </div>
+
             </div>
 
-            <!-- 頁 碼
-            <div class="pagebtn">
-                <?php 
-                    for($i=1; $i<=$totalPages; $i++){
-                    echo "<a href='Backstageproduct.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
-                    }
-                ?>
-            </div> -->
-            <!-- <div class="page">
-                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                <button class="btnA_S pg -active"><p>01</p></button>
-                <button class="btnA_S pg"><p>02</p></button>
-                <button class="btnA_S pg"><p>03</p></button>
-                <button class="btnA_S pg"><p>04</p></button>
-                <button class="btnA_S pg"><p>05</p></button>
-                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-            </div> -->
+           
         </section>
         
     </main>
@@ -369,19 +360,6 @@
     <!-- 載入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- -------------------------頁 碼------------------------- -->
-    <!-- <script>
-        $(Document).ready(function(){
-            let url = new URL(window.location.href);
-            // console.log(url);
-            let curPage = new URLSearchParams(url.search);
-            curPage = curPage.get("pageNo") - 1;
-            // console.log(curPage);
-            if (curPage == -1) { curPage = 0}
-            // console.log(curPage);
-            $(".pagebtn").children().eq(curPage).children().addClass('-active')
-        });
-        </script> -->
     <!----go top----->
     <script src="./js/fa5.14.0all.js"></script>
 

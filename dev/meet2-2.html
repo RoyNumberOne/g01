@@ -377,8 +377,8 @@
             xhr.onload = function(){
                 member = JSON.parse(xhr.responseText); 
                 if (member.mem_id){
-                    console.log(member.class) // 新column出現後 改欄位名稱 class -> ""
-                    if(member.class == 1){
+                    console.log(member.guide_no) // 新column出現後 改欄位名稱 class -> ""
+                    if(member.guide_no){
                         $("#tour_mountain option").removeAttr("disabled") //移除option的 disabled(不可點選) 屬性
                     }
                 }   else    {
