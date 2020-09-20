@@ -347,9 +347,7 @@
                     <p class="no_applied">目前還沒有人申請！</p>
                     <div class="applicant" v-for="participate in tourParticipates">
                         <div class="memPic">
-                            <a href="./Member.html">
-                                <img :src="participate.mem_avator" alt="大頭照">
-                            </a>
+                            <img :src="participate.mem_avator" alt="大頭照">
                         </div>
                         <div class="memName">
                             <h3>{{participate.mem_id}}</h3>
