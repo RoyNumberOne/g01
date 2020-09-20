@@ -76,6 +76,8 @@ new Vue({
     data: {
         meetList: [],
         meetIndex: [],  //
+        totalPage: 5,
+        currentPage: 1,
     },
     filters: {
         Area: function(value) {
@@ -100,20 +102,22 @@ new Vue({
     },
     mounted(){
         //axios.get('./json/Initial_tour.json') //根據哪個json
-        axios.get('./phpForConnect/meet2-0Newmeet.php')
-
-        .then((res) => {
-            this.meetList = res.data;
-
-            console.log(res.data); //測試是否成功
-            // console.log(this.meetList);
-            for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
-                this.meetIndex.push(i)
-            }
-        })
-        .catch(error => {console.log(error)}); 
+       this.getMeetList();
     },
     methods: {
+        getMeetList(){
+            axios.get(`./phpForConnect/meet2-0Newmeet.php?pageNo=${this.currentPage}`)
+            .then((res) => {
+                this.meetList = res.data.meetListData;
+                this.totalPage = res.data.totalPage;
+                console.log(res.data); //測試是否成功
+                // console.log(this.meetList);
+                for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
+                    this.meetIndex.push(i)
+                }
+            })
+            .catch(error => {console.log(error)}); 
+        },
         Degree(value) {
             switch(value){
                 case('1'):
@@ -141,6 +145,10 @@ new Vue({
                     $(event.target).attr("src","./images/icons/icon_heart.svg");
                     console.log(234)
                 }
+        },
+        changeMeetlist(page){
+            this.currentPage = page;
+            this.getMeetList();
         }
     },
 
