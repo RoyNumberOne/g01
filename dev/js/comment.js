@@ -133,10 +133,37 @@ new Vue({
             xhr2.open("get", "./login_v2_LoginInFo.php", true);
             xhr2.send(null);
         },
+        // openReportModal(e) {
+        //     if($('#mem_info_id').html() === ''){
+        //         alert ('請先登入');
+        //         window.location.href = './login_v2.html';
+        //     }else{
+        //         // 打開彈窗
+        //          $('.report_block_message').removeClass('close');
+        //          let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
+        //          console.log(reportNo);
+        //          let iconIF = $(e.target.parentNode.parentNode).find("img");
+        //          $(".mg_confirm").click(function(e){
+        //              var temp = $('#send_report_block').val();
+        //              if(temp == ''){
+        //                  alert('請先輸入文字');
+        //              }else{
+        //                  let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
+
+        //                  axios.get('./phpForConnect/comment_message_report.php', {params:{
+        //                      "forum_report_post" : reportNo,
+        //                      "forum_report_reason" : forum_report_reason,
+        //                  }})
+        //                  $('.mg_reporting').css('display', 'none');
+        //                  $('.mg_be_reported').css('display', 'block');
+        //                  iconIF.attr('src', './images/icons/icon_report_c.svg');
+        //              }
+        //          })
+        //      }
+        // },
     }
 });
-
-// .heart chage img src
+// .heart chage img src ----> 愛心收藏click(!important)
 $(document).ready(function(){
     //show .add_count
     $(".add_chart").click(function(){

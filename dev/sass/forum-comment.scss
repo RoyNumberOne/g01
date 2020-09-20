@@ -365,7 +365,7 @@
         background-color: hsla(0, 0%, 0%,.5);
         width: 100vw;
         height: 100vh;
-        display: flex;
+        display: flex; //不加!important會被劃掉
         justify-content: center;
         align-items: center;
         position: fixed;

@@ -147,8 +147,10 @@
                             <div class="poster-say">
                             <p>{{index+1}}F 發表於 {{commentpost.comment_time}}</p>
                             <div class="report">
-                                <img class="report" src="./images/form_img/report.png" alt="">
-                                <p>檢舉</p>
+                                <button type="button" class="mg_report_bt">
+                                    <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
+                                </button>
+                                <!-- <p>檢舉</p> -->
                             </div>
                             </div>
                             <hr>
@@ -285,6 +287,16 @@
                 <h2>謝謝您提出檢舉</h2>
                 <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
                 <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
+            </section>
+        </div>
+    </div>
+    <div id="banned_message" class="close">
+        <div class="ban_lightbox">
+            <div class="ban_close"><img src="./images/icons/icon_close.svg" alt=""></div>
+            <section class="ban_be_reported">
+                <h2>您無法使用此功能</h2>
+                <p>您的留言違反我們的網站規範，因此無法分享您的留言</p>
+                <p>依社群管理規範，七日後才可發佈留言，謝謝</p>
             </section>
         </div>
     </div>
