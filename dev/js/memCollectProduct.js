@@ -4,8 +4,26 @@ new Vue({
     data: {
         Collect_productList: [],  //BBB
         Collect_productIndex: [],  //CCC
+        productList_porduct_no: 1,
     },
-
+    methods: {
+        delete_collect(index){
+            this.productList_porduct_no = index;
+            // console.log(this.productList_porduct_no);
+            axios.get(`./phpForConnect/memdeleteCollect_product.php?productList_porduct_no=${this.productList_porduct_no}`)
+        },
+        noneCARD: function(){
+            $(".Card_delete").click(function(e){
+                $(e.target).parent().css("display","none")
+                swal({
+                    title: "已移除收藏!",
+                    text: "系統已成功為您移除該商品收藏",
+                    icon: "success",
+                    button: "關閉",
+                });
+            })
+        },
+    },
     mounted(){
         axios.get('./phpForConnect/memCollectProduct.php') //根據哪個php
         // axios.get(`./phpForConnect/memCollectProduct.php?test=${test}`)
@@ -26,24 +44,7 @@ new Vue({
         })
         .catch(error => {console.log(error)}); 
     },
-    // updated() {
-    //     product_Collect() {
-    //         let product_no = this.currentProduct.product_no;    // <------如何抓到該路徑
-    //         var xhr = new XMLHttpRequest();
-    //         xhr.onload = function(e) {
-    //             if (xhr.status == 200) { //連線成功
-    //                 console.log(xhr.responseText);
-    //                 // alert(xhr.responseText);
-    //             } else {
-    //                 alert(xhr.status);
-    //             }
-
-    //         }
-    //         var url = "./phpForConnect/memRemoveCollect_Product.php";
-    //         xhr.open("post", url, true);
-    //         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-    //         let data = `product_no=${product_no}`;
-    //         xhr.send(data);
-    //     },
-    // },
+    updated() {
+        this.noneCARD();
+    },
 });

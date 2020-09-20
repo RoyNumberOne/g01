@@ -9,22 +9,22 @@ new Vue({
 
     methods: {
         delete_collect(index){
-
             this.tourList_tour_no = index;
             // console.log(this.tourList_tour_no);
             axios.get(`./phpForConnect/memdeleteCollect_tour.php?tourList_tour_no=${this.tourList_tour_no}`)
-            
-            
         },
         noneCARD: function(){
             $(".Card_delete").click(function(e){
                 $(e.target).parent().css("display","none")
+                swal({
+                    title: "已移除收藏!",
+                    text: "系統已成功為您移除該揪團收藏",
+                    icon: "success",
+                    button: "關閉",
+                });
             })
         },
-        
-
     },
-
     mounted(){
         axios.get('./phpForConnect/memCollectTour.php') //根據哪個php
 
