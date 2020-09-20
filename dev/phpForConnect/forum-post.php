@@ -67,8 +67,8 @@
             //     echo '已經存在~<br>';
             // }else{
 
-                $dir = "../images/forum_image"; // 存入地點
-                $dir2 = "./images/forum_image"; // 存入地點
+                $dir = "../images/forum_image"; // 存入地點 本機端
+                $dir2 = "./images/forum_image"; // 存入地點 SQL
 
 
                 // //     if(file_exists($dir)==false){
