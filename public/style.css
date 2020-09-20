@@ -1,0 +1,16 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL3N0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTt5Q0FDeUM7QUFDekM7RUFDRSxZQUFZO0FBQ2Q7O0FBRUEscURBQXFEO0FBQ3JEOztFQUVFLFlBQVk7RUFDWixTQUFTO0VBQ1QsVUFBVTtBQUNaIiwiZmlsZSI6InN0eWxlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEFsd2F5cyBzZXQgdGhlIG1hcCBoZWlnaHQgZXhwbGljaXRseSB0byBkZWZpbmUgdGhlIHNpemUgb2YgdGhlIGRpdlxuICAgICAgICogZWxlbWVudCB0aGF0IGNvbnRhaW5zIHRoZSBtYXAuICovXG4jbWFwIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4vKiBPcHRpb25hbDogTWFrZXMgdGhlIHNhbXBsZSBwYWdlIGZpbGwgdGhlIHdpbmRvdy4gKi9cbmh0bWwsXG5ib2R5IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9*/
