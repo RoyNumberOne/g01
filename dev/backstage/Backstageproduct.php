@@ -38,6 +38,7 @@
                 <?php
                 try	{
                     require_once('connectMeetain.php');
+                        // pag ===========================
                         $sql = "select count(*) totalCount from product where product_situation= 1";
                         $stmt = $pdo->query($sql); 
                         $row = $stmt->fetch(PDO::FETCH_ASSOC); 
@@ -47,7 +48,10 @@
                         $totalPages = ceil($totalRecords / $recPerPage);
                         $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
                         $start = ($pageNo-1) * $recPerPage; 
-		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' from product where product_situation = 1 limit $start,$recPerPage";
+                        // pag ===========================
+                        
+		                $sql = "SELECT product_no '商品編號' , degree_category '難度等級' , product_category '商品分類' , product_name '商品名稱' , product_price '商品價格' , product_description '商品說明' , product_image1 '商品圖片一' , product_image2 '商品圖片二' , product_image3 '商品圖片三' , product_situation '商品狀態' 
+                                    from product where product_situation = 1 limit $start,$recPerPage"; //$recPerPage 每頁幾筆資料
                         $pdoStatement = $pdo->query($sql);
                         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
@@ -84,6 +88,7 @@
                     }	catch	(PDOException $e)	{
                     }
                 ?>
+                
                 <div class="pagebtn">
                     <?php 
                         for($i=1; $i<=$totalPages; $i++){

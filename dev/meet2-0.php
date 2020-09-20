@@ -211,7 +211,46 @@
                 <div class="typeCard -on"></div>
                 <div class="typeList"></div>
             </div>
+            <?php
+                try{
+                    require_once('connectMeetain.php');
+                    // pag ===========================
+                    $sql = "select count(*) totalCount from tour where tour_situation = 1 and tour_progress = '報名中';";
+                    $stmt = $pdo->query($sql); 
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+                    $totalRecords = $row["totalCount"]; 
+                    // echo $totalRecords;
+                    $recPerPage= 8;
+                    $totalPages = ceil($totalRecords / $recPerPage);
+                    $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
+                    $start = ($pageNo-1) * $recPerPage; 
+                    // pag ===========================
 
+
+                    $sql = "SELECT  t.tour_no , t.tour_hoster, m.mem_avator,m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_badge2 , m.mem_badge3 , mt.mountain_area ,mt.degree_category, t.tour_mountain , mt.mountain_name,mt.mountain_image ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) ,t.tour_min_number,t.tour_max_number, DATEDIFF(t.tour_activityend ,t.tour_activitystart)+1 days
+                                FROM tour t
+                                        LEFT OUTER JOIN member_realname r ON ( t.tour_hoster = r.mem_no and r.mem_realname_situation = '已審核已通過')
+                                        LEFT OUTER JOIN member_guide g ON ( t.tour_hoster = g.mem_no and g.mem_guide_situation = '已審核已通過')
+                                        JOIN member m ON t.tour_hoster = m.mem_no
+                                        LEFT OUTER JOIN comment_post c ON t.tour_no = c.tour_post_no
+                                        JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no
+                                WHERE t.tour_situation = 1 and tour_progress = '報名中'
+                                GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no , c.tour_post_no
+                                ORDER BY t.tour_build DESC , t.tour_no DESC
+                                limit $start,$recPerPage"; //$recPerPage 每頁幾筆資料
+                    $pdoStatement = $pdo->query($sql);
+                    $tourRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+
+                    foreach ( $tourRows as $i => $tourRow){
+                         
+
+                    }
+
+
+                }	catch	(PDOException $e)	{
+                }
+            ?>
             <div class="newMeetActivity card" id="newmeet">
                 <div class="item" v-for="(meet, index, mountain_area) in meetList">
                     <a :href="'./meet2-3.html?tour_no=' + meet.tour_no">
@@ -224,11 +263,6 @@
                             <a :href="'./meet2-3.html?tour_no=' + meet.tour_no">
                                 <h3>{{meet.tour_title}}</h3>
                             </a>
-                            <!-- <div class="heartIcon">
-                                <div class="changeIcon">
-                                    <img class="heart" src="./images/icons/icon_heart.svg" @click="changeHeart" >
-                                </div>
-                            </div> -->
                         </div>
                         <div class="info">
                             <span class="tag">＃{{meet.mountain_name}}</span>
@@ -275,30 +309,20 @@
                     </div>
                    
                 </div>
-                <ul>
-                    <li v-for="i in totalPage" :key="i" @click="changeMeetlist(i)">{{i}}<li>
-                    <!-- 1.更改現在的currentPage
-                         2.用現在的頁碼,去抓那一頁的資料 -->
-                </ul>
+
             </div>
 
-            <!-- 頁 碼
+            <!-- 頁 碼======================================== -->
             <div class="pagebtn">
                 <?php 
                     for($i=1; $i<=$totalPages; $i++){
-                    echo "<a href='Backstageproduct.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                        // ====== 
+                        //echo "<a href='Backstageproduct.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
+                        echo "<a href='meet2-0.php?pageNo=$i'><button class=\"btnA_S pg\"`><p>$i</p></button></a>&nbsp;&nbsp;";
                     }
                 ?>
-            </div> -->
-            <!-- <div class="page">
-                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                <button class="btnA_S pg -active"><p>01</p></button>
-                <button class="btnA_S pg"><p>02</p></button>
-                <button class="btnA_S pg"><p>03</p></button>
-                <button class="btnA_S pg"><p>04</p></button>
-                <button class="btnA_S pg"><p>05</p></button>
-                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-            </div> -->
+            </div> 
+          
         </section>
         
     </main>
@@ -370,7 +394,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- -------------------------頁 碼------------------------- -->
-    <!-- <script>
+    <script>
         $(Document).ready(function(){
             let url = new URL(window.location.href);
             // console.log(url);
@@ -381,7 +405,7 @@
             // console.log(curPage);
             $(".pagebtn").children().eq(curPage).children().addClass('-active')
         });
-        </script> -->
+    </script>
     <!----go top----->
     <script src="./js/fa5.14.0all.js"></script>
 

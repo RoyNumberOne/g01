@@ -21,7 +21,7 @@ div.wrap{
         flex-wrap: wrap;
         .category{
             width: 50%;
-            height: 100%;
+            height: 500px;
             background-color: rgba(255, 196, 0, .5);
             .defult_clothes{
                 cursor: pointer;
@@ -61,10 +61,11 @@ div.wrap{
         }
         .product_block{
             width: 50%;
+            height: 500px;
             display: flex;
             flex-wrap: wrap;
             align-content: space-between;
-            overflow: hidden;
+            overflow: scroll;
             position: relative;
             justify-content: space-evenly;
             .items_block{
