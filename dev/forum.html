@@ -43,10 +43,10 @@
                         <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
                     <li><div id="mem_info_id"></div></li>
-                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
-                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
-                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                    <span class="add_count_others"></span>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
+                    <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
+                    
                 </ul>
             </nav>
             <div id="imagebox">
@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
             
-                                <div class="ask_btn">
+                                <div class="ask_btn" id="forum_post_btn">
                                     <!-- <form  method="post" enctype="multipart/form-data"> -->
                                         <button class="btnB_L_yellow" onclick="location.href='./forum-post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
                                     <!-- </form> -->
@@ -592,7 +592,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/header.js" ></script>
+    <!-- <script src="./js/header.js" ></script> -->
 
     <script type="text/javascript">
         $(function() {
@@ -638,7 +638,7 @@
     })
     </script>
 
-    <!-- <script>
+    <!-- <script> ////原先滑動的討論度排行榜jQuer寫法
         (function () {
           $(function () {
             var contWidth, speed;
@@ -658,9 +658,9 @@
         
         }).call(this);
     </script> -->
-    <script src="./js/login_v2.js"></script>
     <script src="./js/forum.js"></script>
-    <!-- <script src="./js/login_v2.js"></script> -->
+    <script src="./js/header.js" ></script>
+    <script src="./js/login_v2.js"></script>
     
 </body>
 </html>

@@ -41,15 +41,13 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box">
-                            <img id="mem_avatar" src="./images/member/memAvatar_test.jpg" alt="">
-                        </div>
+                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
                     </li>
                     <li><div id="mem_info_id"></div></li>
-                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
-                    <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
-                    <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                    <span class="add_count_others"></span>
+                    <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
+                    <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
+                    <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
+                    
                 </ul>
             </nav>
             <div id="imagebox">
@@ -94,7 +92,7 @@
                     </div>
                 </div>
                 <div class="poster-report">
-                    <div class="commentCollect">
+                    <div class="commentCollect" @click="forum_artical_Collect">
                         <img class="heart" src="./images/icons/icon_heart.svg" alt="">
                         <p>收藏</p>
                     </div>
@@ -116,40 +114,43 @@
             <hr>
             </div>
 
-
-            <div class="post-poster-block02" v-for="(messagearea, index) in messagearea">
-                <div class="member_styleA column">
-                    <div class="memberImg">
-                        <img src="./images/meet/member/Chris.jpg" alt="">
-                    </div>
-                    <div class="memberInfo">
-                        <div class="certification">
-                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+            <div class="poster_message">
+                <div class="post-poster-block02" v-for="(messagearea, index) in messagearea">
+                    <div class="member_styleA column">
+                        <div class="memberImg">
+                            <img :src="messagearea.mem_avator" alt="">
                         </div>
-                        <div class="memberId">{{messagearea.mem_id}}</div>
-                        <div class="memberBadge">
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
+                        <div class="memberInfo">
+                            <div class="certification">
+                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                            </div>
+                            <div class="memberId">{{messagearea.mem_id}}</div>
+                            <div class="memberBadge">
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="post-text">
+                    <div class="post-text">
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
                             <p>{{index+1}}F 發表於 {{messagearea.comment_time}}</p>
                             <div class="report">
-                                <img class="report" src="./images/form_img/report.png" alt="">
-                                <p>檢舉</p>
+                                <button type="button" class="mg_report_bt">
+                                    <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
+                                    <!-- <div class="report_hover">檢舉</div> -->
+                                </button>
+                                <!-- <p>檢舉</p> -->
                             </div>
                             </div>
                             <hr>
@@ -159,10 +160,10 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- <div class="post-poster-block02">
+                <!-- <div class="post-poster-block02">
                 <div class="member_styleA column">
                     <div class="memberImg">
                         <img src="./images/meet/member/Chris.jpg" alt="">
@@ -211,30 +212,28 @@
                 </div>
             </div> -->
 
-
-
-            <div class="nextpage-btn">
-                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                <button class="btnA_S pg -active"><p>01</p></button>
-                <button class="btnA_S pg"><p>02</p></button>
-                <button class="btnA_S pg"><p>03</p></button>
-                <button class="btnA_S pg"><p>04</p></button>
-                <button class="btnA_S pg"><p>05</p></button>
-                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-            </div>
-            
-            
-            <div class="text-arera-block">
-                <div class="area-tittle">
-                    <p>新增留言：</p>
+                <div class="nextpage-btn">
+                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                    <button class="btnA_S pg -active"><p>01</p></button>
+                    <button class="btnA_S pg"><p>02</p></button>
+                    <button class="btnA_S pg"><p>03</p></button>
+                    <button class="btnA_S pg"><p>04</p></button>
+                    <button class="btnA_S pg"><p>05</p></button>
+                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
                 </div>
-                <div class="area">
-                    <textarea style="margin: 0px; width: 100%; height: 180px;" placeholder="我想要說...."></textarea>
-                </div>
-            </div>
 
-            <div class="message-btn">
-                <button class="btnB_XL_yellow"><p>我要留言</p><div class="bg"></div></button>
+                <div class="text-arera-block">
+                    <div class="area-tittle">
+                        <h3>新增留言：</h3>
+                    </div>
+                    <div class="message" method="POST">
+                        <textarea name="" id="message_area" v-model = "poster_message" style="margin: 0px; width: 100%; height: 180px;" placeholder="我想要說...."></textarea>
+                    </div>
+                </div>
+
+                <div class="message-btn">
+                    <button class="btnB_XL_yellow" id="submitMessage" @click="SENDmsg" type="button"><p>我要留言</p><div class="bg"></div></button>
+                </div>
             </div>
 
             <div class="product-block">
@@ -444,8 +443,8 @@
     });
   </script>
 
-<script src="./js/header.js" ></script>
 <script src="./js/forum-announcement.js"></script>
+<script src="./js/header.js" ></script>
 <script src="./js/login_v2.js"></script>
 </body>
 </html>

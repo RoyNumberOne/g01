@@ -91,7 +91,7 @@
 
                     <div class="block">
                         <select class="custom_select" name="forum_post_category" id="forum_post_category" >
-                            <option value="爬山心得">爬山心得</option>
+                            <option value="揪團心得">揪團心得</option>
                             <option value="裝備資訊">裝備資訊</option>
                             <option value="新手專區">新手專區</option>
                             <option value="登山知識">登山知識</option>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="block">
-                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題">
+                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題" required>
                     </div>
 
                     <div class="text">
@@ -309,10 +309,9 @@
   </script>
 
 <script>
-
     window.addEventListener("load", function(){
-        //..................upFile.onchange
-        document.getElementById("upload_tourimg_input").onchange = function(e){
+        //..................upFile.onchange ----> 發文加入的code
+        document.getElementById("forum_post_image").onchange = function(e){
             let file = e.target.files[0];  //取得file物件
             let reader = new FileReader(); //建立一個reader物件 
             reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
@@ -324,10 +323,29 @@
         }
     })	
 </script>
+    <!-- -判斷是否為會員- -->
+    <script>
+        $(document).ready(function() {
+            let xhr = new XMLHttpRequest(); //使用XML
+            xhr.open("get","./login_v2_LoginInFo.php",true); //用get打開php
+            xhr.send(null)
+
+            xhr.onload = function(){
+                member = JSON.parse(xhr.responseText); 
+                if (member.mem_id){
+                    console.log(member.class) // 新column出現後 改欄位名稱 class -> ""
+                    if(member.class == 1){
+                        $("#forum_post_table option").removeAttr("disabled") //移除option的 disabled(不可點選) 屬性
+                    }
+                }   else    {
+                    window.location.href="./login_v2.html"; // 若沒有取得member.mem_id 將頁面跳轉至登入畫面
+                }
+            }
+        });
+    </script>
 
   <!-- <script>
     function checkId(){  
-        
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function(){
@@ -340,7 +358,6 @@
                 }
             }
         } 
-
         xhr.open("post", "./phpForConnect/forum-post.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         let data_info = `forum_post_category=${$id("forum_post_category").value}&forum_post_title=${$id("forum_post_title").value}&forum_post_image=${$id("forum_post_image").value}&forum_post_innertext=${$id("forum_post_innertext").value}`;
