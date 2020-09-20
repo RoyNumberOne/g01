@@ -60,7 +60,7 @@
 
         $tour_no = $prodRows[0]['tour_no'];
 
-        echo "揪團編號".$prodRows[0]['tour_no']."<br>";
+        // echo "揪團編號".$prodRows[0]['tour_no']."<br>";
 
         // ------------------------------上傳的圖片 以指定檔名存入指定地點 並存入資料庫------------------------------
         
@@ -68,16 +68,16 @@
         
         for ($i = 0; $i < $fileCount; $i++){
             // 檢查檔案是否上傳成功
-            if ($_FILES['upload_tourimg_input']['error'][$i] === UPLOAD_ERR_OK){
-                echo'檔案名稱：'.$_FILES['upload_tourimg_input']['name'][$i].'<br>';
-                echo'檔案類型：'.$_FILES['upload_tourimg_input']['type'][$i].'<br>';
-                echo'檔案大小：'.($_FILES['upload_tourimg_input']['size'][$i] / 1024).'KB<br>';
-                echo'暫存名稱：'.$_FILES['upload_tourimg_input']['tmp_name'][$i].'<br>';
+            // if ($_FILES['upload_tourimg_input']['error'][$i] === UPLOAD_ERR_OK){
+            //     echo'檔案名稱：'.$_FILES['upload_tourimg_input']['name'][$i].'<br>';
+            //     echo'檔案類型：'.$_FILES['upload_tourimg_input']['type'][$i].'<br>';
+            //     echo'檔案大小：'.($_FILES['upload_tourimg_input']['size'][$i] / 1024).'KB<br>';
+            //     echo'暫存名稱：'.$_FILES['upload_tourimg_input']['tmp_name'][$i].'<br>';
                 
                 // 檢察檔案是否已經存在
-                if (file_exists('/images/tour_image/'.$_FILES['upload_tourimg_input']['name'][$i])){
-                    echo '已經存在~<br>';
-                }else{
+                // if (file_exists('/images/tour_image/'.$_FILES['upload_tourimg_input']['name'][$i])){
+                //     echo '已經存在~<br>';
+                // }else{
 
                     $dir = "./images/tour_image"; // 存入地點
                         if(file_exists($dir)==false){
@@ -103,11 +103,11 @@
 
 
                     
-                }
+                // }
 
-            }else{
-                echo '錯誤代碼：'.$_FILES['upload_tourimg_input']['error'].'<br>';
-            }
+            // }else{
+            //     echo '錯誤代碼：'.$_FILES['upload_tourimg_input']['error'].'<br>';
+            // }
         }
         // ------------------------------  會員點數增加 ------------------------------
 
@@ -120,8 +120,8 @@
 
         // ------------------------------  揪團主 已審核已通過 ------------------------------
 
-        $sql = "INSERT INTO tour_participate
-                     VALUES('$tour_hoster', '$tour_no', '已審核已通過');";  
+        $sql = "INSERT INTO tour_participate 
+                     VALUES('$tour_hoster', '$tour_no', '已審核已通過' , current_timestamp);";  
 
         $new_tour = $pdo->prepare($sql); 
         $new_tour->execute();   //執行 SQL

@@ -100,17 +100,17 @@
                     <div class="tour_info1">
                         <label>
                             揪團名稱<br>
-                            <input name="tour_title" type="text" >
+                            <input name="tour_title" type="text" required>
                         </label><br>
 
                         <div class="tour_date">
                             <label for="tour_activitystart">
                                 揪團開始日期<br>
-                                <input name="tour_activitystart" type="date" name="">
+                                <input name="tour_activitystart" type="date" name="" required>
                             </label>
                             <label for="">
                                 揪團結束日期<br>
-                                <input name="tour_activityend" type="date" name="">
+                                <input name="tour_activityend" type="date" name="" required>
                             </label>
                         </div>
                         
@@ -245,7 +245,7 @@
                     </div>
                     <label for="" class="tour_innertext">
                         <p>活動簡介</p>
-                        <textarea name="tour_innertext" placeholder="介紹一下本團行程吧！"></textarea>
+                        <textarea name="tour_innertext" placeholder="介紹一下本團行程吧！" required></textarea>
                     </label>
                 </div>
                 <div class="btn_box">
@@ -264,7 +264,7 @@
                 <div class="tour_info3">
                     <div> 
                         <label> 相關照片上傳
-                            <input id="upload_tourimg_input" name="upload_tourimg_input[]" type="file" accept="image/*" multiple="multiple">
+                            <input id="upload_tourimg_input" name="upload_tourimg_input[]" type="file" accept="image/*" multiple="multiple" required>
                            <img class="upload_tourimg" src="./images/icons/icon_upload.svg" alt="">
                         </label>
                     </div>
@@ -370,18 +370,19 @@
 
     <script>
         $(document).ready(function() {
-            let xhr = new XMLHttpRequest();
-            xhr.open("get","./login_v2_LoginInFo.php",true);
+            let xhr = new XMLHttpRequest(); //使用XML
+            xhr.open("get","./login_v2_LoginInFo.php",true); //用get打開php
             xhr.send(null)
+
             xhr.onload = function(){
-                member = JSON.parse(xhr.responseText);
+                member = JSON.parse(xhr.responseText); 
                 if (member.mem_id){
                     console.log(member.class) // 新column出現後 改欄位名稱 class -> ""
                     if(member.class == 1){
-                        $("#tour_mountain option").removeAttr("disabled")
+                        $("#tour_mountain option").removeAttr("disabled") //移除option的 disabled(不可點選) 屬性
                     }
                 }   else    {
-                    window.location.href="./login_v2.html";
+                    window.location.href="./login_v2.html"; // 若沒有取得member.mem_id 將頁面跳轉至登入畫面
                 }
             }
         });
