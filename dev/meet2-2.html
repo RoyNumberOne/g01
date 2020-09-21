@@ -99,18 +99,18 @@
                 <section class="tour_info1_btn">
                     <div class="tour_info1">
                         <label>
-                            揪團名稱<br>
-                            <input name="tour_title" type="text" required>
+                            揪團名稱<span class="notic" >標題最多輸入20字</span><br>
+                            <input name="tour_title" type="text" required maxlength=20 >
                         </label><br>
 
                         <div class="tour_date">
                             <label for="tour_activitystart">
                                 揪團開始日期<br>
-                                <input name="tour_activitystart" type="date" name="" required>
+                                <input name="tour_activitystart" type="date" name="" placeholder="YYYY/MM/DD" required>
                             </label>
                             <label for="">
                                 揪團結束日期<br>
-                                <input name="tour_activityend" type="date" name="" required>
+                                <input name="tour_activityend" type="date" name="" placeholder="YYYY/MM/DD" required>
                             </label>
                         </div>
                         
@@ -182,7 +182,7 @@
                         </div><br>
                         
                         <label for="">
-                            揪團山名<span style="color:red; margin-left: 10px;">須具有嚮導認證才能開難度三、四級的揪團</span><br>
+                            揪團山名<span class="notic" >須具有嚮導認證才能開難度三、四級的揪團</span><br>
                             <select id="tour_mountain" name="tour_mountain" @change="findMT">
                                 <option value="1" selected>塔曼山</option>
                                 <option value="2" >七星山</option>
@@ -264,7 +264,7 @@
                 <div class="tour_info3">
                     <div> 
                         <label> 相關照片上傳
-                            <input id="upload_tourimg_input" name="upload_tourimg_input[]" type="file" accept="image/*" multiple="multiple" required>
+                            <input id="upload_tourimg_input" name="upload_tourimg_input[]" type="file" accept="image/*" multiple="multiple">
                            <img class="upload_tourimg" src="./images/icons/icon_upload.svg" alt="">
                         </label>
                     </div>

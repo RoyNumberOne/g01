@@ -42,7 +42,8 @@ new Vue({
                 this.meetIndex.push(i)
             }
         })
-        .catch(error => {console.log(error)}); 
+        .catch(error => {console.log(error)});
+        
     },
     methods: {
         Degree(value) {
@@ -149,7 +150,7 @@ new Vue({
         changeMeetlist(page){
             this.currentPage = page;
             this.getMeetList();
-        }
+        },
     },
 
 });
