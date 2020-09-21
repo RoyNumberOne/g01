@@ -543,12 +543,11 @@ $(document).on('keydown',function(e) {
     setTimeout(function(){
         RenderWeather(N1N3data);
     },1000)
+
     // $(document).ready(
     //     console.log(N1N3data)
     //     $("weatherdesc p").innerText = N1N3data.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
     // );
-
-
 
 
 
