@@ -151,13 +151,16 @@ $textColor1: $mt_fontdark;
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
+                        input{
+                            width: 90%;
+                        }
                     }
                     .tour_number{
                         select{
                             width: 30%;
                         }
                     }
-                    span.mtnotic{
+                    span.notic{
                         color:$mt_pink; 
                         margin-left: 10px;
                     }

@@ -253,14 +253,14 @@
                     margin: 2%;
                     .outline{
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: space-between;
                         .item_btns{
                             label{
                                 line-height: 40px;
                                 background-color: #2C5E9E;
                                 color: white;
                                 margin: 0px 5px;
-                                padding: 10px;
+                                padding: 15px;
                                 border: 1px solid #2C5E9E;
                                 font-size: 16px;
                                 cursor: pointer;
@@ -268,12 +268,13 @@
                             label:hover{
                                 background-color: #FFC400;
                                 border: 1px solid #FFC400;
-                                transition: all 0.5s linear; 
+                                transition: all 0.2s linear; 
                             }
                         }
                         .bar-block{
                             display: flex;
                             .searchbar{
+                                display: none;
                                 width: 100%;
                                 position: relative;
                                     input{
@@ -302,16 +303,16 @@
                     
                             .ask_btn{
                                 margin: 0px 5px;
-                                #ask{
-                                    width: 120px;
-                                    background-color: #FFC400;
-                                    line-height: 43px;
-                                    font-size: 16px;
-                                    font-weight: 800;
-                                    border: hidden;
-                                    border-radius: 20px;
-                                    cursor: pointer;
-                                }
+                                // #ask{
+                                //     width: 120px;
+                                //     background-color: #FFC400;
+                                //     line-height: 43px;
+                                //     font-size: 16px;
+                                //     font-weight: 800;
+                                //     border: hidden;
+                                //     border-radius: 20px;
+                                //     cursor: pointer;
+                                // }
                             }
                         }
                     }
@@ -633,6 +634,7 @@
         }
         #forum_aside{
             width: 35%;
+            padding: 0px;
         }
     }
 
@@ -665,7 +667,7 @@
     // 請用720
         // max-width: 720px
     main#main_forum{
-        // border: 1px solid rgb(7, 175, 15);
+        border: 1px solid rgb(7, 175, 15);
         max-width: 720px;
         .forum_container-right{
             .forum-block{
@@ -692,11 +694,12 @@
                     .forum-infor{
                         .poster-block{
                             flex-direction: column;
+                            display: block;
                             .user{
                                 justify-content: center;
                             }
                             .forum_groups{
-                                display: flex;
+                                display: inline-flex;;
                                 justify-content: space-evenly;
                             }
                             .post_situation{
@@ -718,7 +721,7 @@
     // 請用540
         // max-width: 540px
     main#main_forum{
-        // border: 1px solid rgb(57, 7, 175);
+        border: 1px solid rgb(57, 7, 175);
         max-width: 540px;
         .forum_container-right{
             .news_block{
@@ -758,18 +761,28 @@
                     flex-direction: column;
                     .forum-infor{
                         .poster-block{
-                            display: block;
+                            display: contents;
                             .user{
                                 margin: 6% 0px;
                                 justify-content: center;
                             }
                             .forum_groups{
-                                display: flex;
-                                justify-content: space-evenly;
+                                display: inline-flex;
+                                justify-content: flex-end;
+                                .heart{
+                                    margin: 0px 20px;
+                                }
                             }
                             .post_situation{
                                 display: flex;
-                                justify-content: space-evenly;
+                                padding: 10px;
+                                .post_time{
+                                    display: flex;
+                                    justify-content: flex-start;
+                                }
+                                .remessage_time{
+                                    margin: 0px 20px;
+                                }
                             }
                         }
                     }
@@ -815,6 +828,11 @@
                                 display: block;
                                 margin: 0 auto;
                                 padding: 0px 25px;
+                                label{
+                                    line-height: 70px;
+                                    margin: 10px;
+                                    padding: 15px;
+                                }
                                 button{
                                     margin: 2% auto;
                                 }
@@ -825,6 +843,7 @@
                                 margin: 20px auto 0;
                                 .searchbar{
                                     width: 100%;
+                                    display: none;
                                     input{
                                         width: 100%;
                                         padding: 0px 0px 0px 32px
@@ -838,18 +857,21 @@
                         margin-top: 15%;
                         .forum-infor{
                             .poster-block{
-                                display: block;
+                                display: contents;
                                 .user{
                                     margin: 6% 0px;
                                     justify-content: center;
                                 }
                                 .forum_groups{
-                                    display: flex;
-                                    justify-content: space-evenly;
+                                    display: inline-flex;
+                                    justify-content: flex-end
                                 }
                                 .post_situation{
-                                    display: flex;
                                     justify-content: space-evenly;
+                                    .post_time{
+                                        display: flex;
+                                        justify-content: flex-start;
+                                    }
                                 }
                             }
                         }
