@@ -111,6 +111,10 @@ $textColor1: $mt_fontdark;
             width: 100%;
             @include inputType;
         }
+        option:disabled {
+            background: red;
+          }
+          
         
         .tour_build_step1{ //步驟一
             // border: 1px solid rgb(167, 50, 50);
@@ -147,6 +151,10 @@ $textColor1: $mt_fontdark;
                     display: flex;
                     flex-direction: column;
                     justify-content:center;
+                    span.notic{
+                        color:$mt_pink; 
+                        margin-left: 10px;
+                    }
                     .tour_date{
                         width: 100%;
                         display: flex;
@@ -160,10 +168,7 @@ $textColor1: $mt_fontdark;
                             width: 30%;
                         }
                     }
-                    span.notic{
-                        color:$mt_pink; 
-                        margin-left: 10px;
-                    }
+                   
                     .area_degree{
                         display: inline-flex;
                         justify-content: space-between;

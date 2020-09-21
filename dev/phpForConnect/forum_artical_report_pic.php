@@ -7,13 +7,10 @@ try{
     require_once('./connectMeetain.php');
     
     session_start();
-    //送出登入者的姓名資料
     $forum_report_mem = $_SESSION['mem_no']; //誰檢舉
-    $forum_report_post = $_REQUEST['forum_report_post'];  //檢舉哪篇留言
-    $forum_report_reason = $_REQUEST['forum_report_reason']; //檢舉緣由
+    $forum_post_no = $_POST['forum_post_no'];
 
-    $sql = "INSERT  INTO forum_report (forum_report_mem, forum_report_post, forum_report_reason, forum_report_situation)
-            VALUES ('$forum_report_mem', '$forum_report_post', '$forum_report_reason', '未處理' );";
+    $sql = "SELECT cp.comment_no , cr.comment_report_mem from comment_report cr right outer join comment_post cp on ( cr.comment_report_comment = cp.comment_no and cr.comment_report_mem = $comment_report_mem) where cp.tour_post_no = $tour_post_no;";
     
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
