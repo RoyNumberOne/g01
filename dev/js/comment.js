@@ -6,9 +6,12 @@ new Vue({
         commentpost:[],
         poster_message: '',
     },
-    created(){
+    methods:{
+        
     },
-    mounted() {
+    computed:{
+    },
+    created(){
         let formArticle = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
         forum_post_no = urlSearchParams.get('forum_post_no');
@@ -36,6 +39,9 @@ new Vue({
             console.log('success');
             console.log(this.dialog);
         })
+
+    },
+    mounted() {
     },
     updated() {
 
@@ -70,6 +76,23 @@ new Vue({
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         let data = `forum_post_no=${forum_post_no}`;
         xhr.send(data);
+
+        
+        for(var k = 0 ; k <= ( this.commentpost.length - 1 ) ; k++ ){
+            if($(`.NAMEval${k}`).val()){
+                $(`.NAMEval${k}`).parent().css("display","block");
+            }   else    {
+                $(`.NAMEval${k}`).parent().css("display","none");
+            }
+        }
+        for(var k = 0 ; k <= ( this.commentpost.length - 1 ) ; k++ ){
+            if($(`.GUIDEval${k}`).val()){
+                $(`.GUIDEval${k}`).parent().css("display","block");
+            }   else    {
+                $(`.GUIDEval${k}`).parent().css("display","none");
+            }
+        }
+            
     },
     methods :{
         clearTextarea(){

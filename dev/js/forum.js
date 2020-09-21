@@ -12,6 +12,12 @@ new Vue({
         }
     },
     computed:{
+        CHECKname() {
+            return this.articalList[0].mem_realname;
+        },
+        CHECKguide() {
+            return this.articalList[0].guide_no;
+        },
         forumpost(){
             if(this.input.type== '全部'){
                 return this.articalList
