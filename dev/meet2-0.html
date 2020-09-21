@@ -134,7 +134,7 @@
                                             <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
                                         <div class="memberId">{{hotmeet.mem_id}}</div>
-                                        <div class="memberBadge">
+                                        <!-- <div class="memberBadge">
                                             <span class="memberBadgeIcon">{{hotmeet.mem_badge1}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
@@ -143,6 +143,17 @@
                                             </span>
                                             <span class="memberBadgeIcon">{{hotmeet.mem_badge3}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                        </div> -->
+                                        <div class="memberBadge">
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge1" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge2" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge3" alt="">
                                             </span>
                                         </div>
                                     </div>
@@ -259,7 +270,7 @@
                                 <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{meet.mem_id}}</div>
-                            <div class="memberBadge">
+                            <!-- <div class="memberBadge">
                                 <span class="memberBadgeIcon">{{meet.mem_badge1}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
@@ -268,6 +279,17 @@
                                 </span>
                                 <span class="memberBadgeIcon">{{meet.mem_badge3}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                            </div> -->
+                            <div class="memberBadge">
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge1" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge2" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge3" alt="">
                                 </span>
                             </div>
                         </div>
