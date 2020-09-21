@@ -212,17 +212,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintNorth">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintNorthList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintNorthList, index) in FootprintNorthList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintNorthList.tour_no" v-for="(FootprintNorthList, index) in FootprintNorthList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintNorthList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintNorthList.mountain_name}}({{FootprintNorthList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintNorthList.mountain_area | Area}}｜{{FootprintNorthList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintNorthList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintNorthList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintNorthList.tour_activitystart}}</p>
@@ -247,17 +248,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintWest">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintWestList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintWestList, index) in FootprintWestList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintWestList.tour_no" v-for="(FootprintWestList, index) in FootprintWestList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintWestList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintWestList.mountain_name}}({{FootprintWestList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintWestList.mountain_area | Area}}｜{{FootprintWestList.mountain_name}}/p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintWestList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintWestList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintWestList.tour_activitystart}}</p>
@@ -282,17 +284,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintEast">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintEastList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintEastList, index) in FootprintEastList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintEastList.tour_no" v-for="(FootprintEastList, index) in FootprintEastList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintEastList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintEastList.mountain_name}}({{FootprintEastList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintEastList.mountain_area | Area}}｜{{FootprintEastList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintEastList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintEastList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintEastList.tour_activitystart}}</p>
@@ -317,17 +320,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintSouth">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintSouthList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintSouthList, index) in FootprintSouthList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintSouthList.tour_no" v-for="(FootprintSouthList, index) in FootprintSouthList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintSouthList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintSouthList.mountain_name}}({{FootprintSouthList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintSouthList.mountain_area | Area}}｜{{FootprintSouthList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintSouthList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintSouthList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintSouthList.tour_activitystart}}</p>
