@@ -3,30 +3,59 @@ function $id(id){
 	return document.getElementById(id);
 }	
 
-$("#SVGqes1 img.init").click(function(){
+$("#SVGqes1 .init").click(function(){
     $("#zero").css("top","100vh")
     setTimeout(function(){
-        $(".SVGqes img").removeClass("init")
-        $(".SVGqes img").addClass("second")
-        $("#SVGthoughts").css("top","100vh")
         $("#one").css("top","0vh")
     },800)
     setTimeout(function(){
-        $("#zero").css("top","0vh")
-    },1400)
+        $("#Leftbox").addClass('-on')
+    },1300)
 })
-$("#SVGqes2 img.init").click(function(){
+$("#SVGqes2 .init").click(function(){
     $("#zero").css("top","100vh")
     setTimeout(function(){
-        $(".SVGqes img").removeClass("init")
-        $(".SVGqes img").addClass("second")
-        $("#SVGthoughts").css("top","100vh")
         $("#two").css("top","-100vh")
     },800)
     setTimeout(function(){
-        $("#zero").css("top","0vh")
-    },1400)
+        $("#Leftbox").addClass('-on')
+    },1300)
 })
+$("#SVGqes3 .init").click(function(){
+    $("#zero").css("top","100vh")
+    setTimeout(function(){
+        $("#three").css("top","-200vh")
+    },800)
+    setTimeout(function(){
+        $("#Leftbox").addClass('-on')
+    },1300)
+})
+
+$("#SVGopt1").click(function(){
+    $("#one").css("top","0vh")
+    $("#two").css("top","0vh")
+    $("#three").css("top","-100vh")
+})
+$("#SVGopt2").click(function(){
+    $("#one").css("top","100vh")
+    $("#two").css("top","-100vh")
+    $("#three").css("top","-100vh")
+})
+$("#SVGopt3").click(function(){
+    $("#one").css("top","100vh")
+    $("#two").css("top","0vh")
+    $("#three").css("top","-200vh")
+})
+
+$("#SVGans1").click(function() {
+    $("a[href='#Page2']").click();
+});
+$("#SVGans2").click(function() {
+    $("a[href='#Page3']").click();
+});
+$("#SVGans3").click(function() {
+    $("a[href='#Page4']").click();
+});
 
 
 

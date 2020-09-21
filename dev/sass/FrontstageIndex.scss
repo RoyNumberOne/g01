@@ -1,44 +1,6 @@
 @import 'common';
 
 
-@keyframes floating {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-  }
-@keyframes moon {
-0% {
-    -webkit-transform: translateX(-15px) translateY(15px);
-            transform: translateX(-15px) translateY(15px);
-    box-shadow: 15px -15px 0 0 #FFD633;
-}
-100% {
-    -webkit-transform: translateX(30px) translateY(-30px);
-            transform: translateX(30px) translateY(-30px);
-    box-shadow: -30px 30px 0 0 #FFD633;
-}
-}
-@keyframes rain {
-    0% {
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      opacity: 1;
-    }
-    70% {
-      opacity: 0.4;
-    }
-    100% {
-      -webkit-transform: translateY(60px);
-              transform: translateY(60px);
-      opacity: 0;
-    }
-  }
 
 @mixin center {
     left: 50%;
@@ -157,60 +119,18 @@ div#section1 {
             }
         }
         & #zero{
+            // display: none;
             position: relative;
             z-index: 16;
             width: 100vw;
             height: 100vh;
             top: 0;
             left: 0;
-            & #SVGthoughts{
-                & img{
-                    width: 400px;
-                    left: 45vw;
-                    top: 44vh;
-                }
-            }
             & .SVGqes{
                 & img{
                     cursor: pointer;
                     left: 0;
                     top: 0;
-                    &.init{
-                        width: 300px ;
-                    }
-                    &.second{
-                        width: 200px ;
-                    }
-                }
-                &#SVGqes1 img{
-                    &.init{
-                        left: 23vw;
-                        top: 35vh;
-                    }
-                    &.second{
-                        left: 4vw;
-                        top: calc( 100vh - 200px);
-                    }
-                }
-                &#SVGqes2 img{
-                    &.init{
-                        left: 44vw;
-                        top: 15vh;
-                    }
-                    &.second{
-                        left: 4vw;
-                        top: calc( 100vh - 400px);
-                    }
-                }
-                &#SVGqes3 img{
-                    &.init{
-                        left: 65vw;
-                        top: 45vh;
-                    }
-                    &.second{
-                        left: 4vw;
-                        top: calc( 100vh - 600px);
-                    }
                 }
             }
         }
@@ -223,17 +143,12 @@ div#section1 {
                 height: 100vh;
                 top: 100vh;
                 & #SVGtour{
-                    & img{
-                        top: 20vh;
-                        left: 26vw;
-                        width: 850px;
-                    }
+                    z-index: 3;
                 }
                 & #SVGans1{
+                    z-index: 4;
                     & img{
-                        top: 7vh;
-                        width: 55vw;
-                        width: 300px;
+                        cursor: pointer;
                     }
                 }
             }
@@ -245,26 +160,49 @@ div#section1 {
                 height: 100vh;
                 top: 100vh;
                 & #SVGforum{
-                    & img{
-                        top: 23vh;
-                        left: 26vw;
-                        width: 850px;
-                    }
+                    z-index: 3;
                 }
                 & #SVGans2{
+                    z-index: 4;
                     & img{
-                        top: 9vh;
-                        width: 55vw;
-                        width: 300px;
+                        cursor: pointer;
                     }
                 }
             }
             & #three{
-                display: none;
+                // display: none;
                 z-index: 15;
                 position: relative;
                 width: 100vw;
                 height: 100vh;
+                top: 100vh;
+                & #SVGproduct{
+                    z-index: 3;
+                }
+                & #SVGans3{
+                    z-index: 4;
+                    & img{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        & #Leftbox{
+            // display: none;
+            z-index: 16;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            cursor: pointer;
+            & .SVGopt{
+                width: 100%;
+                & img{
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                }
             }
         }
     }
@@ -952,6 +890,107 @@ div#section4 {
         max-width: 1366px !important;
         max-height: 900px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 39vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 9vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -270vh;
+                }
+            }
+        }
+    }
 }
 // 1440 * 768
 @media screen and (min-width: 1440px ) and (min-height: 768px) and (max-height: 899px){
@@ -959,6 +998,107 @@ div#section4 {
     {
         max-width: 1366px !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 10vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 39vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 9vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -285vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #weatherbox{
@@ -1045,6 +1185,107 @@ div#section4 {
         max-width: 1366px !important;
         max-height: 720px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 6vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 39vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 5vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -285vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #weatherbox{
             & .weather {
@@ -1130,6 +1371,107 @@ div#section4 {
     {
         max-width: 1366px !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 2vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 46vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 2vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 9vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 81vh;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 27vh;
+                }
+                &.-on{
+                    top: -290vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #weatherbox{
@@ -1242,6 +1584,107 @@ div#section4 {
         max-width: 1366px !important;
         max-height: 100vh !important;
         height: 100vh !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 2vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 46vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 2vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 9vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 81vh;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 27vh;
+                }
+                &.-on{
+                    top: -290vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #weatherbox{
@@ -1356,6 +1799,107 @@ div#section4 {
         max-width: 1152px !important;
         max-height: 900px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 39vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 9vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -270vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #weatherbox{
             width: 310px !important;
@@ -1460,6 +2004,107 @@ div#section4 {
     {
         max-width: 1152px !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 38vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 8vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 48vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 7vh;
+                            left: 55vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -280vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #weatherbox{
@@ -1587,6 +2232,107 @@ div#section4 {
         max-width: 1152px !important;
         max-height: 720px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 38vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 8vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 48vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 7vh;
+                            left: 55vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -284vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #weatherbox{
             width: 310px !important;
@@ -1710,6 +2456,107 @@ div#section4 {
     {
         max-width: 1152px !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 38vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 8vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 48vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 7vh;
+                            left: 55vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #weatherbox{
@@ -1837,6 +2684,107 @@ div#section4 {
         max-height: 100vh !important;
         height: 100vh !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 45vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 23vw;
+                            top: 38vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 8vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 65vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 20vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 7vh;
+                            left: 48vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 26vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 7vh;
+                            left: 55vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 31vh;
+                            left: 31vw;
+                            width: 850px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #weatherbox{
             width: 310px !important;
@@ -1947,6 +2895,107 @@ div#section4 {
         max-width: 960px !important;
         max-height: 900px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 40vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 14vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 39vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 33vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 17vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 37vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 19vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 39vh;
+                            left: 31vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -270vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -2046,6 +3095,107 @@ div#section4 {
     {
         max-width: 960px !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 40vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 14vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 39vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 33vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 17vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 37vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 19vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 39vh;
+                            left: 31vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -282vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -2225,6 +3375,107 @@ div#section4 {
     {
         max-width: 960px !important;
         max-height: 720px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 40vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 300px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 14vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 39vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 33vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 17vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 37vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 13vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 39vh;
+                            left: 31vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -282vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -2409,6 +3660,107 @@ div#section4 {
     {
         max-width: 960px !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 40vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 14vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 39vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 33vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 17vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 37vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 13vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 39vh;
+                            left: 31vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -2609,6 +3961,107 @@ div#section4 {
         max-width: 960px !important;
         max-height: 100vh !important;
         height: 100vh !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 40vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 14vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 39vw;
+                            top: 15vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 33vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 17vh;
+                            left: 50vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 37vh;
+                            left: 26vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 13vh;
+                            left: 47vw;
+                            width: 300px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 39vh;
+                            left: 31vw;
+                            width: 680px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 15vh;
+                            left:  31vw;
+                            width: 300px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 100px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -2814,6 +4267,106 @@ div#section4 {
         max-width: 720px !important;
         max-height: 900px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 33vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 57vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 28vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 33vh;
+                            left: 60vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 31vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 35vh;
+                            left:  31vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -270vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -2946,6 +4499,106 @@ div#section4 {
     {
         max-width: 720px !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 33vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 57vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 28vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 33vh;
+                            left: 60vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 31vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 35vh;
+                            left:  31vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 600px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 200px;
+                }
+                &.-on{
+                    top: -282vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -3148,6 +4801,106 @@ div#section4 {
         max-width: 720px !important;
         max-height: 720px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 33vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 57vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 28vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 33vh;
+                            left: 60vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 31vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 35vh;
+                            left:  31vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 150px;
+                height: 450px;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 150px;
+                }
+                &.-on{
+                    top: -265vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -3349,6 +5102,106 @@ div#section4 {
     {
         max-width: 720px !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 27vh;
+                            left: 33vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 2vh;
+                            left: 57vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 28vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 2vh;
+                            left: 60vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 32vh;
+                            left: 31vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 2vh;
+                            left:  31vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -3571,6 +5424,106 @@ div#section4 {
         max-height: 100vh !important;
         height: 100vh !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 27vh;
+                            left: 33vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 2vh;
+                            left: 57vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 23vh;
+                            left: 28vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 2vh;
+                            left: 60vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 32vh;
+                            left: 31vw;
+                            width: 550px;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 2vh;
+                            left:  31vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 200px;
+                height: 100%;
+                top: 100vh;
+                left: 60px;
+                & .SVGopt{
+                    height: 33vh;
+                }
+                &.-on{
+                    top: -300vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -3790,6 +5743,110 @@ div#section4 {
     {
         max-width: 540px !important;
         max-height: 900px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -4025,6 +6082,110 @@ div#section4 {
     {
         max-width: 540px !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -4288,6 +6449,110 @@ div#section4 {
         max-width: 540px !important;
         max-height: 720px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -4549,6 +6814,110 @@ div#section4 {
     {
         max-width: 540px !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 42vw;
+                            top: 13vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 40vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 27vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 39vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 26vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 42vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 18vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -230vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -4831,6 +7200,110 @@ div#section4 {
         max-width: 540px !important;
         max-height: 100vh !important;
         height: 100vh !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 33vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 42vw;
+                            top: 13vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 40vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 27vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 39vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 26vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 42vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 18vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -230vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -5126,6 +7599,111 @@ div#section4 {
         width: 100% !important;
         max-height: 900px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 27vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: 9vw;
+                            top: 35vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 44vw;
+                            top: 18vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 60vw;
+                            top: 45vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    transform: scale(1.5);
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -5402,6 +7980,111 @@ div#section4 {
         max-width: calc( 100vw - 50px) !important;
         width: 100% !important;
         max-height: 768px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 27vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: -9vw;
+                            top: 55vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 40vw;
+                            top: 22vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 50vw;
+                            top: 65vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    transform: scale(1.5);
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
@@ -5683,6 +8366,111 @@ div#section4 {
         width: 100% !important;
         max-height: 720px !important;
     }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 27vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: -9vw;
+                            top: 55vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 40vw;
+                            top: 22vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 50vw;
+                            top: 65vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 37vh;
+                            left: 27vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 36vh;
+                            left: 45vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 28vh;
+                            left:  15vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    transform: scale(1.5);
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
+    }
     & div#sec2box{
         & #OPENweather{
             z-index: 16;
@@ -5962,6 +8750,111 @@ div#section4 {
         max-width: calc( 100vw - 50px) !important;
         width: 100% !important;
         max-height: 600px !important;
+    }
+    div#section1 {
+        & #sec1box{
+            & #zero{
+                & #SVGthoughts{
+                    & img{
+                        width: 400px;
+                        left: 27vw;
+                        top: 44vh;
+                    }
+                }
+                & .SVGqes{
+                    & img{
+                        &.init{
+                            width: 240px ;
+                        }
+                    }
+                    &#SVGqes1 img{
+                        &.init{
+                            left: -9vw;
+                            top: 55vh;
+                        }
+                    }
+                    &#SVGqes2 img{
+                        &.init{
+                            left: 40vw;
+                            top: 12vh;
+                        }
+                    }
+                    &#SVGqes3 img{
+                        &.init{
+                            left: 50vw;
+                            top: 65vh;
+                        }
+                    }
+                }
+            }
+            & #SVGans{
+                & #one{
+                    & #SVGtour{
+                        & img{
+                            top: 50vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans1{
+                        & img{
+                            top: 30vh;
+                            left: 23vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #two{
+                    & #SVGforum{
+                        & img{
+                            top: 49vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans2{
+                        & img{
+                            top: 24vh;
+                            left: 18vw;
+                            width: 240px;
+                        }
+                    }
+                }
+                & #three{
+                    & #SVGproduct{
+                        & img{
+                            top: 52vh;
+                            left: 0vw;
+                            width: 100%;
+                        }
+                    }
+                    & #SVGans3{
+                        & img{
+                            top: 22vh;
+                            left:  11vw;
+                            width: 240px;
+                        }
+                    }
+                }
+            }
+            & #Leftbox{
+                width: 90vw;
+                height: 30vw;
+                top: 100vh;
+                left: 5vw;
+                flex-direction: row !important;
+                // flex-wrap: wrap;
+                // justify-content: space-between;
+                & .SVGopt{
+                    transform: scale(1.5);
+                    height: 30vw;
+                    width: 30vw !important;
+                }
+                &.-on{
+                    top: -220vh;
+                }
+            }
+        }
     }
     & div#sec2box{
         & #OPENweather{
