@@ -189,12 +189,15 @@
                 <div class="memberBadge">
                     <span class="memberBadgeIcon">
                         <img src="./images/member/Ach_list_03.png" alt="">
+                        <!-- <img :src="currentTour.mem_badge1" alt=""> -->
                     </span>
                     <span class="memberBadgeIcon">
                         <img src="./images/member/Ach_list_03.png" alt="">
+                        <!-- <img :src="currentTour.mem_badge2" alt=""> -->
                     </span>
                     <span class="memberBadgeIcon">
                         <img src="./images/member/Ach_list_03.png" alt="">
+                        <!-- <img :src="currentTour.mem_badge3" alt=""> -->
                     </span>
                 </div>
             </div>
@@ -343,7 +346,7 @@
                     <p id="tour_max_number">活動人數上限: {{currentTour.tour_max_number}}人</p>
                     <p id="tour_title">活動標題: {{currentTour.tour_title}}</p>
                     <p id="tour_notice">活動注意事項: {{currentTour.tour_notice}}</p>
-                    <p id="tour_innertext">活動內容: {{currentTour.tour_innertext}}</p>
+                    <p id="tour_innertext">活動內容:<p v-html="currentTour.tour_innertext"></p> </p>
                 </div>
                 <div class="activity_application">
                     <p class="no_applied">目前還沒有人申請！</p>
@@ -383,8 +386,8 @@
                     </div>
                     <div class="memberInfo">
                         <div class="certification">
-                            <span v-if="CHECKname_cm" class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span v-if="CHECKguide_cm" class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
                         <div class="memberId">{{comment.mem_id}}</div>
                         <div class="memberBadge">

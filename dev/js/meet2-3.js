@@ -56,6 +56,7 @@ new Vue({
 
         axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
             this.tourData = res.data[0];
+            this.tourData['tour_innertext']=this.tourData['tour_innertext'].replace(/\n/g,"<br>")
             // console.log('success tourData');
             // console.log(this.tourData);
         }),
@@ -212,12 +213,15 @@ new Vue({
         CHECKguide() {
             return this.tourData.guide_no;
         },
-        CHECKname_cm(){
-            return this.comments.mem_realname;
-        },
-        CHECKguide_cm(){
-            return this.comments.guide_no;
-        }
+        // checkBadge1(){
+        //     return this.tourData.mem_badge1;
+        // },
+        // checkBadge2(){
+        //     return this.tourData.mem_badge2;
+        // },
+        // checkBadge3(){
+        //     return this.tourData.mem_badge3;
+        // }
     },
     methods: {
         //參加狀態
