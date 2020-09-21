@@ -1,7 +1,178 @@
 
+// #MemTravel{
+//     width: 100%;
+//     margin: 0;
+//     .title{
+//         width: 100%;
+//         background-color: #153A64;
+//         color: #fff;
+//         padding: 10px;
+//         text-align: center;
+//         letter-spacing: 10px;
+//     }
+//     .tabs{
+//         display: -webkit-box;
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: flex-end;
+//         label{
+//             -webkit-box-ordinal-group: 2;
+//                 order: 1;
+//             display: block;
+//             padding: 1rem 2rem;
+//             margin-right: 0.2rem;
+//             cursor: pointer;
+//             background: #ffffff;
+//             -webkit-transition: background ease 0.2s;
+//             transition: background ease 0.2s;
+//             transform: translateY(30px);
+//         }
+//         .list_style{
+//             margin: auto;
+//             transform: translateY(50px);
+//             margin-bottom: 50px;
+//             display: grid;
+//             grid-template-columns: repeat(1,1fr);
+//             grid-template-rows: repeat(7,1fr);
+//             .page{
+//                 width: 100%;
+//                 border: 1px solid #c8c8c8;
+//                 margin-bottom: 1%;
+//                 display: grid;
+//                 grid-template-columns: repeat(6,1fr);
+//                 grid-template-rows: repeat(1,1fr);
+//                 transition: all ease 0.2s;
+//                 &:hover{
+//                     -moz-box-shadow: 5px 5px 15px -5px #8A8A8A; 
+//                     -webkit-box-shadow: 5px 5px 15px -5px #8A8A8A; 
+//                     box-shadow: 5px 5px 15px -5px #8A8A8A;
+//                 }
+//                 .img_box{
+//                     grid-area: 1/1/2/2;
+//                     margin: 5%;
+//                     img{
+//                         width: 100%;
+//                         height: 100%;
+//                     }
+//                 }
+//                 .text_box{
+//                     grid-area: 1/2/2/5;
+//                     display: grid;
+//                     grid-template-columns: repeat(1,1fr);
+//                     grid-template-rows: repeat(4,1fr);
+//                     margin: 10px 0;
+//                     .text_title{
+//                         grid-area: 1/1/2/2;
+//                         font-size: 22px;
+//                     }
+//                     .text_content{
+//                         grid-area: 2/1/4/2;
+//                         height: 80%;
+//                         overflow: hidden;
+//                         p{
+//                             display: -webkit-box;
+//                             -webkit-line-clamp: 2;
+//                             /*!autoprefixer:off*/
+//                             -webkit-box-orient: vertical;
+//                             /*autoprefixer:on*/
+//                         }
+//                     }
+//                     .text_prompt{
+//                         width: 45%;
+//                         grid-area: 4/1/5/2;
+//                         display: grid;
+//                         grid-template-columns: repeat(6,1fr);
+//                         grid-template-rows: repeat(1,1fr);
+//                         .TP{
+//                             text-align: center;
+//                             align-self: center;
+//                         }
+//                         .TP_icon{
+//                             font-size: 24px;
+//                         }
+//                         .TP_title{
+//                             border-left: 1px solid #555555;
+//                             grid-area: 1/3/2/4;
+//                         }
+//                         .TP_level{
+//                             display: flex;
+//                             grid-area: 1/4/2/7;
+//                             margin: 0 5%;
+//                             .fa-mountain{
+//                                 margin: 1%;
+//                                 color: green;
+//                             }
+//                             .Lv1,.Lv2,.Lv3,.Lv4{
+//                                 color: green;
+//                             }
+//                             .Lv4{
+//                                 opacity: 0.2;
+//                             }
+//                         }
+//                     }
+//                 }
+//                 .info_box{
+//                     margin: 25px 0;
+//                     text-align: center;
+    
+//                     grid-area: 1/5/2/6;
+//                     display: grid;
+//                     grid-template-columns: repeat(1,1fr);
+//                     grid-template-rows: repeat(3,1fr);
+//                     .info_title{
+//                         grid-area: 1/1/2/2;
+//                         font-size: 22px;
+//                     }
+//                     .info_value{
+//                         grid-area: 3/1/4/2;
+//                     }
+//                 }
+//                 .date_box{
+//                     margin: 25px 0;
+//                     text-align: center;
+    
+//                     grid-area: 1/6/2/7;
+//                     display: grid;
+//                     grid-template-columns: repeat(1,1fr);
+//                     grid-template-rows: repeat(3,1fr);
+//                     .date_title{
+//                         grid-area: 1/1/2/2;
+//                         font-size: 22px;
+//                     }
+//                     .date_value{
+//                         grid-area: 3/1/4/2;
+//                     }
+//                 }
+//             }
+//             .pagetab{
+//                 margin: 5% 0;
+//                 text-align: center;
+//             }
+//         }
+//         .tab{
+//             -webkit-box-ordinal-group: 100;
+//                     order: 99;
+//             -webkit-box-flex: 1;
+//                     flex-grow: 1;
+//             width: 100%;
+//             display: none;
+//             background: #fff;
+//         }
+//         input[type="radio"] {
+//             display: none;
+//         }
+//         input[type="radio"]:checked + label {
+//             background: #FFC400;
+//             color: #ffffff;
+//             height: 50px;
+//         }
+//         input[type="radio"]:checked + label + .tab {
+//             display: block;
+//         }
+//     }
+// }
+
 #MemTravel{
-    width: 100%;
-    margin: 0;
     .title{
         width: 100%;
         background-color: #153A64;
@@ -11,11 +182,12 @@
         letter-spacing: 10px;
     }
     .tabs{
-        display: -webkit-box;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
         label{
+            width: 144px;
+            height: 50px;
             -webkit-box-ordinal-group: 2;
                 order: 1;
             display: block;
@@ -27,126 +199,74 @@
             transition: background ease 0.2s;
             transform: translateY(30px);
         }
-        .list_style{
-            margin: auto;
-            transform: translateY(50px);
-            margin-bottom: 50px;
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            grid-template-rows: repeat(7,1fr);
-            .page{
-                width: 100%;
-                border: 1px solid #c8c8c8;
-                margin-bottom: 1%;
+        .tab{
+            justify-items: center;
+            .cardbox{
                 display: grid;
-                grid-template-columns: repeat(6,1fr);
-                grid-template-rows: repeat(1,1fr);
-                transition: all ease 0.2s;
-                &:hover{
-                    -moz-box-shadow: 5px 5px 15px -5px #8A8A8A; 
-                    -webkit-box-shadow: 5px 5px 15px -5px #8A8A8A; 
-                    box-shadow: 5px 5px 15px -5px #8A8A8A;
-                }
-                .img_box{
-                    grid-area: 1/1/2/2;
-                    margin: 5%;
-                    img{
+                grid-template-columns: repeat(4,1fr);
+                justify-items: center;
+                .CardByMem{
+                    width: 270px;
+                    height: 400px;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+                    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+                    margin-top: 70px;
+                    margin-bottom: -35px;
+                    transform: scale(1.0, 1.0);
+                    &:hover{
+                        box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
+                        transform: scale(1.1, 1.1);
+                    }
+                    .CBM_imgbox{
                         width: 100%;
-                        height: 100%;
-                    }
-                }
-                .text_box{
-                    grid-area: 1/2/2/5;
-                    display: grid;
-                    grid-template-columns: repeat(1,1fr);
-                    grid-template-rows: repeat(4,1fr);
-                    margin: 10px 0;
-                    .text_title{
-                        grid-area: 1/1/2/2;
-                        font-size: 22px;
-                    }
-                    .text_content{
-                        grid-area: 2/1/4/2;
-                        height: 80%;
-                        overflow: hidden;
-                        p{
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            /*!autoprefixer:off*/
-                            -webkit-box-orient: vertical;
-                            /*autoprefixer:on*/
+                        height: 200px;
+                        border-top-left-radius: 12px;
+                        border-top-right-radius: 12px;
+                        img{
+                            width: 100%;
+                            height: 200px;
                         }
                     }
-                    .text_prompt{
-                        width: 45%;
-                        grid-area: 4/1/5/2;
+                    .CBM_contentbox{
+                        background-color: #fff;
+                        border-bottom-left-radius: 12px;
+                        border-bottom-right-radius: 12px;
+                        padding: 16px;
+                        height: 200px;
                         display: grid;
-                        grid-template-columns: repeat(6,1fr);
-                        grid-template-rows: repeat(1,1fr);
-                        .TP{
-                            text-align: center;
-                            align-self: center;
-                        }
-                        .TP_icon{
-                            font-size: 24px;
-                        }
-                        .TP_title{
-                            border-left: 1px solid #555555;
-                            grid-area: 1/3/2/4;
-                        }
-                        .TP_level{
+                        grid-template-rows: repeat(5, 1fr);
+                        overflow: hidden;
+                        .location_and_hardLv_and_area{
                             display: flex;
-                            grid-area: 1/4/2/7;
-                            margin: 0 5%;
-                            .fa-mountain{
-                                margin: 1%;
-                                color: green;
+                            grid-area: 1/1/2/2;
+                            justify-content: space-between;
+                        }
+                        .CBM_title{
+                            grid-area: 2/1/3/2;
+                            overflow: hidden;
+                            h3{
+                                display: -webkit-box;
+                                -webkit-line-clamp: 1;
+                                /*!autoprefixer:off*/
+                                -webkit-box-orient: vertical;
+                                /*autoprefixer:on*/
                             }
-                            .Lv1,.Lv2,.Lv3,.Lv4{
-                                color: green;
-                            }
-                            .Lv4{
-                                opacity: 0.2;
-                            }
+                        }
+                        .departure{
+                            grid-area: 3/1/4/2;
+                        }
+                        .signup{
+                            grid-area: 4/1/5/2;
+                        }
+                        .passed_and_verify_or_progress{
+                            grid-area: 5/1/6/2;
+                            display: flex;
+                            justify-content: space-between;
                         }
                     }
                 }
-                .info_box{
-                    margin: 25px 0;
-                    text-align: center;
-    
-                    grid-area: 1/5/2/6;
-                    display: grid;
-                    grid-template-columns: repeat(1,1fr);
-                    grid-template-rows: repeat(3,1fr);
-                    .info_title{
-                        grid-area: 1/1/2/2;
-                        font-size: 22px;
-                    }
-                    .info_value{
-                        grid-area: 3/1/4/2;
-                    }
-                }
-                .date_box{
-                    margin: 25px 0;
-                    text-align: center;
-    
-                    grid-area: 1/6/2/7;
-                    display: grid;
-                    grid-template-columns: repeat(1,1fr);
-                    grid-template-rows: repeat(3,1fr);
-                    .date_title{
-                        grid-area: 1/1/2/2;
-                        font-size: 22px;
-                    }
-                    .date_value{
-                        grid-area: 3/1/4/2;
-                    }
-                }
-            }
-            .pagetab{
-                margin: 5% 0;
-                text-align: center;
             }
         }
         .tab{
@@ -156,7 +276,6 @@
                     flex-grow: 1;
             width: 100%;
             display: none;
-            background: #fff;
         }
         input[type="radio"] {
             display: none;
@@ -171,8 +290,6 @@
         }
     }
 }
-
-
 
 // ===========media screen===========
 
@@ -194,42 +311,9 @@
 
         #MemTravel{
             .tabs{
-                .list_style{
-                    .page{
-                        .img_box{
-                            height: 100%;
-                            margin: 0%;
-                            img{
-                                height: 100%;
-                            }
-                        }
-                        .text_box{
-                            margin: 0 2%;
-                            align-self: center;
-                            grid-template-columns: repeat(1, 1fr);
-                            grid-template-rows: repeat(2, 1fr);
-                            .text_prompt{
-                                grid-area: 2/1/3/2;
-                            }
-                        }
-                        .info_box{
-                            margin: 0;
-                            align-self: center;
-                            grid-template-columns: repeat(1, 1fr);
-                            grid-template-rows: repeat(2, 1fr);
-                            .info_value{
-                                grid-area: 2/1/3/2;
-                            }
-                        }
-                        .date_box{
-                            margin: 0;
-                            align-self: center;
-                            grid-template-columns: repeat(1, 1fr);
-                            grid-template-rows: repeat(2, 1fr);
-                            .date_value{
-                                grid-area: 2/1/3/2;
-                            }
-                        }
+                .tab{
+                    .cardbox{
+                        grid-template-columns: repeat(3, 1fr);
                     }
                 }
             }
@@ -240,59 +324,18 @@
     // 請用720
         // max-width: 720px
 
-    #MemTravel{
-        .tabs{
-            .list_style{
-                .page{
-                    .img_box{
-                        height: 100%;
-                        margin: 0%;
-                        img{
-                            height: 100%;
-                        }
-                    }
-                    .text_box{
-                        margin: 0 2%;
-                        align-self: center;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        .text_prompt{
-                            width: 70%;
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                    .info_box{
-                        margin: 0;
-                        align-self: center;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        .info_value{
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                    .date_box{
-                        margin: 0;
-                        align-self: center;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        .date_value{
-                            grid-area: 2/1/3/2;
+        #MemTravel{
+            .tabs{
+                .tab{
+                    .cardbox{
+                        grid-template-columns: repeat(2, 1fr);
+                        .CardByMem{
+                            width: 270px;
                         }
                     }
                 }
             }
         }
-    }
-
-    #MemTravel{
-        a{
-            svg{
-                path{
-                    transform: scale(1);
-                }
-            }
-        }
-    }
 
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
@@ -300,66 +343,12 @@
     // max-width: 540px
     #MemTravel{
         .tabs{
-            .list_style{
-                overflow: auto;
-                &::-webkit-scrollbar{
-                    display: none;
-                }
-                height: 1200px;
-                .page{
-                    width: 80%;
-                    margin: auto;
-                    margin-bottom: 5%;
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-template-rows: repeat(1, 1fr);
-                    .img_box{
-                        grid-area: 1/1/2/7;
-                        width: auto;
-                        height: auto;
+            .tab{
+                .cardbox{
+                    grid-template-columns: repeat(1, 1fr);
+                    .CardByMem{
+                        width: 300px;
                     }
-                    .text_box{
-                        grid-area: 2/1/3/7;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 0 5%;
-                        .text_prompt{
-                            width: 70%;
-                            grid-area: 2/1/3/7;
-                            .TP_level{
-                                display: flex;
-                            }
-                        }
-                    }
-                    .info_box{
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 5%;
-                        grid-area: 3/1/4/4;
-                        align-items: center;
-                        .info_value{
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                    .date_box{
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 5%;
-                        grid-area: 3/4/4/7;
-                        align-items: center;
-                        .date_value{
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    #MemTravel{
-        a{
-            svg{
-                path{
-                    transform: scale(1);
                 }
             }
         }
@@ -370,67 +359,12 @@
 
     #MemTravel{
         .tabs{
-            .list_style{
-                overflow: auto;
-                &::-webkit-scrollbar{
-                    display: none;
-                }
-                height: 1200px;
-                .page{
-                    width: 80%;
-                    margin: auto;
-                    margin-bottom: 5%;
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-template-rows: repeat(1, 1fr);
-                    .img_box{
-                        grid-area: 1/1/2/7;
-                        width: auto;
-                        height: auto;
+            .tab{
+                .cardbox{
+                    grid-template-columns: repeat(1, 1fr);
+                    .CardByMem{
+                        width: 300px;
                     }
-                    .text_box{
-                        grid-area: 2/1/3/7;
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 0 5%;
-                        .text_prompt{
-                            width: 70%;
-                            grid-area: 2/1/3/7;
-                            .TP_level{
-                                display: flex;
-                                grid-template-columns: repeat(4, 1fr);
-                            }
-                        }
-                    }
-                    .info_box{
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 5%;
-                        grid-area: 3/1/4/4;
-                        align-items: center;
-                        .info_value{
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                    .date_box{
-                        grid-template-columns: repeat(1, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                        margin: 5%;
-                        grid-area: 3/4/4/7;
-                        align-items: center;
-                        .date_value{
-                            grid-area: 2/1/3/2;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    #MemTravel{
-        a{
-            svg{
-                path{
-                    transform: scale(1);
                 }
             }
         }
