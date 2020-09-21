@@ -1,7 +1,7 @@
 //會員頁收藏卡片樣式
 @mixin memberLikeCards {
     width: 270px;
-    height: auto;
+    height: 430px;
     border-radius: 20px 20px 30px 30px;
     margin: auto;
     background-color: #fff;
@@ -46,24 +46,30 @@
                 /*autoprefixer:on*/
             }
         }
-    }
+    }   
     .Card_btn{
         text-align: end;
         margin: 5%;
     }
     .Card_delete{
-        background-color: #fff;
-        width: 30px;
-        height: 30px;
-        border-radius: 99em;
+        width: 40px;
+        height: 40px;
+        background-size: 20px,20px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
         position: absolute;
+        border: 0px #fff solid;
         top: 0;
+        border-radius: 99em;
         right: 0;
         outline: none;
-        img{
-            width: 100%;
-            vertical-align: middle;
-        }
+        cursor: pointer;
+    }
+    .Cd_ico{
+        width: 7%;
+        position: absolute;
+        top: 1.5%;
+        right: 1.5%;
     }
 }
 
