@@ -3,6 +3,32 @@ function $id(id){
 	return document.getElementById(id);
 }	
 
+$("#SVGqes1 img.init").click(function(){
+    $("#zero").css("top","100vh")
+    setTimeout(function(){
+        $(".SVGqes img").removeClass("init")
+        $(".SVGqes img").addClass("second")
+        $("#SVGthoughts").css("top","100vh")
+        $("#one").css("top","0vh")
+    },800)
+    setTimeout(function(){
+        $("#zero").css("top","0vh")
+    },1400)
+})
+$("#SVGqes2 img.init").click(function(){
+    $("#zero").css("top","100vh")
+    setTimeout(function(){
+        $(".SVGqes img").removeClass("init")
+        $(".SVGqes img").addClass("second")
+        $("#SVGthoughts").css("top","100vh")
+        $("#two").css("top","-100vh")
+    },800)
+    setTimeout(function(){
+        $("#zero").css("top","0vh")
+    },1400)
+})
+
+
 
 $(document).ready(function() {
     $('#fullpage').fullpage({
