@@ -8,7 +8,7 @@ try{
 
     $sql = "SELECT cp.comment_no, cp.comment_poster, cp.comment_class, cp.forum_post_no, cp.comment_time, cp.comment_innertext, cp.comment_situation,
 	m.mem_no, m.mem_id, m.mem_avator, m.mem_bg, m.mem_badge1, m.mem_badge1 , a1.achievement_image 'badge1'
-    , m.mem_badge2 , a2.achievement_image 'badge2' , m.mem_badge3 , a3.achievement_image 'badge3' ,
+    , m.mem_badge2 , a2.achievement_image 'badge2' , m.mem_badge3 , a3.achievement_image 'badge3',
     mg.guide_no , mr.mem_realname
     FROM comment_post cp
         LEFT OUTER JOIN member m ON cp.comment_poster = m.mem_no
