@@ -130,8 +130,8 @@
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon">{{hotmeet.mem_realname}}<img src="./images/icons/icon_realname.svg" alt=""></span>
-                                            <span class="certificationIcon b">{{hotmeet.guide_no}}<img src="./images/icons/icon_guide.svg" alt=""></span>
+                                            <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
                                         <div class="memberId">{{hotmeet.mem_id}}</div>
                                         <div class="memberBadge">
@@ -235,7 +235,6 @@
                             <span class="tag">＃{{meet.days}}天</span>
                             <span class="tag">＃{{meet.tour_min_number}}~{{meet.tour_max_number}}人</span>
                             <div class="locationDegree">
-                                <!-- 沒有成功  -->
                                 <span class="location">{{meet.mountain_area | Area}}</span>
                                 <span class="degree"><div class="degreeImg" v-html="Degree(meet.degree_category)"></div></span>
                             </div>
@@ -256,8 +255,8 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt="">{{meet.mem_realname}}</span>
-                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt="">{{meet.guide_no}}</span>
+                                <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{meet.mem_id}}</div>
                             <div class="memberBadge">
@@ -283,7 +282,8 @@
                     <!-- 1.更改現在的currentPage  2.用現在的頁碼,去抓那一頁的資料 -->
 
                     <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                    <button class="btnA_S pg " v-for="i in totalPage" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
+                    <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
+                    <!-- '-active' : index == 0 網頁第一次load的時候加上 -active (class) -->
                     <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
                 </div>
 
