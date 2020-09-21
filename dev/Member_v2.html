@@ -408,8 +408,9 @@
                                 </div>
                                 <div class="CBM_contentbox">
                                     <div class="location_and_hardLv_and_area">
-                                        <span>{{TravelBySelfList.mountain_area | Area}}｜{{TravelBySelfList.degree_category}}</span>
+                                        <span>{{TravelBySelfList.mountain_area | Area}}｜</span>
                                         <span>{{TravelBySelfList.mountain_name}}</span>
+                                        <span class="degree"><div class="degreeImg" v-html="Degree(TravelBySelfList.degree_category)"></div></span>
                                     </div>
                                     <div class="CBM_title"><h3>{{TravelBySelfList.tour_title}}</h3></div>
                                     <span class="departure">{{TravelBySelfList.tour_activitystart}} ~ {{TravelBySelfList.tour_activityend}}</span>
@@ -433,8 +434,9 @@
                                 </div>
                                 <div class="CBM_contentbox">
                                     <div class="location_and_hardLv_and_area">
-                                        <span>{{TravelByOtherList.mountain_area | Area}}｜{{TravelByOtherList.degree_category}}</span>
+                                        <span>{{TravelByOtherList.mountain_area | Area}}｜</span>
                                         <span>{{TravelByOtherList.mountain_name}}</span>
+                                        <span class="degree"><div class="degreeImg" v-html="Degree(TravelByOtherList.degree_category)"></div></span>
                                     </div>
                                     <div class="CBM_title"><h3>{{TravelByOtherList.tour_title}}</h3></div>
                                     <span class="departure">{{TravelByOtherList.tour_activitystart}} ~ {{TravelByOtherList.tour_activityend}}</span>
