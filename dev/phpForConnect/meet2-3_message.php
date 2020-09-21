@@ -18,10 +18,6 @@ try{
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
 
-
-    // $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-    // echo(json_encode($result));
-
     
 }catch(PDOException $e){
     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";

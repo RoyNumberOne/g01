@@ -9,6 +9,7 @@ new Vue({
         notPassedParticipant: [],
         message: '',
         message_report_img: [],
+        tour_report_img: [],
     },
     created() {
 
@@ -23,7 +24,16 @@ new Vue({
             }
         }).then(res => {
             this.message_report_img = res.data;
-            console.log(this.message_report_img);
+            // console.log(this.message_report_img);
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_report_img.php', {
+            params: {
+                "tour_post_no": tour_no,
+            }
+        }).then(res => {
+            this.tour_report_img = res.data;
+            // console.log(this.tour_report_img);
+            // console.log(1.1)
         })
 
     },
@@ -36,35 +46,35 @@ new Vue({
         formTour.append("tour_no", tour_no);
 
         axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
-                this.tourData = res.data[0];
-                console.log('success tourData');
-                console.log(this.tourData);
-            }),
-            axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-                this.comments = res.data;
-                console.log('success comments');
-                console.log(this.comments);
-            }),
-            axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
-                this.tourParticipates = res.data;
-                console.log('success tourParticipats');
-                console.log(this.tourParticipates);
-            }),
-            axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
-                this.passedParticipant = res.data;
-                console.log('success tour_participant_passed');
-                console.log(this.passedParticipant);
-            }),
-            axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
-                this.notPassedParticipant = res.data;
-                console.log('success tour_participant_notpassed');
-                console.log(this.notPassedParticipant);
-            })
-            // axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
-            //     this.articals = res.data;
-            //     console.log('success articals');
-            //     console.log(this.articals);
-            // })
+            this.tourData = res.data[0];
+            // console.log('success tourData');
+            // console.log(this.tourData);
+        }),
+        axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
+            this.comments = res.data;
+            // console.log('success comments');
+            // console.log(this.comments);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+            this.tourParticipates = res.data;
+            // console.log('success tourParticipats');
+            // console.log(this.tourParticipates);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
+            this.passedParticipant = res.data;
+            // console.log('success tour_participant_passed');
+            // console.log(this.passedParticipant);
+        }),
+        axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
+            this.notPassedParticipant = res.data;
+            // console.log('success tour_participant_notpassed');
+            // console.log(this.notPassedParticipant);
+        })
+        // axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
+        //     this.articals = res.data;
+        //     console.log('success articals');
+        //     console.log(this.articals);
+        // })
     },
     updated() {
         // console.log("LENGTH" + this.message_report_img.length)
@@ -80,24 +90,49 @@ new Vue({
         // xhr.open("get", "./login_v2_LoginInFo.php",true);
         //     xhr.send(null);
         // if(this.tourData.mem_no){
-        //     xhr.onload = function(){
+        //     xhr.onload = ()=>{
         //         member = JSON.parse(xhr.responseText);
         //         if (member.mem_id){
-        //             if (nowMen !== member.mem_no){
-        //                 console.log('不同一人')
+        //             if (nowMen !== member.mem_no){  //不同一人
+        //                 // console.log('不同一人')
         //                 $('.application_bt').addClass('none')
         //                 $('.applied_participant').addClass('none')
-        //             }   else    {
-        //                 console.log('同一人')
+        //             }   else    {  //同一人
+        //                 // console.log('同一人')
         //                 $('.equip_recommend').css('display', 'none')
-        //             };
+        //                 $('#apply_bt').addClass('none')
+        //                 $('#okGo').removeClass('none')
+        //                 console.log(this.tourData.tour_min_number)
+        //                 if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
+        //                     $('#okGo').removeAttr('disabled')
+        //                     $('#okGo').removeClass('btnB_XL_grey')
+        //                     $('#okGo').addClass('btnB_XL_yellow')
+        //                     $('#okGo').css('cursor', 'pointer')
+        //                     // console.log('可以點擊成團')
+        //                     // $('#okGo').click(()=>{
+        //                     //     alert('可以點了')
+        //                     // })
+        //                 }
+        //             }
         //         }   
         //     }
         // }
         //寫完揪團記得打開
 
-
         this.equipmentDisplay();
+
+        // console.log(1.2)
+        // console.log(this.tri)
+        // console.log(this.tour_report_img[0])
+        // console.log(this.tour_report_img[0].tour_report_mem)
+
+        if(this.tour_report_img[0].tour_report_mem == null){
+            // console.log('還沒檢舉')
+        }   else    {
+            // console.log('已檢舉')
+            $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
+            $('.tr_report_bt').attr('disabled', 'disabled')
+        }
         // this.checkHoster();
         // console.log('111');
         // console.log(this.message_report_img);
@@ -177,6 +212,7 @@ new Vue({
                     break;
             }
         },
+        //申請參加揪團
         applyTour() {
             let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
@@ -189,77 +225,58 @@ new Vue({
                 }
             }).then(res => {
                 console.log('success apply');
-                // axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
-                //     this.tourParticipates = res.data;
-                // })
+                axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+                    this.tourParticipates = res.data;
+                })
             });
         },
+        //審核同意參加
         agreeJoinTour(e) {
             let tourParticipate = $(e.target.parentNode).find("input.participate_mem_no").val();
-            alert(tourParticipate);
             const nowMen = this.tourData.mem_no;
-            // let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
-            // formTour.append("tour_no", tour_no);    
-            // formTour.append("tour_participate_mem", tourParticipate);
-
             let xhr = new XMLHttpRequest();
             xhr.open("get", "./login_v2_LoginInFo.php", true);
             xhr.send(null);
             if (this.tourData.mem_no) {
-                xhr.onload = function() {
+                // console.log(this.passedParticipant);
+                xhr.onload = ()=> {
                     member = JSON.parse(xhr.responseText);
+                    // console.log(this.passedParticipant);
                     if (member.mem_id) {
                         if (nowMen == member.mem_no) {
-                            // console.log('同一人')
-
                             let formTour = new FormData();
                             let urlSearchParams = (new URL(document.location)).searchParams;
                             tour_no = urlSearchParams.get('tour_no');
                             formTour.append("tour_no", tour_no);
 
                             axios.get('./phpForConnect/meet2-3_tour_apply_pass.php', {
-                                    params: {
-                                        "tour_participate_tour": tour_no,
-                                        "tour_participate_mem": tourParticipate,
-
-                                    }
-                                })
-                                .then(res => {
-                                    console.log('success message');
-                                    axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
-                                        this.tourParticipates = res.data;
-                                    })
-                                });
-                                // .then(res => {
-                                //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
-                                //         this.passedParticipant = res.data;
-                                //         console.log('ohohoh')
-                                //     })
-                                // });
-                                // .then(() => {
-                                //     axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
-                                //         .then(res => {
-                                //             this.passedParticipant = res.data;
-                                //             console.log('success 333');
-                                //         })
-                                // })
-                                // .then(() => {
-                                //     axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
-                                //         .then(res => {
-                                //             this.tourParticipates = res.data;
-                                //             console.log('success 333');
-                                //         })
-                                // })
+                                params: {
+                                    "tour_participate_tour": tour_no,
+                                    "tour_participate_mem": tourParticipate,
+                                }
+                            }).then((res) => {
+                                // console.log('送同意的人');
+                                axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
+                                     .then(res => {
+                                            this.tourParticipates = res.data;
+                                            // console.log('抓未審核的人');
+                                        });
+                                axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
+                                     .then(res => {
+                                            this.passedParticipant = res.data;
+                                            // console.log('抓審核通過的人');
+                                        }) 
+                            })
                         }
                     }
                 }
             }
         },
+        //審核拒絕參加
         disareeJoinTour(e) {
             let tourParticipate = $(e.target.parentNode.parentNode).find("input.participate_mem_no").val();
-            alert(tourParticipate);
             const nowMen = this.tourData.mem_no;
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
@@ -268,27 +285,72 @@ new Vue({
             xhr.open("get", "./login_v2_LoginInFo.php", true);
             xhr.send(null);
             if (this.tourData.mem_no) {
-                xhr.onload = function() {
+                xhr.onload = () => {
                     member = JSON.parse(xhr.responseText);
                     if (member.mem_id) {
                         if (nowMen == member.mem_no) {
-                            // console.log('同一人')
+                            let formTour = new FormData();
+                            let urlSearchParams = (new URL(document.location)).searchParams;
+                            tour_no = urlSearchParams.get('tour_no');
+                            formTour.append("tour_no", tour_no);
 
                             axios.get('./phpForConnect/meet2-3_tour_apply_notPass.php', {
                                 params: {
                                     "tour_participate_tour": tour_no,
                                     "tour_participate_mem": tourParticipate,
                                 }
+                            }).then((res) => {
+                                axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
+                                     .then(res => {
+                                            this.tourParticipates = res.data;
+                                        });
+                                axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour)
+                                     .then(res => {
+                                            this.notPassedParticipant = res.data;
+                                        }) 
                             })
                         }
                     }
                 }
             }
         },
+        //揪團檢舉彈窗
+        openTourReportModal(e) {
+            if ($('#mem_info_id').html() === '') {
+                alert('請先登入');
+                window.location.href = './login_v2.html';
+            } else {
+                // 打開彈窗
+                $('.report_block_match').removeClass('close');
+                let reportNo = $(e.target).parent().parent().parent().parent().parent().parent().find("#report_block_match").find(".tr_reporting").find(".tour_no").val(); 
+                // console.log(reportNo);
+                let iconIF = $(e.target.parentNode.parentNode).find("img");
+                $(".tr_confirm").click(function(e) {
+                    var temp = $('#send_tr_report_block').val();
+                    if (temp == '') {
+                        alert('請先輸入文字');
+                    } else {
+                        let tour_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
+                        console.log(tour_report_reason);
+                        axios.get('./phpForConnect/meet2-3_tour_report.php', {
+                            params: {
+                                "tour_report_tour": reportNo,
+                                "tour_report_reason": tour_report_reason,
+                            }
+                        })
+                        $('.tr_reporting').css('display', 'none');
+                        $('.tr_be_reported').css('display', 'block');
+                        iconIF.attr('src', './images/icons/icon_report_c.svg');
+                    }
+                })
+            }
+        },
+        //送出留言後清除留言框文字
         clearTextarea() {
             this.message = '';
         },
-        openReportModal(e) {
+        //判斷留言檢舉
+        openMessageReportModal(e) {
             if ($('#mem_info_id').html() === '') {
                 alert('請先登入');
                 window.location.href = './login_v2.html';
@@ -297,9 +359,9 @@ new Vue({
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
                 console.log(reportNo);
-                let iconIF = $(e.target.parentNode).find("img");
+                let iconIF = $(e.target.parentNode).find("img.tr_report_pic");
                 $(".mg_confirm").click(function(e) {
-                    var temp = $('#send_report_block').val();
+                    var temp = $('#send_mg_report_block').val();
                     if (temp == '') {
                         alert('請先輸入文字');
                     } else {
@@ -355,10 +417,12 @@ new Vue({
                 }
             }
         },
+        //預覽圖片切換到大圖
         changePic(e) {
             console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
+        //確認留言是否被檢舉過
         CHECKnull(k) {
             // console.log(this.message_report_img[k].comment_no);
             var CMTNO = this.message_report_img[k].comment_no;
@@ -369,6 +433,15 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
+        //確認揪團是否被檢舉過
+        // checkTourReportNull() {
+        //     // let tourReporter = this.tour_report_img.tour_no;
+        //     if(this.tour_report_img.tour_report_mem != null){
+        //         $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
+        //         $('.tr_report_bt').attr('disabled', 'disabled')
+        //     }
+        // },
+        //推薦裝備show or not
         equipmentDisplay() {
             if (this.tourData.tour_equip_1 == 0) {
                 $('.eq1').css('display', 'none')
@@ -386,6 +459,7 @@ new Vue({
                 $('.eq5').css('display', 'none')
             }
         },
+        //揪團收藏
         meet_Collect() {
             let tour_no = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
@@ -533,7 +607,7 @@ $(document).ready(function() {
     //report match
     $(function() {
         //report lightbox
-        // $('.report_bt').click(function() {
+        // $('.tr_report_bt').click(function() {
         //     $('#report_block_match').removeClass('close');
         // });
 
@@ -548,9 +622,9 @@ $(document).ready(function() {
         });
 
         //click confirm
-        // $('.confirm').click(function() {
-        // $('.reporting').css('display', 'none');
-        // $('.be_reported').css('display', 'block');
+        // $('.tr_confirm').click(function() {
+        // $('.tr_reporting').css('display', 'none');
+        // $('.tr_be_reported').css('display', 'block');
         //change report img src -> not done yet
         // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
         // });

@@ -122,7 +122,7 @@
                 
                                   <div class="container">
                                     <div class="tittle">
-                                      <h3>{{poprank.forum_post_title}}</h3>
+                                      <h3>【{{poprank.forum_post_category}}】{{poprank.forum_post_title}}</h3>
                                       <span>{{poprank.forum_post_innertext}}</span>
                                     </div>
                                     <a :href="'./forum-comment.html?forum_post_no=' + poprank.forum_post_no">
@@ -185,7 +185,7 @@
             
                                 <div class="ask_btn" id="forum_post_btn">
                                     <!-- <form  method="post" enctype="multipart/form-data"> -->
-                                        <button class="btnB_L_yellow" onclick="location.href='./forum-post.html'" id="ask" type="button"><p>我要發文</p><div class="bg"></div></button>
+                                        <button class="btnA_XLwRA" onclick="location.href='./forum-post.html'" id="ask" type="button"><p>我要發文</p><div class="bg btnArrowXL"></div></button>
                                     <!-- </form> -->
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                         <div class="forum-infor">
                             <a :href="'./forum-comment.html?forum_post_no=' + artical.forum_post_no">
                                 <div class="tittle">
-                                    <h3>{{artical.forum_post_title}}</h3>
+                                    <h3>【{{artical.forum_post_category}}】{{artical.forum_post_title}}</h3>
                                     <div class="innertext">
                                         <p>
                                             {{artical.forum_post_innertext}}
@@ -233,12 +233,12 @@
                                         <div class="forum_groups">
                                             <div class="heart">
                                                 <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>22人收藏</span></div>
+                                                <div class="heart-infor"><span>{{artical.NUMkeep}} 人收藏</span></div>
                                             </div>
 
                                             <div class="message">
                                                 <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>42則回覆</span></div>
+                                                <div class="message-infor"><span>{{artical.NUMreply}} 則回覆</span></div>
                                             </div>
                                         </div>
                                         <div class="post_situation">
@@ -249,7 +249,7 @@
 
                                             <div class="remessage_time">
                                                 <p>最後回覆</p>
-                                                <div class="renews"><span>2020/07/25 03:15</span></div>
+                                                <div class="renews"><span>{{artical.replytime}}</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -498,7 +498,7 @@
                     </div> -->
                 </div>
 
-                <div id="tag">
+                <!-- <div id="tag">
                     <div class="tag-tittle">
                         <p>關鍵字</p>
                     </div>
@@ -514,7 +514,7 @@
                         <li><a href="#">#台灣</a></li>
                         <li><a href="#">#登山杖</a></li>
                     </ul>
-                </div>
+                </div> -->
 
             </div>
         </div>
