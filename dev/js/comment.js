@@ -174,6 +174,43 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
+        forum_artical_report(){
+            let forum_post_no = this.reflection[0].forum_post_no;
+            let xhr2 = new XMLHttpRequest();
+
+            xhr2.onload = function() {
+                member = JSON.parse(xhr2.responseText);
+                if (member.mem_id) {
+                    //已經登入了，可以開始做事了
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(e) {
+                        if (xhr.status == 200) { //連線成功
+                            console.log(xhr.responseText);
+                            alert(11111111111)
+                            // alert(xhr.responseText);
+                        } else {
+                            // alert(123);
+                        }
+                    }
+                    var url = "./phpForConnect/forum_artical_report.php";
+                    xhr.open("REQUEST", url, true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                    let data = `forum_post_no=${forum_post_no}`;
+                    xhr.send(data);
+
+                    if ($("#report_btn").attr('src') === "./images/icons/icon_report.svg") {
+                        $("#report_btn").attr("src", "./images/icons/icon_report_c.svg");
+                    } else {
+                        $("#report_btn").attr("src", "./images/icons/icon_report.svg");
+                    }
+                } else {
+                    //沒有登入，請先登入
+                    alert("請先登入哦")
+                }
+            }
+            xhr2.open("get", "./login_v2_LoginInFo.php", true);
+            xhr2.send(null);
+        },
     }
 });
 // .heart chage img src ----> 愛心收藏click(!important)

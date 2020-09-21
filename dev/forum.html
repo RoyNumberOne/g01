@@ -122,7 +122,7 @@
                 
                                   <div class="container">
                                     <div class="tittle">
-                                      <h3>{{poprank.forum_post_title}}</h3>
+                                      <h3>【{{poprank.forum_post_category}}】{{poprank.forum_post_title}}</h3>
                                       <span>{{poprank.forum_post_innertext}}</span>
                                     </div>
                                     <a :href="'./forum-comment.html?forum_post_no=' + poprank.forum_post_no">
@@ -199,7 +199,7 @@
                         <div class="forum-infor">
                             <a :href="'./forum-comment.html?forum_post_no=' + artical.forum_post_no">
                                 <div class="tittle">
-                                    <h3>{{artical.forum_post_title}}</h3>
+                                    <h3>【{{artical.forum_post_category}}】{{artical.forum_post_title}}</h3>
                                     <div class="innertext">
                                         <p>
                                             {{artical.forum_post_innertext}}
@@ -233,12 +233,12 @@
                                         <div class="forum_groups">
                                             <div class="heart">
                                                 <div class="heart-icon"><img src="./images/icons/icon_heart_gray.svg" alt=""></div>
-                                                <div class="heart-infor"><span>{{artical.NUMkeep}}</span></div>
+                                                <div class="heart-infor"><span>{{artical.NUMkeep}} 人收藏</span></div>
                                             </div>
 
                                             <div class="message">
                                                 <div class="message-icon"><img src="./images/icons/icon_message_gray.svg" alt=""></div>
-                                                <div class="message-infor"><span>{{artical.NUMreply}}</span></div>
+                                                <div class="message-infor"><span>{{artical.NUMreply}} 則回覆</span></div>
                                             </div>
                                         </div>
                                         <div class="post_situation">

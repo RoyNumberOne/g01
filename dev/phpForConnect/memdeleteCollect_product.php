@@ -7,13 +7,13 @@ try{
      session_start();
      $mem_no = $_SESSION["mem_no"]; // 變數（會員號碼） ＝ session 抓會員號碼
 
-     $tourList_tour_no = isset($_GET["tourList_tour_no"]) ? $_GET["tourList_tour_no"] : 1;
+     $productList_porduct_no = isset($_GET["productList_porduct_no"]) ? $_GET["productList_porduct_no"] : 1;
 
-    // $tour_no = $_GET["tour_no"];
-    // $tour_no = '100012';  //mem_no = 10018
+    // $product_no = $_GET["product_no"];
+    // $product_no = '100012';  //mem_no = 10018
 
-    $sql= " DELETE from tour_keep 
-                where tour_keep_mem = '$mem_no' and tour_iskept_tour = '$tourList_tour_no';
+    $sql= " DELETE from product_keep 
+                where product_keep_mem = '$mem_no' and product_iskept_no = '$productList_porduct_no';
      ";
 
     $pdoStatement = $pdo->query($sql); //執行mySQL指令

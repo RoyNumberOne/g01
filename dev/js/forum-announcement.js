@@ -13,7 +13,7 @@ new Vue({
         let urlSearchParams = (new URL(document.location)).searchParams;
         forum_post_no = urlSearchParams.get('forum_post_no');
         console.log(forum_post_no)
-        formArticle.append("forum_post_no", forum_post_no);  
+        formArticle.append("forum_post_no", forum_post_no);
         
         //文章發布
         axios.post('./phpForConnect/announcement_IssuanArea.php',formArticle).then(res => {
@@ -39,7 +39,7 @@ new Vue({
     },
     updated() {
         //判斷收藏
-        let forum_post_no = this.reflection[0].forum_post_no;
+        let forum_post_no = this.issuanarea[0].forum_post_no;
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {
             if (xhr.status == 200) { //連線成功
@@ -98,7 +98,7 @@ new Vue({
             }
         },
         forum_artical_Collect(){
-            let forum_post_no = this.reflection[0].forum_post_no;
+            let forum_post_no = this.issuanarea[0].forum_post_no;
             let xhr2 = new XMLHttpRequest();
 
             xhr2.onload = function() {
@@ -141,7 +141,7 @@ new Vue({
                 // 打開彈窗
                  $('.report_block_message').removeClass('close');
                  let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
-                 console.log(reportNo);
+                //  console.log(reportNo);
                  let iconIF = $(e.target.parentNode.parentNode).find("img");
                  $(".mg_confirm").click(function(e){
                      var temp = $('#send_report_block').val();
@@ -149,10 +149,9 @@ new Vue({
                          alert('請先輸入文字');
                      }else{
                          let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
-
                          axios.get('./phpForConnect/comment_message_report.php', {params:{
-                             "forum_report_post" : reportNo,
-                             "forum_report_reason" : forum_report_reason,
+                             "comment_report_comment" : reportNo,
+                             "comment_report_reason" : comment_report_reason,
                          }})
                          $('.mg_reporting').css('display', 'none');
                          $('.mg_be_reported').css('display', 'block');
@@ -161,9 +160,22 @@ new Vue({
                  })
              }
         },
+        changePic(e) {
+            console.log($(e.target).attr('src'));
+            $(".public_pic > img").attr('src', $(e.target).attr('src'))
+        },
+        CHECKnull(k) {
+            // console.log(this.message_report_img[k].comment_no);
+            var CMTNO = this.message_report_img[k].forum_post_no;
+            // console.log(CMTNO);
+            // console.log(this.message_report_img[k].comment_report_mem);
+            if (this.message_report_img[k].forum_report_mem !== null) {
+                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
+                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
+            };
+        },
     }
 });
-
 // .heart chage img src ----> 愛心收藏click(!important)
 $(document).ready(function(){
     //show .add_count
@@ -187,4 +199,14 @@ $(document).ready(function(){
         $(this).addClass("picked_size");
         $(this).siblings().removeClass("picked_size");
     });
+
+    //click rp_close
+    $('.mg_close').click(function() {
+        $('.report_block_message').addClass('close');
+    });
+
+    //click cancle
+    $('.mg_cancle').click(function() {
+        $('.report_block_message').addClass('close');
+    })
 });
