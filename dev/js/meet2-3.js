@@ -10,6 +10,7 @@ new Vue({
         message: '',
         message_report_img: [],
         tour_report_img: [],
+        checkTourParticipateSituation: '',
     },
     created() {
 
@@ -32,6 +33,15 @@ new Vue({
             }
         }).then(res => {
             this.tour_report_img = res.data;
+            // console.log(this.tour_report_img);
+            // console.log(1.1)
+        }),
+        axios.get('./phpForConnect/meet2-3_tour_participate_Situation.php', {
+            params: {
+                "tour_participate_tour": tour_no,
+            }
+        }).then(res => {
+            this.checkTourParticipateSituation = res.data;
             // console.log(this.tour_report_img);
             // console.log(1.1)
         })
@@ -83,49 +93,44 @@ new Vue({
         };
 
         //寫完揪團記得打開
-        // const nowMen = this.tourData.mem_no;
+        const nowMen = this.tourData.mem_no;
 
-        // let xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
 
-        // xhr.open("get", "./login_v2_LoginInFo.php",true);
-        //     xhr.send(null);
-        // if(this.tourData.mem_no){
-        //     xhr.onload = ()=>{
-        //         member = JSON.parse(xhr.responseText);
-        //         if (member.mem_id){
-        //             if (nowMen !== member.mem_no){  //不同一人
-        //                 // console.log('不同一人')
-        //                 $('.application_bt').addClass('none')
-        //                 $('.applied_participant').addClass('none')
-        //             }   else    {  //同一人
-        //                 // console.log('同一人')
-        //                 $('.equip_recommend').css('display', 'none')
-        //                 $('#apply_bt').addClass('none')
-        //                 $('#okGo').removeClass('none')
-        //                 console.log(this.tourData.tour_min_number)
-        //                 if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
-        //                     $('#okGo').removeAttr('disabled')
-        //                     $('#okGo').removeClass('btnB_XL_grey')
-        //                     $('#okGo').addClass('btnB_XL_yellow')
-        //                     $('#okGo').css('cursor', 'pointer')
-        //                     // console.log('可以點擊成團')
-        //                     // $('#okGo').click(()=>{
-        //                     //     alert('可以點了')
-        //                     // })
-        //                 }
-        //             }
-        //         }   
-        //     }
-        // }
+        xhr.open("get", "./login_v2_LoginInFo.php",true);
+            xhr.send(null);
+        if(this.tourData.mem_no){
+            xhr.onload = ()=>{
+                member = JSON.parse(xhr.responseText);
+                if (member.mem_id){
+                    if (nowMen !== member.mem_no){  //不同一人
+                        // console.log('不同一人')
+                        $('.application_bt').addClass('none')
+                        $('.applied_participant').addClass('none')
+                    }   else    {  //同一人
+                        // console.log('同一人')
+                        $('.equip_recommend').css('display', 'none')
+                        $('#apply_bt').addClass('none')
+                        $('#okGo').removeClass('none')
+                        console.log(this.tourData.tour_min_number)
+                        if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
+                            $('#okGo').removeAttr('disabled')
+                            $('#okGo').removeClass('btnB_XL_grey')
+                            $('#okGo').addClass('btnB_XL_yellow')
+                            $('#okGo').css('cursor', 'pointer')
+                            // console.log('可以點擊成團')
+                            // $('#okGo').click(()=>{
+                            //     alert('可以點了')
+                            // })
+                        }
+                    }
+                }   
+            }
+        }
         //寫完揪團記得打開
 
-        this.equipmentDisplay();
 
-        // console.log(1.2)
-        // console.log(this.tri)
-        // console.log(this.tour_report_img[0])
-        // console.log(this.tour_report_img[0].tour_report_mem)
-
+        //判斷揪團是否檢舉換圖
         if(this.tour_report_img[0].tour_report_mem == null){
             // console.log('還沒檢舉')
         }   else    {
@@ -133,13 +138,6 @@ new Vue({
             $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
             $('.tr_report_bt').attr('disabled', 'disabled')
         }
-        // this.checkHoster();
-        // console.log('111');
-        // console.log(this.message_report_img);
-
-        // if(reportNo !== ''){
-        //     $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-        // }
 
         //判斷收藏
         let tour_no = (new URL(document.location)).searchParams;
@@ -163,6 +161,9 @@ new Vue({
         xhr5.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         let data = `tour_no=${tour_no}`;
         xhr5.send(data);
+
+        this.tourParticipateSituation();
+        this.equipmentDisplay();
     },
     filters: {
         // var mountain_area = this.Tour1.mountain_area;
@@ -193,6 +194,36 @@ new Vue({
 
     },
     methods: {
+        //參加狀態
+        tourParticipateSituation(){
+            let situation = this.checkTourParticipateSituation;            
+            switch(situation){
+                case(null):
+                    break;
+                case('未審核'):
+                    $('#apply_bt > p').text('已報名')
+                    $('#apply_bt').attr('disabled', 'disabled')
+                    $('#apply_bt').removeClass('btnB_XL_yellow')
+                    $('#apply_bt').addClass('btnB_XL_grey')
+                    $('#apply_bt').css('cursor', 'not-allowed')
+                    break;
+                case('已審核已通過'):
+                    $('#apply_bt > p').text('審核已通過')
+                    $('#apply_bt').attr('disabled', 'disabled')
+                    $('#apply_bt').removeClass('btnB_XL_yellow')
+                    $('#apply_bt').addClass('btnB_XL_grey')
+                    $('#apply_bt').css('cursor', 'not-allowed')
+                    break;
+                case('已審核不通過'):
+                    $('#apply_bt > p').text('審核未通過')
+                    $('#apply_bt').attr('disabled', 'disabled')
+                    $('#apply_bt').removeClass('btnB_XL_yellow')
+                    $('#apply_bt').addClass('btnB_XL_grey')
+                    $('#apply_bt').css('cursor', 'not-allowed')
+                    break;
+            }
+        },
+        //山的難度
         Degree(value) {
             switch (value) {
                 case ('1'):
@@ -570,10 +601,9 @@ $(document).ready(function() {
             //    console.log("click");
             $("section.agreement").removeClass("-on");
             $("section.agree_box").addClass("-on");
-            $("#apply_bt > p").text("已報名");
-            $("#apply_bt").attr("disabled", "disabled");
-            $("#apply_bt").css("cursor", "not-allowed");
-            $("#apply_bt > .bg").css("backgroundColor", "gray");
+            // $("#apply_bt > p").text("已報名");
+            // $("#apply_bt").attr("disabled", "disabled");
+            // $("#apply_bt").css("cursor", "not-allowed");
         });
 
         // 點擊X按鈕
