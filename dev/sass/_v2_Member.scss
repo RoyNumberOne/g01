@@ -21,11 +21,13 @@ main{
             }
         }
         .memProfile{
-            display: flex;
-            justify-content: space-between;
+            // border:1px solid red;
+            position: relative;
+            height: 80px;
             .memProfile_AVA{
-                transform: translate(50%, -50%);
-                position: relative;
+                position: absolute;
+                bottom: -20px;
+                left: 100px;
                 .memProfile_AVA_img{
                     width: 200px;
                     height: 200px;
@@ -70,9 +72,8 @@ main{
                     
             }
             .memProfile_DET{
-                display: flex;
-                flex-direction: column;
-                transform: translate(-60%, 0);
+                position: absolute;
+                left: 330px;
                 .memProfile_DET_name{
                     display: flex;
                     align-items: center;
@@ -88,8 +89,8 @@ main{
                 }
                 .memProfile_DET_fol{
                     display: flex;
-                    align-items: center;
                     p{
+                        display:none;
                         margin-right: 5px;
                     }
                     img{
@@ -98,6 +99,9 @@ main{
                 }
             }
             .memProfile_MOD{
+                position: absolute;
+                top: 0;
+                right: 0;
                 button.profile{
                     border: 1px solid red;
                     width: 150px;
@@ -135,7 +139,6 @@ main{
         display: flex;
         flex-direction: column;
         z-index: 9999;
-        margin-top: -80px;
         .X_btn{
             display: flex;
             justify-content: flex-end;
@@ -235,13 +238,6 @@ nav.menu ul.link_list.llright li{
         // max-width: 960px
     main{
        max-width: 960px;
-        .top{
-            .memProfile{
-                .memProfile_DET{
-                    transform: translate(-20%, 0);
-                }
-            }
-        }
         .nav_list{
             display: flex !important;
         }
@@ -254,14 +250,12 @@ nav.menu ul.link_list.llright li{
         max-width: 720px;
         .top{
             .memProfile{
-                .memProfile_DET{
-                    transform: translate(30%, 0);
-                    .memProfile_DET_fol{
-                        img{
-                            width: 40px;
-                        }
+                .memProfile_DET_fol{
+                    img{
+                        width: 40px;
                     }
                 }
+
             }
         }
         .nav_list{
@@ -275,15 +269,21 @@ nav.menu ul.link_list.llright li{
     main{
         max-width: 540px;
         .top{
+            .banner{
+                height: auto;
+            }
             .memProfile{
+                margin-bottom: 60px;
                 .memProfile_AVA{
+                    bottom: 5px;
+                    left: 75px;
                     .memProfile_AVA_img{
-                        width: 150px;
-                        height: 150px;
+                        width: 180px;
+                        height: 180px;
                     }
                 }
                 .memProfile_DET{
-                    transform: translate(-50%, 0);
+                    left: 300px;
                     .memProfile_DET_fol{
                         img{
                             width: 30px;
@@ -331,20 +331,98 @@ nav.menu ul.link_list.llright li{
         }
     }
 }
-@media screen and (max-width: 575px){
+@media screen and (min-width: 415px) and (max-width: 576px){
     main{
         max-width: 100%;
         .top{
+            .banner{
+                height: auto;
+            }
             .memProfile{
+                margin-bottom: 90px;
                 .memProfile_AVA{
-                    transform: translate(70%, -50%);
+                    position: absolute;
+                    bottom: -1px;
+                    left: 33%;
                     .memProfile_AVA_img{
-                        width: 150px;
-                        height: 150px;
+                        width: 180px;
+                        height: 180px;
                     }
                 }
                 .memProfile_DET{
-                    transform: translate(-43%, 47%);
+                    position: absolute;
+                    left: 34%;
+                    top: 85px;
+                    .memProfile_DET_fol{
+                        img{
+                            width: 30px;
+                        }
+                    }
+                }
+                .memProfile_MOD{
+                    display: none;
+                }
+            }
+        }
+        .nav_list{
+            border: 3px solid #FFC400;
+            background-color: rgba(0,0,0,.3);
+            flex-wrap: wrap;
+            position: fixed;
+            top: 35%;
+            left: 0;
+            padding: 10px;
+            border-radius: 30px;
+            display: none;
+            .X_btn{
+                visibility: visible;
+            }
+            .nav_btn_outside{
+                margin: 0 auto;
+                width: 80%;
+                .nav_button{
+                    width: 80px;
+                    height: 100px;
+                    svg{
+                        font-size: 40px;
+                    }
+                }
+                .btn_modify{
+                    visibility:visible;
+                }
+            }
+        }
+        .nav_mob{
+            display: block;
+        }
+        .C_info{
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (max-width: 414px){
+    main{
+        max-width: 100%;
+        .top{
+            .banner{
+                height: auto;
+            }
+            .memProfile{
+                margin-bottom: 90px;
+                .memProfile_AVA{
+                    position: absolute;
+                    bottom: -1px;
+                    left: 27%;
+                    .memProfile_AVA_img{
+                        width: 180px;
+                        height: 180px;
+                    }
+                }
+                .memProfile_DET{
+                    position: absolute;
+                    left: 27%;
+                    top: 85px;
                     .memProfile_DET_fol{
                         img{
                             width: 30px;

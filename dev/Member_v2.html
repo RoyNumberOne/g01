@@ -40,9 +40,9 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
+                        <a href="./Member_v2.html"><div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div></a>
                     </li>
-                    <li><div id="mem_info_id"></div></li>
+                    <li><a href="./Member_v2.html"><div id="mem_info_id"></div></a></li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
@@ -88,9 +88,9 @@
                     </div>
                     <div class="memProfile_DET_fol">
                         <p>142人追蹤中</p>
-                        <img src="./images/member/Ach_list_01.png">
-                        <img src="./images/member/Ach_list_03.png">
-                        <img src="./images/member/Ach_list_10.png">
+                        <img id="badge_1" src="">
+                        <img id="badge_2" src="">
+                        <img id="badge_3 "src="">
                     </div>
                 </div>
                 <div class="memProfile_MOD">
@@ -706,8 +706,13 @@
 
         document.getElementById("mem_ava_edit").onchange = function(e){
             let file = e.target.files[0];  //取得file物件
-            let reader = new FileReader(); //建立一個reader物件 
+            let reader = new FileReader(); //建立一個reader物件
+            reader.onload = function(e){
+                $('#memProfile_img').attr('src',e.target.result);
+            }
+
             reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
+            
 
             let formData = new FormData();
             formData.append("mem_ava_edit", file);
@@ -723,6 +728,7 @@
                 success: function(data){
                     // alert(data);
                     location.reload();
+                    
                 },
                 error: function(){
                     alert("error");
