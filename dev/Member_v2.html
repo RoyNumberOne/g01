@@ -418,11 +418,8 @@
                                     </div>
                                     <div class="CBM_title"><h3>{{TravelBySelfList.tour_title}}</h3></div>
                                     <span class="departure">{{TravelBySelfList.tour_activitystart}} ~ {{TravelBySelfList.tour_activityend}}</span>
-                                    <div class="signup">最低募集門檻：{{TravelBySelfList.tour_min_number}}位</div>
-                                    <div class="passed_and_verify_or_progress">
-                                        <div class="verify">尚未審核：{{TravelBySelfList.tour_verify}}人</div>
-                                        <div class="passed">通過審核：{{TravelBySelfList.tour_passed}}人</div>
-                                    </div>
+                                    <div class="signup">開團人數：{{TravelBySelfList.tour_min_number}}位~{{TravelBySelfList.tour_max_number}}位</div>
+                                    <div class="progress">揪團狀態：{{TravelBySelfList.tour_progress}}</div>
                                 </div>
                             </a>
                         </div>
@@ -445,10 +442,7 @@
                                     <div class="CBM_title"><h3>{{TravelByOtherList.tour_title}}</h3></div>
                                     <span class="departure">{{TravelByOtherList.tour_activitystart}} ~ {{TravelByOtherList.tour_activityend}}</span>
                                     <div class="signup">參加資格：{{TravelByOtherList.tour_participate_situation}}</div>
-                                    <div class="passed_and_verify_or_progress">
-                                        <div class="passed">成員：{{TravelByOtherList.tour_passed}}人</div>
-                                        <div class="progress">揪團狀態：{{TravelByOtherList.tour_progress}}</div>
-                                    </div>
+                                    <div class="progress">揪團狀態：{{TravelByOtherList.tour_progress}}</div>
                                 </div>
                             </a>
                         </div>

@@ -7,11 +7,12 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
 
-    $sql= "SELECT tp.tour_participate_mem, tp.tour_participate_tour, tp.tour_participate_situation, T.tour_no, T.tour_title,T.tour_innertext, T.tour_activitystart, T.tour_activityend, T.tour_progress, T.tour_passed, M.mountain_image, M.mountain_area, M.degree_category, M.mountain_name
+    $sql= "SELECT tp.tour_participate_mem, tp.tour_participate_tour, tp.tour_participate_situation, T.tour_hoster, T.tour_no, T.tour_title,T.tour_innertext, T.tour_activitystart, T.tour_activityend, T.tour_progress, T.tour_passed, M.mountain_image, M.mountain_area, M.degree_category, M.mountain_name
                 from tour_participate tp
                     join tour T on(tp.tour_participate_tour = T.tour_no)
                     join mountain M on(T.tour_mountain = M.mountain_no)
-                WHERE tp.tour_participate_mem = $mem_no
+                WHERE tp.tour_participate_mem = $mem_no 
+                and T.tour_hoster != $mem_no
                 order BY T.tour_activitystart DESC;
                 ";
 
