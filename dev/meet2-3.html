@@ -182,8 +182,8 @@
             </div>
             <div class="memberInfo">
                 <div class="certification">
-                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                    <span v-if="CHECKname" class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                    <span v-if="CHECKguide" class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
                 </div>
                 <div class="memberId">{{currentTour.mem_id}}</div>
                 <div class="memberBadge">
@@ -383,8 +383,8 @@
                     </div>
                     <div class="memberInfo">
                         <div class="certification">
-                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                            <span v-if="CHECKname_cm" class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span v-if="CHECKguide_cm" class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
                         <div class="memberId">{{comment.mem_id}}</div>
                         <div class="memberBadge">
