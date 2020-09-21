@@ -32,3 +32,15 @@
         }
     }
 }
+
+// RWD
+@media screen and (max-width: 414px){
+    #MemOrder{
+        #MemOrder_info{
+            table{
+                padding: 10px;
+                width: 80%;
+            }
+        }
+    }
+}

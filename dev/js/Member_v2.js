@@ -81,6 +81,7 @@ function getMemberDetail(){
           $id("memEdit_mail").innerText = member.mem_mail;
       }   
   }
+ 
 
   xhr.open("get", "./login_v2_LoginInFo.php",true);
   xhr.send(null);
@@ -97,8 +98,19 @@ function getMemberFo(){
       if (member.mem_id){
           $id("memProfile_img").src = member.mem_avator; //會員頁大頭照
           $id("mem_bg").src = member.mem_bg; //會員頁背景
-          $id("memProfile_name").innerText = member.mem_name; //會員頁名稱
-
+          $id("memProfile_name").innerText = member.mem_id; //會員頁名稱
+          $id("badge_1").src = member.mem_badge1;
+            if($("#badge_1").attr('src','undefined')){
+              $('#badge_1').css('display','none');
+            };
+          $id("badge_2").src = member.mem_badge2;
+            if($("#badge_2").attr('src','undefined')){
+              $('#badge_2').css('display','none');
+            };
+          $id("badge_3").src = member.mem_badge3;
+            if($("#badge_3").attr('src','undefined')){
+              $('#badge_3').css('display','none');
+            };
       }   
   }
 
