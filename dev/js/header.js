@@ -85,7 +85,7 @@ let cartCounted = function(){
     i++;
       console.log(JSON.parse(localStorage.cartList)[prop]);
     }
-    console.log(i);
+    // console.log(i);
 
     $('.add_count_others')[0].innerText = i;
 

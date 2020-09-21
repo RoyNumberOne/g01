@@ -42,7 +42,8 @@ new Vue({
                 this.meetIndex.push(i)
             }
         })
-        .catch(error => {console.log(error)}); 
+        .catch(error => {console.log(error)});
+        
     },
     methods: {
         Degree(value) {
@@ -65,6 +66,14 @@ new Vue({
             }
         },
         
+    },
+    computed: {
+        CHECKname() {
+            return this.meetList[0].mem_realname;
+        },
+        CHECKguide() {
+            return this.meetList[0].guide_no;
+        },
     },
 
 });
@@ -149,7 +158,15 @@ new Vue({
         changeMeetlist(page){
             this.currentPage = page;
             this.getMeetList();
-        }
+        },
+    },
+    computed: {
+        CHECKname() {
+            return this.meetList[0].mem_realname;
+        },
+        CHECKguide() {
+            return this.meetList[0].guide_no;
+        },
     },
 
 });

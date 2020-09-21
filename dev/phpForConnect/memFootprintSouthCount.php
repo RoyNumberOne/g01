@@ -7,11 +7,12 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
     
-    $sql= "	SELECT Count(*) Count
+    $sql= "	SELECT Count(*) Count ,tp.tour_participate_situation
                     from tour_participate tp
                         join tour T on(tp.tour_participate_tour = T.tour_no)
                         join mountain M on(T.tour_mountain = M.mountain_no)
                     WHERE tp.tour_participate_mem = $mem_no
+                    and tp.tour_participate_situation = '已審核已通過'  
                     and T.tour_progress = '已結束' 
                     and M.mountain_area = 'south'
                     order BY T.tour_activitystart DESC;

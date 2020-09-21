@@ -18,9 +18,9 @@ try{
     ?>
         <div class="top_points_info">
             <div class="top_left">
-                <h3>目前累積點數</h3>
-                <p><?=$memRow["會員點數"]?></p>
-                <p class="total_get"><?=$memRow["total"]?></p>
+                <h3>目前點數</h3>
+                <p style="font-size:40px;"><?=$memRow["會員點數"]?></p>
+                <p class="total_get">總共已累積:<?=$memRow["total"]?>點</p>
             </div>
             <div class="top_right" id="chart"></div>
         </div>
@@ -35,7 +35,7 @@ try{
             $forumRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <table>
-            <tr style="background-color:#EAF1F4"><th>發文編號</th><th>發文標題</th><th>發文日期</th><th>獲得點數</th></tr>
+            <tr style="background-color:#EAF1F4;"><th style="width:150px;">發文編號</th><th style="width:300px;">發文標題</th><th style="width:200px;">發文日期</th><th style="width:100px;">獲得點數</th></tr>
             <?php
                 foreach ( $forumRows as $i => $forumRow){
             ?>
@@ -57,7 +57,7 @@ try{
             $tourRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <table>
-            <tr style="background-color:#EAF1F4"><th>揪團編號</th><th>揪團標題</th><th>揪團時間</th><th>獲得點數</th></tr>
+            <tr style="background-color:#EAF1F4"><th style="width:150px;">揪團編號</th><th style="width:300px;">揪團標題</th><th style="width:200px;">揪團時間</th><th style="width:100px;">獲得點數</th></tr>
             <?php
                 foreach ( $tourRows as $i => $tourRow){
             ?>
@@ -79,7 +79,7 @@ try{
             $joinRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <table>
-            <tr style="background-color:#EAF1F4"><th>參團編號</th><th>參團標題</th><th>參團時間</th><th>獲得點數</th></tr>
+            <tr style="background-color:#EAF1F4"><th style="width:150px;">參團編號</th><th style="width:300px;">參團標題</th><th style="width:200px;">參團時間</th><th style="width:100px;">獲得點數</th></tr>
             <?php
                 foreach ( $joinRows as $i => $joinRow){
             ?>
@@ -100,11 +100,11 @@ try{
 ?>
 
 <script>
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('chart'));   
-    if(<?=$memRow["mem_point_forumpost"]?> == 0){
+    if  (<?=$memRow["mem_point_forumpost"]?> == 0 && <?=$memRow["mem_point_tourhost"]?> == 0 && <?=$memRow["mem_point_tourjoin"]?> == 0){
+        var myChart = echarts.init(document.getElementById('chart'));  
+
         myChart.setOption({
-        color:["#707070","#D4521F","#F7C304"],
+        color:["#707070","#707070","#707070"],
         series : [
             {
                 name: '點數分析',
@@ -117,23 +117,27 @@ try{
                 ]
             }
         ]
-    })
-    }else{
+        })
+    }   else    {
+        var myChart = echarts.init(document.getElementById('chart'));  
+
         myChart.setOption({
         color:["#036BA1","#D4521F","#F7C304"],
         series : [
-            {
-                name: '點數分析',
-                type: 'pie',    // 设置图表类型为饼图
-                radius: '80%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
-                data:[          // 数据数组，name 为数据项名称，value 为数据项值
-                    {value:<?=$memRow["mem_point_forumpost"]?>, name:'發文獲得:<?=$memRow["mem_point_forumpost"]?>點'},
-                    {value:<?=$memRow["mem_point_tourhost"]?>, name:'揪團獲得:<?=$memRow["mem_point_tourhost"]?>點'},
-                    {value:<?=$memRow["mem_point_tourjoin"]?>, name:'參團獲得:<?=$memRow["mem_point_tourjoin"]?>點'},
-                ]
-            }
-        ]
-    })
+        {
+            name: '點數分析',
+            type: 'pie',    // 设置图表类型为饼图
+            radius: '70%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+            data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                {value:<?=$memRow["mem_point_forumpost"]?>, name:'發文獲得:<?=$memRow["mem_point_forumpost"]?>點'},
+                {value:<?=$memRow["mem_point_tourhost"]?>, name:'揪團獲得:<?=$memRow["mem_point_tourhost"]?>點'},
+                {value:<?=$memRow["mem_point_tourjoin"]?>, name:'參團獲得:<?=$memRow["mem_point_tourjoin"]?>點'},
+            ]
     }
+]
+})
+    }
+    // 基于准备好的dom，初始化echarts实例
+
 
 </script>

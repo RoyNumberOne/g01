@@ -66,39 +66,66 @@ new Vue({
         /////切換步驟///// -->
         ONEtoTWO: function(){
             console.log("click");
-        
-            //移除 -on 樣式
-            $("section.tour_build_step1").removeClass("-on");
-            $("li.step_icon1").removeClass("-on");
+            let valid = 0 ; //計算未填數量  = 0 都填  != 0 有未填
+            var tour_info1 = document.querySelectorAll('.tour_info1 [required]'); 
 
-                // 加上 -on 樣式
-            $("section.tour_build_step2").addClass("-on");
-            $("li.step_icon2").addClass("-on");
+            console.log(tour_info1.length);
+
+            for(let i=0 ; i<tour_info1.length ; i++){
+                if(tour_info1[i].checkValidity() != true){ //判斷每個 必填的[required] input 是否都有填
+                    valid += 1 ; //有未填的時候valid+1 
+                }
+            }
+
+            if(valid == 0){ // 都填
+                    //移除 -on 樣式
+                $("section.tour_build_step1").removeClass("-on");
+                $("li.step_icon1").removeClass("-on");
+
+                    // 加上 -on 樣式
+                $("section.tour_build_step2").addClass("-on");
+                $("li.step_icon2").addClass("-on");
+            }else{ //有未填的時候
+                document.querySelector('[name="tour_activityend"]').reportValidity();
+                document.querySelector('[name="tour_activitystart"]').reportValidity();
+                document.querySelector('[name="tour_title"]').reportValidity();
+            };
         },
+
         TWOtoONE: function(){
             console.log("click");
-        
-            //移除 -on 樣式
-        $("section.tour_build_step2").removeClass("-on");
-        $("li.step_icon2").removeClass("-on");
 
-            // 加上 -on 樣式
-        $("section.tour_build_step1").addClass("-on");
-        $("li.step_icon1").addClass("-on");
+                //移除 -on 樣式
+            $("section.tour_build_step2").removeClass("-on");
+            $("li.step_icon2").removeClass("-on");
+
+                // 加上 -on 樣式
+            $("section.tour_build_step1").addClass("-on");
+            $("li.step_icon1").addClass("-on");
         
         },
+
         TWOtoTHREE: function(){
             console.log("click");
 
-            //移除 -on 樣式
-        $("section.tour_build_step2").removeClass("-on");
-        $("li.step_icon2").removeClass("-on");
+            var tour_info2 = document.querySelector('.tour_info2 [required]').checkValidity(); 
 
-            // 加上 -on 樣式
-        $("section.tour_build_step3").addClass("-on");
-        $("li.step_icon3").addClass("-on");
-        
+            console.log(tour_info2);
+
+
+            if(tour_info2){ // 都填
+                        //移除 -on 樣式
+                $("section.tour_build_step2").removeClass("-on");
+                $("li.step_icon2").removeClass("-on");
+
+                    // 加上 -on 樣式
+                $("section.tour_build_step3").addClass("-on");
+                $("li.step_icon3").addClass("-on");
+            }else{ //有未填的時候
+                document.querySelector('[name="tour_innertext"]').reportValidity();
+            };
         },
+
         THREEtoTWO: function(){
             console.log("click");
             //移除 -on 樣式

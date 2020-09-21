@@ -27,7 +27,7 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-right: 10%;
-                width: 500px;
+                width: 400px;
                 h3{
                     color: #FFC400;
                 }
@@ -41,10 +41,10 @@
                     border-radius: 15px;
                     width: 100%;
                     text-align: center;
+                    font-size: 20px;
                 }
             }
             .top_right{
-                // width: 40%;
                 width: 500px;
                 height: 320px;
                 img{
@@ -79,37 +79,68 @@
 
 @media screen and (min-width: 576px) and (max-width: 767px){
     #MemPoints{
-        .points_info{
+        #MemPoints_info{
             .top_points_info{
+                display: flex;
                 flex-direction: column;
                 align-items: center;
                 .top_left{
-                    width: 100%;
+                    width: 90%;
                     height: 300px;
-                }
-                .top_right{
-                    width: 100%;
-                    margin-top: 50px;
+                    margin: 0 auto 80px auto;
                 }
             }
         }
     }
 }
 
-@media screen and (max-width: 575px){
+@media screen and (min-width: 415px) and (max-width: 576px){
     #MemPoints{
-        .points_info{
+        #MemPoints_info{
             .top_points_info{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .top_left{
+                    width: 90%;
+                    height: 300px;
+                    margin: 0 auto 80px auto;
+                }
+                .top_right{
+                    width: 350px;
+                    canvas{
+                        transform: scale(1.0);
+                        left: -95px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px){
+    #MemPoints{
+        #MemPoints_info{
+            .top_points_info{
+                display: flex;
                 flex-direction: column;
                 align-items: center;
                 .top_left{
                     width: 100%;
                     height: 300px;
+                    margin: 0 auto;
                 }
                 .top_right{
-                    width: 100%;
-                    margin-top: 50px;
+                    width: 350px;
+                    canvas{
+                        transform: scale(0.7);
+                        left: -95px;
+                    }
                 }
+            }
+            .bottom_points_info{
+                margin: 0 auto 50px auto;
+                width: 90%;
             }
         }
     }

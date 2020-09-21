@@ -41,9 +41,9 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
+                        <a href="./Member_v2.html"><div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div></a>
                     </li>
-                    <li><div id="mem_info_id"></div></li>
+                    <li><a href="./Member_v2.html"><div id="mem_info_id"></div></a></li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"></div></button></li>
                     <li><a class="member" id="member_jumpTo"><i class="fa fa-user"></i></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><i class="fa fa-shopping-cart"></i></a></li>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="block">
-                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題" required>
+                        <input type="text" name="forum_post_title" id ="forum_post_title" placeholder="請輸入標題" maxlength="20" required>
                     </div>
 
                     <div class="text">
@@ -114,7 +114,7 @@
                     <div class="block">
                         <div class="update-img">
                             <!-- <span>+上傳封面圖片</span> -->
-                            <input type="file" name="forum_post_image" id="forum_post_image" accept="image/*" multiple="multiple">
+                            <input type="file" name="forum_post_image" id="forum_post_image" accept="image/*" multiple="multiple" required>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="block">
-                        <textarea name="forum_post_innertext" id="forum_post_innertext" cols="30" rows="10" placeholder="我想要說...."></textarea>
+                        <textarea name="forum_post_innertext" id="forum_post_innertext" cols="30" rows="10" placeholder="我想要說...." required></textarea>
                     </div>
 
                     <div class="post-btnB_XL_yellow">

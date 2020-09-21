@@ -38,6 +38,16 @@ new Vue({
         })
     },
     updated() {
+
+
+        //文章檢舉 ---> 標籤名稱還要再更換
+        // if(this.tour_report_img[0].tour_report_mem == null){
+        //     // console.log('還沒檢舉')
+        // }   else    {
+        //     // console.log('已檢舉')
+        //     $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
+        //     $('.tr_report_bt').attr('disabled', 'disabled')
+        // }
         //判斷收藏
         let forum_post_no = this.reflection[0].forum_post_no;
         var xhr = new XMLHttpRequest();
@@ -174,6 +184,78 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
+        // forum_artical_report(){
+        //     let forum_post_no = this.reflection[0].forum_post_no;
+        //     let xhr2 = new XMLHttpRequest();
+
+        //     xhr2.onload = function() {
+        //         member = JSON.parse(xhr2.responseText);
+        //         if (member.mem_id) {
+        //             //已經登入了，可以開始做事了
+        //             var xhr = new XMLHttpRequest();
+        //             xhr.onload = function(e) {
+        //                 if (xhr.status == 200) { //連線成功
+        //                     console.log(xhr.responseText);
+        //                     alert(11111111111)
+        //                     // alert(xhr.responseText);
+        //                 } else {
+        //                     // alert(123);
+        //                 }
+        //             }
+        //             var url = "./phpForConnect/forum_artical_report.php";
+        //             xhr.open("REQUEST", url, true);
+        //             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+        //             let data = `forum_post_no=${forum_post_no}`;
+        //             xhr.send(data);
+
+        //             if ($("#report_btn").attr('src') === "./images/icons/icon_report.svg") {
+        //                 $("#report_btn").attr("src", "./images/icons/icon_report_c.svg");
+        //             } else {
+        //                 $("#report_btn").attr("src", "./images/icons/icon_report.svg");
+        //             }
+        //         } else {
+        //             //沒有登入，請先登入
+        //             alert("請先登入哦")
+        //         }
+        //     }
+        //     xhr2.open("get", "./login_v2_LoginInFo.php", true);
+        //     xhr2.send(null);
+        // },
+        //文章檢舉彈窗
+        forum_artical_report(e) {
+                    if ($('#mem_info_id').html() === '') {
+                        alert('請先登入');
+                        window.location.href = './login_v2.html';
+                    } else {
+                        // 打開彈窗
+                        $('.report_block_match').removeClass('close');
+                        // let reportNo = $(e.target).parent().parent().parent().parent().parent().parent().find("#report_block_match").find(".tr_reporting").find(".tour_no").val();
+                        let reportNo = $('.tour_no').val();
+                        console.log(reportNo)
+                        let iconIF = $('.rpImg');
+                        // console.log(reportNo);
+                        // let iconIF = $(e.target.parentNode.parentNode).find("img");
+                        $(".tr_confirm").click(function(e) {
+                            var temp = $('#send_tr_report_block').val();
+                            if (temp == '') {
+                                alert('請先輸入文字');
+                            } else {
+                                let forum_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
+                                // console.log(forum_report_reason);
+                                console.log(reportNo)
+                                axios.get('./phpForConnect/forum_artical_report.php', {
+                                    params: {
+                                        "forum_report_post": reportNo,
+                                        "forum_report_reason": forum_report_reason,
+                                    }
+                                })
+                                $('.tr_reporting').css('display', 'none');
+                                $('.tr_be_reported').css('display', 'block');
+                                iconIF.attr('src', './images/icons/icon_report_c.svg');
+                            }
+                        })
+                    }
+        },
     }
 });
 // .heart chage img src ----> 愛心收藏click(!important)
@@ -181,7 +263,7 @@ $(document).ready(function(){
     //show .add_count
     $(".add_chart").click(function(){
         $(".add_count").css("display", "block");
-    }); 
+    });
 
     //dot .pic change bgcolor
     $(".pic").click(function(){
@@ -208,5 +290,29 @@ $(document).ready(function(){
     //click cancle
     $('.mg_cancle').click(function() {
         $('.report_block_message').addClass('close');
-    })
+    });
+
+    //----------文章檢舉click點擊----------
+    //click rp_close
+    $('.rp_close').click(function() {
+        $('.report_block_match').addClass('close');
+    });
+
+    //click cancle
+    $('.cancle').click(function() {
+        $('.report_block_match').addClass('close');
+    });
+    //report message
+    $(function() {
+        //click rp_close
+        $('.mg_close').click(function() {
+            $('.report_block_message').addClass('close');
+        });
+    
+        //click cancle
+        $('.mg_cancle').click(function() {
+            $('.report_block_message').addClass('close');
+        })
+    });
+
 });

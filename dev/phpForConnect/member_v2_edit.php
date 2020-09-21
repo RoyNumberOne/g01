@@ -20,19 +20,19 @@ try{
             <div class="mem_frame">
                 <div class="mem_change">
                     <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_id"]?></p>
-                    <input type="text" name="mem_id" id="mem_id" placeholder="輸入新的暱稱">
+                    <input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="輸入新的暱稱">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_mail"]?></p>
                     <input type="mail" name="mem_mail" id="mem_mail" placeholder="輸入新的信箱">
                 </div>
                 <div class="mem_change">
-                    <p class="beforeChange">密碼</p><br>
-                    <input type="password" name="mem_psw" id="mem_psw" placeholder="輸入新的密碼">
+                    <p class="beforeChange">密碼</p><span class="tip_length" style="color: red;">密碼長度錯誤</span><br>
+                    <input type="password" name="mem_psw" id="mem_psw" maxlength="12" minlength="8" onblur="checkpas1();" placeholder="輸入新的密碼">
                 </div>
                 <div class="mem_change">
-                    <p class="beforeChange">確認密碼</p><br>
-                    <input type="password" name="repassword" id="repassword" placeholder="再次輸入密碼"><br>
+                    <p class="beforeChange">確認密碼</p><span class="tip" style="color: red;">輸入密碼不一致</span><br>
+                    <input type="password" name="repassword" id="repassword" onChange="checkpas();" placeholder="再次輸入密碼"><br>
                     <p style=color:red;text-align:center;display:block;>送出後將登出，請重新登入</p>
                 </div>
                 <div class="mem_button">
@@ -61,6 +61,25 @@ try{
     }	
 
     function editDetail(){
+        var idCheck = $("#mem_id").val();
+        if (idCheck.length == "" ) { //帳號
+            alert('暱稱不可空白');
+            return;
+        }
+        
+        var mail=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var mailCheck = $("#mem_mail").val();
+        if(mailCheck.match(mail)==null){ //email
+            alert("email格式不正確")
+            return;
+        }
+
+        var pswCheck = $("#mem_psw").val();
+        if (pswCheck.length < 8 ^ pswCheck.length > 12) { //密碼
+            alert('密碼長度錯誤')
+            return;
+        }
+
         let xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function(){
@@ -78,16 +97,41 @@ try{
         let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
         xhr.send(data_info);
 
-
-    }
-    function jump() {
         window.location.href = './login_v2.html';
     }
+    // function jump() {
+    //     window.location.href = './login_v2.html';
+    // }
     function Send(){
         editDetail();
-        jump();
+        // jump();
     }
     window.addEventListener("load", function(){
         document.getElementById("editConfirm").addEventListener("click", Send, false);
     }, false);
+
+    // 確認密碼
+    $(".tip").hide();
+    $(".tip_length").hide();
+
+    function checkpas1() { //當第一個密碼框失去焦點時，觸發checkpas1事件
+        var pas1 = document.getElementById("mem_psw").value;
+        var pas2 = document.getElementById("repassword").value;
+
+        if (pas1.length < 8 ^ pas1.length > 12) {
+            $(".tip_length").show();
+        } else {
+            $(".tip_length").hide();
+        }
+    }
+
+    function checkpas() { //當第一個密碼框失去焦點時，觸發checkpas2件
+        var pas1 = document.getElementById("mem_psw").value;
+        var pas2 = document.getElementById("repassword").value; //獲取兩個密碼框的值
+        if (pas1 != pas2) {
+            $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
+        } else {
+            $(".tip").hide();
+        }
+    }
 </script>

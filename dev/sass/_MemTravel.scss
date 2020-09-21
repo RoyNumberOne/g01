@@ -241,7 +241,6 @@
                         .location_and_hardLv_and_area{
                             display: flex;
                             grid-area: 1/1/2/2;
-                            justify-content: space-between;
                         }
                         .CBM_title{
                             grid-area: 2/1/3/2;
@@ -259,11 +258,6 @@
                         }
                         .signup{
                             grid-area: 4/1/5/2;
-                        }
-                        .passed_and_verify_or_progress{
-                            grid-area: 5/1/6/2;
-                            display: flex;
-                            justify-content: space-between;
                         }
                     }
                 }
@@ -289,6 +283,11 @@
             display: block;
         }
     }
+}
+
+.location_and_hardLv_and_area .degree .degreeImg .iconBox .iconDegree{
+    transform: translate(10px,0px);
+    height: 60%;
 }
 
 // ===========media screen===========

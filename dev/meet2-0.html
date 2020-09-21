@@ -50,9 +50,9 @@
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
+                        <a href="./Member_v2.html"><div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div></a>
                     </li>
-                    <li><div id="mem_info_id"></div></li>
+                    <li><a href="./Member_v2.html"><div id="mem_info_id"></div></a></li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
                     <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
@@ -130,11 +130,11 @@
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon">{{hotmeet.mem_realname}}<img src="./images/icons/icon_realname.svg" alt=""></span>
-                                            <span class="certificationIcon b">{{hotmeet.guide_no}}<img src="./images/icons/icon_guide.svg" alt=""></span>
+                                            <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
                                         <div class="memberId">{{hotmeet.mem_id}}</div>
-                                        <div class="memberBadge">
+                                        <!-- <div class="memberBadge">
                                             <span class="memberBadgeIcon">{{hotmeet.mem_badge1}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
                                             </span>
@@ -143,6 +143,17 @@
                                             </span>
                                             <span class="memberBadgeIcon">{{hotmeet.mem_badge3}}
                                                 <img src="./images/member/Ach_list_03.png" alt="">
+                                            </span>
+                                        </div> -->
+                                        <div class="memberBadge">
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge1" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge2" alt="">
+                                            </span>
+                                            <span class="memberBadgeIcon">
+                                                <img :src="hotmeet.badge3" alt="">
                                             </span>
                                         </div>
                                     </div>
@@ -235,7 +246,6 @@
                             <span class="tag">＃{{meet.days}}天</span>
                             <span class="tag">＃{{meet.tour_min_number}}~{{meet.tour_max_number}}人</span>
                             <div class="locationDegree">
-                                <!-- 沒有成功  -->
                                 <span class="location">{{meet.mountain_area | Area}}</span>
                                 <span class="degree"><div class="degreeImg" v-html="Degree(meet.degree_category)"></div></span>
                             </div>
@@ -256,11 +266,11 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt="">{{meet.mem_realname}}</span>
-                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt="">{{meet.guide_no}}</span>
+                                <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{meet.mem_id}}</div>
-                            <div class="memberBadge">
+                            <!-- <div class="memberBadge">
                                 <span class="memberBadgeIcon">{{meet.mem_badge1}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
                                 </span>
@@ -269,6 +279,17 @@
                                 </span>
                                 <span class="memberBadgeIcon">{{meet.mem_badge3}}
                                     <img src="./images/member/Ach_list_03.png" alt="">
+                                </span>
+                            </div> -->
+                            <div class="memberBadge">
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge1" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge2" alt="">
+                                </span>
+                                <span class="memberBadgeIcon">
+                                    <img :src="meet.badge3" alt="">
                                 </span>
                             </div>
                         </div>
@@ -283,7 +304,8 @@
                     <!-- 1.更改現在的currentPage  2.用現在的頁碼,去抓那一頁的資料 -->
 
                     <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                    <button class="btnA_S pg " v-for="i in totalPage" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
+                    <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
+                    <!-- '-active' : index == 0 網頁第一次load的時候加上 -active (class) -->
                     <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
                 </div>
 
