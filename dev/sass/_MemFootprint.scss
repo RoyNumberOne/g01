@@ -63,11 +63,11 @@
                 transform: translate(0%, 0%);
             }
             .point3{
-                grid-area: 5/9/6/10;
+                grid-area: 6/8/7/9;
                 transform: translate(0%, 0%);
             }
             .point4{
-                grid-area: 8/7/9/8;
+                grid-area: 8/3/9/4;
                 transform: translate(0%, 0%);
             }
 
@@ -139,6 +139,9 @@
                             grid-template-columns: repeat(1,1fr);
                             grid-template-rows: repeat(5, 1fr);
                             margin: 10px 0;
+                            .TV_hardlv{
+                                display: flex;
+                            }
                         }
                     }
                 }
