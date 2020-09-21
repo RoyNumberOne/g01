@@ -45,7 +45,6 @@ new Vue({
             // console.log(this.tour_report_img);
             // console.log(1.1)
         })
-
     },
     mounted() {
 
@@ -57,6 +56,7 @@ new Vue({
 
         axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
             this.tourData = res.data[0];
+            this.tourData['tour_innertext']=this.tourData['tour_innertext'].replace(/\n/g,"<br>")
             // console.log('success tourData');
             // console.log(this.tourData);
         }),
@@ -94,7 +94,7 @@ new Vue({
 
         //寫完揪團記得打開
         const nowMen = this.tourData.mem_no;
-
+        let now = new Date();
         let xhr = new XMLHttpRequest();
 
         xhr.open("get", "./login_v2_LoginInFo.php",true);
@@ -113,6 +113,7 @@ new Vue({
                         $('#apply_bt').addClass('none')
                         $('#okGo').removeClass('none')
                         console.log(this.tourData.tour_min_number)
+                        //提早成團
                         if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
                             $('#okGo').removeAttr('disabled')
                             $('#okGo').removeClass('btnB_XL_grey')
@@ -123,12 +124,28 @@ new Vue({
                             //     alert('可以點了')
                             // })
                         }
+                        //時間超過活動時間
+                        if(this.tourData.tour_activityend < now){
+                            $('#okGo').removeAttr('disabled')
+                            $('#okGo').removeClass('btnB_XL_grey')
+                            $('#okGo').addClass('btnB_XL_yellow')
+                            $('#okGo').css('cursor', 'pointer')
+                            $('#okGo > p').text('活動已結束');
+                        }
                     }
                 }   
             }
         }
         //寫完揪團記得打開
 
+        //判斷是否超過活動時間
+        if(this.tourData.tour_activityend < now){
+            $('#apply_bt > p').text('活動已結束')
+            $('#apply_bt').attr('disabled', 'disabled')
+            $('#apply_bt').removeClass('btnB_XL_yellow')
+            $('#apply_bt').addClass('btnB_XL_grey')
+            $('#apply_bt').css('cursor', 'not-allowed')
+        }
 
         //判斷揪團是否檢舉換圖
         if(this.tour_report_img[0].tour_report_mem == null){
@@ -166,7 +183,6 @@ new Vue({
         this.equipmentDisplay();
     },
     filters: {
-        // var mountain_area = this.Tour1.mountain_area;
         Area: function(value) {
             switch (value) {
                 case ('north'):
@@ -191,7 +207,21 @@ new Vue({
         currentTour() {
             return this.tourData;
         },
-
+        CHECKname() {
+            return this.tourData.mem_realname;
+        },
+        CHECKguide() {
+            return this.tourData.guide_no;
+        },
+        // checkBadge1(){
+        //     return this.tourData.mem_badge1;
+        // },
+        // checkBadge2(){
+        //     return this.tourData.mem_badge2;
+        // },
+        // checkBadge3(){
+        //     return this.tourData.mem_badge3;
+        // }
     },
     methods: {
         //參加狀態
@@ -397,9 +427,6 @@ new Vue({
                         alert('請先輸入文字');
                     } else {
                         let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
-                        // formMessageReport = new FormData();
-                        // formMessageReport.append("comment_report_comment", reportNo)
-                        // formMessageReport.append("comment_report_reason", comment_report_reason)
                         axios.get('./phpForConnect/meet2-3_message_report.php', {
                             params: {
                                 "comment_report_comment": reportNo,
@@ -465,13 +492,13 @@ new Vue({
             };
         },
         //確認揪團是否被檢舉過
-        // checkTourReportNull() {
-        //     // let tourReporter = this.tour_report_img.tour_no;
-        //     if(this.tour_report_img.tour_report_mem != null){
-        //         $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
-        //         $('.tr_report_bt').attr('disabled', 'disabled')
-        //     }
-        // },
+        checkTourReportNull() {
+            // let tourReporter = this.tour_report_img.tour_no;
+            if(this.tour_report_img.tour_report_mem != null){
+                $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
+                $('.tr_report_bt').attr('disabled', 'disabled')
+            }
+        },
         //推薦裝備show or not
         equipmentDisplay() {
             if (this.tourData.tour_equip_1 == 0) {
@@ -527,8 +554,6 @@ new Vue({
             xhr2.open("get", "./login_v2_LoginInFo.php", true);
             xhr2.send(null);
         },
-
-
     },
 })
 
