@@ -82,6 +82,7 @@
             </div>
 
             <div class="original-poster-block">
+                <input type="hidden" class="tour_no" :value = "reflection.forum_post_no">
                 <div class="poster">
                     <div class="original"><img :src="reflection.mem_avator" alt=""></div>
                     <div class="name_time">
@@ -97,7 +98,7 @@
                         <p>收藏</p>
                     </div>
                     <div class="report" id="report_btn" @click="forum_artical_report">
-                        <img src="./images/icons/icon_report.svg" alt="">
+                        <img class="rpImg" src="./images/icons/icon_report.svg" alt="">
                         <p>檢舉</p>
                     </div>
                 </div>
@@ -299,6 +300,29 @@
                 <h2>您無法使用此功能</h2>
                 <p>您的留言違反我們的網站規範，因此無法分享您的留言</p>
                 <p>依社群管理規範，七日後才可發佈留言，謝謝</p>
+            </section>
+        </div>
+    </div>
+
+    <!-----文章檢舉----->
+    <div id="report_block_match" class="report_block_match close">
+        <div class="rp_lightbox">
+            <div class="rp_close"><img src="./images/icons/icon_close.svg" alt=""></div>
+            <section class="tr_reporting">
+                <h2>提出檢舉</h2>
+                <div>請輸入檢舉理由：</div>
+                <textarea name="" id="send_tr_report_block" class="tour_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
+                <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
+                <!-- <input type="hidden" class="tour_no" :value = "reflection[0].forum_post_no"> -->
+                <div class="rp_bt">
+                    <button class="btnB_L_grey cancle"><p>取消</p><div class="bg"></div></button>
+                    <button class="btnB_L_yellow tr_confirm"><p>確認</p><div class="bg"></div></button>
+                </div>
+            </section>
+            <section class="tr_be_reported">
+                <h2>謝謝您提出檢舉</h2>
+                <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
+                <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
             </section>
         </div>
     </div>
