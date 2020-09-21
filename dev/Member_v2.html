@@ -15,6 +15,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <header>
@@ -211,17 +212,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintNorth">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintNorthList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintNorthList, index) in FootprintNorthList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintNorthList.tour_no" v-for="(FootprintNorthList, index) in FootprintNorthList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintNorthList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintNorthList.mountain_name}}({{FootprintNorthList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintNorthList.mountain_area | Area}}｜{{FootprintNorthList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintNorthList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintNorthList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintNorthList.tour_activitystart}}</p>
@@ -246,17 +248,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintWest">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintWestList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintWestList, index) in FootprintWestList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintWestList.tour_no" v-for="(FootprintWestList, index) in FootprintWestList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintWestList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintWestList.mountain_name}}({{FootprintWestList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintWestList.mountain_area | Area}}｜{{FootprintWestList.mountain_name}}/p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintWestList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintWestList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintWestList.tour_activitystart}}</p>
@@ -281,17 +284,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintEast">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintEastList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintEastList, index) in FootprintEastList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintEastList.tour_no" v-for="(FootprintEastList, index) in FootprintEastList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintEastList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintEastList.mountain_name}}({{FootprintEastList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintEastList.mountain_area | Area}}｜{{FootprintEastList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintEastList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintEastList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintEastList.tour_activitystart}}</p>
@@ -316,17 +320,18 @@
                                 <div><hr></div>
                             </div>
                             <div class="TR_boxlist" id="FootprintSouth">
-                                <a :href="'./meet2-3.html?tour_no=' + FootprintSouthList.tour_no">
-                                    <div class="TR_box" v-for="(FootprintSouthList, index) in FootprintSouthList">
+                                <a :href="'./meet2-3.html?tour_no=' + FootprintSouthList.tour_no" v-for="(FootprintSouthList, index) in FootprintSouthList">
+                                    <div class="TR_box">
                                         <div class="img_value">
                                             <img v-bind:src="FootprintSouthList.mountain_image" alt="">
                                         </div>
                                         <div class="text_value">
                                             <div class="TV_travel TV">
-                                                <p>攀登路線：{{FootprintSouthList.mountain_name}}({{FootprintSouthList.mountain_area | Area}})</p>
+                                                <p>攀登路線：{{FootprintSouthList.mountain_area | Area}}｜{{FootprintSouthList.mountain_name}}</p>
                                             </div>
                                             <div class="TV_hardlv">
-                                                <p>山岳難度：{{FootprintSouthList.degree_category}}</p>
+                                                <p>山岳難度：</p>
+                                                <span class="degree"><div class="degreeImg" v-html="Degree(FootprintSouthList.degree_category)"></div></span>
                                             </div>
                                             <div class="TV_dateStart TV">
                                                 <p>開始日期：{{FootprintSouthList.tour_activitystart}}</p>
@@ -399,65 +404,54 @@
                     <input type="radio" name="tabs" id="tabone" checked="checked">
                     <label for="tabone">發起的揪團</label>
                     <div class="myself_list list_style tab" id="TravelBySelf">
-                        <a :href="'./meet2-3.html?tour_no=' + TravelBySelfList.tour_no">
-                            <div class="page" v-for="(TravelBySelfList, index) in TravelBySelfList">
-                            <div class="img_box">
-                                <img v-bind:src="TravelBySelfList.mountain_image" alt="">
-                            </div>
-                            <div class="text_box">
-                                <h3 class="text_title">【{{TravelBySelfList.mountain_name}}】{{TravelBySelfList.tour_title}}</h3>
-                                <div class="text_content">
-                                    <p>{{TravelBySelfList.tour_innertext}}</p>
+
+                        <div class="cardbox">
+                            <a :href="'./meet2-3.html?tour_no=' + TravelBySelfList.tour_no" class="Card_By_Memself CardByMem" v-for="(TravelBySelfList, index) in TravelBySelfList">
+                                <div class="CBM_imgbox">
+                                    <img v-bind:src="TravelBySelfList.mountain_image" alt="">
                                 </div>
-                                <div class="text_prompt">
-                                    <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="TP_area TP">{{TravelBySelfList.mountain_area | Area}}</div>
-                                    <div class="TP_title TP">難度</div>
-                                    <div class="TP_level TP">{{TravelBySelfList.degree_category}}</div>
+                                <div class="CBM_contentbox">
+                                    <div class="location_and_hardLv_and_area">
+                                        <span>{{TravelBySelfList.mountain_area | Area}}｜</span>
+                                        <span>{{TravelBySelfList.mountain_name}}</span>
+                                        <span class="degree"><div class="degreeImg" v-html="Degree(TravelBySelfList.degree_category)"></div></span>
+                                    </div>
+                                    <div class="CBM_title"><h3>{{TravelBySelfList.tour_title}}</h3></div>
+                                    <span class="departure">{{TravelBySelfList.tour_activitystart}} ~ {{TravelBySelfList.tour_activityend}}</span>
+                                    <div class="signup">最低募集門檻：{{TravelBySelfList.tour_min_number}}位</div>
+                                    <div class="passed_and_verify_or_progress">
+                                        <div class="verify">尚未審核：{{TravelBySelfList.tour_verify}}人</div>
+                                        <div class="passed">通過審核：{{TravelBySelfList.tour_passed}}人</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info_box">
-                                <div class="info_title">報名人數</div>
-                                <div class="info_value">{{TravelBySelfList.tour_apply}}</div>
-                            </div>
-                            <div class="date_box">
-                                <div class="date_title">開團日期</div>
-                                <div class="date_value">{{TravelBySelfList.tour_activitystart}}</div>
-                            </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                     
                     <input type="radio" name="tabs" id="tabtwo">
                     <label for="tabtwo">參加的揪團</label>
                     <div class="travel_list list_style tab" id="TravelByOther">
-                        <a :href="'./meet2-3.html?tour_no=' + TravelByOtherList.tour_no">
-                            <div class="page" v-for="(TravelByOtherList, index) in TravelByOtherList">
-                                <div class="img_box">
+                        <div class="cardbox">
+                            <a :href="'./meet2-3.html?tour_no=' + TravelByOtherList.tour_no" class="Card_By_Memother CardByMem" v-for="(TravelByOtherList, index) in TravelByOtherList">
+                                <div class="CBM_imgbox">
                                     <img v-bind:src="TravelByOtherList.mountain_image" alt="">
                                 </div>
-                                <div class="text_box">
-                                    <h3 class="text_title">【{{TravelByOtherList.mountain_name}}】{{TravelByOtherList.tour_title}}</h3>
-                                    <div class="text_content">
-                                        <p>{{TravelByOtherList.tour_innertext}}</p>
+                                <div class="CBM_contentbox">
+                                    <div class="location_and_hardLv_and_area">
+                                        <span>{{TravelByOtherList.mountain_area | Area}}｜</span>
+                                        <span>{{TravelByOtherList.mountain_name}}</span>
+                                        <span class="degree"><div class="degreeImg" v-html="Degree(TravelByOtherList.degree_category)"></div></span>
                                     </div>
-                                    <div class="text_prompt">
-                                        <div class="TP_icon TP"><i class="fas fa-map-marker-alt"></i></div>
-                                        <div class="TP_area TP">{{TravelByOtherList.mountain_area | Area}}</div>
-                                        <div class="TP_title TP">難度</div>
-                                        <div class="TP_level TP">{{TravelByOtherList.degree_category}}</div>
+                                    <div class="CBM_title"><h3>{{TravelByOtherList.tour_title}}</h3></div>
+                                    <span class="departure">{{TravelByOtherList.tour_activitystart}} ~ {{TravelByOtherList.tour_activityend}}</span>
+                                    <div class="signup">參加資格：{{TravelByOtherList.tour_participate_situation}}</div>
+                                    <div class="passed_and_verify_or_progress">
+                                        <div class="passed">成員：{{TravelByOtherList.tour_passed}}人</div>
+                                        <div class="progress">揪團狀態：{{TravelByOtherList.tour_progress}}</div>
                                     </div>
                                 </div>
-                                <div class="info_box">
-                                    <div class="info_title">審核狀態</div>
-                                    <div class="info_value">{{TravelByOtherList.tour_participate_situation}}</div>
-                                </div>
-                                <div class="date_box">
-                                    <div class="date_title">開團日期</div>
-                                    <div class="date_value">{{TravelByOtherList.tour_activitystart}}</div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -466,11 +460,39 @@
             <div id="MemCollect" class="pages">
                 <h2 class="title">我的收藏</h2>
                 <div class="classify_list">
-                    <a href="javascript:void(0)" class="classify tablink post_classify btn" onclick="openClass(event, 'class1')">文章收藏</a>
-                    <a href="javascript:void(0)" class="classify tablink travel_classify" onclick="openClass(event, 'class2')">揪團收藏</a>
+                    <a href="javascript:void(0)" class="classify tablink travel_classify btn" onclick="openClass(event, 'class1')">揪團收藏</a>
+                    <a href="javascript:void(0)" class="classify tablink post_classify" onclick="openClass(event, 'class2')">文章收藏</a>
                     <a href="javascript:void(0)" class="classify tablink product_classify" onclick="openClass(event, 'class3')">商品收藏</a>
                 </div>
+                
                 <div id="class1" class="container class">
+
+                    <div class="travel_list CollectList_group" id="Collect_tour">
+
+                        <div class="item_1 card" v-for="(tourList, index) in Collect_tourList">
+                            <div class="Card_img">
+                                <img v-bind:src="tourList.mountain_image" alt="">
+                            </div>
+                            <div class="Card_info">
+                                <div class="CI_title">
+                                    <h3>【{{tourList.mountain_name}}】{{tourList.tour_title}}</h3>
+                                </div>
+                                <div class="CI_content">
+                                    <p>{{tourList.tour_innertext}}</p>
+                                </div>
+                            </div>
+                            <div class="Card_btn">
+                                <a :href="'./meet2-3.html?tour_no=' + tourList.tour_no"> 
+                                    <button class="btnA_L"><p>點擊前往</p></button>
+                                </a>
+                            </div>
+                            <input type="button" class="Card_delete" @click="delete_collect(tourList.tour_no)" style="background-image: url(./images/icons/icon_trash.svg)">
+                            <!-- <img class="Cd_ico" src="./images/icons/icon_trash.svg" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="class2" class="container class">
 
                     <!-- VUE: 父層 > id   會重複結構的子層 > v-for="(AAA, index)in BBB 套用變數" {{AAA.欄位名稱}} -->
                     <div class="post_list CollectList_group" id="Collect_forum"> 
@@ -492,41 +514,9 @@
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-                            <button class="Card_delete">
-                                <img src="./images/icons/icon_trash.svg">
-                            </button>
+                            <input type="button" class="Card_delete" @click="delete_collect(forumList.forum_post_no)" style="background-image: url(./images/icons/icon_trash.svg);">
                         </div>
 
-                    </div>
-                </div>
-
-                <div id="class2" class="container class">
-
-                    <div class="travel_list CollectList_group" id="Collect_tour">
-
-                        <div class="item_1 card" v-for="(tourList, index) in Collect_tourList">
-                            <div class="Card_img">
-                                <img v-bind:src="tourList.mountain_image" alt="">
-                            </div>
-                            <div class="Card_info">
-                                <div class="CI_title">
-                                    <h3>【{{tourList.mountain_name}}】{{tourList.tour_title}}</h3>
-                                </div>
-                                <div class="CI_content">
-                                    <p>{{tourList.tour_innertext}}</p>
-                                </div>
-                            </div>
-                            <div class="Card_btn">
-                                <a :href="'./meet2-3.html?tour_no=' + tourList.tour_no"> 
-                                    <button class="btnA_L"><p>點擊前往</p></button>
-                                </a>
-                            </div>
-                            <!-- <a :href="./phpForConnect/memdeleteCollect_tour.php?tour_no=tourList.tour_no"> -->
-                                <button class="Card_delete">
-                                    <img src="./images/icons/icon_trash.svg">
-                                </button>
-                            <!-- </a> -->
-                        </div>
                     </div>
                 </div>
 
@@ -551,9 +541,7 @@
                                     <button class="btnA_L"><p>點擊前往</p></button>
                                 </a>
                             </div>
-                            <button class="Card_delete">
-                                <img src="./images/icons/icon_trash.svg">
-                            </button>
+                            <input type="button" class="Card_delete" @click="delete_collect(productList.product_no)" style="background-image: url(./images/icons/icon_trash.svg);">
                         </div>
 
                     </div>
@@ -666,7 +654,6 @@
     </footer>
 
 <!-- ======================script-(start)======================= -->
-<!-- ======================script-start======================= -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/2b48341542.js" crossorigin="anonymous"></script>
@@ -678,7 +665,6 @@
 <script src="./js/Member_v2.js"></script>
 <script src="./js/login_v2.js"></script>
 
-<!-- ======================script-(end)========================= -->
 <!-- ======================PHP by hiko-(start)======================= -->
 
 <script src="./js/memFootprintNorthCount.js"></script> <!-- (北部)已完成揪團數 -->
@@ -700,7 +686,10 @@
 <script src="./js/memCollectProduct.js"></script>      <!-- 收藏：商品 -->
 <script src="./js/memForumPost.js"></script>           <!-- 發佈的文章 -->
 
-<!-- ======================PHP by hiko-(end)======================= -->
+<!-- ======================PHP by owen-(start)======================= -->
+
+<script src="./js/GetBadge.js"></script>
+
 <!-- ======================script-(手機版切換)======================= -->
 <script>
     $(document).ready(function(){

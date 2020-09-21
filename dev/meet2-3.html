@@ -110,7 +110,7 @@
                     </div>
                     <div>
                         <button class="btnB_L_grey" id="notagree"><p>不同意</p><div class="bg"></div></button>
-                        <button id="agree" class="btnB_L_yellow" @click = "applyTour"><p>同意</p><div class="bg"></div></button>
+                        <button id="agree" class="btnB_L_yellow" @click="applyTour"><p>同意</p><div class="bg"></div></button>
                     </div>
                 </section>
                 <section class="agree_box">
@@ -126,17 +126,18 @@
         <div id="report_block_match" class="report_block_match close">
             <div class="rp_lightbox">
                 <div class="rp_close"><img src="./images/icons/icon_close.svg" alt=""></div>
-                <section class="reporting">
+                <section class="tr_reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <textarea name="" id="send_match_block" cols="30" rows="10" placeholder="補充說明："></textarea>
+                    <textarea name="" id="send_tr_report_block" class="tour_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
+                    <input type="hidden" class="tour_no" :value = "tourData.tour_no">
                     <div class="rp_bt">
                         <button class="btnB_L_grey cancle"><p>取消</p><div class="bg"></div></button>
-                        <button class="btnB_L_yellow confirm"><p>確認</p><div class="bg"></div></button>
+                        <button class="btnB_L_yellow tr_confirm"><p>確認</p><div class="bg"></div></button>
                     </div>
                 </section>
-                <section class="be_reported">
+                <section class="tr_be_reported">
                     <h2>謝謝您提出檢舉</h2>
                     <p>感謝您協助我們建立一個讓用戶相互支持的安全社群平台</p>
                     <p>您的檢舉經由官方查證屬實後，將依網站管理辦法處分</p>
@@ -149,7 +150,7 @@
                 <section class="mg_reporting">
                     <h2>提出檢舉</h2>
                     <div>請輸入檢舉理由：</div>
-                    <textarea name="" id="send_report_block" class="comment_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
+                    <textarea name="" id="send_mg_report_block" class="comment_report_reason" cols="30" rows="10" placeholder="補充說明："></textarea>
                     <div class="explain">內容過於暴力、人身攻擊、侵犯個人隱私、詐騙或濫用社群功能，經查證屬實將依網站管理辦法處分</div>
                     <div class="rp_bt">
                         <button class="btnB_L_grey mg_cancle"><p>取消</p><div class="bg"></div></button>
@@ -222,10 +223,10 @@
                         <div class="activity_date">{{currentTour.tour_activitystart}} 出發 | {{currentTour.tour_activityend}} 回程</div>
                     </div>
                     <div class="report">
-                        <div class="report_bt">
-                            <img src="./images/icons/icon_report.svg" alt="" class="report_pic">
+                        <button class="tr_report_bt" @click = "openTourReportModal">
+                            <img src="./images/icons/icon_report.svg" alt="" class="tr_report_pic">
                             <div class="report_hover">檢舉</div>
-                        </div>
+                        </button>
                     </div>
                 </div>
                 <div class="info_icon">
@@ -323,6 +324,7 @@
                 </div>
                 <!-- <div>{{currentTour.tour_progress}}</div> -->
                 <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
+                <button id="okGo" class="btnB_XL_grey none" disabled><p>提早成團！</p><div class="bg"></div></button>
             </div>
         </div>
         <div class="introduction-application_block">
@@ -400,7 +402,7 @@
                     <div class="message_text">
                         <div class="mg_text">{{comment.comment_innertext}}</div>
                         <div class="mg_time">{{comment.comment_time}}</div>
-                        <button type='button' class="mg_report_bt" @click=openReportModal>
+                        <button type='button' class="mg_report_bt" @click=openMessageReportModal>
                             <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
                             <div class="mg_text">檢舉</div>
                         </button>

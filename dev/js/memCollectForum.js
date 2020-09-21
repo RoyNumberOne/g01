@@ -4,8 +4,27 @@ new Vue({
     data: {
         Collect_forumList: [],  //BBB
         Collect_forumIndex: [],  //CCC
+        forumList_forum_post_no: 1,
     },
 
+    methods: {
+        delete_collect(index){
+            this.forumList_forum_post_no = index;
+            // console.log(this.forumList_forum_post_no);
+            axios.get(`./phpForConnect/memdeleteCollect_forum.php?forumList_forum_post_no=${this.forumList_forum_post_no}`)
+        },
+        noneCARD: function(){
+            $(".Card_delete").click(function(e){
+                $(e.target).parent().css("display","none")
+                swal({
+                    title: "已移除收藏!",
+                    text: "系統已成功為您移除該文章收藏",
+                    icon: "success",
+                    button: "關閉",
+                });
+            })
+        },
+    },
     mounted(){
         axios.get('./phpForConnect/memCollectForum.php') //根據哪個php
         // axios.get(`./phpForConnect/memCollectForum.php?test=${test}`)
@@ -25,5 +44,8 @@ new Vue({
 
         })
         .catch(error => {console.log(error)}); 
+    },
+    updated() {
+        this.noneCARD();
     },
 });

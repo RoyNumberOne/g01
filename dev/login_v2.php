@@ -2,7 +2,7 @@
 session_start();
 try{
     require_once("./connectMeetain.php");
-    $sql = "select * from `member` where mem_acc=:mem_acc and mem_psw=:mem_psw"; 
+    $sql = "select m.* , guide_no from `member` m left outer join `member_guide` mg on (m.mem_no = mg.mem_no and mem_guide_situation = '已審核已通過') where mem_acc=:mem_acc and mem_psw=:mem_psw;"; 
     $member = $pdo->prepare($sql);
     // $member->bindValue(":mem_acc", $_GET["mem_acc"]);
     // $member->bindValue(":mem_psw", $_GET["mem_psw"]);
@@ -28,6 +28,7 @@ try{
         $_SESSION["mem_avator"] = $memRow["mem_avator"];
         $_SESSION["mem_bg"] = $memRow["mem_bg"];
         $_SESSION["class"] = $memRow["class"];
+        $_SESSION["guide_no"] = $memRow["guide_no"];
   
       //送出登入者的姓名資料
       $result = array("mem_no"=>$memRow["mem_no"], 
@@ -40,7 +41,8 @@ try{
                     "mem_point"=>$memRow["mem_point"],
                     "mem_avator"=>$memRow["mem_avator"],
                     "mem_bg"=>$memRow["mem_bg"],
-                    "class"=>$memRow["class"]);
+                    "class"=>$memRow["class"],
+                    "guide_no"=>$memRow["guide_no"]);
     
 
       echo json_encode($result);
