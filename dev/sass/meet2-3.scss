@@ -65,7 +65,7 @@ div.wrap{
                     }
                 }
                 .report{
-                    .report_bt{
+                    .tr_report_bt{
                         cursor: pointer;
                         position: relative;
                         .report_hover{
@@ -127,6 +127,9 @@ div.wrap{
                     .collection_icon{
                         width: 100%;
                         height: 30px;
+                        .heart{
+                            cursor: pointer;
+                        }
                     }
                     .collection_text{
                         width: 100%;
@@ -232,6 +235,10 @@ div.wrap{
             }
             button#apply_bt{
                 margin: 0px auto 0;
+            }
+            button#okGo{
+                margin: 0px auto 0; 
+                cursor: not-allowed;
             }
         }
     }
@@ -559,7 +566,7 @@ div.wrap{
                 color: #bbb;
             }
         }
-        .reporting{
+        .tr_reporting{
             display: flex;
             flex-direction: column;
             width: 80%;
@@ -585,7 +592,7 @@ div.wrap{
                 }
             }
         }
-        .be_reported{
+        .tr_be_reported{
             display: none;
             h2{
                 text-align: center;
