@@ -69,7 +69,9 @@
             p{
             }
             .Achievement_list{
-                div{
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(5,1fr);
+                .Ach{
                     img{
                         width: 80%;
                     }
@@ -88,8 +90,8 @@
                 margin-bottom: 30px;
             }
             .Achievement_list{
-                grid-template-columns: repeat(3,1fr);
-                grid-template-rows: repeat(7,1fr);
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(8,1fr);
                 div{
                     img{
                         width: 80%;
@@ -106,8 +108,8 @@
             margin-bottom: 30px;
         }
         .Achievement_list{
-            grid-template-columns: repeat(3,1fr);
-            grid-template-rows: repeat(7,1fr);
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(8,1fr);
             div{
                 img{
                     width: 90%;

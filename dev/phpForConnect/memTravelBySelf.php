@@ -7,7 +7,7 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
     
-    $sql= "SELECT T.tour_hoster, T.tour_no, T.tour_title,T.tour_innertext, T.tour_apply, T.tour_activitystart, M.mountain_image, M.mountain_area, M.degree_category, M.mountain_name
+    $sql= "SELECT T.tour_hoster, T.tour_no, T.tour_title,T.tour_innertext, T.tour_min_number, T.tour_activitystart, T.tour_activityend, T.tour_passed, T.tour_verify, M.mountain_image, M.mountain_area, M.degree_category, M.mountain_name
                 from tour T
                     join mountain M on(T.tour_mountain = M.mountain_no)
                 WHERE T.tour_hoster = $mem_no
