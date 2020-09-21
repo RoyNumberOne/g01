@@ -61,7 +61,9 @@
                         foreach ( $prodRows as $i => $prodRow){
                         ?>
                             <tr>
-                            <td class='pink'><?=$prodRow["商品編號"]?>
+                            <td class='pink'>
+                                <a href="../product_info.html?productNo=<?=$prodRow["商品編號"]?>" style="color:#555555;">
+                                <?=$prodRow["商品編號"]?></a>
                                 <input type="checkbox" name="productAUTH<?=$prodRow["商品編號"]?>" disabled value='<?=$prodRow["商品狀態"]?>'>
                             </td>
                             <td style="width:20px;"><?=$prodRow["難度等級"]?></td>
