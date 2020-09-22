@@ -16,7 +16,7 @@
     echo" <tr>
         <td><img src='".$prodRow['商品預覽']."' width='110px' alt=''></td>
         <td>".$prodRow['商品編號']."</td>
-        <td>".$prodRow['商品名稱']."</td>
+        <td style='text-decoration: underline;'><a href='./product_info.html?productNo=".$prodRow['商品編號']."'>".$prodRow['商品名稱']."</a></td>
         <td>".$prodRow['難度等級']."</td>
         <td>".$prodRow['購買數量']."</td>
         <td>".$prodRow['商品單價']."</td>

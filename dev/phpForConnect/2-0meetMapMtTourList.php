@@ -7,7 +7,7 @@ try{
 
     $mtName = $_GET["mtName"];
     
-    $sql= "SELECT t.tour_mountain, mt.degree_category , mt.mountain_name , t.tour_build ,m.mem_id ,m.mem_avator,t.tour_title,mt.mountain_latitude,mt.mountain_longitude,t.tour_activitystart
+    $sql= "SELECT t.tour_mountain, mt.degree_category , mt.mountain_name , t.tour_build ,m.mem_id ,m.mem_avator,t.tour_title,mt.mountain_latitude,mt.mountain_longitude,t.tour_activitystart,t.tour_no
     FROM tour t
             JOIN member m ON t.tour_hoster = m.mem_no
             JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no

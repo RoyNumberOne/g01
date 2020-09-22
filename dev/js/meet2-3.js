@@ -80,11 +80,6 @@ new Vue({
             // console.log('success tour_participant_notpassed');
             // console.log(this.notPassedParticipant);
         })
-        // axios.get('./phpForConnect/meet2-3_artical.php').then(res => {
-        //     this.articals = res.data;
-        //     console.log('success articals');
-        //     console.log(this.articals);
-        // })
     },
     updated() {
         // console.log("LENGTH" + this.message_report_img.length)
@@ -124,19 +119,37 @@ new Vue({
                             //     alert('可以點了')
                             // })
                         }
+                        //已成團狀態
+                        if(this.tourData.tour_progress == '已截止'){
+                            $('#okGo').removeClass('btnB_XL_yellow')
+                            $('#okGo').addClass('btnB_XL_grey')
+                            $('#okGo').css('cursor', 'not-allowed')
+                            $('#okGo > p').text('已成團')
+                        }
                         //時間超過活動時間
                         if(this.tourData.tour_activityend < now){
                             $('#okGo').removeAttr('disabled')
                             $('#okGo').removeClass('btnB_XL_grey')
                             $('#okGo').addClass('btnB_XL_yellow')
                             $('#okGo').css('cursor', 'pointer')
-                            $('#okGo > p').text('活動已結束');
+                            $('#okGo > p').text('活動已結束')
                         }
                     }
                 }   
             }
         }
         //寫完揪團記得打開
+
+        //判斷是否已結束報名
+        if(this.tourData.tour_progress == '已截止'){
+            $('#apply_bt > p').text('活動已截止報名')
+            $('#apply_bt').attr('disabled', 'disabled')
+            $('#apply_bt').removeClass('btnB_XL_yellow')
+            $('#apply_bt').addClass('btnB_XL_grey')
+            $('#apply_bt').css('cursor', 'not-allowed')
+            $('.application_bt').css('display', 'none')
+            $('.activity_application').css('display', 'none');
+        }
 
         //判斷是否超過活動時間
         if(this.tourData.tour_activityend < now){
@@ -145,6 +158,8 @@ new Vue({
             $('#apply_bt').removeClass('btnB_XL_yellow')
             $('#apply_bt').addClass('btnB_XL_grey')
             $('#apply_bt').css('cursor', 'not-allowed')
+            $('.application_bt').css('display', 'none')
+            $('.activity_application').css('display', 'none')
         }
 
         //判斷揪團是否檢舉換圖
@@ -214,13 +229,13 @@ new Vue({
             return this.tourData.guide_no;
         },
         // checkBadge1(){
-        //     return this.tourData.mem_badge1;
+        //     return this.tourData.badge1;
         // },
         // checkBadge2(){
-        //     return this.tourData.mem_badge2;
+        //     return this.tourData.badge2;
         // },
         // checkBadge3(){
-        //     return this.tourData.mem_badge3;
+        //     return this.tourData.badge3;
         // }
     },
     methods: {
@@ -374,6 +389,22 @@ new Vue({
                     }
                 }
             }
+        },
+        //提早成團
+        startTour(){
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
+            let formTour = new FormData();
+            formTour.append("tour_no", tour_no);
+            axios.get('./phpForConnect/meet2-3_start_tour.php', {
+                params: {
+                    "tour_no": tour_no,
+                }
+            }).then(res => {
+                axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
+                    this.tourData = res.data[0];
+                })
+            })
         },
         //揪團檢舉彈窗
         openTourReportModal(e) {

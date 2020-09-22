@@ -59,7 +59,6 @@ try{
             $_SESSION["mem_avator"] = $memRow["mem_avator"];
             $_SESSION["mem_bg"] = $memRow["mem_bg"];
             $_SESSION["class"] = $memRow["class"];
-            $_SESSION["guide_no"] = $memRow["guide_no"];
             $_SESSION["mem_badge1"] = $memRow["mem_badge1"];
             $_SESSION["mem_badge2"] = $memRow["mem_badge2"];
             $_SESSION["mem_badge3"] = $memRow["mem_badge3"];
@@ -75,7 +74,6 @@ try{
                             "mem_avator"=>$memRow["mem_avator"],
                             "mem_bg"=>$memRow["mem_bg"],
                             "class"=>$memRow["class"],
-                            "guide_no"=>$memRow["guide_no"],
                             "mem_badge1"=>$memRow["mem_badge1"],
                             "mem_badge2"=>$memRow["mem_badge2"],
                             "mem_badge3"=>$memRow["mem_badge3"]);
