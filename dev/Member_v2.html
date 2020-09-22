@@ -701,9 +701,9 @@
         document.getElementById("mem_ava_edit").onchange = function(e){
             let file = e.target.files[0];  //取得file物件
             let reader = new FileReader(); //建立一個reader物件
-            reader.onload = function(e){
-                $('#memProfile_img').attr('src',e.target.result);
-            }
+            // reader.onload = function(e){
+            //     $('#memProfile_img').attr('src',e.target.result);
+            // }
 
             reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
             

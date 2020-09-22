@@ -11,6 +11,7 @@ SELECT * FROM member;
 update member set mem_badge1 = 2 ,mem_badge2 = 3 where mem_no = 10009;
 update member set mem_badge1 = 14 where mem_no = 10010;
 update member set mem_badge1 = 1 ,mem_badge2 = 5 , mem_badge3 = 11 where mem_no = 10011;
+select m.* , guide_no from `member` m left outer join `member_guide` mg on (m.mem_no = mg.mem_no and mem_guide_situation = '已審核已通過') where mem_acc='owenthestar' and mem_psw='love1234';
 desc member;
 -- 討論區發文
 select * from forum_post;
@@ -278,6 +279,10 @@ desc tour_keep;
 
 SELECT * FROM tour_participate;
 desc tour_participate;
+
+select tour_participate_mem , tour_participate_situation
+from tour_participate
+where tour_participate_tour = 100001 and tour_participate_mem = 10012;
 
 SELECT * FROM tour_report;
 desc tour_report;
