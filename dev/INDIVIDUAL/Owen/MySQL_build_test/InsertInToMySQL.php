@@ -75,8 +75,8 @@ try	{
             $affectedRow = $pdo -> exec($sql);
             }
 
-            // ::::::::::更新前7位超強帳號::::::::::
-            $sql = "UPDATE member set mem_avator = concat('./images/avator_image/',`mem_no`,'.jpg') , mem_point = 80000 , total_post = 200 , total_host = 200 , total_join = 500 , mem_point_forumpost = 20000 , mem_point_tourhost = 20000 , mem_point_tourjoin = 20000 , mem_point_game = 20000 where mem_no between 10001 and 10007;";
+            // ::::::::::更新前7位帳號頭像::::::::::
+            $sql = "UPDATE member set mem_avator = concat('./images/avator_image/',`mem_no`,'.jpg') where mem_no between 10001 and 10007;";
            echo $sql."<br>";
             $affectedRow = $pdo -> exec($sql);
 

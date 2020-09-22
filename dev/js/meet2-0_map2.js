@@ -69,7 +69,8 @@ function initMap() {
 
                     for( j=0 ; j < meetList.length ; j++ ) {
                         str2 +=
-                        `   <a href="#">
+                            `<a onclick="location.href='./meet2-3.html?tour_no=${meetList[j].tour_no}'">
+                                 
                                     <p>${meetList[j].tour_title}</p>
                                         <div class="date_member">
                                         <span class="date">${meetList[j].tour_activitystart}</span><span>出發</span>
@@ -80,7 +81,8 @@ function initMap() {
                                             <div class="memberId">${meetList[j].mem_id}</div>
                                         </div>
                                     </div>
-                                </a>`;
+                               
+                            </a>`;
                     }
 
                     let str3 = `</div>
