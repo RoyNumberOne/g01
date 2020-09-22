@@ -16,6 +16,10 @@ try{
     
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
+
+    $sql = "UPDATE member set mem_point_tourjoin = `mem_point_tourjoin`+3000 , mem_point = `mem_point`+3000 where mem_no = $tour_participate_mem ;";
+    $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement = $pdo->query($sql);
     
 }catch(PDOException $e){
     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
