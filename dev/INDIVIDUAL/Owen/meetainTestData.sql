@@ -8,11 +8,8 @@ SELECT * FROM achievement;
 desc achievement;
 
 SELECT * FROM member;
-update member set mem_badge1 = 2 ,mem_badge2 = 3 where mem_no = 10009;
-update member set mem_badge1 = 14 where mem_no = 10010;
-update member set mem_badge1 = 1 ,mem_badge2 = 5 , mem_badge3 = 11 where mem_no = 10011;
-select m.* , guide_no from `member` m left outer join `member_guide` mg on (m.mem_no = mg.mem_no and mem_guide_situation = '已審核已通過') where mem_acc='owenthestar' and mem_psw='love1234';
 desc member;
+
 -- 討論區發文
 select * from forum_post;
 select forum_post_no , forum_post_title '發表文章' , forum_post_time '建立時間' , 8000 '點數' 
@@ -27,6 +24,17 @@ SELECT t.tour_no , t.tour_title '參加揪團' , tp.tour_participate_time '建�
 from tour_participate tp  join tour t on (tp.tour_participate_tour = t.tour_no and not t.tour_hoster= 10010 )
 WHERE tp.tour_participate_mem = 10010 order by tour_no desc LIMIT 3;
 
+select * from mem_achievement ;
+desc mem_achievement;
+INSERT INTO mem_achievement (mem_no , achievement_no) values ( 10008 , 2);
+
+-- 判斷徽章
+SELECT m.mem_no , m.total_post , m.total_host , m.total_join , DATEDIFF(CURDATE(),`mem_build`) 'datediff' from member m where m.mem_no = 10008;
+-- 判斷徽章
+SELECT a.achievement_no , a.achievement_require, ma.mem_no 
+	from achievement a
+	left outer join mem_achievement ma on ( a.achievement_no = ma.achievement_no and ma.mem_no = 10008)
+	group by a.achievement_no , ma.achievement_no;
 
 
 SELECT * FROM administrator;
