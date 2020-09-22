@@ -112,7 +112,7 @@
         // ------------------------------  會員點數增加 ------------------------------
 
         $sql = "UPDATE member
-                    set mem_point_tourhost = mem_point_tourhost+8000, mem_point = mem_point+8000
+                    set mem_point_tourhost = mem_point_tourhost+6000, mem_point = mem_point+6000 , total_host = `total_host`+1
                     WHERE mem_no = $tour_hoster ;";  
 
         $new_tour = $pdo->prepare($sql); 

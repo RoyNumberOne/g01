@@ -104,7 +104,7 @@
         // ------------- 會員點數增加(數字再確認) -------------
 
             $sql = "UPDATE member
-            set mem_point_forumpost = ( `mem_point_forumpost`+8000) , mem_point = (`mem_point` + 8000)
+            set mem_point_forumpost = ( `mem_point_forumpost`+8000) , mem_point = (`mem_point` + 8000) , total_post = (`total_post` + 1)
             WHERE mem_no = $forum_post_poster ;";  
 
             $new_tour = $pdo->prepare($sql); 
