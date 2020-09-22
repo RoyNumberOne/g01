@@ -87,14 +87,14 @@ new Vue({
                     "comment_class" : '討論區',
                     "forum_post_no" : forum_post_no,
                     "comment_innertext" : this.poster_message,
-                }}).then(res => {
-                    console.log('success poster_message');
-                    axios.post('./phpForConnect/commentPostDialog.php', formArticle).then(res => {
-                    this.dialog = res.data;
-                    this.clearTextarea();
-                    $('html, body').animate({ scrollTop: 100000 }, 500);
+                }}).then(res =>{
+                    axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
+                        this.commentpost = res.data;
+                        console.log('success');
+                        this.clearTextarea();
+                        $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
-                });
+                })
             }
         },
         forum_artical_Collect(){
