@@ -3,7 +3,9 @@
 @import "memberStyle";
 
 $textColor1: $mt_fontdark;
-
+a{
+    cursor: pointer;
+}
 @mixin contentText {
     font-size: 18px;
     font-weight: 400;
