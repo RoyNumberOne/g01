@@ -14,7 +14,9 @@ new Vue({
         .then((res) => {
             this.ForumPostList = res.data; //this.BBB = res.data;
 
+            console.log('123'); //測試是否成功
             console.log(this.ForumPostList.data); //測試是否成功
+            console.log('234'); //測試是否成功
 
             // console.log(this.meetList);
             for(let i = 0; i< this.ForumPostList.length; i++){  //動態生成內容，依據json有幾筆

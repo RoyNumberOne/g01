@@ -296,6 +296,16 @@ div.wrap{
 
  // 所在位置 //
  nav.menu ul.link_list.llleft li{
+    & a p::after {
+        display: none;
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        width: 70px;
+        height: 4px;
+        top: 41px;
+        background-color: $mt_yellow;
+    }
     & a.product p::after {
         display: block;
         @media screen and (min-width: 1440px) {left: 380px;}
