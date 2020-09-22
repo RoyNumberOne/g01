@@ -108,8 +108,14 @@
                                     <div class="user_name"><p class="usname">{{poprank.mem_id}}</p></div>
 
                                     <div class="certification"> <!--原先的結構未加入會員的認證資訊---->
-                                        <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                        <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                        <span class="certificationIcon a">
+                                            <input type="hidden" :class="'MR'+index" :value="poprank.mem_realname">
+                                            <img src="./images/icons/icon_realname.svg" alt="">
+                                        </span>
+                                        <span class="certificationIcon b">
+                                            <input type="hidden" :class="'GN'+index" :value="poprank.guide_no">
+                                            <img src="./images/icons/icon_guide.svg" alt="">
+                                        </span>
                                     </div>
                                     
                                     <div class="memberBadge">

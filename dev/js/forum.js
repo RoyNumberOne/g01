@@ -143,4 +143,20 @@ new Vue({
             }
         }
     },
+    updated() {
+        for(var k=0; k<= (this.poprank.length-1); k++){
+            if( $(`.MR${k}`).val() ){
+                $(`.MR${k}`).parent().css("display","block")
+            }else{
+                $(`.MR${k}`).parent().css("display","none")
+            }
+        }
+        for(var k=0; k<= (this.poprank.length-1); k++){
+            if( $(`.GN${k}`).val() ){
+                $(`.GN${k}`).parent().css("display","block")
+            }else{
+                $(`.GN${k}`).parent().css("display","none")
+            }
+        }
+    },
 })
