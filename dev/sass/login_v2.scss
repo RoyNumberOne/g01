@@ -337,7 +337,71 @@ main {
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (min-width: 415px) and (max-width: 576px) {
+    main {
+        height: 1000px;
+        .container {
+            width: 90%;
+            height: 750px;
+            .container--signin {
+                width: 50%;
+                .mobile_logo {
+                    display: block;
+                }
+                a {
+                    display: block;
+                }
+                input {
+                    outline: none;
+                }
+            }
+            .container--signup {
+                display: none;
+                transform: translate(50%);
+                .form__detail {
+                    width: fit-content;
+                }
+                button {
+                    margin: 20px;
+                }
+                .mobile_logo {
+                    display: block;
+                }
+                a {
+                    display: block;
+                }
+            }
+            .container__overlay {
+                display: none;
+            }
+        }
+        .container.right-panel-active .container--signin {
+            transform: translateX(50%);
+        }
+    }
+}
+
+#admin_psw1 {
+    position: relative;
+    img {
+        position: absolute;
+        top: 8px;
+        right: -6px;
+        opacity: 0.7;
+        padding-left: 10px;
+        width: 60px;
+    }
+    #pswCheck {
+        position: absolute;
+        opacity: 0;
+        top: -3px;
+        right: -12px;
+        padding-left: 10px;
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 414px){
     main {
         height: 1000px;
         .container {
@@ -380,25 +444,26 @@ main {
         .container.right-panel-active .container--signin {
             transform: translateX(50%);
         }
+    
     }
-}
 
-#admin_psw1 {
-    position: relative;
-    img {
-        position: absolute;
-        top: 8px;
-        right: 70px;
-        opacity: 0.7;
-        padding-left: 10px;
-        width: 60px;
-    }
-    #pswCheck {
-        position: absolute;
-        opacity: 0;
-        top: -3px;
-        right: 60px;
-        padding-left: 10px;
-        width: 60px;
+    #admin_psw1 {
+        position: relative;
+        img {
+            position: absolute;
+            top: 8px;
+            right: -40px;
+            opacity: 0.7;
+            padding-left: 10px;
+            width: 60px;
+        }
+        #pswCheck {
+            position: absolute;
+            opacity: 0;
+            top: -3px;
+            right: -56px;
+            padding-left: 10px;
+            width: 60px;
+        }
     }
 }

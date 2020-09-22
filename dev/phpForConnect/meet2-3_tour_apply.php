@@ -9,7 +9,7 @@ try{
     session_start();
     $tour_participate_mem = $_SESSION['mem_no'];
     $tour_participate_tour = $_REQUEST['tour_participate_tour'];
-    $tour_participate_situation = $_REQUEST['tour_participate_situation'];
+    // $tour_participate_situation = $_REQUEST['tour_participate_situation'];
 
     $sql = "INSERT  INTO tour_participate (tour_participate_mem, tour_participate_tour, tour_participate_situation)
             VALUES ('$tour_participate_mem', '$tour_participate_tour', '未審核');";

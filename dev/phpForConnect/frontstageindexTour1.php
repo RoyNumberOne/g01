@@ -16,7 +16,7 @@ try{
         LEFT OUTER JOIN achievement a3 on m.mem_badge3 = a3.achievement_no
     WHERE t.tour_situation = 1 and tour_progress = '報名中'
     GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no
-    ORDER BY t.tour_build DESC , t.tour_no DESC LIMIT 1 ;";
+    ORDER BY COUNT(*) DESC ,t.tour_build DESC , t.tour_no DESC LIMIT 1 ;";
 
     $pdoStatement = $pdo->query($sql);
     $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
