@@ -234,6 +234,7 @@ $textColor1: $mt_fontdark;
                                 padding: 0 5px;
                                 width: 80%;
                                 position: relative;
+                                padding-left: 10px;
                               
                             }
                         }
@@ -242,6 +243,9 @@ $textColor1: $mt_fontdark;
                         flex-grow:2;
                         display: flex;
                         flex-direction: column;
+                        textarea{
+                            padding: 10px !important;
+                        }
                     }
                 }
                 >label{ //活動簡介
@@ -252,6 +256,8 @@ $textColor1: $mt_fontdark;
                 textarea{
                     resize : none;
                     flex-grow:2;
+                    padding: 10px !important;
+
                 }
 
             }

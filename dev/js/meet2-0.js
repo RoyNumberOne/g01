@@ -68,12 +68,23 @@ new Vue({
         
     },
     computed: {
-        CHECKname() {
-            return this.meetList[0].mem_realname;
-        },
-        CHECKguide() {
-            return this.meetList[0].guide_no;
-        },
+    },
+    updated() {
+        for(var k=0 ; k <= (this.meetList.length-1) ; k++){
+            if( $(`.GN${k}`).val()){
+                $(`.GN${k}`).parent().css("display","block")
+            }   else    {
+                $(`.GN${k}`).parent().css("display","none")
+            }
+        }
+        for(var k=0 ; k <= (this.meetList.length-1) ; k++){
+            if( $(`.MR${k}`).val()){
+                $(`.MR${k}`).parent().css("display","block")
+            }   else    {
+                $(`.MR${k}`).parent().css("display","none")
+            }
+        }
+
     },
 
 });
@@ -161,12 +172,22 @@ new Vue({
         },
     },
     computed: {
-        CHECKname() {
-            return this.meetList[0].mem_realname;
-        },
-        CHECKguide() {
-            return this.meetList[0].guide_no;
-        },
+    },
+    updated() {
+        for(var k=0 ; k <= (this.meetList.length-1) ; k++){
+            if( $(`.GN${k}`).val()){
+                $(`.GN${k}`).parent().css("display","block")
+            }   else    {
+                $(`.GN${k}`).parent().css("display","none")
+            }
+        }
+        for(var k=0 ; k <= (this.meetList.length-1) ; k++){
+            if( $(`.MR${k}`).val()){
+                $(`.MR${k}`).parent().css("display","block")
+            }   else    {
+                $(`.MR${k}`).parent().css("display","none")
+            }
+        }
     },
 
 });
