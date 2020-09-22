@@ -273,7 +273,7 @@ SELECT m.mem_no ,r.mem_realname FROM member m left outer JOIN member_realname r 
 
 select tour_no '討論文編號' , tour_build '發文時間' from tour order by tour_no desc; 
 
-
+SELECT product.product_image1 '商品預覽' , order_list.product_no '商品編號' , product.product_name '商品名稱' , product.degree_category '難度等級' , order_list.product_number'購買數量' , order_list.product_price '商品單價'  from order_list join product on order_list.product_no = product.product_no join orders on order_list.order_no = orders.order_no join member on orders.member_no = member.mem_no where orders.order_no = 500002;
 SELECT * FROM tour_keep;
 desc tour_keep;
 
@@ -306,3 +306,17 @@ SELECT tour_report_no "檢舉編號" , tour_report_tour "揪團編號" , tour_ti
 
 -- select * from tour t join mountain m on t.tour_mountain = m.mountain_no where m.degree_category = 4 and m.mountain_area = 'east';
 -- select * from tour t join mountain m on t.tour_mountain = m.mountain_no where m.degree_category = 4 and m.mountain_area = 'west';
+
+SELECT  t.tour_no , t.tour_hoster, m.mem_id, m.mem_avator ,r.mem_realname , g.guide_no , m.mem_badge1 , a1.achievement_image 'badge1' , m.mem_badge2 , a2.achievement_image 'badge2' , m.mem_badge3 , a3.achievement_image 'badge3' , mt.mountain_area , t.tour_mountain , mt.mountain_name , mt.mountain_image , mt.degree_category ,  t.tour_activitystart , t.tour_activityend , t.tour_build ,t.tour_title , t.tour_notice , t.tour_innertext , COUNT(*) 
+    FROM tour t
+        LEFT OUTER JOIN member_realname r ON ( t.tour_hoster = r.mem_no and r.mem_realname_situation = '已審核已通過')
+        LEFT OUTER JOIN member_guide g ON ( t.tour_hoster = g.mem_no and g.mem_guide_situation = '已審核已通過')
+            JOIN member m ON t.tour_hoster = m.mem_no
+            JOIN comment_post c ON t.tour_no = c.tour_post_no
+            JOIN MOUNTAIN mt on t.tour_mountain = mt.mountain_no
+        LEFT OUTER JOIN achievement a1 on m.mem_badge1 = a1.achievement_no
+        LEFT OUTER JOIN achievement a2 on m.mem_badge2 = a2.achievement_no
+        LEFT OUTER JOIN achievement a3 on m.mem_badge3 = a3.achievement_no
+    WHERE t.tour_situation = 1 and tour_progress = '報名中'
+    GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no
+    ORDER BY COUNT(*) DESC , t.tour_build DESC , t.tour_no DESC LIMIT 1,2 ;
