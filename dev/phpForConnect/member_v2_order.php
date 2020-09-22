@@ -39,7 +39,7 @@ try	{
 
             $(".showDetail").click(function(e){
                 e.preventDefault();
-                let ordNo = $(e.target).html();
+                let ordNo = $(e.target).text();
                     $.ajax({
                         url: './phpForConnect/member_v2_orderDetail.php',
                         data:  {ordNo : ordNo},
