@@ -12,6 +12,12 @@ new Vue({
         }
     },
     computed:{
+        CHECKname() {
+            return this.articalList[0].mem_realname;
+        },
+        CHECKguide() {
+            return this.articalList[0].guide_no;
+        },
         forumpost(){
             if(this.input.type== '全部'){
                 return this.articalList
@@ -33,6 +39,27 @@ new Vue({
               else{
                 return this.forumpost;
               }
+        },
+    },
+    filters: {
+        Area (value) {
+            switch (value) {
+                case ('north'):
+                    return '北部';
+                    break;
+                case ('west'):
+                    return '中部';
+                    break;
+                case ('south'):
+                    return '南部';
+                    break;
+                case ('east'):
+                    return '東部';
+                    break;
+                default:
+                    return '沒成功哦';
+                    break;
+            }
         },
     },
     mounted(){
@@ -95,5 +122,25 @@ new Vue({
         // AFTERsearch: function(){
         //     $(".forum-block").html("");
         // },
+        //山的難度
+        Degree(value) {
+            switch (value) {
+                case ('1'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                    break;
+                case ('2'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                    break;
+                case ('3'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                    break;
+                case ('4'):
+                    return '<div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div>';
+                    break;
+                default:
+                    return '應該很難';
+                    break;
+            }
+        }
     },
 })

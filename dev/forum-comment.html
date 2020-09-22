@@ -124,8 +124,8 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                <span class="certificationIcon a"><input type="hidden" :class="'NAMEval'+index" :value="commentpost.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span class="certificationIcon b"><input type="hidden" :class="'GUIDEval'+index" :value="commentpost.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{commentpost.mem_id}}</div>
                             <div class="memberBadge">
@@ -158,8 +158,12 @@
                             <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
                             <hr>
                             <div class="innertext">
-                                <p>{{commentpost.comment_innertext}}
+                                <!-- <p>{{commentpost.comment_innertext}}
+                                </p> -->
+                                <p v-html="commentpost.comment_innertext">
                                 </p>
+                                <!-- <p id="tour_innertext">活動內容:<p v-html="currentTour.tour_innertext"></p> </p> -->
+                                
                             </div>
                         </div>
                     </div>
