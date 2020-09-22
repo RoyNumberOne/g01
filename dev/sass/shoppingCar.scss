@@ -420,9 +420,7 @@ main{
     }
 }
 
-nav.menu ul.link_list.llright li{
-    & a.cart svg path { color: #FFC400 !important ; }
-}
+a.cart div.carticon .cartbg { background-image: url("../images/icons/icon_car_h.svg") !important;}
 
 @media screen and (min-width: 1440px) {
     main{
