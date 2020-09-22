@@ -87,6 +87,22 @@ new Vue({
             this.CHECKnull(t);
         };
 
+        // 實名制及認證class變數
+        for(var k=0 ; k <= (this.comments.length-1) ; k++){
+            if( $(`.GN${k}`).val()){
+                $(`.GN${k}`).parent().css("display","block")
+            }   else    {
+                $(`.GN${k}`).parent().css("display","none")
+            }
+        }
+        for(var k=0 ; k <= (this.comments.length-1) ; k++){
+            if( $(`.MR${k}`).val()){
+                $(`.MR${k}`).parent().css("display","block")
+            }   else    {
+                $(`.MR${k}`).parent().css("display","none")
+            }
+        }
+
         //寫完揪團記得打開
         const nowMen = this.tourData.mem_no;
         let now = new Date();
@@ -305,6 +321,11 @@ new Vue({
                     this.tourParticipates = res.data;
                 })
             });
+            $('#apply_bt > p').text('已報名')
+            $('#apply_bt').attr('disabled', 'disabled')
+            $('#apply_bt').removeClass('btnB_XL_yellow')
+            $('#apply_bt').addClass('btnB_XL_grey')
+            $('#apply_bt').css('cursor', 'not-allowed')
         },
         //審核同意參加
         agreeJoinTour(e) {

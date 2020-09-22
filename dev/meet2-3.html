@@ -374,15 +374,17 @@
                     <button class="btnB_L_yellow" @click="SENDmsg" id="submitMessage" type="button"><p>送出</p><div class="bg"></div></button>
                 </div>
             </div>
-            <div class="message_board_block" v-for="comment in comments">
+            <div class="message_board_block" v-for="(comment, index) in comments">
                 <div class="member_styleA column">
                     <div class="memberImg">
                         <img :src="comment.mem_avator" alt="大頭照">
                     </div>
                     <div class="memberInfo">
                         <div class="certification">
-                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                            <!-- <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span> -->
+                            <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="comment.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="comment.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
                         <div class="memberId">{{comment.mem_id}}</div>
                         <div class="memberBadge">
