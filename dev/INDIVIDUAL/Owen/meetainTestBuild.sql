@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS member (											-- :::::會員:::::
     `mem_mail` 				varchar (50) 	not null,						-- 會員信箱
     `mem_build` 			datetime	 	not null default current_timestamp,		-- 加入日期
     `mem_point` 			int				not null default'0',			-- 會員點數 
-	-- `total_post`	 		Int				not null default'0',			-- 會員發文次數 
-    -- `total_host` 		Int				not null default'0',			-- 會員開團次數
-	-- `total_join` 		Int				not null default'0',			-- 會員參團次數 
+	`total_post`	 		Int				not null default'0',			-- 會員發文次數 
+    `total_host` 			Int				not null default'0',			-- 會員開團次數
+	`total_join` 			Int				not null default'0',			-- 會員參團次數 
 	`ban_forum` 			Boolean			not null default'0',			-- 會員討論區禁言 
 	`ban_forum_date` 		datetime		,								-- 會員討論區解除禁言日期
 	`ban_tour` 				Boolean			not null default'0',			-- 會員揪團區禁言
