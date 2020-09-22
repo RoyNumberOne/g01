@@ -130,21 +130,10 @@
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                            <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                            <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="hotmeet.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                            <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="hotmeet.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                         </div>
                                         <div class="memberId">{{hotmeet.mem_id}}</div>
-                                        <!-- <div class="memberBadge">
-                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge1}}
-                                                <img src="./images/member/Ach_list_03.png" alt="">
-                                            </span>
-                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge2}}
-                                                <img src="./images/member/Ach_list_03.png" alt="">
-                                            </span>
-                                            <span class="memberBadgeIcon">{{hotmeet.mem_badge3}}
-                                                <img src="./images/member/Ach_list_03.png" alt="">
-                                            </span>
-                                        </div> -->
                                         <div class="memberBadge">
                                             <span class="memberBadgeIcon">
                                                 <img :src="hotmeet.badge1" alt="">
@@ -266,21 +255,10 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="meet.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="meet.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{meet.mem_id}}</div>
-                            <!-- <div class="memberBadge">
-                                <span class="memberBadgeIcon">{{meet.mem_badge1}}
-                                    <img src="./images/member/Ach_list_03.png" alt="">
-                                </span>
-                                <span class="memberBadgeIcon">{{meet.mem_badge2}}
-                                    <img src="./images/member/Ach_list_03.png" alt="">
-                                </span>
-                                <span class="memberBadgeIcon">{{meet.mem_badge3}}
-                                    <img src="./images/member/Ach_list_03.png" alt="">
-                                </span>
-                            </div> -->
                             <div class="memberBadge">
                                 <span class="memberBadgeIcon">
                                     <img :src="meet.badge1" alt="">

@@ -106,16 +106,21 @@
                                   <div class="hot-users-block">
                                     <div class="pic"><img :src="poprank.mem_avator" alt=""></div>
                                     <div class="user_name"><p class="usname">{{poprank.mem_id}}</p></div>
+
+                                    <div class="certification"> <!--原先的結構未加入會員的認證資訊---->
+                                        <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                        <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                    </div>
                                     
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge1" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge2" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge3" alt="">
                                         </span>
                                     </div>
                                   </div>
@@ -213,19 +218,19 @@
                                             </div>
                                             <div class="memberInfo">
                                                 <div class="certification">
-                                                    <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                                    <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                                    <span v-if="CHECKname"  class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                                    <span v-if="CHECKguide"  class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                                                 </div>
                                                 <div class="memberId">{{artical.mem_id}}</div>
                                                 <div class="memberBadge">
                                                     <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                        <img :src="artical.mem_badge1" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                        <img :src="artical.mem_badge2" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img src="./images/member/Ach_list_03.png" alt="">
+                                                        <img :src="artical.mem_badge3" alt="">
                                                     </span>
                                                 </div>
                                             </div>
@@ -259,7 +264,7 @@
                     </div>
                 </div>
 
-                <div class="nextpage-btn">
+                <div class="nextpage-btn" style="display: none;">
                     <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
                     <button class="btnA_S pg -active"><p>01</p></button>
                     <button class="btnA_S pg"><p>02</p></button>
@@ -295,18 +300,19 @@
         
                             <div class="tour-place">
                                 <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
+                                    <div class="location_icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div class="location"><span>{{hotmeet.mountain_area | Area}}</div>
                                     <p>｜</p>
                                 </div>
         
                                 <div class="degree_category">
                                     <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
+                                    <!-- <div class="mountain_icon">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
-                                    </div>
+                                    </div> -->
+                                    <div class="mountain_icon" v-html="Degree(hotmeet.degree_category)"></div>
                                 </div>
                             </div>
         
