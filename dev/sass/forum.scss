@@ -44,7 +44,7 @@
     width: 100%;
         .forum_container-right{
             // border: 2px solid hotpink;
-            width: 100%;
+            width: 75%;
             .news_block{
                 margin: 0 auto;
                 padding: 25px;
@@ -118,6 +118,7 @@
                     .card-block{position: relative;
                       .card{
                         width: 360px;
+                        height: 500px;
                         max-width: 100%;
                         border: 1px solid rgb(218, 218, 218);
                         // position: relative;
@@ -503,6 +504,9 @@
                         }
                         .degree_category{
                             display: flex;
+                            .mountain_icon{
+                                display: flex;
+                            }
                         }
                     }
                     .tour-activitystart{
@@ -623,7 +627,7 @@
         // border: 1px solid rgb(243, 123, 11);
         max-width: 1152x;
         #forum_container{
-            width: 74%;
+            width: 100%;
             .forum_container-right{
                 .forum-block{
                     #forum_list{
@@ -648,6 +652,8 @@
         max-width: 960px;
         #forum_container{
             .forum_container-right{
+                max-width:100%;
+                width:100%;
                 .forum-block{
                     #forum_list{
                         padding: 20px;
@@ -670,6 +676,8 @@
         // border: 1px solid rgb(7, 175, 15);
         max-width: 720px;
         .forum_container-right{
+            max-width: 100%;
+            width: 100%;
             .forum-block{
                 .search-block{
                     .outline{
@@ -724,6 +732,8 @@
         // border: 1px solid rgb(57, 7, 175);
         max-width: 540px;
         .forum_container-right{
+            max-width: 100%;
+            width: 100%;
             .news_block{
                 padding: 0px;
                 .news_list{
@@ -801,6 +811,8 @@
         // border: 1px solid rgb(135, 14, 151);
         #forum_container{
             .forum_container-right{
+                max-width: 100%;
+                width: 100%;
                 .news_block{
                     padding: 0px;
                     .news_list{

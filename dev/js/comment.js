@@ -17,12 +17,16 @@ new Vue({
         forum_post_no = urlSearchParams.get('forum_post_no');
         console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
+
         
         //文章發布
         axios.post('./phpForConnect/commentPostReflection.php',formArticle).then(res => {
             this.reflection = res.data;
             console.log('success');
             console.log(this.reflection);
+            this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
+            
+
         }),
         //從comment篩選討論區的class
         axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
@@ -77,7 +81,7 @@ new Vue({
         let data = `forum_post_no=${forum_post_no}`;
         xhr.send(data);
 
-        
+        ///////回覆留言的判斷 ---> by建泓
         for(var k = 0 ; k <= ( this.commentpost.length - 1 ) ; k++ ){
             if($(`.NAMEval${k}`).val()){
                 $(`.NAMEval${k}`).parent().css("display","block");
@@ -93,7 +97,7 @@ new Vue({
             }
         }
             
-    },
+    }, //end
     methods :{
         clearTextarea(){
             this.poster_message = '';

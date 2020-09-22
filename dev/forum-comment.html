@@ -158,8 +158,12 @@
                             <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
                             <hr>
                             <div class="innertext">
-                                <p>{{commentpost.comment_innertext}}
+                                <!-- <p>{{commentpost.comment_innertext}}
+                                </p> -->
+                                <p v-html="commentpost.comment_innertext">
                                 </p>
+                                <!-- <p id="tour_innertext">活動內容:<p v-html="currentTour.tour_innertext"></p> </p> -->
+                                
                             </div>
                         </div>
                     </div>

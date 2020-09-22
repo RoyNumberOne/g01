@@ -114,13 +114,13 @@
                                     
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge1" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge2" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img src="./images/member/Ach_list_03.png" alt="">
+                                            <img :src="poprank.mem_badge3" alt="">
                                         </span>
                                     </div>
                                   </div>
@@ -300,18 +300,19 @@
         
                             <div class="tour-place">
                                 <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
+                                    <div class="location_icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div class="location"><span>{{hotmeet.mountain_area | Area}}</div>
                                     <p>｜</p>
                                 </div>
         
                                 <div class="degree_category">
                                     <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
+                                    <!-- <div class="mountain_icon">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
                                         <img src="./images/icons/icon_mountain.svg" alt="">
-                                    </div>
+                                    </div> -->
+                                    <div class="mountain_icon" v-html="Degree(hotmeet.degree_category)"></div>
                                 </div>
                             </div>
         
