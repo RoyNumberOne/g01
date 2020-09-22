@@ -112,7 +112,7 @@ $textColor1: $mt_fontdark;
             @include inputType;
         }
         option:disabled {
-            background: red;
+            color:#ccc;
           }
           
         
