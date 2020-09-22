@@ -907,13 +907,14 @@ nav.menu ul.link_list.llleft li{
         border-radius: 5px;
         width: 70px;
         height: 4px;
-        top: 37px;
+        top: 41px;
         background-color: $mt_yellow;
     }
     & a.forum p::after {
         display: block;
-        @media screen and (min-width: 1199px) { left: 213px; }
-        @media screen and (min-width: 992px) and (max-width: 1199px){left: 154px;}
+        @media screen and (min-width: 1440px) { left: 213px; }
+        @media screen and (min-width: 1200px) and (max-width: 1439px){left: 141px;}
+        @media screen and (min-width: 992px) and (max-width: 1199px){left: 120px;}
         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }

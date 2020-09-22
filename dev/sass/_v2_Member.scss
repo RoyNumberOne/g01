@@ -208,9 +208,7 @@ main{
     p{ color: $mt_yellow !important; }
 }
 
-nav.menu ul.link_list.llright li{
-    & a.member svg path { color: $mt_yellow !important ; }
-}
+a.member div.memicon .membg { background-image: url("../images/icons/icon_member_h.svg") !important;}
 
 //==============================RWD==============================//
 @media screen and (min-width: 1440px) {

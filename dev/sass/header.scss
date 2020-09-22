@@ -9,7 +9,7 @@
  
 header{
     background-color: $mt_blue2;
-    border-bottom: 5px solid $mt_blue1;
+    border-bottom: 5px solid $mt_blue1 !important;
     height: 70px;
     width: 100%;
     z-index: 99;
@@ -790,25 +790,25 @@ div#hamburgerBG{
 
 
 // 所在位置 //
-nav.menu ul.link_list.llleft li{
-    & a p::after {
-        display: none;
-        content: "";
-        position: absolute;
-        border-radius: 5px;
-        width: 70px;
-        height: 4px;
-        top: 41px;
-        background-color: $mt_yellow;
-    }
-    // & a.tour p::after {
-    //     display: block;
-    //     @media screen and (min-width: 1440px) {left: 47px;}
-    //     @media screen and (min-width: 1200px) and (max-width: 1439px){left: 22px; }
-    //     @media screen and (min-width: 992px) and (max-width: 1199px){left: 17px; }
-    //     @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
-    //     @media screen and (max-width: 575px) {top: 42px; width: 100px; }
-    // }
+// nav.menu ul.link_list.llleft li{
+//     & a p::after {
+//         display: none;
+//         content: "";
+//         position: absolute;
+//         border-radius: 5px;
+//         width: 70px;
+//         height: 4px;
+//         top: 41px;
+//         background-color: $mt_yellow;
+//     }
+//     & a.tour p::after {
+//         display: block;
+//         @media screen and (min-width: 1440px) {left: 47px;}
+//         @media screen and (min-width: 1200px) and (max-width: 1439px){left: 22px; }
+//         @media screen and (min-width: 992px) and (max-width: 1199px){left: 17px; }
+//         @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
+//         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
+//     }
     // & a.forum p::after {
     //     display: block;
     //     @media screen and (min-width: 1440px) { left: 213px; }
@@ -825,7 +825,7 @@ nav.menu ul.link_list.llleft li{
     //     @media screen and (min-width: 576px) and (max-width: 991px) {top: 75px; width: 165px; }
     //     @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     // }
-}
+// }
 
 // a.member div.memicon .membg { background-image: url("../images/icons/icon_member_h.svg") !important;}
 // a.cart div.carticon .cartbg { background-image: url("../images/icons/icon_car_h.svg") !important;}
