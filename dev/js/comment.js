@@ -12,19 +12,22 @@ new Vue({
     computed:{
     },
     created(){
+
+    },
+    mounted() {
         let formArticle = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
         forum_post_no = urlSearchParams.get('forum_post_no');
         console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
-
-        
         //文章發布
         axios.post('./phpForConnect/commentPostReflection.php',formArticle).then(res => {
             this.reflection = res.data;
             console.log('success');
             console.log(this.reflection);
-            this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
+            // this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
+            this.reflection[0].forum_post_innertext = this.reflection[0].forum_post_innertext.replace(/\n/g,"<br>");
+
             //這段在vue顯示錯誤的資訊
 
         }),
@@ -44,8 +47,6 @@ new Vue({
             console.log(this.dialog);
         })
 
-    },
-    mounted() {
     },
     updated() {
 

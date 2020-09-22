@@ -111,8 +111,15 @@
             $new_tour->execute();   //執行 SQL
     
 
-        header("location:../forum-comment.html?forum_post_no=".$forum_post_no);
+        // header("location:../forum-comment.html?forum_post_no=".$forum_post_no);
+        if($forum_post_category != '公告'){
+            header("location:../forum-comment.html?forum_post_no=".$forum_post_no); 
+        }else{
+            header("location:../forum-announcement.html?forum_post_no=".$forum_post_no); 
+    
+        }
     }
+
     }catch(PDOException $e){
             $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
             $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
