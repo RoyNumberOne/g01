@@ -25,7 +25,7 @@ new Vue({
             console.log('success');
             console.log(this.reflection);
             this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
-            
+            //這段在vue顯示錯誤的資訊
 
         }),
         //從comment篩選討論區的class
