@@ -17,7 +17,8 @@ try{
     LEFT OUTER JOIN achievement a3 ON m.mem_badge3 = a3.achievement_no
     LEFT OUTER JOIN member_guide mg ON (m.mem_no = mg.mem_no AND mg.mem_guide_situation = '已審核已通過')
     LEFT OUTER JOIN member_realname mr ON (m.mem_no = mr.mem_no and mr.mem_realname_situation = '已審核已通過')
-    WHERE cp.comment_class='揪團區' AND cp.tour_post_no = $tour_no AND cp.comment_situation = 1";
+    WHERE cp.comment_class='揪團區' AND cp.tour_post_no = $tour_no AND cp.comment_situation = 1
+    ORDER BY cp.comment_time";
 
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);

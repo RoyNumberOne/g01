@@ -391,8 +391,9 @@
                 <h2 class="title">徽章總覽</h2>
                 <div class="Achievement_list" id="AchievementHave">
                     <div class="Ach Nohave" v-for="(AchievementHaveList, index) in AchievementHaveList">
-                        <img v-bind:src="AchievementHaveList.achievement_image" alt="">
+                        <img v-bind:src="AchievementHaveList.achievement_image" alt="" :class="'badge'+(index+1)">
                         <p>【{{AchievementHaveList.achievement_category}}】{{AchievementHaveList.achievement_name}}</p>
+                        <span>條件：{{AchievementHaveList.achievement_category}} {{AchievementHaveList.achievement_require}}次</span><br>
                         <span>{{AchievementHaveList.achievement_date}}</span>
                     </div>
                 </div>
@@ -680,10 +681,6 @@
 <script src="./js/memCollectTour.js"></script>         <!-- 收藏：揪團 -->
 <script src="./js/memCollectProduct.js"></script>      <!-- 收藏：商品 -->
 <script src="./js/memForumPost.js"></script>           <!-- 發佈的文章 -->
-
-<!-- ======================PHP by owen-(start)======================= -->
-
-<script src="./js/GetBadge.js"></script>
 
 <!-- ======================script-(手機版切換)======================= -->
 <script>
