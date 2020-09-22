@@ -6,6 +6,8 @@ new Vue({
         poprank: [],
         meetList: [],
         meetIndex: [],
+        totalPage: 5,
+        currentPage: 1,
         input:{
             type:'全部',
             title: ' ',
@@ -75,21 +77,25 @@ new Vue({
                 this.meetIndex.push(i)
             }
         })
-        .catch(error => {console.log(error)}); 
+        .catch(error => {console.log(error)});
+        
+        this.getForumpostlist();
     },
     created(){
+        
         // 公告的貼文(預設3篇)
         axios.get('./phpForConnect/forumPostAnnounce.php').then(res => {
             this.announcement = res.data;
             console.log('success');
             console.log(this.announcement);
         }),
-        // 貼文(非公告)
-        axios.get('./phpForConnect/forumPostNormal.php').then(res => {
-            this.articalList = res.data;
-            console.log('success');
-            console.log(this.articalList);
-        }),
+        // // 貼文(非公告)
+        // axios.get('./phpForConnect/forumPostNormal.php').then(res => {
+        //     this.articalList = res.data;
+        //     console.log('success');
+        //     console.log(this.articalList);
+        // }),
+
         // 熱門排行榜
         axios.get('./phpForConnect/forumPostPoprank.php').then(res => {
             this.poprank = res.data;
@@ -119,6 +125,7 @@ new Vue({
     //     .catch(error => {console.log(error)});
     // },
     methods:{
+        
         //山的難度
         Degree(value) {
             switch (value) {
@@ -138,7 +145,29 @@ new Vue({
                     return '應該很難';
                     break;
             }
-        }
+        },
+         // 貼文(非公告)
+        getForumpostlist(){
+            axios.get(`./phpForConnect/forumPostNormal.php?pageNo=${this.currentPage}`)
+            // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
+            .then(res => {
+                // this.articalList = res.data;
+
+                this.articalList = res.data.forumListData;
+                this.totalPage = res.data.totalPage;
+                console.log(res.data); //測試是否成功
+                
+                console.log(this.articalList)
+                console.log(this.totalPage)
+                console.log('success');
+                
+            })
+            .catch(error => {console.log(error)}); 
+        },
+        changeForumpostlist(page){
+            this.currentPage = page;
+            this.getForumpostlist();
+        },
     },
     //響導認證及會員認證的icon
     updated() {
@@ -174,3 +203,41 @@ new Vue({
         }
     },
 })
+
+//<!-- 頁碼 -->
+function checkpg(){
+    if ($(".pgprev").next().hasClass("-active")) {
+        $(".pgprev").css("visibility","hidden");
+    }   else {
+        $(".pgprev").css("visibility","visible");
+    }
+    if ($(".pgnext").prev().hasClass("-active")) {
+        $(".pgnext").css("visibility","hidden");
+    }   else{
+        $(".pgnext").css("visibility","visible");
+    }
+}
+
+checkpg();
+
+$(".pg").click(function(){
+    $(this).parent().children().removeClass("-active");
+    $(this).addClass("-active");
+    checkpg();
+});
+
+$(".pgprev").click(function(){
+    if (!$(".pgprev").next().hasClass("-active")) {
+        $(".-active").prev().addClass("-active");
+        $(".-active").next(".-active").removeClass("-active");
+    }
+    checkpg();
+});
+
+$(".pgnext").click(function(){
+    if (!$(".pgnext").prev().hasClass("-active")) {
+        $(".-active").next().addClass("-active");
+        $(".-active").prev(".-active").removeClass("-active");
+    }
+    checkpg();
+});

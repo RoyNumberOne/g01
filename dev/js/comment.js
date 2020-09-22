@@ -4,6 +4,8 @@ new Vue({
         dialog:[],
         reflection:[],
         commentpost:[],
+        totalPage: 5,
+        currentPage: 1,
         poster_message: '',
     },
     methods:{
@@ -27,7 +29,6 @@ new Vue({
             console.log(this.reflection);
             // this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
             this.reflection[0].forum_post_innertext = this.reflection[0].forum_post_innertext.replace(/\n/g,"<br>");
-
             //這段在vue顯示錯誤的資訊
 
         }),
@@ -49,8 +50,6 @@ new Vue({
 
     },
     updated() {
-
-
         //文章檢舉 ---> 標籤名稱還要再更換
         // if(this.tour_report_img[0].tour_report_mem == null){
         //     // console.log('還沒檢舉')
@@ -212,43 +211,6 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
-        // forum_artical_report(){
-        //     let forum_post_no = this.reflection[0].forum_post_no;
-        //     let xhr2 = new XMLHttpRequest();
-
-        //     xhr2.onload = function() {
-        //         member = JSON.parse(xhr2.responseText);
-        //         if (member.mem_id) {
-        //             //已經登入了，可以開始做事了
-        //             var xhr = new XMLHttpRequest();
-        //             xhr.onload = function(e) {
-        //                 if (xhr.status == 200) { //連線成功
-        //                     console.log(xhr.responseText);
-        //                     alert(11111111111)
-        //                     // alert(xhr.responseText);
-        //                 } else {
-        //                     // alert(123);
-        //                 }
-        //             }
-        //             var url = "./phpForConnect/forum_artical_report.php";
-        //             xhr.open("REQUEST", url, true);
-        //             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-        //             let data = `forum_post_no=${forum_post_no}`;
-        //             xhr.send(data);
-
-        //             if ($("#report_btn").attr('src') === "./images/icons/icon_report.svg") {
-        //                 $("#report_btn").attr("src", "./images/icons/icon_report_c.svg");
-        //             } else {
-        //                 $("#report_btn").attr("src", "./images/icons/icon_report.svg");
-        //             }
-        //         } else {
-        //             //沒有登入，請先登入
-        //             alert("請先登入哦")
-        //         }
-        //     }
-        //     xhr2.open("get", "./login_v2_LoginInFo.php", true);
-        //     xhr2.send(null);
-        // },
         //文章檢舉彈窗
         forum_artical_report(e) {
                     if ($('#mem_info_id').html() === '') {
@@ -284,7 +246,29 @@ new Vue({
                         })
                     }
         },
-    }
+        //加入頁碼
+        // getMessagepost(){
+        //     axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
+        //     // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=${this.currentPage}`)
+        //     // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
+        //     .then(res => {
+        //         // this.articalList = res.data;
+
+        //         this.commentpost = res.data.commentMessageData;
+        //         this.totalPage = res.data.totalPage;
+        //         console.log(111111)
+        //         console.log(res.data); //測試是否成功
+        //         // console.log(this.commentpost)
+        //         // console.log(this.totalPage)
+        //         console.log('success');
+        //     })
+        //     .catch(error => {console.log(error)}); 
+        // },
+        // changeMessagepost(page){
+        //     this.currentPage = page;
+        //     this.getMessagepost();
+        // },
+    },
 });
 // .heart chage img src ----> 愛心收藏click(!important)
 $(document).ready(function(){
@@ -342,5 +326,42 @@ $(document).ready(function(){
             $('.report_block_message').addClass('close');
         })
     });
+});
 
+//<!-- 頁碼 -->
+function checkpg(){
+    if ($(".pgprev").next().hasClass("-active")) {
+        $(".pgprev").css("visibility","hidden");
+    }   else {
+        $(".pgprev").css("visibility","visible");
+    }
+    if ($(".pgnext").prev().hasClass("-active")) {
+        $(".pgnext").css("visibility","hidden");
+    }   else{
+        $(".pgnext").css("visibility","visible");
+    }
+}
+
+checkpg();
+
+$(".pg").click(function(){
+    $(this).parent().children().removeClass("-active");
+    $(this).addClass("-active");
+    checkpg();
+});
+
+$(".pgprev").click(function(){
+    if (!$(".pgprev").next().hasClass("-active")) {
+        $(".-active").prev().addClass("-active");
+        $(".-active").next(".-active").removeClass("-active");
+    }
+    checkpg();
+});
+
+$(".pgnext").click(function(){
+    if (!$(".pgnext").prev().hasClass("-active")) {
+        $(".-active").next().addClass("-active");
+        $(".-active").prev(".-active").removeClass("-active");
+    }
+    checkpg();
 });
