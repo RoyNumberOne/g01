@@ -3,7 +3,7 @@ new Vue({
     data: {
         issuanarea:[],
         messagearea:[],
-        commentpost:[],
+        ann_CommentPost:[],
         poster_message: '',
     },
     created(){
@@ -22,10 +22,10 @@ new Vue({
             console.log(this.issuanarea);
         }),
         //從comment篩選討論區的class
-        axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
-            this.commentpost = res.data;
+        axios.post('./phpForConnect/ann_CommentPost.php', formArticle).then(res => {
+            this.ann_CommentPost = res.data;
             console.log('success');
-            console.log(this.commentpost);
+            console.log(this.ann_CommentPost);
         }),
         // 留言回覆區
         axios.post('./phpForConnect/announcement_MessageArea.php',formArticle).then(res => {
@@ -88,8 +88,8 @@ new Vue({
                     "forum_post_no" : forum_post_no,
                     "comment_innertext" : this.poster_message,
                 }}).then(res =>{
-                    axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
-                        this.commentpost = res.data;
+                    axios.post('./phpForConnect/ann_CommentPost.php', formArticle).then(res => {
+                        this.ann_CommentPost = res.data;
                         console.log('success');
                         this.clearTextarea();
                         $('html, body').animate({ scrollTop: 100000 }, 500);

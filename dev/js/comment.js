@@ -4,12 +4,9 @@ new Vue({
         dialog:[],
         reflection:[],
         commentpost:[],
-        totalPage: 5,
+        totalPage: 1,
         currentPage: 1,
         poster_message: '',
-    },
-    methods:{
-        
     },
     computed:{
     },
@@ -27,17 +24,19 @@ new Vue({
             this.reflection = res.data;
             console.log('success');
             console.log(this.reflection);
-            // this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace(/\n/g,"<br>");
-            this.reflection[0].forum_post_innertext = this.reflection[0].forum_post_innertext.replace(/\n/g,"<br>");
+            this.reflection['forum_post_innertext']=this.reflection['forum_post_innertext'].replace('/\n/g' ,'<br>');
+            // this.reflection[0].forum_post_innertext = this.reflection[0].forum_post_innertext.replace('\n','<br/>');
             //這段在vue顯示錯誤的資訊
+        }),
 
-        }),
-        //從comment篩選討論區的class
-        axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
-            this.commentpost = res.data;
-            console.log('success');
-            console.log(this.commentpost);
-        }),
+        // // 從comment篩選討論區的class
+        // axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
+        //     this.commentpost = res.data;
+        //     console.log('success');
+        //     console.log(this.commentpost);
+        // }),
+        this.getMessagepost();
+
         // 留言回覆區
         axios.post('./phpForConnect/commentPostDialog.php',formArticle).then(res => {
             console.log(res.data.length);
@@ -245,29 +244,36 @@ new Vue({
                             }
                         })
                     }
-        },
-        //加入頁碼
-        // getMessagepost(){
-        //     axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
-        //     // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=${this.currentPage}`)
-        //     // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
-        //     .then(res => {
-        //         // this.articalList = res.data;
 
-        //         this.commentpost = res.data.commentMessageData;
-        //         this.totalPage = res.data.totalPage;
-        //         console.log(111111)
-        //         console.log(res.data); //測試是否成功
-        //         // console.log(this.commentpost)
-        //         // console.log(this.totalPage)
-        //         console.log('success');
-        //     })
-        //     .catch(error => {console.log(error)}); 
-        // },
-        // changeMessagepost(page){
-        //     this.currentPage = page;
-        //     this.getMessagepost();
-        // },
+        },
+        // 加入頁碼
+        getMessagepost(){
+            console.log(111111222222);
+            console.log(forum_post_no)
+
+            // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
+            axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
+
+
+            // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
+            .then(res => {
+                // this.articalList = res.data;
+
+                this.commentpost = res.data.commentMessageData;
+                this.totalPage = res.data.totalPage;
+
+                console.log(111111);
+                console.log(res.data); //測試是否成功
+                // console.log(this.commentpost)
+                // console.log(this.totalPage)
+                console.log('success');
+            })
+            .catch(error => {console.log(error)}); 
+        },
+        changeMessagepost(page){
+            this.currentPage = page;
+            this.getMessagepost();
+        },
     },
 });
 // .heart chage img src ----> 愛心收藏click(!important)

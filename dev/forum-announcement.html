@@ -117,17 +117,17 @@
 
 
             <div class="poster_message">
-                <div class="post-poster-block02" v-for="(commentpost, index) in commentpost">
+                <div class="post-poster-block02" v-for="(ann_CommentPost, index) in ann_CommentPost">
                     <div class="member_styleA column">
                         <div class="memberImg">
-                            <img :src="commentpost.mem_avator" alt="">
+                            <img :src="ann_CommentPost.mem_avator" alt="">
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
                                 <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
                                 <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
-                            <div class="memberId">{{commentpost.mem_id}}</div>
+                            <div class="memberId">{{ann_CommentPost.mem_id}}</div>
                             <div class="memberBadge">
                                 <span class="memberBadgeIcon">
                                     <img src="./images/member/Ach_list_03.png" alt="">
@@ -146,7 +146,7 @@
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
-                                <p>{{index+1}}F 發表於 {{commentpost.comment_time}}</p>
+                                <p>{{index+1}}F 發表於 {{ann_CommentPost.comment_time}}</p>
                                 <div class="report">
                                     <button type="button" type="button" class="mg_report_bt" @click=openReportModal>
                                         <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
@@ -155,10 +155,10 @@
                                     <!-- <p>檢舉</p> -->
                                 </div>
                             </div>
-                            <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
+                            <input class="TEMPno" type="hidden" :value="ann_CommentPost.comment_no">
                             <hr>
                             <div class="innertext">
-                                <p>{{commentpost.comment_innertext}}
+                                <p>{{ann_CommentPost.comment_innertext}}
                                 </p>
                             </div>
                         </div>

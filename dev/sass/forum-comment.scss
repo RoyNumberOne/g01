@@ -98,8 +98,10 @@
         .post-image{
             display: block;
             margin: 3% auto;
+            height: 500px;
             width: 800px;
             max-width: 100%;
+            overflow: hidden;
 
             img{
                 width: 100%;
@@ -636,22 +638,26 @@
         // max-width: 1366px;
     main#comment{
         max-width: 1366px;
+        width: 100%;
     }
 
 }
 @media screen and (min-width: 1200px) and (max-width: 1440px){
     main#comment{
         max-width: 1152px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px){
     main#comment{
         max-width: 960px;
+        width: 100%;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
     main#comment{
         max-width: 720px;
+        width: 100%;
     }
     .original-poster-block .name_time{
         flex-direction: column;
@@ -674,6 +680,7 @@
 @media screen and (min-width: 576px) and (max-width: 767px){
     main#comment{
         max-width: 540px;
+        width: 100%;
     }
     .original-poster-block .name_time{
         flex-direction: column;
@@ -692,6 +699,7 @@
 @media screen and (max-width: 575px){
     main#comment{
         max-width: 100%;
+        width: 100%;
         .post-poster-block01{
             .post-text{
                 .triangle1{
