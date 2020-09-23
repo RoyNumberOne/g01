@@ -8,10 +8,10 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
 
-    $sql= "SELECT m.mem_no, mr.mem_no, mr.mem_realname_situation, mg.mem_no, mg.mem_guide_situation
+    $sql= "SELECT m.mem_no, mr.mem_realname_situation, mg.mem_guide_situation
                 from member_realname mr
-                    join member m on(mr.mem_no = m.mem_no)
-                    join member_guide mg on(m.mem_no = mg.mem_no)
+                    right join member m on(mr.mem_no = m.mem_no)
+                    left join member_guide mg on(m.mem_no = mg.mem_no)
                 where m.mem_no = $mem_no;
                 ";
 
