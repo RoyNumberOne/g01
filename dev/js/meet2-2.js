@@ -78,18 +78,50 @@ new Vue({
             }
 
             if(valid == 0){ // 都填
-                    //移除 -on 樣式
-                $("section.tour_build_step1").removeClass("-on");
-                $("li.step_icon1").removeClass("-on");
+                // 判斷日期是否符合規定
+                var today=new Date(); //今天
 
-                    // 加上 -on 樣式
-                $("section.tour_build_step2").addClass("-on");
-                $("li.step_icon2").addClass("-on");
+                var strdate = new Date(document.querySelector('[name="tour_activitystart"]').value);//開團出發的日期
+
+                Date.prototype.addDays = function(days) {
+                    this.setDate(this.getDate() + days);
+                    return this;
+                }
+
+                var after7d = today.addDays(7); // 一週後
+                
+                // alert("您輸入的日期為 " + strdate);
+                
+                if (strdate <= after7d){
+                    alert('開團日期需為一週後~');
+                }else{
+                    //判斷回程日期是否大於出發日期
+
+                    var enddate = new Date(document.querySelector('[name="tour_activityend"]').value);//開團回程的日期
+                    
+
+                    if ( enddate < strdate){
+                        alert('出發日期不可比回程晚！！');
+                    }else{
+                           //移除 -on 樣式
+                        $("section.tour_build_step1").removeClass("-on");
+                        $("li.step_icon1").removeClass("-on");
+    
+                            // 加上 -on 樣式
+                        $("section.tour_build_step2").addClass("-on");
+                        $("li.step_icon2").addClass("-on");
+                    }
+                }
+
+                 
+
             }else{ //有未填的時候
                 document.querySelector('[name="tour_activityend"]').reportValidity();
                 document.querySelector('[name="tour_activitystart"]').reportValidity();
                 document.querySelector('[name="tour_title"]').reportValidity();
             };
+
+                
         },
 
         TWOtoONE: function(){
