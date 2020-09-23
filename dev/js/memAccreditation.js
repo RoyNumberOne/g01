@@ -51,7 +51,7 @@ new Vue({
                     return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>再次申請</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核已通過'):
-                return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的實名認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_blue"><p>您通過審核！</p><div class="bg"></div></button></a>';
+                return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的實名認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_blue"><p>申請已通過！</p><div class="bg"></div></button></a>';
                 break;
                 default:
                     return '不明錯誤';
@@ -67,7 +67,7 @@ new Vue({
                     return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_yellow"><p>再次申請</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核已通過'):
-                    return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的嚮導認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_yellow"><p>您通過審核！</p><div class="bg"></div></button></a>';
+                    return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的嚮導認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_yellow"><p>申請已通過！</p><div class="bg"></div></button></a>';
                 break;
                 default:
                     return '不明錯誤';
