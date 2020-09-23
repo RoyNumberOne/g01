@@ -159,12 +159,8 @@
                             <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
                             <hr>
                             <div class="innertext">
-                                <!-- <p>{{commentpost.comment_innertext}}
-                                </p> -->
                                 <p v-html="commentpost.comment_innertext">
-                                </p>
-                                <!-- <p id="tour_innertext">活動內容:<p v-html="currentTour.tour_innertext"></p> </p> -->
-                                
+                                </p>  
                             </div>
                         </div>
                     </div>
@@ -220,16 +216,6 @@
                 </div>
             </div> -->
 
-                <div class="nextpage-btn">
-                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                    <button class="btnA_S pg -active"><p>01</p></button>
-                    <button class="btnA_S pg"><p>02</p></button>
-                    <button class="btnA_S pg"><p>03</p></button>
-                    <button class="btnA_S pg"><p>04</p></button>
-                    <button class="btnA_S pg"><p>05</p></button>
-                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                </div>
-
                 <div class="text-arera-block">
                     <div class="area-tittle">
                         <h3>新增留言：</h3>
@@ -243,6 +229,15 @@
                     <button class="btnB_XL_yellow" id="submitMessage" @click="SENDmsg" type="button"><p>我要留言</p><div class="bg"></div></button>
                 </div>
             </div>
+
+            <!-- <div class="nextpage-btn" >
+                <div class="page">
+                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+
+                    <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMessagepost(i)"><p>{{i}}</p></button>
+                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                </div>
+            </div> -->
 
             <div class="product-block">
                 <div class="arrow-right"></div>
