@@ -1,9 +1,31 @@
 <?php
 // -- 討論區首頁貼文 -- 非公告 -- 最新
 try{
+
     header("connect-type: text/html; charset=utf-8");
     
     require_once('connectMeetain.php');
+
+        // pag ===========================
+        $sql = "select count(*) totalCount 
+                    from forum_post
+                    where not (forum_post_category = '公告');";
+        $stmt = $pdo->query($sql); 
+        $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+
+        $totalRecords = $row["totalCount"]; 
+        
+        // echo 'totalRecords'.$totalRecords;
+       
+
+        $recPerPage= 10;
+        $totalPages = ceil($totalRecords / $recPerPage);
+        // echo 'totalPages'.$totalPages;
+        
+
+        $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
+        $start = ($pageNo-1) * $recPerPage; 
+        // pag ===========================
 
     $sql= "SELECT  f.forum_post_no , f.forum_post_poster, m.mem_avator, m.mem_id ,r.mem_realname , g.guide_no ,m.mem_badge1 , a1.achievement_image 'badge1' , m.mem_badge2 , a2.achievement_image 'badge2' , m.mem_badge3 , a3.achievement_image 'badge3', f.forum_post_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT( distinct c.comment_innertext) 'NUMreply' , max(c.comment_time) 'replytime' , COUNT( distinct fk.forum_keep_mem) 'NUMkeep'
     FROM forum_post f
@@ -17,10 +39,13 @@ try{
             LEFT OUTER JOIN achievement a3 on m.mem_badge3 = a3.achievement_no
     WHERE f.forum_post_situation = 1 and forum_post_category not in ('公告')
     GROUP BY f.forum_post_no,f.forum_post_poster,c.forum_post_no,r.mem_realname , g.guide_no 
-    ORDER BY f.forum_post_time DESC , f.forum_post_no DESC";
+    ORDER BY f.forum_post_time DESC , f.forum_post_no DESC
+    limit $start,$recPerPage";
 
     $pdoStatement = $pdo->query($sql);
-    $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    $forumRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    $result = array('totalPage' => $totalPages,'forumListData'=>$forumRows);
     echo(json_encode($result));
     
 }catch(PDOException $e){
