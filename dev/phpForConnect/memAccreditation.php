@@ -4,19 +4,19 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-
+    
     session_start();
     $mem_no = $_SESSION['mem_no'];
-    
-    $sql= "SELECT pk.product_keep_mem, pk.product_iskept_no, P.product_no, P.product_image1, P.product_name, P.product_description, P.product_category
-                from product_keep pk
-                    join product P on(pk.product_iskept_no = P.product_no)
-                WHERE pk.product_keep_mem = $mem_no
-                order BY P.product_no DESC; -- 因為沒有建立日期所以用編號排序
+
+    $sql= "SELECT m.mem_no, mr.mem_no, mr.mem_realname_situation, mg.mem_no, mg.mem_guide_situation
+                from member_realname mr
+                    join member m on(mr.mem_no = m.mem_no)
+                    join member_guide mg on(m.mem_no = mg.mem_no)
+                where m.mem_no = $mem_no;
                 ";
 
     // $statement = $pdo -> prepare($sql);
-    // //$statement -> bindValue(":tour_keep_mem" , $mtN); //套用變數
+    // //$statement -> bindValue(":forum_keep_mem" , $mtN); //套用變數
     // $statement -> bindValue(":test" ,10008); //套用變數
     // $statement ->execute(); //執行mySQL指令
 

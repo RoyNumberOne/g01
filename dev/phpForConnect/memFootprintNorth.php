@@ -1,4 +1,5 @@
 <?php
+$errMsg = "";
 try{
     header("connect-type: text/html; charset=utf-8");
     
