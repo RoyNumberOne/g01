@@ -370,8 +370,6 @@
                     </div>
                     <div class="memberInfo">
                         <div class="certification">
-                            <!-- <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span> -->
                             <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="comment.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
                             <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="comment.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                         </div>
@@ -401,14 +399,17 @@
                 </div>
                 <input class="TEMPno" type="hidden" :value="comment.comment_no">
             </div>
-            <div class="change_page">
-                <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                <button class="btnA_S pg -active"><p>01</p></button>
-                <button class="btnA_S pg"><p>02</p></button>
-                <button class="btnA_S pg"><p>03</p></button>
-                <button class="btnA_S pg"><p>04</p></button>
-                <button class="btnA_S pg"><p>05</p></button>
-                <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+            <div class="nextpage-btn" >
+                <div class="page">
+                    <!-- <ul>
+                        <li  v-for="i in totalPage" :key="i" @click="changeForumpostlist(i)">{{i}}<li>
+                    </ul> -->
+                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgprev">&#10229</p></button>
+
+                    <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeCommentlist(i)"><p>{{i}}</p></button>
+
+                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgnext">&#10230</p></button>
+                </div>
             </div>
         </div>
         <h3 style="display: none;">相關文章</h3>
