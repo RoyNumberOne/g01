@@ -10,6 +10,17 @@ desc achievement;
 SELECT * FROM member;
 desc member;
 
+-- 使用中徽章
+SELECT  m.mem_no ,m.mem_badge1 , a1.achievement_image , a1.achievement_category ,a1.achievement_require , m.mem_badge2 , a2.achievement_image , a2.achievement_category ,a2.achievement_require , m.mem_badge3 , a3.achievement_image  , a3.achievement_category ,a3.achievement_require
+FROM member m
+        LEFT OUTER JOIN achievement a1 on m.mem_badge1 = a1.achievement_no
+        LEFT OUTER JOIN achievement a2 on m.mem_badge2 = a2.achievement_no
+        LEFT OUTER JOIN achievement a3 on m.mem_badge3 = a3.achievement_no
+WHERE m.mem_no = 10001 ;
+
+update member set mem_badge1 = 10 where mem_no = 10001;
+
+
 -- 討論區發文
 select * from forum_post;
 select forum_post_no , forum_post_title '發表文章' , forum_post_time '建立時間' , 8000 '點數' 

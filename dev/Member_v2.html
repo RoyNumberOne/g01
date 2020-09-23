@@ -386,8 +386,35 @@
                 </div>
             </div>
 
-            <!-- 徽章 hiko-->
+            <!-- 徽章 hiko Owen-->
             <div id="MemAchievement" class="pages">
+                <h2 class="title">目前設定</h2>
+                <div class="NowbadgeBox" id="NowbadgeBox">
+                    <div class="Ach using1 " v-if="NowBadge.name1">
+                        <img :src="NowBadge.badge1"  alt="" class="NowBadge1 badgespace">
+                        <p>【{{NowBadge.category1}}】{{NowBadge.name1}}</p>
+                    </div>                
+                    <div class="Ach using1" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge1 badgespace">
+                        <p></p>
+                    </div>                  
+                    <div class="Ach using2" v-if="NowBadge.name2">
+                        <img :src="NowBadge.badge2"  alt="" class="NowBadge2 badgespace">
+                        <p>【{{NowBadge.category2}}】{{NowBadge.name2}}</p>
+                    </div>                
+                    <div class="Ach using2" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge2 badgespace">
+                        <p></p>
+                    </div>                  
+                    <div class="Ach using3" v-if="NowBadge.name3">
+                        <img :src="NowBadge.badge3"  alt="" class="NowBadge3 badgespace">
+                        <p>【{{NowBadge.category3}}】{{NowBadge.name3}}</p>
+                    </div>               
+                    <div class="Ach using3" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge3 badgespace">
+                        <p></p>
+                    </div>                            
+                </div>
                 <h2 class="title">徽章總覽</h2>
                 <div class="Achievement_list" id="AchievementHave">
                     <div class="Ach Nohave" v-for="(AchievementHaveList, index) in AchievementHaveList">
