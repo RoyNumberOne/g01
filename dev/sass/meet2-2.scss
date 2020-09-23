@@ -150,7 +150,6 @@ $textColor1: $mt_fontdark;
                     width: 60%;
                     display: flex;
                     flex-direction: column;
-                    justify-content:center;
                     span.notic{
                         color:$mt_pink; 
                         margin-left: 10px;
@@ -159,8 +158,11 @@ $textColor1: $mt_fontdark;
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
-                        input{
+                        label{
                             width: 90%;
+                            input{
+                                width: 95%;
+                            }
                         }
                     }
                     .tour_number{
@@ -278,6 +280,10 @@ $textColor1: $mt_fontdark;
                         padding: 0;
                         opacity: 0;
                         z-index: 2;
+                        cursor: pointer;
+                        font-size: 0;
+                        position: relative;
+                        top: -14px;
                     }
     
                     .upload_tourimg{ //＋＋
@@ -350,6 +356,13 @@ $textColor1: $mt_fontdark;
                             // flex-wrap: wrap;
                             display: initial;
                         }
+                        .label_tour_mountain{
+                            display: flex;
+                            flex-wrap: wrap;
+                            .notic{
+                                margin-left: 0;
+                            }
+                        }
                     }
                     
                 }
@@ -385,6 +398,13 @@ $textColor1: $mt_fontdark;
                         .tour_date{
                             // flex-wrap: wrap;
                             display: initial;
+                        }
+                        .label_tour_mountain{
+                            display: flex;
+                            flex-wrap: wrap;
+                            .notic{
+                                margin-left: 0;
+                            }
                         }
                     }
                     
@@ -436,6 +456,13 @@ $textColor1: $mt_fontdark;
                     .tour_info1{
                         width: 70%;
                         margin: 30px auto;
+                        .label_tour_mountain{
+                            display: flex;
+                            flex-wrap: wrap;
+                            .notic{
+                                margin-left: 0;
+                            }
+                        }
                     }
                 }
             }
@@ -494,6 +521,13 @@ $textColor1: $mt_fontdark;
                     .tour_info1{
                         width: 100%;
                         margin: 30px auto;
+                        .label_tour_mountain{
+                            display: flex;
+                            flex-wrap: wrap;
+                            .notic{
+                                margin-left: 0;
+                            }
+                        }
                     }
                 }
             }

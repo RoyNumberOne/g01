@@ -356,38 +356,67 @@
             <!-- 認證 hiko-->
             <div id="MemAccreditation" class="pages">
                 <h2 class="title">我的認證</h2>
-                <div class="accreditation_list">
+                <div class="accreditation_list" id="Accreditation" v-for="(AccreditationList, index) in AccreditationList">
                     <div class="first Acc ID">
                         <img class="Acc-profile-img" src="./images/member/identity_certificate.jpg">
                         <div class="Acc-description-bk"></div>
                         <div class="Acc-logo">
-                            <img src="./images/member/NotApplied.jpg" alt="灰色=尚未申請">
+                            <span class="situation"><div class="situationImg" v-html="situation(AccreditationList.mem_realname_situation)"></div></span>
                         </div>
                         <div class="Acc-description">
                             <h2>實名認證</h2>
                         </div>
                         <div class="Acc-btn">
-                            <a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>點我申請</p><div class="bg"></div></button></a>
+                            <!-- <a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>點我申請</p><div class="bg"></div></button></a> -->
+                            <span class="memapplied_ID"><div class="memappliedbtn" v-html="memapplied_ID(AccreditationList.mem_realname_situation)"></div></span>
                         </div>
                     </div>
                     <div class="second Acc Mountain">
                         <img class="Acc-profile-img" src="./images/member/mountain_guide_certificate.png">
                         <div class="Acc-description-bk"></div>
                         <div class="Acc-logo">
-                            <img src="./images/member/pass.jpg">
+                            <span class="situation"><div class="situationImg" v-html="situation(AccreditationList.mem_guide_situation)"></div></span>
                         </div>
                         <div class="Acc-description">
                             <h2>嚮導認證</h2>
                         </div>
                         <div class="Acc-btn">
-                            <a href="./MemberGuide.html" target="_blank"><button class="btnB_XL_yellow"><p>點我申請</p><div class="bg"></div></button></a>
+                            <!-- <a href="./MemberGuide.html" target="_blank"><button class="btnB_XL_yellow"><p>點我申請</p><div class="bg"></div></button></a> -->
+                            <span class="memapplied_guide"><div class="memappliedbtn" v-html="memapplied_guide(AccreditationList.mem_guide_situation)"></div></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 徽章 hiko-->
+            <!-- 徽章 hiko Owen-->
             <div id="MemAchievement" class="pages">
+                <h2 class="title">目前設定</h2>
+                <div class="NowbadgeBox" id="NowbadgeBox">
+                    <div class="Ach using1 " v-if="NowBadge.name1">
+                        <img :src="NowBadge.badge1"  alt="" class="NowBadge1 badgespace">
+                        <p>【{{NowBadge.category1}}】{{NowBadge.name1}}</p>
+                    </div>                
+                    <div class="Ach using1" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge1 badgespace">
+                        <p></p>
+                    </div>                  
+                    <div class="Ach using2" v-if="NowBadge.name2">
+                        <img :src="NowBadge.badge2"  alt="" class="NowBadge2 badgespace">
+                        <p>【{{NowBadge.category2}}】{{NowBadge.name2}}</p>
+                    </div>                
+                    <div class="Ach using2" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge2 badgespace">
+                        <p></p>
+                    </div>                  
+                    <div class="Ach using3" v-if="NowBadge.name3">
+                        <img :src="NowBadge.badge3"  alt="" class="NowBadge3 badgespace">
+                        <p>【{{NowBadge.category3}}】{{NowBadge.name3}}</p>
+                    </div>               
+                    <div class="Ach using3" v-else>
+                        <img src="./images/badge_image/default.png" alt="" class="NowBadge3 badgespace">
+                        <p></p>
+                    </div>                            
+                </div>
                 <h2 class="title">徽章總覽</h2>
                 <div class="Achievement_list" id="AchievementHave">
                     <div class="Ach Nohave" v-for="(AchievementHaveList, index) in AchievementHaveList">
@@ -673,6 +702,7 @@
 <script src="./js/memFootprintSouth.js"></script>      <!-- (南部)已完成揪團列 -->
 <script src="./js/memFootprintEast.js"></script>       <!-- (東部)已完成揪團列 -->
 
+<script src="./js/memAccreditation.js"></script>       <!-- 認證的狀態 -->
 <script src="./js/memAchievementHave.js"></script>     <!-- 獲得的徽章 -->
 
 <script src="./js/memTravelBySelf.js"></script>        <!-- 發起的揪團 -->

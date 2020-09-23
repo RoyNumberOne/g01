@@ -5,45 +5,62 @@ new Vue({
         messagearea:[],
         ann_CommentPost:[],
         poster_message: '',
+        message_report_img: [],
     },
     created(){
+        //抓是否檢舉過某則留言，後面會用此判斷是否換該留言檢舉圖示
+        // formMessageReport = new FormData();
+        urlSearchParams = (new URL(document.location)).searchParams;
+        forum_post_no = urlSearchParams.get('forum_post_no');
+        // formMessageReport.append("forum_post_no", forum_post_no);
+        axios.get('./phpForConnect/forum_comment_report_img.php', {
+            params: {
+                "forum_post_no": forum_post_no,
+            }
+        }).then(res => {
+            this.message_report_img = res.data;
+            // console.log(this.message_report_img);
+        })
     },
     mounted() {
         let formArticle = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
         forum_post_no = urlSearchParams.get('forum_post_no');
-        console.log(forum_post_no)
+        // console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
         
         //文章發布
         axios.post('./phpForConnect/announcement_IssuanArea.php',formArticle).then(res => {
             this.issuanarea = res.data;
-            console.log('success');
-            console.log(this.issuanarea);
+            // console.log('success');
+            // console.log(this.issuanarea);
         }),
         //從comment篩選討論區的class
-        axios.post('./phpForConnect/ann_CommentPost.php', formArticle).then(res => {
-            this.ann_CommentPost = res.data;
-            console.log('success');
-            console.log(this.ann_CommentPost);
+        axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
+            this.commentpost = res.data;
+            // console.log('success');
+            // console.log(this.commentpost);
         }),
         // 留言回覆區
         axios.post('./phpForConnect/announcement_MessageArea.php',formArticle).then(res => {
-            console.log(res.data.length);
+            // console.log(res.data.length);
             for (var i = 0;i<res.data.length;i++){
                 this.messagearea.push(res.data[i]);
             };
-            console.log('success');
-            console.log(this.messagearea);
+            // console.log('success');
+            // console.log(this.messagearea);
         })
     },
     updated() {
+        for (var t = 0; t < this.message_report_img.length; t++) {
+            this.CHECKnull(t);
+        }
         //判斷收藏
         let forum_post_no = this.issuanarea[0].forum_post_no;
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {
             if (xhr.status == 200) { //連線成功
-                console.log(xhr.responseText)
+                // console.log(xhr.responseText)
                     // alert(xhr.responseText);
                 if (xhr.responseText != 0) {
                     $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
@@ -164,14 +181,24 @@ new Vue({
             console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
+        // CHECKnull(k) {
+        //     // console.log(this.message_report_img[k].comment_no);
+        //     var CMTNO = this.message_report_img[k].forum_post_no;
+        //     // console.log(CMTNO);
+        //     // console.log(this.message_report_img[k].comment_report_mem);
+        //     if (this.message_report_img[k].forum_report_mem !== null) {
+        //         $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
+        //         $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
+        //     };
+        // },
         CHECKnull(k) {
             // console.log(this.message_report_img[k].comment_no);
-            var CMTNO = this.message_report_img[k].forum_post_no;
+            var CMTNO = this.message_report_img[k].comment_no;
             // console.log(CMTNO);
             // console.log(this.message_report_img[k].comment_report_mem);
-            if (this.message_report_img[k].forum_report_mem !== null) {
-                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
-                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
+            if (this.message_report_img[k].comment_report_mem !== null) {
+                $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
+                $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
     }
