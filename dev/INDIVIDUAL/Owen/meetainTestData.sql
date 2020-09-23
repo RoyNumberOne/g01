@@ -11,7 +11,7 @@ SELECT * FROM member;
 desc member;
 
 -- 使用中徽章
-SELECT  m.mem_no ,m.mem_badge1 , a1.achievement_image , a1.achievement_category ,a1.achievement_require , m.mem_badge2 , a2.achievement_image , a2.achievement_category ,a2.achievement_require , m.mem_badge3 , a3.achievement_image  , a3.achievement_category ,a3.achievement_require
+SELECT  m.mem_no ,m.mem_badge1 , a1.achievement_image , a1.achievement_category ,a1.achievement_name , m.mem_badge2 , a2.achievement_image , a2.achievement_category ,a2.achievement_name , m.mem_badge3 , a3.achievement_image  , a3.achievement_category ,a3.achievement_name
 FROM member m
         LEFT OUTER JOIN achievement a1 on m.mem_badge1 = a1.achievement_no
         LEFT OUTER JOIN achievement a2 on m.mem_badge2 = a2.achievement_no
