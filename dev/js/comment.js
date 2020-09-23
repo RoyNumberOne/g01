@@ -7,6 +7,7 @@ new Vue({
         totalPage: 5,
         currentPage: 1,
         poster_message: '',
+        forum_report_img: [],
     },
     methods:{
         
@@ -14,7 +15,28 @@ new Vue({
     computed:{
     },
     created(){
+        formMessageReport = new FormData();
+        urlSearchParams = (new URL(document.location)).searchParams;
+        forum_post_no = urlSearchParams.get('forum_post_no');
+        formMessageReport.append("forum_post_no", forum_post_no);
 
+        //抓是否檢舉過某則留言，換該留言檢舉圖示
+        axios.get('./phpForConnect/forum_comment_report_img.php', {
+            params: {
+                "forum_post_no": forum_post_no,
+            }
+        }).then(res => {
+            this.message_report_img = res.data;
+            // console.log(this.message_report_img);
+        }),
+        //抓是否檢舉過該文章，換該團檢舉圖示
+        axios.get('./phpForConnect/forum_report_img.php', {
+            params: {
+                "forum_post_no": forum_post_no,
+            }
+        }).then(res => {
+            this.forum_report_img = res.data;
+        })
     },
     mounted() {
         let formArticle = new FormData();
@@ -50,6 +72,9 @@ new Vue({
 
     },
     updated() {
+        for (var t = 0; t < this.message_report_img.length; t++) {
+            this.CHECKnull(t);
+        }
         //文章檢舉 ---> 標籤名稱還要再更換
         // if(this.tour_report_img[0].tour_report_mem == null){
         //     // console.log('還沒檢舉')
@@ -96,7 +121,7 @@ new Vue({
                 $(`.GUIDEval${k}`).parent().css("display","none");
             }
         }
-            
+        this.checkForumReportNull(); 
     }, //end
     methods :{
         clearTextarea(){
@@ -201,15 +226,27 @@ new Vue({
             console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
+        //確認留言是否被檢舉過
         CHECKnull(k) {
             // console.log(this.message_report_img[k].comment_no);
-            var CMTNO = this.message_report_img[k].forum_post_no;
+            var CMTNO = this.message_report_img[k].comment_no;
             // console.log(CMTNO);
             // console.log(this.message_report_img[k].comment_report_mem);
-            if (this.message_report_img[k].forum_report_mem !== null) {
-                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
-                $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
+            if (this.message_report_img[k].comment_report_mem !== null) {
+                $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
+                $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
+        },
+        //確認文章是否被檢舉過
+        checkForumReportNull() {
+            // let tourReporter = this.tour_report_img.tour_no;
+            if(this.forum_report_img[0].forum_report_mem == null){
+                // console.log('沒檢舉過')
+            }else{
+                $('img.rpImg').attr('src', './images/icons/icon_report_c.svg')
+                $('.fr_report_bt').attr('disabled', 'disabled')
+                console.log('已檢舉過')
+            }
         },
         //文章檢舉彈窗
         forum_artical_report(e) {

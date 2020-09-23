@@ -5,7 +5,30 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-    $tour_no = $_REQUEST['tour_no'];
+
+    $tour_no = $_REQUEST['tour_post_no'];
+
+    // pag ===========================
+    $sql = "select count(*) totalCount 
+                from comment_post
+                where tour_post_no = $tour_no;";
+    $stmt = $pdo->query($sql); 
+    $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+
+    $totalRecords = $row["totalCount"]; 
+    
+    // echo 'totalRecords'.$totalRecords;
+    
+
+    $recPerPage= 10;
+    $totalPages = ceil($totalRecords / $recPerPage);
+    // echo 'totalPages'.$totalPages;
+    
+
+    $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
+    $start = ($pageNo-1) * $recPerPage; 
+    // pag ===========================
+
     // $sql = "SELECT c.*, m.* FROM comment_post c join member m on c.comment_poster = m.mem_no where c.comment_class = '揪團區' and tour_post_no = $tour_no";
     $sql = "SELECT cp.comment_no, cp.comment_poster, cp.comment_class, cp.tour_post_no, cp.comment_time, cp.comment_innertext, cp.comment_situation,
 	m.mem_no, m.mem_id, m.mem_avator, m.mem_bg, m.mem_badge1, a1.achievement_image 'badge1', m.mem_badge2, a2.achievement_image 'badge2', m.mem_badge3, a3.achievement_image 'badge3',
@@ -18,13 +41,16 @@ try{
     LEFT OUTER JOIN member_guide mg ON (m.mem_no = mg.mem_no AND mg.mem_guide_situation = '已審核已通過')
     LEFT OUTER JOIN member_realname mr ON (m.mem_no = mr.mem_no and mr.mem_realname_situation = '已審核已通過')
     WHERE cp.comment_class='揪團區' AND cp.tour_post_no = $tour_no AND cp.comment_situation = 1
-    ORDER BY cp.comment_time";
+    ORDER BY cp.comment_time
+    LIMIT $start, $recPerPage";
 
-    $pdoStatement = $pdo->prepare($sql);
+    // $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);
-    // $pdoStatement->bindValue(":tour_no", 100001);
-    // $pdoStatement->execute();
-    $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    $commentRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    // echo $commentRows;
+
+    $result = array('totalPage' => $totalPages, 'commentListData' => $commentRows);
     echo(json_encode($result));
     
 }catch(PDOException $e){
