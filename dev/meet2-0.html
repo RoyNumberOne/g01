@@ -130,8 +130,18 @@
                                     </div>
                                     <div class="memberInfo">
                                         <div class="certification">
-                                            <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="hotmeet.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                            <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="hotmeet.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                            <span class="certificationIcon a">
+                                                <input type="hidden" :class="'MR'+index" :value="hotmeet.mem_realname">
+                                                <img src="./images/icons/icon_realname.svg" alt="">
+                                                
+                                                <div class="icon_hover">已通過實名認證</div>
+                                            </span>
+                                            <span class="certificationIcon b">
+                                                <input type="hidden" :class="'GN'+index" :value="hotmeet.guide_no">
+                                                <img src="./images/icons/icon_guide.svg" alt="">
+
+                                                <div class="icon_hover">已通過專業嚮導認證</div>
+                                            </span>
                                         </div>
                                         <div class="memberId">{{hotmeet.mem_id}}</div>
                                         <div class="memberBadge">
