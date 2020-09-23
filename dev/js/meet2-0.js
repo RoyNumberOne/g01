@@ -198,7 +198,7 @@ new Vue({
 $(function() {
     $('.aside-com-btn').click(function (){
         if($('#mem_info_id').html() === ''){
-            alert ('請先登入');
+            swal("請先登入");
             window.location.href = './login_v2.html';
         }
     });

@@ -118,7 +118,22 @@ function attachSecretMessage(marker, secretMessage) {
         content: secretMessage
     });
     marker.addListener("click", () => {
-        infowindow.open(marker.get("map"), marker);
+        
+        // infowindow.open(marker.get("map"), marker);
+
+        // // infowindow.open(this.marker.get("map"), this.marker);
+
+        // setTimeout(function(){
+        //     infowindow.close(marker);
+        // },1000);
+
+        infowindow.close(markers);
+
+        setTimeout(function(){
+            infowindow.open(marker.get("map"), marker);
+        },300);
+
+
     });
 }
 

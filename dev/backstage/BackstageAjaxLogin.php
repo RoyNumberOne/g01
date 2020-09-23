@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("./connectMeetain.php");
-  $sql = "SELECT *  from administrator JOIN member on administrator.admin_acc = member.mem_acc where admin_acc=:admin_acc and admin_psw=:admin_psw"; 
+  $sql = "SELECT *  from administrator JOIN member on administrator.admin_acc = member.mem_acc where admin_acc=:admin_acc and admin_psw=:admin_psw and admin_authority = 1"; 
   $administrator = $pdo -> prepare($sql);
   $administrator->bindValue(":admin_acc",$_POST["admin_acc"]);
   $administrator->bindValue(":admin_psw",$_POST["admin_psw"]);

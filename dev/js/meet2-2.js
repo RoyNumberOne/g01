@@ -91,8 +91,7 @@ new Vue({
                 var after7d = today.addDays(7); // 一週後
                 
                 if (strdate <= after7d){
-                    // alert('開團日期需為一週後~');
-                    swal("開團日期需為一週後~！")
+                    swal("開團日期需為一週後~！");
                 }else{
                     //判斷回程日期是否大於出發日期
 
@@ -100,7 +99,7 @@ new Vue({
                     
 
                     if ( enddate < strdate){
-                        swal("出發日期不可以比回程晚呀！！")
+                        swal("出發日期不可以比回程晚呀！！");
 
                     }else{
                            //移除 -on 樣式
@@ -183,7 +182,7 @@ $("#upload_tourimg_input").change(function(){
     $(".tour_image div").html(""); // 清除預覽
     console.log ( this.files.length );
     if(this.files.length > 6) {
-        swal("太貪心拉～照片最多只能上傳六張！！")
+        swal("太貪心拉～照片最多只能上傳六張！！");
 
         
     }   else {
