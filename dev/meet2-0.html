@@ -7,9 +7,9 @@
     
     <!-- 套用字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-     <!-- 套用icon  -->
 	<link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
+    
     <link rel="stylesheet" href="./css/meet2-0.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
@@ -159,7 +159,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <span class="location">{{hotmeet.mountain_area | Area}}</span>
                                             |
-                                            <span class="degree"><div class="degreeImg" v-html="Degree(hotmeet.degree_category)"></div></span>
+                                            <span class="degree">難度<div class="degreeImg" v-html="Degree(hotmeet.degree_category)"></div></span>
                                         </div>
                                         <span class="date">{{hotmeet.tour_activitystart}}</span><span>出發</span>
                                         ｜
@@ -236,7 +236,8 @@
                             <span class="tag">＃{{meet.tour_min_number}}~{{meet.tour_max_number}}人</span>
                             <div class="locationDegree">
                                 <span class="location">{{meet.mountain_area | Area}}</span>
-                                <span class="degree"><div class="degreeImg" v-html="Degree(meet.degree_category)"></div></span>
+                                |
+                                 <span class="degree">難度<div class="degreeImg" v-html="Degree(meet.degree_category)"></div></span>
                             </div>
                             <span class="date">{{meet.tour_activitystart}}</span><span>出發</span>
                             ｜

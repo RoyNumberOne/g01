@@ -10,15 +10,13 @@
 
     <!-- 套用字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-     <!-- 套用icon  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
     <link rel="stylesheet" href="./css/meet2-2.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- 載入 jQuery -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <script src="./js/jquery-3.5.1.js"></script>
@@ -100,10 +98,10 @@
                 <section class="tour_info1_btn">
                     <div class="tour_info1">
                         <label>
-                            揪團名稱<span class="notic" >標題最多輸入20字</span><br>
+                            揪團名稱<span class="notic">標題最多輸入20字</span>
                             <input name="tour_title" type="text" required maxlength=20 >
-                        </label><br>
-
+                        </label>
+                        <br>
                         <div class="tour_date">
                             <label for="tour_activitystart">
                                 揪團開始日期<br>
@@ -114,7 +112,7 @@
                                 <input name="tour_activityend" type="date" name="" placeholder="YYYY/MM/DD" required>
                             </label>
                         </div>
-                        
+                        <br>
                         <div class="tour_number">
                             揪團人數<br>
                             <select name="tour_min_number">
@@ -180,10 +178,10 @@
                                 <option value="30">30</option>
                             </select>
                             人
-                        </div><br>
-                        
-                        <label for="">
-                            揪團山名<span class="notic" >須具有嚮導認證才能開難度三、四級的揪團</span><br>
+                        </div>
+                        <br>
+                        <label class="label_tour_mountain">
+                            揪團山名<span class="notic" >須具有嚮導認證才能開難度三、四級的揪團</span>
                             <select id="tour_mountain" name="tour_mountain" @change="findMT">
                                 <option value="1" selected>塔曼山</option>
                                 <option value="2" >七星山</option>
@@ -202,9 +200,8 @@
                                 <option value="15" disabled>南湖東峰</option>
                                 <option value="16" disabled>秀姑巒山</option>
                             </select>
-                        </label><br>
-
-
+                        </label>
+                        <br>
                         <div class="area_degree">
                             <div class="mountain_area">
                                 揪團地區<br>
@@ -215,7 +212,6 @@
                                 <p>1</p>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="btn_box">
                        <button class="btnA_LwRA" @click="ONEtoTWO" id="step1_to_step2" type="button"><p>下一步</p><div class="btnArrowL"></div></button>
@@ -230,7 +226,7 @@
                 <div class="tour_info2">
                     <div> <!-- 建議裝備+注意事項 -->
                         <div class="tour_equip">
-                            建議裝備<br>
+                            <p>建議裝備</p>
                             <div>
                                 <label for="tour_equip_1"><input type="checkbox" name="tour_equip_1" id="tour_equip_1"><p>機能服飾</p></label>
                                 <label for="tour_equip_2"><input type="checkbox" name="tour_equip_2" id="tour_equip_2"><p>登山背包</p></label>
@@ -240,7 +236,7 @@
                             </div>
                         </div>
                         <div class="notice">
-                            注意事項<br>
+                            <p>注意事項</p>
                             <textarea name="tour_notice" placeholder="行程中是否有需注意的呢？"></textarea>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ try{
     $row = $stmt->fetch(PDO::FETCH_ASSOC); 
     $totalRecords = $row["totalCount"]; 
     // echo $totalRecords;
-    $recPerPage= 8;
+    $recPerPage= 6;
     $totalPages = ceil($totalRecords / $recPerPage);
     $pageNo = isset($_GET["pageNo"]) ? $_GET["pageNo"] : 1;
     $start = ($pageNo-1) * $recPerPage; 
@@ -31,8 +31,10 @@ try{
                 GROUP BY t.tour_hoster,t.tour_no,r.mem_realname , g.guide_no , mt.mountain_no , c.tour_post_no
                 ORDER BY t.tour_build DESC , t.tour_no DESC
                 limit $start,$recPerPage"; //$recPerPage 每頁幾筆資料
+                
     $pdoStatement = $pdo->query($sql);
     $tourRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
     $result = array('totalPage' => $totalPages,'meetListData'=>$tourRows);
     echo(json_encode($result));
     
