@@ -11,6 +11,8 @@ new Vue({
         message_report_img: [],
         tour_report_img: [],
         checkTourParticipateSituation: '',
+        totalPage: '',
+        currentPage: 1,
     },
     created() {
 
@@ -19,6 +21,7 @@ new Vue({
         tour_no = urlSearchParams.get('tour_no');
         formMessageReport.append("tour_post_no", tour_no);
 
+        //抓是否檢舉過某則留言，換該留言檢舉圖示
         axios.get('./phpForConnect/meet2-3_message_report_img.php', {
             params: {
                 "tour_post_no": tour_no,
@@ -27,6 +30,7 @@ new Vue({
             this.message_report_img = res.data;
             // console.log(this.message_report_img);
         }),
+        //抓是否檢舉過該團，換該團檢舉圖示
         axios.get('./phpForConnect/meet2-3_tour_report_img.php', {
             params: {
                 "tour_post_no": tour_no,
@@ -36,11 +40,13 @@ new Vue({
             // console.log(this.tour_report_img);
             // console.log(1.1)
         }),
+        //抓該團目前開團狀況，後續判斷使用
         axios.get('./phpForConnect/meet2-3_tour_participate_Situation.php', {
             params: {
                 "tour_participate_tour": tour_no,
             }
-        }).then(res => {
+        })
+        .then(res => {
             this.checkTourParticipateSituation = res.data;
             // console.log(this.tour_report_img);
             // console.log(1.1)
@@ -49,44 +55,49 @@ new Vue({
     mounted() {
 
         let formTour = new FormData();
-
         let urlSearchParams = (new URL(document.location)).searchParams;
         tour_no = urlSearchParams.get('tour_no');
         formTour.append("tour_no", tour_no);
 
+        //抓本團資訊
         axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
             this.tourData = res.data[0];
             this.tourData['tour_innertext']=this.tourData['tour_innertext'].replace(/\n/g,"<br>")
             // console.log('success tourData');
             // console.log(this.tourData);
         }),
-        axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-            this.comments = res.data;
-            // console.log('success comments');
-            // console.log(this.comments);
-        }),
+        //抓留言
+        // axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
+        //     this.comments = res.data;
+        //     // console.log('success comments');
+        //     // console.log(this.comments);
+        // }),
+        //抓審核中的人
         axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
             this.tourParticipates = res.data;
             // console.log('success tourParticipats');
             // console.log(this.tourParticipates);
         }),
+        //抓審核通過的人
         axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
             this.passedParticipant = res.data;
             // console.log('success tour_participant_passed');
             // console.log(this.passedParticipant);
         }),
+        //抓審核不通過的人
         axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
             this.notPassedParticipant = res.data;
             // console.log('success tour_participant_notpassed');
             // console.log(this.notPassedParticipant);
         })
+        this.getCommentlist();
     },
     updated() {
+        //留言檢舉第幾則
         // console.log("LENGTH" + this.message_report_img.length)
         for (var t = 0; t < this.message_report_img.length; t++) {
             this.CHECKnull(t);
-        };
-
+        }
         // 實名制及認證class變數
         for(var k=0 ; k <= (this.comments.length-1) ; k++){
             if( $(`.GN${k}`).val()){
@@ -244,17 +255,16 @@ new Vue({
         CHECKguide() {
             return this.tourData.guide_no;
         },
-        // checkBadge1(){
-        //     return this.tourData.badge1;
-        // },
-        // checkBadge2(){
-        //     return this.tourData.badge2;
-        // },
-        // checkBadge3(){
-        //     return this.tourData.badge3;
-        // }
     },
     methods: {
+        //pgprev
+        pgprev(){
+            this.CurrentPage - 1 ;
+        },
+        //pgnext
+        pgnext(){
+            this.CurrentPage + 1 ;      
+        },
         //參加狀態
         tourParticipateSituation(){
             let situation = this.checkTourParticipateSituation;            
@@ -400,10 +410,12 @@ new Vue({
                                 axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
                                      .then(res => {
                                             this.tourParticipates = res.data;
+                                            // console.log('抓未審核的人');
                                         });
                                 axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour)
                                      .then(res => {
                                             this.notPassedParticipant = res.data;
+                                            //console.log('抓審核不通過的人');
                                         }) 
                             })
                         }
@@ -517,13 +529,20 @@ new Vue({
                             "comment_innertext": this.message,
                         }
                     }).then(res => {
-                        console.log('success message');
-                        axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-                            this.comments = res.data;
-                            this.clearTextarea();
-                            $('html, body').animate({ scrollTop: 100000 }, 500);
+                        // console.log('success message');
+                        axios.get('./phpForConnect/meet2-3_comment.php', {
+                            params: {
+                                "tour_post_no": tour_no,
+                                "pageNo": this.currentPage,
+                            }
                         })
-                    });
+                        .then(res => {
+                            this.comments = res.data.commentListData;
+                            this.totalPage = res.data.totalPage;
+                        })
+                        this.clearTextarea();
+                        $('html, body').animate({ scrollTop: 100000 }, 500);
+                    })
                 }
             }
         },
@@ -544,13 +563,13 @@ new Vue({
             };
         },
         //確認揪團是否被檢舉過
-        checkTourReportNull() {
-            // let tourReporter = this.tour_report_img.tour_no;
-            if(this.tour_report_img.tour_report_mem != null){
-                $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
-                $('.tr_report_bt').attr('disabled', 'disabled')
-            }
-        },
+        // checkTourReportNull() {
+        //     // let tourReporter = this.tour_report_img.tour_no;
+        //     if(this.tour_report_img.tour_report_mem != null){
+        //         $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
+        //         $('.tr_report_bt').attr('disabled', 'disabled')
+        //     }
+        // },
         //推薦裝備show or not
         equipmentDisplay() {
             if (this.tourData.tour_equip_1 == 0) {
@@ -605,6 +624,30 @@ new Vue({
             }
             xhr2.open("get", "./login_v2_LoginInFo.php", true);
             xhr2.send(null);
+        },
+        //抓留言的founction我在mounted呼叫
+        getCommentlist(){
+
+            // let formTour = new FormData();
+            let urlSearchParams = (new URL(document.location)).searchParams;
+            tour_no = urlSearchParams.get('tour_no');
+            // formTour.append("tour_no", tour_no);
+            axios.get('./phpForConnect/meet2-3_comment.php', {
+                params: {
+                    "tour_post_no": tour_no,
+                    "pageNo": this.currentPage,
+                }
+            })
+            .then(res => {
+                this.comments = res.data.commentListData;
+                this.totalPage = res.data.totalPage;
+            })
+            .catch(error => {console.log(error)}); 
+        },
+        //留言換頁
+        changeCommentlist(page){
+            this.currentPage = page;
+            this.getCommentlist();
         },
     },
 })

@@ -7,11 +7,11 @@ try{
     require_once('./connectMeetain.php');
     
     session_start();
-    $comment_report_mem = $_SESSION['mem_no']; //誰檢舉
+    $forum_report_mem = $_SESSION['mem_no']; //誰檢舉
     // $comment_report_comment = $_REQUEST['comment_report_comment'];  //檢舉哪篇留言
-    $tour_post_no = $_REQUEST['tour_post_no']; //哪一團
+    $forum_post_no = $_REQUEST['forum_post_no'];
     
-    $sql = "SELECT cp.comment_no , cr.comment_report_mem from comment_report cr right outer join comment_post cp on ( cr.comment_report_comment = cp.comment_no and cr.comment_report_mem = $comment_report_mem) where cp.tour_post_no = $tour_post_no;";
+    $sql = "SELECT f.forum_post_no , fr.forum_report_mem from forum_report fr right outer join forum_post f on ( fr.forum_report_post = f.forum_post_no and fr.forum_report_mem = $forum_report_mem) where f.forum_post_no = $forum_post_no;";
     
 
     $pdoStatement = $pdo->prepare($sql);
