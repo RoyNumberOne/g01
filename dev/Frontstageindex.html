@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&#581; 媒山友</title>
+    <title>媒山友</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
     <link rel="stylesheet" href="./css//jquery.fullpage.css">
     <link rel="stylesheet" href="./css/FrontstageIndex.css">
     <link rel="stylesheet" href="./css/headerIndex.css">
     <script src="./js/axios.min.js"></script>
-    <script src="./js/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+    <script src="./js/vue.min.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
@@ -122,6 +120,10 @@
 
         <div id="section1" class="section section1">
             <div id="sec1box">
+                <div id="logocloudbox">
+                    <img src="./images/index/pg1/logocloud.png" alt="" id="logocloud">
+                </div>
+                <div id="whitemask"></div>
                 <div id="zero">
                     <div class="SVGbox" id="SVGthoughts"><img src="./images/index/pg1/Thoughts.svg" alt=""></div>
                     <div class="SVGbox SVGqes" id="SVGqes1"><img class="init" src="./images/index/pg1/Qes1.svg" alt=""></div>
@@ -351,6 +353,7 @@
                     </div>
                     <div class="innerboxright">
                         <div class="smallbox" v-for="(fh,index) in ForumHot" :class="{'-active': index === 0 }" ref="smallbox">
+                            <p class="top">HOT{{index +1}}</p>
                             <div class="smallpic">
                                 <img :src="fh.forum_post_image" alt="">
                                 <div><p >{{fh.forum_post_category}}</p></div>
@@ -425,6 +428,7 @@
                     </div>
                     <div class="innerboxright">
                         <div class="smallbox" v-for="(fn,index) in ForumNew" :class="{'-active': index === 0 }" ref="smallbox">
+                            <p class="top">NEW{{index +1}}</p>
                             <div class="smallpic">
                                 <img :src="fn.forum_post_image" alt="">
                                 <div><p >{{fn.forum_post_category}}</p></div>
@@ -459,6 +463,7 @@
         <div id="section4" class="section section4">
             <div id="sec4box">
                 <div class="boxbig" v-for="(p,index) in Product.slice(0, 1)">
+                    <p class="top">BEST</p>
                     <div class="picbig">
                         <!-- <div class="top"> 
                             <div><h3> TOP {{index+1}} </h3></div>

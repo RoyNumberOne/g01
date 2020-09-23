@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜購物車</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel=“stylesheet” href="./css/fa5.14.0all.min.css">
-    <link rel=“stylesheet” href="./css/fa5.14.0v4.min.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/shoppingCar.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="./js/shoppingCar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
@@ -25,7 +25,7 @@
         <div id="headerbox">
             <a href="./Frontstageindex.html" class="logo">
                 <img class="logo" src="./images/logo/LOGO_white.png" alt="">
-            </a> 
+            </a>
 
             <nav class="menuhover">
                 <ul class="menuhover">
@@ -37,19 +37,49 @@
 
             <nav class="menu">
                 <ul class="link_list llleft">
-                    <li><a class="tour" href="./meet2-0.html"><p>揪團區</p></a></li>
-                    <li><a class="forum" href="./forum.html"><p>討論區</p></a></li>
-                    <li><a class="product" href="./product.html"><p>商品區</p></a></li>
+                    <li>
+                        <a class="tour" href="./meet2-0.html">
+                            <p>揪團區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="forum" href="./forum.html">
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="product" href="./product.html">
+                            <p>商品區</p>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="link_list llright">
                     <li>
-                        <a href="./Member_v2.html"><div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div></a>
+                        <a href="./Member_v2.html">
+                            <div id="mem_avatar_box"><img id="mem_avatar_img" src=""></div>
+                        </a>
                     </li>
-                    <li><a href="./Member_v2.html"><div id="mem_info_id"></div></a></li>
+                    <li>
+                        <a href="./Member_v2.html">
+                            <div id="mem_info_id"></div>
+                        </a>
+                    </li>
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
-                    <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
-                    <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
-                    
+                    <li>
+                        <a class="member" id="member_jumpTo">
+                            <div class="memicon">
+                                <div class="membg"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cart" href="./shoppingcart.html">
+                            <div class="carticon"><span class="add_count_others"></span>
+                                <div class="cartbg"></div>
+                            </div>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <div id="imagebox">
@@ -152,12 +182,15 @@
                                 <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
                                 <label for="card">線上刷卡</label><br>
                                 <div id="cardp">
-                                    <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" required placeholder="請輸入10位數卡號"><br>
+                                    <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" maxlength="10" required placeholder="請輸入10位數卡號"><br>
                                     <label for="">驗證號碼：</label><input type="password" min="0" max="999" pattern="[0-9]{3}" title="請輸入3位數安全碼" maxlength="3" placeholder="請輸入3位數安全碼" required><br>
                                     <label for="">有效日期：</label><input type="date" required><br>
                                     <input type="submit" value="送出驗證">
                                 </div>
                                 <div id="pointp">
+                                    <div>點數餘額：
+                                        <span id="momey">{{pointp}}</span>
+                                    </div>
                                 </div>
                             </div>
                             <div id="pay_infor">
@@ -193,8 +226,6 @@
                     </h3>
                     <div class="order">
                         <table class="order_item">
-                            <!-- <tr><td id="product_no" name="product_no">{{item.product.product_no}}</td></tr> -->
-                            <!-- <tr><td id="product_number" name="product_number" style="display: none;">{{item.count}}</td></tr> -->
                             <tr>
                                 <th>運送方式：</th>
                                 <td id="order_logistics_deliver" name="order_logistics_deliver">{{delivery_terms}}</td>
@@ -206,6 +237,10 @@
                             <tr>
                                 <th>付款方式：</th>
                                 <td id="order_cashflow" name="order_cashflow">{{pay_terms}}</td>
+                                <tr v-show="pay_terms=='點數付款'">
+                                    <th>點數餘額：</th>
+                                    <td>{{pointp}}</td>
+                                </tr>
                             </tr>
                             <tr>
                                 <th>總金額為：</th>
@@ -326,6 +361,13 @@
 
                 sale: '',
 
+                pointp: '',
+
+            },
+            created() {
+                axios.get('./shoppingcartPoints.php').then(res => {
+                    this.pointp = res.data;
+                })
             },
             methods: {
                 zero(item) {
@@ -384,9 +426,12 @@
                     };
                 },
                 handlesubmit() {
-                    alert("完成驗證");
+                    // alert("完成驗證");
+                    swal("恭喜你！", "已完成信用卡驗證", "success")
+
                 },
                 uploadCartList() {
+                    let pointp = this.pointp;
                     let order_logistics_deliver = $("#order_logistics_deliver").text(); //運送方式
                     let order_logistics_fee = $("#order_logistics_fee").text(); //運費
                     let order_cashflow = $("#order_cashflow").text(); //付款方式
@@ -402,43 +447,74 @@
                             'price': this.productList[key].product.product_price,
                         })
                     };
-                    // $.post("./shoppingcartorder.php", {
-                    //         arr: arr,
-                    //         order_logistics_deliver: order_logistics_deliver,
-                    //         order_logistics_fee: order_logistics_fee,
-                    //         order_cashflow: order_cashflow,
-                    //         order_total: order_total,
-                    //         order_logistics_recipient: order_logistics_recipient,
-                    //         order_logistics_phone: order_logistics_phone,
-                    //         order_logistics_address: order_logistics_address
-                    //     }).then((res) => {
-                    //         //要導去另外正確頁面
-                    //         window.location.reload(true);
-                    //         // console.log(res.data)
-                    //     })
-                    // alert("訂單已送出");
-                    // localStorage.removeItem("cartList");
-
-                    var xhr = new XMLHttpRequest();
-                    xhr.onload = function(e) {
-                        if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText)
-                            alert(xhr.responseText);
-                            if (xhr.responseText == "訂單已送出") {
-                                window.localStorage.removeItem("cartList")
-                                window.location.href = "./shoppingcart.html"
-                            }
+                    if (arr == '') {
+                        //alert('您還沒有將商品加入購物車唷');
+                        swal("Oops", "您還沒有將商品加入購物車唷", "warning");
+                    } else if ($("#order_logistics_recipient").text() == '') {
+                        // alert('請輸入姓名');
+                        swal("Oops", "你忘記輸入收件人啦", "warning");
+                    } else if ($("#order_logistics_phone").text() == '') {
+                        // alert('請輸入電話');
+                        swal("Oops", "你忘記輸入電話啦", "warning");
+                    } else if ($("#order_logistics_address").text() == '') {
+                        // alert('請輸入地址');
+                        swal("Oops", "你忘記輸入地址啦", "warning");
+                    } else if ($("#order_cashflow").text() == '點數付款') {
+                        if ($("#order_total").text() > this.pointp) {
+                            // alert('點數不足');
+                            swal("Oops", "您的點數不足唷", "warning");
+                        } else if (this.pointp == '請登入會員查看') {
+                            // alert('請先登入會員後購買')
+                            swal("Oops", "請先登入會員後購買", "warning");
                         } else {
-                            alert(xhr.status);
-                        }
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function(e) {
+                                if (xhr.status == 200) { //連線成功
+                                    console.log(xhr.responseText)
+                                        // alert(xhr.responseText);
+                                    swal(xhr.responseText);
+                                    if (xhr.responseText == "訂單已送出") {
+                                        window.localStorage.removeItem("cartList")
+                                        window.location.href = "./shoppingcart.html"
+                                    }
+                                } else {
+                                    // alert(xhr.status);
+                                    swal("Oops", xhr.status, "warning");
+                                }
 
+                            }
+                            arr = JSON.stringify(arr);
+                            var url = "./shoppingcartorder.php";
+                            xhr.open("post", url, true);
+                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                            let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
+                            xhr.send(data_info);
+                        }
+                    } else {
+                        var xhr = new XMLHttpRequest();
+                        xhr.onload = function(e) {
+                            if (xhr.status == 200) { //連線成功
+                                console.log(xhr.responseText)
+                                    // alert(xhr.responseText);
+                                swal(xhr.responseText);
+                                if (xhr.responseText == "訂單已送出") {
+                                    window.localStorage.removeItem("cartList")
+                                    window.location.href = "./shoppingcart.html"
+                                }
+                            } else {
+                                // alert(xhr.status);
+                                swal("Oops", xhr.status, "warning");
+                            }
+
+                        }
+                        arr = JSON.stringify(arr);
+                        var url = "./shoppingcartorder.php";
+                        xhr.open("post", url, true);
+                        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                        let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
+                        xhr.send(data_info);
                     }
-                    arr = JSON.stringify(arr);
-                    var url = "./shoppingcartorder.php";
-                    xhr.open("post", url, true);
-                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-                    let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
-                    xhr.send(data_info);
+
                 },
             },
             mounted() {
@@ -472,7 +548,6 @@
     </script>
     <script src="./js/vue.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/fa5.14.0all.js"></script>
     <script src="./js/login_v2.js"></script>
 </body>
 

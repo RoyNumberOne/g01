@@ -3,6 +3,12 @@ function $id(id){
 	return document.getElementById(id);
 }	
 
+$(function(){
+    setTimeout(() => {
+        $("#whitemask").css("display","none")
+    }, 1000);
+});
+
 $("#SVGqes1 .init").click(function(){
     $("#zero").css("top","100vh")
     setTimeout(function(){
@@ -201,11 +207,11 @@ $(document).scroll(function(){
 $(window).bind('mousewheel', function(e){
     if(e.originalEvent.wheelDelta /120 > 0) {
         checkbg();
-        console.log('scrolling up');
+        // console.log('scrolling up');
     }
     else{
         checkbg();
-        console.log('scrolling down');
+        // console.log('scrolling down');
     }
 });
 
@@ -232,10 +238,10 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-007?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E5%BE%A9%E8%88%88%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (N1N3) {
-                    console.log(N1N3)
+                    // console.log(N1N3)
                     N1N3data = N1N3 ;
                 }
             });
@@ -249,7 +255,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E5%8C%97%E6%8A%95%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (N2) {
                     // console.log(N2)
@@ -266,7 +272,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-011?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E5%B0%96%E7%9F%B3%E9%84%89,%E6%A9%AB%E5%B1%B1%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (N4W2) {
                     // console.log(N4W2)
@@ -283,7 +289,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-055?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E6%9D%B1%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (W1) {
                     // console.log(W1)
@@ -300,7 +306,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-027?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E5%8F%A4%E5%9D%91%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (W3) {
                     // console.log(W3)
@@ -317,7 +323,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-075?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E5%92%8C%E5%B9%B3%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (W4E3) {
                     // console.log(W4E3)
@@ -334,7 +340,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-059?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E6%9D%B1%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (S1) {
                     // console.log(S1)
@@ -351,10 +357,10 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-031?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E7%AB%B9%E5%B4%8E%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (S2) {
-                    console.log(S2)
+                    // console.log(S2)
                     S2data = S2 ;
                 }
             });
@@ -368,7 +374,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-035?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E6%B3%B0%E6%AD%A6%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (S3) {
                     // console.log(S3)
@@ -385,7 +391,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-023?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E4%BF%A1%E7%BE%A9%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (S4E4) {
                     // console.log(S4E4)
@@ -402,7 +408,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-071?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E7%91%9E%E8%8A%B3%E5%8D%80&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (E1) {
                     // console.log(E1)
@@ -419,7 +425,7 @@ $(document).on('keydown',function(e) {
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-039?Authorization=CWB-D1804819-48C7-4205-BD5F-052ACB018375&format=JSON&locationName=%E6%B5%B7%E7%AB%AF%E9%84%89&elementName=MinT,MaxT,Wind,Td,PoP12h,T,RH,Wx,WeatherDescription",
                 dataType: "json",
                 error: function (e) {
-                    console.log('oh no');
+                    // console.log('oh no');
                 },
                 success: function (E2) {
                     // console.log(E2)
@@ -471,7 +477,7 @@ $(document).on('keydown',function(e) {
 
     let AreaValue
     let aarray = document.getElementsByTagName("a");
-    console.log (aarray);
+    // console.log (aarray);
     $("div.area div.dropdown-menu #N").click(function(){
         AreaValue = aarray[11].getAttribute("value");
         $("#dropdownAreaButton").text('北部');
