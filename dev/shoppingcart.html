@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/shoppingCar.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="./js/shoppingCar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
@@ -424,7 +425,9 @@
                     };
                 },
                 handlesubmit() {
-                    alert("完成驗證");
+                    // alert("完成驗證");
+                    swal("恭喜你！", "已完成信用卡驗證", "success")
+
                 },
                 uploadCartList() {
                     let pointp = this.pointp;
@@ -444,32 +447,62 @@
                         })
                     };
                     if (arr == '') {
-                        alert('您還沒有將商品加入購物車唷');
+                        //alert('您還沒有將商品加入購物車唷');
+                        swal("Oops", "您還沒有將商品加入購物車唷", "warning");
+                    } else if ($("#order_logistics_recipient").text() == '') {
+                        // alert('請輸入姓名');
+                        swal("Oops", "你忘記輸入收件人啦", "warning");
+                    } else if ($("#order_logistics_phone").text() == '') {
+                        // alert('請輸入電話');
+                        swal("Oops", "你忘記輸入電話啦", "warning");
+                    } else if ($("#order_logistics_address").text() == '') {
+                        // alert('請輸入地址');
+                        swal("Oops", "你忘記輸入地址啦", "warning");
                     } else if ($("#order_cashflow").text() == '點數付款') {
                         if ($("#order_total").text() > this.pointp) {
-                            alert('點數不足');
+                            // alert('點數不足');
+                            swal("Oops", "您的點數不足唷", "warning");
                         } else if (this.pointp == '請登入會員查看') {
-                            alert('請先登入會員後購買')
-                        }
+                            // alert('請先登入會員後購買')
+                            swal("Oops", "請先登入會員後購買", "warning");
+                        } else {
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function(e) {
+                                if (xhr.status == 200) { //連線成功
+                                    console.log(xhr.responseText)
+                                        // alert(xhr.responseText);
+                                    swal(xhr.responseText);
+                                    if (xhr.responseText == "訂單已送出") {
+                                        window.localStorage.removeItem("cartList")
+                                        window.location.href = "./shoppingcart.html"
+                                    }
+                                } else {
+                                    // alert(xhr.status);
+                                    swal("Oops", xhr.status, "warning");
+                                }
 
-                    } else if ($("#order_logistics_recipient").text() == '') {
-                        alert('請輸入姓名');
-                    } else if ($("#order_logistics_phone").text() == '') {
-                        alert('請輸入電話');
-                    } else if ($("#order_logistics_address").text() == '') {
-                        alert('請輸入地址');
+                            }
+                            arr = JSON.stringify(arr);
+                            var url = "./shoppingcartorder.php";
+                            xhr.open("post", url, true);
+                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                            let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
+                            xhr.send(data_info);
+                        }
                     } else {
                         var xhr = new XMLHttpRequest();
                         xhr.onload = function(e) {
                             if (xhr.status == 200) { //連線成功
                                 console.log(xhr.responseText)
-                                alert(xhr.responseText);
+                                    // alert(xhr.responseText);
+                                swal(xhr.responseText);
                                 if (xhr.responseText == "訂單已送出") {
                                     window.localStorage.removeItem("cartList")
                                     window.location.href = "./shoppingcart.html"
                                 }
                             } else {
-                                alert(xhr.status);
+                                // alert(xhr.status);
+                                swal("Oops", xhr.status, "warning");
                             }
 
                         }
