@@ -5,8 +5,7 @@ try{
     require_once("./connectMeetain.php");
 
 
-    $sql = "update member set   ban_tour=1 ,
-                                ban_tour_date=date_add(current_timestamp, interval :tour_report_banLong minute ) 
+    $sql = "update member set   ban_tour_date=date_add(current_timestamp, interval :tour_report_banLong minute ) 
                                 where mem_no=:mem_no;";
 
     $products=$pdo->prepare($sql);
@@ -27,6 +26,11 @@ try{
         $products->bindValue(":tour_report_banLong",(($_REQUEST["REVIEWtrBanLong"]/1440).' days'));
     }
     $products->bindValue(":tour_report_no",$_REQUEST["tour_report_no"]);
+    $products->execute();
+
+    $sql = "UPDATE tour set tour_situation = 0 where tour_no=:REVIEWtrNo;";
+    $products=$pdo->prepare($sql);
+    $products->bindValue(":REVIEWtrNo",$_REQUEST["REVIEWtrNo"]);
     $products->execute();
 
   

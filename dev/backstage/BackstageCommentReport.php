@@ -66,21 +66,22 @@
                             ?> 
                                  <tr>
                                     <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                    <td><?=$prodRow["留言編號"]?></td>
+                                    <td><input type="text" name="REVIEWcrNo<?=$prodRow["檢舉編號"]?>" disabled readonly value="<?=$prodRow["留言編號"]?>"></td>
                                     <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["留言內文"]?></td>
                                     <td><input type="text" name="REVIEWcrMember<?=$prodRow["檢舉編號"]?>" disabled readonly value="<?=$prodRow["被檢舉人"]?>"></td>
                                     <td><?=$prodRow["檢舉時間"]?></td>
                                     <td><input type="text" name="REVIEWcrClass<?=$prodRow["檢舉編號"]?>" disabled readonly value="<?=$prodRow["檢舉板塊"]?>"></td>
                                     <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["檢舉緣由"]?></td>
-                                    <td style="text-align: left;padding-left: 10px;width:150px;">   <label><input type="radio" value="已處理未通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
-                                            <label><input type="radio" value="已處理已通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
-                                            <select name="BANLONGcr<?=$prodRow["檢舉編號"]?>">
-                                                <option value="5">5分鐘</option>
-                                                <option value="4320" selected="selected">3天</option>
-                                                <option value="10080">7天</option>
-                                                <option value="20160">14天</option>
-                                                <option value="40320">28天</option>
-                                            </select>
+                                    <td style="text-align: left;padding-left: 10px;width:150px;">
+                                        <label><input type="radio" value="已處理未通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
+                                        <label><input type="radio" value="已處理已通過" name="REVIEWcr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
+                                        <select name="BANLONGcr<?=$prodRow["檢舉編號"]?>">
+                                            <option value="5">5分鐘</option>
+                                            <option value="4320" selected="selected">3天</option>
+                                            <option value="10080">7天</option>
+                                            <option value="20160">14天</option>
+                                            <option value="40320">28天</option>
+                                        </select>
                                     </td>
                                     <td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" disabled class="sendcommentreport"></label></td>
                                 </tr>
@@ -116,7 +117,7 @@ $(Document).ready(function(){
 </script>
 <script>
 // 有選結果才能打開送出button
-$('input[name^="REVIEWcr"]').change(function(){
+$('input[type="radio"]').change(function(){
     $(this).parent().parent().next().children().children().removeAttr("disabled");
 });
 </script>
@@ -131,12 +132,14 @@ $(Document).ready(function(){
         let REVIEWcrIfPass = $("input[name='REVIEWcr"+temp+"']:checked").val();
         let REVIEWcrBanLong = $("select[name='BANLONGcr"+temp+"']").val();
         let REVIEWcrMember = $("input[name='REVIEWcrMember"+temp+"']").val();
+        let REVIEWcrNo = $("input[name='REVIEWcrNo"+temp+"']").val();
         
-        console.log(temp);
-        console.log(REVIEWcrClass)
-        console.log(REVIEWcrIfPass);
-        console.log(REVIEWcrBanLong);
-        console.log(REVIEWcrMember);
+        // console.log(temp);
+        // console.log(REVIEWcrClass)
+        // console.log(REVIEWcrIfPass);
+        // console.log(REVIEWcrBanLong);
+        // console.log(REVIEWcrMember);
+        // console.log(REVIEWcrNo);
 
         // if (REVIEWcrBanLong)
 
@@ -163,6 +166,7 @@ $(Document).ready(function(){
                         REVIEWcrIfPass: REVIEWcrIfPass ,
                         REVIEWcrBanLong: REVIEWcrBanLong,
                         REVIEWcrMember: REVIEWcrMember,
+                        REVIEWcrNo: REVIEWcrNo,
                     },
                 type: 'POST',   
                 success(){

@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜揪團｜揪團資訊</title>
     <!-- <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
     <link rel="stylesheet" href="./css/meet2-3.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
@@ -48,8 +45,10 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
                     <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
-                    
                 </ul>
+                <input type="hidden" id="BanForumDate">
+                <input type="hidden" id="BanTourDate">
+                <input type="hidden" id="BanCommentDate">
             </nav>
             <div id="imagebox">
                 <img id="picTour" src="./images/header/tour.png" alt="">
