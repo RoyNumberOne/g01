@@ -54,7 +54,6 @@ new Vue({
     },
     mounted() {
 
-
         let formTour = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
         tour_no = urlSearchParams.get('tour_no');
@@ -505,7 +504,7 @@ new Vue({
                 })
             }
         },
-        //送出留言
+        //send message
         SENDmsg() {
             if ($('#mem_info_id').html() === '') {
                 alert('請先登入');
@@ -542,7 +541,7 @@ new Vue({
                             this.totalPage = res.data.totalPage;
                         })
                         this.clearTextarea();
-                        $('html, body').animate({ scrollTop: 3500 }, 500);
+                        $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
                 }
             }
@@ -563,13 +562,16 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".sent_message").find(".message_text").find(".mg_report_bt").attr("disabled", "disabled")
             };
         },
+        //確認揪團是否被檢舉過
+        // checkTourReportNull() {
+        //     // let tourReporter = this.tour_report_img.tour_no;
+        //     if(this.tour_report_img.tour_report_mem != null){
+        //         $('img.tourReportImg').attr('src', './images/icons/icon_report_c.svg')
+        //         $('.tr_report_bt').attr('disabled', 'disabled')
+        //     }
+        // },
         //推薦裝備show or not
         equipmentDisplay() {
-            //整格判斷
-            if(this.tourData.tour_equip_1 == 0 && this.tourData.tour_equip_2 == 0 && this.tourData.tour_equip_3 == 0 && this.tourData.tour_equip_4 == 0 && this.tourData.tour_equip_5 == 0){
-                $('.equip_recommend').css('display', 'none')
-            }
-            //個別判斷
             if (this.tourData.tour_equip_1 == 0) {
                 $('.eq1').css('display', 'none')
             }
