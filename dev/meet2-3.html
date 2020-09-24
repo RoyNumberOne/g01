@@ -405,11 +405,11 @@
                     <!-- <ul>
                         <li  v-for="i in totalPage" :key="i" @click="changeForumpostlist(i)">{{i}}<li>
                     </ul> -->
-                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgprev">&#10229</p></button>
+                    <!-- <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgprev">&#10229</p></button> -->
 
                     <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeCommentlist(i)"><p>{{i}}</p></button>
 
-                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgnext">&#10230</p></button>
+                    <!-- <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgnext">&#10230</p></button> -->
                 </div>
             </div>
         </div>
