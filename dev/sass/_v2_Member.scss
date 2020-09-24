@@ -74,27 +74,18 @@ main{
             .memProfile_DET{
                 position: absolute;
                 left: 330px;
-                .memProfile_DET_name{
-                    display: flex;
-                    align-items: center;
-                    h2{
-                        margin-right: 5px;
-                    }
-                    svg{
-                        font-size: 25px;
-                        path{
-                            color: #FFC400;
+                top: 12px;
+                .member_styleA{
+                    .memberInfo{
+                        .certification{
+                            .certificationIcon{
+                                width: 25px;
+                                height: 25px;
+                            }
                         }
-                     }
-                }
-                .memProfile_DET_fol{
-                    display: flex;
-                    p{
-                        display:none;
-                        margin-right: 5px;
-                    }
-                    img{
-                        width: 50px;
+                        .memberId{
+                            font-size: 30px;
+                        }
                     }
                 }
             }
