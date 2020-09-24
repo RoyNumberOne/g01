@@ -58,7 +58,7 @@
                         ?>
                             <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                <td><input type="text" disabled name="REVIEWfrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["討論編號"]?>"></td>
+                                <td><a href="../forum-comment.html?forum_post_no=<?=$prodRow["討論編號"]?>"><input type="text"  style="cursor:pointer;" disabled name="REVIEWfrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["討論編號"]?>"></a></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["討論標題"]?></td>
                                 <td><input type="text" disabled name="REVIEWfrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>

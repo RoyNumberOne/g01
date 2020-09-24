@@ -59,7 +59,7 @@
                             ?>
                                 <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                <td><?=$prodRow["討論編號"]?></td>
+                                <td><a href="../forum-comment.html?forum_post_no=<?=$prodRow["討論編號"]?>"><?=$prodRow["討論編號"]?></a></td>
                                 <td><?=$prodRow["討論標題"]?></td>
                                 <td><?=$prodRow["被檢舉人"]?></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>

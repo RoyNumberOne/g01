@@ -30,7 +30,7 @@
         <div>
             <div class="Administrator">
                 <a href="BackstageAdministrator.php"><h4>管理員</h4></a>
-                <button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增管理員</p><div class="bg2"></div></button>
+                <button type="button" class="btnB_L_yellow_2" id="loadButton"><p>新增</p><div class="bg2"></div></button>
             </div>
             <div id="ccc2">
 				

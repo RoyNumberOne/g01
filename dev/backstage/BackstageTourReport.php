@@ -56,7 +56,7 @@
                             ?>
                                 <tr>
                                 <td class='pink' style="width:90px;"><?=$prodRow["檢舉編號"]?></td>
-                                <td><input type="text" disabled name="REVIEWtrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["揪團編號"]?>"></td>
+                                <td><a href="../meet2-3.html?tour_no=<?=$prodRow["揪團編號"]?>"><input style="cursor:pointer;" type="text" disabled name="REVIEWtrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["揪團編號"]?>"></a></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["揪團標題"]?></td>
                                 <td><input type="text" disabled name="REVIEWtrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["檢舉緣由"]?></td>
