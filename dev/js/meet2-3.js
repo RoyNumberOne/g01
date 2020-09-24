@@ -545,7 +545,7 @@ new Vue({
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
             }   else if (BANtime>NOWtime) {
-                 (`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
+                swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
                 console.log(temp)
