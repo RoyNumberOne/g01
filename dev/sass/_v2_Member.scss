@@ -6,14 +6,8 @@ main{
     margin: 0 auto;
     .top{
         .banner{
-            // border: 1px solid red;
             width: 100%;
-            height: 350px;
-            // background-image: url(../images/member/fake/mountain14.jpg);
-            // background-origin: border-box;
-            // background-position: center;
-            // background-size: cover;
-            // background-repeat: no-repeat;
+            height: 310px;
             display: flex;
             align-items: flex-end;
             img{
@@ -46,27 +40,24 @@ main{
                     width: 50px;
                     height: 50px;
                     border-radius: 50%;
-                    cursor: pointer;
                     justify-self: center;
                     align-self: flex-end;
                     position: absolute;
                     right: 10px;
                     bottom: 0px;
-                    label.camera_i{
-                        position: relative;
-                        &:before{
-                            position: absolute;
-                            top: 38%;
-                            left: 22%;
-                            font-family: "Font Awesome 5 Free"; 
-                            font-weight: 900; 
-                            content: "\f030";
-                            font-size: 30px;
-                        }
-                        input{
-                            width: 100%;
-                            opacity: 0;
-                        }
+                    img{
+                        position: absolute;
+                        top: 11px;
+                        left: 11px;
+                        width: 30px;
+                    }
+                    input{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        font-size: 0px;
+                        cursor: pointer;
                     }
                 }
                     
@@ -85,6 +76,9 @@ main{
                         }
                         .memberId{
                             font-size: 30px;
+                        }
+                        .memberBadge{
+                            margin-top:10px;
                         }
                     }
                 }
@@ -107,7 +101,6 @@ main{
                    .profile_icon{
                         width: 20px;
                         margin: 0 auto;
-                        background-color: #ffffff;
                         img{
                             width: 100%;
                         }
@@ -152,11 +145,8 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                svg{
-                    font-size: 30px;
-                    path{
-                        color: #ffffff;
-                    }
+                &:hover{
+                    background-color: #FFC400;
                 }
                 p{
                     color: #ffffff;
@@ -195,8 +185,10 @@ main{
 }
 
 .highlight{
-    path { color: $mt_yellow !important; }
-    p{ color: $mt_yellow !important; }
+    background-color: $mt_yellow !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 a.member div.memicon .membg { background-image: url("../images/icons/icon_member_h.svg") !important;}
@@ -328,7 +320,7 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
                 height: auto;
             }
             .memProfile{
-                margin-bottom: 90px;
+                margin-bottom: 110px;
                 .memProfile_AVA{
                     position: absolute;
                     bottom: -1px;
@@ -340,11 +332,14 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
                 }
                 .memProfile_DET{
                     position: absolute;
-                    left: 34%;
+                    left: 30%;
                     top: 85px;
-                    .memProfile_DET_fol{
-                        img{
-                            width: 30px;
+                    margin-top:5px;
+                    .member_styleA{
+                        .memberInfo{
+                            display:flex;
+                            flex-direction: column;
+                            align-items: center;
                         }
                     }
                 }
@@ -398,7 +393,7 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
                 height: auto;
             }
             .memProfile{
-                margin-bottom: 90px;
+                margin-bottom: 110px;
                 .memProfile_AVA{
                     position: absolute;
                     bottom: -1px;
@@ -410,11 +405,14 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
                 }
                 .memProfile_DET{
                     position: absolute;
-                    left: 27%;
+                    left: 23%;
                     top: 85px;
-                    .memProfile_DET_fol{
-                        img{
-                            width: 30px;
+                    margin-top:5px;
+                    .member_styleA{
+                        .memberInfo{
+                            display:flex;
+                            flex-direction: column;
+                            align-items: center;
                         }
                     }
                 }

@@ -1,19 +1,3 @@
-// =======================001個資頭像修改======================
-function readURL(input){
-  if(input.files && input.files[0]){
-      var reader = new FileReader();
-
-      reader.onload = function(e){
-          $('#img_ava').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-  }
-};
-
-$("#imgInp").change(function(){
-readURL(this);
-});
-// =======================個資頭像修改======================
 //========================002桌機板按鈕========================
 
 function tabId(evt, className) {
@@ -28,6 +12,7 @@ function tabId(evt, className) {
   }
   document.getElementById(className).style.display = "block";
   evt.currentTarget.classList.add("highlight");
+  
 }
 
 var mybtn = document.getElementsByClassName("now")[0];
@@ -99,18 +84,50 @@ function getMemberFo(){
           $id("memProfile_img").src = member.mem_avator; //會員頁大頭照
           $id("mem_bg").src = member.mem_bg; //會員頁背景
           $id("memberId").innerText = member.mem_id; //會員頁名稱
-          $id("badge_1").src = member.mem_badge1;
-            if($("#badge_1").attr('src','undefined')){
-              $('#badge_1').css('display','none');
-            };
-          $id("badge_2").src = member.mem_badge2;
-            if($("#badge_2").attr('src','undefined')){
-              $('#badge_2').css('display','none');
-            };
-          $id("badge_3").src = member.mem_badge3;
-            if($("#badge_3").attr('src','undefined')){
-              $('#badge_3').css('display','none');
-            };
+
+          
+          $id("badge_1").src = $(".NowBadge1.badgespace").attr('src');
+          $id("badge_2").src = $(".NowBadge2.badgespace").attr('src');
+          $id("badge_3").src = $(".NowBadge3.badgespace").attr('src');
+          
+          $("body").click(function(){
+            $id("badge_1").src = $(".NowBadge1.badgespace").attr('src');
+            $id("badge_2").src = $(".NowBadge2.badgespace").attr('src');
+            $id("badge_3").src = $(".NowBadge3.badgespace").attr('src');
+          })
+
+          // $(".NowBadge2.badgespace").load(function(){
+          //   BADGEchange();
+          // })
+          // $(".NowBadge3.badgespace").load(function(){
+          //   BADGEchange();
+          // })
+            // if($("#badge_1").attr('src','undefined')){
+            //   $('#badge_1').css('display','none');
+            // };
+          // $id("badge_2").src = member.mem_badge2;
+            // if($("#badge_2").attr('src','undefined')){
+            //   $('#badge_2').css('display','none');
+            // };
+          // $id("badge_3").src = member.mem_badge3;
+            // if($("#badge_3").attr('src','undefined')){
+            //   $('#badge_3').css('display','none');
+            // };
+
+          if(member.guide_no){
+            $(".a img").css("opacity","1")
+          } else  {
+            $(".a img").css("opacity","0.5")
+          }
+          if(member.mem_idno){
+            $(".b img").css("opacity","1")
+          } else  {
+            $(".b img").css("opacity","0.5")
+          }
+          
+          // if(member.mem_guide_situation == '未審核'){
+          //   $id("certificationIcon_b").css('display','none');
+          // }
       }   
   }
 

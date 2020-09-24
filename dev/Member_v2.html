@@ -76,38 +76,39 @@
                 <div class="memProfile_AVA">
                     <div class="memProfile_AVA_img"><img id="memProfile_img" src=""></div>
                     <div class="memProfile_AVA_change">
-                        <label class="camera_i">
-                            <input type="file" id="mem_ava_edit" name="mem_ava_edit" accept="image/*" />
-                        </label>
+                        <img src="./images/icons/icon_photo.svg" alt="">
+                        <input type="file" id="mem_ava_edit" name="mem_ava_edit" accept="image/*" />
                     </div>
                 </div>
                 <div class="memProfile_DET">
                     <div class="member_styleA row">
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                <span class="certificationIcon a" id="certificationIcon a"><img src="./images/icons/icon_realname.svg" alt=""><div class="icon_hover">已通過實名認證</div></span>
+                                <span class="certificationIcon b" id="certificationIcon_b"><img src="./images/icons/icon_guide.svg" alt=""><div class="icon_hover">已通過專業嚮導認證</div></span>
                             </div>
                             <div class="memberId" id="memberId"></div>
                             <div class="memberBadge">
-                                <span class="memberBadgeIcon" id="badge_1">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                <span class="memberBadgeIcon">
+                                    <img src="" alt="" id="badge_1">
                                 </span>
-                                <span class="memberBadgeIcon" id="badge_2">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                <span class="memberBadgeIcon">
+                                    <img src="" alt="" id="badge_2">
                                 </span>
-                                <span class="memberBadgeIcon" id="badge_3">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                <span class="memberBadgeIcon">
+                                    <img src="" alt="" id="badge_3">
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="memProfile_MOD">
-                    <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
-                        <div class="profile_icon"><img src="./images/icons/icon_modify.svg"></div>
-                        <div class="modify">個人修改資料</div>
-                    </button>
+                    <a href="#MemDetail">
+                        <button type="button" href="javascript:void(0)" class="profile tabbutton" onclick="tabId(event, 'MemDetail')">
+                            <div class="profile_icon"><img src="./images/icons/icon_modify.svg"></div>
+                            <div class="modify">個人修改資料</div>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -136,19 +137,19 @@
                 </div>
                 <div class="nav_button">
                     <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemTravel')">
-                        <img src="./images/icons/icon_member_btn4.svg" alt="">
+                        <img src="./images/icons/icon_member_btn4.svg" alt="" style="width:33px;">
                         <p>揪團</p>
                     </button>
                 </div>
                 <div class="nav_button">
                     <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemCollect')">
-                        <img src="./images/icons/icon_member_btn5.svg" alt="">
+                        <img src="./images/icons/icon_member_btn5.svg" alt="" style="width:22px;">
                         <p>收藏</p>
                     </button>
                 </div>
                 <div class="nav_button">
                     <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemPost')">
-                        <img src="./images/icons/icon_member_btn6.svg" alt="">
+                        <img src="./images/icons/icon_member_btn6.svg" alt="" style="width:19px;">
                         <p>文章</p>
                     </button>
                 </div>
@@ -166,7 +167,7 @@
                 </div>
                 <div class="nav_button btn_modify">
                     <button type="button" href="javascript:void(0)" class="tabbutton" onclick="tabId(event, 'MemDetail')">
-                        <img src="./images/icons/" alt="">
+                        <img src="./images/icons/icon_modify_white.svg" alt="" style="width:27px;">
                         <p>修改</p>
                     </button>
                 </div>
@@ -395,34 +396,44 @@
 
             <!-- 徽章 hiko Owen-->
             <div id="MemAchievement" class="pages">
-                <h2 class="title">目前設定</h2>
+                <h2 class="title">徽章總覽</h2>
                 <div class="NowbadgeBox" id="NowbadgeBox">
                     <div class="Ach using1 " v-if="NowBadge.name1">
                         <img :src="NowBadge.badge1"  alt="" class="NowBadge1 badgespace">
                         <p>【{{NowBadge.category1}}】{{NowBadge.name1}}</p>
+                        <div><span>徽章裝備格</span></div>
                     </div>                
                     <div class="Ach using1" v-else>
                         <img src="./images/badge_image/default.png" alt="" class="NowBadge1 badgespace">
                         <p></p>
+                        <div><span>徽章裝備格</span></div>
                     </div>                  
                     <div class="Ach using2" v-if="NowBadge.name2">
                         <img :src="NowBadge.badge2"  alt="" class="NowBadge2 badgespace">
                         <p>【{{NowBadge.category2}}】{{NowBadge.name2}}</p>
+                        <div><span>徽章裝備格</span></div>
                     </div>                
                     <div class="Ach using2" v-else>
                         <img src="./images/badge_image/default.png" alt="" class="NowBadge2 badgespace">
                         <p></p>
+                        <div><span>徽章裝備格</span></div>
                     </div>                  
                     <div class="Ach using3" v-if="NowBadge.name3">
                         <img :src="NowBadge.badge3"  alt="" class="NowBadge3 badgespace">
                         <p>【{{NowBadge.category3}}】{{NowBadge.name3}}</p>
+                        <div><span>徽章裝備格</span></div>
                     </div>               
                     <div class="Ach using3" v-else>
                         <img src="./images/badge_image/default.png" alt="" class="NowBadge3 badgespace">
                         <p></p>
+                        <div><span>徽章裝備格</span></div>
                     </div>                            
                 </div>
-                <h2 class="title">徽章總覽</h2>
+                <div class="Achievement_hr">
+                    <div><hr></div>
+                    <p>徽章列表</p>
+                    <div><hr></div>
+                </div>
                 <div class="Achievement_list" id="AchievementHave">
                     <div class="Ach Nohave" v-for="(AchievementHaveList, index) in AchievementHaveList">
                         <img v-bind:src="AchievementHaveList.achievement_image" alt="" :class="'badge'+(index+1)">

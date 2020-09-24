@@ -19,12 +19,12 @@ try{
         <form method="post">
             <div class="mem_frame">
                 <div class="mem_change">
-                    <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_id"]?></p>
-                    <input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="輸入新的暱稱">
+                    <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"></p>
+                    <input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="輸入新的暱稱" value="<?=$memRow["mem_id"]?>">
                 </div>
                 <div class="mem_change">
-                    <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"><?=$memRow["mem_mail"]?></p>
-                    <input type="mail" name="mem_mail" id="mem_mail" placeholder="輸入新的信箱">
+                    <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"></p>
+                    <input type="mail" name="mem_mail" id="mem_mail" placeholder="輸入新的信箱" value="<?=$memRow["mem_mail"]?>">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">密碼</p><span class="tip_length" style="color: red;">密碼長度錯誤</span><br>

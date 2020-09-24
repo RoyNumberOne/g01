@@ -68,7 +68,7 @@ new Vue({
                 badgespace = $(e.target).attr('class');
                 badgespace = badgespace.substr(8,1);
                 if (nowbadge1name === null && nowbadge2name === null && nowbadge3name === null && alerted == 0 ){
-                    alert('點擊下方已解鎖的徽章進行更換！')  
+                    swal("系統通知", "請點擊下方已解鎖的徽章進行更換！", "info"); 
                     alerted = alerted + 1 ;
                 }
             })
