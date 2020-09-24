@@ -316,8 +316,18 @@ new Vue({
                     break;
             }
         },
+        openTourApplyModal(){
+
+            if ($('#mem_info_id').html() === '') {
+                let url = window.location.href;
+                localStorage.setItem('web', url);
+                window.location.href = './login_v2.html';
+            }else{
+                $("#meet2-3-1").removeClass("close")
+            }
+        },
         //申請參加揪團
-        applyTour() {
+        applyTour() {            
             let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
@@ -444,6 +454,8 @@ new Vue({
         //揪團檢舉彈窗
         openTourReportModal(e) {
             if ($('#mem_info_id').html() === '') {
+                let url = window.location.href;
+                localStorage.setItem('web', url);
                 alert('請先登入');
                 window.location.href = './login_v2.html';
             } else {
@@ -724,11 +736,11 @@ $(document).ready(function() {
     });
 
     //apply lightbox
-    $(function() {
-        $("#apply_bt").click(function() {
-            $("#meet2-3-1").removeClass("close");
-        })
-    });
+    // $(function() {
+    //     $("#apply_bt").click(function() {
+    //         $("#meet2-3-1").removeClass("close");
+    //     })
+    // });
 
     $(function() {
         // 點擊不同意按鈕
