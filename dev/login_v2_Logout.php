@@ -10,4 +10,9 @@
     unset($_SESSION['mem_point']);
     unset($_SESSION['mem_avator']);
     unset($_SESSION['mem_bg']);
+    unset($_SESSION['class']);
+    unset($_SESSION['mem_badge1']);
+    unset($_SESSION['mem_badge2']);
+    unset($_SESSION['mem_badge3']);
+    unset($_SESSION["guide_no"]);
 ?>
