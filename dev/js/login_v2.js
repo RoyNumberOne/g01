@@ -45,7 +45,9 @@ function getLoginInFo(){
             $('#mem_avatar_box').css('visibility','visible');
             $('#mem_info_id').css('visibility','visible');
             $('#Logout_btn').css('visibility','visible');
-
+            $('#BanForumDate').val(member.ban_forum_date);
+            $('#BanTourDate').val(member.ban_tour_date);
+            $('#BanCommentDate').val(member.ban_comment_date);
         }   
     }
 

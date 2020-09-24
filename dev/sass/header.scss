@@ -111,10 +111,12 @@ header{
                         & .membg {
                             width: 100%;
                             height: 100%;
-                            background-image: url("../images/icons/icon_member.svg");
                             background-position: center; 
                             background-repeat: no-repeat;
                             background-size: contain; 
+                            &:hover{
+                                background-image: url("../images/icons/icon_member_y.svg");
+                            }
                         }
                     }
                     &  a.cart div.carticon {
@@ -124,10 +126,12 @@ header{
                         & .cartbg {
                             width: 100%;
                             height: 100%;
-                            background-image: url("../images/icons/icon_car.svg");
                             background-position: center; 
                             background-repeat: no-repeat;
                             background-size: contain; 
+                            &:hover{
+                                background-image: url("../images/icons/icon_car_y.svg");
+                            }
                         }
                     }
                 }
@@ -272,9 +276,18 @@ div#hamburgerBG{
             }
             & ul.link_list.llright{
                 margin-left: 300px;
-                // & li{
-                //     margin: 0 0px;
-                // }
+                & li {
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car.svg");
+                        }
+                    }
+                }
             }
         }
         div#imagebox{
@@ -319,6 +332,16 @@ div#hamburgerBG{
                 margin-left: 190px;
                 & li{
                     margin: 0 18px;
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car.svg");
+                        }
+                    }
                 }
             }
         }
@@ -367,6 +390,16 @@ div#hamburgerBG{
                 margin-left: 20px;
                 & li{
                     margin: 0 18px;
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car.svg");
+                        }
+                    }
                 }
             }
         }
@@ -461,6 +494,16 @@ div#hamburgerBG{
                     display: block !important;
                 }
                 & li{
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member_b.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car_b.svg");
+                        }
+                    }
                     margin: 10px auto !important;
                     // float: right;
                     & > * {
@@ -586,6 +629,16 @@ div#hamburgerBG{
                     display: block !important;
                 }
                 & li{
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member_b.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car_b.svg");
+                        }
+                    }
                     margin: 10px auto !important;
                     // float: right;
                     & > * {
@@ -715,6 +768,16 @@ div#hamburgerBG{
                 //     display: block !important;
                 // }
                 & li{
+                    &  a.member div.memicon {
+                        & .membg {
+                            background-image: url("../images/icons/icon_member_b.svg");
+                        }
+                    }
+                    &  a.cart div.carticon {
+                        & .cartbg {
+                            background-image: url("../images/icons/icon_car_b.svg");
+                        }
+                    }
                     margin: 10px auto !important;
                     // float: right;
                     & > * {

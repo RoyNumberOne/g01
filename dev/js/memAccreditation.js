@@ -29,48 +29,48 @@ new Vue({
         situation(value) {
             switch(value){
                 case('未審核'):
-                    return '<div class="iconBox"><img src="./images/member/NotApplied.jpg" title="尚未申請" class="iconSituation"></div>';
+                    return '<div class="iconBox"><img src="./images/member/info_applying.jpg" title="申請審核中" class="iconSituation"></div>';
                 break;
                 case('已審核未通過'):
-                    return '<div class="iconBox"><img src="./images/member/falseApplied.jpg" title="未通過" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div><div class="iconBox"><img src="./images/icons/icon_mountain_a.svg" alt="" class="iconDegree"></div>';
+                    return '<div class="iconBox"><img src="./images/member/info_not_passed.jpg" title="申請未通過" class="iconSituation"></div>';
                 break;
                 case('已審核已通過'):
-                    return '<div class="iconBox"><img src="./images/member/pass.jpg" title="已通過" class="iconSituation"></div>';
+                    return '<div class="iconBox"><img src="./images/member/info_passed.jpg" title="申請已通過" class="iconSituation"></div>';
                 break;
                 default:
-                    return '不明錯誤';
+                    return '<div class="iconBox"><img src="./images/member/info_not_apply.jpg" title="尚未提出申請" class="iconSituation"></div>';
                 break;
             }
         },
         memapplied_ID(value) {
             switch(value){
                 case('未審核'):
-                    return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>初次申請</p><div class="bg"></div></button></a>';
+                    return '<a href="javascript:void(0);" onclick="swal(`審核進行中！`, `您的申請正在等候審核`, `info`);"><button style="cursor: help;" class="btnB_XL_blue"><p>審核中</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核未通過'):
-                    return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>再次申請</p><div class="bg"></div></button></a>';
+                    return '<a href="./MemberId2.html" target="_blank"><button class="btnB_XL_blue"><p>再次提出申請</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核已通過'):
-                return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的實名認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_blue"><p>申請已通過！</p><div class="bg"></div></button></a>';
+                    return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_blue"><p>申請已通過！</p><div class="bg"></div></button></a>';
                 break;
                 default:
-                    return '不明錯誤';
+                    return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_blue"><p>我要申請！</p><div class="bg"></div></button></a>';
                 break;
             }
         },
         memapplied_guide(value) {
             switch(value){
                 case('未審核'):
-                    return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_yellow"><p>初次申請</p><div class="bg"></div></button></a>';
+                return '<a href="javascript:void(0);" onclick="swal(`審核進行中！`, `您的申請正在等候審核`, `info`);"><button style="cursor: help;" class="btnB_XL_yellow"><p>審核中</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核未通過'):
-                    return '<a href="./MemberId.html" target="_blank"><button class="btnB_XL_yellow"><p>再次申請</p><div class="bg"></div></button></a>';
+                    return '<a href="./MemberGuide2.html" target="_blank"><button class="btnB_XL_yellow"><p>再次提出申請</p><div class="bg"></div></button></a>';
                 break;
                 case('已審核已通過'):
                     return '<a href="javascript:void(0);" onclick="swal(`恭喜您！`, `您的嚮導認證申請已通過審核`, `success`);"><button style="cursor: help;" class="btnB_XL_yellow"><p>申請已通過！</p><div class="bg"></div></button></a>';
                 break;
                 default:
-                    return '不明錯誤';
+                    return '<a href="./MemberGuide.html" target="_blank"><button class="btnB_XL_yellow"><p>我要申請！</p><div class="bg"></div></button></a>';
                 break;
             }
         }

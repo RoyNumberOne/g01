@@ -56,7 +56,7 @@
                             ?>
                                 <tr>
                                 <td class='pink' style="width:90px;"><?=$prodRow["檢舉編號"]?></td>
-                                <td><?=$prodRow["揪團編號"]?></td>
+                                <td><a href="../meet2-3.html?tour_no=<?=$prodRow["揪團編號"]?>"><input style="cursor:pointer;" type="text" disabled name="REVIEWtrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["揪團編號"]?>"></a></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["揪團標題"]?></td>
                                 <td><input type="text" disabled name="REVIEWtrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["檢舉緣由"]?></td>
@@ -64,13 +64,13 @@
                                 <td style="text-align: left;padding-left: 10px;">
                                     <label><input type="radio" value="已處理未通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>" class="inputsize">未通過</label><br>
                                     <label><input type="radio" value="已處理已通過" name="REVIEWtr<?=$prodRow["檢舉編號"]?>" class="inputsize">通過，禁言</label>
-                                        <select name="BANLONGtr<?=$prodRow["檢舉編號"]?>">
-                                            <option value="5">5分鐘</option>
-                                            <option value="4320" selected="selected">3天</option>
-                                            <option value="10080">7天</option>
-                                            <option value="20160">14天</option>
-                                            <option value="40320">28天</option>
-                                        </select>
+                                    <select name="BANLONGtr<?=$prodRow["檢舉編號"]?>">
+                                        <option value="5">5分鐘</option>
+                                        <option value="4320" selected="selected">3天</option>
+                                        <option value="10080">7天</option>
+                                        <option value="20160">14天</option>
+                                        <option value="40320">28天</option>
+                                    </select>
                                 </td>
                                 <td><label><input name="<?=$prodRow["檢舉編號"]?>" type="button" value="送出" class="sendtourreport" id="sendtourreport" disabled></label></td>
                                 </tr>
@@ -107,7 +107,7 @@ $(Document).ready(function(){
 </script>
 <script>
 // 有選結果才能打開送出button
-$('input[name^="REVIEWtr"]').change(function(){
+$('input[type="radio"]').change(function(){
     $(this).parent().parent().next().children().children().removeAttr("disabled");
 });
 </script>
@@ -121,11 +121,12 @@ $(Document).ready(function(){
         let REVIEWtrIfPass = $("input[name='REVIEWtr"+temp+"']:checked").val();
         let REVIEWtrBanLong = $("select[name='BANLONGtr"+temp+"']").val();
         let REVIEWtrMember = $("input[name='REVIEWtrMember"+temp+"']").val();
+        let REVIEWtrNo = $("input[name='REVIEWtrNo"+temp+"']").val();
         
-        console.log(temp);
-        console.log(REVIEWtrIfPass);
-        console.log(REVIEWtrBanLong);
-        console.log(REVIEWtrMember);
+        // console.log(temp);
+        // console.log(REVIEWtrIfPass);
+        // console.log(REVIEWtrBanLong);
+        // console.log(REVIEWtrMember);
 
         // if (REVIEWtrBanLong)
 
@@ -151,6 +152,7 @@ $(Document).ready(function(){
                         REVIEWtrIfPass: REVIEWtrIfPass ,
                         REVIEWtrBanLong: REVIEWtrBanLong,
                         REVIEWtrMember: REVIEWtrMember,
+                        REVIEWtrNo: REVIEWtrNo,
                     },
                 type: 'POST',   
                 success(){

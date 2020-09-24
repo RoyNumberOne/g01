@@ -58,7 +58,7 @@
                             ?>
                                 <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                <td><?=$prodRow["揪團編號"]?></td>
+                                <td><a href="../meet2-3.html?tour_no=<?=$prodRow["揪團編號"]?>"><?=$prodRow["揪團編號"]?></a></td>
                                 <td><?=$prodRow["揪團標題"]?></td>
                                 <td><?=$prodRow["被檢舉人"]?></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>

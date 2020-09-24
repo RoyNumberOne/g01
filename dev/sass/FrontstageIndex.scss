@@ -26,6 +26,48 @@
     50%{ opacity: 0;} //6000
     100%{ opacity: 0;} //12000
 }
+@keyframes initshow {
+    0%{
+        width: 140vw;
+        max-width: 140vw;
+        left: -20vw;
+        top: -20vw;
+    }
+    40%{
+        width: 100vw;
+        max-width: 100vw;
+        left: 0vw;
+        top: 0vw;
+    } 
+    60%{
+        width: 100vw;
+        max-width: 100vw;
+        left: 0vw;
+        top: -100vw;
+    } 
+    90%{
+        width: 20vw;
+        max-width: 170px;
+        min-width: 100px;
+        left: 20px;
+        top: -100vw;
+    }
+    100%{
+        width: 20vw;
+        max-width: 170px;
+        min-width: 100px;
+        left: 20px;
+        top: 20px;
+    }
+}
+@keyframes whitemask {
+    0%{
+        background-color: rgba(white,1);
+    }
+    100%{
+        background-color: rgba(white,0);
+    } 
+}
 
 .section {
     text-align:center;
@@ -112,6 +154,29 @@ div#section1 {
         flex-direction: column;
         position: relative;
         overflow: hidden;
+        & #logocloudbox{
+            z-index: 21;
+            position: absolute;
+            width: 20vw;
+            max-width: 170px;
+            min-width: 100px;
+            left: 20px;
+            top: 20px;
+            animation: initshow 3s ease 0.7s both !important;
+            & img {
+                width: 100%;
+            }
+        }
+        & #whitemask{
+            z-index: 22;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(white,1);
+            animation: whitemask 1s linear both !important;
+        }
         & .SVGbox{
             position: relative;
             & img {
@@ -585,6 +650,29 @@ div#section3 {
         background-color: rgba($mt_black,0.9);
         display: flex;
         flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+        & p.top{
+            z-index: 17;
+            color: $mt_fontlight;
+            position: absolute;
+            left: 4px;
+            top: -5px;
+            transform: rotate(-30deg);
+            &::after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 0;
+                left: -15px;
+                top: 1px;
+                z-index: -1;
+                border-style: solid;
+                border-width: 55px 100px 0 0;
+                transform: rotate(30deg);
+                border-color: $mt_pink transparent transparent transparent;
+            }
+        }
         & div.innerboxleft{
             width: 50%;
             padding: 20px 15px 20px 30px;
@@ -737,6 +825,27 @@ div#section4 {
         // & * {
         //     border: 1px solid rosybrown;
         // }
+        & p.top{
+            z-index: 17;
+            color: $mt_fontlight;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            transform: rotate(-30deg);
+            &::after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 0;
+                left: -20px;
+                top: -10px;
+                z-index: -1;
+                border-style: solid;
+                border-width: 80px 130px 0 0;
+                transform: rotate(30deg);
+                border-color: $mt_pink transparent transparent transparent;
+            }
+        }
         & .boxbig{
             position: relative;
             & .picbig{
