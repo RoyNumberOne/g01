@@ -10,8 +10,10 @@ main{
             height: 310px;
             display: flex;
             align-items: flex-end;
+            overflow: hidden;
             img{
                 width: 100%;
+                transform: translateY(50%);
             }
         }
         .memProfile{
@@ -31,7 +33,8 @@ main{
                     display: flex;
                     align-items: center;
                     img{
-                        width: 100%;
+                        width: auto;
+                        height: 100%;
                     }
                 }
                 .memProfile_AVA_change{
