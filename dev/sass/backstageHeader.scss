@@ -13,6 +13,19 @@ header#BackstageHeader{
         width: 1152px;
         // border: 2px solid red;
         margin: 0 auto;
+        & * {
+            vertical-align: top;
+        }
+        & div#logobox{
+            height: 100%;
+            width: auto;
+            position: absolute;
+            cursor: pointer;
+            & img {
+                margin-top: 2%;
+                height: 90%;
+            }
+        }
         & div#inforbox {
             height: 100%;
             // width: 0px;

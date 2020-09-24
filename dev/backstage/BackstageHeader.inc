@@ -1,5 +1,8 @@
 <header id="BackstageHeader">
     <div id="headerbox">
+        <div id="logobox">
+            <img src="../images/logo/LOGO_white.png" alt="">
+        </div>
         <div id="inforbox">
             <div id="avatorbox">
                 <img id="avator" src="" alt="">

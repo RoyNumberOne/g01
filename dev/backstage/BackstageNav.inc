@@ -1,7 +1,4 @@
 <nav id="BackstageNav">
-    <ul class="page index"><a href="./BackstageIndex.php">
-            <p class="title">首頁</p>
-        </a></ul>
     <ul class="report">
         <p class="title">檢舉</p>
         <li class="page navli tour"><a href="./BackstageTourReport.php">
