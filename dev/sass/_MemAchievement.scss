@@ -27,10 +27,17 @@
             position: relative;
             img{
                 cursor: pointer;
-                width: 80%;
+                width: 50%;
                 margin: 0;
             }
         }
+    }
+    .Achievement_hr{
+        display: grid;
+        grid-template-columns: auto 15% auto;
+        grid-template-rows: repeat(1, 1fr);
+        transform: translateY(20px);
+        text-align: center;
     }
     .Achievement_list{
         max-width: 1000px;
