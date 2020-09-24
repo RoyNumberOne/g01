@@ -7,7 +7,7 @@ try{
     $mem_no = $_SESSION["mem_no"];
 
     if(isset($_SESSION["mem_no"]) === true){
-        $sql = "SELECT mem_point '會員點數', (mem_point_forumpost+mem_point_tourhost+mem_point_tourjoin) 'total',
+        $sql = "SELECT mem_point '會員點數', (mem_point_forumpost+mem_point_tourhost+mem_point_tourjoin)+8888 'total',
                 mem_point_forumpost, mem_point_tourhost,mem_point_tourjoin
                 FROM member where mem_no='$mem_no';";
         $member = $pdo->prepare($sql);

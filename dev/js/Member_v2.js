@@ -98,7 +98,7 @@ function getMemberFo(){
       if (member.mem_id){
           $id("memProfile_img").src = member.mem_avator; //會員頁大頭照
           $id("mem_bg").src = member.mem_bg; //會員頁背景
-          $id("memProfile_name").innerText = member.mem_id; //會員頁名稱
+          $id("memberId").innerText = member.mem_id; //會員頁名稱
           $id("badge_1").src = member.mem_badge1;
             if($("#badge_1").attr('src','undefined')){
               $('#badge_1').css('display','none');
