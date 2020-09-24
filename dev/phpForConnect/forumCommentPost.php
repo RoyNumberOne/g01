@@ -4,9 +4,6 @@ try{
     header("connect-type: text/html; charset=utf-8");
     
     require_once('./connectMeetain.php');
-    // $forum_post_no = $_POST['forum_post_no'];
-    // echo json_encode($forum_post_no);exit;
-    // $forum_post_no = $_REQUEST['forum_post_no'];
     $forum_post_no = $_GET['forum_post_no'];
     // $forum_post_no = 200013;
 
@@ -21,7 +18,7 @@ try{
         $totalRecords = $row["totalCount"]; 
         // echo 'totalRecords'.$totalRecords;
 
-        $recPerPage= 3;
+        $recPerPage= 10;
         $totalPages = ceil($totalRecords / $recPerPage);
         // echo 'totalPages'.$totalPages;
 

@@ -102,11 +102,6 @@ new Vue({
             console.log('success');
             console.log(this.poprank);
         })
-        // axios.get('./phpForConnect/meet2-0Hotmeet.php').then(res => {
-        //     this.hotmeet = res.data;
-        //     console.log('success');
-        //     console.log(this.hotmeet);
-        // })
         
     },
     
@@ -152,15 +147,9 @@ new Vue({
             // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
             .then(res => {
                 // this.articalList = res.data;
-
                 this.articalList = res.data.forumListData;
                 this.totalPage = res.data.totalPage;
                 console.log(res.data); //測試是否成功
-                
-                console.log(this.articalList)
-                console.log(this.totalPage)
-                console.log('success');
-                
             })
             .catch(error => {console.log(error)}); 
         },
@@ -185,20 +174,21 @@ new Vue({
                 $(`.GN${k}`).parent().css("display","none")
             }
         }
-    },
-    Artical() {
-        for(var k=0; k<= (this.artical.length-1); k++){
-            if( $(`.MR${k}`).val() ){
-                $(`.MR${k}`).parent().css("display","block")
+        //討論區首頁文章排序(響導認證及會員認證)
+        for(var k=0; k<= (this.articalList.length-1); k++){
+            if( $(`.belowMR${k}`).val() ){
+                console.log(`YYYY${k}`)
+                $(`.belowMR${k}`).parent().css("display","block")
             }else{
-                $(`.MR${k}`).parent().css("display","none")
+                console.log(`NNNN${k}`)
+                $(`.belowMR${k}`).parent().css("display","none")
             }
         }
-        for(var k=0; k<= (this.artical.length-1); k++){
-            if( $(`.GN${k}`).val() ){
-                $(`.GN${k}`).parent().css("display","block")
+        for(var k=0; k<= (this.articalList.length-1); k++){
+            if( $(`.belowGN${k}`).val() ){
+                $(`.belowGN${k}`).parent().css("display","block")
             }else{
-                $(`.GN${k}`).parent().css("display","none")
+                $(`.belowGN${k}`).parent().css("display","none")
             }
         }
     },

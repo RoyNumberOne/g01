@@ -296,8 +296,14 @@
                             }
                             .mg_text{
                                 position: absolute;
-                                display: block;
+                                display: none;
                                 top: -20px;
+                                background-color: $mt_grey1;
+                                &:hover{
+                                    .mg_text{
+                                        display: block;
+                                    }
+                                }
                                 // right: 0;
                                 &::after{
                                     content: '';
@@ -737,6 +743,12 @@
     }
     .original-poster-block .name_time{
         flex-direction: column;
+    }
+
+    #innertext-block{
+        .post-image{
+            height: auto;
+        }
     }
     .product-block{
         .product-img{

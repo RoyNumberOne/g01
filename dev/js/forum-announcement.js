@@ -3,9 +3,12 @@ new Vue({
     data: {
         issuanarea:[],
         messagearea:[],
-        ann_CommentPost:[],
+        commentpost:[],
+        // ann_CommentPost:[],
         poster_message: '',
         message_report_img: [],
+        currentPage: 1,
+
     },
     created(){
         //抓是否檢舉過某則留言，後面會用此判斷是否換該留言檢舉圖示
@@ -36,11 +39,18 @@ new Vue({
             // console.log(this.issuanarea);
         }),
         //從comment篩選討論區的class
-        axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
-            this.commentpost = res.data;
-            // console.log('success');
-            // console.log(this.commentpost);
-        }),
+        // axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
+        //     this.commentpost = res.data;
+        //     // console.log('success');
+        //     // console.log(this.commentpost);
+        // }),
+        axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
+                    .then(res => {
+                        this.commentpost = res.data.commentMessageData;
+                        this.totalPage = res.data.totalPage;
+                        console.log(res.data); //測試是否成功
+                        console.log('success');
+                    }),
         // 留言回覆區
         axios.post('./phpForConnect/announcement_MessageArea.php',formArticle).then(res => {
             // console.log(res.data.length);
@@ -50,6 +60,9 @@ new Vue({
             // console.log('success');
             // console.log(this.messagearea);
         })
+
+        this.getMessagepost();
+
     },
     updated() {
         for (var t = 0; t < this.message_report_img.length; t++) {
@@ -104,15 +117,24 @@ new Vue({
                     "comment_class" : '討論區',
                     "forum_post_no" : forum_post_no,
                     "comment_innertext" : this.poster_message,
-                }}).then(res =>{
-                    axios.post('./phpForConnect/ann_CommentPost.php', formArticle).then(res => {
-                        this.ann_CommentPost = res.data;
+                }}).then(()=>{
+                    axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
+
+
+                    .then(res => {
+                        // this.articalList = res.data;
+                        this.commentpost = res.data.commentMessageData;
+                        this.totalPage = res.data.totalPage;
+                        console.log(res.data); //測試是否成功
+                        // console.log(this.commentpost)
+                        // console.log(this.totalPage)
                         console.log('success');
-                        this.clearTextarea();
-                        $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
                 })
+                this.clearTextarea();
+                // this.getMessagepost();
             }
+
         },
         forum_artical_Collect(){
             let forum_post_no = this.issuanarea[0].forum_post_no;
@@ -181,16 +203,6 @@ new Vue({
             console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
-        // CHECKnull(k) {
-        //     // console.log(this.message_report_img[k].comment_no);
-        //     var CMTNO = this.message_report_img[k].forum_post_no;
-        //     // console.log(CMTNO);
-        //     // console.log(this.message_report_img[k].comment_report_mem);
-        //     if (this.message_report_img[k].forum_report_mem !== null) {
-        //         $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
-        //         $(`input[value='${CMTNO}']`).parent().find(".triangle-text").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
-        //     };
-        // },
         CHECKnull(k) {
             // console.log(this.message_report_img[k].comment_no);
             var CMTNO = this.message_report_img[k].comment_no;
@@ -200,6 +212,30 @@ new Vue({
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
+        },
+        // 加入頁碼
+        getMessagepost(){
+            console.log(forum_post_no)
+
+            // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
+            axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
+
+
+            // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
+            .then(res => {
+                // this.articalList = res.data;
+                this.commentpost = res.data.commentMessageData;
+                this.totalPage = res.data.totalPage;
+                console.log(res.data); //測試是否成功
+                // console.log(this.commentpost)
+                // console.log(this.totalPage)
+                console.log('success');
+            })
+            .catch(error => {console.log(error)}); 
+        },
+        changeMessagepost(page){
+            this.currentPage = page;
+            this.getMessagepost();
         },
     }
 });

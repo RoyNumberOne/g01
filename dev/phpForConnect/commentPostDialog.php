@@ -14,7 +14,7 @@ try{
         left join member_guide mg on(mg.mem_no = m.mem_no and mg.mem_guide_situation = '已審核已通過')
         
 	where fp.forum_post_no = '$forum_post_no' and fp.forum_post_situation = 1 and fp.forum_post_category not in ('公告')
-    group by m.mem_no
+    group by m.mem_no,comment_time
     order by cp.comment_time ;"; //彈性調整
 
     $pdoStatement = $pdo->query($sql);
