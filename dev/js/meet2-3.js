@@ -213,7 +213,7 @@ new Vue({
                     $(".heart").attr("src", "./images/icons/icon_heart.svg");
                 }
             } else {
-                alert(xhr5.status);
+                swal(xhr5.status);
             }
 
         }
@@ -225,6 +225,7 @@ new Vue({
 
         this.tourParticipateSituation();
         this.equipmentDisplay();
+        this.hosterIsLogin();
     },
     filters: {
         Area: function(value) {
@@ -456,7 +457,6 @@ new Vue({
             if ($('#mem_info_id').html() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
-                alert('請先登入');
                 window.location.href = './login_v2.html';
             } else {
                 // 打開彈窗
@@ -467,7 +467,7 @@ new Vue({
                 $(".tr_confirm").click(function(e) {
                     var temp = $('#send_tr_report_block').val();
                     if (temp == '') {
-                        alert('請先輸入文字');
+                        swal('請先輸入文字');
                     } else {
                         let tour_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
                         console.log(tour_report_reason);
@@ -491,7 +491,8 @@ new Vue({
         //判斷留言檢舉
         openMessageReportModal(e) {
             if ($('#mem_info_id').html() === '') {
-                alert('請先登入');
+                let url = window.location.href;
+                localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
             } else {
                 // 打開彈窗
@@ -502,7 +503,7 @@ new Vue({
                 $(".mg_confirm").click(function(e) {
                     var temp = $('#send_mg_report_block').val();
                     if (temp == '') {
-                        alert('請先輸入文字');
+                        swal('請先輸入文字');
                     } else {
                         let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
                         axios.get('./phpForConnect/meet2-3_message_report.php', {
@@ -526,7 +527,7 @@ new Vue({
                 BANtime = Date.parse($("#BanTourDate").val());
     
                 if (BANtime>NOWtime) {
-                    alert (`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
+                    swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
                 }   else    {
                     window.location.href = '../meet2-2.html';
                 }
@@ -539,17 +540,17 @@ new Vue({
             BANtime = Date.parse($("#BanCommentDate").val());
 
             if ($('#mem_info_id').html() === '') {
-                alert('請先登入');
+                // alert('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
             }   else if (BANtime>NOWtime) {
-                alert (`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
+                 (`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
                 console.log(temp)
                 if (temp == '') {
-                    alert('請先輸入文字');
+                    swal('請先輸入文字');
                 } else {
                     let formTour = new FormData();
                     let urlSearchParams = (new URL(document.location)).searchParams;
@@ -637,7 +638,7 @@ new Vue({
                             console.log(xhr.responseText);
                             // alert(xhr.responseText);
                         } else {
-                            alert(xhr.status);
+                            swal(xhr.status);
                         }
                     }
                     var url = "./phpForConnect/meet_Collect.php";
@@ -653,7 +654,7 @@ new Vue({
                     }
                 } else {
                     //沒有登入，請先登入
-                    alert("請先登入哦")
+                    swal("請先登入哦")
                 }
             }
             xhr2.open("get", "./login_v2_LoginInFo.php", true);
@@ -683,6 +684,23 @@ new Vue({
             this.currentPage = page;
             this.getCommentlist();
         },
+        //
+        hosterIsLogin(){
+            const nowMen = this.tourData.mem_no;
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "./login_v2_LoginInFo.php", true);
+            xhr.send(null);
+            if (this.tourData.mem_no) {
+                xhr.onload = () => {
+                    member = JSON.parse(xhr.responseText);
+                    if (member.mem_id) {
+                        if (nowMen == member.mem_no) {
+                            $('.application_bt').css('display', 'block')
+                        }
+                    }
+                }
+            }
+        }
     },
 })
 
