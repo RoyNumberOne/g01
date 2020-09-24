@@ -11,7 +11,7 @@ try{
     // pag ===========================
     $sql = "select count(*) totalCount 
                 from comment_post
-                where tour_post_no = $tour_no;";
+                where tour_post_no = $tour_no and comment_situation = 1 ;";
     $stmt = $pdo->query($sql); 
     $row = $stmt->fetch(PDO::FETCH_ASSOC); 
 
