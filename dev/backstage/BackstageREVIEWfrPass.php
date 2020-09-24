@@ -5,8 +5,7 @@ try{
     require_once("./connectMeetain.php");
 
 
-    $sql = "update member set   ban_forum=1 ,
-                                ban_forum_date=date_add(current_timestamp, interval :forum_report_banLong minute ) 
+    $sql = "update member set   ban_forum_date=date_add(current_timestamp, interval :forum_report_banLong minute ) 
                                 where mem_no=:mem_no;";
 
     $products=$pdo->prepare($sql);
@@ -29,6 +28,10 @@ try{
     $products->bindValue(":forum_report_no",$_REQUEST["forum_report_no"]);
     $products->execute();
 
+    $sql = "UPDATE forum_post set forum_post_situation = 0 where forum_post_no=:REVIEWfrNo;";
+    $products=$pdo->prepare($sql);
+    $products->bindValue(":REVIEWfrNo",$_REQUEST["REVIEWfrNo"]);
+    $products->execute();
   
 }catch(PDOException $e){
   $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";

@@ -62,6 +62,8 @@ try{
             $_SESSION["mem_badge1"] = $memRow["mem_badge1"];
             $_SESSION["mem_badge2"] = $memRow["mem_badge2"];
             $_SESSION["mem_badge3"] = $memRow["mem_badge3"];
+            $_SESSION["ban_forum_date"] = $memRow["ban_forum_date"];
+            $_SESSION["ban_tour_date"] = $memRow["ban_tour_date"];
     
             $result = array("mem_no"=>$memRow["mem_no"], 
                             "mem_id"=>$memRow["mem_id"],
@@ -76,7 +78,9 @@ try{
                             "class"=>$memRow["class"],
                             "mem_badge1"=>$memRow["mem_badge1"],
                             "mem_badge2"=>$memRow["mem_badge2"],
-                            "mem_badge3"=>$memRow["mem_badge3"]);
+                            "mem_badge3"=>$memRow["mem_badge3"],
+                            "ban_forum_date"=>$memRow["ban_forum_date"],
+                            "ban_tour_date"=>$memRow["ban_tour_date"]);
     
             echo "帳號註冊成功";
         }

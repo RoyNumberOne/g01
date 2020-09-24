@@ -58,7 +58,7 @@
                         ?>
                             <tr>
                                 <td class='pink'><?=$prodRow["檢舉編號"]?></td>
-                                <td><?=$prodRow["討論編號"]?></td>
+                                <td><input type="text" disabled name="REVIEWfrNo<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["討論編號"]?>"></td>
                                 <td style="text-align: left;padding-left: 5px;" id="comm"><?=$prodRow["討論標題"]?></td>
                                 <td><input type="text" disabled name="REVIEWfrMember<?=$prodRow["檢舉編號"]?>" readonly value="<?=$prodRow["被檢舉人"]?>"></td>
                                 <td><?=$prodRow["檢舉時間"]?></td>
@@ -105,7 +105,7 @@ $(Document).ready(function(){
 </script>
 <script>
 // 有選結果才能打開送出button
-$('input[name^="REVIEWfr"]').change(function(){
+$('input[type="radio"]').change(function(){
     $(this).parent().parent().next().children().children().removeAttr("disabled");
 });
 </script>
@@ -119,11 +119,12 @@ $(Document).ready(function(){
         let REVIEWfrIfPass = $("input[name='REVIEWfr"+temp+"']:checked").val();
         let REVIEWfrBanLong = $("select[name='BANLONGfr"+temp+"']").val();
         let REVIEWfrMember = $("input[name='REVIEWfrMember"+temp+"']").val();
+        let REVIEWfrNo = $("input[name='REVIEWfrNo"+temp+"']").val();
         
-        console.log(temp);
-        console.log(REVIEWfrIfPass);
-        console.log(REVIEWfrBanLong);
-        console.log(REVIEWfrMember);
+        // console.log(temp);
+        // console.log(REVIEWfrIfPass);
+        // console.log(REVIEWfrBanLong);
+        // console.log(REVIEWfrMember);
 
         // if (REVIEWfrBanLong)
 
@@ -149,6 +150,7 @@ $(Document).ready(function(){
                         REVIEWfrIfPass: REVIEWfrIfPass ,
                         REVIEWfrBanLong: REVIEWfrBanLong,
                         REVIEWfrMember: REVIEWfrMember,
+                        REVIEWfrNo: REVIEWfrNo,
                     },
                 type: 'POST',   
                 success(){
