@@ -77,7 +77,10 @@ a{
     0% {margin-left: -1000px;}
     100% {margin-left: 100%;}
 }
-
+@keyframes animateBird {
+    0% {margin-left: 1000px;}
+    100% {margin-left: 0%;}
+}
 
 #meet2-0{
     margin:auto;
@@ -91,7 +94,7 @@ a{
             width: 100%;
             display: inline-flex;
             position: relative;
-            // border: 1px solid #00f;
+            border: 1px solid #00f;
             overflow-x: hidden !important;
             .serchMap{
                 // border: 1px solid #000;
@@ -151,7 +154,7 @@ a{
             }
         // 那個雲那個霧啊 ==============================
             /* ANIMATIONS */
-            .x1,.x2,.x3,.x4,.x5{
+            .x1,.x2,.x3,.x4,.x5,.x6,.x7{
                 position: absolute;
                 pointer-events: none;
             }
@@ -173,11 +176,24 @@ a{
             .x4 {
                 animation: animateCloud 18s linear infinite;
                 transform: scale(0.4);
-                bottom: 40px;
+                bottom: 125px;
             }
             .x5 {
                 animation: animateCloud 25s linear infinite;
                 transform: scale(0.55);
+            }
+            .x6 {
+                animation: animateBird 18s linear infinite;
+                transform: scale(0.2);
+                bottom: 85px;
+            }
+            .x7 {
+                animation: animateCloud 25s linear infinite;
+                bottom: -130px;
+                opacity: .3;
+                -webkit-transform: rotate(90deg) scale(0.2); /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(90deg) scale(0.2); /* IE 9 */
+                transform: rotate(90deg) scale(0.2);
             }
             
             /* 雲霧們 */
@@ -189,15 +205,19 @@ a{
             }
             .cloud.cloud1{
             background-image: url(../images/meet/2-0-cloudcloud1.png);
-
             }
             .cloud.cloud2{
             background-image: url(../images/meet/2-0-cloudcloud2.png);
-
             }
             .cloud.cloud3{
             background-image: url(../images/meet/2-0-cloudcloud3.png);
-
+            }
+            .cloud.bird{
+                background-image: url(../images/meet/2-0-bird.gif);
+            }
+            .cloud.airplane{
+                background-image: url(../images/meet/2-0-airplane.png);
+                background-size: contain;
             }
             //================================
         }
