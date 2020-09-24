@@ -203,8 +203,12 @@ $(function() {
             let url = window.location.href;
             localStorage.setItem('web', url);
             window.location.href = './login_v2.html';
+        }else{
+            
+            window.location.href = './meet2-2.html';
         }
     });
+
     // 更換Card  list樣式
     // 點擊按鈕typeCard
     $("div.typeCard").on("click", function(){
