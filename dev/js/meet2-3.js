@@ -90,7 +90,9 @@ new Vue({
             // console.log('success tour_participant_notpassed');
             // console.log(this.notPassedParticipant);
         })
+        let NOWtime;
         this.getCommentlist();
+        this.HOST();
     },
     updated() {
         //留言檢舉第幾則
@@ -190,7 +192,7 @@ new Vue({
         }
 
         //判斷揪團是否檢舉換圖
-        if(this.tour_report_img[0].tour_report_mem == null){
+        if(this.tour_report_img[0].tour_report_mem){
             // console.log('還沒檢舉')
         }   else    {
             // console.log('已檢舉')
@@ -314,8 +316,18 @@ new Vue({
                     break;
             }
         },
+        openTourApplyModal(){
+
+            if ($('#mem_info_id').html() === '') {
+                let url = window.location.href;
+                localStorage.setItem('web', url);
+                window.location.href = './login_v2.html';
+            }else{
+                $("#meet2-3-1").removeClass("close")
+            }
+        },
         //申請參加揪團
-        applyTour() {
+        applyTour() {            
             let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
@@ -442,6 +454,8 @@ new Vue({
         //揪團檢舉彈窗
         openTourReportModal(e) {
             if ($('#mem_info_id').html() === '') {
+                let url = window.location.href;
+                localStorage.setItem('web', url);
                 alert('請先登入');
                 window.location.href = './login_v2.html';
             } else {
@@ -504,13 +518,33 @@ new Vue({
                 })
             }
         },
+        //我要開團的側邊圖
+        HOST()  { 
+            $(".aside-com-btn a").click(function(){
+                NOWtime = new Date (Date.now())
+                NOWtime = Date.parse(NOWtime);
+                BANtime = Date.parse($("#BanTourDate").val());
+    
+                if (BANtime>NOWtime) {
+                    alert (`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
+                }   else    {
+                    window.location.href = '../meet2-2.html';
+                }
+            })
+        },
         //send message
         SENDmsg() {
+            NOWtime = new Date (Date.now())
+            NOWtime = Date.parse(NOWtime);
+            BANtime = Date.parse($("#BanCommentDate").val());
+
             if ($('#mem_info_id').html() === '') {
                 alert('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
+            }   else if (BANtime>NOWtime) {
+                alert (`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
                 console.log(temp)
@@ -702,11 +736,11 @@ $(document).ready(function() {
     });
 
     //apply lightbox
-    $(function() {
-        $("#apply_bt").click(function() {
-            $("#meet2-3-1").removeClass("close");
-        })
-    });
+    // $(function() {
+    //     $("#apply_bt").click(function() {
+    //         $("#meet2-3-1").removeClass("close");
+    //     })
+    // });
 
     $(function() {
         // 點擊不同意按鈕

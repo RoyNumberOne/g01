@@ -12,6 +12,8 @@
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
+    <!-- <script src="./js/sweetalert.min.js"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -311,7 +313,7 @@
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
                 <!-- <div>{{currentTour.tour_progress}}</div> -->
-                <button id="apply_bt" class="btnB_XL_yellow"><p>報名活動</p><div class="bg"></div></button>
+                <button id="apply_bt" class="btnB_XL_yellow" @click="openTourApplyModal"><p>報名活動</p><div class="bg"></div></button>
                 <button id="okGo" class="btnB_XL_grey none" @click="startTour" disabled><p>提早成團！</p><div class="bg"></div></button>
             </div>
         </div>
@@ -435,7 +437,7 @@
         </a>
         <div id="aside-link">
             <div class="aside-com-btn">
-                <a href="./meet2-2.html" target="_blank"><img src="./images/form_img/want2.png" alt=""></a>
+                <a style="cursor: pointer;"><img src="./images/form_img/want2.png" alt=""></a>
             </div>
         </div>
         <footer class="footer">

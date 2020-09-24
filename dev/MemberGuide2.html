@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/MemberGuide.css">
+    <title>媒山友｜會員｜嚮導認證申請表</title>
+</head>
+<body>
+<main>
+    <div id="certificationGuide">
+        <h2><span>嚮導認證申請表</span></h2>
+        <form action="MemberGuide2.php" method="post" enctype="multipart/form-data">
+            <label for="guide_image">
+                <img src="./images/member/picture.jpg" id="imgPreciew">
+            </label><br>
+            <input type="file" name="guide_image" id="guide_image" style="opacity: 0;margin:0px;height: 1px;" required><br>
+            <label>證照編號： <input type="text" name="guide_no" minlength="5" maxlength="5" placeholder="請輸入5位數證照編號"
+                required></label><br>
+            <label>發證日期：<input type="date" name="guide_period_start" required></label><br>
+            <label id="Manual">
+                *為確保嚮導資格的認證屬實，我方收到嚮導審核表單時，會致電給予您核對相關資料，如同意站方的審核流程，需請您於勾選下方的同意聲明，以利加速核准流程，感謝您的申請與配合。
+            </label><br>
+            <input type="checkbox" id="checkok" required><label for="checkok">同意並申請</label><br>
+            <button class="btnB_L_yellow" type="submit">
+                <p>確認送出</p>
+                <div class="bg"></div>
+            </button>
+        </form>
+    </div>
+</main>
+<script>
+window.addEventListener("load", function () {
+
+    document.getElementById("guide_image").onchange = function (e) {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+
+        reader.onload = function () {
+            document.getElementById("imgPreciew").src = reader.result;
+            // console.log(reader.result);
+        }
+
+        reader.readAsDataURL(file);
+    }
+})
+</script>
+</body>
+</html>
