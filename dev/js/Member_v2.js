@@ -118,5 +118,8 @@ function getMemberFo(){
   xhr.send(null);
 }
 
-getMemberFo();
+document.addEventListener("DOMContentLoaded", function(){
+  getMemberFo();
+})
+
 // =====================會員大頭照/背景/name========================
