@@ -51,8 +51,7 @@ function initMap() {
 
     setTimeout(function(){
 
-        console.log(markers);
-
+        console.log(mtList);
         let k ;
         for( k=0 ; k < mtList.length ; k++ ){
 

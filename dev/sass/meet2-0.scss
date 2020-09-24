@@ -78,6 +78,7 @@ a{
     100% {margin-left: 100%;}
 }
 
+
 #meet2-0{
     margin:auto;
     max-width: 1366px;
@@ -91,6 +92,7 @@ a{
             display: inline-flex;
             position: relative;
             // border: 1px solid #00f;
+            overflow-x: hidden !important;
             .serchMap{
                 // border: 1px solid #000;
                 height: 50vh;

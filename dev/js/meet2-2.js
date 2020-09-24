@@ -8,20 +8,11 @@ new Vue({
     },
 
     created(){
-        
-        // console.log($("#tour_mountain").value)
-
-        // $.post("./phpForConnect/meet2-2Mountainlist.php",
-        // {MTno: '1'},
-        // function(){
-        //     console.log('ya');
-        // })
 
         axios.get('./phpForConnect/meet2-2MountainlistF.php')
 
         .then((res) => {
             this.mtList = res.data;
-            console.log(res.data); //測試是否成功
         })
         .catch(error => {console.log(error)}); 
     },
@@ -31,15 +22,15 @@ new Vue({
             let MTarea
             let MTdegree
             let MTno = $("select#tour_mountain").val()
-            console.log(MTno) 
+            // console.log(MTno) 
 
             $.post("./phpForConnect/meet2-2Mountainlist.php",
             {MTno: MTno},
 
             function(mt){
-                console.log(JSON.parse(mt));
+                // console.log(JSON.parse(mt));
                 mtData = JSON.parse(mt);  ////將資料轉json
-                console.log(mtData[0].mountain_area)
+                // console.log(mtData[0].mountain_area)
                 
                 switch (mtData[0].mountain_area){
                     case('north'):
@@ -56,20 +47,20 @@ new Vue({
                     break;
                 }
 
-                console.log(mtData[0].degree_category)
+                // console.log(mtData[0].degree_category)
                 $(".degree_category p").text(mtData[0].degree_category);
-                console.log(mtData[0].mountain_image)
+                // console.log(mtData[0].mountain_image)
                 $(".mountain_image img").attr('src',mtData[0].mountain_image);
             })
             
         },
         /////切換步驟///// -->
         ONEtoTWO: function(){
-            console.log("click");
+            // console.log("click");
             let valid = 0 ; //計算未填數量  = 0 都填  != 0 有未填
             var tour_info1 = document.querySelectorAll('.tour_info1 [required]'); 
 
-            console.log(tour_info1.length);
+            // console.log(tour_info1.length);
 
             for(let i=0 ; i<tour_info1.length ; i++){
                 if(tour_info1[i].checkValidity() != true){ //判斷每個 必填的[required] input 是否都有填
@@ -124,7 +115,7 @@ new Vue({
         },
 
         TWOtoONE: function(){
-            console.log("click");
+            // console.log("click");
 
                 //移除 -on 樣式
             $("section.tour_build_step2").removeClass("-on");
@@ -137,11 +128,11 @@ new Vue({
         },
 
         TWOtoTHREE: function(){
-            console.log("click");
+            // console.log("click");
 
             var tour_info2 = document.querySelector('.tour_info2 [required]').checkValidity(); 
 
-            console.log(tour_info2);
+            // console.log(tour_info2);
 
 
             if(tour_info2){ // 都填
@@ -158,7 +149,7 @@ new Vue({
         },
 
         THREEtoTWO: function(){
-            console.log("click");
+            // console.log("click");
             //移除 -on 樣式
             $("section.tour_build_step3").removeClass("-on");
             $("li.step_icon3").removeClass("-on");
@@ -180,7 +171,7 @@ $("#upload_tourimg_input").change(function(){
     // var docObj = document.getElementById("upload_tourimg_input");
     // var fileList = docObj.files;
     $(".tour_image div").html(""); // 清除預覽
-    console.log ( this.files.length );
+    // console.log ( this.files.length );
     if(this.files.length > 6) {
         swal("太貪心拉～照片最多只能上傳六張！！");
 

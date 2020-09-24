@@ -36,7 +36,7 @@ new Vue({
         .then((res) => {
             this.meetList = res.data;
 
-            console.log(res.data); //測試是否成功
+            // console.log(res.data); //測試是否成功
             // console.log(this.meetList);
             for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
                 this.meetIndex.push(i)
@@ -72,14 +72,14 @@ new Vue({
     updated() {
         for(var k=0 ; k <= (this.meetList.length-1) ; k++){
             if( $(`.GN${k}`).val()){
-                $(`.GN${k}`).parent().css("display","block")
+                $(`.GN${k}`).parent().css("display","inline-block")
             }   else    {
                 $(`.GN${k}`).parent().css("display","none")
             }
         }
         for(var k=0 ; k <= (this.meetList.length-1) ; k++){
             if( $(`.MR${k}`).val()){
-                $(`.MR${k}`).parent().css("display","block")
+                $(`.MR${k}`).parent().css("display","inline-block")
             }   else    {
                 $(`.MR${k}`).parent().css("display","none")
             }
@@ -130,7 +130,7 @@ new Vue({
             .then((res) => {
                 this.meetList = res.data.meetListData;
                 this.totalPage = res.data.totalPage;
-                console.log(res.data); //測試是否成功
+                // console.log(res.data); //測試是否成功
                 // console.log(this.meetList);
                 for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
                     this.meetIndex.push(i)
@@ -160,10 +160,10 @@ new Vue({
         changeHeart: function(event){
                 if($(event.target).attr('src') === "./images/icons/icon_heart.svg"){
                     $(event.target).attr("src","./images/icons/icon_heart_h&c.svg");
-                    console.log(123)
+                    // console.log(123)
                 }else{
                     $(event.target).attr("src","./images/icons/icon_heart.svg");
-                    console.log(234)
+                    // console.log(234)
                 }
         },
         changeMeetlist(page){
@@ -174,18 +174,19 @@ new Vue({
     computed: {
     },
     updated() {
+        console.log('UPDATEDUPDATEDUPDATEDUPDATEDUPDATEDUPDATED')
         for(var k=0 ; k <= (this.meetList.length-1) ; k++){
-            if( $(`.GN${k}`).val()){
-                $(`.GN${k}`).parent().css("display","block")
+            if( $(`.belowGN${k}`).val()!=''){
+                $(`.belowGN${k}`).parent().css("display","inline-block")
             }   else    {
-                $(`.GN${k}`).parent().css("display","none")
+                $(`.belowGN${k}`).parent().css("display","none")
             }
         }
         for(var k=0 ; k <= (this.meetList.length-1) ; k++){
-            if( $(`.MR${k}`).val()){
-                $(`.MR${k}`).parent().css("display","block")
+            if( $(`.belowMR${k}`).val()){
+                $(`.belowMR${k}`).parent().css("display","inline-block")
             }   else    {
-                $(`.MR${k}`).parent().css("display","none")
+                $(`.belowMR${k}`).parent().css("display","none")
             }
         }
     },
@@ -196,9 +197,11 @@ new Vue({
 
           
 $(function() {
+    // 開團按鈕偵測是否登入
     $('.aside-com-btn').click(function (){
         if($('#mem_info_id').html() === ''){
-            swal("請先登入");
+            let url = window.location.href;
+            localStorage.setItem('web', url);
             window.location.href = './login_v2.html';
         }
     });
@@ -250,10 +253,8 @@ $(document).ready(function(){
     $(".heart").click(function(){
         if($(this).attr('src') === "./images/icons/icon_heart.svg"){
             $(this).attr("src","./images/icons/icon_heart_h&c.svg");
-            console.log(123)
         }else{
             $(this).attr("src","./images/icons/icon_heart.svg");
-            console.log(234)
         }
     });
 });

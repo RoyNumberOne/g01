@@ -17,19 +17,19 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
 
-    <!-- tool js  -->
+    
+    <!----go top----->
     <script src="./js/fa5.14.0all.js"></script>
+    <!-- jQuery -->
+    <script src="./js/jquery-3.5.1.js"></script>
 
     <script src="./js/vue.js"></script>
-    <script src="./js/vue.min.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/sweetalert.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script> -->
 
      <!-- Google Map  -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" defer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBRyERh4T_wL8V15r7uAf6SGbWmqhws0Y&callback=initMap&libraries=&v=weekly" defer>
         // key=YOUR_API_KEY&callback= 
     </script>
 
@@ -194,16 +194,6 @@
                                     </div>
                                     
                                 </div>
-                                <!-- <div class="like_btn">
-                                    <div class="heartIcon">
-                                        <div class="changeIcon">
-                                            <img class="heart" src="./images/icons/icon_heart.svg" >
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a :href="'./meet2-3.html?tour_no=' + hotmeet.tour_no"><button class="btnA_LwRA"><p>更多</p><div class="btnArrowL"></div></button></a>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -240,11 +230,6 @@
                             <a :href="'./meet2-3.html?tour_no=' + meet.tour_no">
                                 <h3>{{meet.tour_title}}</h3>
                             </a>
-                            <!-- <div class="heartIcon">
-                                <div class="changeIcon">
-                                    <img class="heart" src="./images/icons/icon_heart.svg" @click="changeHeart" >
-                                </div>
-                            </div> -->
                         </div>
                         <div class="info">
                             <span class="tag">＃{{meet.mountain_name}}</span>
@@ -272,8 +257,16 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon a"><input type="hidden" :class="'MR'+index" :value="meet.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                <span class="certificationIcon b"><input type="hidden" :class="'GN'+index" :value="meet.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                <span class="certificationIcon a">
+                                    <input type="hidden" :class="'belowMR'+index" :value="meet.mem_realname">
+                                    <img src="./images/icons/icon_realname.svg" alt="">
+                                    <div class="icon_hover">已通過實名認證</div>
+                                </span>
+                                <span class="certificationIcon b">
+                                    <input type="hidden" :class="'belowGN'+index" :value="meet.guide_no">
+                                    <img src="./images/icons/icon_guide.svg" alt="">
+                                    <div class="icon_hover">已通過專業嚮導認證</div>
+                                </span>
                             </div>
                             <div class="memberId">{{meet.mem_id}}</div>
                             <div class="memberBadge">
@@ -314,7 +307,8 @@
      <!-- -------------------------aside link------------------------- -->
      <div id="aside-link">
         <div class="aside-com-btn">
-            <a href="./meet2-2.html" ><img src="./images/form_img/want2.png" alt=""></a>
+            <!--  -->
+            <a href="./meet2-2.html"><img src="./images/form_img/want2.png" alt=""></a> 
         </div>
     </div>
 
@@ -374,14 +368,9 @@
         </div>
     </footer>
     
-    <!-- jQuery -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    <script src="./js/jquery-3.5.1.js"></script>
-    <script src="./js/jquery.fullpage.js"></script>
-    <script src="./js/jquery.min.js"></script>
+    
 
-    <!----go top----->
-    <script src="./js/fa5.14.0all.js"></script>
+    
     
     <!---- header + login + meet2-0 js ----->
     <script src="./js/header.js" ></script>
