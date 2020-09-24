@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/shoppingCar.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <script src="./js/jquery-3.5.1.js"></script>
     <script src="./js/shoppingCar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
-    <script src="./js/vue.js"></script>
+    <script src="./js/vue.min.js"></script>
 </head>
 
 <body>
@@ -180,7 +179,7 @@
                                 <input type="radio" name="payment" id="card" v-on:click="pay_Terms('線上刷卡')">
                                 <label for="card">線上刷卡</label><br>
                                 <div id="cardp">
-                                    <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" required placeholder="請輸入10位數卡號"><br>
+                                    <label for="">信用卡號：</label><input type="text" min="0" max="999" pattern="[0-9]{10}" title="請輸入10位數數字卡號" maxlength="10" required placeholder="請輸入10位數卡號"><br>
                                     <label for="">驗證號碼：</label><input type="password" min="0" max="999" pattern="[0-9]{3}" title="請輸入3位數安全碼" maxlength="3" placeholder="請輸入3位數安全碼" required><br>
                                     <label for="">有效日期：</label><input type="date" required><br>
                                     <input type="submit" value="送出驗證">
@@ -371,11 +370,8 @@
                 zero(item) {
                     if (item.count > 1) {
                         item.count -= 1;
-                        // this.dis=false;
 
-                    } else if (this.count < 1) {
-                        // this.dis=true;
-                    }
+                    } else if (this.count < 1) {}
                     localStorage.setItem('cartList', JSON.stringify(this.productList));
                 },
                 add_count(item) {
@@ -424,7 +420,8 @@
                     };
                 },
                 handlesubmit() {
-                    alert("完成驗證");
+                    swal("恭喜你！", "已完成信用卡驗證", "success")
+
                 },
                 uploadCartList() {
                     let pointp = this.pointp;
@@ -444,32 +441,52 @@
                         })
                     };
                     if (arr == '') {
-                        alert('您還沒有將商品加入購物車唷');
+                        swal("Oops", "您還沒有將商品加入購物車唷", "warning");
+                    } else if ($("#order_logistics_recipient").text() == '') {
+                        swal("Oops", "你忘記輸入收件人啦", "warning");
+                    } else if ($("#order_logistics_phone").text() == '') {
+                        swal("Oops", "你忘記輸入電話啦", "warning");
+                    } else if ($("#order_logistics_address").text() == '') {
+                        swal("Oops", "你忘記輸入地址啦", "warning");
                     } else if ($("#order_cashflow").text() == '點數付款') {
                         if ($("#order_total").text() > this.pointp) {
-                            alert('點數不足');
+                            swal("Oops", "您的點數不足唷", "warning");
                         } else if (this.pointp == '請登入會員查看') {
-                            alert('請先登入會員後購買')
-                        }
+                            swal("Oops", "請先登入會員後購買", "warning");
+                        } else {
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function(e) {
+                                if (xhr.status == 200) { //連線成功
+                                    console.log(xhr.responseText)
+                                    swal(xhr.responseText);
+                                    if (xhr.responseText == "訂單已送出") {
+                                        window.localStorage.removeItem("cartList")
+                                        window.location.href = "./shoppingcart.html"
+                                    }
+                                } else {
+                                    swal("Oops", xhr.status, "warning");
+                                }
 
-                    } else if ($("#order_logistics_recipient").text() == '') {
-                        alert('請輸入姓名');
-                    } else if ($("#order_logistics_phone").text() == '') {
-                        alert('請輸入電話');
-                    } else if ($("#order_logistics_address").text() == '') {
-                        alert('請輸入地址');
+                            }
+                            arr = JSON.stringify(arr);
+                            var url = "./shoppingcartorder.php";
+                            xhr.open("post", url, true);
+                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                            let data_info = `arr=${arr}&order_logistics_deliver=${order_logistics_deliver}&order_logistics_fee=${order_logistics_fee}&order_cashflow=${order_cashflow}&order_total=${order_total}&order_logistics_recipient=${order_logistics_recipient}&order_logistics_phone=${order_logistics_phone}&order_logistics_address=${order_logistics_address}`;
+                            xhr.send(data_info);
+                        }
                     } else {
                         var xhr = new XMLHttpRequest();
                         xhr.onload = function(e) {
                             if (xhr.status == 200) { //連線成功
                                 console.log(xhr.responseText)
-                                alert(xhr.responseText);
+                                swal(xhr.responseText);
                                 if (xhr.responseText == "訂單已送出") {
                                     window.localStorage.removeItem("cartList")
                                     window.location.href = "./shoppingcart.html"
                                 }
                             } else {
-                                alert(xhr.status);
+                                swal("Oops", xhr.status, "warning");
                             }
 
                         }
@@ -485,19 +502,14 @@
             },
             mounted() {
                 this.productList = new Array();
-                // Object.value('cartList');
                 this.productList = JSON.parse(localStorage.getItem('cartList')) //抓取localstorage中的購物車字串並轉為物件
             },
             computed: {
                 total() {
                     let totalcount = 0;
-                    // for(let i=0; i<this.productList.length;i++){
-                    //     totalcount += this.productList[i].price*this.productList[i].count;
-                    // }
                     for (const key in this.productList) {
                         totalcount += (this.productList[key].product.product_price * (this.productList[key].count));
                     }
-                    // totalcount = Math.round(totalcount);
                     return parseInt(totalcount);
                 },
             },
@@ -512,7 +524,6 @@
             },
         });
     </script>
-    <script src="./js/vue.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login_v2.js"></script>
 </body>

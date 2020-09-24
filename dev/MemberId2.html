@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/MemberGuide.css">
+    <title>媒山友｜會員｜實名制申請表</title>
+</head>
+
+<body>
+    <main>
+        <div id="certificationGuide">
+            <h2><span>實名制申請表</span></h2>
+            <form action="MemberId2.php" method="post" enctype="multipart/form-data">
+                <label for="mem_idno_image">
+                <img src="./images/member/picture.jpg" id="imgPreciew">
+            </label><br>
+                <input type="file" name="mem_idno_image" id="mem_idno_image" style="opacity: 0;margin:0px;height: 1px;" required><br>
+                <label>姓&emsp;&emsp;&emsp;名：</label> <input type="text" name="mem_realname" maxlength="8" required><br>
+                <label>身分證字號：</label><input type="text" name="mem_idno" minlength="10" maxlength="10" equired><br>
+                <label id="Manual">
+                *為確保嚮導資格的認證屬實，我方收到嚮導審核表單時，會致電給予您核對相關資料，如同意站方的審核流程，需請您於勾選下方的同意聲明，以利加速核准流程，感謝您的申請與配合。
+            </label><br>
+                <input type="checkbox" id="checkok" required><label for="checkok">同意並申請</label><br>
+                <button class="btnB_L_yellow" type="submit">
+                <p>確認送出</p>
+                <div class="bg"></div>
+            </button>
+            </form>
+        </div>
+    </main>
+    <script>
+        window.addEventListener("load", function() {
+            document.getElementById("mem_idno_image").onchange = function(e) {
+                let file = e.target.files[0];
+                let reader = new FileReader();
+
+                reader.onload = function() {
+                    document.getElementById("imgPreciew").src = reader.result;
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

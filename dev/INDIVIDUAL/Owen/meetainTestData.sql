@@ -10,6 +10,8 @@ desc achievement;
 SELECT * FROM member;
 desc member;
 
+select m.* , guide_no from `member` m left outer join `member_guide` mg on (m.mem_no = mg.mem_no and mem_guide_situation = '已審核已通過') ;
+UPDATE comment_post set comment_situation = 0 where comment_no=300002;
 -- 使用中徽章
 SELECT  m.mem_no ,m.mem_badge1 , a1.achievement_image , a1.achievement_category ,a1.achievement_name , m.mem_badge2 , a2.achievement_image , a2.achievement_category ,a2.achievement_name , m.mem_badge3 , a3.achievement_image  , a3.achievement_category ,a3.achievement_name
 FROM member m

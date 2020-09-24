@@ -14,7 +14,7 @@ try{
         LEFT OUTER JOIN achievement a1 on m.mem_badge1 = a1.achievement_no
         LEFT OUTER JOIN achievement a2 on m.mem_badge2 = a2.achievement_no
         LEFT OUTER JOIN achievement a3 on m.mem_badge3 = a3.achievement_no
-        WHERE tour_no = $tour_no;";
+        WHERE tour_no = $tour_no and tour_situation = 1;";
 
     $pdoStatement = $pdo->prepare($sql);
     $pdoStatement = $pdo->query($sql);

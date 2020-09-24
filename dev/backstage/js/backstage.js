@@ -63,3 +63,7 @@ $( document ).ready(function() {
 
       $id('btnLogout').onclick = logout;
 });
+
+$("#logobox").click(function(){
+  location.href = '../Frontstageindex.html';
+})

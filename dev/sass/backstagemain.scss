@@ -28,9 +28,12 @@ main{
                 height: 80px;
                 position: relative;
                 background-color: $mt_blue2;
-                transition: 0.2s all ease-in-out;
-                &.index {
+                transition:  color 0.2s ease-in-out , background-color 0.2s ease-in-out;
+                &.report {
                     border-radius: 0px 10px 0px 0px;
+                    &:hover{
+                        border-radius: 0px 0px 0px 0px !important;
+                    }
                 }
                 &.orderdeta {
                     border-radius: 0px 0px 10px 0px;
@@ -98,7 +101,6 @@ main{
                         overflow: hidden;
                     }
                 }
-                &.index:hover ,
                 &.product:hover ,
                 &.administer:hover,
                 &.orderdeta:hover{
