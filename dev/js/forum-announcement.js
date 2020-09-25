@@ -29,14 +29,11 @@ new Vue({
         let formArticle = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
         forum_post_no = urlSearchParams.get('forum_post_no');
-        // console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
         
         //文章發布
         axios.post('./phpForConnect/announcement_IssuanArea.php',formArticle).then(res => {
             this.issuanarea = res.data;
-            // console.log('success');
-            // console.log(this.issuanarea);
         }),
         //從comment篩選討論區的class
         // axios.post('./phpForConnect/forumCommentPost.php', formArticle).then(res => {
@@ -65,32 +62,107 @@ new Vue({
 
     },
     updated() {
-        for (var t = 0; t < this.message_report_img.length; t++) {
-            this.CHECKnull(t);
-        }
-        //判斷收藏
-        let forum_post_no = this.issuanarea[0].forum_post_no;
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function(e) {
-            if (xhr.status == 200) { //連線成功
-                // console.log(xhr.responseText)
-                    // alert(xhr.responseText);
-                if (xhr.responseText != 0) {
-                    $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
-                } else {
-                    $(".heart").attr("src", "./images/icons/icon_heart.svg");
-                }
-            } else {
-                alert(xhr.status);
+        //回覆留言的判斷
+        for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
+            if( $(`.MR${k}`).val()){
+                $(`.MR${k}`).parent().css("display","block")
+            }   else    {
+                $(`.MR${k}`).parent().css("display","none")
             }
-
         }
-        var url = "./phpForConnect/forum_artical_Collect_pic.php";
-        xhr.open("post", url, true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-        let data = `forum_post_no=${forum_post_no}`;
-        xhr.send(data);
-    },
+        for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
+            if( $(`.GN${k}`).val()){
+                $(`.GN${k}`).parent().css("display","block")
+                console.log($(`.GN${k}`).val())
+            }   else    {
+                $(`.GN${k}`).parent().css("display","none")
+                console.log($(`.GN${k}`).val())
+            }
+        }
+        
+        //這段code是判斷會員是否為登入前要做的事情
+        // if($("#mem_info_id").text()){
+        //     for (var t = 0; t < this.message_report_img.length; t++) {
+        //         this.CHECKnull(t);
+        //     }
+        // }
+        
+        if($("#mem_info_id").text()){
+            for (var t = 0; t < this.message_report_img.length; t++) {
+                this.CHECKnull(t);
+            }
+            
+            //判斷收藏
+            let forum_post_no = this.issuanarea[0].forum_post_no;
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function(e) {
+                if (xhr.status == 200) { //連線成功
+                    console.log(xhr.responseText)
+                        // alert(xhr.responseText);
+                    if (xhr.responseText != 0) {
+                        $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+                    } else {
+                        $(".heart").attr("src", "./images/icons/icon_heart.svg");
+                    }
+                } else {
+                    alert(xhr.status);
+                }
+
+            }
+            var url = "./phpForConnect/forum_artical_Collect_pic.php";
+            xhr.open("post", url, true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            let data = `forum_post_no=${forum_post_no}`;
+            xhr.send(data);
+        }
+
+        this.checkForumReportNull();
+    }, //end
+
+    // updated() {
+    //     //回覆留言的判斷
+    //     for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
+    //         if( $(`.MR${k}`).val()){
+    //             $(`.MR${k}`).parent().css("display","block")
+    //         }   else    {
+    //             $(`.MR${k}`).parent().css("display","none")
+    //         }
+    //     }
+    //     for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
+    //         if( $(`.GN${k}`).val()){
+    //             $(`.GN${k}`).parent().css("display","block")
+    //             console.log($(`.GN${k}`).val())
+    //         }   else    {
+    //             $(`.GN${k}`).parent().css("display","none")
+    //             console.log($(`.GN${k}`).val())
+    //         }
+    //     }
+    //     for (var t = 0; t < this.message_report_img.length; t++) {
+    //         this.CHECKnull(t);
+    //     }
+    //     //判斷收藏
+    //     let forum_post_no = this.issuanarea[0].forum_post_no;
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.onload = function(e) {
+    //         if (xhr.status == 200) { //連線成功
+    //             // console.log(xhr.responseText)
+    //                 // alert(xhr.responseText);
+    //             if (xhr.responseText != 0) {
+    //                 $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+    //             } else {
+    //                 $(".heart").attr("src", "./images/icons/icon_heart.svg");
+    //             }
+    //         } else {
+    //             alert(xhr.status);
+    //         }
+
+    //     }
+    //     var url = "./phpForConnect/forum_artical_Collect_pic.php";
+    //     xhr.open("post", url, true);
+    //     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+    //     let data = `forum_post_no=${forum_post_no}`;
+    //     xhr.send(data);
+    // },
     methods :{
         clearTextarea(){
             this.poster_message = '';

@@ -8,6 +8,7 @@ new Vue({
         currentPage: 1,
         poster_message: '',
         forum_report_img: [],
+        message_report_img: [],
     },
     computed:{
         CHECKname() {
@@ -44,6 +45,13 @@ new Vue({
     mounted() {
         let formArticle = new FormData();
         let urlSearchParams = (new URL(document.location)).searchParams;
+        let LENGTH = this.message_report_img.length;
+        setTimeout(() => {
+            let message_report_data = this.message_report_img;
+            console.log('BBB')
+            console.log(message_report_data)
+        }, 300);
+        
         forum_post_no = urlSearchParams.get('forum_post_no');
         console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
@@ -54,6 +62,42 @@ new Vue({
             this.reflection[0].forum_post_innertext = this.reflection[0].forum_post_innertext.replace('\n','<br/>');
             // this.reflection[0].forum_post_innertext=this.reflection[0].forum_post_innertext.replace(/\n/g,'<br>')
             //這段在vue顯示錯誤的資訊
+            let forum_post_no = this.reflection[0].forum_post_no;
+        }).then( () => {
+
+
+                setTimeout(function(){
+
+                    if($("#mem_info_id").text()){
+                        
+                        // for (var t = 0; t < LENGTH; t++) {
+                        //     this.CHECKnull(t);
+                        // }
+                        
+                        //判斷收藏
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function(e) {
+                                if (xhr.status == 200) { //連線成功
+                                    console.log(xhr.responseText)
+                                    // alert(xhr.responseText)
+                                        // alert(xhr.responseText);
+                                    if (xhr.responseText != 0) {
+                                        $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
+                                    } else {
+                                        $(".heart").attr("src", "./images/icons/icon_heart.svg");
+                                    }
+                                } else {
+                                    alert(xhr.status);
+                                }
+                            }
+                            var url = "./phpForConnect/forum_artical_Collect_pic.php";
+                            xhr.open("post", url, true);
+                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+                            let data = `forum_post_no=${forum_post_no}`;
+                            xhr.send(data);
+                    }
+                },400)
+
         }),
 
         // // 從comment篩選討論區的class
@@ -66,12 +110,12 @@ new Vue({
 
         // 留言回覆區
         axios.post('./phpForConnect/commentPostDialog.php',formArticle).then(res => {
-            console.log(res.data.length);
+            // console.log(res.data.length);
             for (var i = 0;i<res.data.length;i++){
                 this.dialog.push(res.data[i]);
             };
-            console.log('success');
-            console.log(this.dialog);
+            // console.log('success');
+            // console.log(this.dialog);
         })
 
     },
@@ -100,35 +144,10 @@ new Vue({
         //         this.CHECKnull(t);
         //     }
         // }
-        
-        if($("#mem_info_id").text()){
-            for (var t = 0; t < this.message_report_img.length; t++) {
-                this.CHECKnull(t);
-            }
-            
-            //判斷收藏
-            let forum_post_no = this.reflection[0].forum_post_no;
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function(e) {
-                if (xhr.status == 200) { //連線成功
-                    console.log(xhr.responseText)
-                        // alert(xhr.responseText);
-                    if (xhr.responseText != 0) {
-                        $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
-                    } else {
-                        $(".heart").attr("src", "./images/icons/icon_heart.svg");
-                    }
-                } else {
-                    alert(xhr.status);
-                }
 
-            }
-            var url = "./phpForConnect/forum_artical_Collect_pic.php";
-            xhr.open("post", url, true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-            let data = `forum_post_no=${forum_post_no}`;
-            xhr.send(data);
-        }
+        // alert('123');
+        
+
 
         this.checkForumReportNull();
     }, //end
@@ -241,11 +260,9 @@ new Vue({
         },
         //確認留言是否被檢舉過
         CHECKnull(k) {
-            // console.log(this.message_report_img[k].comment_no);
             var CMTNO = this.message_report_img[k].comment_no;
-            // console.log(CMTNO);
-            // console.log(this.message_report_img[k].comment_report_mem);
             if (this.message_report_img[k].comment_report_mem !== null) {
+                console.log(234)
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
@@ -255,7 +272,6 @@ new Vue({
         checkForumReportNull() {
             // let tourReporter = this.tour_report_img.tour_no;
             if(this.forum_report_img[0].forum_report_mem == null){
-                // console.log('沒檢舉過')
             }else{
                 $('img.rpImg').attr('src', './images/icons/icon_report_c.svg')
                 $('.fr_report_bt').attr('disabled', 'disabled')
@@ -270,7 +286,6 @@ new Vue({
                     } else {
                         // 打開彈窗
                         $('.report_block_match').removeClass('close');
-                        // let reportNo = $(e.target).parent().parent().parent().parent().parent().parent().find("#report_block_match").find(".tr_reporting").find(".tour_no").val();
                         let reportNo = $('.tour_no').val();
                         console.log(reportNo)
                         let iconIF = $('.rpImg');
@@ -300,11 +315,15 @@ new Vue({
         },
         // 加入頁碼
         getMessagepost(){
+            let message_report_data
+            setTimeout(() => {
+                message_report_data = this.message_report_img;
+            }, 450);
+
             console.log(forum_post_no)
 
             // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
             axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
-
 
             // axios.get(`./phpForConnect/forumPostNormal.php?pageNo=1`)
             .then(res => {
@@ -314,7 +333,22 @@ new Vue({
                 console.log(res.data); //測試是否成功
                 // console.log(this.commentpost)
                 // console.log(this.totalPage)
-                console.log('success');
+            })
+            .then(res => {
+                setTimeout(function(){
+                    if($("#mem_info_id").text()){
+                        // alert($("#mem_info_id").text())
+                        for (var k = 0; k < (message_report_data.length); k++) {
+
+                            if ( message_report_data[k].comment_report_mem !== null) {
+                                console.log(234)
+                                $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
+                                $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
+                            };
+                        }
+                    }
+                },500)
+
             })
             .catch(error => {console.log(error)}); 
         },

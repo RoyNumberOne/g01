@@ -107,7 +107,7 @@
                                     <div class="pic"><img :src="poprank.mem_avator" alt=""></div>
                                     <div class="user_name"><p class="usname">{{poprank.mem_id}}</p></div>
 
-                                    <div class="certification"> <!--原先的結構未加入會員的認證資訊---->
+                                    <div class="certification">
                                         <span class="certificationIcon">
                                             <input type="hidden" :class="'MR'+index" :value="poprank.mem_realname">
                                             <img src="./images/icons/icon_realname.svg" alt="">
@@ -120,13 +120,13 @@
                                     
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge1" alt="">
+                                            <img :src="poprank.badge1" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge2" alt="">
+                                            <img :src="poprank.badge2" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge3" alt="">
+                                            <img :src="poprank.badge3" alt="">
                                         </span>
                                     </div>
                                   </div>
@@ -237,13 +237,13 @@
                                                 <div class="memberId">{{artical.mem_id}}</div>
                                                 <div class="memberBadge">
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge1" alt="">
+                                                        <img :src="artical.badge1" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge2" alt="">
+                                                        <img :src="artical.badge2" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge3" alt="">
+                                                        <img :src="artical.badge3" alt="">
                                                     </span>
                                                 </div>
                                             </div>

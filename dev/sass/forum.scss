@@ -183,6 +183,22 @@
                                       font-size: 12px;
                               }
                           }
+                          .certification{
+                            display: flex;
+                            justify-content: space-evenly;
+                            margin-top: 5%;
+                            .certificationIcon{
+                                display: inline-block;
+                                width: 15px;
+                                height: 15px;
+                                position: relative;
+                                img{
+                                    height: 100%;
+                                    position: absolute;
+                                    top:0;
+                                }
+                            }
+                        }
                           .memberBadge{
                               display: flex;
                               justify-content:center;
@@ -383,6 +399,7 @@
                             .memberInfo{
                                 display: inline-block;
                                 .certification{
+                                    display: flex;
                                     .certificationIcon{
                                         display: inline-block;
                                         width: 15px;
