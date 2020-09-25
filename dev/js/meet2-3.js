@@ -143,10 +143,6 @@ new Vue({
                             $('#okGo').removeClass('btnB_XL_grey')
                             $('#okGo').addClass('btnB_XL_yellow')
                             $('#okGo').css('cursor', 'pointer')
-                            // console.log('可以點擊成團')
-                            // $('#okGo').click(()=>{
-                            //     alert('可以點了')
-                            // })
                         }
                         //已成團狀態
                         if(this.tourData.tour_progress == '已截止'){
@@ -540,7 +536,7 @@ new Vue({
             BANtime = Date.parse($("#BanCommentDate").val());
 
             if ($('#mem_info_id').html() === '') {
-                // alert('請先登入');
+                // swal('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -636,7 +632,7 @@ new Vue({
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
                             console.log(xhr.responseText);
-                            // alert(xhr.responseText);
+                            // swal(xhr.responseText);
                         } else {
                             swal(xhr.status);
                         }

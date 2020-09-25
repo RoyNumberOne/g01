@@ -109,14 +109,10 @@
                 </div>
 
                 <div class="poster-report">
-                    <div class="commentCollect" @click="forum_artical_Collect">
+                    <button class="commentCollect" @click="forum_artical_Collect">
                         <img class="heart" src="./images/icons/icon_heart.svg" alt="">
-                        <p>收藏</p>
-                    </div>
-                    <div class="report" style="display: none;">
-                        <img src="./images/form_img/report.png" alt="">
-                        <p>檢舉</p>
-                    </div>
+                        <div class="collect_hover">收藏</div>
+                    </button>
                 </div>
             </div>
             <hr>
@@ -125,8 +121,6 @@
                 <div class="post-image">
                     <img :src="issuanarea.forum_post_image" alt="">
                 </div>
-                <!-- <p class="write-top">－－－本文為網友的心得，以下內容不代表媒山友立場。－－－</p>
-                <br> -->
                 <p>{{issuanarea.forum_post_innertext}}</p>
             <hr>
             </div>
@@ -180,27 +174,6 @@
                     </div>
                     </div>
                 </div>
-
-                    <!-- <div class="triangle2">
-                        <div class="triangle-text">
-                            <div class="poster-say">
-                            <p>3 F  2020-07-18 11:39</p>
-                            <div class="report">
-                                <img class="report" src="./images/form_img/report.png" alt="">
-                                <p>檢舉</p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="innertext">
-                                <p>最近我們一群朋友開始愛上爬山~上禮拜去了抹茶山，我上山都還ok，
-                                    下山時覺得大腿內側超痠還有點痛….
-                                    好幾年前跑步有過拉傷，後來復原了朋友說是我的肌肉耐力不足，下個
-                                    月約好了要挑戰五寮尖(聽說難度很高)，大家有推薦帶什麼裝備嗎？
-                                    有想買個護膝護具～有沒有推薦的
-                                </p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -218,45 +191,11 @@
                 </div>
 
                 <div class="nextpage-btn" >
-                    <div class="page">
-                        <!-- <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button> -->
-    
-                        <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMessagepost(i)"><p>{{i}}</p></button>
-    
-                        <!-- <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button> -->
+                    <div class="page">    
+                        <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMessagepost(i)"><p>{{i}}</p></button>    
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="product-block">
-                <div class="arrow-right"></div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-shouse1.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-cat.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-climb.jpg" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-shouse.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-bag.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-                <div class="left"></div>
-            </div> -->
         </div>
     </main>
 
