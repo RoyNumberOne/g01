@@ -668,11 +668,6 @@
     .original-poster-block .name_time{
         flex-direction: column;
     }
-    // .area-tittle{
-    //     p{
-    //        writing-mode: vertical-lr;
-    //     }
-    // }
     .product-block{
         flex-wrap: wrap;
         .product-img{
@@ -690,6 +685,11 @@
     }
     .original-poster-block .name_time{
         flex-direction: column;
+    }
+    #innertext-block{
+        .post-image{
+            height: auto;
+        }
     }
 
     .product-block{

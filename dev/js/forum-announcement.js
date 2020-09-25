@@ -22,7 +22,6 @@ new Vue({
             }
         }).then(res => {
             this.message_report_img = res.data;
-            // console.log(this.message_report_img);
         })
     },
     mounted() {
@@ -45,8 +44,8 @@ new Vue({
                     .then(res => {
                         this.commentpost = res.data.commentMessageData;
                         this.totalPage = res.data.totalPage;
-                        console.log(res.data); //測試是否成功
-                        console.log('success');
+                        // console.log(res.data); //測試是否成功
+                        // console.log('success');
                     }),
         // 留言回覆區
         axios.post('./phpForConnect/announcement_MessageArea.php',formArticle).then(res => {
@@ -73,10 +72,10 @@ new Vue({
         for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
             if( $(`.GN${k}`).val()){
                 $(`.GN${k}`).parent().css("display","block")
-                console.log($(`.GN${k}`).val())
+                // console.log($(`.GN${k}`).val())
             }   else    {
                 $(`.GN${k}`).parent().css("display","none")
-                console.log($(`.GN${k}`).val())
+                // console.log($(`.GN${k}`).val())
             }
         }
         
@@ -97,7 +96,7 @@ new Vue({
             var xhr = new XMLHttpRequest();
             xhr.onload = function(e) {
                 if (xhr.status == 200) { //連線成功
-                    console.log(xhr.responseText)
+                    // console.log(xhr.responseText)
                         // alert(xhr.responseText);
                     if (xhr.responseText != 0) {
                         $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
@@ -197,10 +196,10 @@ new Vue({
                         // this.articalList = res.data;
                         this.commentpost = res.data.commentMessageData;
                         this.totalPage = res.data.totalPage;
-                        console.log(res.data); //測試是否成功
-                        // console.log(this.commentpost)
-                        // console.log(this.totalPage)
-                        console.log('success');
+                        // console.log(res.data); //測試是否成功
+                        // // console.log(this.commentpost)
+                        // // console.log(this.totalPage)
+                        // console.log('success');
                     })
                 })
                 this.clearTextarea();
@@ -219,7 +218,7 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
+                            // console.log(xhr.responseText);
                             // alert(xhr.responseText);
                         } else {
                             alert(xhr.status);
@@ -272,7 +271,7 @@ new Vue({
              }
         },
         changePic(e) {
-            console.log($(e.target).attr('src'));
+            // console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
         CHECKnull(k) {
@@ -287,7 +286,7 @@ new Vue({
         },
         // 加入頁碼
         getMessagepost(){
-            console.log(forum_post_no)
+            // console.log(forum_post_no)
 
             // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
             axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
@@ -298,10 +297,10 @@ new Vue({
                 // this.articalList = res.data;
                 this.commentpost = res.data.commentMessageData;
                 this.totalPage = res.data.totalPage;
-                console.log(res.data); //測試是否成功
+                // console.log(res.data); //測試是否成功
                 // console.log(this.commentpost)
                 // console.log(this.totalPage)
-                console.log('success');
+                // console.log('success');
             })
             .catch(error => {console.log(error)}); 
         },
