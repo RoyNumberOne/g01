@@ -13,7 +13,7 @@ new Vue({
         .then((res) => {
             this.AchievementHaveList = res.data; //this.BBB = res.data;
 
-            console.log(res.data); //測試是否成功
+            // console.log(res.data); //測試是否成功
 
             // console.log(this.meetList);
             for(let i = 0; i< this.AchievementHaveList.length; i++){  //動態生成內容，依據json有幾筆
@@ -50,7 +50,7 @@ new Vue({
     methods: {
         checkMA: function(){
             for(var i = 0 ; i<15 ; i++){
-                console.log(this.AchievementHaveList[i].mem_no)
+                // console.log(this.AchievementHaveList[i].mem_no)
                 if(this.AchievementHaveList[i].mem_no){
                     $("#AchievementHave").children().eq(`${i}`).removeClass("Nohave");
                     $("#AchievementHave").children().eq(`${i}`).children("img").addClass("Having");
