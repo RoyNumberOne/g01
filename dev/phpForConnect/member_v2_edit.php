@@ -54,6 +54,7 @@ try{
 
 <!-- 判斷帳號是否已使用 -->
 
+<script src="./js/sweetalert.min.js"></script>
 <script>
     
     function $id(id){
@@ -62,23 +63,32 @@ try{
 
     function editDetail(){
         var idCheck = $("#mem_id").val();
-        if (idCheck.length == "" ) { //帳號
-            alert('暱稱不可空白');
+        var headerId = $("#mem_info_id").text();
+        if (idCheck.length == "" ^ idCheck === headerId ) { //帳號
+            // alert(headerId);
+            swal('暱稱不可空白及重複',"請重新輸入","error");
             return;
         }
         
         var mail=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         var mailCheck = $("#mem_mail").val();
         if(mailCheck.match(mail)==null){ //email
-            alert("email格式不正確");
+            swal("email格式不正確","請重新輸入","error");
             return;
         }
 
         var pswCheck = $("#mem_psw").val();
         if (pswCheck.length < 8 ^ pswCheck.length > 12) { //密碼
-            alert('密碼長度錯誤');
+            swal('密碼長度錯誤',"請檢察密碼","error");
             return;
         }
+
+        var repassword = $("#repassword").val();
+        if (repassword == "") { //密碼
+            swal('確認密碼不一致',"請檢察密碼","error");
+            return;
+        }
+
 
         let xhr = new XMLHttpRequest();
 
@@ -97,15 +107,15 @@ try{
         let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
         xhr.send(data_info);
 
-        // window.location.href = './login_v2.html';
+        window.location.href = './login_v2.html';
         // location.reload();
     }
-    function jump() {
-        window.location.href = './login_v2.html';
-    }
+    // function jump() {
+    //     window.location.href = './login_v2.html';
+    // }
     function Send(){
         editDetail();
-        jump();
+        // jump();
     }
     window.addEventListener("load", function(){
         document.getElementById("editConfirm").addEventListener("click", Send, false);
@@ -131,6 +141,7 @@ try{
         var pas2 = document.getElementById("repassword").value; //獲取兩個密碼框的值
         if (pas1 != pas2) {
             $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
+            swal("密碼輸入不一致","請檢查密碼","error");
         } else {
             $(".tip").hide();
         }
