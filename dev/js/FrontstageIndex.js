@@ -605,6 +605,33 @@ $(document).on('keydown',function(e) {
         RenderWeather(N1N3data);
     },1000)
 
+
+$(document).ready(function(){
+
+        let xhr = new XMLHttpRequest();
+    
+        xhr.onload = function(){
+            member = JSON.parse(xhr.responseText);
+            if (member.mem_id){
+                $id("mem_info_id").innerText = member.mem_id;
+            }   
+        }
+    
+        xhr.open("get", "./login_v2_LoginInFo.php",true);
+        xhr.send(null);
+    
+
+})
+
+    let indexurl = window.location.href;
+    localStorage.setItem('web', indexurl);
+    $(".memicon").click(function(){
+        if ($('#mem_info_id').html() === '') {
+            window.location.href = './login_v2.html';
+        }   else    {
+            window.location.href = './Member_v2.html';
+        }
+    })
     // $(document).ready(
     //     console.log(N1N3data)
     //     $("weatherdesc p").innerText = N1N3data.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
