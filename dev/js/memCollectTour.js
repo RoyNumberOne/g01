@@ -31,7 +31,7 @@ new Vue({
         .then((res) => {
             this.Collect_tourList = res.data; 
 
-            console.log(res.data); 
+            // console.log(res.data); 
 
             for(let i = 0; i< this.Collect_tourList.length; i++){
                 this.Collect_tourIndex.push(i)
