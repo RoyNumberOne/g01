@@ -12,8 +12,6 @@
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
 </head>
@@ -107,12 +105,12 @@
                                     <div class="pic"><img :src="poprank.mem_avator" alt=""></div>
                                     <div class="user_name"><p class="usname">{{poprank.mem_id}}</p></div>
 
-                                    <div class="certification"> <!--原先的結構未加入會員的認證資訊---->
-                                        <span class="certificationIcon a">
+                                    <div class="certification">
+                                        <span class="certificationIcon">
                                             <input type="hidden" :class="'MR'+index" :value="poprank.mem_realname">
                                             <img src="./images/icons/icon_realname.svg" alt="">
                                         </span>
-                                        <span class="certificationIcon b">
+                                        <span class="certificationIcon">
                                             <input type="hidden" :class="'GN'+index" :value="poprank.guide_no">
                                             <img src="./images/icons/icon_guide.svg" alt="">
                                         </span>
@@ -120,13 +118,13 @@
                                     
                                     <div class="memberBadge">
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge1" alt="">
+                                            <img :src="poprank.badge1" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge2" alt="">
+                                            <img :src="poprank.badge2" alt="">
                                         </span>
                                         <span class="memberBadgeIcon">
-                                            <img :src="poprank.mem_badge3" alt="">
+                                            <img :src="poprank.badge3" alt="">
                                         </span>
                                     </div>
                                   </div>
@@ -226,24 +224,24 @@
                                             <div class="memberInfo">
                                                 <div class="certification">
                                                     <span class="certificationIcon a">
-                                                        <input type="hidden" :class="'MR'+index" :value="artical.mem_realname">
+                                                        <input type="hidden" :class="'belowMR'+index" :value="artical.mem_realname">
                                                         <img src="./images/icons/icon_realname.svg" alt="">
                                                     </span>
                                                     <span class="certificationIcon b">
-                                                        <input type="hidden" :class="'GN'+index" :value="artical.guide_no">
+                                                        <input type="hidden" :class="'belowGN'+index" :value="artical.guide_no">
                                                         <img src="./images/icons/icon_guide.svg" alt="">
                                                     </span>
                                                 </div>
                                                 <div class="memberId">{{artical.mem_id}}</div>
                                                 <div class="memberBadge">
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge1" alt="">
+                                                        <img :src="artical.badge1" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge2" alt="">
+                                                        <img :src="artical.badge2" alt="">
                                                     </span>
                                                     <span class="memberBadgeIcon">
-                                                        <img :src="artical.mem_badge3" alt="">
+                                                        <img :src="artical.badge3" alt="">
                                                     </span>
                                                 </div>
                                             </div>
@@ -281,11 +279,11 @@
                             <!-- <ul>
                                 <li  v-for="i in totalPage" :key="i" @click="changeForumpostlist(i)">{{i}}<li>
                             </ul> -->
-                            <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                            <!-- <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button> -->
     
                             <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeForumpostlist(i)"><p>{{i}}</p></button>
     
-                            <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                            <!-- <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button> -->
                         </div>
                     </div>
 
@@ -346,201 +344,7 @@
                         </a>
                         </div>
                     </div>
-    
-                    <!-- <div class="hot-tour-card">
-                        <div class="tour-img">
-                            <img src="./images/meet/mountain/3east.jpg" alt="">
-                        </div>
-        
-                        <div class="tour-block">
-                            <div class="tour-title-container">
-                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
-                            </div>
-        
-                            <div class="tag">
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                            </div>
-        
-                            <div class="tour-place">
-                                <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
-                                    <p>｜</p>
-                                </div>
-        
-                                <div class="degree_category">
-                                    <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="tour-activitystart">
-                                <div class="tour-start">
-                                    <span>2020/09/08出發｜</span>
-                                </div>
-                                <div class="tour-end">
-                                    <span>2020/09/10回程</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-    
-                    <!-- <div class="hot-tour-card">
-                        <div class="tour-img">
-                            <img src="./images/form_img/Taiwu.jpg" alt="">
-                        </div>
-        
-                        <div class="tour-block">
-                            <div class="tour-title-container">
-                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
-                            </div>
-        
-                            <div class="tag">
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                            </div>
-        
-                            <div class="tour-place">
-                                <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
-                                    <p>｜</p>
-                                </div>
-        
-                                <div class="degree_category">
-                                    <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="tour-activitystart">
-                                <div class="tour-start">
-                                    <span>2020/09/08出發｜</span>
-                                </div>
-                                <div class="tour-end">
-                                    <span>2020/09/10回程</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="hot-tour-card">
-                        <div class="tour-img">
-                            <img src="./images/meet/mountain/4west.jpg" alt="">
-                        </div>
-        
-                        <div class="tour-block">
-                            <div class="tour-title-container">
-                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
-                            </div>
-        
-                            <div class="tag">
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                            </div>
-        
-                            <div class="tour-place">
-                                <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
-                                    <p>｜</p>
-                                </div>
-        
-                                <div class="degree_category">
-                                    <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="tour-activitystart">
-                                <div class="tour-start">
-                                    <span>2020/09/08出發｜</span>
-                                </div>
-                                <div class="tour-end">
-                                    <span>2020/09/10回程</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="hot-tour-card">
-                        <div class="tour-img">
-                            <img src="./images/meet/mountain/2west.jpg" alt="">
-                        </div>
-        
-                        <div class="tour-block">
-                            <div class="tour-title-container">
-                                <h4>【台灣的屋脊】東北亞最高峰 玉山主峰</h4>
-                            </div>
-        
-                            <div class="tag">
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                                <div class="tag_click"><span>#tag</span></div>
-                            </div>
-        
-                            <div class="tour-place">
-                                <div class="location">
-                                    <div class="location_icon"><img src="./images/icons/icon_location.svg" alt=""></div>
-                                    <div class="area"><p>南部</p></div>
-                                    <p>｜</p>
-                                </div>
-        
-                                <div class="degree_category">
-                                    <div class="category_text">難度</div>
-                                    <div class="mountain_icon">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                        <img src="./images/icons/icon_mountain.svg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="tour-activitystart">
-                                <div class="tour-start">
-                                    <span>2020/09/08出發｜</span>
-                                </div>
-                                <div class="tour-end">
-                                    <span>2020/09/10回程</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
-
-                <!-- <div id="tag">
-                    <div class="tag-tittle">
-                        <p>關鍵字</p>
-                    </div>
-                    <ul class="hot-tags">
-                        <li><a href="#">#玉山</a></li>
-                        <li><a href="#">#五步哭山</a></li>
-                        <li><a href="#">#台灣</a></li>
-                        <li><a href="#">#登山杖</a></li>
-                        <li><a href="#">#登山配備</a></li>
-                        <li><a href="#">#抹茶山</a></li>
-                        <li><a href="#">#玉山</a></li>
-                        <li><a href="#">#五步哭山</a></li>
-                        <li><a href="#">#台灣</a></li>
-                        <li><a href="#">#登山杖</a></li>
-                    </ul>
-                </div> -->
-
             </div>
         </div>
     </main>
@@ -641,9 +445,6 @@
         $(window).ready(function(){
         let liNum = $('.slider__item').length
         let liW = $('.slider__item').width()
-        // let divW = liW * 2.7
-        // $('.slider').css({'width':divW});
-        // $('.slider__area').css({width:liW*liNum,marginLeft: -liW})
 
         $('.slider__area').css({width:liW*liNum})
 
@@ -682,6 +483,7 @@
         
         }).call(this);
     </script> -->
+
     <script src="./js/forum.js" defer></script>
     <script src="./js/header.js" ></script>
     <!-- <script src="./js/common.js"></script> -->

@@ -10,7 +10,7 @@ try{
     $forum_post_no = $_POST['forum_post_no'];
 
     //討論區首頁貼文 -- 公告 -- 最新3篇
-    $sql="SELECT  f.forum_post_no , f.forum_post_poster, f.forum_post_title ,f.forum_post_image,m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_avator, a1.achievement_image , m.mem_badge2 , a2.achievement_image , m.mem_badge3 , a3.achievement_image , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
+    $sql="SELECT  f.forum_post_no , f.forum_post_poster, f.forum_post_title ,f.forum_post_image,m.mem_id ,r.mem_realname , g.guide_no , m.mem_badge1 , m.mem_avator, a1.achievement_image 'badge1' , m.mem_badge2 , a2.achievement_image 'badge2' , m.mem_badge3 , a3.achievement_image 'badge3' , f.forum_post_category , f.forum_post_time , f.forum_post_title , f.forum_post_innertext , COUNT(*) 
     FROM forum_post f
         LEFT OUTER JOIN member_realname r ON ( f.forum_post_poster = r.mem_no and r.mem_realname_situation = '已審核已通過')
         LEFT OUTER JOIN member_guide g ON ( f.forum_post_poster = g.mem_no and g.mem_guide_situation = '已審核已通過')

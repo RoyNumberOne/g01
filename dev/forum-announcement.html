@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="./css/forum-comment.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/fontawesome.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <script src="./js/header.js" ></script>
 </head>
 <body>
     
@@ -83,15 +81,30 @@
             </div>
 
             <div class="original-poster-block">
-                <div class="poster">
-                    <div class="original"><img :src="issuanarea.mem_avator" alt=""></div>
-                    <div class="name_time">
-                        <p class="poster-name">{{issuanarea.mem_id}}</p>
-                        <div class="poster-time">
-                            <span>{{issuanarea.forum_post_time}}</span>
+                <div class="member_styleA row">
+                    <div class="memberImg">
+                        <img :src="issuanarea.mem_avator" alt="大頭照">
+                    </div>
+                    <div class="memberInfo">
+                        <div class="certification">
+                            <span v-if="CHECKname" class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                            <span v-if="CHECKguide" class="certificationIcon"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                        </div>
+                        <div class="memberId">{{issuanarea.mem_id}}</div>
+                        <div class="memberBadge">
+                            <span class="memberBadgeIcon">
+                                <img :src="issuanarea.badge1" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img :src="issuanarea.badge2" alt="">
+                            </span>
+                            <span class="memberBadgeIcon">
+                                <img :src="issuanarea.badge3" alt="">
+                            </span>
                         </div>
                     </div>
                 </div>
+
                 <div class="poster-report">
                     <div class="commentCollect" @click="forum_artical_Collect">
                         <img class="heart" src="./images/icons/icon_heart.svg" alt="">
@@ -109,8 +122,8 @@
                 <div class="post-image">
                     <img :src="issuanarea.forum_post_image" alt="">
                 </div>
-                <p class="write-top">－－－本文為網友的心得，以下內容不代表媒山友立場。－－－</p>
-                <br>
+                <!-- <p class="write-top">－－－本文為網友的心得，以下內容不代表媒山友立場。－－－</p>
+                <br> -->
                 <p>{{issuanarea.forum_post_innertext}}</p>
             <hr>
             </div>
@@ -124,19 +137,19 @@
                         </div>
                         <div class="memberInfo">
                             <div class="certification">
-                                <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                                <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
+                                <span class="certificationIcon"><input type="hidden" :class="'MR'+index" :value="commentpost.mem_realname"><img src="./images/icons/icon_realname.svg" alt=""></span>
+                                <span class="certificationIcon"><input type="hidden" :class="'GN'+index" :value="commentpost.guide_no"><img src="./images/icons/icon_guide.svg" alt=""></span>
                             </div>
                             <div class="memberId">{{commentpost.mem_id}}</div>
                             <div class="memberBadge">
                                 <span class="memberBadgeIcon">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                    <img :src="commentpost.badge1" alt="">
                                 </span>
                                 <span class="memberBadgeIcon">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                    <img :src="commentpost.badge2" alt="">
                                 </span>
                                 <span class="memberBadgeIcon">
-                                    <img src="./images/member/Ach_list_03.png" alt="">
+                                    <img :src="commentpost.badge3" alt="">
                                 </span>
                             </div>
                         </div>
@@ -146,13 +159,12 @@
                     <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
-                                <p>{{index+1}}F 發表於 {{commentpost.comment_time}}</p>
+                                <p>發表於 {{commentpost.comment_time}}</p>
                                 <div class="report">
                                     <button type="button" type="button" class="mg_report_bt" @click=openReportModal>
                                         <img class="mg_report_pic" src="./images/icons/icon_report.svg" alt="">
                                         <div class="mg_text">檢舉</div>
                                     </button>
-                                    <!-- <p>檢舉</p> -->
                                 </div>
                             </div>
                             <input class="TEMPno" type="hidden" :value="commentpost.comment_no">
@@ -166,33 +178,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="post-poster-block02">
-                <div class="member_styleA column">
-                    <div class="memberImg">
-                        <img src="./images/meet/member/Chris.jpg" alt="">
-                    </div>
-                    <div class="memberInfo">
-                        <div class="certification">
-                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                        </div>
-                        <div class="memberId">Chris</div>
-                        <div class="memberBadge">
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post-text">
-                    <div class="triangle2">
+                    <!-- <div class="triangle2">
                         <div class="triangle-text">
                             <div class="poster-say">
                             <p>3 F  2020-07-18 11:39</p>
@@ -211,19 +197,9 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-            </div> -->
-
-                <div class="nextpage-btn" style="display: none;">
-                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
-                    <button class="btnA_S pg -active"><p>01</p></button>
-                    <button class="btnA_S pg"><p>02</p></button>
-                    <button class="btnA_S pg"><p>03</p></button>
-                    <button class="btnA_S pg"><p>04</p></button>
-                    <button class="btnA_S pg"><p>05</p></button>
-                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
-                </div>
+            </div>
 
                 <div class="text-arera-block">
                     <div class="area-tittle">
@@ -237,9 +213,19 @@
                 <div class="message-btn">
                     <button class="btnB_XL_yellow" id="submitMessage" @click="SENDmsg" type="button"><p>我要留言</p><div class="bg"></div></button>
                 </div>
+
+                <div class="nextpage-btn" >
+                    <div class="page">
+                        <!-- <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button> -->
+    
+                        <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMessagepost(i)"><p>{{i}}</p></button>
+    
+                        <!-- <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button> -->
+                    </div>
+                </div>
             </div>
 
-            <div class="product-block">
+            <!-- <div class="product-block">
                 <div class="arrow-right"></div>
 
                 <div class="product-img">
@@ -267,9 +253,8 @@
                     <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
                 </div>
                 <div class="left"></div>
-            </div>
+            </div> -->
         </div>
-
     </main>
 
     <!---留言檢舉--->
@@ -313,7 +298,7 @@
     <!-- -------------------------aside link------------------------- -->
     <div id="aside-link">
         <div class="aside-com-btn">
-            <a href="./meet2-2.html" target="_blank"><img src="./images/form_img/want2.png" alt=""></a>
+            <a href="./meet2-2.html"><img src="./images/form_img/want2.png" alt=""></a>
         </div>
     </div>
 
