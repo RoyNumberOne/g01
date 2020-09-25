@@ -440,13 +440,13 @@ $(document).on('keydown',function(e) {
             // 天氣敘述
             $id('weatherp').innerHTML = AreaData.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
             // 渲染日期 
-            $id('date1').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10) + '日';
-            $id('date2').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10) + '日';
-            $id('date3').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10) + '日';
-            $id('date4').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10) + '日';
-            $id('date5').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10) + '日';
-            $id('date6').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10) + '日';
-            $id('date7').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10) + '日';
+            $id('date1').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10);
+            $id('date2').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10);
+            $id('date3').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10);
+            $id('date4').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10);
+            $id('date5').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10);
+            $id('date6').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10);
+            $id('date7').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10);
             // 渲染早上平均溫度
             $id('Ttop1').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value + '°C'
             $id('Ttop2').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[3].elementValue[0].value + '°C'
