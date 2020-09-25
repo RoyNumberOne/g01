@@ -1,19 +1,32 @@
 @import 'common';
+html{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 body{
     background-color: #34393d;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow: hidden !important;
   }
   .container{
     top: 45%;
-    position: absolute;
+    position: relative;
+    display: inline;
+    white-space: nowrap;
     @media screen and (min-width: 1440px) { left: 35%; }
     @media screen and (min-width: 1200px) and (max-width: 1439px){  left: 31%; }
     @media screen and (min-width: 992px) and (max-width: 1199px){  left: 30%; }
     @media screen and (min-width: 768px) and (max-width: 991px){  left: 26%; }
-    @media screen and (min-width: 576px) and (max-width: 767px){  left: 19%; transform: scale(0.8) }
-    @media screen and (max-width: 575px){  left: 35%; }
+    @media screen and (min-width: 576px) and (max-width: 767px){
+        left: 12%; 
+      }
+    @media screen and (max-width: 575px){
+        left: -14%; 
+        top: 30vh;
+      }
   }
   .lefthill{
     position: relative;
@@ -38,7 +51,7 @@ body{
     width: 50px;
     transform: rotateY(180deg);
     position: relative;
-    left: 50px;
+    left: 100px;
     bottom: 0px;
   }
   .lefthill .lefttriangle{
@@ -52,6 +65,55 @@ body{
     left: 56px;
   }
   .lefthill .lefttriangle::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 49px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 100px solid #b9c1c4;
+    transform: rotateY(180deg);
+    position: relative;
+    left: 0px;
+  }
+  .righthill{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    top: -40px;
+    left: 50px;
+  }
+  .righthill .righttrapezoid{
+    border-bottom: 100px solid #4c626f;
+    border-left: 55px solid transparent;
+    border-right: 0px solid transparent;
+    height: 50px;
+    width: 50px;
+  }
+  .righthill .righttrapezoid::after {
+    content: "";
+    display: inline-block;
+    border-bottom: 100px solid #202e37;
+    border-left: 55px solid transparent;
+    border-right: 0px solid transparent;
+    height: 50px;
+    width: 50px;
+    transform: rotateY(180deg);
+    position: relative;
+    left: 100px;
+    bottom: 0px;
+  }
+  .righthill .righttriangle{
+    width: 0;
+    height: 0;
+    border-left: 49px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 100px solid #c5cfd1;
+    position: relative;
+    bottom: 200px;
+    left: 56px;
+  }
+  .righthill .righttriangle::after {
     content: "";
     display: inline-block;
     width: 0;
@@ -87,7 +149,7 @@ body{
     width: 50px;
     transform: rotateY(180deg);
     position: relative;
-    left: 50px;
+    left: 100px;
   }
   .centerhill .centertriangle{
     width: 0;
@@ -823,8 +885,13 @@ body{
     &:hover {
         opacity: 1;
     }
-
-
+    @media screen and (max-width: 767px){
+        opacity: 1 !important;
+        & p{
+          margin: 10% auto 0;
+          font-size: 50px;
+        }
+    }
 }
     .frontstage{
         cursor: pointer;
@@ -848,6 +915,13 @@ body{
         }
         &:hover {
             opacity: 1;
+        }
+        @media screen and (max-width: 767px){
+            opacity: 1 !important;
+            & p{
+              margin: 20% auto 0;
+              font-size: 50px;
+            }
         }
     }
 
