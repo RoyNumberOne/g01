@@ -188,13 +188,16 @@ new Vue({
         }
 
         //判斷揪團是否檢舉換圖
-        if(this.tour_report_img[0].tour_report_mem){
-            // console.log('還沒檢舉')
-        }   else    {
-            // console.log('已檢舉')
-            $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
-            $('.tr_report_bt').attr('disabled', 'disabled')
+        if($('#mem_info_id').text() != ''){
+            if(this.tour_report_img[0].tour_report_mem){
+                $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
+                $('.tr_report_bt').attr('disabled', 'disabled')
+                // console.log('已檢舉')
+            }   else    {
+                // console.log('還沒檢舉')
+            }
         }
+
 
         //判斷收藏
         let tour_no = (new URL(document.location)).searchParams;
@@ -315,7 +318,7 @@ new Vue({
         },
         openTourApplyModal(){
 
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -450,7 +453,7 @@ new Vue({
         },
         //揪團檢舉彈窗
         openTourReportModal(e) {
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -486,7 +489,7 @@ new Vue({
         },
         //判斷留言檢舉
         openMessageReportModal(e) {
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -535,7 +538,7 @@ new Vue({
             NOWtime = Date.parse(NOWtime);
             BANtime = Date.parse($("#BanCommentDate").val());
 
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 // swal('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
