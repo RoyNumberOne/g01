@@ -12,7 +12,7 @@ xhr.onload = function(){
     if(xhr.status == 200){
         member = JSON.parse(xhr.responseText);
         if(member.mem_acc === undefined){
-            alert("帳密錯誤");
+            swal("帳密錯誤","請重新輸入","error");
         }else if(localStorage.getItem('web') == null){ //登入成功
             $("#signInForm").submit();
             window.location.href = './Member_v2.html';
@@ -86,7 +86,9 @@ function init(){
 
 function loginStatus(){
     if($('#mem_info_id').html() === ''){
-        alert ('請先登入');
+        // alert ('請先登入');
+        let url = window.location.href;
+        localStorage.setItem('web', url);
         window.location.href = './login_v2.html';
     }else{
         // alert('歡迎登入');

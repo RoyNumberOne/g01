@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/fa5.14.0all.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./css/login_v2.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
@@ -213,6 +214,11 @@
     <script>
         // 手機板註冊會員切換
         $(document).ready(function() {
+
+            // if($('#mem_info_id').html() !== ''){
+            //     window.location.href = './Member_v2.html'
+            // }
+
             $('.clickMe_app').click(function() {
                 $('.container--signin').css('display', 'none');
                 $('.container--signup').css('display', 'block');
@@ -230,6 +236,15 @@
                     $("#eye").attr("src", "./images/icons/icon_Invisible.svg");
                 }
             });
+
+
+
+        // 強制登出
+            // let xhr = new XMLHttpRequest();
+            // if($('#mem_info_id').html() !== ''){
+            // }
+            // xhr.open("get","./login_v2_Logout.php",true);
+            // xhr.send(null);
         });
 
         // 註冊判斷帳號/暱稱是否使用過
@@ -237,26 +252,27 @@
 
             var idCheck = $("#mem_id").val();
             if (idCheck.length == "" ) { //帳號
-                alert('暱稱不可空白');
+                swal("暱稱不可空白", "請填寫暱稱","error");
+                // alert('暱稱不可空白');
                 return;
             }
             
             var mail=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             var mailCheck = $("#mem_mail").val();
             if(mailCheck.match(mail)==null){ //信箱
-                alert("email格式不正確");
+                swal("email格式不正確", "請確認email","error");
                 return;
             }  
 
             var accCheck = $("#mem_acc_app").val();
             if (accCheck.length > 12 ^ accCheck == "" ) { //帳號
-                alert('帳號長度錯誤');
+                swal("帳號長度錯誤", "請確認帳號","error");
                 return;
             }
 
             var pswCheck = $("#mem_psw_app").val();
             if (pswCheck.length < 8 ^ pswCheck.length > 12) { //密碼
-                alert('密碼長度錯誤');
+                swal("密碼長度錯誤", "8~12字以內","error");
                 return;
             }
 
@@ -265,7 +281,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
-                        alert(xhr.responseText); //回傳php回應的值
+                        swal(xhr.responseText); //回傳php回應的值
                         if (xhr.responseText == '帳號註冊成功'){
                             if(localStorage.getItem('web') == null){ //註冊成功
                                 $("#signInForm").submit();
@@ -317,6 +333,7 @@
                 $(".tip").hide();
             }
         }
+
     </script>
     <script src="./js/header.js"></script>
     <script src="./js/login_v2.js"></script>

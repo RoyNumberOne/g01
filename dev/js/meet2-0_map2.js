@@ -12,8 +12,8 @@ function initMap() {
 
     // 設定地圖中心點 比例尺  (設定 Marker（多個）)
     const map = new google.maps.Map(document.getElementById("searchMap"), {
-        zoom: 7,
-        center: { lat: 23.469806, lng: 120.957617 }, // "玉山"
+        zoom: 9,
+        center: { lat: 24.590114, lng: 121.399445 }, 
     });
 
 //--- SET  MARKERS --------------------------------------------------------------------------

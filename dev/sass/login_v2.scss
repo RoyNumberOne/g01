@@ -287,11 +287,17 @@ main {
 @media screen and (min-width: 1200px) and (max-width: 1439px) {
     .container {
         max-width: 1152px;
+        height: 550px;
         .container--signin {
             display: block !important;
         }
         .container--signup {
             display: block !important;
+            #signUpForm{
+                .form__title{
+                    margin: 0;
+                }
+            }
         }
     }
 }
@@ -299,11 +305,17 @@ main {
 @media screen and (min-width: 992px) and (max-width: 1199px) {
     .container {
         max-width: 960px;
+        height: 550px;
         .container--signin {
             display: block !important;
         }
         .container--signup {
             display: block !important;
+            #signUpForm{
+                .form__title{
+                    margin: 0;
+                }
+            }
         }
     }
     #admin_psw1 {
@@ -330,13 +342,18 @@ main {
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .container {
         max-width: 720px;
-        height: 620px;
+        height: 550px;
         width: 90%;
         .container--signin {
             display: block !important;
         }
         .container--signup {
             display: block !important;
+            #signUpForm{
+                .form__title{
+                    margin: 0;
+                }
+            }
         }
     }
     #admin_psw1 {

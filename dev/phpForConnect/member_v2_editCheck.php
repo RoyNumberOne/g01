@@ -19,14 +19,16 @@ try{
                                     where mem_no= $mem_no ;";
 
         $member=$pdo->prepare($sql);
+        $mem_mail = $_POST['mem_mail'];
+        $mem_psw = $_POST['mem_psw'];
         $member->bindValue(":mem_id", $mem_id);
-        $member->bindValue(":mem_mail",$_POST["mem_mail"]);
-        $member->bindValue(":mem_psw",$_POST["mem_psw"]);
+        $member->bindValue(":mem_mail",$mem_mail);
+        $member->bindValue(":mem_psw",$mem_psw);
         // $member->bindValue(":mem_no",$_REQUEST["mem_no"]);
         $member->execute();
         
         echo "修改成功";
-        
+
         unset($_SESSION['mem_no']);
         unset($_SESSION['mem_id']);
         unset($_SESSION['mem_name']);
@@ -37,6 +39,11 @@ try{
         unset($_SESSION['mem_point']);
         unset($_SESSION['mem_avator']);
         unset($_SESSION['mem_bg']);
+        unset($_SESSION['class']);
+        unset($_SESSION['mem_badge1']);
+        unset($_SESSION['mem_badge2']);
+        unset($_SESSION['mem_badge3']);
+        unset($_SESSION["guide_no"]);
         
     }
 }catch (PDOException $e){
