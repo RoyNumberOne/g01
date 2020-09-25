@@ -77,34 +77,42 @@ header {
                 }
             }
             & ul.llmiddle {
-                top: 519px;
+                top: 495px;
                 width: 180px;
-                & li a.member{
-                    // left: 50px;
-                    // top: 170px;
-                    & svg {
-                        position: absolute;
-                        @media screen and (min-width: 575px){
-                            transform: scale(3);
-                        }
-                        @media screen and (max-width: 575px){
-                            transform: scale(2);
-                        }
-                    }
-                }
-                & li a.cart{
-                    & svg {
-                        position: absolute;
-                        @media screen and (min-width: 575px){
-                            transform: scale(3);
-                        }
-                        @media screen and (max-width: 575px){
-                            transform: scale(2);
+                & li {
+                    display: inline-block;
+                    &  a.member div.memicon {
+                        width: 70px;
+                        height: 70px;
+                        padding: 10px;
+                        & .membg {
+                            width: 100%;
+                            height: 100%;
+                            background-position: center; 
+                            background-repeat: no-repeat;
+                            background-size: contain; 
+                            background-image: url("../images/icons/icon_member_b.svg");
+                            &:hover{
+                                background-image: url("../images/icons/icon_member_y.svg");
+                            }
                         }
                     }
-                }
-                & li a path{
-                    color: $mt_blue2 ;
+                    &  a.cart div.carticon {
+                        width: 70px;
+                        height: 70px;
+                        padding: 10px;
+                        & .cartbg {
+                            width: 100%;
+                            height: 100%;
+                            background-position: center; 
+                            background-repeat: no-repeat;
+                            background-size: contain; 
+                            background-image: url("../images/icons/icon_car_b.svg");
+                            &:hover{
+                                background-image: url("../images/icons/icon_car_y.svg");
+                            }
+                        }
+                    }
                 }
             }
             & ul.llright {
@@ -246,25 +254,6 @@ header {
         }
 
 
-    li{
-        &:hover a{
-            & svg path {
-                color: $mt_yellow !important ;
-            }
-        }
-    
-    }
-
-
-    li{
-        &:hover a{
-            & svg path {
-                color: $mt_yellow !important ;
-            }
-        }
-    
-    }
-
     
     }
 
@@ -297,10 +286,7 @@ header {
         }
     }
     & ul.llmiddle {
-        left: 58vw;
-        & li a.cart{
-            left: 90px;
-        }
+        left: 55vw;
     }
     & ul.llright {
         left: 74vw;
@@ -340,10 +326,7 @@ header {
             }
         }
         & ul.llmiddle {
-            left: calc(78vw - 340px);
-            & li a.cart{
-                left: 90px;
-            }
+            left: calc(72vw - 290px);
         }
         & ul.llright {
             left: 69vw;
@@ -398,11 +381,8 @@ header {
             }
         }
         & ul.llmiddle {
-            top: 470px !important;
-            left: calc(31vw);
-            & li a.cart{
-                left: 90px;
-            }
+            top: 450px !important;
+            left: calc(29vw);
         }
         & ul.llright {
             top: 155px !important;
@@ -476,11 +456,8 @@ header {
             }
         }
         & ul.llmiddle {
-            top: 420px !important;
-            left: calc(25vw);
-            & li a.cart{
-                left: 90px;
-            }
+            top: 385px !important;
+            left: calc(23vw);
         }
         & ul.llright {
             top: 105px !important;
@@ -554,12 +531,9 @@ header {
             }
         }
         & ul.llmiddle {
-            top: 228px !important;
-            left: calc(18vw + 230px);
+            top: 190px !important;
+            left: calc(16vw + 230px);
             // left: 350px;
-            & li a.cart{
-                left: 90px;
-            }
         }
         & ul.llright {
             top: 305px !important;
@@ -634,12 +608,9 @@ header {
             }
         }
         & ul.llmiddle {
-            top: 178px !important;
-            left: calc(17vw + 180px);
-            // left: 350px;
-            & li a.cart{
-                left: 55px;
-            }
+            top: 148px !important;
+            left: calc(17vw + 130px);
+            transform: scale(0.7);
         }
         & ul.llright {
             top: 225px !important;

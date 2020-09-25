@@ -7,7 +7,7 @@ try	{
     $memNO = $_SESSION["mem_no"] ;
 
     if(isset($_SESSION["mem_no"]) === true){
-        $sql = "SELECT order_no '訂單編號' , member_no '會員編號' ,order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , round( order_total * ( 100 - order_discount ) / 100 + order_logistics_fee ) '付款金額' , order_build '訂單成立時間' from orders join member on orders.member_no = member.mem_no where member_no = $memNO order by order_no; " ;
+        $sql = "SELECT order_no '訂單編號' , member_no '會員編號' ,order_logistics_recipient'收件人' , order_logistics_phone '聯絡電話' , order_cashflow '付款方式' , order_position '訂單狀態' , order_total '付款金額' , order_build '訂單成立時間' from orders join member on orders.member_no = member.mem_no where member_no = $memNO order by order_no; " ;
         $pdoStatement = $pdo->query($sql);
         $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     ?>

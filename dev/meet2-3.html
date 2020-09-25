@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒山友｜揪團｜揪團資訊</title>
-    <!-- <link href="https://fsudocom/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="./css/meet2-3.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <script src="./js/jquery-3.5.1.js"></script>
-    <script src="./js/vue.js"></script>
+    <script src="./js/vue.min.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/sweetalert.min.js"></script>
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 </head>
 
 <body>
@@ -312,7 +310,6 @@
                 <div>
                     <h3 class="text_underline">報名狀態</h3>
                 </div>
-                <!-- <div>{{currentTour.tour_progress}}</div> -->
                 <button id="apply_bt" class="btnB_XL_yellow" @click="openTourApplyModal"><p>報名活動</p><div class="bg"></div></button>
                 <button id="okGo" class="btnB_XL_grey none" @click="startTour" disabled><p>提早成團！</p><div class="bg"></div></button>
             </div>
@@ -402,14 +399,7 @@
             </div>
             <div class="nextpage-btn" >
                 <div class="page">
-                    <!-- <ul>
-                        <li  v-for="i in totalPage" :key="i" @click="changeForumpostlist(i)">{{i}}<li>
-                    </ul> -->
-                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgprev">&#10229</p></button>
-
                     <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeCommentlist(i)"><p>{{i}}</p></button>
-
-                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;" @click="pgnext">&#10230</p></button>
                 </div>
             </div>
         </div>
@@ -490,10 +480,9 @@
                     </div>
                 </div>
         </footer>
-        <script src="./js/fa5.14.0all.js"></script>
-        <script src="./js/header.js"></script>
-        <script src="./js/meet2-3.js" defer></script>
-        <script src="./js/login_v2.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/meet2-3.js" defer></script>
+    <script src="./js/login_v2.js"></script>
 </body>
 
 </html>

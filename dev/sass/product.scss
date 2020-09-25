@@ -1,6 +1,6 @@
 @import 'common';
 header{
-    border-bottom: 5px solid #1A95DB
+    border-bottom: 5px solid $mt_blue1;
 }
 div.wrap{
     max-width: 1152px;
@@ -22,14 +22,14 @@ div.wrap{
         .category{
             width: 50%;
             height: 500px;
-            background-color: rgba(255, 196, 0, .5);
+            background-color: rgba($mt_yellow, .5);
             .defult_clothes{
                 cursor: pointer;
                 height: 100%;
                 h2{
                     text-align: center;
                     color: #fff;
-                    text-shadow: 0.1em 0.1em 0.2em #555555;
+                    text-shadow: 0.1em 0.1em 0.2em $mt_fontdark;
                 }
                 img{
                     display: block;
@@ -85,12 +85,12 @@ div.wrap{
                     .product_name{
                         transition: .5s ease;
                         color: #fff;
-                        text-shadow: 0.1em 0.1em 0.2em #555555;
+                        text-shadow: 0.1em 0.1em 0.2em $mt_fontdark;
                     }
                     .product_price{
                         transition: .5s ease;
                         color: #fff;
-                        text-shadow: 0.1em 0.1em 0.2em #555555;
+                        text-shadow: 0.1em 0.1em 0.2em $mt_fontdark;
                     }
                 }
                     a{
@@ -108,16 +108,16 @@ div.wrap{
                 }
             }
             .it_bg1{
-                background-color: rgba(26, 149, 219, 0.5);
+                background-color: rgba($mt_blue1, 0.5);
             }
             .it_bg2{
-                background-color: rgba(44, 94, 158, .5);
+                background-color: rgba(44, 94, 158, 0.5);
             }
             .it_bg3{
                 background-color: rgba(234, 241, 244, .5);
             }
             .it_bg4{
-                background-color: rgba(255, 196, 0, .5);
+                background-color: rgba(255, 196, 0, 0.5);
             }
             //category chose
             .category_block{
@@ -136,7 +136,7 @@ div.wrap{
                     .category_name{
                         transition: .5s ease;
                         color: #fff;
-                        text-shadow: 0.1em 0.1em 0.2em #555555;
+                        text-shadow: 0.1em 0.1em 0.2em $mt_fontdark;
                     }
                 }
                 .cate_pic{
@@ -214,7 +214,7 @@ div.wrap{
     transition: all .5s 0s ease;
     background-size: 100% 100%;
     &:hover{
-        background-color: rgba(34, 34, 34, .5);
+        background-color: rgba($mt_black, 0.5);
         opacity: 1;
         cursor: pointer;
     }
