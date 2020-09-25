@@ -19,16 +19,21 @@ nav.menu ul.link_list.llright li {
     }
 }
 
+body {
+    // overflow: hidden;
+    // 不想出現scrollbar就打開
+}
+
 main {
     align-items: center;
     background-color: var(--white);
-    background: url("../images/mountain_image/南湖東峰.jpg");
+    background: url("../images/MOUNTAIn.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    height: 120vh;
+    height: 100vh;
     place-items: center;
 }
 
@@ -146,7 +151,7 @@ main {
     z-index: 19;
     .overlay {
         background-color: var(--lightblue);
-        background: url("../images/mountain_image/南湖東峰.jpg");
+        background: url("../images/MOUNTAIn.png");
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
