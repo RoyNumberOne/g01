@@ -31,7 +31,7 @@ new Vue({
         .then((res) => {
             this.Collect_productList = res.data; //this.BBB = res.data;
 
-            console.log(res.data); //測試是否成功
+            // console.log(res.data); //測試是否成功
 
             // console.log(this.meetList);
             for(let i = 0; i< this.Collect_productList.length; i++){  //動態生成內容，依據json有幾筆

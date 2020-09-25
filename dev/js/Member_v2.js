@@ -127,7 +127,7 @@ function getMemberFo(){
       member = JSON.parse(xhr.responseText);
       if (member.mem_id){
           $id("memProfile_img").src = member.mem_avator; //會員頁大頭照
-          // $id("mem_bg").src = member.mem_bg; //會員頁背景
+          $id("mem_bg").src = member.mem_bg; //會員頁背景
           $id("memberId").innerText = member.mem_id; //會員頁名稱
 
           
