@@ -71,7 +71,10 @@
     </header>
     <main>
         <div class="top">
-            <div class="banner"><img id="mem_bg" src="./images/member/memberbg.jpg"></div>
+            <div class="banner">
+                <img id="mem_bg" src="./images/member/memberbg.jpg">
+                <input type="file" id="mem_bg_file" name="mem_bg_file" accept="image/*" />
+            </div>
             <div class="memProfile">
                 <div class="memProfile_AVA">
                     <div class="memProfile_AVA_img"><img id="memProfile_img" src=""></div>
@@ -769,6 +772,79 @@
             e.preventDefault();
             $.ajax({
                 url: "./phpForConnect/member_v2_edit_avator.php",
+                type: "POST",
+                data:  formData,
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data){
+                    // alert(data);
+                    // location.reload();
+                    
+                },
+                error: function(){
+                    alert("error");
+                }
+            });
+        }
+    })
+
+    // 大頭貼更換
+    window.addEventListener("load", function(){
+
+        document.getElementById("mem_ava_edit").onchange = function(e){
+            let file = e.target.files[0];  //取得file物件
+            let reader = new FileReader(); //建立一個reader物件
+            reader.onload = function(e){
+                $('#memProfile_img').attr('src',e.target.result);
+                $('#mem_avatar_img').attr('src',e.target.result);
+            }
+
+            reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
+            
+
+            let formData = new FormData();
+            formData.append("mem_ava_edit", file);
+
+            e.preventDefault();
+            $.ajax({
+                url: "./phpForConnect/member_v2_edit_avator.php",
+                type: "POST",
+                data:  formData,
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data){
+                    // alert(data);
+                    // location.reload();
+                    
+                },
+                error: function(){
+                    alert("error");
+                }
+            });
+        }
+    })
+
+    // 背景圖更換
+    window.addEventListener("load", function(){
+
+        document.getElementById("mem_bg_file").onchange = function(e){
+            let file = e.target.files[0];  //取得file物件
+            let reader = new FileReader(); //建立一個reader物件
+            reader.onload = function(e){
+                $('#mem_bg').attr('src',e.target.result);
+            }
+
+            reader.readAsDataURL(file); //利用reader物件將file的內容讀進來
+            
+
+            let formData = new FormData();
+            formData.append("mem_bg_file", file);
+
+            e.preventDefault();
+            $.ajax({
+                url: "./phpForConnect/member_v2_edit_bg.php",
                 type: "POST",
                 data:  formData,
                 contentType: false,
