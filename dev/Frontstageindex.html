@@ -815,8 +815,6 @@
             created() {
                 axios.get('./phpForConnect/frontstageindexProduct.php').then(res => {
                 this.Product = res.data; 
-                console.log('success'); 
-                console.log(this.Product);
                 })
             },
             methods:{

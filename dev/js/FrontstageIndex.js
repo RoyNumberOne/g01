@@ -640,7 +640,26 @@ $(document).ready(function(){
 
 
 
-
+    let cartCounted = function(){
+        var i=0;
+        for (prop in JSON.parse(localStorage.cartList)) {
+        i++;
+          console.log(JSON.parse(localStorage.cartList)[prop]);
+        }
+        // console.log(i);
+    
+        $('.add_count_others')[0].innerText = i;
+    
+        if(i != 0){
+            $('.add_count_others').css('display', 'block')
+        }else if(i=''){
+            $('.add_count_others').css('display', 'none')    
+        }else{
+            $('.add_count_others').css('display', 'none')     
+        }
+    }
+    
+    cartCounted();
 
 
 
