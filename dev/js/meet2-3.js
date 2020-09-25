@@ -529,7 +529,7 @@ new Vue({
                 if (BANtime>NOWtime) {
                     swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
                 }   else    {
-                    window.location.href = '../meet2-2.html';
+                    window.location.href = './meet2-2.html';
                 }
             })
         },

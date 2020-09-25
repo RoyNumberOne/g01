@@ -79,7 +79,9 @@ new Vue({
         })
         .catch(error => {console.log(error)});
         
+        let NOWtime;
         this.getForumpostlist();
+        this.POST();
     },
     created(){
         
@@ -156,6 +158,19 @@ new Vue({
         changeForumpostlist(page){
             this.currentPage = page;
             this.getForumpostlist();
+        },        //我要開團的側邊圖
+        POST()  { 
+            $("#ask").click(function(){
+                NOWtime = new Date (Date.now())
+                NOWtime = Date.parse(NOWtime);
+                BANtime = Date.parse($("#BanForumDate").val());
+    
+                if (BANtime>NOWtime) {
+                    swal(`您先前的發文已被檢舉!\n解鎖時間為:${$("#BanForumDate").val()}`)
+                }   else    {
+                    window.location.href = './forum-post.html';
+                }
+            })
         },
     },
     //響導認證及會員認證的icon
@@ -230,4 +245,25 @@ $(".pgnext").click(function(){
         $(".-active").prev(".-active").removeClass("-active");
     }
     checkpg();
+});
+
+$(function() {
+    // 開團按鈕偵測是否登入
+    $('.aside-com-btn').click(function (){
+        if($('#mem_info_id').html() === ''){
+            let url = window.location.href;
+            localStorage.setItem('web', url);
+            window.location.href = './login_v2.html';
+        }else{
+            var NOWtime = new Date (Date.now())
+            NOWtime = Date.parse(NOWtime);
+            var BANtime = Date.parse($("#BanTourDate").val());
+    
+            if (BANtime>NOWtime) {
+                swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
+            }   else    {
+                window.location.href = './meet2-2.html';
+            }
+        }
+    });
 });

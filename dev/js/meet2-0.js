@@ -204,8 +204,15 @@ $(function() {
             localStorage.setItem('web', url);
             window.location.href = './login_v2.html';
         }else{
-            
-            window.location.href = './meet2-2.html';
+            var NOWtime = new Date (Date.now())
+            NOWtime = Date.parse(NOWtime);
+            var BANtime = Date.parse($("#BanTourDate").val());
+    
+            if (BANtime>NOWtime) {
+                swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
+            }   else    {
+                window.location.href = './meet2-2.html';
+            }
         }
     });
 
