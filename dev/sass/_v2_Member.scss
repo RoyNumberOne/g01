@@ -10,8 +10,10 @@ main{
             height: 310px;
             display: flex;
             align-items: flex-end;
+            overflow: hidden;
             img{
                 width: 100%;
+                transform: translateY(50%);
             }
         }
         .memProfile{
@@ -29,9 +31,10 @@ main{
                     border: 4px solid #FFC400;
                     overflow: hidden;
                     display: flex;
-                    align-items: center;
+                    justify-content: center;
                     img{
-                        width: 100%;
+                        width: auto;
+                        height: 100%;
                     }
                 }
                 .memProfile_AVA_change{

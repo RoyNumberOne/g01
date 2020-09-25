@@ -70,13 +70,13 @@ try{
         var mail=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         var mailCheck = $("#mem_mail").val();
         if(mailCheck.match(mail)==null){ //email
-            alert("email格式不正確")
+            alert("email格式不正確");
             return;
         }
 
         var pswCheck = $("#mem_psw").val();
         if (pswCheck.length < 8 ^ pswCheck.length > 12) { //密碼
-            alert('密碼長度錯誤')
+            alert('密碼長度錯誤');
             return;
         }
 
@@ -97,14 +97,15 @@ try{
         let data_info = `mem_id=${$id("mem_id").value}&mem_psw=${$id("mem_psw").value}&mem_mail=${$id("mem_mail").value}`;
         xhr.send(data_info);
 
+        // window.location.href = './login_v2.html';
+        // location.reload();
+    }
+    function jump() {
         window.location.href = './login_v2.html';
     }
-    // function jump() {
-    //     window.location.href = './login_v2.html';
-    // }
     function Send(){
         editDetail();
-        // jump();
+        jump();
     }
     window.addEventListener("load", function(){
         document.getElementById("editConfirm").addEventListener("click", Send, false);
