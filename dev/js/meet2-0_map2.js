@@ -33,7 +33,6 @@ function initMap() {
                         position: { lat: parseFloat(mtList[i].mountain_latitude), lng: parseFloat(mtList[i].mountain_longitude) }, 
                         map: map,
                         icon: image, //換圖
-                        title: mtList[i].mountain_name , //滑鼠滑過後文字 
                         animation: google.maps.Animation.DROP //動畫 掉落(drop)
                         
                     });
@@ -51,7 +50,7 @@ function initMap() {
 
     setTimeout(function(){
 
-        console.log(mtList);
+        // console.log(mtList);
         let k ;
         for( k=0 ; k < mtList.length ; k++ ){
 

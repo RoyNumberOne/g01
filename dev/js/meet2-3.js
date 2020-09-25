@@ -116,7 +116,7 @@ new Vue({
             }
         }
 
-        //寫完揪團記得打開
+        //判斷登入者為開團者
         const nowMen = this.tourData.mem_no;
         let now = new Date();
         let xhr = new XMLHttpRequest();
@@ -136,7 +136,7 @@ new Vue({
                         $('.equip_recommend').css('display', 'none')
                         $('#apply_bt').addClass('none')
                         $('#okGo').removeClass('none')
-                        console.log(this.tourData.tour_min_number)
+                        // console.log(this.tourData.tour_min_number)
                         //提早成團
                         if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
                             $('#okGo').removeAttr('disabled')
@@ -163,7 +163,6 @@ new Vue({
                 }   
             }
         }
-        //寫完揪團記得打開
 
         //判斷是否已結束報名
         if(this.tourData.tour_progress == '已截止'){
@@ -338,7 +337,7 @@ new Vue({
                     "tour_participate_tour": tour_no,
                 }
             }).then(res => {
-                console.log('success apply');
+                // console.log('success apply');
                 axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
                     this.tourParticipates = res.data;
                 })
@@ -469,7 +468,7 @@ new Vue({
                         swal('請先輸入文字');
                     } else {
                         let tour_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
-                        console.log(tour_report_reason);
+                        // console.log(tour_report_reason);
                         axios.get('./phpForConnect/meet2-3_tour_report.php', {
                             params: {
                                 "tour_report_tour": reportNo,
@@ -497,7 +496,7 @@ new Vue({
                 // 打開彈窗
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
-                console.log(reportNo);
+                // console.log(reportNo);
                 let iconIF = $(e.target.parentNode).find("img.mg_report_pic");
                 $(".mg_confirm").click(function(e) {
                     var temp = $('#send_mg_report_block').val();
@@ -547,7 +546,7 @@ new Vue({
                 swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
-                console.log(temp)
+                // console.log(temp)
                 if (temp == '') {
                     swal('請先輸入文字');
                 } else {
@@ -582,7 +581,7 @@ new Vue({
         },
         //預覽圖片切換到大圖
         changePic(e) {
-            console.log($(e.target).attr('src'));
+            // console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
         //確認留言是否被檢舉過
@@ -634,7 +633,7 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
+                            // console.log(xhr.responseText);
                             // swal(xhr.responseText);
                         } else {
                             swal(xhr.status);

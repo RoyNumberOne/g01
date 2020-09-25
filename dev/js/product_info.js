@@ -82,7 +82,7 @@ new Vue({
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {
             if (xhr.status == 200) { //連線成功
-                console.log(xhr.responseText)
+                // console.log(xhr.responseText)
                 if (xhr.responseText != 0) {
                     $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
                 } else {
@@ -137,7 +137,7 @@ new Vue({
                 this.upDateLocalStorage();
             } else {
                 this.cartList[this.currentProduct.product_no].count += this.productCount;
-                console.log(this.cartList);
+                // console.log(this.cartList);
                 this.upDateLocalStorage();
             }
         },
@@ -170,7 +170,7 @@ new Vue({
                 if (this.products[i].product_no === productNo) {
                     return i;
                 } else {
-                    console.log('not find')
+                    // console.log('not find')
                 }
             }
         },
@@ -186,7 +186,7 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
+                            // console.log(xhr.responseText);
                             // swal(xhr.responseText);
                         } else {
                             swal(xhr.status);
