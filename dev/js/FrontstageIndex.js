@@ -82,7 +82,7 @@ $(document).ready(function() {
     loopBottom: true,
     loopTop: true,
 
-    sectionsColor: ['transparent', 'transparent', 'transparent', 'transparent'],
+    // sectionsColor: ['red', 'green', 'blue', 'pink'],
     });
 });
 // new fullpage('#fullpage', {
@@ -98,28 +98,34 @@ function checkbg(){
 
 };
     if($("#section2").hasClass("active")){
+        alert('21')
         $(".scene.r > img").css("opacity","1");
         $(".mountainmiddle.r > img").css("opacity","1");
         $(".mountainfirst.r > img").css("opacity","1");
         $(".scene.r > img").attr("src","./images/index/noon/sky.png");
         $(".mountainmiddle.r > img").attr("src","./images/index/noon/mountain2.png");
         $(".mountainfirst.r > img").attr("src","./images/index/noon/mountain1.png");
+        alert('22')
     };
     if($("#section3").hasClass("active")){
+        alert('31')
         $(".scene.r > img").css("opacity","1");
         $(".mountainmiddle.r > img").css("opacity","1");
         $(".mountainfirst.r > img").css("opacity","1");
         $(".scene.r > img").attr("src","./images/index/sunset/sky.png");
         $(".mountainmiddle.r > img").attr("src","./images/index/sunset/mountain2.png");
         $(".mountainfirst.r > img").attr("src","./images/index/sunset/mountain1.png");
+        alert('32')
     };
     if($("#section4").hasClass("active")){
+        alert('41')
         $(".scene.r > img").css("opacity","1");
         $(".mountainmiddle.r > img").css("opacity","1");
         $(".mountainfirst.r > img").css("opacity","1");
         $(".scene.r > img").attr("src","./images/index/night/sky.png");
         $(".mountainmiddle.r > img").attr("src","./images/index/night/mountain2.png");
         $(".mountainfirst.r > img").attr("src","./images/index/night/mountain1.png");
+        alert('42')
     };
 }
 
