@@ -1,3 +1,48 @@
+// header抓會員資料
+$(document).ready(function(){
+    let xhr = new XMLHttpRequest();
+  
+    xhr.onload = function(){
+        member = JSON.parse(xhr.responseText);
+        if (member.mem_id){
+            $id("mem_info_id").innerText = member.mem_id;
+            $id("mem_avatar_img").src = member.mem_avator;
+            $('#mem_avatar_box').css('visibility','visible');
+            $('#mem_info_id').css('visibility','visible');
+            $('#Logout_btn').css('visibility','visible');
+            $('#BanForumDate').val(member.ban_forum_date);
+            $('#BanTourDate').val(member.ban_tour_date);
+            $('#BanCommentDate').val(member.ban_comment_date);
+        }   else {
+            window.location.href = './login_v2.html';
+        }
+    }
+  
+    xhr.open("get", "./login_v2_LoginInFo.php",true);
+    xhr.send(null);
+})
+
+function getLoginInFo(){
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = function(){
+      member = JSON.parse(xhr.responseText);
+      if (member.mem_id){
+          $id("mem_info_id").innerText = member.mem_id;
+          $id("mem_avatar_img").src = member.mem_avator;
+          $('#mem_avatar_box').css('visibility','visible');
+          $('#mem_info_id').css('visibility','visible');
+          $('#Logout_btn').css('visibility','visible');
+          $('#BanForumDate').val(member.ban_forum_date);
+          $('#BanTourDate').val(member.ban_tour_date);
+          $('#BanCommentDate').val(member.ban_comment_date);
+      }
+  }
+
+  xhr.open("get", "./login_v2_LoginInFo.php",true);
+  xhr.send(null);
+}
+
 //========================002桌機板按鈕========================
 
 function tabId(evt, className) {
@@ -114,12 +159,13 @@ function getMemberFo(){
             //   $('#badge_3').css('display','none');
             // };
 
-          if(member.guide_no){
-            $(".a img").css("opacity","1")
+          if(member.mem_idno){
+            $(".a img").css("opacity","1");
+            // alert(member.mem_idno);
           } else  {
             $(".a img").css("opacity","0.5")
           }
-          if(member.mem_idno){
+          if(member.guide_no){
             $(".b img").css("opacity","1")
           } else  {
             $(".b img").css("opacity","0.5")

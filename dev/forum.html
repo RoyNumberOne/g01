@@ -50,8 +50,10 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
                     <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
-                    
                 </ul>
+                <input type="hidden" id="BanForumDate">
+                <input type="hidden" id="BanTourDate">
+                <input type="hidden" id="BanCommentDate">
             </nav>
             <div id="imagebox">
                 <img id="picTour" src="./images/header/tour.png" alt="">
@@ -196,7 +198,7 @@
             
                                 <div class="ask_btn" id="forum_post_btn">
                                     <!-- <form  method="post" enctype="multipart/form-data"> -->
-                                        <button class="btnA_XLwRA" onclick="location.href='./forum-post.html'" id="ask" type="button"><p>我要發文</p><div class="bg btnArrowXL"></div></button>
+                                        <button class="btnA_XLwRA" id="ask" type="button"><p>我要發文</p><div class="bg btnArrowXL"></div></button>
                                     <!-- </form> -->
                                 </div>
                             </div>
@@ -348,7 +350,8 @@
 
     <!-- -------------------------GO TOP------------------------- -->
     <a href="#" id="gotop">
-        <i class="fas fa-arrow-up"></i>
+        <img src="./images/icons/icon_arrowup.svg" alt="">
+        <!-- <i class="fas fa-arrow-up"></i> -->
         <!---<script src="./js/fa5.14.0all.js"></script>
         備註:go top裡面的箭頭需要用到的js--->
     </a>
@@ -356,7 +359,7 @@
     <!-- -------------------------aside link--------------------------->
     <div id="aside-link">
         <div class="aside-com-btn">
-            <a href="./meet2-2.html"><img src="./images/form_img/want2.png" alt=""></a>
+            <a style="cursor: pointer;"><img src="./images/form_img/want2.png" alt=""></a>
         </div>
     </div>
 

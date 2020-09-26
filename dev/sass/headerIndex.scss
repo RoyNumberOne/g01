@@ -112,6 +112,21 @@ header {
                                 background-image: url("../images/icons/icon_car_y.svg");
                             }
                         }
+                        .add_count_others {
+                            display: none;
+                            border-radius: 50%;
+                            color: #fff;
+                            background-color: red !important;
+                            width: 20px;
+                            height: 20px;
+                            text-align: center;
+                            // line-height: 20px;
+                            font-size: 10px;
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                            z-index: 3;
+                        }
                     }
                 }
             }

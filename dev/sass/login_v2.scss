@@ -13,16 +13,17 @@
     font-size: 16px;
 }
 
+a.member div.memicon .membg { background-image: url("../images/icons/icon_member_h.svg") !important;}
 nav.menu ul.link_list.llright li {
     & a.member svg path {
         color: $mt_yellow !important;
     }
 }
 
-body {
+// body {
     // overflow: hidden;
     // 不想出現scrollbar就打開
-}
+// }
 
 main {
     align-items: center;

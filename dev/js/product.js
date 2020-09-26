@@ -7,18 +7,10 @@ new Vue ({
     created(){
         axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
-            console.log('success');
-            console.log(this.products);
+            // console.log('success');
+            // console.log(this.products);
         })
     },
-    // mounted(){
-    //     axios.get('./json/Initial_product.json')
-
-    //         .then((res) => {
-    //           this.products = res.data;
-    //           console.log(res.data);
-    //         })
-    // },
     computed:{
         groupByCategory(){
             let result = {};
@@ -31,8 +23,6 @@ new Vue ({
                     result[category].push(product);
                 }
             }
-
-            console.log(result)
             return result;
         },
         currentProducts(){

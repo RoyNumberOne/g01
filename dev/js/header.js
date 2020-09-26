@@ -83,7 +83,7 @@ let cartCounted = function(){
     var i=0;
     for (prop in JSON.parse(localStorage.cartList)) {
     i++;
-      console.log(JSON.parse(localStorage.cartList)[prop]);
+    //   console.log(JSON.parse(localStorage.cartList)[prop]);
     }
     // console.log(i);
 

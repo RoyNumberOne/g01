@@ -1,3 +1,23 @@
+//header判斷是否登入
+
+function loginStatus(){
+    if($('#mem_info_id').html() === ''){
+        // alert ('還沒登入');
+        var kkk = window.location.href;
+        kkk = kkk.substring(kkk.lastIndexOf('/'))
+        if (kkk!='/login_v2.html'){
+            let url = window.location.href;
+            localStorage.setItem('web', url);
+            window.location.href = './login_v2.html';
+        }   else {
+            localStorage.setItem('web', './Member_v2.html');
+            window.location.href = './login_v2.html';
+        }
+    }else{
+        // alert('已經登入');
+        window.location.href = './Member_v2.html';
+    }
+}
 //登入抓資料+驗證
 let member;
 
@@ -9,17 +29,25 @@ function sendForm(){
 let xhr = new XMLHttpRequest();
 
 xhr.onload = function(){
+    let redirection = localStorage.getItem('web');
     if(xhr.status == 200){
         member = JSON.parse(xhr.responseText);
         if(member.mem_acc === undefined){
             swal("帳密錯誤","請重新輸入","error");
-        }else if(localStorage.getItem('web') == null){ //登入成功
+        }else if(redirection == null){ //登入成功
             $("#signInForm").submit();
             window.location.href = './Member_v2.html';
-        }else{
-            let redirection = localStorage.getItem('web');
+            // alert('沒有原本頁，登入後導向會員')
+        }else if(redirection == './login_v2.html'){
+            $("#signInForm").submit();
+            window.location.href = './Member_v2.html';
+            // alert('原本頁為login_v2，登入後要導向會員頁')
+        }
+        else{
+            // let redirection = localStorage.getItem('web');
             $("#signInForm").submit();
             window.location.href = redirection;
+            // alert('回到原本頁')
         }
     }else{
         alert(xhr.status);
@@ -81,20 +109,6 @@ function init(){
     $('#btnLogin').click(sendForm);
 }; 
 
-
-//header判斷是否登入
-
-function loginStatus(){
-    if($('#mem_info_id').html() === ''){
-        // alert ('請先登入');
-        let url = window.location.href;
-        localStorage.setItem('web', url);
-        window.location.href = './login_v2.html';
-    }else{
-        // alert('歡迎登入');
-        window.location.href = './Member_v2.html';
-    }
-}
 
 $('#member_jumpTo').click(loginStatus);
 

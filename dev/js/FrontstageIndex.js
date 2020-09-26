@@ -440,13 +440,13 @@ $(document).on('keydown',function(e) {
             // 天氣敘述
             $id('weatherp').innerHTML = AreaData.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
             // 渲染日期 
-            $id('date1').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10) + '日';
-            $id('date2').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10) + '日';
-            $id('date3').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10) + '日';
-            $id('date4').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10) + '日';
-            $id('date5').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10) + '日';
-            $id('date6').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10) + '日';
-            $id('date7').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10) + '日';
+            $id('date1').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[1].startTime.slice(8,10);
+            $id('date2').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[3].startTime.slice(8,10);
+            $id('date3').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[5].startTime.slice(8,10);
+            $id('date4').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[7].startTime.slice(8,10);
+            $id('date5').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[9].startTime.slice(8,10);
+            $id('date6').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[11].startTime.slice(8,10);
+            $id('date7').innerText = AreaData.records.locations[0].location[0].weatherElement[0].time[13].startTime.slice(8,10);
             // 渲染早上平均溫度
             $id('Ttop1').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value + '°C'
             $id('Ttop2').innerText = AreaData.records.locations[0].location[0].weatherElement[1].time[3].elementValue[0].value + '°C'
@@ -605,6 +605,33 @@ $(document).on('keydown',function(e) {
         RenderWeather(N1N3data);
     },1000)
 
+
+$(document).ready(function(){
+
+        let xhr = new XMLHttpRequest();
+    
+        xhr.onload = function(){
+            member = JSON.parse(xhr.responseText);
+            if (member.mem_id){
+                $id("mem_info_id").innerText = member.mem_id;
+            }   
+        }
+    
+        xhr.open("get", "./login_v2_LoginInFo.php",true);
+        xhr.send(null);
+    
+
+})
+
+    let indexurl = window.location.href;
+    localStorage.setItem('web', indexurl);
+    $(".memicon").click(function(){
+        if ($('#mem_info_id').html() === '') {
+            window.location.href = './login_v2.html';
+        }   else    {
+            window.location.href = './Member_v2.html';
+        }
+    })
     // $(document).ready(
     //     console.log(N1N3data)
     //     $("weatherdesc p").innerText = N1N3data.records.locations[0].location[0].weatherElement[5].time[0].elementValue[0].value
@@ -613,7 +640,26 @@ $(document).on('keydown',function(e) {
 
 
 
-
+    let cartCounted = function(){
+        var i=0;
+        for (prop in JSON.parse(localStorage.cartList)) {
+        i++;
+          console.log(JSON.parse(localStorage.cartList)[prop]);
+        }
+        // console.log(i);
+    
+        $('.add_count_others')[0].innerText = i;
+    
+        if(i != 0){
+            $('.add_count_others').css('display', 'block')
+        }else if(i=''){
+            $('.add_count_others').css('display', 'none')    
+        }else{
+            $('.add_count_others').css('display', 'none')     
+        }
+    }
+    
+    cartCounted();
 
 
 

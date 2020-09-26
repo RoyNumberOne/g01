@@ -8,47 +8,22 @@ new Vue({
         cartList: [{}],
         productNo: null,
     },
-    // created(){
-    // axios.get('./phpForConnect/product_info.php').then(res => {
-    //     this.products = res.data;
-    //     console.log('success');
-    //     console.log(this.products);
-    // })
-    // axios.get('./phpForConnect/product_info_related_artical.php').then(res => {
-    //     this.products = res.data;
-    //     console.log('success');
-    //     console.log(this.products);
-    // })
-    // },
     mounted() {
         axios.get('./phpForConnect/product_info.php').then(res => {
             this.products = res.data;
-            // console.log('success');
-            // console.log(this.products);
 
             let urlSearchParams = (new URL(document.location)).searchParams;
             this.productNo = urlSearchParams.get('productNo');
-            // console.log(productNo);
 
             this.checkAndInitCart();
             this.showCart();
             // console.log(this.products.length)
 
             this.currentIndex = this.findProductIndex(this.productNo);
-            // console.log(this.currentIndex);
-            // console.log(this.productNo);
+
 
 
         })
-
-        // let urlSearchParams = (new URL(document.location)).searchParams;
-        // let productNo = urlSearchParams.get('productNo');
-        // console.log(productNo);
-
-        // this.checkAndInitCart();
-        // this.showCart();
-        // this.currentIndex = this.findProductIndex(productNo);
-        // alert(productNo);
     },
     computed: {
         productsCount() {
@@ -87,11 +62,6 @@ new Vue({
                     return this.currentProduct.product_image3;
             }
         },
-        // nextImg(){
-        //     this.currentImageIndex = this.currentImageIndex + 1;
-        //     this.nextImage = this.currentImageIndex.product_image1;
-        //     return this.nextImage;
-        // },
         cartCount() {
             return Object.keys(this.cartList).length;
         },
@@ -112,15 +82,14 @@ new Vue({
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {
             if (xhr.status == 200) { //連線成功
-                console.log(xhr.responseText)
-                    // alert(xhr.responseText);
+                // console.log(xhr.responseText)
                 if (xhr.responseText != 0) {
                     $(".heart").attr("src", "./images/icons/icon_heart_h&c.svg");
                 } else {
                     $(".heart").attr("src", "./images/icons/icon_heart.svg");
                 }
             } else {
-                alert(xhr.status);
+                swal(xhr.status);
             }
 
         }
@@ -168,7 +137,7 @@ new Vue({
                 this.upDateLocalStorage();
             } else {
                 this.cartList[this.currentProduct.product_no].count += this.productCount;
-                console.log(this.cartList);
+                // console.log(this.cartList);
                 this.upDateLocalStorage();
             }
         },
@@ -201,7 +170,7 @@ new Vue({
                 if (this.products[i].product_no === productNo) {
                     return i;
                 } else {
-                    console.log('not find')
+                    // console.log('not find')
                 }
             }
         },
@@ -217,10 +186,10 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
-                            // alert(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // swal(xhr.responseText);
                         } else {
-                            alert(xhr.status);
+                            swal(xhr.status);
                         }
                     }
                     var url = "./phpForConnect/product_Collect.php";
@@ -236,7 +205,7 @@ new Vue({
                     }
                 } else {
                     //沒有登入，請先登入
-                    alert("請先登入哦")
+                    swal("請先登入哦")
                 }
             }
 
@@ -286,7 +255,7 @@ $(document).ready(function() {
         sel.removeAllRanges();
         sel.addRange(range);
         document.execCommand('copy');
-        //   alert("已複製優惠券代碼");
+          swal("已複製優惠券代碼");
         return false;
     });
 

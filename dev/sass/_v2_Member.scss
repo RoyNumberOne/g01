@@ -10,22 +10,32 @@ main{
             width: 100%;
             height: 310px;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             overflow: hidden;
-            &:hover{
-                opacity: .8;
-            }
+            // &:hover{
+            //     opacity: .8;
+            // }
             img{
                 width: 100%;
-                transform: translateY(10%);
             }
-            #mem_bg_file{
-                cursor: pointer;
+            .bg_change_icon{
                 position: absolute;
-                font-size: 0px;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
+                right:20px;
+                width:40px;
+                bottom:44px;
+                img{
+                    position: absolute;
+                }
+                input{
+                    position: absolute;
+                    right: -6px;
+                    bottom: -42px;
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                    opacity: 0;
+                    font-size: 0;
+                }
             }
         }
         .memProfile{
@@ -160,8 +170,13 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                overflow: hidden;
                 &:hover{
                     background-color: #FFC400;
+                }
+                .tabbutton{
+                    width: 60px;
+                    height: 80px;
                 }
                 p{
                     color: #ffffff;

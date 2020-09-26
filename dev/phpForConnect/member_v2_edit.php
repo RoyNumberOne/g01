@@ -20,7 +20,7 @@ try{
             <div class="mem_frame">
                 <div class="mem_change">
                     <p class="beforeChange">暱稱</p><p style="color:#2C5E9E; font-size:14px;"></p>
-                    <input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="輸入新的暱稱" value="<?=$memRow["mem_id"]?>">
+                    <input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="中文限5字以內,英文限12字以內" value="<?=$memRow["mem_id"]?>">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">信箱</p><p style="color:#2C5E9E; font-size:14px;"></p>
@@ -28,7 +28,7 @@ try{
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">密碼</p><span class="tip_length" style="color: red;">密碼長度錯誤</span><br>
-                    <input type="password" name="mem_psw" id="mem_psw" maxlength="12" minlength="8" onblur="checkpas1();" placeholder="輸入新的密碼">
+                    <input type="password" name="mem_psw" id="mem_psw" maxlength="12" minlength="8" onblur="checkpas1();" placeholder="限8-12英數字">
                 </div>
                 <div class="mem_change">
                     <p class="beforeChange">確認密碼</p><span class="tip" style="color: red;">輸入密碼不一致</span><br>
@@ -95,9 +95,9 @@ try{
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status == 200){
-                    alert(xhr.responseText); //回傳php回應的值
+                    // alert(xhr.responseText); //回傳php回應的值
                 }else{
-                    alert(xhr.status);
+                    // alert(xhr.status);
                 }
             }
         }
@@ -146,4 +146,32 @@ try{
             $(".tip").hide();
         }
     }
+
+        // 長度判斷
+        $('#mem_id').on('input', function (e) {
+            var $that =  $(this),
+                limit = 12;                            //定義所需字節數
+            $that.attr('maxlength',limit);
+            setTimeout(function(){
+                var value =  $that.val(),
+                    reg = /[\u4e00-\u9fa5]/g,
+                    notReg = /\w/g;                     
+                var Cn = value.match(reg);
+                var En = value.match(notReg);
+                if(Cn){
+                    limit = limit - (Cn.length*2);
+                }
+                if(En){
+
+                    limit = limit - En.length;
+                }
+                if(limit<=0){
+                    var finalLen = value.length+limit;
+                    value = value.substring(0,finalLen);
+                    $that.attr('maxlength',limit);
+                    $that[0].value = value;
+                }
+            },0);
+
+        });
 </script>

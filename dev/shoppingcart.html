@@ -459,10 +459,12 @@
                                 if (xhr.status == 200) { //連線成功
                                     console.log(xhr.responseText)
                                     swal(xhr.responseText);
-                                    if (xhr.responseText == "訂單已送出") {
-                                        window.localStorage.removeItem("cartList")
-                                        window.location.href = "./shoppingcart.html"
-                                    }
+                                    $(".swal-button--confirm").click(function(){
+                                        if (xhr.responseText == "訂單已送出") {
+                                            window.localStorage.removeItem("cartList")
+                                            window.location.href = "./shoppingcart.html"
+                                        }
+                                    })
                                 } else {
                                     swal("Oops", xhr.status, "warning");
                                 }
@@ -481,10 +483,12 @@
                             if (xhr.status == 200) { //連線成功
                                 console.log(xhr.responseText)
                                 swal(xhr.responseText);
-                                if (xhr.responseText == "訂單已送出") {
-                                    window.localStorage.removeItem("cartList")
-                                    window.location.href = "./shoppingcart.html"
-                                }
+                                    $(".swal-button--confirm").click(function(){
+                                        if (xhr.responseText == "訂單已送出") {
+                                            window.localStorage.removeItem("cartList")
+                                            window.location.href = "./shoppingcart.html"
+                                        }
+                                    })
                             } else {
                                 swal("Oops", xhr.status, "warning");
                             }

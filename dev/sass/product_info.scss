@@ -59,6 +59,7 @@ div.wrap{
                 display: flex;
                 justify-content: space-between;
                 .pre{
+                    margin: 0 0 0 5%;
                     display: flex;
                     align-items: center;
                     cursor: pointer;
@@ -73,6 +74,7 @@ div.wrap{
                     }
                 }
                 .next{
+                    margin: 0 5% 0 0;
                     display: flex;
                     align-items: center;
                     cursor: pointer;
@@ -128,29 +130,6 @@ div.wrap{
                     }
                 }
             }
-            // .size_block{
-            //     display: flex;
-            //     margin: 10px auto;
-            //     text-align: center;
-            //     .size{
-            //         width: 20px;
-            //         height: 20px;
-            //         line-height: 20px;
-            //         border-radius: 50%;
-            //         margin: 0 20px;
-            //         cursor: pointer;
-            //         color: #bbb;
-            //         transition: all .3s ease;
-            //         &:hover{
-            //             background-color: $mt_yellow;
-            //             color: #fff;
-            //         }
-            //     }
-            //     .picked_size{
-            //         background-color: $mt_yellow;
-            //         color: #fff;
-            //     }
-            // }
             .product_count{
                 display: flex;
                 border: 1px solid #ccc;
@@ -237,14 +216,6 @@ div.wrap{
                         width: 300px;
                     }
                 }
-                .move{
-                    .pre{
-                        flex-direction: column;
-                    }
-                    .next{
-                        flex-direction: column-reverse;
-                    }
-                }
             }
         }
     }
@@ -315,19 +286,3 @@ div.wrap{
         @media screen and (max-width: 575px) {top: 42px; width: 100px; }
     }
 }
-
- //demo使用之後刪掉
-//  .add_count_vue{
-//     display: none;
-//     border-radius: 50%;
-//     color: #fff;
-//     background-color: red;
-//     width: 20px;
-//     height: 20px;
-//     text-align: center;
-//     line-height: 20px;
-//     font-size: 10px;
-//     position: absolute;
-//     bottom: 0;
-//     right: 0;
-// }

@@ -116,17 +116,18 @@ new Vue({
             }
         }
 
-        //寫完揪團記得打開
+        //判斷登入者為開團者
         const nowMen = this.tourData.mem_no;
         let now = new Date();
         let xhr = new XMLHttpRequest();
-
+        
         xhr.open("get", "./login_v2_LoginInFo.php",true);
             xhr.send(null);
         if(this.tourData.mem_no){
             xhr.onload = ()=>{
                 member = JSON.parse(xhr.responseText);
                 if (member.mem_id){
+                    console.log('有登入')
                     if (nowMen !== member.mem_no){  //不同一人
                         // console.log('不同一人')
                         $('.application_bt').addClass('none')
@@ -136,17 +137,13 @@ new Vue({
                         $('.equip_recommend').css('display', 'none')
                         $('#apply_bt').addClass('none')
                         $('#okGo').removeClass('none')
-                        console.log(this.tourData.tour_min_number)
+                        // console.log(this.tourData.tour_min_number)
                         //提早成團
                         if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
                             $('#okGo').removeAttr('disabled')
                             $('#okGo').removeClass('btnB_XL_grey')
                             $('#okGo').addClass('btnB_XL_yellow')
                             $('#okGo').css('cursor', 'pointer')
-                            // console.log('可以點擊成團')
-                            // $('#okGo').click(()=>{
-                            //     alert('可以點了')
-                            // })
                         }
                         //已成團狀態
                         if(this.tourData.tour_progress == '已截止'){
@@ -164,10 +161,12 @@ new Vue({
                             $('#okGo > p').text('活動已結束')
                         }
                     }
-                }   
+                }   else{
+                    $('.applied_participant').addClass('none')
+                    console.log('未登入')
+                } 
             }
         }
-        //寫完揪團記得打開
 
         //判斷是否已結束報名
         if(this.tourData.tour_progress == '已截止'){
@@ -192,13 +191,16 @@ new Vue({
         }
 
         //判斷揪團是否檢舉換圖
-        if(this.tour_report_img[0].tour_report_mem){
-            // console.log('還沒檢舉')
-        }   else    {
-            // console.log('已檢舉')
-            $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
-            $('.tr_report_bt').attr('disabled', 'disabled')
+        if($('#mem_info_id').text() != ''){
+            if(this.tour_report_img[0].tour_report_mem){
+                $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
+                $('.tr_report_bt').attr('disabled', 'disabled')
+                // console.log('已檢舉')
+            }   else    {
+                // console.log('還沒檢舉')
+            }
         }
+
 
         //判斷收藏
         let tour_no = (new URL(document.location)).searchParams;
@@ -319,7 +321,7 @@ new Vue({
         },
         openTourApplyModal(){
 
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -339,7 +341,7 @@ new Vue({
                     "tour_participate_tour": tour_no,
                 }
             }).then(res => {
-                console.log('success apply');
+                // console.log('success apply');
                 axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
                     this.tourParticipates = res.data;
                 })
@@ -454,7 +456,7 @@ new Vue({
         },
         //揪團檢舉彈窗
         openTourReportModal(e) {
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -470,7 +472,7 @@ new Vue({
                         swal('請先輸入文字');
                     } else {
                         let tour_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
-                        console.log(tour_report_reason);
+                        // console.log(tour_report_reason);
                         axios.get('./phpForConnect/meet2-3_tour_report.php', {
                             params: {
                                 "tour_report_tour": reportNo,
@@ -490,7 +492,7 @@ new Vue({
         },
         //判斷留言檢舉
         openMessageReportModal(e) {
-            if ($('#mem_info_id').html() === '') {
+            if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -498,7 +500,7 @@ new Vue({
                 // 打開彈窗
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
-                console.log(reportNo);
+                // console.log(reportNo);
                 let iconIF = $(e.target.parentNode).find("img.mg_report_pic");
                 $(".mg_confirm").click(function(e) {
                     var temp = $('#send_mg_report_block').val();
@@ -529,7 +531,7 @@ new Vue({
                 if (BANtime>NOWtime) {
                     swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
                 }   else    {
-                    window.location.href = '../meet2-2.html';
+                    window.location.href = './meet2-2.html';
                 }
             })
         },
@@ -539,8 +541,8 @@ new Vue({
             NOWtime = Date.parse(NOWtime);
             BANtime = Date.parse($("#BanCommentDate").val());
 
-            if ($('#mem_info_id').html() === '') {
-                // alert('請先登入');
+            if ($('#mem_info_id').text() === '') {
+                // swal('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
@@ -548,7 +550,7 @@ new Vue({
                 swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
-                console.log(temp)
+                // console.log(temp)
                 if (temp == '') {
                     swal('請先輸入文字');
                 } else {
@@ -583,7 +585,7 @@ new Vue({
         },
         //預覽圖片切換到大圖
         changePic(e) {
-            console.log($(e.target).attr('src'));
+            // console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
         //確認留言是否被檢舉過
@@ -635,8 +637,8 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
-                            // alert(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // swal(xhr.responseText);
                         } else {
                             swal(xhr.status);
                         }
@@ -753,34 +755,21 @@ $(document).ready(function() {
         checkpg();
     });
 
-    //apply lightbox
-    // $(function() {
-    //     $("#apply_bt").click(function() {
-    //         $("#meet2-3-1").removeClass("close");
-    //     })
-    // });
-
     $(function() {
         // 點擊不同意按鈕
         $("button#notagree").on("click", function() {
-            //    console.log("click");
             $("section.agreement").removeClass("-on");
             $("section.notagree_box").addClass("-on");
         });
 
         // 點擊同意按鈕
         $("button#agree").on("click", function() {
-            //    console.log("click");
             $("section.agreement").removeClass("-on");
             $("section.agree_box").addClass("-on");
-            // $("#apply_bt > p").text("已報名");
-            // $("#apply_bt").attr("disabled", "disabled");
-            // $("#apply_bt").css("cursor", "not-allowed");
         });
 
         // 點擊X按鈕
         $("button.close_btn").on("click", function() {
-            //    console.log("click");
             $("main#meet2-3-1").addClass("close");
             $(".agree_box").removeClass("-on"); //
             $(".notagree_box").removeClass("-on");
@@ -808,11 +797,6 @@ $(document).ready(function() {
 
     //report match
     $(function() {
-        //report lightbox
-        // $('.tr_report_bt').click(function() {
-        //     $('#report_block_match').removeClass('close');
-        // });
-
         //click rp_close
         $('.rp_close').click(function() {
             $('.report_block_match').addClass('close');
@@ -822,22 +806,10 @@ $(document).ready(function() {
         $('.cancle').click(function() {
             $('.report_block_match').addClass('close');
         });
-
-        //click confirm
-        // $('.tr_confirm').click(function() {
-        // $('.tr_reporting').css('display', 'none');
-        // $('.tr_be_reported').css('display', 'block');
-        //change report img src -> not done yet
-        // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
-        // });
     });
 
     //report message
     $(function() {
-        //report lightbox
-        // $('.mg_report_bt').click(function() {
-        //     $('.report_block_message').removeClass('close');
-        // })
 
         //click rp_close
         $('.mg_close').click(function() {
@@ -848,20 +820,7 @@ $(document).ready(function() {
         $('.mg_cancle').click(function() {
             $('.report_block_message').addClass('close');
         })
-
-        //click confirm
-        // $('.mg_confirm').click(function() {
-        //     $('.mg_reporting').css('display', 'none');
-        //     $('.mg_be_reported').css('display', 'block');
-        //     change report img src -> not done yet
-        //     $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-        // });
     });
-
-    //check login or not
-    $(function() {
-        $()
-    })
 
     // submit preventDefault
     $(function() {

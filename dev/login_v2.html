@@ -99,7 +99,7 @@
                     <h2 class="form__title">註冊帳號</h2>
                     <div class="form__detail">
                         <label for="mem_id">暱稱</label><br>
-                        <input type="text" name="mem_id" id="mem_id" placeholder="限12字以內" maxlength="12" required/><br>
+                        <input type="text" name="mem_id" id="mem_id" placeholder="中文限5字以內,英文限12字以內" maxlength="12" required/><br>
                         <label for="mem_name">姓名</label><br>
                         <input type="text" name="mem_name" id="mem_name" placeholder="不可為空" required/><br>
                         <label for="mem_mail">電子信箱</label><br>
@@ -293,7 +293,7 @@
                             }
                         }
                     } else {
-                        alert(xhr.status); 
+                        // alert(xhr.status); 
                     }
                 }
             }
@@ -333,6 +333,34 @@
                 $(".tip").hide();
             }
         }
+
+        // 長度判斷
+        $('#mem_id').on('input', function (e) {
+            var $that =  $(this),
+                limit = 12;                            //定義所需字節數
+            $that.attr('maxlength',limit);
+            setTimeout(function(){
+                var value =  $that.val(),
+                    reg = /[\u4e00-\u9fa5]/g,
+                    notReg = /\w/g;                     
+                var Cn = value.match(reg);
+                var En = value.match(notReg);
+                if(Cn){
+                    limit = limit - (Cn.length*2);
+                }
+                if(En){
+
+                    limit = limit - En.length;
+                }
+                if(limit<=0){
+                    var finalLen = value.length+limit;
+                    value = value.substring(0,finalLen);
+                    $that.attr('maxlength',limit);
+                    $that[0].value = value;
+                }
+            },0);
+
+        });
 
     </script>
     <script src="./js/header.js"></script>

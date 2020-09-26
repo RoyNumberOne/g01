@@ -367,5 +367,23 @@
         });
 
     </script>
+    <script> // 判斷是否為嚮導
+        $(document).ready(function() {
+            let xhr = new XMLHttpRequest(); //使用XML
+            xhr.open("get","./login_v2_LoginInFo.php",true); //用get打開php
+            xhr.send(null)
+            xhr.onload = function(){
+                member = JSON.parse(xhr.responseText); 
+                if (member.mem_id){
+                    console.log(member.guide_no) // 新column出現後 改欄位名稱 class -> ""
+                    if(member.guide_no){
+                        $("#tour_mountain option").removeAttr("disabled") //移除option的 disabled(不可點選) 屬性
+                    }
+                }   else    {
+                    window.location.href="./login_v2.html"; // 若沒有取得member.mem_id 將頁面跳轉至登入畫面
+                }
+            }
+        });
+    </script>
 </body>
 </html>

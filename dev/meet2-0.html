@@ -19,11 +19,11 @@
 
     
     <!----go top----->
-    <script src="./js/fa5.14.0all.js"></script>
+    <!-- <script src="./js/fa5.14.0all.js"></script> -->
     <!-- jQuery -->
     <script src="./js/jquery-3.5.1.js"></script>
 
-    <script src="./js/vue.js"></script>
+    <script src="./js/vue.min.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/sweetalert.min.js"></script>
 
@@ -65,8 +65,10 @@
                     <li><button id="Logout_btn" class="btnB_L_grey"><p>登出</p><div class="bg"><br></div></button></li>
                     <li><a class="member" id="member_jumpTo"><div class="memicon"><div class="membg"></div></div></a></li>
                     <li><a class="cart" href="./shoppingcart.html"><div class="carticon"><span class="add_count_others"></span><div class="cartbg"></div></div></a></li>
-                    
                 </ul>
+                <input type="hidden" id="BanForumDate">
+                <input type="hidden" id="BanTourDate">
+                <input type="hidden" id="BanCommentDate">
             </nav>
             <div id="imagebox">
                 <img id="picTour" src="./images/header/tour.png" alt="">
@@ -297,10 +299,10 @@
                     </ul> -->
                     <!-- 1.更改現在的currentPage  2.用現在的頁碼,去抓那一頁的資料 -->
 
-                    <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button>
+                    <!-- <button class="btnA_S pgprev"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10229</p></button> -->
                     <button v-for="(i,index) in totalPage" :class="{'btnA_S' : true , 'pg' : true , '-active' : index == 0 }" :key="i" @click="changeMeetlist(i)"><p>{{i}}</p></button>
                     <!-- '-active' : index == 0 網頁第一次load的時候加上 -active (class) -->
-                    <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button>
+                    <!-- <button class="btnA_S pgnext"><p style="transform: translate(-5px , 0px); transition: 0s;">&#10230</p></button> -->
                 </div>
 
             </div>
@@ -314,14 +316,13 @@
      <div id="aside-link">
         <div class="aside-com-btn">
             <!-- <a href="./meet2-2.html"><img src="./images/form_img/want2.png" alt=""></a>  -->
-            <a ><img src="./images/form_img/want2.png" alt=""></a> 
-
+                <a style="cursor: pointer;"><img src="./images/form_img/want2.png" alt=""></a>
         </div>
     </div>
 
     <!-- -------------------------GO TOP------------------------- -->
     <a href="#" id="gotop">
-        <i class="fas fa-arrow-up"></i>
+        <img src="./images/icons/icon_arrowup.svg" alt="">
     </a>
 
     <footer class="footer">

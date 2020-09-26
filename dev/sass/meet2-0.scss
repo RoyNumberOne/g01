@@ -903,9 +903,6 @@ a{
 
 
 /* ----------------------GO TOP---------------------- */
-#gotop a{
-    text-decoration: none;
-}
 
 #gotop {
     position:fixed;
@@ -920,11 +917,11 @@ a{
     line-height:50px;
     transition:all 0.5s;
     text-align: center;
+    z-index: 99999;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-
-    & .svg-inline--fa.fa-arrow-up.fa-w-14 path{
-        color:#fff;
-        transform: scale(1);
+    img{
+        vertical-align: middle;
+        transform: scale(.5);
     }
 }
 

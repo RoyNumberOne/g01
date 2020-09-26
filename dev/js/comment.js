@@ -146,38 +146,46 @@ new Vue({
             this.poster_message = '';
         },
         SENDmsg: function(){
+            NOWtime = new Date (Date.now())
+            NOWtime = Date.parse(NOWtime);
+            BANtime = Date.parse($("#BanCommentDate").val());
+
             if($('#mem_info_id').html() === ''){
+                // alert ('請先登入');
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
-            };
-            var temp = $('#message_area').val();
-            console.log(temp);
-            if(temp == ''){
-                swal ('請先輸入文字');
-            }else{
-                let poster_messageData = new FormData;
-                let formArticle = new FormData();
+            }   else if (BANtime>NOWtime) {
+                swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
+            }   else {
+                var temp = $('#message_area').val();
+                // console.log(temp);
+                if(temp == ''){
+                    swal('請先輸入文字');
+                }else{
+                    let poster_messageData = new FormData;
+                    let formArticle = new FormData();
 
-                let urlSearchParams = (new URL(document.location)).searchParams;
-                forum_post_no = urlSearchParams.get('forum_post_no');
+                    let urlSearchParams = (new URL(document.location)).searchParams;
+                    forum_post_no = urlSearchParams.get('forum_post_no');
 
-                formArticle.append("forum_post_no", forum_post_no);  
+                    formArticle.append("forum_post_no", forum_post_no);  
 
-                axios.get('./phpForConnect/forum-comment_MessageArea.php', {params:{
-                    "comment_class" : '討論區',
-                    "forum_post_no" : forum_post_no,
-                    "comment_innertext" : this.poster_message,
-                }}).then(res =>{
-                    axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
-                    .then(res => {
-                        this.commentpost = res.data.commentMessageData;
-                        this.totalPage = res.data.totalPage;
-                        console.log(res.data); //測試是否成功
-                        console.log('success');
+                    axios.get('./phpForConnect/forum-comment_MessageArea.php', {params:{
+                        "comment_class" : '討論區',
+                        "forum_post_no" : forum_post_no,
+                        "comment_innertext" : this.poster_message,
+                    }}).then(res =>{
+                        axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
+                        .then(res => {
+                            this.commentpost = res.data.commentMessageData;
+                            this.totalPage = res.data.totalPage;
+                            // console.log(res.data); //測試是否成功
+                            // console.log('success');
+                        })
                     })
-                })
-                this.clearTextarea();
+                    this.clearTextarea();
+                }
             }
         },
 
@@ -441,4 +449,25 @@ $(".pgnext").click(function(){
         $(".-active").prev(".-active").removeClass("-active");
     }
     checkpg();
+});
+
+$(function() {
+    // 開團按鈕偵測是否登入
+    $('.aside-com-btn').click(function (){
+        if($('#mem_info_id').html() === ''){
+            let url = window.location.href;
+            localStorage.setItem('web', url);
+            window.location.href = './login_v2.html';
+        }else{
+            var NOWtime = new Date (Date.now())
+            NOWtime = Date.parse(NOWtime);
+            var BANtime = Date.parse($("#BanTourDate").val());
+    
+            if (BANtime>NOWtime) {
+                swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
+            }   else    {
+                window.location.href = './meet2-2.html';
+            }
+        }
+    });
 });

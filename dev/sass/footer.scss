@@ -93,7 +93,7 @@ footer.footer{
                         width: 100%;
                     }
                     .e_bt{
-                        background-color: #153A64;
+                        background-color: $mt_blue4;
                         border: 1px solid #fff;
                         text-align: center;
                         line-height: 30px;
@@ -134,9 +134,7 @@ footer.footer{
 
 // media
 @media screen and (min-width: 1440px) {
-    // 請用1366
     footer.footer{
-        // max-width: 1366px;
             .footer_logo_block{
                 width: 45%;
                 padding-left: 5%;
@@ -149,7 +147,6 @@ footer.footer{
 @media screen and (min-width: 1200px) and (max-width: 1439px){
     // 請用1152
     footer.footer{
-        // max-width: 1152px;
         .footer_logo_block{
             width: 35%;
             padding-left: 4%;
@@ -162,7 +159,6 @@ footer.footer{
 @media screen and (min-width: 992px) and (max-width: 1199px){
     // 請用960
     footer.footer{
-        // max-width: 960px;
         .footer_logo_block{
             width: 30%;
             padding-left: 3%;
@@ -175,8 +171,6 @@ footer.footer{
 @media screen and (min-width: 768px) and (max-width: 991px){
     // 請用720
     footer.footer{
-        // max-width: 720px;
-        // display: flex;
         flex-direction: column;
         width: 100%;
         height: auto;
@@ -192,11 +186,9 @@ footer.footer{
             justify-content: center;
             margin: 10px 0 0;
             .sevrves_place-serves_tel{
-                // height: 150px;
                 margin: auto 20px;
             }
             .serves_time-serves_email{
-                // height: 150px;
                 margin: auto 20px;
             }
             .epaper-footer_link{
@@ -210,7 +202,6 @@ footer.footer{
 @media screen and (min-width: 576px) and (max-width: 767px){
   // 請用540
     footer.footer{
-        // max-width: 540px;
         flex-direction: column;
         height: auto;
         padding: 15px 0;
@@ -224,13 +215,6 @@ footer.footer{
             justify-content: center;
             width: 100%;
             margin: 10px auto 0;
-            // justify-content: center;
-            // .sevrves_place-serves_tel{
-            //     // height: 110px;
-            // }
-            // .serves_time-serves_email{
-            //     // height: 110px; 
-            // }
             .epaper-footer_link{
                 height: auto;
                 width: 100%;
@@ -238,9 +222,6 @@ footer.footer{
                 margin: auto;
                 .epaper{
                     width: 100%;
-                    // .etitle{
-                    //     margin: 15px 0 5px;
-                    // }
                     .einput{
                         width: 60%;
                     }
