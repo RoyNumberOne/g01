@@ -755,34 +755,21 @@ $(document).ready(function() {
         checkpg();
     });
 
-    //apply lightbox
-    // $(function() {
-    //     $("#apply_bt").click(function() {
-    //         $("#meet2-3-1").removeClass("close");
-    //     })
-    // });
-
     $(function() {
         // 點擊不同意按鈕
         $("button#notagree").on("click", function() {
-            //    console.log("click");
             $("section.agreement").removeClass("-on");
             $("section.notagree_box").addClass("-on");
         });
 
         // 點擊同意按鈕
         $("button#agree").on("click", function() {
-            //    console.log("click");
             $("section.agreement").removeClass("-on");
             $("section.agree_box").addClass("-on");
-            // $("#apply_bt > p").text("已報名");
-            // $("#apply_bt").attr("disabled", "disabled");
-            // $("#apply_bt").css("cursor", "not-allowed");
         });
 
         // 點擊X按鈕
         $("button.close_btn").on("click", function() {
-            //    console.log("click");
             $("main#meet2-3-1").addClass("close");
             $(".agree_box").removeClass("-on"); //
             $(".notagree_box").removeClass("-on");
@@ -810,11 +797,6 @@ $(document).ready(function() {
 
     //report match
     $(function() {
-        //report lightbox
-        // $('.tr_report_bt').click(function() {
-        //     $('#report_block_match').removeClass('close');
-        // });
-
         //click rp_close
         $('.rp_close').click(function() {
             $('.report_block_match').addClass('close');
@@ -824,22 +806,10 @@ $(document).ready(function() {
         $('.cancle').click(function() {
             $('.report_block_match').addClass('close');
         });
-
-        //click confirm
-        // $('.tr_confirm').click(function() {
-        // $('.tr_reporting').css('display', 'none');
-        // $('.tr_be_reported').css('display', 'block');
-        //change report img src -> not done yet
-        // $('.report_pic').attr('src', './images/icons/icon_report_c.svg');
-        // });
     });
 
     //report message
     $(function() {
-        //report lightbox
-        // $('.mg_report_bt').click(function() {
-        //     $('.report_block_message').removeClass('close');
-        // })
 
         //click rp_close
         $('.mg_close').click(function() {
@@ -850,20 +820,7 @@ $(document).ready(function() {
         $('.mg_cancle').click(function() {
             $('.report_block_message').addClass('close');
         })
-
-        //click confirm
-        // $('.mg_confirm').click(function() {
-        //     $('.mg_reporting').css('display', 'none');
-        //     $('.mg_be_reported').css('display', 'block');
-        //     change report img src -> not done yet
-        //     $('.mg_report_pic').attr('src', './images/icons/icon_report_c.svg');
-        // });
     });
-
-    //check login or not
-    $(function() {
-        $()
-    })
 
     // submit preventDefault
     $(function() {
