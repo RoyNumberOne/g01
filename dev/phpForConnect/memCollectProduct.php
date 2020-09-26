@@ -8,11 +8,11 @@ try{
     session_start();
     $mem_no = $_SESSION['mem_no'];
     
-    $sql= "SELECT pk.product_keep_mem, pk.product_iskept_no, P.product_no, P.product_image1, P.product_name, P.product_description, P.product_category
+    $sql= "SELECT pk.product_keep_mem, pk.product_iskept_no, P.product_no, P.product_image1, P.product_name, P.product_description, P.product_category, P.product_situation
                 from product_keep pk
                     join product P on(pk.product_iskept_no = P.product_no)
-                WHERE pk.product_keep_mem = $mem_no
-                order BY P.product_no DESC; -- 因為沒有建立日期所以用編號排序
+                WHERE pk.product_keep_mem = $mem_no and P.product_situation = 1
+                order BY P.product_no DESC;
                 ";
 
     // $statement = $pdo -> prepare($sql);
