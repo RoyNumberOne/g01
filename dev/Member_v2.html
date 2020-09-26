@@ -230,6 +230,9 @@
                                             <div class="TV_travel TV">
                                                 <p>攀登路線：{{FootprintNorthList.mountain_area | Area}}｜{{FootprintNorthList.mountain_name}}</p>
                                             </div>
+                                            <div class="TV_title">
+                                                <p>揪團名稱：{{FootprintNorthList.tour_title}}</p>
+                                            </div>
                                             <div class="TV_hardlv">
                                                 <p>山岳難度：</p>
                                                 <span class="degree"><div class="degreeImg" v-html="Degree(FootprintNorthList.degree_category)"></div></span>
@@ -239,9 +242,6 @@
                                             </div>
                                             <div class="TV_dateEnd TV">
                                                 <p>結束日期：{{FootprintNorthList.tour_activityend}}</p>
-                                            </div>
-                                            <div class="TV_points TV">
-                                                <p>獲得點數：400 (點)</p>
                                             </div>
                                         </div>
                                     </div>
