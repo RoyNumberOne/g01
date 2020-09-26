@@ -280,7 +280,18 @@ a{
                             h3{
                                 @include towLine;
                             }
-                            
+                            .info{
+                                .icon_box{
+                                    display: inline-block;
+                                    margin: 2px;
+                                    height: 24px;
+                                    width: 24px;
+                                    .location_icon{
+                                        transform: translate(9px,4px);
+                                        height: 100%;
+                                    }
+                                }
+                            }
                             .text_btn{
                                 display: flex;
                                 .meetContent{
@@ -454,8 +465,17 @@ a{
                         }
                     }
                     .info{
-                        // border: 1px solid pink;
                         display: inline-block;
+                        .icon_box{
+                            display: inline-block;
+                            margin: 2px;
+                            height: 24px;
+                            width: 24px;
+                            .location_icon{
+                                transform: translate(9px,4px);
+                                height: 100%;
+                            }
+                        }
                     }
                     .meetContent{
                         .textContent{
@@ -711,12 +731,7 @@ a{
         }
         .newMeet{
             .changeTypeBtn{
-                .typeCard{
-                    border-radius: 8px;
-                }
-                .typeList{
-                    display: none;
-                }
+                display: none;
             }
             .newMeetActivity.list{
                 display: flex;
@@ -832,13 +847,7 @@ a{
         }
         .newMeet{
             .changeTypeBtn{
-                .typeCard{
-                    border-radius: 8px;
-                    margin-right: 10px;
-                }
-                .typeList{
-                    display: none;
-                }
+                display: none;
             }
             .newMeetActivity.list{
                 display: flex;
@@ -856,6 +865,11 @@ a{
                     
                 }
             }
+        }
+    }
+    #aside-link{
+        .aside-com-btn{
+            width: 70px;
         }
     }
 }
@@ -876,6 +890,7 @@ a{
             }
         }
     }
+    
 }
 //<!-- --------------------aside link------------------ -->
 #aside-link{
@@ -899,8 +914,6 @@ a{
         }
     }
 }
-
-
 
 /* ----------------------GO TOP---------------------- */
 
