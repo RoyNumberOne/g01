@@ -14,7 +14,7 @@ try	{
         <form method="post" id="clickOrderNo">
             <table>
                 <thead class="forRWD">
-                    <tr class='cyan'><th>訂單編號</th><th>會員編號</th><th>收件人</th><th width="110px">聯絡電話</th><th>付款方式</th><th>訂單狀態</th><th>付款金額</th><th>訂單成立時間</th></tr>
+                    <tr class='cyan'><th>訂單編號</th><th>收件人</th><th width="110px">聯絡電話</th><th>付款方式</th><th>訂單狀態</th><th>付款金額</th><th>訂單成立時間</th></tr>
                 </thead>
             <?php
                 foreach ( $prodRows as $i => $prodRow){
@@ -24,7 +24,6 @@ try	{
                         <td class="showDetail forRWD_td" data-th="訂單編號" style="padding-top:5px;">
                             <?=$prodRow["訂單編號"]?>
                         </td>
-                        <td data-th="會員編號" class="forRWD_td"><?=$prodRow["會員編號"]?></td>
                         <td data-th="收件人" class="forRWD_td"><?=$prodRow["收件人"]?></td>
                         <td data-th="聯絡電話" class="forRWD_td"><?=$prodRow["聯絡電話"]?></td>
                         <td data-th="付款方式" class="forRWD_td"><?=$prodRow["付款方式"]?></td>
