@@ -41,7 +41,7 @@ try{
             ?>
             <tr>
                 <td><?=$forumRow["發文時間"]?></td>
-                <td style="text-decoration:underline;"><a href="./forum-comment.html?forum_post_no=<?=$forumRow["發文編號"]?>"><?=$forumRow["發文標題"]?></a></td>
+                <td><a href="./forum-comment.html?forum_post_no=<?=$forumRow["發文編號"]?>" style="text-decoration:underline"><?=$forumRow["發文標題"]?></a></td>
                 <td><?=$forumRow["獲得點數"]?></td>
             </tr>
         <?php } ?>
@@ -62,7 +62,7 @@ try{
             ?>
             <tr>
                 <td><?=$tourRow["揪團時間"]?></td>
-                <td style="text-decoration:underline;"><a href="./meet2-3.html?tour_no=<?=$tourRow["揪團編號"]?>"><?=$tourRow["揪團標題"]?></a></td>
+                <td><a href="./meet2-3.html?tour_no=<?=$tourRow["揪團編號"]?>" style="text-decoration:underline"><?=$tourRow["揪團標題"]?></a></td>
                 <td><?=$tourRow["獲得點數"]?></td>
             </tr>
         <?php } ?>
@@ -83,7 +83,7 @@ try{
             ?>
             <tr>
                 <td><?=$joinRow["參團時間"]?></td>
-                <td style="text-decoration:underline;"><a href="./meet2-3.html?tour_no=<?=$joinRow["參團編號"]?>"><?=$joinRow["參團標題"]?></td>
+                <td><a href="./meet2-3.html?tour_no=<?=$joinRow["參團編號"]?>" style="text-decoration:underline"><?=$joinRow["參團標題"]?></td>
                 <td><?=$joinRow["獲得點數"]?></td>
             </tr>
         <?php } ?>

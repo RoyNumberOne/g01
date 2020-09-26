@@ -54,9 +54,11 @@ function tabId(evt, className) {
   tabpage = document.getElementsByClassName("tabbutton");
   for (i = 0; i <= x.length; i++) {
      tabpage[i].classList.remove("highlight");
+     $(".tabbutton").parent().css("background-color","#2C5E9E");
   }
   document.getElementById(className).style.display = "block";
   evt.currentTarget.classList.add("highlight");
+  $(".highlight").parent().css("background-color","#FFC400");
   
 }
 
