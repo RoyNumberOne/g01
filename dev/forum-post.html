@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="./css/forum-post.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <!-- <link rel="stylesheet" href="./css/common.css"> -->
+    <!--字體--->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    
     <script src="./js/header.js" ></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/fa5.14.0all.js"></script><!----go top裡面的箭頭需要用到的js----->
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -142,13 +145,6 @@
         <i class="fas fa-arrow-up"></i>
     </a> -->
 
-    <!-- -------------------------aside link--------------------------->
-    <div id="aside-link">
-        <div class="aside-com-btn">
-            <a href="./meet2-2.html"><img src="./img/want2.png" alt=""></a>
-        </div>
-    </div>
-
     <footer class="footer">
         <div class="footer_logo_block">
             <a href="./FrontstageIndex.html">
@@ -199,12 +195,6 @@
             </div>
         </div>
     </footer>
-    
-    <script src="./js/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="./js/common.js"></script>
 
     <script type="text/javascript">
         $(function() {
@@ -342,34 +332,6 @@
             }
         });
     </script>
-
-  <!-- <script>
-    function checkId(){  
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    // alert(xhr.responseText); //回傳php回應的值
-                    alert(76767);
-                }else{
-                    alert(xhr.status);
-                }
-            }
-        } 
-        xhr.open("post", "./phpForConnect/forum-post.php", true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        let data_info = `forum_post_category=${$id("forum_post_category").value}&forum_post_title=${$id("forum_post_title").value}&forum_post_image=${$id("forum_post_image").value}&forum_post_innertext=${$id("forum_post_innertext").value}`;
-        xhr.send(data_info);
-    }
-
-
-    window.addEventListener("load", function(){
-    document.getElementById("forum-post-btn").addEventListener("click", checkId, false);
-    }, false);
-  </script> -->
-    <!-- <script src="./js/forum-post.js"></script> -->
-    <script src="./js/header.js" ></script>
     <script src="./js/login_v2.js"></script>
 
 </body>

@@ -1,11 +1,7 @@
 
 
 <?php
-    $errMsg = "";
-    //加這段php404的問題會被解決,但畫面不會跳轉
-    // header('HTTP/1.1 404 Not Found');
-    // header("status: 404 Not Found");
-    
+    $errMsg = "";    
     try{
         header("connect-type: text/html; charset=utf-8");
         require_once("./connectMeetain.php");
@@ -15,10 +11,6 @@
         $forum_post_poster = $_SESSION['mem_no'];
         echo $forum_post_poster;
         // $member_no = $_SESSION["mem_no"];
-
-        //會員資料 ---->要開啟才可以run
-        // $member_no = 10003;
-        // $forum_post_poster = $member_no;
 
         //前端送來的資料
         //會接收HTML中select的選項的VALUE
@@ -42,11 +34,11 @@
         
         echo '感謝您的發文';
 
-        // --------取得發文者編號-RUN SQL -->有一個值-------
+        // --------取得發文者編號-RUN SQL -->
         $sql = "SELECT forum_post_no from forum_post where forum_post_poster = '$forum_post_poster' order by forum_post_no desc limit 1";
 
         $new_forum_post = $pdo->prepare($sql); 
-        $new_forum_post->execute(); //原先這段有註解
+        $new_forum_post->execute();
 
         $prodRows = $new_forum_post->fetchAll(PDO::FETCH_ASSOC);
 
@@ -54,7 +46,7 @@
 
         echo "發文者編號".$prodRows[0]['forum_post_no']."<br>";
 
-        // -------------------------上傳的圖片 以指定檔名存入指定地點 並存入資料庫-------------------------
+        // ------------上傳的圖片 以指定檔名存入指定地點 並存入資料庫------------
 
         if ($_FILES['forum_post_image']['error'] === UPLOAD_ERR_OK){
             echo'檔案名稱：'.$_FILES['forum_post_image']['name'].'<br>';
@@ -69,11 +61,6 @@
 
                 $dir = "../images/forum_image"; // 存入地點 本機端
                 $dir2 = "./images/forum_image"; // 存入地點 SQL
-
-
-                // //     if(file_exists($dir)==false){
-                // //         mkdir($dir);  //make directory
-                // // }
 
                 $file = $_FILES['forum_post_image']['tmp_name']; //檔案暫存位置 檔名
                 $dest = $dir."/".$forum_post_no.'.jpg'; // 存入的檔名
@@ -95,12 +82,6 @@
                 $new_forum_post = $pdo->prepare($sql); 
                 $new_forum_post->execute();   //執行 SQL             
             // }
-
-            // }else{
-            //     echo '錯誤代碼：'.$_FILES['forum_post_image']['error'].'<br>';
-
-
-
         // ------------- 會員點數增加(數字再確認) -------------
 
             $sql = "UPDATE member

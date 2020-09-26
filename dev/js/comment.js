@@ -48,12 +48,12 @@ new Vue({
         let LENGTH = this.message_report_img.length;
         setTimeout(() => {
             let message_report_data = this.message_report_img;
-            // console.log('BBB')
-            // console.log(message_report_data)
-        }, 300);
+
+            console.log(message_report_data)
+        }, 500);
         
         forum_post_no = urlSearchParams.get('forum_post_no');
-        // console.log(forum_post_no)
+        console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
         //文章發布
         axios.post('./phpForConnect/commentPostReflection.php',formArticle).then(res => {
@@ -64,6 +64,7 @@ new Vue({
             //這段在vue顯示錯誤的資訊
             let forum_post_no = this.reflection[0].forum_post_no;
         }).then( () => {
+
 
                 setTimeout(function(){
 
@@ -77,7 +78,7 @@ new Vue({
                             var xhr = new XMLHttpRequest();
                             xhr.onload = function(e) {
                                 if (xhr.status == 200) { //連線成功
-                                    // console.log(xhr.responseText)
+                                    console.log(xhr.responseText)
                                     // alert(xhr.responseText)
                                         // alert(xhr.responseText);
                                     if (xhr.responseText != 0) {
@@ -86,7 +87,7 @@ new Vue({
                                         $(".heart").attr("src", "./images/icons/icon_heart.svg");
                                     }
                                 } else {
-                                    alert(xhr.status);
+                                    swal(xhr.status);
                                 }
                             }
                             var url = "./phpForConnect/forum_artical_Collect_pic.php";
@@ -95,7 +96,7 @@ new Vue({
                             let data = `forum_post_no=${forum_post_no}`;
                             xhr.send(data);
                     }
-                },400)
+                },500)
 
         }),
 
@@ -130,19 +131,12 @@ new Vue({
         for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
             if( $(`.GN${k}`).val()){
                 $(`.GN${k}`).parent().css("display","block")
-                // console.log($(`.GN${k}`).val())
+                console.log($(`.GN${k}`).val())
             }   else    {
                 $(`.GN${k}`).parent().css("display","none")
-                // console.log($(`.GN${k}`).val())
+                console.log($(`.GN${k}`).val())
             }
         }
-        
-        //這段code是判斷會員是否為登入前要做的事情
-        // if($("#mem_info_id").text()){
-        //     for (var t = 0; t < this.message_report_img.length; t++) {
-        //         this.CHECKnull(t);
-        //     }
-        // }
 
         this.checkForumReportNull();
     }, //end
@@ -206,10 +200,9 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            // console.log(xhr.responseText);
-                            // alert(xhr.responseText);
+                            console.log(xhr.responseText);
                         } else {
-                            alert(xhr.status);
+                            swal(xhr.status);
                         }
                     }
                     var url = "./phpForConnect/forum_artical_Collect.php";
@@ -225,7 +218,7 @@ new Vue({
                     }
                 } else {
                     //沒有登入，請先登入
-                    alert("請先登入哦")
+                    swal("請先登入")
                 }
             }
             xhr2.open("get", "./login_v2_LoginInFo.php", true);
@@ -233,8 +226,8 @@ new Vue({
         },
         openReportModal(e) {
             if($('#mem_info_id').html() === ''){
-                alert ('請先登入');
-                window.location.href = './login_v2.html';
+                swal ('請先登入');
+                // window.location.href = './login_v2.html';
             }else{
                 // 打開彈窗
                  $('.report_block_message').removeClass('close');
@@ -244,7 +237,7 @@ new Vue({
                  $(".mg_confirm").click(function(e){
                      var temp = $('#send_report_block').val();
                      if(temp == ''){
-                         alert('請先輸入文字');
+                        swal('請先輸入文字');
                      }else{
                          let comment_report_reason = $(e.target.parentNode.parentNode).find(".comment_report_reason").val();
                          axios.get('./phpForConnect/comment_message_report.php', {params:{
@@ -259,13 +252,14 @@ new Vue({
              }
         },
         changePic(e) {
-            // console.log($(e.target).attr('src'));
+            console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
         //確認留言是否被檢舉過
         CHECKnull(k) {
             var CMTNO = this.message_report_img[k].comment_no;
             if (this.message_report_img[k].comment_report_mem !== null) {
+                console.log(234)
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
@@ -278,30 +272,30 @@ new Vue({
             }else{
                 $('img.rpImg').attr('src', './images/icons/icon_report_c.svg')
                 $('.fr_report_bt').attr('disabled', 'disabled')
-                // console.log('已檢舉過')
+                console.log('已檢舉過')
             }
         },
         //文章檢舉彈窗
         forum_artical_report(e) {
                     if ($('#mem_info_id').html() === '') {
-                        alert('請先登入');
-                        window.location.href = './login_v2.html';
+                        swal('請先登入');
+                        // window.location.href = './login_v2.html';
                     } else {
                         // 打開彈窗
                         $('.report_block_match').removeClass('close');
                         let reportNo = $('.tour_no').val();
-                        // console.log(reportNo)
+                        console.log(reportNo)
                         let iconIF = $('.rpImg');
                         // console.log(reportNo);
                         // let iconIF = $(e.target.parentNode.parentNode).find("img");
                         $(".tr_confirm").click(function(e) {
                             var temp = $('#send_tr_report_block').val();
                             if (temp == '') {
-                                alert('請先輸入文字');
+                                swal('請先輸入文字');
                             } else {
                                 let forum_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
                                 // console.log(forum_report_reason);
-                                // console.log(reportNo)
+                                console.log(reportNo)
                                 axios.get('./phpForConnect/forum_artical_report.php', {
                                     params: {
                                         "forum_report_post": reportNo,
@@ -323,6 +317,8 @@ new Vue({
                 message_report_data = this.message_report_img;
             }, 450);
 
+            console.log(forum_post_no)
+
             // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
             axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
 
@@ -331,7 +327,9 @@ new Vue({
                 // this.articalList = res.data;
                 this.commentpost = res.data.commentMessageData;
                 this.totalPage = res.data.totalPage;
-                // console.log(res.data); //測試是否成功
+                console.log(res.data); //測試是否成功
+                // console.log(this.commentpost)
+                // console.log(this.totalPage)
             })
             .then(res => {
                 setTimeout(function(){
@@ -340,6 +338,7 @@ new Vue({
                         for (var k = 0; k < (message_report_data.length); k++) {
 
                             if ( message_report_data[k].comment_report_mem !== null) {
+                                console.log(234)
                                 $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                                 $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
                             };
