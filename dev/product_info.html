@@ -183,9 +183,83 @@
                 </div>
             </div>
     </footer>
+    <script src="./js/header.js"></script>
     <script src="./js/product_info.js" defer></script>
     <script src="./js/login_v2.js"></script>
-    <script src="./js/header.js"></script>
+    <script>
+
+        //補跳轉member
+
+        $(document).ready(function(){
+            $('.memicon').click(function(){
+                if($('#mem_info_id').html() === ''){
+                    // alert ('還沒登入');
+                    var kkk = window.location.href;
+                    kkk = kkk.substring(kkk.lastIndexOf('/'))
+                    if (kkk!='/login_v2.html'){
+                        let url = window.location.href;
+                        localStorage.setItem('web', url);
+                        window.location.href = './login_v2.html';
+                    }   else {
+                        localStorage.setItem('web', './Member_v2.html');
+                        window.location.href = './login_v2.html';
+                    }
+                }else{
+                    // alert('已經登入');
+                    window.location.href = './Member_v2.html';
+                }
+            });
+            var $hamburger = $(".hamburger");
+            $hamburger.on("click", function(e) {
+            $hamburger.toggleClass("is-active");
+                $("#hamburgerBG").toggleClass("on");
+                $(".menu").toggleClass("on")
+                $(".link_list").toggleClass("on");
+                $("#greymask").toggleClass("on");
+                setTimeout(function(){
+            $("#greymask").toggleClass("show");
+                },100)
+                setTimeout(function(){
+            $("#hamburgerBG").toggleClass("show");
+                },150)
+                setTimeout(function(){
+            $(".menu").toggleClass("show");
+                },200)
+            });
+            $("#greymask").on("click", function(e) {
+            $hamburger.toggleClass("is-active");
+                $("#hamburgerBG").toggleClass("on");
+                $("nav.menu").toggleClass("on")
+                $(".link_list").toggleClass("on");
+                $("#greymask").toggleClass("on");
+                setTimeout(function(){
+            $("#greymask").toggleClass("show");
+                },100)
+                setTimeout(function(){
+            $("#hamburgerBG").toggleClass("show");
+                },100)
+                setTimeout(function(){
+            $(".menu").toggleClass("show");
+                },200)
+            });
+            $("#hamburgerBG").on("click", function(e) {
+            $hamburger.toggleClass("is-active");
+                $("#hamburgerBG").toggleClass("on");
+                $("nav.menu").toggleClass("on")
+                $(".link_list").toggleClass("on");
+                $("#greymask").toggleClass("on");
+                setTimeout(function(){
+            $("#greymask").toggleClass("show");
+                },100)
+                setTimeout(function(){
+            $("#hamburgerBG").toggleClass("show");
+                },100)
+                setTimeout(function(){
+            $(".menu").toggleClass("show");
+                },200)
+            });
+        })
+    </script>
 </body>
 
 </html>

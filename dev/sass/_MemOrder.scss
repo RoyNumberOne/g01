@@ -13,14 +13,22 @@
             border-style: double ;
             border: double 1px #999;
             border-collapse: separate; 
+            // border-collapse: collapse; 
             border-radius: 15px;
             padding: 20px;
             width: 90%;
             margin: 20px auto;
             text-align: center;
+            th{
+                padding: 10px 0px;
+            }
             td.showDetail{
                 cursor: pointer;
                 text-decoration: underline;
+            }
+            tr{
+                border:1px solid black;
+                border-radius: 15px;
             }
         }
         .prodDetail{
@@ -34,13 +42,37 @@
 }
 
 // RWD
-@media screen and (max-width: 414px){
+@media screen and (max-width: 767px){
     #MemOrder{
         #MemOrder_info{
             table{
-                padding: 10px;
-                width: 80%;
+                border-collapse: collapse;
+                border: none;
+                thead.forRWD{
+                    display: none;
+                    border-style: none;
+                }
+                tr{
+                    border:none;
+                }
+                tr.forRWD_tr{
+                    // border: 1px solid #000000;
+                    border-bottom: 1px solid #999;
+                }
+                td.forRWD_td{
+                    display:block;
+                    text-align: left;
+                    &::before{
+                        content: attr(data-th) "";
+                        float: left;
+                        font-weight: bold;
+                        width: 100px;
+                    }
+                    
+                }
             }
         }
     }
+
+    
 }

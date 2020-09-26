@@ -1226,6 +1226,17 @@ button.btnB_L_grey{
     left:0;
     transform: translateY(-50%);
 }
+//avator被div裁型的圖片
+@mixin AVATORimgs {
+    // width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
 
 .certificationIcon div.icon_hover{
     width: 120px;
@@ -1262,7 +1273,13 @@ button.btnB_L_grey{
         overflow: hidden;
         position: relative;
         img{
-            @include imgs;
+            @include AVATORimgs;
+            &.wide{
+                height: 100% !important;
+            }
+            &.tall{
+                width: 100% !important;
+            }
         }
     }
     .memberInfo{
@@ -1359,7 +1376,7 @@ button.btnB_L_grey{
         
         margin: auto 5px auto 3px;
         img{
-            @include imgs;
+            @include AVATORimgs;
         }
     }
     .memberId{

@@ -134,6 +134,18 @@ new Vue({
         }
 
         this.checkForumReportNull();
+        let IMGarray = $(".memberImg img")
+        setTimeout(function(){
+            if(IMGarray.eq(t).width() > IMGarray.eq(t).height() || isNaN(IMGarray.eq(t).width()) || isNaN(IMGarray.eq(t).height())){
+                if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                    IMGarray.eq(t).addClass('wide')
+                    IMGarray.eq(t).removeClass('tall')
+                }   else    {
+                    IMGarray.eq(t).addClass('tall')
+                    IMGarray.eq(t).removeClass('wide')
+                }
+            }
+        },200)
     }, //end
     
     methods :{
