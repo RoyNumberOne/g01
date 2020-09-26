@@ -206,6 +206,18 @@ new Vue({
                 $(`.belowGN${k}`).parent().css("display","none")
             }
         }
+        let IMGarray = $(".memberImg img")
+        setTimeout(function(){
+            for(var t=0 ; t<IMGarray.length ; t++){
+                if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                    IMGarray.eq(t).addClass('wide')
+                    IMGarray.eq(t).removeClass('tall')
+                }   else    {
+                    IMGarray.eq(t).addClass('tall')
+                    IMGarray.eq(t).removeClass('wide')
+                }
+            }
+        },200)
     },
 })
 

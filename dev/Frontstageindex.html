@@ -660,6 +660,18 @@
                     return this.Tour1[0].guide_no;
                 },
             },
+            updated(){
+                let IMGarray = $(".memberImg img")
+                setTimeout(function(){
+                    for(var t=0 ; t<IMGarray.length ; t++){
+                        if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                            IMGarray.eq(t).addClass('wide')
+                        }   else    {
+                            IMGarray.eq(t).addClass('tall')
+                        }
+                    }
+                },200)
+            }
         });
         let vForumHot = new Vue({
             el: "#sec3-1box",
@@ -676,11 +688,13 @@
                 $(e.target.parentNode).siblings().removeClass("-active")
                 $(e.target.parentNode).addClass("-active")
                 this.renderForumData();
+                this.CHECKIMG();
             },
             toggleActiveP: function(e) {
                 $(e.target.parentNode.parentNode).siblings().removeClass("-active")
                 $(e.target.parentNode.parentNode).addClass("-active")
                 this.renderForumData();
+                this.CHECKIMG();
             },
             renderForumData: function(){
                 //抓值
@@ -731,9 +745,33 @@
                 gotoFORUM: function(){
                     location.href=`./forum-comment.html?forum_post_no=${$("#sec3-1box .innerboxright .-active .TEMPforum_post_no").val()}`
                 },
+                CHECKIMG: function(){
+
+                let IMGarray = $(".memberImg img")
+                    for(var t=0 ; t<IMGarray.length ; t++){
+                        if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                            IMGarray.eq(t).addClass('wide')
+                            IMGarray.eq(t).removeClass('tall')
+                        }   else    {
+                            IMGarray.eq(t).addClass('tall')
+                            IMGarray.eq(t).removeClass('wide')
+                        }
+                    }
+                }
             },
             updated() {
                 this.renderForumData();
+
+                let IMGarray = $(".memberImg img")
+                setTimeout(function(){
+                    for(var t=0 ; t<IMGarray.length ; t++){
+                        if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                            IMGarray.eq(t).addClass('wide')
+                        }   else    {
+                            IMGarray.eq(t).addClass('tall')
+                        }
+                    }
+                },200)
             },
         });
         let vForumNew = new Vue({
@@ -751,11 +789,13 @@
                 $(e.target.parentNode).siblings().removeClass("-active")
                 $(e.target.parentNode).addClass("-active")
                 this.renderForumData();
+                this.CHECKIMG();
             },
             toggleActiveP: function(e) {
                 $(e.target.parentNode.parentNode).siblings().removeClass("-active")
                 $(e.target.parentNode.parentNode).addClass("-active")
                 this.renderForumData();
+                this.CHECKIMG();
             },
             renderForumData: function(){
                 //抓值
@@ -802,9 +842,34 @@
                 gotoFORUM: function(){
                     location.href=`./forum-comment.html?forum_post_no=${$("#sec3-2box .innerboxright .-active .TEMPforum_post_no").val()}`
                 },
+
+                CHECKIMG: function(){
+                    
+                    let IMGarray = $(".memberImg img")
+                    for(var t=0 ; t<IMGarray.length ; t++){
+                        if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                            IMGarray.eq(t).addClass('wide')
+                            IMGarray.eq(t).removeClass('tall')
+                        }   else    {
+                            IMGarray.eq(t).addClass('tall')
+                            IMGarray.eq(t).removeClass('wide')
+                        }
+                    }
+                }
             },
             updated() {
                 this.renderForumData();
+
+                let IMGarray = $(".memberImg img")
+                setTimeout(function(){
+                    for(var t=0 ; t<IMGarray.length ; t++){
+                        if(IMGarray.eq(t).width() > IMGarray.eq(t).height()){
+                            IMGarray.eq(t).addClass('wide')
+                        }   else    {
+                            IMGarray.eq(t).addClass('tall')
+                        }
+                    }
+                },200)
             },
         });
         let vProduct = new Vue({
