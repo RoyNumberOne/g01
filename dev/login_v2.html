@@ -329,10 +329,16 @@
         function checkpas() { //當第一個密碼框失去焦點時，觸發checkpas2件
             var pas1 = document.getElementById("mem_psw_app").value;
             var pas2 = document.getElementById("repassword").value; //獲取兩個密碼框的值
-            if (pas1 != pas2) {
+            if (pas1 !== pas2) {
                 $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
+                // alert('密碼不一致')
+                $('#submitBtn_app').attr('disabled', false)
+                $('#submitBtn_app').css('cursor', 'not-allowed')
             } else {
                 $(".tip").hide();
+                // alert('密碼一致')
+                $('#submitBtn_app').attr('disabled', true)
+                $('#submitBtn_app').css('cursor', 'pointer')
             }
         }
 
