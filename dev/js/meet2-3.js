@@ -120,13 +120,14 @@ new Vue({
         const nowMen = this.tourData.mem_no;
         let now = new Date();
         let xhr = new XMLHttpRequest();
-
+        
         xhr.open("get", "./login_v2_LoginInFo.php",true);
             xhr.send(null);
         if(this.tourData.mem_no){
             xhr.onload = ()=>{
                 member = JSON.parse(xhr.responseText);
                 if (member.mem_id){
+                    console.log('有登入')
                     if (nowMen !== member.mem_no){  //不同一人
                         // console.log('不同一人')
                         $('.application_bt').addClass('none')
@@ -160,7 +161,10 @@ new Vue({
                             $('#okGo > p').text('活動已結束')
                         }
                     }
-                }   
+                }   else{
+                    $('.applied_participant').addClass('none')
+                    console.log('未登入')
+                } 
             }
         }
 
