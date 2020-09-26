@@ -196,12 +196,21 @@
                 justify-content: center;
             }
             .CollectList_group{
+                display: flow-root;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(2, 1fr);
                 gap: 1% 2%;
                 .card{
                     width: 250px;
+                    margin: 5% auto;
                 }
+            }
+        }
+        #class1, #class2, #class3{
+            overflow: auto;
+            height: 600px;
+            &::-webkit-scrollbar{
+                display: none;
             }
         }
 
@@ -232,7 +241,21 @@
             grid-template-columns: repeat(1,1fr);
         }
         .CollectList_group{
-            gap: 2% 0%;
+            display: flow-root;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1% 2%;
+            .card{
+                width: 250px;
+                margin: 5% auto;
+            }
+        }
+    }
+    #class1, #class2, #class3{
+        overflow: auto;
+        height: 600px;
+        &::-webkit-scrollbar{
+            display: none;
         }
     }
 }

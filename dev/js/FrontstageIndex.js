@@ -82,7 +82,7 @@ $(document).ready(function() {
     loopBottom: true,
     loopTop: true,
 
-    sectionsColor: ['transparent', 'transparent', 'transparent', 'transparent'],
+    // sectionsColor: ['transparent', 'transparent', 'transparent', 'transparent'],
     });
 });
 // new fullpage('#fullpage', {

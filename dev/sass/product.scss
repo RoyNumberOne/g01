@@ -166,6 +166,7 @@ div.wrap{
         color: #fff;
         margin-top: -50px;
         .clothes{
+            cursor: pointer;
             height: 100%; 
             position: relative;
             img{
@@ -173,6 +174,7 @@ div.wrap{
             }
         }
         .bag{
+            cursor: pointer;
             height: 100%;
             position: relative;
             img{
@@ -180,6 +182,7 @@ div.wrap{
             }
         }
         .shoes{
+            cursor: pointer;
             height: 100%;
             position: relative;
             img{
@@ -187,6 +190,7 @@ div.wrap{
             }
         }
         .campGear{
+            cursor: pointer;
             height: 100%;
             position: relative;
             img{
@@ -194,6 +198,7 @@ div.wrap{
             }
         }
         .others{
+            cursor: pointer;
             height: 100%;
             position: relative;
             img{
@@ -213,6 +218,7 @@ div.wrap{
     z-index: 3;
     transition: all .5s 0s ease;
     background-size: 100% 100%;
+    pointer-events: fill;
     &:hover{
         background-color: rgba($mt_black, 0.5);
         opacity: 1;
@@ -297,6 +303,9 @@ div.wrap{
             }
         }
     }
+    .show_hover{
+        display: none;
+    }
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
     div.wrap{
@@ -310,6 +319,7 @@ div.wrap{
             display: flex;
             flex-direction: column;
             .category{
+                height: 450px;
                 width: 100%;
             }
             .inner_p_per{
@@ -317,6 +327,7 @@ div.wrap{
                 text-align: center;
             }
             .product_block{
+                height: 450px;
                 width: 100%;
                 order: 3;
                 justify-content: space-between;
@@ -333,6 +344,9 @@ div.wrap{
             }
         }  
     }
+    .show_hover{
+        display: none;
+    }
 }
 @media screen and (max-width: 575px){
     div.wrap{
@@ -347,6 +361,7 @@ div.wrap{
             flex-direction: column;
             .category{
                 width: 100%;
+                height: 400px;
             }
             .inner_p_per{
                 order: 3;
@@ -354,6 +369,7 @@ div.wrap{
                 margin: 20px 0 10px;
             }
             .product_block{
+                height: 400px;
                 width: 100%;
                 order: 3;
                 justify-content: space-between;
@@ -376,7 +392,10 @@ div.wrap{
             }
         }  
     }
- }
+    .show_hover{
+        display: none;
+    }
+}
 
  // 所在位置 //
  nav.menu ul.link_list.llleft li{
