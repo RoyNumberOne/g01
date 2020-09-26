@@ -29,8 +29,11 @@
 
      <!-- Google Map  -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBRyERh4T_wL8V15r7uAf6SGbWmqhws0Y&callback=initMap&libraries=&v=weekly" defer>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBRyERh4T_wL8V15r7uAf6SGbWmqhws0Y&callback=initMap&libraries=&v=weekly" defer>
         // key=YOUR_API_KEY&callback= 
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" defer>
+        
     </script>
 
 </head>
@@ -180,7 +183,7 @@
                                         <span class="tag">＃{{hotmeet.days}}天</span>
                                         <span class="tag">＃{{hotmeet.tour_min_number}}~{{hotmeet.tour_max_number}}人</span>
                                         <div class="locationDegree">
-                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="icon_box"><img class="location_icon" src="./images/icons/icon_location.svg" alt=""></div>
                                             <span class="location">{{hotmeet.mountain_area | Area}}</span>
                                             |
                                             <span class="degree">難度<div class="degreeImg" v-html="Degree(hotmeet.degree_category)"></div></span>
@@ -244,6 +247,7 @@
                             <span class="tag">＃{{meet.days}}天</span>
                             <span class="tag">＃{{meet.tour_min_number}}~{{meet.tour_max_number}}人</span>
                             <div class="locationDegree">
+                                <div class="icon_box"><img class="location_icon" src="./images/icons/icon_location.svg" alt=""></div>
                                 <span class="location">{{meet.mountain_area | Area}}</span>
                                 |
                                  <span class="degree">難度<div class="degreeImg" v-html="Degree(meet.degree_category)"></div></span>
