@@ -265,7 +265,7 @@
                 // border: 2px solid rgb(198, 35, 204);
                 width: 100%;
                 h2{
-                    color: rgb(117, 94, 94);
+                    color: black;
                     font-size: 30px;
                     font-weight: 600;   
                     margin:50px auto;
@@ -828,6 +828,11 @@
         #forum_aside{
             display: none;
         }
+        #aside-link{
+            .aside-com-btn{
+                width: 70px;
+            }
+        }
     }
 
 }
@@ -917,6 +922,12 @@
             }
             #forum_aside{
                 display: none;
+            }
+
+            #aside-link{
+                .aside-com-btn{
+                    width: 60px;
+                }
             }
         } //forum_container的結束
     }

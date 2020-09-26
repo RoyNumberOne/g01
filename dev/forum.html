@@ -162,28 +162,28 @@
                             <div class="item_btns">
                                 <form action="#" method="#" enctype="multipart/form-data">
                                     
-                                    <label>
+                                    <label class="all">
                                         <input type="radio" name="type" id="filter_top" value="全部"  v-model="input.type" style="display: none;">
                                         全部
                                     </label>
                                     
-                                    <label>
-                                        <input type="radio" name="type" id="filter_1" value="揪團心得"  v-model="input.type" style="display: none;">
+                                    <label class="group">
+                                        <input type="radio" name="type" id="filter_1" value="揪團心得" v-model="input.type" style="display: none;">
                                         揪團心得
                                     </label>
 
                                     <label>
-                                        <input type="radio" name="type" id="filter_2" value="裝備資訊"  v-model="input.type" style="display: none;">
+                                        <input type="radio" name="type" id="filter_2" value="裝備資訊" v-model="input.type" style="display: none;">
                                         裝備資訊
                                     </label>
 
                                     <label>
-                                        <input type="radio" name="type" id="filter_3" value="新手專區"  v-model="input.type" style="display: none;">
+                                        <input type="radio" name="type" id="filter_3" value="新手專區" v-model="input.type" style="display: none;">
                                         新手專區
                                     </label>
 
                                     <label>
-                                        <input type="radio" name="type" id="filter_4" value="登山知識"  v-model="input.type" style="display: none;">
+                                        <input type="radio" name="type" id="filter_4" value="登山知識" v-model="input.type" style="display: none;">
                                         登山知識
                                     </label>
                                 </form>
@@ -453,6 +453,17 @@
           })
         });
     })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(".all").mouseenter(function(){
+                $(".all").css("background-color","#2C5E9E");
+            });
+            $(".all").mouseleave(function(){
+                $(".all").css("background-color","#2C5E9E");
+            });
+    });
     </script>
 
     <!-- <script> ////原先滑動的討論度排行榜jQuer寫法

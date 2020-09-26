@@ -448,7 +448,6 @@ $(".pgnext").click(function(){
         $(".-active").prev(".-active").removeClass("-active");
     }
     checkpg();
-    })
 });
 
 $(function() {
