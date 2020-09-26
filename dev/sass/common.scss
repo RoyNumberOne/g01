@@ -1213,7 +1213,14 @@ button.btnB_L_grey{
 //被div裁型的圖片
 @mixin imgs {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+@mixin badges{
+    height: 100%;
     position: absolute;
     top:50%;
     left:0;
@@ -1292,7 +1299,7 @@ button.btnB_L_grey{
                 overflow: hidden;
                 position: relative;
                 img{
-                    @include imgs;
+                    @include badges;
                 }
             }
         }
