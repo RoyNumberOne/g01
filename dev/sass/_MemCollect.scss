@@ -206,6 +206,13 @@
                 }
             }
         }
+        #class1, #class2, #class3{
+            overflow: auto;
+            height: 600px;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
 
 }
 @media screen and (max-width: 575px){

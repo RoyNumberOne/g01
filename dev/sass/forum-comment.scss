@@ -286,6 +286,7 @@
             position: relative;
             img{
                 @include imgs;
+                width: 100%;
             }
         }
         .memberInfo{

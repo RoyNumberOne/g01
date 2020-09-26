@@ -281,14 +281,16 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
-                        swal(xhr.responseText); //回傳php回應的值
                         if (xhr.responseText == '帳號註冊成功'){
                             if(localStorage.getItem('web') == null){ //註冊成功
-                                $("#signInForm").submit();
-                                window.location.href = './Member_v2.html';
+                                swal(xhr.responseText); //回傳php回應的值
+                                $(".swal-button--confirm").click(function(){
+                                    $("#signUpForm").submit();
+                                    window.location.href = './Member_v2.html';
+                                })
                             }else{
                                 let redirection = localStorage.getItem('web');
-                                $("#signInForm").submit();
+                                $("#signUpForm").submit();
                                 window.location.href = redirection;
                             }
                         }

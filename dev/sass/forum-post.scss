@@ -96,6 +96,9 @@
         cursor: pointer;
         font-size: 1rem;
         border-radius: 5px;
+            option:disabled {
+            color:rgb(199, 199, 199);
+          }
       }
       #forum_post_innertext{
         outline: none;
