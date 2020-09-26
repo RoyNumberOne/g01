@@ -281,6 +281,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
+                        swal(xhr.responseText);
                         if (xhr.responseText == '帳號註冊成功'){
                             if(localStorage.getItem('web') == null){ //註冊成功
                                 swal(xhr.responseText); //回傳php回應的值
