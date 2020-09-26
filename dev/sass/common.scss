@@ -1212,7 +1212,8 @@ button.btnB_L_grey{
 
 //被div裁型的圖片
 @mixin imgs {
-    height: 100%;
+    width: 100%;
+    object-fit: contain;
     position: absolute;
     top:50%;
     left:0;
