@@ -159,12 +159,13 @@ function getMemberFo(){
             //   $('#badge_3').css('display','none');
             // };
 
-          if(member.guide_no){
-            $(".a img").css("opacity","1")
+          if(member.mem_idno){
+            $(".a img").css("opacity","1");
+            // alert(member.mem_idno);
           } else  {
             $(".a img").css("opacity","0.5")
           }
-          if(member.mem_idno){
+          if(member.guide_no){
             $(".b img").css("opacity","1")
           } else  {
             $(".b img").css("opacity","0.5")
