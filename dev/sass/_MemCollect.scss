@@ -26,6 +26,7 @@
         text-align: left;
         .CI_title{
             overflow: hidden;
+            height: 60px;
             h3{
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
@@ -36,11 +37,12 @@
         }
         .CI_content{
             overflow: hidden;
+            height: 80px;
             p{
                 line-height: 1.33;
                 padding-top: 10px;
                 display: -webkit-box;
-                -webkit-line-clamp: 3;
+                -webkit-line-clamp: 4;
                 /*!autoprefixer:off*/
                 -webkit-box-orient: vertical;
                 /*autoprefixer:on*/
@@ -48,6 +50,7 @@
         }
     }   
     .Card_btn{
+        height: 90px;
         text-align: end;
         margin: 5%;
     }
@@ -227,19 +230,9 @@
             margin: 0;
             width: 100%;
             grid-template-columns: repeat(1,1fr);
-            grid-template-rows: repeat(6,1fr);
         }
         .CollectList_group{
             gap: 2% 0%;
         }
     }
-
-    #class1, #class2, #class3{
-        overflow: auto;
-        height: 1200px;
-        &::-webkit-scrollbar{
-            display: none;
-        }
-    }
-
 }

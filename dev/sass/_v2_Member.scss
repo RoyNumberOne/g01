@@ -209,8 +209,7 @@ main{
     .C_info{
         background-color: #f6f6f6;
         width: 100%;
-        padding-bottom: 5%;
-        margin: 50px auto;
+        padding-bottom: 20%;
     }
 }
 
@@ -337,9 +336,6 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
         .nav_mob{
             display: block;
         }
-        .C_info{
-            margin: 0 auto;
-        }
     }
 }
 @media screen and (min-width: 415px) and (max-width: 576px){
@@ -408,9 +404,6 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
         }
         .nav_mob{
             display: block;
-        }
-        .C_info{
-            margin: 0 auto;
         }
     }
 }
@@ -481,9 +474,6 @@ a.member div.memicon .membg { background-image: url("../images/icons/icon_member
         }
         .nav_mob{
             display: block;
-        }
-        .C_info{
-            margin: 0 auto;
         }
     }
 }
