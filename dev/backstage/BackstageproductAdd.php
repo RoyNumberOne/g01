@@ -113,6 +113,8 @@ function readURL3(input){
 }
 
 </script> -->
+
+<script src="../js/sweetalert.min.js"></script>
 <script>
 	// 商品 - 新增
 	$(Document).ready(function(){
@@ -127,15 +129,18 @@ function readURL3(input){
                 cache: false,
                 processData:false,
                 success: function(data){
+                    swal('已成功新增！');
+                    $(".swal-button--confirm").click(function(){
+                        if ($(".product_situation:checked").val() == 0) {
+                            window.location.href = "./Backstageproduct0.php"
+                        }   else    {
+                            window.location.href = "./Backstageproduct.php"
+                        }
+                    })
                 },
                 error: function(){
                 },
             });
-            if ($(".product_situation:checked").val() == 0) {
-                window.location.href = "./Backstageproduct0.php"
-            }   else    {
-                window.location.href = "./Backstageproduct.php"
-            }
 		})
 	})
 </script>
