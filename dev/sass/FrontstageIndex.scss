@@ -9261,12 +9261,13 @@ div#section4 {
     .fp-controlArrow.fp-prev{
         transform: scale(0.5) translate(-120px,-200px) !important;
     }
-    div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
+    div#sec1box , div#sec2box , div#sec3-1box , div#sec3-2box , div#sec4box
     {
         max-width: calc( 100vw - 50px) !important;
         width: 100% !important;
         max-height: 100vh !important;
         height: 100vh !important;
+        background-image: url("./images/index/sunset/sky.png") !important ;
     }
     & div#sec2box{
         & #OPENweather{
@@ -9553,6 +9554,13 @@ div#section4 {
 }
 
     
+@media screen and (max-width: 575px){
+    div#section1 , div#section2 , div#section3 , div#section4 { background-size: auto 100vh !important; background-repeat: no-repeat; background-position: center; }
+    div#section1 { background-image: url("../images/index/sec1.png") !important ; }
+    div#section2 { background-image: url("../images/index/sec2.png") !important ; }
+    div#section3 { background-image: url("../images/index/sec3.png") !important ; }
+    div#section4 { background-image: url("../images/index/sec4.png") !important ; }
+}
 // debug
 // div#section1,div#section3,div#section4 {
 //     display: none;

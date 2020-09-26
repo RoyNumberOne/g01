@@ -270,3 +270,10 @@ $(function() {
         }
     });
 });
+
+$(function(){
+    $('.category > label').click(function(e){
+        $(e.target).css('background-color', '#FFC400')
+        $(e.target).siblings().css('background-color', '#2C5E9E')
+    })
+})
