@@ -86,21 +86,12 @@ new Vue({
         // 公告的貼文(預設3篇)
         axios.get('./phpForConnect/forumPostAnnounce.php').then(res => {
             this.announcement = res.data;
-            // console.log('success');
             // console.log(this.announcement);
         }),
-        // // 貼文(非公告)
-        // axios.get('./phpForConnect/forumPostNormal.php').then(res => {
-        //     this.articalList = res.data;
-        //     console.log('success');
-        //     console.log(this.articalList);
-        // }),
 
         // 熱門排行榜
         axios.get('./phpForConnect/forumPostPoprank.php').then(res => {
             this.poprank = res.data;
-            // console.log('success');
-            // console.log(this.poprank);
         })
         
     },

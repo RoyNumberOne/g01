@@ -701,6 +701,11 @@
             }
         }
     }
+    #aside-link{
+        .aside-com-btn{
+            width: 80px;
+        }
+    }
 }
 @media screen and (max-width: 575px){
     main#comment{
@@ -757,6 +762,12 @@
             &:nth-child(6){
                 display: none;
             }
+        }
+    }
+
+    #aside-link{
+        .aside-com-btn{
+            width: 60px;
         }
     }
 }

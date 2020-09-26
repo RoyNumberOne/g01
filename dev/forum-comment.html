@@ -6,15 +6,19 @@
     <title>媒山友｜討論｜文章資訊</title>
     <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
-    <!-- <link rel="stylesheet" href="./css/common.css"> -->
     <link rel="stylesheet" href="./css/forum-comment.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+
+    <!--字體--->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
     <script src="./js/header.js" ></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/fa5.14.0all.js"></script><!----go top裡面的箭頭需要用到的js----->
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
 </head>
 <body>
     
@@ -71,9 +75,6 @@
         </div>
     </header>
     
-    <!-- <div id="banner">
-        <img src="./images/form_img/banner_03.jpg" alt="">
-    </div> -->
 
     <main id="comment">
         <div id="comment-block"  v-for="(reflection, index) in reflection">
@@ -183,55 +184,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="post-poster-block02">
-                <div class="member_styleA column">
-                    <div class="memberImg">
-                        <img src="./images/meet/member/Chris.jpg" alt="">
-                    </div>
-                    <div class="memberInfo">
-                        <div class="certification">
-                            <span class="certificationIcon"><img src="./images/icons/icon_realname.svg" alt=""></span>
-                            <span class="certificationIcon b"><img src="./images/icons/icon_guide.svg" alt=""></span>
-                        </div>
-                        <div class="memberId">Chris</div>
-                        <div class="memberBadge">
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                            <span class="memberBadgeIcon">
-                                <img src="./images/member/Ach_list_03.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post-text">
-                    <div class="triangle2">
-                        <div class="triangle-text">
-                            <div class="poster-say">
-                            <p>3 F  2020-07-18 11:39</p>
-                            <div class="report">
-                                <img class="report" src="./images/form_img/report.png" alt="">
-                                <p>檢舉</p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="innertext">
-                                <p>最近我們一群朋友開始愛上爬山~上禮拜去了抹茶山，我上山都還ok，
-                                    下山時覺得大腿內側超痠還有點痛….
-                                    好幾年前跑步有過拉傷，後來復原了朋友說是我的肌肉耐力不足，下個
-                                    月約好了要挑戰五寮尖(聽說難度很高)，大家有推薦帶什麼裝備嗎？
-                                    有想買個護膝護具～有沒有推薦的
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
                 <div class="text-arera-block">
                     <div class="area-tittle">
                         <h3>新增留言：</h3>
@@ -242,7 +194,7 @@
                 </div>
 
                 <div class="message-btn">
-                    <button class="btnB_XL_yellow" id="submitMessage" @click="SENDmsg" type="button"><p>我要留言</p><div class="bg"></div></button>
+                    <button class="btnB_XL_yellow" id="submitMessage" @click="SENDmsg"  type="button"><p>我要留言</p><div class="bg"></div></button>
                 </div>
             </div>
 
@@ -256,36 +208,6 @@
                 </div>
             </div>
         </div>
-
-            <!-- <div class="product-block">
-                <div class="arrow-right"></div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-shouse1.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-cat.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-climb.jpg" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-shouse.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-
-                <div class="product-img">
-                    <a href="#"><img src="./images/form_img/product-bag.png" alt=""></a>
-                    <p>望古瀑布、嶺腳寮山、嶺腳石窟大瀑布</p>
-                </div>
-                <div class="left"></div>
-            </div> -->
         </div>
 
     </main>
@@ -409,14 +331,6 @@
         </div>
     </footer>
 
-    <script src="./js/jquery-3.5.1.js"></script>
-    <!-- <script src="./js/AOS-MASTER/aos.js"></script> -->
-    <script src="./js/fa5.14.0all.js"></script><!----go top裡面的箭頭需要用到的js----->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="./js/common.js"></script>
-
     <script type="text/javascript">
         $(function() {
             /* 按下GoTop按鈕時的事件 */
@@ -519,7 +433,7 @@
     });
   </script>
 
-    <script src="./js/comment.js"></script>
+    <script src="./js/comment.js" defer></script>
     <script src="./js/login_v2.js"></script>
 
 </body>
