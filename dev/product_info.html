@@ -80,6 +80,16 @@
                         <div class="pic" @click="currentImageIndex = 1"></div>
                         <div class="pic" @click="currentImageIndex = 2"></div>
                     </div>
+                    <div class="move">
+                        <div class="pre" @click="pre">
+                            <div class="pre_pic"><img :src="preProduct.product_image_1" alt=""></div>
+                            <button class="btnA_LwLA reset_dot"><p>PREV</p><div class="btnArrowL"></div></button>
+                        </div>
+                        <div class="next" @click="next">
+                            <button class="btnA_LwRA reset_dot"><p>NEXT</p><div class="btnArrowL"></div></button>
+                            <div class="next_pic"><img :src="nextProduct.product_image_1" alt=""></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="right">
                     <div class="top">
@@ -119,16 +129,6 @@
                             <div class="at_title">[新手專區]5個容易忽略的健行風險 百岳單功篇</div>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="move">
-                <div class="pre" @click="pre">
-                    <div class="pre_pic"><img :src="preProduct.product_image_1" alt=""></div>
-                    <button class="btnA_LwLA reset_dot"><p>PREV</p><div class="btnArrowL"></div></button>
-                </div>
-                <div class="next" @click="next">
-                    <button class="btnA_LwRA reset_dot"><p>NEXT</p><div class="btnArrowL"></div></button>
-                    <div class="next_pic"><img :src="nextProduct.product_image_1" alt=""></div>
                 </div>
             </div>
         </div>
