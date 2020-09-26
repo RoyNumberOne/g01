@@ -13,6 +13,7 @@ new Vue({
         checkTourParticipateSituation: '',
         totalPage: '',
         currentPage: 1,
+        comment_report_reason: '',
     },
     created() {
 
@@ -23,34 +24,34 @@ new Vue({
 
         //抓是否檢舉過某則留言，換該留言檢舉圖示
         axios.get('./phpForConnect/meet2-3_message_report_img.php', {
-            params: {
-                "tour_post_no": tour_no,
-            }
-        }).then(res => {
-            this.message_report_img = res.data;
-            // console.log(this.message_report_img);
-        }),
-        //抓是否檢舉過該團，換該團檢舉圖示
-        axios.get('./phpForConnect/meet2-3_tour_report_img.php', {
-            params: {
-                "tour_post_no": tour_no,
-            }
-        }).then(res => {
-            this.tour_report_img = res.data;
-            // console.log(this.tour_report_img);
-            // console.log(1.1)
-        }),
-        //抓該團目前開團狀況，後續判斷使用
-        axios.get('./phpForConnect/meet2-3_tour_participate_Situation.php', {
-            params: {
-                "tour_participate_tour": tour_no,
-            }
-        })
-        .then(res => {
-            this.checkTourParticipateSituation = res.data;
-            // console.log(this.tour_report_img);
-            // console.log(1.1)
-        })
+                params: {
+                    "tour_post_no": tour_no,
+                }
+            }).then(res => {
+                this.message_report_img = res.data;
+                // console.log(this.message_report_img);
+            }),
+            //抓是否檢舉過該團，換該團檢舉圖示
+            axios.get('./phpForConnect/meet2-3_tour_report_img.php', {
+                params: {
+                    "tour_post_no": tour_no,
+                }
+            }).then(res => {
+                this.tour_report_img = res.data;
+                // console.log(this.tour_report_img);
+                // console.log(1.1)
+            }),
+            //抓該團目前開團狀況，後續判斷使用
+            axios.get('./phpForConnect/meet2-3_tour_participate_Situation.php', {
+                params: {
+                    "tour_participate_tour": tour_no,
+                }
+            })
+            .then(res => {
+                this.checkTourParticipateSituation = res.data;
+                // console.log(this.tour_report_img);
+                // console.log(1.1)
+            })
     },
     mounted() {
 
@@ -61,35 +62,35 @@ new Vue({
 
         //抓本團資訊
         axios.post('./phpForConnect/meet2-3_tour.php', formTour).then(res => {
-            this.tourData = res.data[0];
-            this.tourData['tour_innertext']=this.tourData['tour_innertext'].replace(/\n/g,"<br>")
-            // console.log('success tourData');
-            // console.log(this.tourData);
-        }),
-        //抓留言
-        // axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
-        //     this.comments = res.data;
-        //     // console.log('success comments');
-        //     // console.log(this.comments);
-        // }),
-        //抓審核中的人
-        axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
-            this.tourParticipates = res.data;
-            // console.log('success tourParticipats');
-            // console.log(this.tourParticipates);
-        }),
-        //抓審核通過的人
-        axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
-            this.passedParticipant = res.data;
-            // console.log('success tour_participant_passed');
-            // console.log(this.passedParticipant);
-        }),
-        //抓審核不通過的人
-        axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
-            this.notPassedParticipant = res.data;
-            // console.log('success tour_participant_notpassed');
-            // console.log(this.notPassedParticipant);
-        })
+                this.tourData = res.data[0];
+                this.tourData['tour_innertext'] = this.tourData['tour_innertext'].replace(/\n/g, "<br>")
+                    // console.log('success tourData');
+                    // console.log(this.tourData);
+            }),
+            //抓留言
+            // axios.post('./phpForConnect/meet2-3_comment.php', formTour).then(res => {
+            //     this.comments = res.data;
+            //     // console.log('success comments');
+            //     // console.log(this.comments);
+            // }),
+            //抓審核中的人
+            axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour).then(res => {
+                this.tourParticipates = res.data;
+                // console.log('success tourParticipats');
+                // console.log(this.tourParticipates);
+            }),
+            //抓審核通過的人
+            axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour).then(res => {
+                this.passedParticipant = res.data;
+                // console.log('success tour_participant_passed');
+                // console.log(this.passedParticipant);
+            }),
+            //抓審核不通過的人
+            axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour).then(res => {
+                this.notPassedParticipant = res.data;
+                // console.log('success tour_participant_notpassed');
+                // console.log(this.notPassedParticipant);
+            })
         let NOWtime;
         this.getCommentlist();
         this.HOST();
@@ -101,18 +102,18 @@ new Vue({
             this.CHECKnull(t);
         }
         // 實名制及認證class變數
-        for(var k=0 ; k <= (this.comments.length-1) ; k++){
-            if( $(`.GN${k}`).val()){
-                $(`.GN${k}`).parent().css("display","block")
-            }   else    {
-                $(`.GN${k}`).parent().css("display","none")
+        for (var k = 0; k <= (this.comments.length - 1); k++) {
+            if ($(`.GN${k}`).val()) {
+                $(`.GN${k}`).parent().css("display", "block")
+            } else {
+                $(`.GN${k}`).parent().css("display", "none")
             }
         }
-        for(var k=0 ; k <= (this.comments.length-1) ; k++){
-            if( $(`.MR${k}`).val()){
-                $(`.MR${k}`).parent().css("display","block")
-            }   else    {
-                $(`.MR${k}`).parent().css("display","none")
+        for (var k = 0; k <= (this.comments.length - 1); k++) {
+            if ($(`.MR${k}`).val()) {
+                $(`.MR${k}`).parent().css("display", "block")
+            } else {
+                $(`.MR${k}`).parent().css("display", "none")
             }
         }
 
@@ -120,40 +121,40 @@ new Vue({
         const nowMen = this.tourData.mem_no;
         let now = new Date();
         let xhr = new XMLHttpRequest();
-        
-        xhr.open("get", "./login_v2_LoginInFo.php",true);
-            xhr.send(null);
-        if(this.tourData.mem_no){
-            xhr.onload = ()=>{
+
+        xhr.open("get", "./login_v2_LoginInFo.php", true);
+        xhr.send(null);
+        if (this.tourData.mem_no) {
+            xhr.onload = () => {
                 member = JSON.parse(xhr.responseText);
-                if (member.mem_id){
-                    console.log('有登入')
-                    if (nowMen !== member.mem_no){  //不同一人
+                if (member.mem_id) {
+                    // console.log('有登入')
+                    if (nowMen !== member.mem_no) { //不同一人
                         // console.log('不同一人')
                         $('.application_bt').addClass('none')
                         $('.applied_participant').addClass('none')
-                    }   else    {  //同一人
+                    } else { //同一人
                         // console.log('同一人')
                         $('.equip_recommend').css('display', 'none')
                         $('#apply_bt').addClass('none')
                         $('#okGo').removeClass('none')
-                        // console.log(this.tourData.tour_min_number)
-                        //提早成團
-                        if(this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number){
+                            // console.log(this.tourData.tour_min_number)
+                            //提早成團
+                        if (this.passedParticipant.length <= this.tourData.tour_max_number && this.passedParticipant.length >= this.tourData.tour_min_number) {
                             $('#okGo').removeAttr('disabled')
                             $('#okGo').removeClass('btnB_XL_grey')
                             $('#okGo').addClass('btnB_XL_yellow')
                             $('#okGo').css('cursor', 'pointer')
                         }
                         //已成團狀態
-                        if(this.tourData.tour_progress == '已截止'){
+                        if (this.tourData.tour_progress == '已截止') {
                             $('#okGo').removeClass('btnB_XL_yellow')
                             $('#okGo').addClass('btnB_XL_grey')
                             $('#okGo').css('cursor', 'not-allowed')
                             $('#okGo > p').text('已成團')
                         }
                         //時間超過活動時間
-                        if(this.tourData.tour_activityend < now){
+                        if (this.tourData.tour_activityend < now) {
                             $('#okGo').removeAttr('disabled')
                             $('#okGo').removeClass('btnB_XL_grey')
                             $('#okGo').addClass('btnB_XL_yellow')
@@ -161,15 +162,15 @@ new Vue({
                             $('#okGo > p').text('活動已結束')
                         }
                     }
-                }   else{
+                } else {
                     $('.applied_participant').addClass('none')
-                    console.log('未登入')
-                } 
+                        // console.log('未登入')
+                }
             }
         }
 
         //判斷是否已結束報名
-        if(this.tourData.tour_progress == '已截止'){
+        if (this.tourData.tour_progress == '已截止') {
             $('#apply_bt > p').text('活動已截止報名')
             $('#apply_bt').attr('disabled', 'disabled')
             $('#apply_bt').removeClass('btnB_XL_yellow')
@@ -180,7 +181,7 @@ new Vue({
         }
 
         //判斷是否超過活動時間
-        if(this.tourData.tour_activityend < now){
+        if (this.tourData.tour_activityend < now) {
             $('#apply_bt > p').text('活動已結束')
             $('#apply_bt').attr('disabled', 'disabled')
             $('#apply_bt').removeClass('btnB_XL_yellow')
@@ -191,12 +192,12 @@ new Vue({
         }
 
         //判斷揪團是否檢舉換圖
-        if($('#mem_info_id').text() != ''){
-            if(this.tour_report_img[0].tour_report_mem){
+        if ($('#mem_info_id').text() != '') {
+            if (this.tour_report_img[0].tour_report_mem) {
                 $('img.tr_report_pic').attr('src', './images/icons/icon_report_c.svg')
                 $('.tr_report_bt').attr('disabled', 'disabled')
-                // console.log('已檢舉')
-            }   else    {
+                    // console.log('已檢舉')
+            } else {
                 // console.log('還沒檢舉')
             }
         }
@@ -279,34 +280,34 @@ new Vue({
     },
     methods: {
         //pgprev
-        pgprev(){
-            this.CurrentPage - 1 ;
+        pgprev() {
+            this.CurrentPage - 1;
         },
         //pgnext
-        pgnext(){
-            this.CurrentPage + 1 ;      
+        pgnext() {
+            this.CurrentPage + 1;
         },
         //參加狀態
-        tourParticipateSituation(){
-            let situation = this.checkTourParticipateSituation;            
-            switch(situation){
-                case(null):
+        tourParticipateSituation() {
+            let situation = this.checkTourParticipateSituation;
+            switch (situation) {
+                case (null):
                     break;
-                case('未審核'):
+                case ('未審核'):
                     $('#apply_bt > p').text('已報名')
                     $('#apply_bt').attr('disabled', 'disabled')
                     $('#apply_bt').removeClass('btnB_XL_yellow')
                     $('#apply_bt').addClass('btnB_XL_grey')
                     $('#apply_bt').css('cursor', 'not-allowed')
                     break;
-                case('已審核已通過'):
+                case ('已審核已通過'):
                     $('#apply_bt > p').text('審核已通過')
                     $('#apply_bt').attr('disabled', 'disabled')
                     $('#apply_bt').removeClass('btnB_XL_yellow')
                     $('#apply_bt').addClass('btnB_XL_grey')
                     $('#apply_bt').css('cursor', 'not-allowed')
                     break;
-                case('已審核不通過'):
+                case ('已審核不通過'):
                     $('#apply_bt > p').text('審核未通過')
                     $('#apply_bt').attr('disabled', 'disabled')
                     $('#apply_bt').removeClass('btnB_XL_yellow')
@@ -335,18 +336,18 @@ new Vue({
                     break;
             }
         },
-        openTourApplyModal(){
+        openTourApplyModal() {
 
             if ($('#mem_info_id').text() === '') {
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
-            }else{
+            } else {
                 $("#meet2-3-1").removeClass("close")
             }
         },
         //申請參加揪團
-        applyTour() {            
+        applyTour() {
             let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
@@ -379,7 +380,7 @@ new Vue({
             xhr.send(null);
             if (this.tourData.mem_no) {
                 // console.log(this.passedParticipant);
-                xhr.onload = ()=> {
+                xhr.onload = () => {
                     member = JSON.parse(xhr.responseText);
                     // console.log(this.passedParticipant);
                     if (member.mem_id) {
@@ -397,15 +398,15 @@ new Vue({
                             }).then((res) => {
                                 // console.log('送同意的人');
                                 axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
-                                     .then(res => {
-                                            this.tourParticipates = res.data;
-                                            // console.log('抓未審核的人');
-                                        });
+                                    .then(res => {
+                                        this.tourParticipates = res.data;
+                                        // console.log('抓未審核的人');
+                                    });
                                 axios.post('./phpForConnect/meet2-3_tour_participant_passed.php', formTour)
-                                     .then(res => {
-                                            this.passedParticipant = res.data;
-                                            // console.log('抓審核通過的人');
-                                        }) 
+                                    .then(res => {
+                                        this.passedParticipant = res.data;
+                                        // console.log('抓審核通過的人');
+                                    })
                             })
                         }
                     }
@@ -439,15 +440,15 @@ new Vue({
                                 }
                             }).then((res) => {
                                 axios.post('./phpForConnect/meet2-3_tour_participate.php', formTour)
-                                     .then(res => {
-                                            this.tourParticipates = res.data;
-                                            // console.log('抓未審核的人');
-                                        });
+                                    .then(res => {
+                                        this.tourParticipates = res.data;
+                                        // console.log('抓未審核的人');
+                                    });
                                 axios.post('./phpForConnect/meet2-3_tour_participant_notpassed.php', formTour)
-                                     .then(res => {
-                                            this.notPassedParticipant = res.data;
-                                            //console.log('抓審核不通過的人');
-                                        }) 
+                                    .then(res => {
+                                        this.notPassedParticipant = res.data;
+                                        //console.log('抓審核不通過的人');
+                                    })
                             })
                         }
                     }
@@ -455,7 +456,7 @@ new Vue({
             }
         },
         //提早成團
-        startTour(){
+        startTour() {
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
             let formTour = new FormData();
@@ -479,7 +480,7 @@ new Vue({
             } else {
                 // 打開彈窗
                 $('.report_block_match').removeClass('close');
-                let reportNo = $(e.target).parent().parent().parent().parent().parent().parent().find("#report_block_match").find(".tr_reporting").find(".tour_no").val(); 
+                let reportNo = $(e.target).parent().parent().parent().parent().parent().parent().find("#report_block_match").find(".tr_reporting").find(".tour_no").val();
                 // console.log(reportNo);
                 let iconIF = $(e.target.parentNode.parentNode).find("img");
                 $(".tr_confirm").click(function(e) {
@@ -506,6 +507,9 @@ new Vue({
         clearTextarea() {
             this.message = '';
         },
+        clearCommentReportReason() {
+            this.comment_report_reason = '';
+        },
         //判斷留言檢舉
         openMessageReportModal(e) {
             if ($('#mem_info_id').text() === '') {
@@ -514,11 +518,13 @@ new Vue({
                 window.location.href = './login_v2.html';
             } else {
                 // 打開彈窗
+                $('.mg_reporting').css('display', 'block');
+                $('.mg_be_reported').css('display', 'none');
                 $('.report_block_message').removeClass('close');
                 let reportNo = $(e.target.parentNode.parentNode.parentNode.parentNode).find("input.TEMPno").val();
                 // console.log(reportNo);
                 let iconIF = $(e.target.parentNode).find("img.mg_report_pic");
-                $(".mg_confirm").click(function(e) {
+                $(".mg_confirm").click((e) => {
                     var temp = $('#send_mg_report_block').val();
                     if (temp == '') {
                         swal('請先輸入文字');
@@ -529,31 +535,45 @@ new Vue({
                                 "comment_report_comment": reportNo,
                                 "comment_report_reason": comment_report_reason,
                             }
+                        }).then(() => {
+                            urlSearchParams = (new URL(document.location)).searchParams;
+                            tour_no = urlSearchParams.get('tour_no');
+
+                            axios.get('./phpForConnect/meet2-3_message_report_img.php', {
+                                params: {
+                                    "tour_post_no": tour_no,
+                                }
+                            }).then(res => {
+                                this.message_report_img = res.data;
+                                console.log(this.message_report_img);
+                                console.log(res.data);
+                            })
                         })
                         $('.mg_reporting').css('display', 'none');
                         $('.mg_be_reported').css('display', 'block');
                         iconIF.attr('src', './images/icons/icon_report_c.svg');
+                        this.clearCommentReportReason();
                     }
                 })
             }
         },
         //我要開團的側邊圖
-        HOST()  { 
-            $(".aside-com-btn a").click(function(){
-                NOWtime = new Date (Date.now())
+        HOST() {
+            $(".aside-com-btn a").click(function() {
+                NOWtime = new Date(Date.now())
                 NOWtime = Date.parse(NOWtime);
                 BANtime = Date.parse($("#BanTourDate").val());
-    
-                if (BANtime>NOWtime) {
+
+                if (BANtime > NOWtime) {
                     swal(`您先前的開團已被檢舉!\n解鎖時間為:${$("#BanTourDate").val()}`)
-                }   else    {
+                } else {
                     window.location.href = './meet2-2.html';
                 }
             })
         },
         //send message
         SENDmsg() {
-            NOWtime = new Date (Date.now())
+            NOWtime = new Date(Date.now())
             NOWtime = Date.parse(NOWtime);
             BANtime = Date.parse($("#BanCommentDate").val());
 
@@ -562,7 +582,7 @@ new Vue({
                 let url = window.location.href;
                 localStorage.setItem('web', url);
                 window.location.href = './login_v2.html';
-            }   else if (BANtime>NOWtime) {
+            } else if (BANtime > NOWtime) {
                 swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             } else {
                 var temp = $('#send_message_block').val();
@@ -584,15 +604,15 @@ new Vue({
                     }).then(res => {
                         // console.log('success message');
                         axios.get('./phpForConnect/meet2-3_comment.php', {
-                            params: {
-                                "tour_post_no": tour_no,
-                                "pageNo": this.currentPage,
-                            }
-                        })
-                        .then(res => {
-                            this.comments = res.data.commentListData;
-                            this.totalPage = res.data.totalPage;
-                        })
+                                params: {
+                                    "tour_post_no": tour_no,
+                                    "pageNo": this.currentPage,
+                                }
+                            })
+                            .then(res => {
+                                this.comments = res.data.commentListData;
+                                this.totalPage = res.data.totalPage;
+                            })
                         this.clearTextarea();
                         $('html, body').animate({ scrollTop: 100000 }, 500);
                     })
@@ -679,31 +699,31 @@ new Vue({
             xhr2.send(null);
         },
         //抓留言的founction我在mounted呼叫
-        getCommentlist(){
+        getCommentlist() {
 
             // let formTour = new FormData();
             let urlSearchParams = (new URL(document.location)).searchParams;
             tour_no = urlSearchParams.get('tour_no');
             // formTour.append("tour_no", tour_no);
             axios.get('./phpForConnect/meet2-3_comment.php', {
-                params: {
-                    "tour_post_no": tour_no,
-                    "pageNo": this.currentPage,
-                }
-            })
-            .then(res => {
-                this.comments = res.data.commentListData;
-                this.totalPage = res.data.totalPage;
-            })
-            .catch(error => {console.log(error)}); 
+                    params: {
+                        "tour_post_no": tour_no,
+                        "pageNo": this.currentPage,
+                    }
+                })
+                .then(res => {
+                    this.comments = res.data.commentListData;
+                    this.totalPage = res.data.totalPage;
+                })
+                .catch(error => { console.log(error) });
         },
         //留言換頁
-        changeCommentlist(page){
+        changeCommentlist(page) {
             this.currentPage = page;
             this.getCommentlist();
         },
         //
-        hosterIsLogin(){
+        hosterIsLogin() {
             const nowMen = this.tourData.mem_no;
             let xhr = new XMLHttpRequest();
             xhr.open("get", "./login_v2_LoginInFo.php", true);
