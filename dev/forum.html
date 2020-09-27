@@ -161,12 +161,13 @@
                             
                             <div class="item_btns">
                                 <form action="#" method="#" enctype="multipart/form-data" class="category">
-                                    
-                                    <label class="all">
+
+                                    <!-- <input type="radio" checked="checked"> <--+這個只是為了讓"全部類別"先亮色   -->
+                                    <label class="all" id="labelAll">
                                         <input type="radio" name="type" id="filter_top" value="全部"  v-model="input.type" style="display: none;">
                                         全部
                                     </label>
-                                    
+
                                     <label class="group">
                                         <input type="radio" name="type" id="filter_1" value="揪團心得" v-model="input.type" style="display: none;">
                                         揪團心得
@@ -454,7 +455,6 @@
         });
     })
     </script>
-
     <!-- <script>
         $(document).ready(function(){
             $(".all").mouseenter(function(){

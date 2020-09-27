@@ -91,8 +91,8 @@ $('input[name^="VERIFYguide"]').change(function(){
 			var temp = $(this).attr('name');
 			let VERIFYguideIfPass = $("input[name='VERIFYguide"+temp+"']:checked").val();
 			
-			console.log(temp);
-			console.log(VERIFYguideIfPass);
+			// console.log(temp);
+			// console.log(VERIFYguideIfPass);
 
 				$.ajax({
 					url: './BackstageVERIFYguide.php',

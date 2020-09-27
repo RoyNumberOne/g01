@@ -86,10 +86,10 @@
 <script>
 $(Document).ready(function(){
     let url = new URL(window.location.href);
-    console.log(url);
+    // console.log(url);
     let curPage = new URLSearchParams(url.search);
     curPage = curPage.get("pageNo") - 1;
-    console.log(curPage);
+    // console.log(curPage);
     $(".pagebtn").children().eq(curPage).children().addClass('-active')
 });
 </script>

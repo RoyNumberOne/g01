@@ -93,9 +93,9 @@
     function type_admin(){
         // $("input#byeAdministrator").change(function(){
             this.value = (Number(this.checked));
-            console.log(123);
+            // console.log(123);
             // $('#AUTHADMIN').submit();
-            console.log(23);
+            // console.log(23);
         // })
     }
 // });
@@ -131,7 +131,7 @@ $('input[type="checkbox"]').change(function(){
 				let EDITadmin_mail = $("input[name='adminMAIL"+temp+"']").val();
 				let EDITadmin_authority = $("input[name='adminAUTH"+temp+"']").val();
 				
-				console.log(EDITadmin_authority);
+				// console.log(EDITadmin_authority);
 				$.ajax({
 					url: './BackstageEditAdministrator.php',
 					data: {	admin_no: temp,
