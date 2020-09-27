@@ -142,8 +142,12 @@ try{
         if (pas1 != pas2) {
             $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
             swal("密碼輸入不一致","請檢查密碼","error");
+            $('#editConfirm').attr('disabled', true)
+            $('#editConfirm').css('cursor', 'not-allowed')
         } else {
             $(".tip").hide();
+            $('#editConfirm').attr('disabled', false)
+            $('#editConfirm').css('cursor', 'pointer')
         }
     }
 
