@@ -156,15 +156,15 @@ $('input[name^="REVIEWtr"]').change(function(){
 			let REVIEWtrBanLong = $("select[name='BANLONGtr"+temp+"']").val();
 			let REVIEWtrMember = $("input[name='REVIEWtrMember"+temp+"']").val();
 			
-			console.log(temp);
-			console.log(REVIEWtrIfPass);
-			console.log(REVIEWtrBanLong);
-			console.log(REVIEWtrMember);
+			// console.log(temp);
+			// console.log(REVIEWtrIfPass);
+			// console.log(REVIEWtrBanLong);
+			// console.log(REVIEWtrMember);
 
 			// if (REVIEWtrBanLong)
 
 			if ( REVIEWtrIfPass == '已處理未通過'){
-				console.log ('已處理未通過')
+				// console.log ('已處理未通過')
 
 				$.ajax({
 					url: './BackstageREVIEWtrUnPass.php',
@@ -177,7 +177,7 @@ $('input[name^="REVIEWtr"]').change(function(){
 				});
 
 			}	else	{
-				console.log ('已處理已通過')
+				// console.log ('已處理已通過')
 
 				$.ajax({
 					url: './BackstageREVIEWtrPass.php',
@@ -188,7 +188,7 @@ $('input[name^="REVIEWtr"]').change(function(){
 						},
 					type: 'POST',   
 					success(){
-						console.log('ya')
+						// console.log('ya')
 					} ,
 				});
 
@@ -320,15 +320,15 @@ $('input[name^="REVIEWfr"]').change(function(){
 			let REVIEWfrBanLong = $("select[name='BANLONGfr"+temp+"']").val();
 			let REVIEWfrMember = $("input[name='REVIEWfrMember"+temp+"']").val();
 			
-			console.log(temp);
-			console.log(REVIEWfrIfPass);
-			console.log(REVIEWfrBanLong);
-			console.log(REVIEWfrMember);
+			// console.log(temp);
+			// console.log(REVIEWfrIfPass);
+			// console.log(REVIEWfrBanLong);
+			// console.log(REVIEWfrMember);
 
 			// if (REVIEWfrBanLong)
 
 			if ( REVIEWfrIfPass == '已處理未通過'){
-				console.log ('已處理未通過')
+				// console.log ('已處理未通過')
 
 				$.ajax({
 					url: './BackstageREVIEWfrUnPass.php',
@@ -341,7 +341,7 @@ $('input[name^="REVIEWfr"]').change(function(){
 				});
 
 			}	else	{
-				console.log ('已處理已通過')
+				// console.log ('已處理已通過')
 
 				$.ajax({
 					url: './BackstageREVIEWfrPass.php',
@@ -352,7 +352,7 @@ $('input[name^="REVIEWfr"]').change(function(){
 						},
 					type: 'POST',   
 					success(){
-						console.log('ya')
+						// console.log('ya')
 					} ,
 				});
 
@@ -486,16 +486,16 @@ $('input[name^="REVIEWcr"]').change(function(){
 			let REVIEWcrBanLong = $("select[name='BANLONGcr"+temp+"']").val();
 			let REVIEWcrMember = $("input[name='REVIEWcrMember"+temp+"']").val();
 			
-			console.log(temp);
-			console.log(REVIEWcrClass)
-			console.log(REVIEWcrIfPass);
-			console.log(REVIEWcrBanLong);
-			console.log(REVIEWcrMember);
+			// console.log(temp);
+			// console.log(REVIEWcrClass)
+			// console.log(REVIEWcrIfPass);
+			// console.log(REVIEWcrBanLong);
+			// console.log(REVIEWcrMember);
 
 			// if (REVIEWcrBanLong)
 
 			if ( REVIEWcrIfPass == '已處理未通過'){
-				console.log ('已處理未通過')
+				// console.log ('已處理未通過')
 
 				$.ajax({
 					url: './BackstageREVIEWcrUnPass.php',
@@ -508,7 +508,7 @@ $('input[name^="REVIEWcr"]').change(function(){
 				});
 
 			}	else	{
-				console.log ('已處理已通過')
+				// console.log ('已處理已通過')
 
 				$.ajax({
 					url: './BackstageREVIEWcrPass.php',
@@ -520,7 +520,7 @@ $('input[name^="REVIEWcr"]').change(function(){
 						},
 					type: 'POST',   
 					success(){
-						console.log('ya')
+						// console.log('ya')
 					} ,
 				});
 
@@ -644,8 +644,8 @@ $('input[name^="VERIFYname"]').change(function(){
 			var temp = $(this).attr('name');
 			let VERIFYnameIfPass = $("input[name='VERIFYname"+temp+"']:checked").val();
 			
-			console.log(temp);
-			console.log(VERIFYnameIfPass);
+			// console.log(temp);
+			// console.log(VERIFYnameIfPass);
 
 				$.ajax({
 					url: './BackstageVERIFYname.php',
@@ -776,8 +776,8 @@ $('input[name^="VERIFYguide"]').change(function(){
 			var temp = $(this).attr('name');
 			let VERIFYguideIfPass = $("input[name='VERIFYguide"+temp+"']:checked").val();
 			
-			console.log(temp);
-			console.log(VERIFYguideIfPass);
+			// console.log(temp);
+			// console.log(VERIFYguideIfPass);
 
 				$.ajax({
 					url: './BackstageVERIFYguide.php',
@@ -1114,7 +1114,7 @@ $('input[type="checkbox"]').change(function(){
 <script>
     $("#product_image").change(function(){
         $("div.productUploadImage div").html(""); // 清除預覽
-        console.log ( this.files.length );
+        // console.log ( this.files.length );
         if(this.files.length !== 3) {
             alert('請上傳三張照片');
         }   else {
@@ -1158,9 +1158,9 @@ $('input[type="checkbox"]').change(function(){
 		function type_admin(){
 			// $("input#byeAdministrator").change(function(){
 				this.value = (Number(this.checked));
-				console.log(123);
+				// console.log(123);
 				// $('#AUTHADMIN').submit();
-				console.log(23);
+				// console.log(23);
 			// })
 		}
 	// });

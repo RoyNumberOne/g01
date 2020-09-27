@@ -131,7 +131,7 @@ $(Document).ready(function(){
         // if (REVIEWtrBanLong)
 
         if ( REVIEWtrIfPass == '已處理未通過'){
-            console.log ('已處理未通過')
+            // console.log ('已處理未通過')
 
             $.ajax({
                 url: './BackstageREVIEWtrUnPass.php',
@@ -144,7 +144,7 @@ $(Document).ready(function(){
             });
 
         }	else	{
-            console.log ('已處理已通過')
+            // console.log ('已處理已通過')
 
             $.ajax({
                 url: './BackstageREVIEWtrPass.php',
@@ -156,7 +156,7 @@ $(Document).ready(function(){
                     },
                 type: 'POST',   
                 success(){
-                    console.log('ya')
+                    // console.log('ya')
                 } ,
             });
 
