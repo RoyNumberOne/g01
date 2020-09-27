@@ -6,15 +6,16 @@
     <title>媒山友｜討論｜公告</title>
     <link rel="stylesheet" href="./css/fa5.14.0all.min.css">
     <link rel="stylesheet" href="./css/fa5.14.0v4.min.css">
-    <!-- <link rel="stylesheet" href="./css/common.css"> -->
     <link rel="stylesheet" href="./css/forum-comment.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-    <script src="./js/sweetalert.min.js"></script>
     <script src="./js/header.js" ></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/fa5.14.0all.js"></script><!----go top裡面的箭頭需要用到的js----->
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
 </head>
 <body>
     
@@ -86,7 +87,7 @@
             <div class="original-poster-block">
                 <div class="member_styleA row">
                     <div class="memberImg">
-                        <img :src="issuanarea.mem_avator" alt="大頭照">
+                        <img :src="issuanarea.mem_avator" style="width: 100%;" alt="大頭照">
                     </div>
                     <div class="memberInfo">
                         <div class="certification">
@@ -107,6 +108,8 @@
                         </div>
                     </div>
                 </div>
+
+                    <div class="post_time" style="margin: auto;  margin-left: inherit; color: gray;">發表於{{issuanarea.forum_post_time}}</div>
 
                 <div class="poster-report">
                     <button class="commentCollect" @click="forum_artical_Collect">
@@ -130,7 +133,7 @@
                 <div class="post-poster-block02" v-for="(commentpost, index) in commentpost">
                     <div class="member_styleA column">
                         <div class="memberImg">
-                            <img :src="commentpost.mem_avator" alt="">
+                            <img :src="commentpost.mem_avator" style="width: 100%;" alt="">
                         </div>
                         <div class="memberInfo">
                             <div class="certification">

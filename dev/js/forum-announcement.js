@@ -33,7 +33,6 @@ new Vue({
             }
         }).then(res => {
             this.message_report_img = res.data;
-            // console.log(this.message_report_img);
         }),
         //抓是否檢舉過該文章，換該團檢舉圖示
         axios.get('./phpForConnect/forum_report_img.php', {
@@ -50,17 +49,13 @@ new Vue({
         let LENGTH = this.message_report_img.length;
         setTimeout(() => {
             let message_report_data = this.message_report_img;
-
-            console.log(message_report_data)
         }, 500);
         
         forum_post_no = urlSearchParams.get('forum_post_no');
-        console.log(forum_post_no)
         formArticle.append("forum_post_no", forum_post_no);
         //文章發布
         axios.post('./phpForConnect/announcement_IssuanArea.php',formArticle).then(res => {
             this.issuanarea = res.data;
-            // console.log(this.issuanarea[0].forum_post_innertext);
             this.issuanarea[0].forum_post_innertext = this.issuanarea[0].forum_post_innertext.replace('\n','<br/>');
             // this.issuanarea[0].forum_post_innertext=this.issuanarea[0].forum_post_innertext.replace(/\n/g,'<br>')
             //這段在vue顯示錯誤的資訊
@@ -80,7 +75,7 @@ new Vue({
                             var xhr = new XMLHttpRequest();
                             xhr.onload = function(e) {
                                 if (xhr.status == 200) { //連線成功
-                                    console.log(xhr.responseText)
+                                    // console.log(xhr.responseText)
                                     // alert(xhr.responseText)
                                         // alert(xhr.responseText);
                                     if (xhr.responseText != 0) {
@@ -105,7 +100,6 @@ new Vue({
 
         // 留言回覆區
         axios.post('./phpForConnect/commentPostDialog.php',formArticle).then(res => {
-            // console.log(res.data.length);
             for (var i = 0;i<res.data.length;i++){
                 this.dialog.push(res.data[i]);
             };
@@ -126,10 +120,8 @@ new Vue({
         for(var k=0 ; k <= (this.commentpost.length-1) ; k++){
             if( $(`.GN${k}`).val()){
                 $(`.GN${k}`).parent().css("display","block")
-                console.log($(`.GN${k}`).val())
             }   else    {
                 $(`.GN${k}`).parent().css("display","none")
-                console.log($(`.GN${k}`).val())
             }
         }
 
@@ -166,7 +158,7 @@ new Vue({
                 swal(`您先前的留言已被檢舉!\n解鎖時間為:${$("#BanCommentDate").val()}`)
             }   else {
                 var temp = $('#message_area').val();
-                // console.log(temp);
+
                 if(temp == ''){
                     alert('請先輸入文字');
                 }else{
@@ -211,7 +203,7 @@ new Vue({
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function(e) {
                         if (xhr.status == 200) { //連線成功
-                            console.log(xhr.responseText);
+                            // console.log(xhr.responseText);
                         } else {
                             swal(xhr.status);
                         }
@@ -263,14 +255,13 @@ new Vue({
              }
         },
         changePic(e) {
-            console.log($(e.target).attr('src'));
+            // console.log($(e.target).attr('src'));
             $(".public_pic > img").attr('src', $(e.target).attr('src'))
         },
         //確認留言是否被檢舉過
         CHECKnull(k) {
             var CMTNO = this.message_report_img[k].comment_no;
             if (this.message_report_img[k].comment_report_mem !== null) {
-                console.log(234)
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                 $(`input[value='${CMTNO}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
             };
@@ -283,7 +274,6 @@ new Vue({
             }else{
                 $('img.rpImg').attr('src', './images/icons/icon_report_c.svg')
                 $('.fr_report_bt').attr('disabled', 'disabled')
-                console.log('已檢舉過')
             }
         },
         //文章檢舉彈窗
@@ -295,7 +285,7 @@ new Vue({
                         // 打開彈窗
                         $('.report_block_match').removeClass('close');
                         let reportNo = $('.tour_no').val();
-                        console.log(reportNo)
+                        // console.log(reportNo)
                         let iconIF = $('.rpImg');
                         // console.log(reportNo);
                         // let iconIF = $(e.target.parentNode.parentNode).find("img");
@@ -306,7 +296,7 @@ new Vue({
                             } else {
                                 let forum_report_reason = $(e.target).parent().parent().find(".tour_report_reason").val();
                                 // console.log(forum_report_reason);
-                                console.log(reportNo)
+                                // console.log(reportNo)
                                 axios.get('./phpForConnect/forum_artical_report.php', {
                                     params: {
                                         "forum_report_post": reportNo,
@@ -328,8 +318,6 @@ new Vue({
                 message_report_data = this.message_report_img;
             }, 450);
 
-            console.log(forum_post_no)
-
             // axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}`)
             axios.get(`./phpForConnect/forumCommentPost.php?pageNo=${this.currentPage}&forum_post_no=${forum_post_no}`)
 
@@ -338,9 +326,6 @@ new Vue({
                 // this.articalList = res.data;
                 this.commentpost = res.data.commentMessageData;
                 this.totalPage = res.data.totalPage;
-                console.log(res.data); //測試是否成功
-                // console.log(this.commentpost)
-                // console.log(this.totalPage)
             })
             .then(res => {
                 setTimeout(function(){
@@ -349,7 +334,6 @@ new Vue({
                         for (var k = 0; k < (message_report_data.length); k++) {
 
                             if ( message_report_data[k].comment_report_mem !== null) {
-                                console.log(234)
                                 $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").find("img").attr('src', './images/icons/icon_report_c.svg')
                                 $(`input[value='${message_report_data[k].comment_no}']`).parent().find(".poster-say").find(".report").find(".mg_report_bt").attr("disabled", "disabled")
                             };
@@ -358,7 +342,7 @@ new Vue({
                 },500)
 
             })
-            .catch(error => {console.log(error)}); 
+            // .catch(error => {console.log(error)}); 
         },
         changeMessagepost(page){
             this.currentPage = page;

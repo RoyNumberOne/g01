@@ -70,14 +70,13 @@ new Vue({
 
         .then((res) => {
             this.meetList = res.data;
-
             // console.log(res.data); //測試是否成功
             // console.log(this.meetList);
             for(let i = 0; i< this.meetList.length; i++){  //動態生成內容，依據json有幾筆
                 this.meetIndex.push(i)
             }
         })
-        .catch(error => {console.log(error)});
+        // .catch(error => {console.log(error)});
         
         let NOWtime;
         this.getForumpostlist();
@@ -88,7 +87,6 @@ new Vue({
         // 公告的貼文(預設3篇)
         axios.get('./phpForConnect/forumPostAnnounce.php').then(res => {
             this.announcement = res.data;
-            // console.log(this.announcement);
         }),
 
         // 熱門排行榜
@@ -144,7 +142,7 @@ new Vue({
                 this.totalPage = res.data.totalPage;
                 // console.log(res.data); //測試是否成功
             })
-            .catch(error => {console.log(error)}); 
+            // .catch(error => {console.log(error)}); 
         },
         changeForumpostlist(page){
             this.currentPage = page;
@@ -276,4 +274,4 @@ $(function(){
         $(e.target).css('background-color', '#FFC400')
         $(e.target).siblings().css('background-color', '#2C5E9E')
     })
-})
+});
