@@ -111,6 +111,9 @@ $textColor1: $mt_fontdark;
             width: 100%;
             @include inputType;
         }
+        select{
+            -webkit-appearance:none;
+        }
         option:disabled {
             color:#ccc;
           }
@@ -509,8 +512,14 @@ $textColor1: $mt_fontdark;
                     width: 100%;
                     .tour_info1{
                         .tour_date{
-                            // flex-wrap: wrap;
-                            display: initial;
+                            flex-wrap: wrap;
+                            // display: initial;
+                            label{
+                                width: 100%;
+                                input{
+                                    width: 100%;
+                                }
+                            }
                         }
                     }
                 }

@@ -161,12 +161,13 @@
                             
                             <div class="item_btns">
                                 <form action="#" method="#" enctype="multipart/form-data" class="category">
-                                    
+
+                                    <input type="radio" checked="checked"> <!-- <--+這個只是為了讓"全部類別"先亮色   -->
                                     <label class="all">
                                         <input type="radio" name="type" id="filter_top" value="全部"  v-model="input.type" style="display: none;">
                                         全部
                                     </label>
-                                    
+
                                     <label class="group">
                                         <input type="radio" name="type" id="filter_1" value="揪團心得" v-model="input.type" style="display: none;">
                                         揪團心得
@@ -454,8 +455,8 @@
         });
     })
     </script>
-
-    <script>
+<!-- ===========================Hiko~為了讓討論區分類提示色正常顯示============================== -->
+    <!-- <script>
         $(document).ready(function(){
             $(".all").mouseenter(function(){
                 $(".all").css("background-color","#2C5E9E");
@@ -464,7 +465,7 @@
                 $(".all").css("background-color","#2C5E9E");
             });
     });
-    </script>
+    </script> -->
 
     <!-- <script> ////原先滑動的討論度排行榜jQuer寫法
         (function () {
