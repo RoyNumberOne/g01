@@ -337,12 +337,12 @@
             if (pas1 !== pas2) {
                 $(".tip").show(); //當兩個密碼不相等時則顯示錯誤資訊
                 // alert('密碼不一致')
-                $('.submitBtn_app').attr('disabled', false)
+                $('.submitBtn_app').attr('disabled', true)
                 $('.submitBtn_app').css('cursor', 'not-allowed')
             } else {
                 $(".tip").hide();
                 // alert('密碼一致')
-                $('.submitBtn_app').attr('disabled', true)
+                $('.submitBtn_app').attr('disabled', false)
                 $('.submitBtn_app').css('cursor', 'pointer')
             }
         }
