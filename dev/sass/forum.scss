@@ -290,6 +290,18 @@
                                 border: 1px solid #FFC400;
                                 transition: all 0.2s linear; 
                             }
+                            // -----------------hiko加註  提示色用-----------------------------
+                            input[type="radio"] {
+                                display: none;
+                            }
+                            input[type="radio"]:checked + label {
+                                background: #FFC400;
+                                color: #ffffff;
+                                height: 50px;
+                            }
+                            input[type="radio"]:checked + label + .tab {
+                                display: block;
+                            }
                         }
                         .bar-block{
                             display: flex;

@@ -9,6 +9,7 @@
         letter-spacing: 10px;
     }
     #MemOrder_info{
+        margin-top:30px;
         table{
             border-style: double ;
             border: double 1px #999;
@@ -16,7 +17,7 @@
             // border-collapse: collapse; 
             border-radius: 15px;
             padding: 20px;
-            width: 90%;
+            width: 80%;
             margin: 20px auto;
             text-align: center;
             th{
@@ -42,12 +43,21 @@
 }
 
 // RWD
+@media screen and (min-width: 768px) and (max-width: 991px){
+    #MemOrder_info{
+        table{
+            width: 90%;
+        }
+    }
+}
+
 @media screen and (max-width: 767px){
     #MemOrder{
         #MemOrder_info{
             table{
                 border-collapse: collapse;
                 border: none;
+                width: 90%;
                 thead.forRWD{
                     display: none;
                     border-style: none;
@@ -69,6 +79,14 @@
                         width: 100px;
                     }
                     
+                }
+            }
+            .prodDetail{
+                th.degree{
+                    display: none;
+                }
+                td.degree{
+                    display: none;
                 }
             }
         }

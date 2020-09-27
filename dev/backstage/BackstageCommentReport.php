@@ -144,7 +144,7 @@ $(Document).ready(function(){
         // if (REVIEWcrBanLong)
 
         if ( REVIEWcrIfPass == '已處理未通過'){
-            console.log ('已處理未通過')
+            // console.log ('已處理未通過')
 
             $.ajax({
                 url: './BackstageREVIEWcrUnPass.php',
@@ -157,7 +157,7 @@ $(Document).ready(function(){
             });
 
         }	else	{
-            console.log ('已處理已通過')
+            // console.log ('已處理已通過')
 
             $.ajax({
                 url: './BackstageREVIEWcrPass.php',

@@ -11,7 +11,7 @@
     $prodRows = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 
     echo"<table class='prodDetail'>
-        <tr class='cyan'><th width='110px'>商品預覽</th><th width='110px'>商品編號</th><th width='200px'>商品名稱</th><th width='80px'>難度等級</th><th width='80px'>購買數量</th><th width='80px'>商品單價</th></tr>
+        <tr class='cyan'><th width='110px'>商品預覽</th><th width='110px'>商品編號</th><th width='180px'>商品名稱</th><th width='80px' class='degree'>難度等級</th><th width='80px'>購買數量</th><th width='80px'>商品單價</th></tr>
         <h3 style='text-align: center;'>訂單商品<h3>";
 
     foreach ( $prodRows as $i => $prodRow){
@@ -19,7 +19,7 @@
         <td><img src='".$prodRow['商品預覽']."' width='110px' alt=''></td>
         <td>".$prodRow['商品編號']."</td>
         <td style='text-decoration: underline;'><a href='./product_info.html?productNo=".$prodRow['商品編號']."'>".$prodRow['商品名稱']."</a></td>
-        <td>".$prodRow['難度等級']."</td>
+        <td class='degree'>".$prodRow['難度等級']."</td>
         <td>".$prodRow['購買數量']."</td>
         <td>".$prodRow['商品單價']."</td>
         </tr>";

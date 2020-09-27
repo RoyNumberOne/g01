@@ -48,8 +48,8 @@ $('input[name^="VERIFYname"]').change(function(){
 			var temp = $(this).attr('name');
 			let VERIFYnameIfPass = $("input[name='VERIFYname"+temp+"']:checked").val();
 			
-			console.log(temp);
-			console.log(VERIFYnameIfPass);
+			// console.log(temp);
+			// console.log(VERIFYnameIfPass);
 
 				$.ajax({
 					url: './BackstageVERIFYname.php',
