@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/MemberGuide.css">
+    <link rel="icon" href="./images/icons/g01_logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/icons/g01_logo.png" type="image/x-icon" />
     <title>媒山友｜會員｜嚮導認證</title>
 </head>
 <body>
