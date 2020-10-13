@@ -420,10 +420,11 @@ main {
         }
         #admin_psw1 {
             position: relative;
+            width: fit-content;
             img {
                 position: absolute;
                 top: 8px;
-                right: 15px;
+                right: -1px;
                 opacity: 0.7;
                 padding-left: 10px;
                 width: 60px;
@@ -431,7 +432,7 @@ main {
             #pswCheck {
                 position: absolute;
                 opacity: 0;
-                top: -3px;
+                top: -8px;
                 right: 15px;
                 padding-left: 10px;
                 width: 60px;
@@ -485,10 +486,11 @@ main {
     }
     #admin_psw1 {
         position: relative;
+        width: fit-content;
         img {
             position: absolute;
             top: 8px;
-            right: -6px;
+            right: -1px;
             opacity: 0.7;
             padding-left: 10px;
             width: 60px;
@@ -497,7 +499,7 @@ main {
             position: absolute;
             opacity: 0;
             top: -3px;
-            right: -12px;
+            right: -7px;
             padding-left: 10px;
             width: 60px;
         }
@@ -554,10 +556,11 @@ main {
 
     #admin_psw1 {
         position: relative;
+        width: fit-content;
         img {
             position: absolute;
             top: 8px;
-            right: -40px;
+            right: 35px;
             opacity: 0.7;
             padding-left: 10px;
             width: 60px;
@@ -566,7 +569,7 @@ main {
             position: absolute;
             opacity: 0;
             top: -3px;
-            right: -56px;
+            right: 18px;
             padding-left: 10px;
             width: 60px;
         }
